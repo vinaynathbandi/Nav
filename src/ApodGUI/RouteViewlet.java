@@ -1,6 +1,7 @@
 package ApodGUI;
 
 import java.io.File;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -9,6 +10,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -135,7 +137,20 @@ public class RouteViewlet {
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
 			
 		//Create Route viewlet
-		driver.findElement(By.cssSelector(".object-type:nth-child(13)")).click();
+		WebElement ele=driver.findElement(By.className("left-block")).findElement(By.className("object-types"));
+		
+		List<WebElement> names=ele.findElements(By.tagName("div"));
+		System.out.println(names.size());
+		
+		for(WebElement click : names)
+		{
+			System.out.println("Text Names is: " +click.getText());
+			if(click.getText().equalsIgnoreCase("Route"))
+			{
+				click.click();
+				break;
+			}
+		}
 		driver.findElement(By.name("viewletName")).clear();
 		driver.findElement(By.name("viewletName")).sendKeys(Routename);
 		

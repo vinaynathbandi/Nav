@@ -137,7 +137,20 @@ public class DurableViewlet
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
 			
 		//Create Durable viewlet
-		driver.findElement(By.cssSelector(".object-type:nth-child(16)")).click();
+		WebElement ele=driver.findElement(By.className("left-block")).findElement(By.className("object-types"));
+		
+		List<WebElement> names=ele.findElements(By.tagName("div"));
+		System.out.println(names.size());
+		
+		for(WebElement click : names)
+		{
+			System.out.println("Text Names is: " +click.getText());
+			if(click.getText().equalsIgnoreCase("Durable"))
+			{
+				click.click();
+				break;
+			}
+		}
 		driver.findElement(By.name("viewletName")).clear();
 		driver.findElement(By.name("viewletName")).sendKeys(Durablename);
 		
