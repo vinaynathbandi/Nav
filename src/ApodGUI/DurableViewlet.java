@@ -144,7 +144,6 @@ public class DurableViewlet
 		
 		for(WebElement click : names)
 		{
-			System.out.println("Text Names is: " +click.getText());
 			if(click.getText().equalsIgnoreCase("Durable"))
 			{
 				click.click();

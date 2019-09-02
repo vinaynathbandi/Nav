@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="8" passed="5">
+<testng-results skipped="0" failed="0" ignored="6" total="9" passed="3">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddClusterQueueManagerViewlet.png" alt="""/" />]]>
-    </line>
-    <line>
-      <![CDATA[<br/>]]>
-    </line>
-    <line>
-      <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" />]]>
-    </line>
-    <line>
-      <![CDATA[<br/>]]>
-    </line>
-    <line>
-      <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleClusterQMs.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTransportViewlet.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="82639" started-at="2019-08-30T06:12:12Z" finished-at="2019-08-30T06:13:35Z">
+  <suite name="Navigator" duration-ms="46972" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:37:13Z">
     <groups>
     </groups>
-    <test name="Test Cluster QM Viewlet" duration-ms="82639" started-at="2019-08-30T06:12:12Z" finished-at="2019-08-30T06:13:35Z">
-      <class name="ApodGUI.ClusterQueueManager">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="beforeTest" is-config="true" duration-ms="10" started-at="2019-08-30T06:12:12Z" finished-at="2019-08-30T06:12:12Z">
+    <test name="Test Transport Viewlet" duration-ms="46972" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:37:13Z">
+      <class name="ApodGUI.TransportViewlet">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="beforeTest" is-config="true" duration-ms="21" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:36:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="Login" duration-ms="19249" started-at="2019-08-30T06:12:12Z" finished-at="2019-08-30T06:12:31Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="Login" duration-ms="24832" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:36:50Z">
           <params>
             <param index="0">
               <value>
@@ -49,7 +37,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[Cluster QM Verification]]>
+                <![CDATA[TransportViewlet Verification]]>
               </value>
             </param>
           </params>
@@ -58,31 +46,31 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="469" started-at="2019-08-30T06:12:31Z" finished-at="2019-08-30T06:12:32Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="521" started-at="2019-09-02T12:36:50Z" finished-at="2019-09-02T12:36:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=ClusterQueueManager.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=TransportViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddClusterQueueManagerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="AddClusterQueueManagerViewlet" duration-ms="4716" started-at="2019-08-30T06:12:32Z" finished-at="2019-08-30T06:12:36Z">
+        <test-method status="PASS" signature="AddTransportViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="AddTransportViewlet" duration-ms="4723" started-at="2019-09-02T12:36:51Z" finished-at="2019-09-02T12:36:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[New Cluster Queue Manager Viewlet]]>
+                <![CDATA[New Transport Viewlet]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@6c61a903]]>
+                <![CDATA[org.testng.TestRunner@463fd068]]>
               </value>
             </param>
           </params>
@@ -91,103 +79,37 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddClusterQueueManagerViewlet.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTransportViewlet.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- AddClusterQueueManagerViewlet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="7649" started-at="2019-08-30T06:12:43Z" finished-at="2019-08-30T06:12:51Z">
+        </test-method> <!-- AddTransportViewlet -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="7603" started-at="2019-09-02T12:37:02Z" finished-at="2019-09-02T12:37:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddClusterQueueManagerViewlet status=SUCCESS method=ClusterQueueManager.AddClusterQueueManagerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ClusterQueueManager@2bbf4b8b] output=<br/>]]]>
+                <![CDATA[[TestResult name=AddTransportViewlet status=SUCCESS method=TransportViewlet.AddTransportViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TransportViewlet@2bbf4b8b] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddToFavoriteViewlet(java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="AddToFavoriteViewlet" duration-ms="7994" started-at="2019-08-30T06:12:51Z" finished-at="2019-08-30T06:12:59Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Cluster QM Favorite viewlet]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[org.testng.TestRunner@6c61a903]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- AddToFavoriteViewlet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="8198" started-at="2019-08-30T06:13:05Z" finished-at="2019-08-30T06:13:13Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=AddToFavoriteViewlet status=SUCCESS method=ClusterQueueManager.AddToFavoriteViewlet(java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.ClusterQueueManager@2bbf4b8b] output=<br/>]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddToFavoriteForMultipleClusterQMs(java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="AddToFavoriteForMultipleClusterQMs" duration-ms="4725" started-at="2019-08-30T06:13:13Z" finished-at="2019-08-30T06:13:18Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Cluster QM Favorite viewlet]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[org.testng.TestRunner@6c61a903]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleClusterQMs.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- AddToFavoriteForMultipleClusterQMs -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="7868" started-at="2019-08-30T06:13:24Z" finished-at="2019-08-30T06:13:32Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=AddToFavoriteForMultipleClusterQMs status=SUCCESS method=ClusterQueueManager.AddToFavoriteForMultipleClusterQMs(java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.ClusterQueueManager@2bbf4b8b] output=<br/>]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:11, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="Logout" duration-ms="2547" started-at="2019-08-30T06:13:32Z" finished-at="2019-08-30T06:13:35Z">
+        <test-method status="PASS" signature="Logout()[pri:10, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="Logout" duration-ms="2674" started-at="2019-09-02T12:37:10Z" finished-at="2019-09-02T12:37:13Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ClusterQueueManager@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-08-30T06:13:35Z" finished-at="2019-08-30T06:13:35Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="1" started-at="2019-09-02T12:37:13Z" finished-at="2019-09-02T12:37:13Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=ClusterQueueManager.Logout()[pri:11, instance:ApodGUI.ClusterQueueManager@2bbf4b8b] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=TransportViewlet.Logout()[pri:10, instance:ApodGUI.TransportViewlet@2bbf4b8b] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.ClusterQueueManager -->
-    </test> <!-- Test Cluster QM Viewlet -->
+      </class> <!-- ApodGUI.TransportViewlet -->
+    </test> <!-- Test Transport Viewlet -->
   </suite> <!-- Navigator -->
 </testng-results>

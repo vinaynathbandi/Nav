@@ -144,7 +144,6 @@ public class RouteViewlet {
 		
 		for(WebElement click : names)
 		{
-			System.out.println("Text Names is: " +click.getText());
 			if(click.getText().equalsIgnoreCase("Route"))
 			{
 				click.click();
