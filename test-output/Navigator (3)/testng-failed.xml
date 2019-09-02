@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (3)]">
-  <parameter name="Dashboardname" value="Message19733"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="MessageData" value="Data6"/>
-  <parameter name="EncodingType" value="IBM EBCDIC International"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="Message19733"/>
+  <test thread-count="5" name="Queue Message Options(failed)">
+    <parameter name="Dashboardname" value="Queues Messages Verification"/>
     <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10"/>
+    <parameter name="wgs" value="0"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="NodeViewletName" value="AddNodeVerification"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="MessageData" value="Data6"/>
-    <parameter name="EncodingType" value="IBM EBCDIC International"/>
+    <parameter name="MessageData" value="Put the message from Main options"/>
+    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Main"/>
+    <parameter name="QueueName" value="Local Queue"/>
     <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.Putmessage19733">
+      <class name="ApodGUI.QueueMessages">
         <methods>
-          <include name="Login"/>
-          <include name="PutNewMessageIntoQueue"/>
+          <include name="ClearAllMessagesFromQueue" invocation-numbers="0"/>
+          <include name="DeleteAllMessagesFromQueue" invocation-numbers="0"/>
+          <include name="LoadFromFile" invocation-numbers="0"/>
+          <include name="Login" invocation-numbers="0"/>
+          <include name="PutNewMessageIntoQueue" invocation-numbers="0"/>
+          <include name="CopyAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
           <include name="Logout"/>
+          <include name="beforeTest"/>
+          <include name="tearDown"/>
+          <include name="MoveAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.Putmessage19733 -->
+      </class> <!-- ApodGUI.QueueMessages -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Queue Message Options(failed) -->
 </suite> <!-- Failed suite [Navigator (3)] -->

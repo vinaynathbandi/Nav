@@ -21,7 +21,7 @@
        <methods>
        
         <include name="Login"/>
-        <include name="PutNewMessageIntoQueue"/> 
+        <include name="PutNewMessageIntoQueue"/>  
         <include name="LoadFromFile"/>
         <include name="ExportAllMessages"/>
         <include name="CopyAllMessagesFromOneQueueToAnotherQueue"/>

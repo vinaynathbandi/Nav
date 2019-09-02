@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 public class EMSObjects 
 {
-	public void ObjectAttributesVerification(WebDriver driver, String schemaName) throws InterruptedException
+	public void ObjectAttributesVerification(WebDriver driver, String schemaName, String EMS_WGSNAME) throws InterruptedException
 	{
 		//Show Object Attribute option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -50,8 +50,14 @@ public class EMSObjects
 		String managername=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
 		System.out.println(managername);*/
 		
+		int AttributeName=3;
+		if(!EMS_WGSNAME.contains("MQM"))
+		{
+			AttributeName=4;
+		}
+		
 		//Store the name into string
-		String name=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
+		String name=driver.findElement(By.xpath("//datatable-body-cell["+ AttributeName +"]/div/span")).getText();
 		Thread.sleep(2000);
 		
 		//Create User Schema
@@ -152,7 +158,7 @@ public class EMSObjects
 	}
 	
 	
-	public void EMSQueueObjectAttributesVerification(WebDriver driver, String schemaName) throws InterruptedException
+	public void EMSQueueObjectAttributesVerification(WebDriver driver, String schemaName, String EMS_WGSNAME) throws InterruptedException
 	{
 		//Show Object Attribute option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -193,8 +199,13 @@ public class EMSObjects
 		String managername=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
 		System.out.println(managername);*/
 		
+		int AttributeName=3;
+		if(!EMS_WGSNAME.contains("MQM"))
+		{
+			AttributeName=4;
+		}
 		//Store the name into string
-		String name=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
+		String name=driver.findElement(By.xpath("//datatable-body-cell["+ AttributeName +"]/div/span")).getText();
 		Thread.sleep(2000);
 		
 		//Create User Schema
@@ -294,10 +305,16 @@ public class EMSObjects
 		Thread.sleep(4000);		
 	}
 	
-	public void ChannelObjectAttributesVerification(WebDriver driver, String schemaName) throws InterruptedException
-	{		
+	public void ChannelObjectAttributesVerification(WebDriver driver, String schemaName, String EMS_WGSNAME) throws InterruptedException
+	{	
+		int AttributeName=3;
+		if(!EMS_WGSNAME.contains("MQM"))
+		{
+			AttributeName=4;
+		}
+		
 		//Store the name into string
-		String name=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
+		String name=driver.findElement(By.xpath("//datatable-body-cell["+ AttributeName +"]/div/span")).getText();
 		Thread.sleep(2000);
 		
 		//Create User Schema

@@ -21,6 +21,7 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -28,18 +29,58 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class NodeViewlet {
 	static WebDriver driver;
+	static String IPAddress;
+	static String HostName;
+	static String PortNo;
+	static String WGSPassword;
+	static String Node_hostname;
+	static String NodeNameFromIcon;
+	static String HostNameFromIcon;
+	static String IPAddressFromIcon;
+	static String QueueManagerName;
+	static String Node_Hostname;
+	static String DefaultTransmissionQueue;
+	static String WGS_INDEX;
+	static String Screenshotpath;
+	static String Manager1;
+	static String Manager2;
+	static String NodeWGS;
 
-	@Parameters({ "sDriver", "sDriverpath", "URL", "uname", "password", "TypeOfNode" })
-	@Test
-	public static void Login(String sDriver, String sDriverpath, String URL, String uname, String password,
-			String TypeOfNode) throws Exception {
+	@BeforeTest
+	public void beforeTest() throws Exception {
+		System.out.println("BeforeTest");
 		Settings.read();
-		String urlstr = Settings.getSettingURL();
-		URL = urlstr + URL;
+		IPAddress = Settings.getIPAddress();
+		HostName = Settings.getWGS_HostName();
+		PortNo = Settings.getWGS_PortNo();
+		WGSPassword = Settings.getWGS_Password();
+		Node_hostname = Settings.getNode_Hostname();
+		NodeNameFromIcon = Settings.getNode_NameFromIcon();
+		HostNameFromIcon = Settings.getHostNameFromIcon();
+		IPAddressFromIcon = Settings.getIPAddressFromIcon();
+		QueueManagerName = Settings.getQueueManagerName();
+		Node_Hostname =Settings.getNode_Hostname();
+		DefaultTransmissionQueue =Settings.getDefaultTransmissionQueue();
+		WGS_INDEX =Settings.getWGS_INDEX();
+		Screenshotpath =Settings.getScreenshotPath();
+		Manager1 =Settings.getManager1();
+		Manager2 =Settings.getManager2();
+		NodeWGS =Settings.getNodeWGS();
+	}
+
+	@Parameters({ "sDriver", "sDriverpath", "NodeDashboardname", "NodeViewletName", "TypeOfNode" })
+	@Test
+	public static void Login(String sDriver, String sDriverpath, String NodeDashboardname, String NodeViewletName, String TypeOfNode) throws Exception {
+		Settings.read();
+		String URL = Settings.getSettingURL();
+		String uname=Settings.getNav_Username();
+		String password=Settings.getNav_Password();
+		
 		if (sDriver.equalsIgnoreCase("webdriver.chrome.driver")) {
 			System.setProperty(sDriver, sDriverpath);
 			driver = new ChromeDriver();
@@ -64,14 +105,39 @@ public class NodeViewlet {
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
+		Thread.sleep(8000);
+		
+		//Create New Dashboard
+		driver.findElement(By.cssSelector("div.block-with-border")).click();
+		driver.findElement(By.name("dashboardName")).sendKeys(NodeDashboardname);	
+			
+		//Create viewlet button
+		driver.findElement(By.xpath("//form/div/button[2]")).click();
 		Thread.sleep(2000);
+		
+		// ---- Creating Node Viewlet ----
+		//Click on Viewlet button
+		driver.findElement(By.xpath("//button[2]")).click();
+		driver.findElement(By.xpath("//app-mod-select-viewlet-type/div/div[2]/button[2]")).click(); 
+			
+		//Create node
+		driver.findElement(By.cssSelector(".object-type:nth-child(1)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys(NodeViewletName);
+		
+		//Select WGS type
+		Select WGSSelection=new Select(driver.findElement(By.name("wgsKey")));
+		WGSSelection.selectByVisibleText(NodeWGS);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(1000);
+		
+		
 
-		if (TypeOfNode.equals("WGS10")) {
+		/*if (TypeOfNode.equals("WGS10")) {
 			try {
 				// Click on WGS6 Checkbox
-				driver.findElement(By.xpath(
-						"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-						.click();
+				driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 
 				// Delete the WGS6
 				driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li")).click();
@@ -84,8 +150,7 @@ public class NodeViewlet {
 		} else {
 			// Deleting the WGS10 if it is present
 			try {
-				WebElement DeleteWGS = driver.findElement(By.xpath(
-						"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
+				WebElement DeleteWGS = driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
 				if (DeleteWGS.isDisplayed()) {
 					// Select the Delete WGS option
 					DeleteWGS.click();
@@ -97,15 +162,15 @@ public class NodeViewlet {
 				// TODO Auto-generated catch block
 				System.out.println("WGS10 is not present");
 			}
-		}
+		}*/
+		Thread.sleep(2000);
 
 	}
 
 	@Parameters({ "SchemaName" })
 	@TestRail(testCaseId = 36)
 	@Test(priority = 20)
-	public static void ShowObjectAttributesforNode(String SchemaName, ITestContext context)
-			throws InterruptedException {
+	public static void ShowObjectAttributesforNode(String SchemaName, ITestContext context) throws InterruptedException {
 		try {
 
 			// ------------ Objects Verification ----------------
@@ -115,8 +180,8 @@ public class NodeViewlet {
 			context.setAttribute("Comment", "Show Object Attributes for Node is working fine");
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured while showing object properties, Check details: " + e.getMessage());
+			context.setAttribute("Comment", "Exception occured while showing object properties, Check details: " + e.getMessage());
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 
 	}
@@ -124,22 +189,23 @@ public class NodeViewlet {
 	@Test(priority = 3)
 	@TestRail(testCaseId = 37)
 	public void ShowTopology(ITestContext context) throws InterruptedException {
-		//
+		
 		try {
 
 			// Select Show Topology option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]")).click();
-			Thread.sleep(6000);
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+			driver.findElement(By.linkText("Show Topology")).click();
+			Thread.sleep(22000);
 
 			// Save the topology page data into string
 			String Topology = driver.findElement(By.cssSelector("svg")).getText();
-			// System.out.println(Topology);
+		    System.out.println(Topology);
+		    Thread.sleep(2000);
+		    
+		    System.out.println("Manager1 is: " +Manager1);
+		    System.out.println("Manager2 is: " +Manager2);
 
-			if (Topology.contains("MGR") && Topology.contains("M10") && Topology.contains("Testing")
-					&& Topology.contains("TEST")) {
+			if (Topology.contains(Manager1)) {
 				System.out.println("Topology page is opened with the list of QM's");
 				context.setAttribute("Status", 1);
 				context.setAttribute("Comment", "Topology page is opened with the list of QM's");
@@ -155,8 +221,8 @@ public class NodeViewlet {
 			Thread.sleep(2000);
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured while showing Topology, Check details: " + e.getMessage());
+			context.setAttribute("Comment","Exception occured while showing Topology, Check details: " + e.getMessage());
+			driver.findElement(By.xpath("Topology openeing is failed with the list of QM's")).click();
 		}
 	}
 
@@ -165,10 +231,8 @@ public class NodeViewlet {
 	public static void NodeEvents(ITestContext context) throws InterruptedException {
 		
 			// Select Events option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+			driver.findElement(By.linkText("Events...")).click();
 			Thread.sleep(2000);
 
 			// Store the Event popup page value into string
@@ -240,11 +304,9 @@ public class NodeViewlet {
 	public static void ManageAndUnmanageNode(ITestContext context) throws InterruptedException {
 		try {
 			// Select Manage option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 
 			/*
 			 * //Refreshing the Viewlet
@@ -263,11 +325,9 @@ public class NodeViewlet {
 			 */
 
 			// Select UnManage option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 
 			/*
 			 * //Refreshing the Viewlet
@@ -288,8 +348,8 @@ public class NodeViewlet {
 			Thread.sleep(2000);
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Got exception while Manage And Unmanaging Node, check details: " + e.getMessage());
+			context.setAttribute("Comment", "Got exception while Manage And Unmanaging Node, check details: " + e.getMessage());
+			driver.findElement(By.id("Manage and Unmanage failed")).click();
 		}
 	}
 
@@ -298,69 +358,64 @@ public class NodeViewlet {
 	public static void DiscoverNow(ITestContext context) throws InterruptedException {
 		try {
 			// Select Incremental option from Discover now
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			Actions MousehoverIncremental = new Actions(driver);
-			MousehoverIncremental
-					.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]")))
-					.perform();
+			MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Discover now"))).perform();
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li")).click();
-			Thread.sleep(1000);
+			driver.findElement(By.linkText("Incremental")).click();
+			Thread.sleep(5000);
 
 			// Select Full option from Discover now
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			Actions MousehoverFull = new Actions(driver);
-			MousehoverFull
-					.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]")))
-					.perform();
+			MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Discover now"))).perform();
 			Thread.sleep(2000);
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul[2]/li")).click();
-			Thread.sleep(1000);
+			driver.findElement(By.linkText("Full")).click();
+			Thread.sleep(5000);
 			context.setAttribute("Status", 1);
 			context.setAttribute("Comment", "Discover now oprtion is working fine");
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got exception, check details: " + e.getMessage());
+			driver.findElement(By.id("Discover failed")).click();
 		}
 
 	}
 
-	@Parameters({ "NodeNameFromIcon", "HostNameFromIcon", "IPAddressFromIcon" })
+	
 	@TestRail(testCaseId = 45)
 	@Test(priority = 7)
-	public void CreateNodeUsingIcon(String NodeNameFromIcon, String HostNameFromIcon, String IPAddressFromIcon,
-			ITestContext context) throws InterruptedException {
+	public void CreateNodeUsingIcon(ITestContext context) throws InterruptedException {
 
 		// Click on + Icon for adding the Node from Node viewlet
 		driver.findElement(By.xpath("//img[@title='Add Node']")).click();
+		Thread.sleep(2000);
 
 		// Create Node page
-		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(NodeNameFromIcon);
-		driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(HostNameFromIcon);
-		driver.findElement(By.xpath("(//input[@type='text'])[5]")).sendKeys(IPAddressFromIcon);
-
-		/*
-		 * //port number
-		 * driver.findElement(By.xpath("(//input[@type='text'])[7]")).clear();
-		 * driver.findElement(By.xpath("(//input[@type='text'])[7]")).sendKeys(
-		 * PortNumberFromIcon);
-		 */
+		driver.findElement(By.xpath("//app-mod-node-properties-identity/div/div[2]/div/input")).sendKeys(NodeNameFromIcon);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[3]/div/input")).sendKeys(HostNameFromIcon);
+		driver.findElement(By.xpath("//div[5]/div/input")).sendKeys(IPAddressFromIcon);
 
 		// Submit
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
+		
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error popup not displayed");
+		}
 
 		// Refresh the viewlet
 		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
 		Thread.sleep(2000);
 
 		// Store the Viewlet data into string
-		String NodeViewletdata = driver
-				.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String NodeViewletdata = driver.findElement(By.xpath("//datatable-body")).getText();
 
 		// Verification
 		if (NodeViewletdata.contains(NodeNameFromIcon)) {
@@ -381,21 +436,17 @@ public class NodeViewlet {
 	@TestRail(testCaseId = 42)
 	public static void PropertiesOfNode(ITestContext context) throws InterruptedException {
 		// Select Manage
-		driver.findElement(By.xpath(
-				"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-				.click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(4000);
+		Thread.sleep(5000);
 		try {
 			// Properties option selection
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[7]")).click();
 			Thread.sleep(2000);
 
 			// Store the editable function in to a string
-			boolean FieldNamevalue = driver.findElement(By.id("name")).isEnabled();
+			boolean FieldNamevalue = driver.findElement(By.xpath("//app-mod-node-properties-identity/div/div[2]/div/input")).isEnabled();
 			System.out.println(FieldNamevalue);
 
 			// Verification
@@ -415,30 +466,28 @@ public class NodeViewlet {
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Getting exception in properties page, check details: " + e.getMessage());
 			System.out.println("Getting exception in properties page");
+			// Select Manage
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
+			Thread.sleep(5000);
 			driver.findElement(By.cssSelector(".btn-danger")).click();
 		}
 		Thread.sleep(1000);
 
 		// Select Manage
-		driver.findElement(By.xpath(
-				"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-				.click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 	}
 
 	@Parameters({ "Dashboardname", "FavoriteViewletName", "Favwgs" })
-
 	@Test(priority = 9)
-	public void AddToFavotiteViewlet(String Dashboardname, String FavoriteViewletName, int Favwgs, ITestContext context)
-			throws InterruptedException {
+	public void AddToFavotiteViewlet(String Dashboardname, String FavoriteViewletName, int Favwgs, ITestContext context) throws InterruptedException {
 		try {
 		Reporter.log("Reading WGS name");
 		// Store the WGS name into string
-		String NodeName = driver.findElement(By.xpath(
-				"//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span"))
-				.getText();
+		String NodeName = driver.findElement(By.xpath("//datatable-body-cell[3]/div/span")).getText();
 
 		Reporter.log("Adding Dashboard");
 		// Add Dashboard
@@ -472,9 +521,7 @@ public class NodeViewlet {
 		Thread.sleep(1000);
 
 		// Select Add to Favorite option
-		driver.findElement(By.xpath(
-				"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-				.click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 
@@ -536,48 +583,14 @@ public class NodeViewlet {
 		}
 	}
 	
-	
-	public void getResult(ITestResult result) throws IOException{
-		if(result.getStatus() == ITestResult.FAILURE){
-			Reporter.log("Test Case Failed is "+result.getName());
-			Reporter.log("Test Case Failed is "+result.getThrowable());
-			//To capture screenshot path and store the path of the screenshot in the string "screenshotPath"
-                        //We do pass the path captured by this mehtod in to the extent reports using "logger.addScreenCapture" method. 			
-			File scrFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			try {
-				FileUtils.copyFile(scrFile,new File("D:\\SCREENSHOTS\\Workgroup server\\AddToFavotiteViewlet1.png"));
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			 String screenshotPath ="D:\\SCREENSHOTS\\Workgroup server\\AddToFavotiteViewlet1.png";
-			// String htmlText = new String("<img src=\"\\\"file://\"\" alt=\"\\\"\\\"/\" />");
-			 String path ="<img src=\" "+ screenshotPath +"\" alt=\"\"\"/\" />";
-			//To add it in the report 
-			 Reporter.log(path);
-			// Reporter.log(screenshotPath);
-			
-			
-		}else if(result.getStatus() == ITestResult.SKIP){
-			Reporter.log("Test Case Skipped is "+result.getName());
-		}
-		// ending test
-		//endTest(logger) : It ends the current test and prepares to create HTML report
-		//extent.endTest(logger);
-	}
 
 	@Test(priority = 10)
 	@TestRail(testCaseId = 43)
 	public static void CompareTwoNodes(ITestContext context) throws InterruptedException {
 		// Select compare option for comparing the two nodes
-		driver.findElement(By.xpath(
-				"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-				.click();
-		driver.findElement(By.xpath(
-				"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-				.click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(2000);
 
 		// Store the compare page value into string
@@ -643,26 +656,69 @@ public class NodeViewlet {
 		Thread.sleep(1000);
 	}
 
-	@Parameters({ "NodeName", "TypeOfNode", "NodeNameFromIcon" })
+	@Parameters({"TypeOfNode"})
 	@TestRail(testCaseId = 41)
 	@Test(priority = 18)
-	public static void DeleteNode(String NodeName, String TypeOfNode, String NodeNameFromIcon, ITestContext context)
-			throws Exception {
-		if (TypeOfNode.equals("WGS10")) {
+	public static void DeleteNode(String TypeOfNode, ITestContext context) throws Exception 
+	{
+		// Search with node name
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(NodeNameFromIcon);
+		Thread.sleep(1000);
+
+		/*
+		 * //Un manage the Node driver.findElement(By.xpath(
+		 * "/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"
+		 * )).click(); driver.findElement(By.xpath(
+		 * "//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
+		 */
+
+		// Delete the Node
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Delete")).click();
+		driver.findElement(By.id("accept-true")).click();
+		Thread.sleep(4000);
+
+		// Edit the search field data
+		for (int j = 0; j <= NodeNameFromIcon.length(); j++) {
+
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(4000);
+
+		// Store the viewlet data after deleting the node
+		String AfterDeleting = driver.findElement(By.xpath("//datatable-body")).getText();
+		System.out.println("After Deleting Node:" + AfterDeleting);
+
+		// Deleted node verification
+		if (AfterDeleting.contains(NodeNameFromIcon)) {
+			System.out.println("Node is not deleted");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Deletion of node is not working");
+			driver.findElement(By.xpath("Node not deleted")).click();
+		} else {
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Node is deleted");
+			System.out.println("Node is deleted successfully");
+		}
+		Thread.sleep(2000);
+		
+		
+		
+		/*if (TypeOfNode.equals("WGS10")) {
 			// Search with node name
-			driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(NodeNameFromIcon);
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(NodeNameFromIcon);
 			Thread.sleep(1000);
 
-			/*
+			
 			 * //Un manage the Node driver.findElement(By.xpath(
 			 * "/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"
 			 * )).click(); driver.findElement(By.xpath(
 			 * "//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-			 */
+			 
 
 			// Delete the Node
 			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
+					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
 					.click();
 			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]")).click();
 			driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
@@ -671,7 +727,7 @@ public class NodeViewlet {
 			// Edit the search field data
 			for (int j = 0; j <= NodeNameFromIcon.length(); j++) {
 
-				driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(Keys.BACK_SPACE);
+				driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
 			}
 			Thread.sleep(4000);
 
@@ -681,7 +737,7 @@ public class NodeViewlet {
 
 			// Store the viewlet data after deleting the node
 			String AfterDeleting = driver
-					.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+					.findElement(By.xpath("//datatable-body")).getText();
 			System.out.println("After Deleting Node:" + AfterDeleting);
 
 			// Deleted node verification
@@ -698,7 +754,7 @@ public class NodeViewlet {
 			Thread.sleep(2000);
 		} else {
 			// Search with node name
-			driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(NodeNameFromIcon);
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(NodeNameFromIcon);
 			Thread.sleep(1000);
 
 			// Delete the Node
@@ -712,7 +768,7 @@ public class NodeViewlet {
 			// Edit the search field data
 			for (int j = 0; j <= NodeNameFromIcon.length(); j++) {
 
-				driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(Keys.BACK_SPACE);
+				driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
 			}
 			Thread.sleep(4000);
 
@@ -737,7 +793,7 @@ public class NodeViewlet {
 				System.out.println("Node is deleted successfully");
 			}
 			Thread.sleep(2000);
-		}
+		}*/
 
 	}
 
@@ -803,21 +859,23 @@ public class NodeViewlet {
 
 	}
 
-	@Parameters({ "SearchInputData" })
 	@TestRail(testCaseId = 44)
 	@Test(priority = 19)
-	public static void SearchFilter(String SearchInputData,ITestContext context) throws InterruptedException {
+	public static void SearchFilter(ITestContext context) throws InterruptedException 
+	{
+		//Store the node name into string
+		String NodeNameForSearch=driver.findElement(By.xpath("//datatable-body-cell[3]/div/span")).getText();
+		
 		// Enter the search input data into search box
-		driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(SearchInputData);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(NodeNameForSearch);
 		Thread.sleep(2000);
 
 		// Store the Viewlet data into string
-		String Viewletdata = driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body"))
-				.getText();
+		String Viewletdata = driver.findElement(By.xpath("//datatable-body")).getText();
 		// System.out.println(Viewletdata);
 
 		// Verification
-		if (Viewletdata.toUpperCase().contains(SearchInputData.toUpperCase())) {
+		if (Viewletdata.toUpperCase().contains(NodeNameForSearch.toUpperCase())) {
 			context.setAttribute("Status", 1);
 			context.setAttribute("Comment", "Search is working fine");
 			System.out.println("Search is working fine");
@@ -830,8 +888,8 @@ public class NodeViewlet {
 		Thread.sleep(2000);
 
 		// Clear the search data
-		for (int k = 0; k <= SearchInputData.length(); k++) {
-			driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(Keys.BACK_SPACE);
+		for (int k = 0; k <= NodeNameForSearch.length(); k++) {
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
 		}
 		Thread.sleep(2000);
 
@@ -841,22 +899,19 @@ public class NodeViewlet {
 
 	}
 
-	@Parameters({ "QueueManagerName", "DefaultTransmissionQueue", "Description", "wgs" })
+	@Parameters({"Description"})
 	@TestRail(testCaseId = 46)
 	@Test(priority = 14)
-	public void CreateQueueManagerFromNodeViewletOptions(String QueueManagerName, String DefaultTransmissionQueue,
-			String Description, int wgs,ITestContext context) throws InterruptedException {
+	public void CreateQueueManagerFromNodeViewletOptions(String Description, ITestContext context) throws InterruptedException {
 		try {
 		// Select Create Queue manager option
-		driver.findElement(By.xpath(
-				"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-				.click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Create Queue Manager")).click();
 		Thread.sleep(1000);
 
 		// Queue Details
-		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(QueueManagerName);
-		driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(DefaultTransmissionQueue);
+		driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(QueueManagerName);
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(DefaultTransmissionQueue);
 		driver.findElement(By.xpath("//textarea[@type='text']")).sendKeys(Description);
 
 		// Next button
@@ -877,25 +932,30 @@ public class NodeViewlet {
 
 		// Final Submit
 		driver.findElement(By.xpath("//div[2]/div/div[2]/div[2]/button")).click();
-		Thread.sleep(20000);
+		Thread.sleep(8000);
+		
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error popup is not displayed");
+		}
 
-		try {
+		/*try {
 			// Get Error Message
-			String Errorpopup = driver.findElement(By.xpath("//app-mod-errors-display/div/div[2]")).getText();
-			System.out.println(Errorpopup);
-			driver.findElement(By.xpath("//app-mod-errors-display/div/button")).click();
+			String Errorpopup = driver.findElement(By.xpath("//app-mod-errors-display/div/div")).getText();
+			System.out.println(Errorpopup);                  
+			driver.findElement(By.id("yes")).click();
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got some exception, check details: "+ e.getMessage());
 			System.out.println("No message is displaying");
-		}
-
-		// Go to Favorite viewlet dashboard page
-		driver.findElement(By.xpath("//li[2]")).click();
-		Thread.sleep(1000);
-
+		}*/
+		
 		// Click on Viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click();
@@ -905,40 +965,31 @@ public class NodeViewlet {
 		driver.findElement(By.name("viewletName")).clear();
 		driver.findElement(By.name("viewletName")).sendKeys("Manager Viewlet");
 
-		Select dd = new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
-		dd.selectByIndex(wgs);
-
+		//Select WGS type
+		Select WGSSelection=new Select(driver.findElement(By.name("wgsKey")));
+		WGSSelection.selectByVisibleText(NodeWGS);
+				
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(1000);
-
+		
 		// Store viewlet data into string
-		String Favdata = driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body"))
-				.getText();
+		String Favdata = driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		System.out.println(Favdata);
-
-		try {
-			// Verification of Queue manager
-			if (Favdata.contains(QueueManagerName)) {
-				
-				System.out.println("Queue Manager is added");
-				context.setAttribute("Status", 1);
-				context.setAttribute("Comment", "Added Queue Manager");
-			} else {
-				System.out.println("Queue Manager is not added");
-				context.setAttribute("Status", 5);
-				context.setAttribute("Comment", "Failed while adding Queue Manager");
-				driver.findElement(By.xpath("Queue manager adding is failed")).click();
-			}
-		} catch (Exception e) {
-			context.setAttribute("Status", 5);
-			context.setAttribute("Comment", "Got exception while adding Queue Manager, check details: "+ e.getMessage());
-			System.out.println("Exception occured");
+		
+		if(Favdata.contains(QueueManagerName))
+		{
+			System.out.println("Queue manager is added successfully");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Queue manager is added successfully");
 		}
-		Thread.sleep(1000);
-
-		// Back to Workspace page
-		driver.findElement(By.xpath("//li/div/div")).click();
-		Thread.sleep(1000);
+		else
+		{
+			System.out.println("Queue manager is not added");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Queue manager is not added");
+			driver.findElement(By.id("Add Queue manager failed")).click();
+		}
+		
 		}catch(Exception e)
 		{
 			context.setAttribute("Status", 5);
@@ -947,16 +998,16 @@ public class NodeViewlet {
 		}
 	}
 
-	@Parameters({ "IPAddress", "HostName", "PortNo", "WGSPassword" })
+	
 	@Test(priority = 22)
-	public static void Logout(String IPAddress, String HostName, String PortNo, String WGSPassword)
-			throws InterruptedException {
-		// Click on + icon
+	public static void Logout() throws InterruptedException 
+	{
+		/*// Click on + icon
 		driver.findElement(By.cssSelector("img[title=\"Add Workgroup Server\"]")).click();
 
 		// Add WGS Details
 		driver.findElement(By.name("ip")).sendKeys(IPAddress);
-		driver.findElement(By.name("hostName")).sendKeys(HostName);
+		driver.findElement(By.name("hostName")).sendKeys(Node_hostname);
 		driver.findElement(By.name("port")).clear();
 		driver.findElement(By.name("port")).sendKeys(PortNo);
 		driver.findElement(By.name("password")).sendKeys(WGSPassword);
@@ -968,23 +1019,102 @@ public class NodeViewlet {
 
 		// Click on submit button
 		driver.findElement(By.cssSelector(".button-blue")).click();
-		Thread.sleep(2000);
-
-		// Delete the dashboard
-		try {
+		Thread.sleep(2000);*/
+		
+		try
+		{
 			driver.findElement(By.cssSelector(".active .g-tab-btn-close-block")).click();
-			// driver.findElement(By.cssSelector(".fa-times")).click();
+			//driver.findElement(By.cssSelector(".fa-times")).click();
 			driver.findElement(By.cssSelector(".btn-primary")).click();
 			Thread.sleep(1000);
-		} catch (Exception e) {
-			System.out.println("Dashboards are not present");
-			driver.findElement(By.cssSelector(".fa-times")).click();
-			driver.findElement(By.id("accept-true")).click();
 		}
-		Thread.sleep(1000);
+		catch (Exception e)
+		{
+			System.out.println("Dashboards are not present");
+		}
+		Thread.sleep(1000);	
 
 		// Logout
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	@AfterMethod
+	public void tearDown(ITestResult result) {
+
+		final String dir = System.getProperty("user.dir");
+		String screenshotPath;
+		//System.out.println("dir: " + dir);
+		if (!result.getMethod().getMethodName().contains("Logout")) {
+			if (ITestResult.FAILURE == result.getStatus()) {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "FAILURE");
+				Reporter.setCurrentTestResult(result);
+
+				Reporter.log("<br/>Failed to execute method: " + result.getMethod().getMethodName() + "<br/>");
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsFailure/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			} else {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "SUCCESS");
+				Reporter.setCurrentTestResult(result);
+
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsSuccess/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			}
+
+			String path = "<img src=\" " + screenshotPath + "\" alt=\"\"\"/\" />";
+			// To add it in the report
+			Reporter.log("<br/>");
+			Reporter.log(path);
+			
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
+		}
+
+	}
+
+	public void capturescreen(WebDriver driver, String screenShotName, String status) {
+		try {
+			
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+			if (status.equals("FAILURE")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png"));
+				Reporter.log(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png");
+			} else if (status.equals("SUCCESS")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "./ScreenshotsSuccess/" + screenShotName + ".png"));
+
+			}
+
+			System.out.println("Printing screen shot taken for className " + screenShotName);
+
+		} catch (Exception e) {
+			System.out.println("Exception while taking screenshot " + e.getMessage());
+		}
+
 	}
 }

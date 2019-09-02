@@ -2,11 +2,13 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="E:/NavigatorAutomation/Lib/testng-6.9.10.jar"/>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="E:/NavigatorAutomation/Drivers/Updated/client-combined-3.14.0.jar"/>
-	<classpathentry kind="lib" path="E:/NavigatorAutomation/Drivers/Updated/client-combined-3.14.0-sources.jar"/>
-	<classpathentry kind="lib" path="E:/NavigatorAutomation/Drivers/Updated/selenium-server-standalone-3.14.0.jar"/>
-	<classpathentry kind="lib" path="D:/vinay/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="F:/Automation/lib/client-combined-3.14.0-sources.jar"/>
+	<classpathentry kind="lib" path="F:/Automation/lib/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="F:/Automation/lib/jxl-2.6.10.jar"/>
+	<classpathentry kind="lib" path="F:/Automation/lib/mail.jar"/>
+	<classpathentry kind="lib" path="F:/Automation/lib/selenium-server-standalone-3.14.0.jar"/>
+	<classpathentry kind="lib" path="F:/Automation/lib/testng-6.9.10.jar"/>
+	<classpathentry kind="lib" path="F:/Automation/lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

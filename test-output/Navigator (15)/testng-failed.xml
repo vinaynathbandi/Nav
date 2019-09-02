@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (15)]">
-  <parameter name="Dashboardname" value="EMS18790"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10 - 1"/>
-  <parameter name="Channelname" value="EMS Channel"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="EMS18790"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10 - 1"/>
-    <parameter name="Channelname" value="EMS Channel"/>
+  <test thread-count="5" name="Test Bridge Viewlet(failed)">
+    <parameter name="Dashboardname" value="BridgeViewlet Verification"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="SourceTypevalue" value="Queue"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="DeleteBridgeName" value="topic:EMS.Topic1:topic:EMS.Topic2"/>
+    <parameter name="FavoriteViewletName" value="Bridge Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="SourceName" value="New Queue"/>
+    <parameter name="schemaName" value="BridgeSchema"/>
+    <parameter name="TargetName" value="EMS-Topic"/>
+    <parameter name="Bridgename" value="New Bridge Viewlet"/>
     <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="SelectorInput" value="BridgeSelector1234"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="TargetType" value="Topic"/>
     <classes>
-      <class name="ApodGUI.EMSChannels18790">
+      <class name="ApodGUI.BridgeViewlet">
         <methods>
-          <include name="Login"/>
-          <include name="EMSchannelscreation"/>
-          <include name="Logout"/>
+          <include name="beforeTest"/>
+          <include name="AddBridgeFromPlusIcon" invocation-numbers="0"/>
+          <include name="AddToFavoriteForMultipleBridges" invocation-numbers="0"/>
+          <include name="MultipleBridgeProperties" invocation-numbers="0"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ApodGUI.EMSChannels18790 -->
+      </class> <!-- ApodGUI.BridgeViewlet -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Test Bridge Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (15)] -->

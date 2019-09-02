@@ -51,20 +51,20 @@
        
         <include name="Login"/>
        
-      <!--   <include name="ShowObjectAttributesForTopic"/>  -->
+        <include name="ShowObjectAttributesForTopic"/>  
         <include name="CreateTopicFromPlusIcon"/>
-        <include name="CopyAsFromCommands"/>
+       <!--  <include name="CopyAsFromCommands"/>
         <include name="DeleteFromCommands"/>  
-        <include name="EMSTopicPublish"/> 
+        <include name="EMSTopicPublish"/>  -->
         <include name="TopicProperties"/> 
-        <include name="TopicEvents"/> 
-      <!--   <include name="AddToFavoriteViewlet"/>    -->
+        <include name="TopicEvents"/>  
+        <include name="AddToFavoriteViewlet"/>    
 
         <!-- <include name="CopyAsFromCommandsForMultipleTopics"/>
         <include name="DeleteFromCommandsForMultipleTopics"/>
         <include name="PublishFromCommandsForMultipleTopics"/> -->
         <include name="MultipleProperties"/>  
-       <!--  <include name="AddToFavoriteForMultipleTopics"/>    -->
+        <include name="AddToFavoriteForMultipleTopics"/>    
       
         <include name="Logout"/> 
         

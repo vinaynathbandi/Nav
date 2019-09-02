@@ -10,6 +10,7 @@
     <parameter name="Dashboardname" value="Scheduling"/>
     <parameter name="ViewletName" value="ScheduleViewletObject"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="ScheduleDurableName" value="Schedule.Durable"/>
     
     <parameter name="NameOfTheMonth" value="Apr"/>
     <parameter name="YearValue" value="2028"/>
@@ -21,12 +22,12 @@
        <methods>
        
         <include name="Login"/>
-        <include name="ManagerScheduling"/> 
+        <include name="ManagerScheduling"/>  
         <include name="QueuesScheduling"/> 
         <include name="ChannelScheduling"/> 
         <include name="ProcessScheduling"/> 
         <include name="TopicScheduling"/>
-        <include name="ListenerScheduling"/>
+        <include name="ListenerScheduling"/> 
         <include name="SubScriptionScheduling"/>
         <include name="RouteScheduling"/>
         <include name="BridgeScheduling"/>

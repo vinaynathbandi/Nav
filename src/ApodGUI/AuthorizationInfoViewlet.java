@@ -1,8 +1,12 @@
 package ApodGUI;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,6 +14,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -17,18 +25,38 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class AuthorizationInfoViewlet {
-static WebDriver driver;
 	
-	@Parameters({"sDriver", "sDriverpath", "URL", "uname", "password", "Dashboardname", "wgs"})
+	static WebDriver driver;
+	static String WGS_INDEX;
+	static String Screenshotpath;
+	static String DownloadPath;
+	static String WGSName;
+	static String UploadFilepath;
+	
+	@BeforeTest
+	public void beforeTest() throws Exception {
+		System.out.println("BeforeTest");
+		Settings.read();
+		WGS_INDEX =Settings.getWGS_INDEX();
+		Screenshotpath =Settings.getScreenshotPath();
+		DownloadPath =Settings.getDownloadPath();
+		WGSName =Settings.getWGSNAME();
+		UploadFilepath =Settings.getUploadFilepath();
+	}
+	
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String URL, String uname, String password, String Dashboardname, int wgs) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname) throws Exception
 	{
 		Settings.read();
-		String urlstr=Settings.getSettingURL();
-		URL= urlstr+URL;
+		String URL = Settings.getSettingURL();
+		String uname=Settings.getNav_Username();
+		String password=Settings.getNav_Password();
+		
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
 		System.setProperty(sDriver, sDriverpath);
@@ -58,7 +86,7 @@ static WebDriver driver;
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -69,7 +97,7 @@ static WebDriver driver;
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
-		dd.selectByIndex(wgs);
+		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
 		
 		/*//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();
@@ -86,8 +114,8 @@ static WebDriver driver;
 	
 	@Test(priority=1)
 	@TestRail(testCaseId=180)
-    @Parameters({"Authoinfoname", "WGSName"})
-	public static void AddAuthInfoViewlet(String Authoinfoname, String WGSName, ITestContext context) throws InterruptedException
+    @Parameters({"Authoinfoname"})
+	public static void AddAuthInfoViewlet(String Authoinfoname,  ITestContext context) throws InterruptedException
 	{
 		//Click on Viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -108,13 +136,13 @@ static WebDriver driver;
 		
 		if(driver.getPageSource().contains(Authoinfoname))
 		{
-			System.out.println("Service Viewlet is created");
+			System.out.println("Authinfo Viewlet is created");
 			context.setAttribute("Status",1);
 			context.setAttribute("Comment", "Authinfo viewlet is created successfully");
 		}
 		else
 		{
-			System.out.println("Service viewlet is not created");
+			System.out.println("Authinfo viewlet is not created");
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Failed to create Authinfo viewlet");
 			driver.findElement(By.xpath("Not created")).click();
@@ -150,7 +178,7 @@ static WebDriver driver;
 		Thread.sleep(1000);*/
 		try {
 		ObjectsVerificationForAllViewlets obj=new ObjectsVerificationForAllViewlets();
-		obj.AuthinfoObjectAttributesVerification(driver, schemaName);
+		obj.AuthinfoObjectAttributesVerification(driver, schemaName, WGSName);
 		context.setAttribute("Status",1);
 		context.setAttribute("Comment", "Show object attributes for AuthInfo viewlet is working fine");
 		}
@@ -168,7 +196,7 @@ static WebDriver driver;
     {
     	//Select Events option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")).click();
+    	driver.findElement(By.linkText("Events...")).click();
     	Thread.sleep(1000);//Events Popup page
 		String Eventdetails=driver.findElement(By.xpath("//th")).getText();
 		//System.out.println(Eventdetails);
@@ -209,6 +237,8 @@ static WebDriver driver;
 					System.out.println("Events count is matched");
 					context.setAttribute("Status", 1);
 					context.setAttribute("Comment", "Event Count is Matched and working fine");
+					//Close the Event details page
+					driver.findElement(By.xpath("//app-mod-event-details/div/div[2]/button")).click();
 				}
 				else
 				{
@@ -216,7 +246,7 @@ static WebDriver driver;
 					context.setAttribute("Status", 5);
 					context.setAttribute("Comment", "Got exception while opening events page, check details: ");
 					driver.findElement(By.xpath("//app-mod-event-details/div/div[2]/button")).click();
-					driver.findElement(By.xpath("//li/div/div[2]/i")).click();
+					driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
 					driver.findElement(By.id("Events count failed")).click();
 				}
 				
@@ -225,21 +255,26 @@ static WebDriver driver;
 		catch (Exception e)
 		{
 			System.out.println("Events are not present");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Events not found");
 		}
-		//Close the Event details page
-		driver.findElement(By.xpath("//app-mod-event-details/div/div[2]/button")).click();
-		
+				
 		//Close the events popup page
-		driver.findElement(By.xpath("//li/div/div[2]/i")).click();
+		driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
 	}
 	
-    @Parameters({"FavoriteViewletName", "Favwgs" })
+    @Parameters({"FavoriteViewletName"})
     @TestRail(testCaseId=183)
 	@Test(priority=4)
-	public static void AddToFavoriteViewlet(String FavoriteViewletName, int Favwgs, ITestContext context) throws InterruptedException
+	public static void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+    	int AuthinfoName_Index=3;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		AuthinfoName_Index=4;
+    	}
     	//Store the Auth info name into string
-		String AuthinfoName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String AuthinfoName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ AuthinfoName_Index +"]/div/span")).getText();
 		
 		//Create favorite viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -251,7 +286,7 @@ static WebDriver driver;
 		driver.findElement(By.name("viewlet-name")).sendKeys(FavoriteViewletName);
 		
 		Select wgsdropdown=new Select(driver.findElement(By.name("wgs")));
-		wgsdropdown.selectByIndex(Favwgs);
+		wgsdropdown.selectByVisibleText(WGSName);
 		
 		//Submit
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
@@ -259,7 +294,7 @@ static WebDriver driver;
 		
 		//select Add to favorite option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 
 		//Select the favorite viewlet name
@@ -298,7 +333,7 @@ static WebDriver driver;
 		//Select compare option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li")).click();
+		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(1000);
 		
 		//Verification of popup
@@ -357,14 +392,20 @@ static WebDriver driver;
 	@Test(priority=6)
 	public static void AddToFavoriteForMultipleAuthInfo(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int AuthinfoName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			AuthinfoName_Index=4;
+		}
+		
 		//Store the Auth info names into strings
-		String AuthInfo2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String AuthInfo3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String AuthInfo2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ AuthinfoName_Index +"]/div/span")).getText();
+		String AuthInfo3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ AuthinfoName_Index +"]/div/span")).getText();
 		
 		//Select Add to favorite option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 		
 		//Select the favorite viewlet name
@@ -414,5 +455,84 @@ static WebDriver driver;
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	@AfterMethod
+	public void tearDown(ITestResult result) {
+
+		final String dir = System.getProperty("user.dir");
+		String screenshotPath;
+		//System.out.println("dir: " + dir);
+		if (!result.getMethod().getMethodName().contains("Logout")) {
+			if (ITestResult.FAILURE == result.getStatus()) {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "FAILURE");
+				Reporter.setCurrentTestResult(result);
+
+				Reporter.log("<br/>Failed to execute method: " + result.getMethod().getMethodName() + "<br/>");
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsFailure/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			} else {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "SUCCESS");
+				Reporter.setCurrentTestResult(result);
+
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsSuccess/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			}
+
+			String path = "<img src=\" " + screenshotPath + "\" alt=\"\"\"/\" />";
+			// To add it in the report
+			Reporter.log("<br/>");
+			Reporter.log(path);
+			
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
+		}
+
+	}
+
+	public void capturescreen(WebDriver driver, String screenShotName, String status) {
+		try {
+			
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+			if (status.equals("FAILURE")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png"));
+				Reporter.log(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png");
+			} else if (status.equals("SUCCESS")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "./ScreenshotsSuccess/" + screenShotName + ".png"));
+
+			}
+
+			System.out.println("Printing screen shot taken for className " + screenShotName);
+
+		} catch (Exception e) {
+			System.out.println("Exception while taking screenshot " + e.getMessage());
+		}
+
 	}
  }

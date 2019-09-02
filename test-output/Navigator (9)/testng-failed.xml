@@ -1,47 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (9)]">
-  <parameter name="Dashboardname" value="DatePickerIE19570"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="1"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.ie.driver"/>
-  <parameter name="sDriverpath" value="Drivers/IEDriverServer.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Test in IE">
-    <parameter name="Dashboardname" value="DatePickerIE19570"/>
-    <parameter name="password" value="admin"/>
+  <test thread-count="5" name="Test Service Viewlet(failed)">
+    <parameter name="Dashboardname" value="ServiceViewlet Verification"/>
     <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.ie.driver"/>
-    <parameter name="sDriverpath" value="Drivers/IEDriverServer.exe"/>
+    <parameter name="Servicename" value="New Service Viewlet"/>
+    <parameter name="DestinationManager" value="M10"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="Attributes" value="Service Name,Service Description,Service Type,Start Mode,Start Command,Start Arguments,STDERR,STDOUT,Stop Command,Stop Arguments"/>
+    <parameter name="FavoriteViewletName" value="Service Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="ServiceSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <classes>
-      <class name="ApodGUI.DatePicker19570">
-        <methods>
-          <include name="Login"/>
-          <include name="DatePickerPresent"/>
-          <include name="Logout"/>
-        </methods>
-      </class> <!-- ApodGUI.DatePicker19570 -->
-    </classes>
-  </test> <!-- Test in IE -->
-  <test name="Test in IE(failed)">
-    <parameter name="Dashboardname" value="DatePickerIE19570"/>
     <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.ie.driver"/>
-    <parameter name="sDriverpath" value="Drivers/IEDriverServer.exe"/>
-    <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <classes>
-      <class name="ApodGUI.DatePicker19570">
+      <class name="ApodGUI.ServiceViewlet">
         <methods>
-          <include name="Login" invocation-numbers="0"/>
-          <include name="DatePickerPresent" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="beforeTest"/>
+          <include name="ServiceEvents" invocation-numbers="0"/>
           <include name="Logout"/>
+          <include name="AddToFavoriteForMultipleServices" invocation-numbers="0"/>
+          <include name="AddToFavoriteViewlet" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.DatePicker19570 -->
+      </class> <!-- ApodGUI.ServiceViewlet -->
     </classes>
-  </test> <!-- Test in IE(failed) -->
+  </test> <!-- Test Service Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (9)] -->

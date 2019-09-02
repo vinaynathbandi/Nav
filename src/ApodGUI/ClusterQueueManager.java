@@ -25,63 +25,47 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class ClusterQueueManager {
-static WebDriver driver;
+	static WebDriver driver;
+	static String WGS_INDEX;
+	static String Screenshotpath;
+	static String DownloadPath;
+	static String WGSName;
+	static String UploadFilepath;
+	static String EMS_WGS_INDEX;
+	static String EMS_WGSNAME;
+	static String SelectTopicName;
+	static String DeleteDurableName;
 
-static String IPAddress;
-static String HostName;
-static String PortNo;
-static String WGSPassword;
-static String uname;
-static String password;
-static String Favwgs;
-static String URL;
-static String WGSName;
-String Screenshotpath;
-String DWGS;
-String Dnode;
-String NodeName;
-String Node;
-static String DownloadPath;
-String Queuemanager;
-static String wgs;
-static String QueueName;
-static String LocalQueue;
-static String ManagerName;
-
-@BeforeTest
-public void beforeTest() throws Exception {
-	System.out.println("BeforeTest");
-	testrail.Settings.read();
-	IPAddress = Settings.getIPAddress();
-	HostName = Settings.getWGS_HostName();
-	PortNo = Settings.getWGS_PortNo();
-	WGSPassword = Settings.getWGS_Password();
-
-	URL = Settings.getSettingURL();
-	uname = Settings.getNav_Username();
-	password = Settings.getNav_Password();
-	WGSName = Settings.getS_WGSName();
-
-	Screenshotpath = Settings.getScreenshotPath();
-	DWGS = Settings.getWGS_HostName();
-	Dnode = Settings.getDnode();
-	NodeName = Settings.getEMS_NodeName();
-	DownloadPath = Settings.getDownloadPath();
-	Node = Settings.getEMS_NodeName();
-	Queuemanager = Settings.getQueuemanager();
-	wgs = Settings.getWGS_INDEX();
-	QueueName = Settings.getQueueName();
-	LocalQueue = Settings.getLocalQueue();
-	ManagerName = Settings.getManagerName();
-}
 	
-	@Parameters({"sDriver", "sDriverpath",  "Dashboardname"})
+	@BeforeTest
+	public void beforeTest() throws Exception {
+		System.out.println("BeforeTest");
+		Settings.read();
+		
+		WGS_INDEX =Settings.getWGS_INDEX();
+		Screenshotpath =Settings.getScreenshotPath();
+		DownloadPath =Settings.getDownloadPath();
+		WGSName =Settings.getWGSNAME();
+		UploadFilepath =Settings.getUploadFilepath();
+		EMS_WGS_INDEX =Settings.getEMS_WGS_INDEX();
+		EMS_WGSNAME =Settings.getEMS_WGSNAME();
+		SelectTopicName = Settings.getSelectTopicName(); 
+		DeleteDurableName =Settings.getDeleteDurableName();
+	}
+
+	
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath,  String Dashboardname) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname) throws Exception
 	{
+		Settings.read();
+		String URL = Settings.getSettingURL();
+		String uname=Settings.getNav_Username();
+		String password=Settings.getNav_Password();
 		
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
@@ -112,7 +96,7 @@ public void beforeTest() throws Exception {
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -123,7 +107,7 @@ public void beforeTest() throws Exception {
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
-		dd.selectByIndex(Integer.parseInt(wgs));
+		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
 		
 		/*//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();
@@ -187,7 +171,7 @@ public void beforeTest() throws Exception {
     	Thread.sleep(2000);*/
 		try {
 		ObjectsVerificationForAllViewlets obj=new ObjectsVerificationForAllViewlets();
-		obj.ObjectAttributesVerification(driver, schemaName);
+		obj.ObjectAttributesVerification(driver, schemaName, WGSName);
 		context.setAttribute("Status",1);
 		context.setAttribute("Comment", "Show object attribute option for cluster Queue Manager viewlet is working fine");
 		}
@@ -205,7 +189,7 @@ public void beforeTest() throws Exception {
     {
     	//Select Events option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]")).click();
+    	driver.findElement(By.linkText("Events...")).click();
     	Thread.sleep(1000);
     	
     	//Events Popup page
@@ -274,13 +258,19 @@ public void beforeTest() throws Exception {
 		driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
 	}
 	
-    @Parameters({"FavoriteViewletName", "Favwgs" })
+    @Parameters({"FavoriteViewletName"})
     @TestRail(testCaseId=245)
 	@Test(priority=4)
-	public static void AddToFavoriteViewlet(String FavoriteViewletName, int Favwgs, ITestContext context) throws InterruptedException
+	public static void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
-    	//Store the service name into string
-		String ClusterName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+    	int ClusterQMName_Index=3;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		ClusterQMName_Index=4;
+    	}
+    	//Store the service name into string            //div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]
+		String ClusterName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ClusterQMName_Index +"]")).getText();
+		System.out.println("Cluster Name: " +ClusterName);
 		
 		//Create favorite viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -292,7 +282,7 @@ public void beforeTest() throws Exception {
 		driver.findElement(By.name("viewlet-name")).sendKeys(FavoriteViewletName);
 		
 		Select wgsdropdown=new Select(driver.findElement(By.name("wgs")));
-		wgsdropdown.selectByIndex(Favwgs);
+		wgsdropdown.selectByVisibleText(WGSName);
 		
 		//Submit
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
@@ -300,7 +290,7 @@ public void beforeTest() throws Exception {
 		
 		//Select Add to favorite option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 
 		//Select the favorite viewlet name
@@ -312,7 +302,7 @@ public void beforeTest() throws Exception {
 		
 		//Storing the Favorite Viewlet data
 		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-		
+		System.out.println("Fav viewlet data: "+Favdata);
 		//Verification of service added to favorite viewlet
 		if(Favdata.contains(ClusterName))
 		{
@@ -339,7 +329,7 @@ public void beforeTest() throws Exception {
 		//Select compare option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li")).click();
+		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(1000);
 		
 		//Verification of popup
@@ -411,14 +401,21 @@ public void beforeTest() throws Exception {
 	@Test(priority=6)
 	public static void AddToFavoriteForMultipleClusterQMs(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
-		//Store the Service names into string
-		String ClusterName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String ClusterName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		int ClusterQMName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			ClusterQMName_Index=4;
+		}
 		
+		//Store the Service names into string
+		String ClusterName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ ClusterQMName_Index +"]")).getText();
+		System.out.println("Name2 : " +ClusterName2);
+		String ClusterName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ ClusterQMName_Index +"]")).getText();
+		System.out.println("Name3 : " +ClusterName3);
 		//Select Add to favorite option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 		
 		//Select the favorite viewlet name
@@ -430,6 +427,7 @@ public void beforeTest() throws Exception {
 		
 		//Storing the Favorite Viewlet data
 		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Fav data is: " +Favdata);
 		
 		//Verification of serviceses added to favorite viewlet
 		if(Favdata.contains(ClusterName2) && Favdata.contains(ClusterName3))
@@ -475,7 +473,9 @@ public void beforeTest() throws Exception {
 
 		final String dir = System.getProperty("user.dir");
 		String screenshotPath;
-		//System.out.println("dir: " + dir);
+		
+		System.out.println("result getStatus: " + result.getStatus());
+		// System.out.println("dir: " + dir);
 		if (!result.getMethod().getMethodName().contains("Logout")) {
 			if (ITestResult.FAILURE == result.getStatus()) {
 				this.capturescreen(driver, result.getMethod().getMethodName(), "FAILURE");
@@ -500,13 +500,33 @@ public void beforeTest() throws Exception {
 			// To add it in the report
 			Reporter.log("<br/>");
 			Reporter.log(path);
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
 		}
 
 	}
 
 	public void capturescreen(WebDriver driver, String screenShotName, String status) {
 		try {
-			
 
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 

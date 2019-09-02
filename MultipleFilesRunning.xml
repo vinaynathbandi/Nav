@@ -2,37 +2,35 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Suites"> 
   <suite-files>
-<!--     <suite-file path="Manager19787.xml" />
-    <suite-file path="EMS18790.xml" />
-  	<suite-file path="EMSStart19262.xml" />
-  	<suite-file path="Export19715.xml" />
-  	<suite-file path="Message19733.xml" />
-  	<suite-file path="MessageLength19678.xml" />
-  	<suite-file path="NodeDropdown18508.xml" />
-  	<suite-file path="NodeInsteadOfManager20002.xml" />
-  	<suite-file path="StartListeners18772.xml" />
-  	<suite-file path="ScheduleView19595.xml" />
-  	<suite-file path="DatePicker19570.xml" /> 
-  	<suite-file path="Autologin19862.xml"/>
-  	<suite-file path="AddRemoteManager19564.xml"/> 
-  	<suite-file path="ChannelProperties19729.xml"/>
-  	 <suite-file path="AttributeFilter18725.xml"/>
-  	<suite-file path="DataLimitOffSet_19344.xml"/>
-  	<suite-file path="ListenerAttributes_Edit_18419.xml"/>
-  	<suite-file path="ListeningPort_19426.xml"/>
-  	
-  	<suite-file path="Extension19569.xml"/>
-  	<suite-file path="RenewToken19411.xml"/>
-  	<suite-file path="DefaultAudit_20008.xml"/>
-  	<suite-file path="EMSAdmin_19996.xml"/>
-  	<suite-file path="ManagerUnderSGM_20012.xml"/>
-  	<suite-file path="NavigatorFeatures_20031.xml"/> 
-  	
-  	<suite-file path="Workgroupserver.xml"></suite-file> -->
-  	
-  	 <suite-file path="Manager.xml" /> 
-  	
-  <!-- 	<suite-file path="Node.xml"></suite-file> -->
+  
+    <suite-file path="Workgroupserver.xml"/> 
+    <suite-file path="Node.xml"/> 
+    <suite-file path="Manager.xml"/>
+    <suite-file path="Queues.xml"/> 
+    <suite-file path="QueuesInsidemessages.xml"/>
+    <suite-file path="QueueMessages.xml"/>
+    <suite-file path="Channel.xml"/>
+    <suite-file path="Process.xml"/> 
+    <suite-file path="Topic.xml"/>
+    <suite-file path="Listener.xml"/> 
+    <suite-file path="NameList.xml"/>
+    <suite-file path="Service.xml"/>
+    <suite-file path="AuthInfo.xml"/>
+    <suite-file path="Subscription.xml"/>
+    <suite-file path="ClusterQM.xml"/>
+    <suite-file path="Route.xml"/>
+    <suite-file path="Transport.xml"/>
+    <suite-file path="Bridge.xml"/>
+    <suite-file path="Durable.xml"/> 
+    <suite-file path="EMSManager.xml"/>
+    <suite-file path="EMSQueues.xml"/>
+    <suite-file path="EMSQueueMessages.xml"/>
+    <suite-file path="EMSQueuesInsideBrowse.xml"/> 
+    <suite-file path="EMSChannel.xml"/>
+    <suite-file path="EMSTopic.xml"/>
+    <suite-file path="AddSchema.xml"/>
+    <suite-file path="NavigatorSettings.xml"/> 
+    <suite-file path="Schedule.xml"/>   
   	
   </suite-files>
 </suite>

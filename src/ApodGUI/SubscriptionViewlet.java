@@ -1,10 +1,14 @@
 package ApodGUI;
 
+import java.io.File;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +18,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -21,19 +29,51 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class SubscriptionViewlet {
-static WebDriver driver;
 	
-	@Parameters({"sDriver", "sDriverpath", "URL", "uname", "password", "Dashboardname", "wgs"})
+	static WebDriver driver;
+	static String WGS_INDEX;
+	static String Screenshotpath;
+	static String DownloadPath;
+	static String WGSName;
+	static String UploadFilepath;
+	static String DWGS;
+	static String Dnode;
+	static String DestinationManager;
+	static String DestinationQueue;
+	static String DWGSIcon;
+	static String DestinationTopicName;
+	
+	
+	@BeforeTest
+	public void beforeTest() throws Exception {
+		System.out.println("BeforeTest");
+		Settings.read();
+		WGS_INDEX =Settings.getWGS_INDEX();
+		Screenshotpath =Settings.getScreenshotPath();
+		DownloadPath =Settings.getDownloadPath();
+		WGSName =Settings.getWGSNAME();
+		UploadFilepath =Settings.getUploadFilepath();
+		DWGS =Settings.getDWGS();
+		Dnode =Settings.getDnode();
+		DestinationManager =Settings.getDestinationManager();
+		DestinationQueue =Settings.getDestinationQueue();
+		DWGSIcon =Settings.getDWGSIcon();
+		DestinationTopicName =Settings.getDestinationTopicName();
+	}
+	
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String URL, String uname, String password, String Dashboardname, int wgs) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname) throws Exception
 	{
 
 		Settings.read();
-		String urlstr=Settings.getSettingURL();
-		URL= urlstr+URL;
+		String URL = Settings.getSettingURL();
+		String uname=Settings.getNav_Username();
+		String password=Settings.getNav_Password();
 		
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
@@ -64,7 +104,7 @@ static WebDriver driver;
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -75,7 +115,7 @@ static WebDriver driver;
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
-		dd.selectByIndex(wgs);
+		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
 		
 		/*//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();
@@ -92,8 +132,8 @@ static WebDriver driver;
 	
 	@Test(priority=1)
 	@TestRail(testCaseId=186)
-    @Parameters({"Subscriptionname", "WGSName"})
-	public static void AddSubscriptionViewlet(String Subscriptionname, String WGSName, ITestContext context) throws InterruptedException
+    @Parameters({"Subscriptionname"})
+	public static void AddSubscriptionViewlet(String Subscriptionname, ITestContext context) throws InterruptedException
 	{
 		//Click on Viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -163,7 +203,7 @@ static WebDriver driver;
 		Thread.sleep(2000);
 		
 		ObjectsVerificationForAllViewlets obj=new ObjectsVerificationForAllViewlets();
-		obj.SubscriptionObjectAttributesVerification(driver, schemaName, AddSubscriptionNameFromIcon);
+		obj.SubscriptionObjectAttributesVerification(driver, schemaName, AddSubscriptionNameFromIcon, WGSName);
 		context.setAttribute("Status",1);
 		context.setAttribute("Comment", "Show object attributes for subscription is working fine");
 		}
@@ -174,181 +214,17 @@ static WebDriver driver;
 		}
 	}
 	
-	@Parameters({"CopyObjectName", "AddSubscriptionName"})
-	@TestRail(testCaseId=189)
-	@Test(priority=3)
-	public void CopyAsFromCommands(String CopyObjectName, String AddSubscriptionName, ITestContext context) throws InterruptedException
-	{
-		//Search with the added Subscription name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(AddSubscriptionName);
-    	Thread.sleep(1000);
-    	
-		//Select Copy as From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-    	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li[2]")).click();
-    	
-    	//Give the object name
-    	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
-    	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
-    	
-    	//Edit the search field data
-    	for(int j=0; j<=AddSubscriptionName.length(); j++)
-    	{
-    	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
-    	
-    	//Refresh the viewlet
-    	for(int i=0; i<=2; i++)
-    	{
-    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
-    	Thread.sleep(4000);
-    	}
-    	
-    	//Combining the strings 
-    	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
-    	System.out.println(CopyasSubscriptionName);
-    	
-    	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-    	//System.out.println(Subviewlet);
-    	
-    	//Verification condition
-    	if(Subviewlet.contains(CopyasSubscriptionName))
-    	{
-    		System.out.println("Subscription is copied");
-    		context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Subscription is copied successfully using CopyAs command");
-    	}
-    	else
-    	{
-    		System.out.println("Subscription is not copied");
-    		context.setAttribute("Status",5);
-    		context.setAttribute("Comment", "Failed to copy subscription using CopyAs command");
-    		driver.findElement(By.xpath("Subscription failed to copy")).click();
-    	}
-    	Thread.sleep(1000);	
-    	
-    	//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasSubscriptionName);
-    	Thread.sleep(2000);
-	}
-	
-	@Parameters({"RenameSubscription", "CopyObjectName", "AddSubscriptionName"})
-	@TestRail(testCaseId=190)
-	@Test(priority=4)
-	public void RenameFromCommands(String RenameSubscription, String CopyObjectName, String AddSubscriptionName, ITestContext context) throws InterruptedException
-	{    	
-		//Select Rename From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-    	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li[3]")).click();
-		
-    	//Send the New name into field
-    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscription);
-    	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
-    	
-    	//Combining the strings 
-    	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
-    	//System.out.println(CopyasProcessName);
-    	
-    	//Edit the search field data
-    	for(int j=0; j<=CopyasSubscriptionName.length(); j++)
-    	{
-    	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);	
-    	
-    	//Refresh the viewlet
-    	for(int i=0; i<=2; i++)
-    	{
-    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
-    	Thread.sleep(4000);
-    	}
-    	
-    	//Search with renamed name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameSubscription);
-    	Thread.sleep(1000); 
-    	
-    	//Store the Subscription name into string
-    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
-    	System.out.println(ModifiedName);
-    	
-    	//Verification condition
-    	if(ModifiedName.equalsIgnoreCase(RenameSubscription))
-    	{
-    		System.out.println("The Subscription is renamed");
-    		context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Successfully renamed subscription rename command");
-    	}
-    	else
-    	{
-    		System.out.println("The Subscription rename is failed");
-    		context.setAttribute("Status",5);
-    		context.setAttribute("Comment", "Failed to rename subscription");
-    		driver.findElement(By.xpath("Rename for subscription is failed")).click();
-    	}
-    	Thread.sleep(1000);
-	}
-	
-	@Parameters({"RenameSubscription"})
-	@TestRail(testCaseId=191)
-	@Test(priority=5)
-	public void DeleteFromCommands(String RenameSubscription,ITestContext context) throws InterruptedException
-	{   	
-		//Select Delete From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-    	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li[4]")).click();
-		
-    	//Click on Yes
-    	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
-    	
-    	//Search with the new name
-		for(int j=0; j<=RenameSubscription.length(); j++)
-    	{
-			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
-    	
-    	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-    	//System.out.println(Subviewlet);
-    	
-    	//Verification of Subscription delete
-    	if(Subviewlet.contains(RenameSubscription))
-    	{
-    		System.out.println("Subscription is not deleted");
-    		context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Subscription is deleted successfully using delete command");
-    		driver.findElement(By.xpath("Subscription delete failed")).click();
-    	}
-    	else
-    	{
-    		System.out.println("Subscription is deleted");
-    		context.setAttribute("Status",5);
-    		context.setAttribute("Comment", "Failed to delete subscription using delete command");
-    	}
-    	Thread.sleep(1000);
-	}
-	
-	@Parameters({"AddSubscriptionName", "DestinationTopicName", "TopicStringData", "DWGS", "NodeName", "DestinationManager", "DestinationQueue"})
-	
+	@Parameters({"AddSubscriptionName", "TopicStringData"})
+	@TestRail(testCaseId=187)
 	@Test(priority=2)
-	public void CreateSubscriptionFromOptions(String AddSubscriptionName, String DestinationTopicName, String TopicStringData, String DWGS, String NodeName, String DestinationManager, String DestinationQueue, ITestContext context) throws InterruptedException
+	public void CreateSubscriptionFromOptions(String AddSubscriptionName, String TopicStringData, ITestContext context) throws InterruptedException
 	{
+		//Search with given Queue manager
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(DestinationManager);
+		
 		//click on checkbox and choose create subscription
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		driver.findElement(By.linkText("Create Subscription")).click();
 		Thread.sleep(1000);
 		
 		
@@ -379,7 +255,7 @@ static WebDriver driver;
 		{
 			ex.printStackTrace();
 		}
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Topic string data
 		driver.findElement(By.id("topicString")).sendKeys(TopicStringData);
@@ -406,7 +282,7 @@ static WebDriver driver;
 				System.out.println("Radio button text:" + Node.get(i).getText());
 				System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
 				String s=Node.get(i).getText();
-				if(s.equals(NodeName))
+				if(s.equals(Dnode))
 				{
 					String id=Node.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -472,7 +348,23 @@ static WebDriver driver;
 				
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(6000);
+    	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("Error message not displayed");
+    	}
+    	Thread.sleep(2000);
+    	
+    	for(int i=0; i<=DestinationManager.length(); i++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(1000);
     	
     	//Search with the added Subscription name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(AddSubscriptionName);
@@ -480,7 +372,14 @@ static WebDriver driver;
     	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-    	//System.out.println(Subviewlet);
+    	System.out.println("Subscription body data: " +Subviewlet);
+    	
+    	//Search with the new name
+		for(int j=0; j<=AddSubscriptionName.length(); j++)
+    	{
+			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
     	
     	//Verification
     	if(Subviewlet.contains(AddSubscriptionName))
@@ -497,14 +396,180 @@ static WebDriver driver;
     		driver.findElement(By.xpath("Subscription failed")).click();
     	}
     	Thread.sleep(1000);
+	}
+	
+	@Parameters({"CopyObjectName", "AddSubscriptionName"})
+	@TestRail(testCaseId=189)
+	@Test(priority=3)
+	public void CopyAsFromCommands(String CopyObjectName, String AddSubscriptionName, ITestContext context) throws InterruptedException
+	{
+		//Search with the added Subscription name
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(AddSubscriptionName);
+    	Thread.sleep(1000);
+    	
+		//Select Copy as From commands
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	Actions Mousehovercopy=new Actions(driver);
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Copy As...")).click();
+    	
+    	//Give the object name
+    	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
+    	driver.findElement(By.cssSelector(".btn-primary")).click();
+    	Thread.sleep(2000);
+    	
+    	//Edit the search field data
+    	for(int j=0; j<=AddSubscriptionName.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+    	
+    	//Refresh the viewlet
+    	for(int i=0; i<=2; i++)
+    	{
+    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+    	Thread.sleep(4000);
+    	}
+    	
+    	//Combining the strings 
+    	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
+    	System.out.println(CopyasSubscriptionName);
+    	
+    	//Store the viewlet data into string
+    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	//System.out.println(Subviewlet);
+    	
+    	//Verification condition
+    	if(Subviewlet.contains(CopyasSubscriptionName))
+    	{
+    		System.out.println("Subscription is copied");
+    		context.setAttribute("Status",1);
+    		context.setAttribute("Comment", "Subscription is copied successfully using CopyAs command");
+    	}
+    	else
+    	{
+    		System.out.println("Subscription is not copied");
+    		context.setAttribute("Status",5);
+    		context.setAttribute("Comment", "Failed to copy subscription using CopyAs command");
+    		
+    		//Search with that name
+        	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasSubscriptionName);
+        	Thread.sleep(2000);
+    		driver.findElement(By.xpath("Subscription failed to copy")).click();
+    	}
+    	Thread.sleep(1000);	
+    	
+    	//Search with that name
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasSubscriptionName);
+    	Thread.sleep(2000);
+	}
+	
+	@Parameters({"RenameSubscription", "CopyObjectName", "AddSubscriptionName"})
+	@TestRail(testCaseId=190)
+	@Test(priority=4)
+	public void RenameFromCommands(String RenameSubscription, String CopyObjectName, String AddSubscriptionName, ITestContext context) throws InterruptedException
+	{    	
+		//Select Rename From commands
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	Actions Mousehovercopy=new Actions(driver);
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Rename")).click();
+		
+    	//Send the New name into field
+    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscription);
+    	driver.findElement(By.cssSelector(".btn-primary")).click();
+    	Thread.sleep(2000);
+    	
+    	//Combining the strings 
+    	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
+    	//System.out.println(CopyasProcessName);
+    	
+    	//Edit the search field data
+    	for(int j=0; j<=CopyasSubscriptionName.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);	
+    	
+    	//Refresh the viewlet
+    	for(int i=0; i<=2; i++)
+    	{
+    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+    	Thread.sleep(4000);
+    	}
+    	
+    	//Search with renamed name
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameSubscription);
+    	Thread.sleep(1000); 
+    	
+    	//Store the Subscription name into string
+    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
+    	System.out.println(ModifiedName);
+    	
+    	//Verification condition
+    	if(ModifiedName.equalsIgnoreCase(RenameSubscription))
+    	{
+    		System.out.println("The Subscription is renamed");
+    		context.setAttribute("Status",1);
+    		context.setAttribute("Comment", "Successfully renamed subscription rename command");
+    	}
+    	else
+    	{
+    		System.out.println("The Subscription rename is failed");
+    		context.setAttribute("Status",5);
+    		context.setAttribute("Comment", "Failed to rename subscription");
+    		driver.findElement(By.xpath("Rename for subscription is failed")).click();
+    	}
+    	Thread.sleep(1000);
+	}
+	
+	@Parameters({"RenameSubscription"})
+	@TestRail(testCaseId=191)
+	@Test(priority=5)
+	public void DeleteFromCommands(String RenameSubscription,ITestContext context) throws InterruptedException
+	{   	
+		//Select Delete From commands
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	Actions Mousehovercopy=new Actions(driver);
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Delete")).click();
+		
+    	//Click on Yes
+    	driver.findElement(By.cssSelector(".btn-primary")).click();
+    	Thread.sleep(3000);
     	
     	//Search with the new name
-		for(int j=0; j<=AddSubscriptionName.length(); j++)
+		for(int j=0; j<=RenameSubscription.length(); j++)
     	{
 			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
+    	
+    	//Store the viewlet data into string
+    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	//System.out.println(Subviewlet);
+    	
+    	//Verification of Subscription delete
+    	if(Subviewlet.contains(RenameSubscription))
+    	{
+    		System.out.println("Subscription is not deleted");
+    		context.setAttribute("Status",1);
+    		context.setAttribute("Comment", "Subscription is deleted successfully using delete command");
+    		driver.findElement(By.xpath("Subscription delete failed")).click();
+    	}
+    	else
+    	{
+    		System.out.println("Subscription is deleted");
+    		context.setAttribute("Status",5);
+    		context.setAttribute("Comment", "Failed to delete subscription using delete command");
+    	}
+    	Thread.sleep(1000);
 	}
+	
+	
 	
 	@Test(priority=6)
 	@TestRail(testCaseId=192)
@@ -512,7 +577,7 @@ static WebDriver driver;
 	{
 		//click on checkbox and choose properties
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(1000);
 		
 		try
@@ -560,7 +625,7 @@ static WebDriver driver;
     {
     	//Select Events option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]")).click();
+    	driver.findElement(By.linkText("Events...")).click();
     	Thread.sleep(1000);//Events Popup page
 		String Eventdetails=driver.findElement(By.cssSelector("th:nth-child(1)")).getText();
 		//System.out.println(Eventdetails);
@@ -627,13 +692,18 @@ static WebDriver driver;
 		driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
 	}
 	
-    @Parameters({"FavoriteViewletName", "Favwgs" })
+    @Parameters({"FavoriteViewletName"})
     @TestRail(testCaseId=194)
 	@Test(priority=8)
-	public static void AddToFavoriteViewlet(String FavoriteViewletName, int Favwgs, ITestContext context) throws InterruptedException
+	public static void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+    	int Subscription_Id=5;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		Subscription_Id=6;
+    	}
     	//Store the subscription Name into string
-		String SubscriptionId=driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
+		String SubscriptionId=driver.findElement(By.xpath("//datatable-body-cell["+ Subscription_Id +"]/div/span")).getText();
 		//System.out.println(SubscriptionId);
 		
 		//Create favorite viewlet
@@ -646,7 +716,7 @@ static WebDriver driver;
 		driver.findElement(By.name("viewlet-name")).sendKeys(FavoriteViewletName);
 		
 		Select wgsdropdown=new Select(driver.findElement(By.name("wgs")));
-		wgsdropdown.selectByIndex(Favwgs);
+		wgsdropdown.selectByVisibleText(WGSName);
 		
 		//Submit
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
@@ -654,7 +724,7 @@ static WebDriver driver;
 		
 		//Add to favorite option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 
 		//Select the favorite viewlet name
@@ -694,7 +764,7 @@ static WebDriver driver;
 		//Select compare option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li")).click();
+		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(1000);
 		
 		//Verification of popup
@@ -771,8 +841,8 @@ static WebDriver driver;
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li")).click();
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Copy As...")).click();
     	Thread.sleep(2000);
     	
     	//Give the object name
@@ -825,8 +895,8 @@ static WebDriver driver;
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[3]")).click();
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Rename")).click();
     	Thread.sleep(2000);
 		
     	//Send the New name into field
@@ -879,8 +949,8 @@ static WebDriver driver;
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[4]")).click();
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Delete")).click();
     	Thread.sleep(2000);
 		
     	//Click on Yes
@@ -924,7 +994,7 @@ static WebDriver driver;
 		//click on checkbox and choose properties
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(3000);
 		
 		WebElement ele=driver.findElement(By.id("topicString"));
@@ -934,7 +1004,7 @@ static WebDriver driver;
 		//List<WebElement> data= (List<WebElement>) driver.findElement(By.tagName("app-text-input-tooltip")).findElements(By.xpath("//table//tr"));
 		//String Tooltipdata=driver.findElement(By.tagName("app-text-input-tooltip")).getText();
 		String Tooltipdata=driver.findElement(By.tagName("ngb-tooltip-window")).getText();
-		System.out.println(Tooltipdata);
+		System.out.println("Multiple Properties data:" +Tooltipdata);
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(1000);
@@ -945,7 +1015,9 @@ static WebDriver driver;
 		Thread.sleep(1000);
 		
 		String FistSubscription=driver.findElement(By.id("topicString")).getAttribute("value");
-		System.out.println(FistSubscription);
+		
+		FistSubscription=FistSubscription.trim().replaceAll(" +", " ");
+		System.out.println("First subscription:" +FistSubscription);
 		
 		//Clsoe the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -957,7 +1029,9 @@ static WebDriver driver;
 		Thread.sleep(1000);
 		
 		String SecondSubscription=driver.findElement(By.id("topicString")).getAttribute("value");
-		System.out.println(SecondSubscription);
+		
+		SecondSubscription=SecondSubscription.trim().replaceAll(" +", " ");
+		System.out.println("Second subscription:" +SecondSubscription);
 		
 		//Clsoe the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -974,7 +1048,7 @@ static WebDriver driver;
 			System.out.println("Subscription multiple properties not verified");
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Verification failed for multiple subscription properties");
-			//driver.findElement(By.id("Multiple properties failed")).click();
+			driver.findElement(By.id("Multiple properties failed")).click();
 		}
 		Thread.sleep(1000);
 		
@@ -1016,16 +1090,22 @@ static WebDriver driver;
 	@Test(priority=14)
 	public static void AddToFavoriteForMultipleSubscription(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int Subscription_Id=5;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		Subscription_Id=6;
+    	}
+    	
 		//Store the Subscription ids into string
-		String SubscriptionId2=driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
+		String SubscriptionId2=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Subscription_Id +"]/div/span")).getText();
 		//System.out.println(SubscriptionId2);
-		String SubscriptionId3=driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
+		String SubscriptionId3=driver.findElement(By.xpath("//datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ Subscription_Id +"]/div/span")).getText();
 		//System.out.println(SubscriptionId3);
 		
 		//Select compare option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.xpath("Add to favorites...")).click();
 		Thread.sleep(1000);
 		
 		//Select the favorite viewlet name
@@ -1056,10 +1136,10 @@ static WebDriver driver;
 		Thread.sleep(1000);
 	}
 	
-	@Parameters({"DestinationNodeName", "DestinationManagerName", "WGSName", "AddSubscriptionNameFromIcon", "DestinationIconTopicName", "TopicStringDataFromICon", "DWGSIcon", "NodeNameFromIcon", "DestinationManagerFromIcon", "DestinationQueueFromIcon"})
+	@Parameters({"DestinationNodeName", "DestinationManagerName", "AddSubscriptionNameFromIcon", "TopicStringDataFromICon", "NodeNameFromIcon", "DestinationManagerFromIcon", "DestinationQueueFromIcon"})
 	@TestRail(testCaseId=201)
 	@Test(priority=15)
-	public void CreateSubscriptionFromPlusIcon(String DestinationNodeName, String DestinationManagerName, String WGSName, String AddSubscriptionNameFromIcon, String DestinationIconTopicName, String TopicStringDataFromICon, String DWGSIcon, String NodeNameFromIcon, String DestinationManagerFromIcon, String DestinationQueueFromIcon,ITestContext context) throws InterruptedException
+	public void CreateSubscriptionFromPlusIcon(String DestinationNodeName, String DestinationManagerName, String AddSubscriptionNameFromIcon, String TopicStringDataFromICon, String NodeNameFromIcon, String DestinationManagerFromIcon, String DestinationQueueFromIcon,ITestContext context) throws InterruptedException
 	{
 		//Click on + icon present in the listener viewlet
 		driver.findElement(By.xpath("//img[@title='Add Subscription']")).click();
@@ -1080,7 +1160,7 @@ static WebDriver driver;
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
 				String s=TopicNode.get(i).getText();
-				if(s.equals(DestinationNodeName))
+				if(s.equals(Dnode))
 				{
 					String id=TopicNode.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1092,7 +1172,7 @@ static WebDriver driver;
 		{
 			ex.printStackTrace();
 		}
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Select Manager
         driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
@@ -1105,7 +1185,7 @@ static WebDriver driver;
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
 				String s=TopicManager.get(i).getText();
-				if(s.equals(DestinationManagerName))
+				if(s.equals(DestinationManager))
 				{
 					String id=TopicManager.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1139,7 +1219,7 @@ static WebDriver driver;
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
 				String s=Topic.get(i).getText();
-				if(s.equals(DestinationIconTopicName))
+				if(s.equals(DestinationTopicName))
 				{
 					String id=Topic.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1178,7 +1258,7 @@ static WebDriver driver;
 				System.out.println("Radio button text:" + Node.get(i).getText());
 				System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
 				String s=Node.get(i).getText();
-				if(s.equals(NodeNameFromIcon))
+				if(s.equals(Dnode))
 				{
 					String id=Node.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1203,7 +1283,7 @@ static WebDriver driver;
 				//System.out.println("Radio button text:" + Manager.get(i).getText());
 				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
 				String s=Manager.get(i).getText();
-				if(s.equals(DestinationManagerFromIcon))
+				if(s.equals(DestinationManager))
 				{
 					String id=Manager.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1227,7 +1307,7 @@ static WebDriver driver;
 				//System.out.println("Radio button text:" + QueueName.get(i).getText());
 				System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
 				String s=QueueName.get(i).getText();
-				if(s.equals(DestinationQueueFromIcon))
+				if(s.equals(DestinationQueue))
 				{
 					String id=QueueName.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1243,7 +1323,16 @@ static WebDriver driver;
 				
 		//Click on OK button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(6000);
+    	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("Error popup is occur");
+    	}
     	
     	//Search with the added Subscription name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(AddSubscriptionNameFromIcon);
@@ -1252,6 +1341,13 @@ static WebDriver driver;
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
+    	
+    	//Search with the new name
+		for(int j=0; j<=AddSubscriptionNameFromIcon.length(); j++)
+    	{
+			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
     	
     	//Verification
     	if(Subviewlet.contains(AddSubscriptionNameFromIcon))
@@ -1266,13 +1362,6 @@ static WebDriver driver;
     		context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Failed to create subscription using add Icon");
     		driver.findElement(By.xpath("Subscription failed")).click();
-    	}
-    	Thread.sleep(4000);
-    	
-    	//Search with the new name
-		for(int j=0; j<=AddSubscriptionNameFromIcon.length(); j++)
-    	{
-			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
 	}
@@ -1297,5 +1386,84 @@ static WebDriver driver;
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	@AfterMethod
+	public void tearDown(ITestResult result) {
+
+		final String dir = System.getProperty("user.dir");
+		String screenshotPath;
+		//System.out.println("dir: " + dir);
+		if (!result.getMethod().getMethodName().contains("Logout")) {
+			if (ITestResult.FAILURE == result.getStatus()) {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "FAILURE");
+				Reporter.setCurrentTestResult(result);
+
+				Reporter.log("<br/>Failed to execute method: " + result.getMethod().getMethodName() + "<br/>");
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsFailure/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			} else {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "SUCCESS");
+				Reporter.setCurrentTestResult(result);
+
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsSuccess/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			}
+
+			String path = "<img src=\" " + screenshotPath + "\" alt=\"\"\"/\" />";
+			// To add it in the report
+			Reporter.log("<br/>");
+			Reporter.log(path);
+			
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
+		}
+
+	}
+
+	public void capturescreen(WebDriver driver, String screenShotName, String status) {
+		try {
+			
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+			if (status.equals("FAILURE")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png"));
+				Reporter.log(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png");
+			} else if (status.equals("SUCCESS")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "./ScreenshotsSuccess/" + screenShotName + ".png"));
+
+			}
+
+			System.out.println("Printing screen shot taken for className " + screenShotName);
+
+		} catch (Exception e) {
+			System.out.println("Exception while taking screenshot " + e.getMessage());
+		}
+
 	}
  }

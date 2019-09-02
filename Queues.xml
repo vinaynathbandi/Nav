@@ -50,7 +50,7 @@
         <include name="MultipleQueueProperties"/> 
         <include name="AddToFavoriteForMultipleQueues"/>
         <include name="SearchFilter"/>
-        <include name="AddQueueFromPlusIcon"/>  
+        <include name="AddQueueFromPlusIcon"/>   
         <include name="Logout"/> 
         
        </methods>

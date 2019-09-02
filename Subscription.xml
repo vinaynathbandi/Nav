@@ -13,13 +13,13 @@
     <parameter name="SubscriptionAttributes" value="Attributes"/>
     <parameter name="schemaName" value="SubscriptionSchema"/>
     
-    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION11"/>
+    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
     <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
     <parameter name="TopicStringData" value="Unique"/>
     <parameter name="DWGS" value="WGS10"/>
     <parameter name="NodeName" value="DESKTOP-E1JT2VR"/>
     <parameter name="DestinationManager" value="AA"/>
-    <parameter name="DestinationQueue" value="AB"/>
+    <parameter name="DestinationQueue" value="AC"/>
     
     <parameter name="FavoriteViewletName" value="Subscription Favorite viewlet"/>
     <parameter name="Favwgs" value="1"/>
@@ -49,7 +49,7 @@
         <include name="AddSubscriptionViewlet"/> 
         <include name="CreateSubscriptionFromOptions"/> 
         <include name="ShowObjectAttributesForSubscription"/>
-       <!--  <include name="CopyAsFromCommands"/>
+        <!-- <include name="CopyAsFromCommands"/>
         <include name="RenameFromCommands"/>
         <include name="DeleteFromCommands"/>  -->  
         <include name="SubscriptionProperties"/>
@@ -61,7 +61,7 @@
         <include name="RenameFromCommandsForMultipleSubscriptions"/>
         <include name="DeleteFromCommandsForMultipleSubscriptions"/> -->
          <include name="MultipleSubscriptionProperties"/>    
-        <include name="AddToFavoriteForMultipleSubscription"/> 
+        <include name="AddToFavoriteForMultipleSubscription"/>  
         <include name="CreateSubscriptionFromPlusIcon"/>  
         <include name="Logout"/> 
         

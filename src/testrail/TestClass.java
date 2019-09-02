@@ -60,7 +60,7 @@ public class TestClass implements ITestListener {
 			
 				//api.updateRun(testCaseID,status,comment,arg0.getName());
 				
-				 	int status=(int) arg0.getTestContext().getAttribute("Status");
+				 	int status=5;
 					String comment=(String) arg0.getTestContext().getAttribute("Comment");
 					//System.out.println("Status: "+ status + ' ' + "Comment: " + comment);
 					TestRailAPI api=new TestRailAPI();

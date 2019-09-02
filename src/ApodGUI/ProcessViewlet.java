@@ -1,10 +1,16 @@
 package ApodGUI;
 
+import java.io.File;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,6 +18,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -19,19 +29,41 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class ProcessViewlet
 {
-static WebDriver driver;
+	static WebDriver driver;
+	static String WGS_INDEX;
+	static String Screenshotpath;
+	static String DownloadPath;
+	static String WGSName;
+	static String UploadFilepath;
+	static String Dnode;
+	static String DestinationManager;
 	
-	@Parameters({"sDriver", "sDriverpath", "URL", "uname", "password", "Dashboardname", "wgs"})
+	@BeforeTest
+	public void beforeTest() throws Exception {
+		System.out.println("BeforeTest");
+		Settings.read();
+		WGS_INDEX =Settings.getWGS_INDEX();
+		Screenshotpath =Settings.getScreenshotPath();
+		DownloadPath =Settings.getDownloadPath();
+		WGSName =Settings.getWGSNAME();
+		UploadFilepath =Settings.getUploadFilepath();
+		Dnode =Settings.getDnode();
+		DestinationManager =Settings.getDestinationManager(); 
+	}
+	
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String URL, String uname, String password, String Dashboardname, int wgs) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname) throws Exception
 	{
 		Settings.read();
-		String urlstr=Settings.getSettingURL();
-		URL= urlstr+URL;
+		String URL = Settings.getSettingURL();
+		String uname=Settings.getNav_Username();
+		String password=Settings.getNav_Password();
 		
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
@@ -62,7 +94,7 @@ static WebDriver driver;
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -73,7 +105,7 @@ static WebDriver driver;
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
-		dd.selectByIndex(wgs);
+		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
 		
 		/*//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();
@@ -90,8 +122,8 @@ static WebDriver driver;
 	
 	@Test(priority=1)
 	@TestRail(testCaseId = 116)
-	@Parameters({"Processname", "WGSName"})
-	public static void AddProcessViewlet(String Processname, String WGSName,ITestContext context) throws InterruptedException
+	@Parameters({"Processname"})
+	public static void AddProcessViewlet(String Processname, ITestContext context) throws InterruptedException
 	{
 		//Click on Viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -127,10 +159,10 @@ static WebDriver driver;
 		
 	}
 	
-	@Parameters({"WGSName", "NewProcessName", "ProcessDescription", "ApplicationId"})
+	@Parameters({"NewProcessName", "ProcessDescription", "ApplicationId"})
 	@TestRail(testCaseId = 117)
 	@Test(priority=2)
-	public void CreateProcessFromPlusIcon(String WGSName, String NewProcessName, String ProcessDescription, String ApplicationId, ITestContext context) throws InterruptedException
+	public void CreateProcessFromPlusIcon(String NewProcessName, String ProcessDescription, String ApplicationId, ITestContext context) throws InterruptedException
 	{
 		try
 		{
@@ -143,11 +175,54 @@ static WebDriver driver;
 		
 		//Select Node 
 		driver.findElement(By.xpath("//div[2]/input")).click();
-		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		try 
+		{
+			List<WebElement> ProcessNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(ProcessNode.size());	
+			for (int i=0; i<ProcessNode.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + ProcessNode.get(i).getAttribute("id"));
+				String s=ProcessNode.get(i).getText();
+				if(s.equals(Dnode))
+				{
+					String id=ProcessNode.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
 		
 		//Select Manager
 		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
-		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+        try 
+		{
+			List<WebElement> ProcessManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(ProcessManager.size());	
+			for (int i=0; i<ProcessManager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + ProcessManager.get(i).getAttribute("id"));
+				String s=ProcessManager.get(i).getText();
+				if(s.equals(DestinationManager))
+				{
+					String id=ProcessManager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+        Thread.sleep(1000);
 		
 		//Click on Select path
 		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
@@ -166,6 +241,15 @@ static WebDriver driver;
 		//Click on Submit the process
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
 		Thread.sleep(6000);
+		
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error popup is not displayed");
+		}
 		
 		//Store the process viewlet data into string
 		String Processdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -225,7 +309,7 @@ static WebDriver driver;
 		driver.findElement(By.cssSelector(".close-button")).click();*/
 		try {
 		ObjectsVerificationForAllViewlets obj=new ObjectsVerificationForAllViewlets();
-		obj.ObjectAttributesVerification(driver, schemaName);
+		obj.ObjectAttributesVerification(driver, schemaName, WGSName);
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Show Object Attribute page is working fine");
 		}
@@ -248,8 +332,8 @@ static WebDriver driver;
 		//Select Copy as From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li")).click();
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Copy As...")).click();
     	
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
@@ -308,8 +392,8 @@ static WebDriver driver;
 		//Select Rename From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[2]")).click();
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Rename")).click();
 		
     	//Send the New name into field
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameProcess);
@@ -368,8 +452,8 @@ static WebDriver driver;
 		//Select Delete From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[3]")).click();
+    	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Delete")).click();
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -413,7 +497,7 @@ static WebDriver driver;
 		{
 		//Select create process option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")).click();
+		driver.findElement(By.linkText("Create Process")).click();
 		Thread.sleep(4000);
 		
 		//Give the process name
@@ -440,6 +524,15 @@ static WebDriver driver;
 		//Click on Submit the process
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
+		
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error popup is not displayed");
+		}
 		
 		//Store the process viewlet data into string
 		String Processdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -480,7 +573,7 @@ static WebDriver driver;
 	{
 		//Select Properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(1000);
 		
 		//Store the Name field status into boolean
@@ -515,7 +608,7 @@ static WebDriver driver;
 	{
 		//Select Events option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]")).click();
+		driver.findElement(By.linkText("Events...")).click();
 		Thread.sleep(1000);
 		
 		//Events Popup page
@@ -584,13 +677,19 @@ static WebDriver driver;
 		driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
 	}
 	
-	@Parameters({"FavoriteViewletName", "Favwgs"})
+	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId = 125)
 	@Test(priority=10)
-	public static void AddToFavoriteViewlet(String FavoriteViewletName, int Favwgs,ITestContext context) throws InterruptedException
+	public static void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int ProcessName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			ProcessName_Index=4;
+		}
+		
 		//Store process name into String 
-		String ProcessName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String ProcessName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ProcessName_Index +"]/div/span")).getText();
 		
 		//Create favorite viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -602,7 +701,7 @@ static WebDriver driver;
 		driver.findElement(By.name("viewlet-name")).sendKeys(FavoriteViewletName);
 		
 		Select wgsdropdown=new Select(driver.findElement(By.name("wgs")));
-		wgsdropdown.selectByIndex(Favwgs);
+		wgsdropdown.selectByVisibleText(WGSName);
 		
 		//Submit
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
@@ -610,7 +709,7 @@ static WebDriver driver;
 		
 		//Select Add to Favorites option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 		
 		//Select the favorite viewlet name
@@ -647,7 +746,7 @@ static WebDriver driver;
 		//Click on multiple process and choose compare option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li")).click();
+		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(1000);
 		
 		//Verification of popup
@@ -723,8 +822,8 @@ static WebDriver driver;
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions Mousehovercopy=new Actions(driver);
-		Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li")).click();
+		Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+    	driver.findElement(By.linkText("Copy As...")).click();
 		Thread.sleep(1000);
 		
 		//Give the object name
@@ -771,8 +870,8 @@ static WebDriver driver;
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions Mousehovercopy=new Actions(driver);
-		Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[2]")).click();
+		Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+		driver.findElement(By.linkText("Rename")).click();
 		Thread.sleep(1000);
 		
     	//Send the New name into field
@@ -824,8 +923,8 @@ static WebDriver driver;
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions Mousehovercopy=new Actions(driver);
-		Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[3]")).click();
+		Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+		driver.findElement(By.linkText("Delete")).click();
 		Thread.sleep(1000);
 		
     	//Click on Yes
@@ -870,7 +969,7 @@ static WebDriver driver;
 		//Select the multiple processes and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(1000);
 		
 		//Give the description for multiple process
@@ -933,16 +1032,22 @@ static WebDriver driver;
 	@Test(priority=16)
 	public static void AddToFavoriteForMultipleProcess(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int ProcessName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			ProcessName_Index=4;
+		}
+		
 		//Store the process Names into strings
-		String ProcessName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String ProcessName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ ProcessName_Index +"]/div/span")).getText();
 		System.out.println(ProcessName2);                
-		String ProcessName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String ProcessName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ ProcessName_Index +"]/div/span")).getText();
 		System.out.println(ProcessName3);                
 		
 		//Select the multiple processes and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//ul[2]/li")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 		
 		//Select the favorite viewlet name
@@ -993,6 +1098,85 @@ static WebDriver driver;
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	@AfterMethod
+	public void tearDown(ITestResult result) {
+
+		final String dir = System.getProperty("user.dir");
+		String screenshotPath;
+		//System.out.println("dir: " + dir);
+		if (!result.getMethod().getMethodName().contains("Logout")) {
+			if (ITestResult.FAILURE == result.getStatus()) {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "FAILURE");
+				Reporter.setCurrentTestResult(result);
+
+				Reporter.log("<br/>Failed to execute method: " + result.getMethod().getMethodName() + "<br/>");
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsFailure/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			} else {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "SUCCESS");
+				Reporter.setCurrentTestResult(result);
+
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsSuccess/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			}
+
+			String path = "<img src=\" " + screenshotPath + "\" alt=\"\"\"/\" />";
+			// To add it in the report
+			Reporter.log("<br/>");
+			Reporter.log(path);
+			
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
+		}
+
+	}
+
+	public void capturescreen(WebDriver driver, String screenShotName, String status) {
+		try {
+			
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+			if (status.equals("FAILURE")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png"));
+				Reporter.log(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png");
+			} else if (status.equals("SUCCESS")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "./ScreenshotsSuccess/" + screenShotName + ".png"));
+
+			}
+
+			System.out.println("Printing screen shot taken for className " + screenShotName);
+
+		} catch (Exception e) {
+			System.out.println("Exception while taking screenshot " + e.getMessage());
+		}
+
 	}
 }
 

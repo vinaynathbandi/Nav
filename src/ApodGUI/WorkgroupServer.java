@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -29,6 +30,7 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class WorkgroupServer {
@@ -37,17 +39,14 @@ public class WorkgroupServer {
 	static String HostName;
 	static String PortNo;
 	static String WGSPassword;
-	static String uname;
-	static String password;
 	String VerificationData;
 	String Screenshotpath;
 	static String NodeName;
 	static String Node_PortNumber;
 	static String Node_NewConnectionName;
 	static String WGSSearchInputData;
-	
-	
-	static String URL;
+	static String Node_Hostname;
+	static String Node_IPAddress;
 
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -63,16 +62,16 @@ public class WorkgroupServer {
 		Node_PortNumber = Settings.getNode_PortNumber();
 		Node_NewConnectionName = Settings.getNode_NewConnectionName();
 		WGSSearchInputData = Settings.getWGSSearchInputData();
-		URL = Settings.getSettingURL();
-		uname=Settings.getNav_Username();
-		password=Settings.getNav_Password();
+		Node_Hostname =Settings.getNode_Hostname();
+		Node_IPAddress =Settings.getNode_IPAddress();
 	}
 
 	@Test
-	@Parameters({ "sDriver", "sDriverpath" })
-	public void Login(String sDriver, String sDriverpath, ITestContext context) throws Exception {
+	@Parameters({ "sDriver", "sDriverpath", "DeleteWGSName" })
+	public void Login(String sDriver, String sDriverpath, String DeleteWGSName, ITestContext context) throws Exception {
 
-		
+		Settings.read();
+		String URL = Settings.getSettingURL();
 
 		// Select the required browser for running the script
 		if (sDriver.equalsIgnoreCase("webdriver.chrome.driver")) {
@@ -97,14 +96,14 @@ public class WorkgroupServer {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
 		// Login
-		driver.findElement(By.id("username")).sendKeys(uname);
-		driver.findElement(By.id("password")).sendKeys(password);
+		driver.findElement(By.id("username")).sendKeys(Settings.getNav_Username());
+		driver.findElement(By.id("password")).sendKeys(Settings.getNav_Password());
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 
 		// Delete the WGS10 if present
 		// ITestContext context = null;
-		this.DeleteWorkgroup(context);
+		this.DeleteWorkgroup(DeleteWGSName, context);
 		Thread.sleep(1000);
 	}
 
@@ -130,7 +129,7 @@ public class WorkgroupServer {
 
 			// Click on submit button
 			driver.findElement(By.cssSelector(".button-blue")).click();
-			Thread.sleep(2000);
+			Thread.sleep(8000);
 
 			// Store the Viewlet data into string
 			String ViewletData = driver.findElement(By.cssSelector("datatable-body.datatable-body")).getText();
@@ -169,10 +168,9 @@ public class WorkgroupServer {
 	public static void EditWorkgroup(String ChangedHostName, ITestContext context) throws Exception {
 		try {
 			// Select the Edit WGS option
-			WebElement EditWGS = driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
+			WebElement EditWGS = driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
 			EditWGS.click();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]")).click();
+			driver.findElement(By.linkText("Edit workgroup server")).click();
 			Thread.sleep(2000);
 
 			// Change Local host Name
@@ -187,7 +185,7 @@ public class WorkgroupServer {
 
 			// Click on Submit button
 			driver.findElement(By.cssSelector(".button-blue")).click();
-			Thread.sleep(3000);
+			Thread.sleep(6000);
 
 			// Store the Host name into string
 			String HostName = driver.findElement(By.xpath(
@@ -217,22 +215,28 @@ public class WorkgroupServer {
 
 	}
 
+	@Parameters({"DeleteWGSName"})
 	@TestRail(testCaseId = 27)
 	@Test(priority = 4)
-	public void DeleteWorkgroup(ITestContext context) throws Exception {
-		try {
-			WebElement DeleteWGS = driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
+	public void DeleteWorkgroup(String DeleteWGSName, ITestContext context) throws Exception {
+		try {				                                                     
+			WebElement DeleteWGS = driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
 			if (DeleteWGS.isDisplayed()) {
 				// Select the Delete WGS option
 				DeleteWGS.click();
-				driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li")).click();
+				driver.findElement(By.linkText("Delete workgroup server")).click();
 				driver.findElement(By.cssSelector(".btn-primary")).click();
 				Thread.sleep(3000);
 
 				// Store the Viewlet data into string
 				String WGSServerData = driver.findElement(By.xpath("//datatable-body")).getText();
 				// System.out.println(WGSServerData);
+				
+				for(int j=0; j<=DeleteWGSName.length(); j++)
+				{
+					driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+				}
+				Thread.sleep(1000);
 
 				// Verification of delete work group server
 				if (WGSServerData.contains(PortNo)) {
@@ -336,18 +340,16 @@ public class WorkgroupServer {
 					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
 					.click();
 			Actions MousehourNode = new Actions(driver);
-			MousehourNode
-					.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")))
-					.perform();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li")).click();
+			MousehourNode.moveToElement(driver.findElement(By.linkText("Create"))).perform();
+			driver.findElement(By.linkText("Node...")).click();
 
 			// Create Node page
 			// driver.findElement(By.xpath("(//input[@type='text'])[4]")).click();
 			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(NodeName);
-			driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(HostName);
-			driver.findElement(By.xpath("(//input[@type='text'])[5]")).sendKeys(IPAddress);
+			driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(Node_Hostname);
+			driver.findElement(By.xpath("(//input[@type='text'])[5]")).sendKeys(Node_IPAddress);
 
-			// port number
+			//port number
 			driver.findElement(By.xpath("(//input[@type='text'])[6]")).clear();
 			driver.findElement(By.xpath("(//input[@type='text'])[6]")).sendKeys(Node_PortNumber);
 
@@ -360,8 +362,7 @@ public class WorkgroupServer {
 			Thread.sleep(4000);
 
 			// Store the viewlet data into string
-			String NodeData = driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body"))
-					.getText();
+			String NodeData = driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 
 			// Verification of node is added or not
 			if (NodeData.contains(NodeName)) {
@@ -402,9 +403,8 @@ public class WorkgroupServer {
 					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
 					.click();
 			Actions Mousehour = new Actions(driver);
-			Mousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")))
-					.perform();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li[2]/a")).click();
+			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
+			driver.findElement(By.linkText("Remote Queue Managers...")).click();
 			Thread.sleep(1000);
 
 			// Click on Add button
@@ -469,17 +469,17 @@ public class WorkgroupServer {
 	}
 
 	@TestRail(testCaseId = 30)
+	@Parameters({"Node_NewConnectionName"})
 	@Test(priority = 6)
-	public void ModifyRemoteQueueManager(ITestContext context) throws InterruptedException {
+	public void ModifyRemoteQueueManager(String Node_NewConnectionName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
 			driver.findElement(By.xpath(
 					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
 					.click();
 			Actions Mousehour = new Actions(driver);
-			Mousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")))
-					.perform();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li[2]/a")).click();
+			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
+			driver.findElement(By.linkText("Remote Queue Managers...")).click();
 			Thread.sleep(1000);
 
 			// Click on Modify button
@@ -529,13 +529,10 @@ public class WorkgroupServer {
 	public void DeleteRemoteQueueManager(String DeleteManagerName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			Actions Mousehour = new Actions(driver);
-			Mousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")))
-					.perform();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li[2]/a")).click();
+			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
+			driver.findElement(By.linkText("Remote Queue Managers...")).click();
 			Thread.sleep(1000);
 
 			// Select the required Queue manager
@@ -544,10 +541,10 @@ public class WorkgroupServer {
 			// Click on Delete
 			driver.findElement(By.xpath("//div[3]/button")).click();
 			driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
+			Thread.sleep(2000);
 
 			// Store the Queue managers into string
-			String Queuemanagers = driver
-					.findElement(By.xpath("//app-mod-remote-queue-manager-connections/div/div/div/div")).getText();
+			String Queuemanagers = driver.findElement(By.xpath("//app-mod-remote-queue-manager-connections/div/div/div/div")).getText();
 			System.out.println(Queuemanagers);
 
 			// Verification condition
@@ -581,15 +578,12 @@ public class WorkgroupServer {
 			throws InterruptedException {
 		try {
 			// Select Remote EMS manager option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			Thread.sleep(2000);
 
 			Actions Mousehour = new Actions(driver);
-			Mousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]")))
-					.perform();
-			driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[3]/ul/li[3]")).click();
+			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
+			driver.findElement(By.linkText("Remote EMS Managers...")).click();
 			Thread.sleep(1000);
 
 			// Click on Add button //app-dropdown[@id='dropdown-block']/div/ul/li[3]/a
@@ -799,13 +793,12 @@ public class WorkgroupServer {
 	@Test(priority = 12)
 	public void SearchFilter(ITestContext context) throws Exception {
 		try {
-			// Back to Workspace page
-			driver.findElement(By.xpath("//li/div/div")).click();
-			Thread.sleep(1000);
-
 			// Add New WGS10
 			this.AddWorkgroupFromPlusIcon(context);
 			Thread.sleep(2000);
+			
+			//Get the WGS name 
+			String WGSSearchInputData=driver.findElement(By.xpath("//datatable-body-cell[3]/div/span")).getText();
 
 			// Enter the search data into search field
 			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(WGSSearchInputData);
@@ -896,14 +889,35 @@ public class WorkgroupServer {
 			// To add it in the report
 			Reporter.log("<br/>");
 			Reporter.log(path);
+			
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
 		}
 
 	}
 
 	public void capturescreen(WebDriver driver, String screenShotName, String status) {
 		try {
-			TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-
+			
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 			if (status.equals("FAILURE")) {

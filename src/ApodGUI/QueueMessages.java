@@ -5,10 +5,14 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -18,6 +22,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
+import org.testng.ITestResult;
+import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -25,19 +33,36 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class QueueMessages 
 {
-static WebDriver driver;
+	static WebDriver driver;
+	static String WGS_INDEX;
+	static String Screenshotpath;
+	static String DownloadPath;
+	static String WGSName;
+	static String UploadFilepath;
+	@BeforeTest
+	public void beforeTest() throws Exception {
+		System.out.println("BeforeTest");
+		Settings.read();
+		WGS_INDEX =Settings.getWGS_INDEX();
+		Screenshotpath =Settings.getScreenshotPath();
+		DownloadPath =Settings.getDownloadPath();
+		WGSName =Settings.getWGSNAME();
+		UploadFilepath =Settings.getUploadFilepath();
+	}
 	
-	@Parameters({"sDriver", "sDriverpath", "URL", "uname", "password", "Dashboardname", "wgs", "DownloadPath", "MessageData", "QueueName", "WGSName"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs", "MessageData", "QueueName"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String URL, String uname, String password, String Dashboardname, int wgs, String DownloadPath, String MessageData, String QueueName, String WGSName) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname, int wgs, String MessageData, String QueueName) throws Exception
 	{
 		Settings.read();
-		String urlstr=Settings.getSettingURL();
-		URL= urlstr+URL;
+		String URL = Settings.getSettingURL();
+		String uname=Settings.getNav_Username();
+		String password=Settings.getNav_Password();
 		
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
@@ -75,7 +100,7 @@ static WebDriver driver;
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -175,16 +200,21 @@ static WebDriver driver;
 	@Test(priority=1)
 	public static void PutNewMessageIntoQueue(String MessageData, ITestContext context) throws InterruptedException
 	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
 		//Find the queue current depth
-		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell[6]/div/span")).getText();
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int result = Integer.parseInt(depthbefore);
 		System.out.println(result);
 		
 		//Select put new message Option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions MessagesMousehour=new Actions(driver);
-		MessagesMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li")).click();
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Put New Message")).click();
 		Thread.sleep(1000);
 				
 		//Message data
@@ -194,7 +224,7 @@ static WebDriver driver;
 		Thread.sleep(2000);
 		
 		//verification of message
-		String depthafter=driver.findElement(By.xpath("//datatable-body-cell[6]/div/span")).getText();	
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
 		int result1 = Integer.parseInt(depthafter);
 		int Final=result1-1;
 		System.out.println(Final);
@@ -213,27 +243,37 @@ static WebDriver driver;
 			context.setAttribute("Comment", "Failed to add new message to queue");
 			driver.findElement(By.xpath("Condition is Failed")).click();
 		}
+		Thread.sleep(1000);
 	}
+	
 	
 	@Test(priority=2)
 	@TestRail(testCaseId = 83)
 	public static void LoadFromFile(ITestContext context) throws InterruptedException, AWTException
 	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
 		//Find the queue current depth
-		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell[6]/div/span")).getText();
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int result = Integer.parseInt(depthbefore);
 		System.out.println(result);
 		
 		//Select Load from file Option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions MessagesMousehour=new Actions(driver);
-		MessagesMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[2]")).click();
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Load From File...")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
+		Thread.sleep(2000);
 		
 		//Loading the file into queue by using robot class
-		StringSelection stringSelection = new StringSelection("F:\\Nagaraju\\Issues and Screenshots\\Channel properties.png");
+		String filepath=System.getProperty("user.dir") + "\\" + UploadFilepath;
+		StringSelection stringSelection = new StringSelection(filepath);
+		//StringSelection stringSelection = new StringSelection(UploadFilepath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 	    Robot robot = new Robot();
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
@@ -247,7 +287,7 @@ static WebDriver driver;
 	    Thread.sleep(1000);
 	    
 	    //store the queue depth after loading file
-		String depthafter=driver.findElement(By.xpath("//datatable-body-cell[6]/div/span")).getText();	
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
 		int result1 = Integer.parseInt(depthafter);
 		System.out.println(result1);
 				
@@ -276,9 +316,9 @@ static WebDriver driver;
 		//Export All Messages As MMF
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions MMFMousehour=new Actions(driver);
-		MMFMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		MMFMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[3]/a"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[3]/ul/li")).click();
+		MMFMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		MMFMousehour.moveToElement(driver.findElement(By.linkText("Export All Messages..."))).perform();
+		driver.findElement(By.linkText("As .MMF")).click();
 		Thread.sleep(1000);                                       
 		
 		//Click on Yes button
@@ -288,9 +328,9 @@ static WebDriver driver;
 		//Export All Messages as TXT
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions TXTMousehour=new Actions(driver);
-		TXTMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		TXTMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[3]/a"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[3]/ul/li[2]")).click();
+		TXTMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		TXTMousehour.moveToElement(driver.findElement(By.linkText("Export All Messages..."))).perform();
+		driver.findElement(By.linkText("As .TXT")).click();
 		Thread.sleep(1000);
 		
 		//Click on Yes button
@@ -303,34 +343,43 @@ static WebDriver driver;
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got exception while exporting messages, check details: "+ e.getMessage());
 		}
-		
 	}
 	
 	@Test(priority=4)
 	@TestRail(testCaseId = 85)
 	public static void CopyAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
 		//Find the queue current depth
-		String depthbeforeCopy=driver.findElement(By.xpath("//datatable-body-cell[6]/div/span")).getText();
+		String depthbeforeCopy=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int resultCopy = Integer.parseInt(depthbeforeCopy);
 		System.out.println(resultCopy);
 		
 		//Store depth of the target queue 
-		String TargetQueueDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[6]/div/span")).getText();
+		String TargetQueueDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int TargetCopy=Integer.parseInt(TargetQueueDepth);
 		
 		int FinalResultBefore=resultCopy+TargetCopy;
 		System.out.println(FinalResultBefore);
 		
+		int QueueName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			QueueName_Index=4;
+		}
 		//Second Queue name
-		String SecondQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String SecondQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(SecondQueueName);
 		
 		//Copy All Messages
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions CopyAllMessagesMousehour=new Actions(driver);
-		CopyAllMessagesMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[5]")).click();
+		CopyAllMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Copy All")).click();
 		Thread.sleep(1000);
 		
 		//Search with target queue name 
@@ -340,7 +389,7 @@ static WebDriver driver;
 		Thread.sleep(1000);
 		
 		//Getting the Second Queue depth after copying the all messages
-		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[6]/div/span")).getText();
+		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterCopy=Integer.parseInt(FinalDepth);
 		System.out.println(FinalResultAfterCopy);
 		
@@ -365,27 +414,37 @@ static WebDriver driver;
 	@TestRail(testCaseId = 86)
 	public static void MoveAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
 		//Find the queue current depth
-		String depthbeforeMove=driver.findElement(By.xpath("//datatable-body-cell[6]/div/span")).getText();
+		String depthbeforeMove=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int resultCopy = Integer.parseInt(depthbeforeMove);
 		System.out.println(resultCopy);
 		
 		//Store depth of the target queue
-		String TargetQueueDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[6]/div/span")).getText();
+		String TargetQueueDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int TargetCopy=Integer.parseInt(TargetQueueDepth);
 		
 		int FinalResultBeforeMove=resultCopy+TargetCopy;
 		System.out.println(FinalResultBeforeMove);
 		
+		int QueueName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			QueueName_Index=4;
+		}
 		//Second Queue name
-		String DestinationQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String DestinationQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(DestinationQueueName);
 		
 		//Move All Messages
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions MoveAllMessagesMousehour=new Actions(driver);
-		MoveAllMessagesMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[6]")).click();
+		MoveAllMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Move All")).click();
 		Thread.sleep(1000);
 			
 		//Search with the target queue name
@@ -395,7 +454,7 @@ static WebDriver driver;
 		Thread.sleep(1000);
 		
 		//Second Queue depth after moving the all messages
-		String FinalDepth=driver.findElement(By.xpath("//datatable-body-cell[6]/div/span")).getText();
+		String FinalDepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterMove=Integer.parseInt(FinalDepth);
 		System.out.println(FinalResultAfterMove);
 				
@@ -427,22 +486,27 @@ static WebDriver driver;
 		driver.findElement(By.xpath("//div[3]/button")).click();
 		Thread.sleep(2000);
 		
+		int QueueName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			QueueName_Index=4;
+		}
 		//Queue Name before deleting messages
-		String Queuename=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
+		String Queuename=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(Queuename);
 		
 		//Select Delete All option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions DeleteAllMessagesMousehour=new Actions(driver);
-		DeleteAllMessagesMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[7]")).click();
+		DeleteAllMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Delete All")).click();
 		
 		//Click on Yes button for deleting the queue
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(1000);
 		
 		//Queue name after deleting the messages
-		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
+		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(QueuenameAfter);
 		
 		//verification condition
@@ -474,22 +538,28 @@ static WebDriver driver;
 		driver.findElement(By.xpath("//div[3]/button")).click();
 		Thread.sleep(2000);
 		
+		int QueueName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			QueueName_Index=4;
+		}
+		
 		//Queue Name before deleting messages
-		String Queuename=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
+		String Queuename=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(Queuename);
 		
-		//Select Delete All option
+		//Select Clear All option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions DeleteAllMessagesMousehour=new Actions(driver);
-		DeleteAllMessagesMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li[8]")).click();
+		DeleteAllMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Clear All")).click();
 		
 		//Click on Yes for clearing the Messages from the queue
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
 		
 		//Queue name after deleting the messages
-		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
+		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(QueuenameAfter);
 		
 		//verification condition
@@ -529,6 +599,85 @@ static WebDriver driver;
 		//logout and close the browser
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	@AfterMethod
+	public void tearDown(ITestResult result) {
+
+		final String dir = System.getProperty("user.dir");
+		String screenshotPath;
+		//System.out.println("dir: " + dir);
+		if (!result.getMethod().getMethodName().contains("Logout")) {
+			if (ITestResult.FAILURE == result.getStatus()) {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "FAILURE");
+				Reporter.setCurrentTestResult(result);
+
+				Reporter.log("<br/>Failed to execute method: " + result.getMethod().getMethodName() + "<br/>");
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsFailure/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			} else {
+				this.capturescreen(driver, result.getMethod().getMethodName(), "SUCCESS");
+				Reporter.setCurrentTestResult(result);
+
+				// Attach screenshot to report log
+				screenshotPath = dir + "/" + Screenshotpath + "/ScreenshotsSuccess/"
+						+ result.getMethod().getMethodName() + ".png";
+
+			}
+
+			String path = "<img src=\" " + screenshotPath + "\" alt=\"\"\"/\" />";
+			// To add it in the report
+			Reporter.log("<br/>");
+			Reporter.log(path);
+			
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
+		}
+
+	}
+
+	public void capturescreen(WebDriver driver, String screenShotName, String status) {
+		try {
+			
+			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+
+			if (status.equals("FAILURE")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png"));
+				Reporter.log(Screenshotpath + "/ScreenshotsFailure/" + screenShotName + ".png");
+			} else if (status.equals("SUCCESS")) {
+				FileUtils.copyFile(scrFile,
+						new File(Screenshotpath + "./ScreenshotsSuccess/" + screenShotName + ".png"));
+
+			}
+
+			System.out.println("Printing screen shot taken for className " + screenShotName);
+
+		} catch (Exception e) {
+			System.out.println("Exception while taking screenshot " + e.getMessage());
+		}
+
 	}
 
 }

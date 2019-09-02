@@ -20,7 +20,7 @@
     <parameter name="FavoriteViewletName" value="Durable Favorite viewlet"/>
     <parameter name="Favwgs" value="1"/>
     
-    <parameter name="DurableName" value="EMS.Add.Durable"/>
+    <parameter name="DurableName" value="EMS.Add.Durable.selenium"/>
     <parameter name="SelectTopicName" value="EMS.Topic1"/>
 
   
@@ -36,12 +36,12 @@
        <!--  <include name="DeleteCommand"/>  -->
         <include name="Purge"/> 
         <include name="Properties"/>
-        <include name="DurableEvents"/> 
+        <include name="DurableEvents"/>  
         <include name="AddToFavoriteViewlet"/>  
-       <!--  <include name="DeleteMultiples"/> -->
-        <include name="MultiplePurge"/> 
+        <!-- <include name="DeleteMultiples"/> -->
+        <include name="MultiplePurge"/>  
         <include name="MultipleProperties"/> 
-        <include name="AddToFavoriteForMultipleDurables"/>  
+        <include name="AddToFavoriteForMultipleDurables"/>   
         <include name="Logout"/> 
         
        </methods>

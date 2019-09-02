@@ -47,13 +47,13 @@
         <include name="AddProcessViewlet"/>
         <include name="CreateProcessFromPlusIcon"/>   
         <include name="ShowObjectAttributesForProcess"/> 
-        <!-- <include name="CopyAsFromCommands"/>
+       <!--  <include name="CopyAsFromCommands"/>
         <include name="RenameFromCommands"/>
         <include name="DeleteFromCommands"/> --> 
         <include name="CreateProcess"/> 
         <include name="Properties"/> 
         <include name="ProcessEvents"/>  
-        <include name="AddToFavoriteViewlet"/> 
+        <include name="AddToFavoriteViewlet"/>  
         <include name="CompareProcessNames"/>  
         <!-- <include name="CopyAsFromCommandsForMultipleProcess"/>
         <include name="RenameFromCommandsForMultipleProcess"/>

@@ -26,11 +26,11 @@
        
         <include name="Login"/>
         <include name="AddClusterQueueManagerViewlet"/> 
-       <!--  <include name="ShowObjectAttributesForClusterQM"/> -->
-        <include name="ClusterQMEvents"/> 
+        <include name="ShowObjectAttributesForClusterQM"/>
+        <include name="ClusterQMEvents"/>  
         <include name="AddToFavoriteViewlet"/>  
-        <!-- <include name="CompareClusterQueueManagers"/>   -->
-        <include name="AddToFavoriteForMultipleClusterQMs"/>  
+        <include name="CompareClusterQueueManagers"/>    
+        <include name="AddToFavoriteForMultipleClusterQMs"/>   
         <include name="Logout"/> 
         
        </methods>

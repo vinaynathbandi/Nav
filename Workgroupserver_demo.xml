@@ -13,7 +13,7 @@
 
 		<parameter name="IPAddress" value="127.0.0.1" />
 		<parameter name="HostName" value="WGS10" />
-		<parameter name="PortNo" value="4070" />
+		<parameter name="PortNo" value="4090" />
 		<parameter name="WGSPassword" value="admin" />
 
 		<parameter name="VerificationData" value="WGS10" />
@@ -58,7 +58,7 @@
 				<methods>
 					<include name="Login" />
 					<include name="AddWorkgroupFromPlusIcon" />
-					<include name="EditWorkgroup" />
+					<!-- <include name="EditWorkgroup" />
 					<include name="DeleteWorkgroup" />
 					<include name="AddNode" />
 					<include name="AddRemoteQueueManager" />
@@ -68,7 +68,7 @@
 					<include name="ModifyRemoteEMSServer" />
 					<include name="DeleteRemoteEMSServer" />
 
-					<include name="SearchFilter" />
+					<include name="SearchFilter" /> -->
 					<include name="Logout" />
 				</methods>
 

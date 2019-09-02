@@ -3,51 +3,30 @@
 <suite name="Navigator">
 	<test name="WorkGroup server Viewlet">
 		<parameter name="sDriver" value="webdriver.chrome.driver" />
-		<parameter name="sDriverpath"
-			value="Drivers/chromedriver.exe" />
-		<parameter name="URL" value="/navigator/#/login" />
-		<parameter name="uname" value="Admin" />
-		<parameter name="password" value="admin" />
-		<parameter name="ScreenshotPath" value="F:\\Nagaraju\\Workgroup server\\"/>
-
-		<parameter name="IPAddress" value="127.0.0.1" />
-		<parameter name="HostName" value="WGS10" />
-		<parameter name="PortNo" value="4070" />
-		<parameter name="WGSPassword" value="admin" />
-
-		<parameter name="VerificationData" value="WGS10" />
+		<parameter name="sDriverpath" value="Drivers/chromedriver.exe" />
+	   
 		<parameter name="ChangedHostName" value="localhost" />
-
-		<parameter name="WGSSearchInputData" value="MQM" />
+		<parameter name="DeleteWGSName" value="WGS10"/>
 
 		<parameter name="NodeName" value="Node-Test" />
 		<parameter name="HostName" value="DESKTOP-7T1JQ3H" />
 		<parameter name="IPAddress" value="127.0.0.1" />
 		<parameter name="PortNumber" value="5010" />
 
-		<parameter name="ConnectionInstanceName"
-			value="REMOTE_QMGRS" />
-		<parameter name="RemoteQueueManagerName"
-			value="QMGR_NAME_DELETE" />
+		<parameter name="ConnectionInstanceName" value="REMOTE_QMGRS" />
+		<parameter name="RemoteQueueManagerName" value="QMGR_NAME_DELETE" />
 		<parameter name="ConnectionName" value="localhost" />
-		<parameter name="CommandQueueName"
-			value="SYSTEM.ADMIN.COMMAND.QUEUE" />
+		<parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE" />
 		<parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN" />
-
-		<parameter name="NewConnectionName" value="192.168.1.208" />
+		<parameter name="Node_NewConnectionName" value="Local Host"/>
 
 		<parameter name="DeleteManagerName" value="QMGR_NAME_DELETE" />
 
-		<parameter name="Dashboardname" value="AddFavorite" />
-		<parameter name="FavoriteViewletName" value="Fav Viewlet" />
-		<parameter name="Favwgs" value="0" />
-
 		<parameter name="AgentInstanceName" value="EMSAGENT01" />
-		<parameter name="ServerName" value="EMS-Server1" />
+		<parameter name="ServerName" value="EMS-Server21" />
 		<parameter name="ServerURL" value="tcp://127.0.0.1:7221" />
 
-		<parameter name="UpdatedServerURL"
-			value="tcp://127.0.0.1:7222" />
+		<parameter name="UpdatedServerURL" value="tcp://127.0.0.1:7222" />
 
 
 		<classes>
@@ -56,10 +35,9 @@
 
 				<methods>
 					<include name="Login" />
-					 <include name="AddWorkgroupFromPlusIcon" />
-					 <include name="EditWorkgroup" />
+				    <include name="AddWorkgroupFromPlusIcon" />
+				    <include name="EditWorkgroup" />
 					<include name="DeleteWorkgroup" />
-					<include name="ConnectIcon" />
 					<include name="AddNode" />
 					<include name="AddRemoteQueueManager" />
 					<include name="ModifyRemoteQueueManager" />
@@ -68,7 +46,7 @@
 					<include name="ModifyRemoteEMSServer" />
 					<include name="DeleteRemoteEMSServer" /> 
 
-					<include name="SearchFilter" /> 
+					<include name="SearchFilter" />  
 					<include name="Logout" />
 				</methods>
 

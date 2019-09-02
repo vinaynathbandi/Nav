@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (17)]">
-  <parameter name="Dashboardname" value="ExportMessage 19715"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="InputData" value="Save messages using default user settings?"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="ExportMessage 19715"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10"/>
+  <test thread-count="5" name="Test Durable Viewlet(failed)">
+    <parameter name="Dashboardname" value="DurableViewlet Verification"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="InputData" value="Save messages using default user settings?"/>
+    <parameter name="FavoriteViewletName" value="Durable Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="Durablename" value="New Durable Viewlet"/>
+    <parameter name="schemaName" value="DurableSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="SelectTopicName" value="EMS.Topic1"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="DeleteDurableName" value="Test.EMS.Durable"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="DurableName" value="EMS.Add.Durable"/>
     <classes>
-      <class name="ApodGUI.ExportMessagesText19715">
+      <class name="ApodGUI.DurableViewlet">
         <methods>
-          <include name="Login"/>
-          <include name="ExportAllMessages"/>
+          <include name="AddToFavoriteForMultipleDurables" invocation-numbers="0"/>
+          <include name="MultipleProperties" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="beforeTest"/>
           <include name="Logout"/>
         </methods>
-      </class> <!-- ApodGUI.ExportMessagesText19715 -->
+      </class> <!-- ApodGUI.DurableViewlet -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Test Durable Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (17)] -->

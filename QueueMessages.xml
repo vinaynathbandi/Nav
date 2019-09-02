@@ -27,7 +27,7 @@
         <include name="CopyAllMessagesFromOneQueueToAnotherQueue"/>
         <include name="MoveAllMessagesFromOneQueueToAnotherQueue"/> 
         <include name="DeleteAllMessagesFromQueue"/>   
-        <include name="ClearAllMessagesFromQueue"/>  
+        <include name="ClearAllMessagesFromQueue"/>    
         <include name="Logout"/> 
         
        </methods>

@@ -3,29 +3,30 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="ApodGUI.Scheduling"/>
+      <class name="ApodGUI.WorkgroupServer"/>
     </classes>
   </test> <!-- Default test -->
   <test name="Default test(failed)">
     <classes>
-      <class name="ApodGUI.Scheduling">
+      <class name="ApodGUI.WorkgroupServer">
         <methods>
-          <include name="beforeTest"/>
-          <include name="ManagerScheduling"/>
-          <include name="RouteScheduling"/>
-          <include name="tearDown"/>
-          <include name="BridgeScheduling"/>
-          <include name="ChannelScheduling"/>
-          <include name="DurableScheduling"/>
-          <include name="Logout"/>
-          <include name="QueuesScheduling"/>
-          <include name="ProcessScheduling"/>
-          <include name="ListenerScheduling"/>
+          <include name="ModifyRemoteQueueManager"/>
+          <include name="ConnectIcon"/>
+          <include name="DeleteWorkgroup"/>
+          <include name="DeleteRemoteQueueManager"/>
           <include name="Login"/>
-          <include name="TopicScheduling"/>
-          <include name="SubScriptionScheduling"/>
+          <include name="AddWorkgroupFromPlusIcon"/>
+          <include name="AddRemoteEMSManager"/>
+          <include name="EditWorkgroup"/>
+          <include name="DeleteRemoteEMSServer"/>
+          <include name="AddToFavoriteviewlet"/>
+          <include name="SearchFilter"/>
+          <include name="Logout"/>
+          <include name="ModifyRemoteEMSServer"/>
+          <include name="AddRemoteQueueManager"/>
+          <include name="AddNode"/>
         </methods>
-      </class> <!-- ApodGUI.Scheduling -->
+      </class> <!-- ApodGUI.WorkgroupServer -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

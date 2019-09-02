@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (16)]">
-  <parameter name="Dashboardname" value="EMS19262"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10 - 1"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="Managername" value="EMS Manager"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="Start" value="Start all WMQ objects"/>
-  <parameter name="Stop" value="Stop all WMQ objects"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="commands" value="Commands"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="EMS19262"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10 - 1"/>
+  <test thread-count="5" name="Test Durable Viewlet(failed)">
+    <parameter name="Dashboardname" value="DurableViewlet Verification"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="Managername" value="EMS Manager"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Start" value="Start all WMQ objects"/>
-    <parameter name="Stop" value="Stop all WMQ objects"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="FavoriteViewletName" value="Durable Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="Durablename" value="New Durable Viewlet"/>
+    <parameter name="schemaName" value="DurableSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="commands" value="Commands"/>
+    <parameter name="SelectTopicName" value="EMS.Topic1"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="DeleteDurableName" value="Test.EMS.Durable"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="DurableName" value="EMS.Add.Durable.selenium"/>
     <classes>
-      <class name="ApodGUI.EMSStartandStop19262">
+      <class name="ApodGUI.DurableViewlet">
         <methods>
-          <include name="Login"/>
-          <include name="EMSoptions"/>
-          <include name="Logout"/>
+          <include name="AddToFavoriteForMultipleDurables" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.EMSStartandStop19262 -->
+      </class> <!-- ApodGUI.DurableViewlet -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Test Durable Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (16)] -->

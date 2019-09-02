@@ -1,35 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (13)]">
-  <parameter name="Dashboardname" value="Filter18725"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10 - 1"/>
-  <parameter name="Queuename" value="Queue"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="ErrorMessage" value="Filter name already exists"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="FilterName" value="AAA"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="Filter18725"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10 - 1"/>
-    <parameter name="Queuename" value="Queue"/>
+  <test thread-count="5" name="Test Route Viewlet(failed)">
+    <parameter name="Dashboardname" value="RouteViewlet Verification"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="DeleteRouteName" value="DeleteRoute"/>
+    <parameter name="RouteNameFromIcon" value="EMS-Route-New"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="ErrorMessage" value="Filter name already exists"/>
+    <parameter name="Routename" value="New Route Viewlet"/>
+    <parameter name="FavoriteViewletName" value="Route Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="RouteSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="FilterName" value="AAA"/>
+    <parameter name="ConnectionURLName" value="tcp://127.0.0.1:7222"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="ConnectionURLNameField" value="Test Connection"/>
     <classes>
-      <class name="ApodGUI.AttributeFilterCondition18725">
+      <class name="ApodGUI.RouteViewlet">
         <methods>
-          <include name="Login"/>
-          <include name="Attributefiletr"/>
-          <include name="Logout"/>
+          <include name="beforeTest"/>
+          <include name="tearDown"/>
+          <include name="AddToFavoriteForMultipleRoutes" invocation-numbers="0"/>
+          <include name="MultipleProperties" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.AttributeFilterCondition18725 -->
+      </class> <!-- ApodGUI.RouteViewlet -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Test Route Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (13)] -->

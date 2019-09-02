@@ -15,9 +15,9 @@
     
     <parameter name="SchemaName" value="QueueSchema"/>
     
-    <parameter name="QueueNameFromOptions" value="ABC"/>
+    <parameter name="QueueNameFromOptions" value="EMS_ABC"/>
             
-    <parameter name="QueueName" value="Add.New.Queue"/>
+    <parameter name="QueueName" value="EMS_Add.New.Queue"/>
     <parameter name="QueueDescription" value="Test the Queue"/>
     
     <parameter name="ObjectName" value=".Queue1"/>
@@ -34,20 +34,20 @@
        <methods>
        
         <include name="Login"/>
-        <include name="BrowseMessages"/> 
-       <!--  <include name="ShowObjectAttributesForQueues"/> -->
+        <include name="BrowseMessages"/>  
+        <include name="ShowObjectAttributesForQueues"/>  
         <include name="ShowQueueStatus"/> 
-        <include name="CreateQueueFromOptions"/>  
+        <include name="CreateQueueFromOptions"/> 
         <include name="QueueCommands"/> 
         <include name="QueueProperties"/>
         <include name="QueueEvents"/> 
-       <!--  <include name="AddToFavoriteViewlet"/>   -->
+        <include name="AddToFavoriteViewlet"/>  
          
         <include name="CompareQueues"/> 
-        <include name="ShowQueueStatusForMultipleQueues"/>
+        <include name="ShowQueueStatusForMultipleQueues"/> 
         <include name="MultipleQueueProperties"/> 
-       <!--  <include name="AddToFavoriteForMultipleQueues"/>  -->
-        <include name="AddQueueFromPlusIcon"/>   
+        <include name="AddToFavoriteForMultipleQueues"/>  
+        <include name="AddQueueFromPlusIcon"/>  
         <include name="Logout"/> 
         
        </methods>

@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (23)]">
-  <parameter name="Dashboardname" value="Schedule19595"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="Schedule19595"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10"/>
+  <test thread-count="5" name="Settings(failed)">
+    <parameter name="Dashboardname" value="Settings Dashboard"/>
+    <parameter name="wgs" value="MQM"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="objpath2" value="\\WGS10"/>
+    <parameter name="FavoriteViewletName" value="Fav Viewlet"/>
+    <parameter name="Favwgs" value="MQM - 1"/>
+    <parameter name="objpath1" value="\\MQM"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <classes>
-      <class name="ApodGUI.ScheduleView19595">
-        <methods>
-          <include name="Login"/>
-          <include name="ExportAllMessages"/>
-          <include name="Logout"/>
-        </methods>
-      </class> <!-- ApodGUI.ScheduleView19595 -->
-    </classes>
-  </test> <!-- Test Manager Viewlet -->
-  <test name="Test Manager Viewlet(failed)">
-    <parameter name="Dashboardname" value="Schedule19595"/>
     <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10"/>
-    <parameter name="uname" value="Admin"/>
+    <parameter name="Manager4" value="Testing"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="Manager3" value="TEST"/>
+    <parameter name="Manager2" value="MGR"/>
+    <parameter name="Manager1" value="M10"/>
     <classes>
-      <class name="ApodGUI.ScheduleView19595">
+      <class name="ApodGUI.NavigatorSettings">
         <methods>
+          <include name="ShowTemporaryDynamicQueues" invocation-numbers="0"/>
+          <include name="ShowObjectSearchresultsFromActiveManagersOnly" invocation-numbers="0"/>
+          <include name="Login" invocation-numbers="0"/>
+          <include name="ShowManagersForDefaultSchemas" invocation-numbers="0"/>
+          <include name="ShowSystemObjectsOnly" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="ShowFullNamesForFavoriteShortcuts" invocation-numbers="0"/>
           <include name="Logout"/>
+          <include name="ShowInActiveChannelsCheckbox" invocation-numbers="0"/>
+          <include name="ShowFullNamesForSearchResultsObjects" invocation-numbers="0"/>
+          <include name="ShowEmptyQueuesCheckbox" invocation-numbers="0"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ApodGUI.ScheduleView19595 -->
+      </class> <!-- ApodGUI.NavigatorSettings -->
     </classes>
-  </test> <!-- Test Manager Viewlet(failed) -->
+  </test> <!-- Settings(failed) -->
 </suite> <!-- Failed suite [Navigator (23)] -->

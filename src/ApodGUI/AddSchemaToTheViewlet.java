@@ -26,43 +26,47 @@ import org.testng.annotations.Test;
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
+import testrail.TestRailAPI;
 
 @Listeners(TestClass.class)
 public class AddSchemaToTheViewlet 
 {
 	static WebDriver driver;
-	static String IPAddress;
-	static String HostName;
-	static String PortNo;
-	static String WGSPassword;
-	static String uname;
-	static String password;
-	static String Favwgs;
-	static String URL;
-	static String wgs;
-	String Screenshotpath;
+	static String WGS_INDEX;
+	static String Screenshotpath;
+	static String DownloadPath;
+	static String WGSName;
+	static String UploadFilepath;
+	static String EMS_WGS_INDEX;
+	static String EMS_WGSNAME;
+	static String SelectTopicName;
+	static String DeleteDurableName;
+
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		System.out.println("BeforeTest");
-		testrail.Settings.read();
-		IPAddress = Settings.getIPAddress();
-		HostName = Settings.getWGS_HostName();
-		PortNo = Settings.getWGS_PortNo();
-		WGSPassword = Settings.getWGS_Password();
-
-		URL = Settings.getSettingURL();
-		uname = Settings.getNav_Username();
-		password = Settings.getNav_Password();
-	
-		Screenshotpath = Settings.getScreenshotPath();
+		Settings.read();
+		
+		WGS_INDEX =Settings.getWGS_INDEX();
+		Screenshotpath =Settings.getScreenshotPath();
+		DownloadPath =Settings.getDownloadPath();
+		WGSName =Settings.getWGSNAME();
+		UploadFilepath =Settings.getUploadFilepath();
+		EMS_WGS_INDEX =Settings.getEMS_WGS_INDEX();
+		EMS_WGSNAME =Settings.getEMS_WGSNAME();
+		SelectTopicName = Settings.getSelectTopicName(); 
+		DeleteDurableName =Settings.getDeleteDurableName();
 	}
 	
 	@Test
 	@Parameters({"sDriver", "sDriverpath"})
 	public static void Login(String sDriver, String sDriverpath) throws Exception
 	{
-	
+		Settings.read();
+		String URL = Settings.getSettingURL();
+		String uname=Settings.getNav_Username();
+		String password=Settings.getNav_Password();
 		
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
@@ -96,13 +100,13 @@ public class AddSchemaToTheViewlet
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 	}
 	
-	@Parameters({"Dashboardname", "wgs"})
+	@Parameters({"Dashboardname"})
 	@TestRail(testCaseId=316)
 	@Test(priority=1)
-	public static void AddNewDashboard(String Dashboardname, int wgs, ITestContext context) throws Exception
+	public static void AddNewDashboard(String Dashboardname, ITestContext context) throws Exception
 	{
 		
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -113,7 +117,7 @@ public class AddSchemaToTheViewlet
 		
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
-		dd.selectByIndex(wgs);
+		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
 			
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(1000);
@@ -159,13 +163,12 @@ public class AddSchemaToTheViewlet
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-mod-manage-schemas/div/div[2]/button[2]")).click();
-		Thread.sleep(3000);
 		
 		//Verification
-		String data=driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-header/div/div[2]/datatable-header-cell[3]/div")).getText();
+		String data=driver.findElement(By.xpath("//tbody")).getText();
+		System.out.println("Schema names:" +data);
 		
-		if(data.equalsIgnoreCase(AttributeFirstValue))
+		if(data.contains(SchemaName))
 		{
 			System.out.println("Schema is added successfully");
 			context.setAttribute("Status", 1);
@@ -177,8 +180,12 @@ public class AddSchemaToTheViewlet
 			System.out.println("Schema is not added successfully");
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Faled to add Schema");
+			driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-mod-manage-schemas/div/div[2]/button[2]")).click();
 			driver.findElement(By.xpath("verfication failed"));
 		}
+		
+		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/app-mod-manage-schemas/div/div[2]/button[2]")).click();
+		Thread.sleep(2000);
 	}
 	
 	@Parameters({"SchemaName"})
@@ -253,10 +260,11 @@ public class AddSchemaToTheViewlet
 	{
 		//Click on Remove all button
 		driver.findElement(By.xpath("//button[4]")).click();
+		Thread.sleep(2000);
 		
 		//Store the Displayed attributes field data into string
 		String DisplayedAttributes=driver.findElement(By.xpath("//div[3]/table/tbody")).getText();
-		//System.out.println(DisplayedAttributes);
+		System.out.println("Data after click on Remove All: " +DisplayedAttributes);
 		
 		if(DisplayedAttributes.equalsIgnoreCase(DisplayedAttributesAfterRemoving))
 		{
@@ -311,10 +319,11 @@ public class AddSchemaToTheViewlet
 		
 		//click on remove button
 		driver.findElement(By.xpath("//button[3]")).click();
+		Thread.sleep(2000);
 		
 		//Store the Displayed attributes field data into string
 		String DisplayedAttributes=driver.findElement(By.xpath("//div[3]/table/tbody")).getText();
-		//System.out.println(DisplayedAttributes);
+		System.out.println("Data After click on Remove: " +DisplayedAttributes);
 		
 		if(DisplayedAttributes.equalsIgnoreCase(DisplayedAttributesAfterRemovingAttribute))
 		{
@@ -508,7 +517,9 @@ public class AddSchemaToTheViewlet
 
 		final String dir = System.getProperty("user.dir");
 		String screenshotPath;
-		//System.out.println("dir: " + dir);
+		
+		System.out.println("result getStatus: " + result.getStatus());
+		// System.out.println("dir: " + dir);
 		if (!result.getMethod().getMethodName().contains("Logout")) {
 			if (ITestResult.FAILURE == result.getStatus()) {
 				this.capturescreen(driver, result.getMethod().getMethodName(), "FAILURE");
@@ -533,13 +544,33 @@ public class AddSchemaToTheViewlet
 			// To add it in the report
 			Reporter.log("<br/>");
 			Reporter.log(path);
+			try {
+				//Update attachment to testrail server
+				int testCaseID=0;
+				//int status=(int) result.getTestContext().getAttribute("Status");
+				//String comment=(String) result.getTestContext().getAttribute("Comment");
+				  if (result.getMethod().getConstructorOrMethod().getMethod().isAnnotationPresent(TestRail.class))
+					{
+					TestRail testCase = result.getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestRail.class);
+					// Get the TestCase ID for TestRail
+					testCaseID = testCase.testCaseId();
+					
+					
+					
+					TestRailAPI api=new TestRailAPI();
+					api.Getresults(testCaseID, result.getMethod().getMethodName());
+					
+					}
+				}catch (Exception e) {
+					// TODO: handle exception
+					//e.printStackTrace();
+				}
 		}
 
 	}
 
 	public void capturescreen(WebDriver driver, String screenShotName, String status) {
 		try {
-			TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 

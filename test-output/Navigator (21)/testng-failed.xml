@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (21)]">
-  <parameter name="password" value="admin"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Test Manager Viewlet">
+  <test thread-count="5" name="Test EMS Channel Viewlet(failed)">
+    <parameter name="Dashboardname" value="EMS Channel Verification"/>
     <parameter name="password" value="admin"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="ChannelName" value="EMS Channel Viewlet"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="FavoriteViewletName" value="Favorite for Channels"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="ChannelSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.NodeInsteadOfManager20002">
+      <class name="ApodGUI.EMSChannels">
         <methods>
-          <include name="Login"/>
-          <include name="Node"/>
-          <include name="Logout"/>
+          <include name="AddToFavoriteForMultipleChannels" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="beforeTest"/>
+          <include name="AddToFavorites" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.NodeInsteadOfManager20002 -->
+      </class> <!-- ApodGUI.EMSChannels -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Test EMS Channel Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (21)] -->

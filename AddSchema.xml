@@ -25,7 +25,7 @@
         <include name="Login"/>
         <include name="AddNewDashboard"/>
         <include name="AddSchema"/>
-        <include name="DeleteSchema"/> 
+        <include name="DeleteSchema"/>  
         <include name="AddAllAttributesButton"/>
         <include name="RemoveAllAttributesButton"/>
         <include name="AddAttributesButton"/>
@@ -33,7 +33,7 @@
         <include name="MoveToTopButton"/>
         <include name="MoveToBottomButton"/>
         <include name="MoveUpButton"/>
-        <include name="MoveDownButton"/>
+        <include name="MoveDownButton"/> 
         <include name="Logout"/>
         
        </methods>

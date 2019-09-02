@@ -1,0 +1,227 @@
+<html>
+<head>
+<title>TestNG:  Test Listener Viewlet</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test Listener Viewlet</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>12/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Mon Aug 26 17:26:05 IST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>255 seconds (255043 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.AddListenerViewlet()'><b>AddListenerViewlet</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: New Listener Viewlet, org.testng.TestRunner@4353db40<br/>
+<a href="#Output-356539297" onClick='toggleBox("Output-356539297", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-356539297" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-356539297">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddListenerViewlet.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.AddToFavoriteForMultipleListeners()'><b>AddToFavoriteForMultipleListeners</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: Favorite Viewlet for Listener, org.testng.TestRunner@4353db40<br/>
+<a href="#Output-80867688" onClick='toggleBox("Output-80867688", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-80867688" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-80867688">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleListeners.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.AddToFavoriteViewlet()'><b>AddToFavoriteViewlet</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: Favorite Viewlet for Listener, org.testng.TestRunner@4353db40<br/>
+<a href="#Output-1286968216" onClick='toggleBox("Output-1286968216", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1286968216" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1286968216">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>8</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.CompareListeners()'><b>CompareListeners</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: org.testng.TestRunner@4353db40<br/>
+<a href="#Output-1736264938" onClick='toggleBox("Output-1736264938", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1736264938" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1736264938">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/CompareListeners.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.CreateListener()'><b>CreateListener</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: Test.Listener.First1, Description from Options, org.testng.TestRunner@4353db40<br/>
+<a href="#Output-877095353" onClick='toggleBox("Output-877095353", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-877095353" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-877095353">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/CreateListener.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>15</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.CreateListenerFromPlusIcon()'><b>CreateListenerFromPlusIcon</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: Test.Listener.Icon, Icon Description, org.testng.TestRunner@4353db40<br/>
+<a href="#Output-1700499817" onClick='toggleBox("Output-1700499817", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1700499817" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1700499817">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/CreateListenerFromPlusIcon.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.ListenerEvents()'><b>ListenerEvents</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: org.testng.TestRunner@4353db40<br/>
+<a href="#Output-2110350270" onClick='toggleBox("Output-2110350270", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2110350270" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2110350270">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/ListenerEvents.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.ListenerMultipleProperties()'><b>ListenerMultipleProperties</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: Multiple properties, org.testng.TestRunner@4353db40<br/>
+<a href="#Output-1186984840" onClick='toggleBox("Output-1186984840", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1186984840" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1186984840">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/ListenerMultipleProperties.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.ListenerProperties()'><b>ListenerProperties</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: org.testng.TestRunner@4353db40<br/>
+<a href="#Output-551104286" onClick='toggleBox("Output-551104286", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-551104286" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-551104286">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/ListenerProperties.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>2</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.Login()'><b>Login</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: webdriver.chrome.driver, Drivers/chromedriver.exe, Listener Viewlet Verification<br/>
+<a href="#Output-1429212051" onClick='toggleBox("Output-1429212051", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1429212051" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1429212051">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.Logout()'><b>Logout</b><br>Test class: ApodGUI.ListenerViewlet</td>
+<td></td>
+<td>2</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+<tr>
+<td title='ApodGUI.ListenerViewlet.ShowObjectAttributesForListener()'><b>ShowObjectAttributesForListener</b><br>Test class: ApodGUI.ListenerViewlet<br>Parameters: ListnerSchema, org.testng.TestRunner@4353db40<br/>
+<a href="#Output-1181479782" onClick='toggleBox("Output-1181479782", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1181479782" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1181479782">
+<br/><br/>
+<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForListener.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>45</td>
+<td>ApodGUI.ListenerViewlet@544a2ea6</td></tr>
+</table><p>
+</body>
+</html>

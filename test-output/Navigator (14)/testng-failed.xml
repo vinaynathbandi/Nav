@@ -1,39 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (14)]">
-  <parameter name="Dashboardname" value="ManagerOptions19787"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10 - 1"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="Managername" value="Manager"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="Start" value="Start all WMQ objects"/>
-  <parameter name="Stop" value="Stop all WMQ objects"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="ManagerOptions" value="Show Object Attributes,Show Topology,Create Queue Manager,Commands,Properties...,MQSC,Discover now,Delete,Delete from database,Events...,Add to favorites..."/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="commands" value="Commands"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="ManagerOptions19787"/>
+  <test thread-count="5" name="Test EMS Manager Viewlet options(failed)">
+    <parameter name="Dashboardname" value="EMS Manager"/>
     <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10 - 1"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="Managername" value="Manager"/>
+    <parameter name="Managername" value="EMS Manager"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Start" value="Start all WMQ objects"/>
-    <parameter name="Stop" value="Stop all WMQ objects"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="ManagerOptions" value="Show Object Attributes,Show Topology,Create Queue Manager,Commands,Properties...,MQSC,Discover now,Delete,Delete from database,Events...,Add to favorites..."/>
+    <parameter name="FavoriteViewletName" value="EMS Manager Favorite Viewlet"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="commands" value="Commands"/>
+    <parameter name="SchemaName" value="EMSManager"/>
     <classes>
-      <class name="ApodGUI.ManagerOptions19787">
+      <class name="ApodGUI.EMSManagerViewlet">
         <methods>
-          <include name="Login"/>
-          <include name="ManagerOptions"/>
-          <include name="Logout"/>
+          <include name="Login" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="tearDown"/>
+          <include name="AddToFavorites" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.ManagerOptions19787 -->
+      </class> <!-- ApodGUI.EMSManagerViewlet -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Test EMS Manager Viewlet options(failed) -->
 </suite> <!-- Failed suite [Navigator (14)] -->

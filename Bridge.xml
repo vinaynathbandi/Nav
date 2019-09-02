@@ -36,15 +36,15 @@
         <include name="Login"/>
         <include name="AddBridgeViewlet"/> 
         <include name="ShowObjectAttributesForBridge"/> 
-        <!-- <include name="DeleteCommand"/>   
-        <include name="AddBridgeFromPlusIcon"/>-->
+       <!--  <include name="DeleteCommand"/> -->   
+        <include name="AddBridgeFromPlusIcon"/>
         <include name="Properties"/>
         <include name="BridgeEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareBridges"/>  
-       <!--  <include name="DeleteMultiples"/> -->
+      <!--   <include name="DeleteMultiples"/>  -->
         <include name="MultipleBridgeProperties"/>  
-        <include name="AddToFavoriteForMultipleBridges"/>   
+        <include name="AddToFavoriteForMultipleBridges"/>  
         <include name="Logout"/> 
         
        </methods>

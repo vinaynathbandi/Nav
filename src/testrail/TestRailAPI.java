@@ -57,7 +57,7 @@ public class TestRailAPI {
 			// Get test runs using project id
 			testrunsarr = (JSONArray) client.sendGet("get_runs/" + project_id);
 
-			// System.out.println("test run :" + testrunsarr);
+			 System.out.println("test run :" + testrunsarr.size());
 			for (int i = 0; i < testrunsarr.size(); i++) {
 				JSONObject testrunobj = (JSONObject) testrunsarr.get(i);
 				// Reading project details
@@ -65,7 +65,7 @@ public class TestRailAPI {
 					run_id = (int) (long) testrunobj.get("id");
 					suite_id = (int) (long) testrunobj.get("suite_id");
 					// getTests(run_id,client);
-					// System.out.println("Run id: " + run_id);
+					 System.out.println("Run id: " + run_id);
 					// System.out.println("Suite id: " + suite_id);
 
 					Map<String, Comparable> data = new HashMap();
@@ -93,14 +93,16 @@ public class TestRailAPI {
 						 * System.out.println("defect id: " + defect_id);
 						 */
 
+						if(run_id==11)
+						{
 						JSONObject r = addResult(status_id, comment, run_id, p_caseId, methodname);
+						}
 
 						/*
 						 * JSONObject r = (JSONObject) TestRailAPI.client()
 						 * .sendPost("add_result_for_case/" + run_id + "/" + testCaseID, data);
 						 */
 					}
-
 				}
 			}
 		} catch (Exception e) {
@@ -240,8 +242,11 @@ public class TestRailAPI {
 						 * 
 						 * System.out.println("defect id: " + defect_id);
 						 */
-
-						JSONObject r = UpdateResult(run_id, p_caseId, methodname);
+						if(run_id==11)
+						{
+							JSONObject r = UpdateResult(run_id, p_caseId, methodname);
+						}
+						
 
 						/*
 						 * JSONObject r = (JSONObject) TestRailAPI.client()
@@ -264,22 +269,29 @@ public class TestRailAPI {
 			APIClient client = TestRailAPI.client();
 			JSONArray resiltobj = (JSONArray) client.sendGet("get_results_for_case/" + p_runId + "/" + p_caseId);
 
-			// System.out.println("Result: "+ (JSONObject) resiltobj.get(0));
+			 //System.out.println("Result: "+ (JSONObject) resiltobj.get(0));
 
 			JSONObject obj = (JSONObject) resiltobj.get(0);
 
 			int result_id = (int) (long) obj.get("id");
 			
 			int p_statusId =(int) (long) obj.get("status_id");
+			
+			JSONArray arr=(JSONArray) obj.get("attachment_ids");
+			
+			//System.out.println("Array size: "+ arr.size());
 
 			//System.out.println("Result id: " + result_id);
 
+			if(arr.size()==0)
+			{
 			if (p_statusId == 5) {
 				JSONObject c = (JSONObject) client.sendPost("add_attachment_to_result/" + result_id,
 						"Screenshots/ScreenshotsFailure/" + methodname + ".png");
 			} else {
 				JSONObject c = (JSONObject) client.sendPost("add_attachment_to_result/" + result_id,
 						"Screenshots/ScreenshotsSuccess/" + methodname + ".png");
+			}
 			}
 		} catch (Exception e) {
 

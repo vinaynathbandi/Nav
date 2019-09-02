@@ -8,7 +8,7 @@
     <parameter name="uname" value="Admin"/>
     <parameter name="password" value="admin"/>
     <parameter name="DownloadPath" value="F:\Navigator Exported Messages\Export Query From MQSC Console"/>
-    <parameter name="PortNo" value="4070"/>
+    <parameter name="PortNo" value="4020"/>
     
     <parameter name="Dashboardname" value="Manager"/>
     <parameter name="wgs" value="1"/>
@@ -17,8 +17,7 @@
     <parameter name="WGSName" value="WGS10 - 1"/>
     
     <!-- <parameter name="wgs" value="0"/> -->
-    <parameter name="Nodename" value="ManagerNode"/>
-    
+       
     <parameter name="Query" value="DISPLAY QL(*)"/>
     
     <parameter name="QueueManagerName" value="QM10"/>
@@ -27,20 +26,18 @@
     
     <parameter name="SearchInputData" value="Test"/>
     
-    <parameter name="FavoriteViewletName1" value="Manager Favorite Viewlet"/>
-    <parameter name="Favwgs1" value="0"/>
     <parameter name="FavoriteViewletName" value="Manager Favorite Viewlet"/>
-    <parameter name="Favwgs2" value="1"/>
+   
     
-    <parameter name="DeleteManagerCheckboxValue" value="3"/>
+    <parameter name="DeleteManagerName" value="M10"/>
     
-    <parameter name="QueueManagerNameFromOptions" value="Nastel"/>
+    <parameter name="QueueManagerNameFromOptions" value="Nastel3"/>
     <parameter name="DefaultTransmissionQueueFromOptions" value="Add.Queue"/>
     <parameter name="DescriptionFromOptions" value="Test Queue From options"/>  
     
     <parameter name="IPAddress" value="127.0.0.1"/>
     <parameter name="HostName" value="WGS10"/>
-    <parameter name="PortNo" value="4070"/>
+    <parameter name="PortNo" value="4020"/>
     <parameter name="WGSPassword" value="admin"/>
     
     <parameter name="SchemaName" value="TestManager"/>
@@ -56,9 +53,9 @@
         <include name="Login"/>
         <include name="AddNewManagerFromIcon"/>    
         <include name="ShowObjectAttributes"/>    
-        <include name="ShowTopology"/>
-        <!-- <include name="StartAllWMQObjects"/> 
-        <include name="StopAllWMQObjects"/>  -->
+        <include name="ShowTopology"/> 
+       <!--  <include name="StartAllWMQObjects"/> 
+        <include name="StopAllWMQObjects"/> --> 
         <include name="Security"/>
         <include name="ViewErrorLogs"/> 
         <include name="Properties"/> 
@@ -70,11 +67,11 @@
         <include name="AddToFavorites"/>  
         <include name="CompareManagers"/>
        <!--  <include name="StartAllWMQObjectsForMultipleManagers"/>
-        <include name="StopAllWMQObjectsForMultipleManagers"/>  -->
+        <include name="StopAllWMQObjectsForMultipleManagers"/>  --> 
         <include name="MultipleManagersProperties"/>
         <include name="AddToFavoriteForMultipleManagers"/>
-        <include name="CreateQueueManagerFromOptions"/>  
-        <include name="SearchFilter"/>  
+        <include name="CreateQueueManagerFromOptions"/>   
+        <include name="SearchFilter"/>   
         <include name="Logout"/> 
         
        </methods>

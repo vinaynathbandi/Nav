@@ -91,19 +91,49 @@ public class Settings {
 	private static String DestinationManagerFromIcon;
 	private static String DestinationQueueFromIcon;
 	
+	private static String M_QueueManagerName;
+	private static String UploadFilepath;
+	private static String DWGS;
+	
+	private static String EMS_WGS_INDEX;
+	private static String EMS_WGSNAME;
+	
+	private static String SourceName;
+	private static String TargetName;
+	private static String SelectTopicName;
+	
 	private static String S_WGSName;
 	
-	private static String M_QueueManagerName;
+	private static String Manager1;
+	private static String Manager2;
+	private static String NodeWGS;
 	
-	
-	
-	public static String getM_QueueManagerName() {
-		return M_QueueManagerName;
+	public static String getNodeWGS() {
+		return NodeWGS;
 	}
 
 
-	public static void setM_QueueManagerName(String m_QueueManagerName) {
-		M_QueueManagerName = m_QueueManagerName;
+	public static void setNodeWGS(String nodeWGS) {
+		NodeWGS = nodeWGS;
+	}
+
+
+	public static String getManager1() {
+		return Manager1;
+	}
+
+
+	public static void setManager1(String manager1) {
+		Manager1 = manager1;
+	}
+	
+	public static String getManager2() {
+		return Manager2;
+	}
+
+
+	public static void setManager2(String manager2) {
+		Manager2 = manager2;
 	}
 
 
@@ -114,6 +144,76 @@ public class Settings {
 
 	public static void setS_WGSName(String s_WGSName) {
 		S_WGSName = s_WGSName;
+	}
+
+
+	public static String getSelectTopicName() {
+		return SelectTopicName;
+	}
+
+
+	public static void setSelectTopicName(String selectTopicName) {
+		SelectTopicName = selectTopicName;
+	}
+
+
+	public static String getTargetName() {
+		return TargetName;
+	}
+
+
+	public static void setTargetName(String targetName) {
+		TargetName = targetName;
+	}
+
+
+	public static String getSourceName() {
+		return SourceName;
+	}
+
+
+	public static void setSourceName(String sourceName) {
+		SourceName = sourceName;
+	}
+
+
+	public static String getEMS_WGSNAME() {
+		return EMS_WGSNAME;
+	}
+
+
+	public static void setEMS_WGSNAME(String eMS_WGSNAME) {
+		EMS_WGSNAME = eMS_WGSNAME;
+	}
+
+
+	public static String getEMS_WGS_INDEX() {
+		return EMS_WGS_INDEX;
+	}
+
+
+	public static void setEMS_WGS_INDEX(String eMS_WGS_INDEX) {
+		EMS_WGS_INDEX = eMS_WGS_INDEX;
+	}
+
+
+	public static String getDWGS() {
+		return DWGS;
+	}
+
+
+	public static void setDWGS(String dWGS) {
+		DWGS = dWGS;
+	}
+
+
+	public static String getM_QueueManagerName() {
+		return M_QueueManagerName;
+	}
+
+
+	public static void setM_QueueManagerName(String m_QueueManagerName) {
+		M_QueueManagerName = m_QueueManagerName;
 	}
 
 
@@ -202,13 +302,39 @@ public class Settings {
 			NodeNameFromIcon= propertiesSetting.getProperty("NodeNameFromIcon");
 			DestinationManagerFromIcon= propertiesSetting.getProperty("DestinationManagerFromIcon");
 			DestinationQueueFromIcon= propertiesSetting.getProperty("DestinationQueueFromIcon");
-			
-			S_WGSName=propertiesSetting.getProperty("S_WGSName");
 			M_QueueManagerName= propertiesSetting.getProperty("M_QueueManagerName");
+			UploadFilepath = propertiesSetting.getProperty("UploadFilepath");
+			DWGS = propertiesSetting.getProperty("DWGS");
+			
+			EMS_WGS_INDEX = propertiesSetting.getProperty("EMS_WGS_INDEX");
+			EMS_WGSNAME = propertiesSetting.getProperty("EMS_WGSNAME");
+			
+			SourceName = propertiesSetting.getProperty("SourceName");
+			TargetName = propertiesSetting.getProperty("TargetName");
+			
+			SelectTopicName = propertiesSetting.getProperty("SelectTopicName");
+			
+			S_WGSName=propertiesSetting.getProperty("EMS_WGSNAME");
+			
+			Manager1 = propertiesSetting.getProperty("Manager1");
+			Manager2 = propertiesSetting.getProperty("Manager2");
+			NodeWGS = propertiesSetting.getProperty("NodeWGS");
+			
+			
 		}
 	}
 
 	
+	public static String getUploadFilepath() {
+		return UploadFilepath;
+	}
+
+
+	public static void setUploadFilepath(String uploadFilepath) {
+		UploadFilepath = uploadFilepath;
+	}
+
+
 	public static Properties getPropertiesSetting() {
 		return propertiesSetting;
 	}

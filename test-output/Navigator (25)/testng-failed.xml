@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (25)]">
-  <parameter name="password" value="admin"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Test Manager Viewlet">
+  <test thread-count="5" name="Schedule(failed)">
+    <parameter name="ViewletName" value="ScheduleViewletObject"/>
+    <parameter name="Dashboardname" value="Scheduling"/>
     <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="NameOfTheMonth" value="Apr"/>
+    <parameter name="YearValue" value="2028"/>
     <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.AutoLogin19862">
+      <class name="ApodGUI.Scheduling">
         <methods>
-          <include name="Login"/>
-          <include name="LoginUser"/>
-          <include name="Logout"/>
+          <include name="ProcessScheduling" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="TopicScheduling" invocation-numbers="0"/>
+          <include name="SubScriptionScheduling" invocation-numbers="0"/>
+          <include name="ManagerScheduling" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="BridgeScheduling" invocation-numbers="0"/>
+          <include name="ChannelScheduling" invocation-numbers="0"/>
+          <include name="DurableScheduling" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.AutoLogin19862 -->
+      </class> <!-- ApodGUI.Scheduling -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Schedule(failed) -->
 </suite> <!-- Failed suite [Navigator (25)] -->

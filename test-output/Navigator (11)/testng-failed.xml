@@ -1,37 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (11)]">
-  <parameter name="ConnectionName" value="localhost"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="RemoteQueueManagerName" value="QMGR_NAME"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="ConnectionInstanceName" value="REMOTE_QMGRS"/>
-  <parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE"/>
-  <parameter name="NewConnectionName" value="192.168.1.210"/>
-  <test name="Testing WorkGroup server viewlet options">
-    <parameter name="ConnectionName" value="localhost"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="RemoteQueueManagerName" value="QMGR_NAME"/>
+  <test thread-count="5" name="Test Subscription Viewlet(failed)">
+    <parameter name="Dashboardname" value="Subscription Verification"/>
+    <parameter name="AddSubscriptionNameFromIcon" value="SYSTEM.ADD.ICON.SUBSCRIPTION"/>
+    <parameter name="NodeName" value="DESKTOP-E1JT2VR"/>
+    <parameter name="DestinationNodeName" value="DESKTOP-E1JT2VR"/>
+    <parameter name="DestinationIconTopicName" value="SYSTEM.ADMIN.TOPIC"/>
+    <parameter name="FavoriteViewletName" value="Subscription Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="RenameSubscription" value="Test.Subscription.Rename"/>
+    <parameter name="schemaName" value="SubscriptionSchema"/>
+    <parameter name="CopyObjectName" value=".Copy"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="ConnectionInstanceName" value="REMOTE_QMGRS"/>
-    <parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE"/>
-    <parameter name="NewConnectionName" value="192.168.1.210"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="Subscriptionname" value="New Subscription Viewlet"/>
+    <parameter name="TopicStringData" value="Unique"/>
+    <parameter name="DestinationQueue" value="AC"/>
+    <parameter name="SubscriptionAttributes" value="Attributes"/>
+    <parameter name="DWGS" value="WGS10"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="uname" value="Admin"/>
+    <parameter name="DestinationManager" value="AA"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
+    <parameter name="SubscriptionName" value="A.M10.TestCopy.suscription.copy"/>
+    <parameter name="NodeNameFromIcon" value="DESKTOP-E1JT2VR"/>
+    <parameter name="DestinationQueueFromIcon" value="ABCD"/>
+    <parameter name="TopicStringDataFromICon" value="UniqueIcon"/>
+    <parameter name="DestinationManagerName" value="M1"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="DWGSIcon" value="WGS10"/>
+    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
+    <parameter name="DestinationManagerFromIcon" value="M1"/>
     <classes>
-      <class name="ApodGUI.AddRemoteQueueManager19564">
+      <class name="ApodGUI.SubscriptionViewlet">
         <methods>
-          <include name="Login"/>
-          <include name="AddRemoteQueueManager"/>
-          <include name="Logout"/>
+          <include name="beforeTest"/>
+          <include name="tearDown"/>
+          <include name="CreateSubscriptionFromPlusIcon" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.AddRemoteQueueManager19564 -->
+      </class> <!-- ApodGUI.SubscriptionViewlet -->
     </classes>
-  </test> <!-- Testing WorkGroup server viewlet options -->
+  </test> <!-- Test Subscription Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (11)] -->

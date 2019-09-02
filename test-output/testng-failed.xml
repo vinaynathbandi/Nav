@@ -1,69 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <parameter name="ViewletName" value="ScheduleViewletObject"/>
-  <parameter name="Dashboardname" value="Scheduling"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="WGSName" value="WGS10 - 1"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="NameOfTheMonth" value="Apr"/>
-  <parameter name="YearValue" value="2028"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <test name="Schedule">
-    <parameter name="ViewletName" value="ScheduleViewletObject"/>
-    <parameter name="Dashboardname" value="Scheduling"/>
+  <test thread-count="5" name="Test Cluster QM Viewlet(failed)">
+    <parameter name="Dashboardname" value="Cluster QM Verification"/>
     <parameter name="password" value="admin"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="NameOfTheMonth" value="Apr"/>
-    <parameter name="YearValue" value="2028"/>
+    <parameter name="FavoriteViewletName" value="Cluster QM Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="ClusterQMSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="Clustername" value="New Cluster Queue Manager Viewlet"/>
     <classes>
-      <class name="ApodGUI.Scheduling">
-        <methods>
-          <include name="Login"/>
-          <include name="ManagerScheduling"/>
-          <include name="QueuesScheduling"/>
-          <include name="ChannelScheduling"/>
-          <include name="ProcessScheduling"/>
-          <include name="TopicScheduling"/>
-          <include name="ListenerScheduling"/>
-          <include name="SubScriptionScheduling"/>
-          <include name="RouteScheduling"/>
-          <include name="BridgeScheduling"/>
-          <include name="DurableScheduling"/>
-          <include name="Logout"/>
-        </methods>
-      </class> <!-- ApodGUI.Scheduling -->
-    </classes>
-  </test> <!-- Schedule -->
-  <test name="Schedule(failed)">
-    <parameter name="ViewletName" value="ScheduleViewletObject"/>
-    <parameter name="Dashboardname" value="Scheduling"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="NameOfTheMonth" value="Apr"/>
-    <parameter name="YearValue" value="2028"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <classes>
-      <class name="ApodGUI.Scheduling">
+      <class name="ApodGUI.ClusterQueueManager">
         <methods>
           <include name="beforeTest"/>
-          <include name="TopicScheduling" invocation-numbers="0"/>
-          <include name="RouteScheduling" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="BridgeScheduling" invocation-numbers="0"/>
-          <include name="ChannelScheduling" invocation-numbers="0"/>
-          <include name="DurableScheduling" invocation-numbers="0"/>
+          <include name="AddToFavoriteViewlet" invocation-numbers="0"/>
+          <include name="AddToFavoriteForMultipleClusterQMs" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.Scheduling -->
+      </class> <!-- ApodGUI.ClusterQueueManager -->
     </classes>
-  </test> <!-- Schedule(failed) -->
+  </test> <!-- Test Cluster QM Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

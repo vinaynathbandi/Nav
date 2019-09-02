@@ -6,3 +6,7 @@
 [0429/120112.123:ERROR:process_info.cc(359)] UncheckedAllocate
 [0429/120325.618:ERROR:filesystem_win.cc(148)] DeleteFile C:\Users\nastel3\AppData\Local\Temp\scoped_dir24896_1159\Crashpad\reports\b16b8f71-aa3f-4dac-b952-00bba21eff29.dmp: The process cannot access the file because it is being used by another process. (0x20)
 [0429/120338.691:ERROR:process_info.cc(359)] UncheckedAllocate
+[0820/182900.702:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/131709.688:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/140549.610:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports
+[0821/140759.104:ERROR:prune_crash_reports.cc(34)] PruneCrashReportDatabase: Failed to get pending reports

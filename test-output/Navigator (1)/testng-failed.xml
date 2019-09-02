@@ -1,37 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (1)]">
-  <parameter name="Dashboardname" value="EMS19262"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="wgs" value="WGS10 - 1"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="Managername" value="EMS Manager"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="Start" value="Start all WMQ objects"/>
-  <parameter name="Stop" value="Stop all WMQ objects"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="commands" value="Commands"/>
-  <test name="Test Manager Viewlet">
-    <parameter name="Dashboardname" value="EMS19262"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10 - 1"/>
+  <test thread-count="5" name="Test Queue Viewlet(failed)">
+    <parameter name="Dashboardname" value="QueuesViewlet Verification"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="QueueDescriptionFromOptions" value="Description of Queue from options"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="Managername" value="EMS Manager"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Start" value="Start all WMQ objects"/>
-    <parameter name="Stop" value="Stop all WMQ objects"/>
+    <parameter name="LocalQueue" value="Local Queue"/>
+    <parameter name="QueueNameFromOptions" value="ABCTest"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="FavoriteViewletName" value="Queues Add to favorite"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="QueueSchema"/>
+    <parameter name="QueueDescription" value="Test the Queue"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="commands" value="Commands"/>
+    <parameter name="ObjectName" value="TesttheObject"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="TestDescription" value="Multiple Description"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="SearchInputData" value="999999999"/>
+    <parameter name="ObjectDescription" value="TesttheobjectDescription"/>
+    <parameter name="QueueName" value="Add.New.Queue"/>
     <classes>
-      <class name="ApodGUI.EMSStartandStop19262">
+      <class name="ApodGUI.QueuesViewlet">
         <methods>
-          <include name="Login"/>
-          <include name="EMSoptions"/>
+          <include name="AddQueueFromPlusIcon" invocation-numbers="0"/>
+          <include name="QueueProperties" invocation-numbers="0"/>
+          <include name="MultipleQueueProperties" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="CreateQueueFromOptions" invocation-numbers="0"/>
+          <include name="SearchFilter" invocation-numbers="0"/>
+          <include name="ShowQueueStatusForMultipleQueues" invocation-numbers="0"/>
+          <include name="AddToFavoriteViewlet" invocation-numbers="0"/>
+          <include name="CompareQueues" invocation-numbers="0"/>
+          <include name="AddToFavoriteForMultipleQueues" invocation-numbers="0"/>
+          <include name="QueueEvents" invocation-numbers="0"/>
           <include name="Logout"/>
+          <include name="beforeTest"/>
+          <include name="QueueCommands" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.EMSStartandStop19262 -->
+      </class> <!-- ApodGUI.QueuesViewlet -->
     </classes>
-  </test> <!-- Test Manager Viewlet -->
+  </test> <!-- Test Queue Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (1)] -->
