@@ -64,20 +64,20 @@
         <include name="Login"/>
         <include name="AddTopicViewlet"/> 
         <include name="ShowObjectAttributesForTopic"/> 
-        <include name="CreateTopic"/>
-     <!--   <include name="CopyAsFromCommands"/>
-        <include name="DeleteFromCommands"/>  
-        <include name="PublishFromCommands"/>-->
+        <include name="CreateTopic"/> 
+        <include name="CopyAsFromCommands"/>
+        <include name="DeleteFromCommands"/> 
+        <include name="PublishFromCommands"/> 
         <include name="TopicProperties"/> 
         <include name="TopicEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareTopics"/>
-       <!--  <include name="CopyAsFromCommandsForMultipleTopics"/>
+        <!-- <include name="CopyAsFromCommandsForMultipleTopics"/>
         <include name="DeleteFromCommandsForMultipleTopics"/>
         <include name="PublishFromCommandsForMultipleTopics"/> -->
         <include name="MultipleProperties"/>  
         <include name="AddToFavoriteForMultipleTopics"/>  
-        <include name="CreateTopicFromPlusIcon"/>  
+        <include name="CreateTopicFromPlusIcon"/>  --> 
         <include name="Logout"/> 
         
        </methods>
