@@ -44,6 +44,7 @@ public class TopicViewlet
 	static String Dnode;
 	static String DestinationManager;
 	static String DestinationQueue;
+	static String DestinationTopicName;
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -58,6 +59,7 @@ public class TopicViewlet
 		Dnode =Settings.getDnode();
 		DestinationManager =Settings.getDestinationManager();
 		DestinationQueue =Settings.getDestinationQueue();
+		DestinationTopicName =Settings.getDestinationTopicName();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
@@ -254,10 +256,10 @@ public class TopicViewlet
     	Thread.sleep(4000);
 	}
 	
-	@Parameters({"CopyObjectName", "TopicNameFromOptions"})
+	@Parameters({"CopyObjectName", "TopicNameFromOptions", "TopicUniquestring"})
 	@TestRail(testCaseId=135)
 	@Test(priority=4)
-	public void CopyAsFromCommands(String CopyObjectName, String TopicNameFromOptions, ITestContext context) throws InterruptedException
+	public void CopyAsFromCommands(String CopyObjectName, String TopicNameFromOptions, String TopicUniquestring, ITestContext context) throws InterruptedException
 	{
 		//Search with the added Topic name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromOptions);
@@ -271,8 +273,11 @@ public class TopicViewlet
     	
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
+    	
+    	//Unique string
+    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestring);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(5000);
     	
     	//Edit the search field data
     	for(int j=0; j<=TopicNameFromOptions.length(); j++)
@@ -281,6 +286,13 @@ public class TopicViewlet
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
+    	        	
+    	//Combining the strings 
+    	String CopyasTopicName=TopicNameFromOptions+CopyObjectName;
+    	System.out.println(CopyasTopicName);
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasTopicName);
     	
     	//Refresh the viewlet
     	for(int i=0; i<=2; i++)
@@ -288,15 +300,17 @@ public class TopicViewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
     	}
-    	
-    	//Combining the strings 
-    	String CopyasTopicName=TopicNameFromOptions+CopyObjectName;
-    	System.out.println(CopyasTopicName);
     	    	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-    	//System.out.println(Subviewlet);
+    	System.out.println("Viewlet data after copy as: " +Subviewlet);
     	
+    	for(int j=0; j<=CopyasTopicName.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
     	//Verification condition
     	if(Subviewlet.contains(CopyasTopicName))
     	{
@@ -313,13 +327,7 @@ public class TopicViewlet
 		
     		driver.findElement(By.xpath("Topic failed to copy")).click();
     	}
-    	Thread.sleep(1000);	
-    	
-    	//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasTopicName);
-    	Thread.sleep(1000);
-    	
+    	Thread.sleep(1000);	   	
 	}
 	
 	@Parameters({"TopicNameFromOptions", "CopyObjectName"})
@@ -327,6 +335,12 @@ public class TopicViewlet
 	@Test(priority=5)
 	public void DeleteFromCommands(String TopicNameFromOptions, String CopyObjectName, ITestContext context) throws InterruptedException
 	{
+		String CopyasTopicName=TopicNameFromOptions+CopyObjectName;
+		
+		//Search with that name
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasTopicName);
+    	Thread.sleep(1000);
 		    	
 		//Select Delete From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -337,8 +351,6 @@ public class TopicViewlet
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(3000);
-    	
-    	String CopyasTopicName=TopicNameFromOptions+CopyObjectName;
     	
     	//Edit the search field data
     	for(int j=0; j<=CopyasTopicName.length(); j++)
@@ -369,12 +381,12 @@ public class TopicViewlet
     	Thread.sleep(1000);
 	}
 	
-	@Parameters({"MessageData", "PropertyName", "PropertyValue", "AddSubscriptionName", "DestinationTopicName"})
+	@Parameters({"MessageData", "PropertyName", "PropertyValue", "AddSubscriptionName"})
 	@TestRail(testCaseId=137)
 	@Test(priority=6)
-	public void PublishFromCommands(String MessageData, String PropertyName, String PropertyValue, String AddSubscriptionName, String DestinationTopicName, ITestContext context) throws InterruptedException
+	public void PublishFromCommands(String MessageData, String PropertyName, String PropertyValue, String AddSubscriptionName, ITestContext context) throws InterruptedException
 	{
-		this.Addsubscription(AddSubscriptionName, DestinationTopicName);
+		this.Addsubscription(AddSubscriptionName);
 		
 		//Show Empty queues
     	driver.findElement(By.xpath("//i[3]")).click();
@@ -413,20 +425,14 @@ public class TopicViewlet
     	
     	try
     	{
-    		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
-    		{
-    			driver.findElement(By.xpath("//app-mod-errors-display/div/button")).click();
-    			driver.findElement(By.cssSelector(".btn-danger")).click();
-    			Thread.sleep(1000);
-    		}
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
     	}
     	catch (Exception e)
     	{
     		
     		System.out.println("Error not present while publishing topic");
-    		context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Got an exception while publishing topic messages, check details: "+ e.getMessage());
-    	}
+       	}
     	
     	Thread.sleep(4000);
     	//get the Current depth of the queue
@@ -1159,8 +1165,8 @@ public class TopicViewlet
 	
 	//Create Subscription Viewlet and Add Subscription
 	
-	@Parameters({"AddSubscriptionName", "DestinationTopicName"})
-	public void Addsubscription(String AddSubscriptionName, String DestinationTopicName) throws InterruptedException
+	@Parameters({"AddSubscriptionName"})
+	public void Addsubscription(String AddSubscriptionName) throws InterruptedException
 	{
 		//Click on Viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -1208,6 +1214,7 @@ public class TopicViewlet
 				{
 					String id=Topic.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
@@ -1246,6 +1253,7 @@ public class TopicViewlet
 				{
 					String id=Node.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
@@ -1270,6 +1278,7 @@ public class TopicViewlet
 				{
 					String id=Manager.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
@@ -1293,6 +1302,7 @@ public class TopicViewlet
 				{
 					String id=QueueName.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
