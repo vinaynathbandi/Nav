@@ -402,7 +402,7 @@ public class ProcessViewlet
     	
     	//Combining the strings 
     	String CopyasProcessName=NewProcessName+CopyObjectName;
-    	//System.out.println(CopyasProcessName);
+    	System.out.println(CopyasProcessName);
     	
     	//Edit the search field data
     	for(int j=0; j<=CopyasProcessName.length(); j++)
@@ -424,11 +424,11 @@ public class ProcessViewlet
     	Thread.sleep(1000); 
     	
     	//Store the Subscription name into string
-    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
-    	System.out.println(ModifiedName);
+    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	System.out.println("Viewlet data after Rename: " +ModifiedName);
     	
     	//Verification condition
-    	if(ModifiedName.equalsIgnoreCase(RenameProcess))
+    	if(ModifiedName.contains(RenameProcess))
     	{
     		System.out.println("The Process is renamed");
     		context.setAttribute("Status", 1);
@@ -459,6 +459,10 @@ public class ProcessViewlet
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(3000);
     	
+    	//Store the viewlet data into string
+    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	System.out.println("Viewlet data after deleting: " +Subviewlet);
+    	
     	//Search with the new name
 		for(int j=0; j<=RenameProcess.length(); j++)
     	{
@@ -466,10 +470,6 @@ public class ProcessViewlet
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
-    	
-    	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-    	//System.out.println(Subviewlet);
     	
     	//Verification of Subscription delete
     	if(Subviewlet.contains(RenameProcess))
@@ -818,6 +818,22 @@ public class ProcessViewlet
 	@Test(priority=12)
 	public void CopyAsFromCommandsForMultipleProcess(String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
 	{
+		int ProcessName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			ProcessName_Index=4;
+		} 
+		
+		//Get First process name
+		String FirstProcess=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ProcessName_Index +"]/div/span")).getText();
+		System.out.println("First process name: " +FirstProcess);
+		String FinalName1=FirstProcess+CopyObjectNameForMultiple;
+		
+		//Get Second Process name
+		String SecondProcess=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ ProcessName_Index +"]/div/span")).getText();
+		System.out.println("Second process name: " +SecondProcess);
+		String FinalName2=SecondProcess+CopyObjectNameForMultiple;
+		
 		//Select the multiple processes and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -830,7 +846,7 @@ public class ProcessViewlet
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(2000);
-    	
+    	   	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
@@ -845,7 +861,7 @@ public class ProcessViewlet
     	//System.out.println(Subviewlet);
     	
     	//Verification condition
-    	if(Subviewlet.contains(CopyObjectNameForMultiple) && Subviewlet.contains(CopyObjectNameForMultiple))
+    	if(Subviewlet.contains(FinalName1) && Subviewlet.contains(FinalName2))
     	{
     		System.out.println("Multiple Process are copied");
     		context.setAttribute("Status",1);
@@ -861,11 +877,15 @@ public class ProcessViewlet
     	Thread.sleep(1000);		
 	}
 	
-	@Parameters({"RenameProcessForMultiple"})
+	@Parameters({"RenameProcessForMultiple", "CopyObjectNameForMultiple"})
 	@TestRail(testCaseId = 128)
 	@Test(priority=13)
-	public void RenameFromCommandsForMultipleProcess(String RenameProcessForMultiple, ITestContext context) throws InterruptedException
+	public void RenameFromCommandsForMultipleProcess(String RenameProcessForMultiple, String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
 	{
+		//Search
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMultiple);
+    	
 		//Select the multiple processes and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -878,6 +898,11 @@ public class ProcessViewlet
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameProcessForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(4000);
+    	
+    	for(int j=0; j<=CopyObjectNameForMultiple.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
     	
     	/*//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
@@ -893,7 +918,7 @@ public class ProcessViewlet
     	System.out.println(ModifiedName);
     	
     	//Verification condition
-    	if(ModifiedName.equalsIgnoreCase(RenameProcessForMultiple) && ModifiedName.equalsIgnoreCase(RenameProcessForMultiple))
+    	if(ModifiedName.contains(RenameProcessForMultiple) && ModifiedName.contains(RenameProcessForMultiple))
     	{
     		System.out.println("The multiple Process are renamed");
     		context.setAttribute("Status",1);
@@ -914,10 +939,10 @@ public class ProcessViewlet
 	@Test(priority=14)
 	public void DeleteFromCommandsForMultipleProcess(String RenameProcessForMultiple, ITestContext context) throws InterruptedException
 	{
-		/*//Send the New name into field
+		//Send the New name into field
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameProcessForMultiple);
-    	Thread.sleep(2000);*/
+    	Thread.sleep(2000);
     	
     	//Select the multiple processes and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -938,6 +963,11 @@ public class ProcessViewlet
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
+    	
+    	for(int j=0; j<=RenameProcessForMultiple.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
     	
     	//Verification of Subscription delete
     	if(Subviewlet.contains(RenameProcessForMultiple))
