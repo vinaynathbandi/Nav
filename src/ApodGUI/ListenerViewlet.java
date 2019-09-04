@@ -363,7 +363,7 @@ public class ListenerViewlet
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(5000);
     	
     	//Edit the search field data
     	for(int j=0; j<=ListenerName.length(); j++)
@@ -403,18 +403,21 @@ public class ListenerViewlet
     		driver.findElement(By.xpath("Listener failed to copy")).click();
     	}
     	Thread.sleep(1000);	
-    	
-    	//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasListenerName);
-    	Thread.sleep(1000);
 	}
 	
 	@Parameters({"RenameListener", "CopyObjectName", "ListenerName"})
 	@TestRail(testCaseId=154)
 	@Test(priority=7)
 	public void RenameFromCommands(String RenameListener, String CopyObjectName, String ListenerName, ITestContext context) throws InterruptedException
-	{    	
+	{ 
+    	//Combining the strings 
+    	String CopyasListenerName=ListenerName+CopyObjectName;
+    	
+    	//Search with that name
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasListenerName);
+    	Thread.sleep(1000);
+    	
 		//Select Rename From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
@@ -426,8 +429,6 @@ public class ListenerViewlet
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(4000);
     	
-    	//Combining the strings 
-    	String CopyasListenerName=ListenerName+CopyObjectName;
     	
     	//Edit the search field data
     	for(int j=0; j<=CopyasListenerName.length(); j++)
@@ -450,11 +451,11 @@ public class ListenerViewlet
     	Thread.sleep(1000);
     	
     	//Store the Subscription name into string
-    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
+    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(ModifiedName);
     	
     	//Verification condition
-    	if(ModifiedName.equalsIgnoreCase(RenameListener))
+    	if(ModifiedName.contains(RenameListener))
     	{
     		System.out.println("The Listener is renamed");
     		context.setAttribute("Status",1);
@@ -483,7 +484,7 @@ public class ListenerViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(6000);
     	
     	//Search with the new name
 		for(int j=0; j<=RenameListener.length(); j++)
