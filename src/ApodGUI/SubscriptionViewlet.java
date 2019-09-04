@@ -416,7 +416,7 @@ public class SubscriptionViewlet {
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(5000);
     	
     	//Edit the search field data
     	for(int j=0; j<=AddSubscriptionName.length(); j++)
@@ -480,7 +480,7 @@ public class SubscriptionViewlet {
     	//Send the New name into field
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscription);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(5000);
     	
     	//Combining the strings 
     	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
@@ -498,7 +498,7 @@ public class SubscriptionViewlet {
     	for(int i=0; i<=2; i++)
     	{
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
-    	Thread.sleep(4000);
+    	Thread.sleep(1000);
     	}
     	
     	//Search with renamed name
@@ -506,11 +506,11 @@ public class SubscriptionViewlet {
     	Thread.sleep(1000); 
     	
     	//Store the Subscription name into string
-    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
+    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(ModifiedName);
     	
     	//Verification condition
-    	if(ModifiedName.equalsIgnoreCase(RenameSubscription))
+    	if(ModifiedName.contains(RenameSubscription))
     	{
     		System.out.println("The Subscription is renamed");
     		context.setAttribute("Status",1);
@@ -539,7 +539,11 @@ public class SubscriptionViewlet {
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(4000);
+    	    	
+    	//Store the viewlet data into string
+    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	//System.out.println(Subviewlet);
     	
     	//Search with the new name
 		for(int j=0; j<=RenameSubscription.length(); j++)
@@ -547,10 +551,6 @@ public class SubscriptionViewlet {
 			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
-    	
-    	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-    	//System.out.println(Subviewlet);
     	
     	//Verification of Subscription delete
     	if(Subviewlet.contains(RenameSubscription))
