@@ -34,6 +34,7 @@ import testrail.TestRailAPI;
 @Listeners(TestClass.class)
 public class SubscriptionViewlet {
 	
+	String FinalSubscription="";
 	static WebDriver driver;
 	static String WGS_INDEX;
 	static String Screenshotpath;
@@ -845,26 +846,47 @@ public class SubscriptionViewlet {
     	driver.findElement(By.linkText("Copy As...")).click();
     	Thread.sleep(2000);
     	
+    	//Get the existing subscription name
+    	String ExistingSubscription=driver.findElement(By.xpath("//div[2]/div/input")).getText();
+    	System.out.println("Existing subscription name: " +ExistingSubscription);
+    	
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMUltiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(2000);
     	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("No exception occured");
+    	}
+    	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
     	
-    	/*//Search with that name
+    	FinalSubscription=ExistingSubscription+CopyObjectNameForMUltiple;
+    	
+    	//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMUltiple);
-    	Thread.sleep(1000);*/
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalSubscription);
+    	Thread.sleep(1000);
     	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
+    	for(int j=0; j<=FinalSubscription.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification condition
-    	if(Subviewlet.contains(CopyObjectNameForMUltiple))
+    	if(Subviewlet.contains(FinalSubscription))
     	{
     		System.out.println("Multiple Subscriptions are copied");
     		context.setAttribute("Status",1);
@@ -881,15 +903,15 @@ public class SubscriptionViewlet {
 		
 	}
 	
-	@Parameters({"CopyObjectNameForMUltiple", "RenameSubscriptionForMultiple"})
+	@Parameters({"RenameSubscriptionForMultiple"})
 	@TestRail(testCaseId=197)
 	@Test(priority=11)
-	public void RenameFromCommandsForMultipleSubscriptions(String CopyObjectNameForMUltiple, String RenameSubscriptionForMultiple, ITestContext context) throws InterruptedException
+	public void RenameFromCommandsForMultipleSubscriptions(String RenameSubscriptionForMultiple, ITestContext context) throws InterruptedException
 	{
-		/*//Search with that name
+		//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMUltiple);
-    	Thread.sleep(1000);*/
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalSubscription);
+    	Thread.sleep(1000);
     	
 		//Select Rename From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -904,21 +926,41 @@ public class SubscriptionViewlet {
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(4000);
     	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("No exception occured");
+    	}
+    	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
     	
-    	/*//Search with that name
+    	for(int j=0; j<=FinalSubscription.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
+    	//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameSubscriptionForMultiple);
-    	Thread.sleep(1000);*/
+    	Thread.sleep(1000);
     	
     	//Store the Subscription name into string
     	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
     	System.out.println(ModifiedName);
     	
+    	for(int j=0; j<=RenameSubscriptionForMultiple.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification condition
-    	if(ModifiedName.equalsIgnoreCase(RenameSubscriptionForMultiple))
+    	if(ModifiedName.contains(RenameSubscriptionForMultiple))
     	{
     		System.out.println("Multiple Subscriptions ares renamed");
     		context.setAttribute("Status",1);
@@ -940,10 +982,10 @@ public class SubscriptionViewlet {
 	@Test(priority=12)
 	public void DeleteFromCommandsForMultipleSubscriptions(String RenameSubscriptionForMultiple, ITestContext context) throws InterruptedException
 	{
-		/*//Search with that name
+		//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameSubscriptionForMultiple);
-    	Thread.sleep(1000);*/
+    	Thread.sleep(1000);
     	
 		//Select Delete From commands
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -955,7 +997,7 @@ public class SubscriptionViewlet {
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(6000);
     	
     	/*//clear the search data
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
@@ -968,6 +1010,11 @@ public class SubscriptionViewlet {
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
+    	
+    	for(int j=0; j<=RenameSubscriptionForMultiple.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
     	
     	//Verification of Subscription delete
     	if(Subviewlet.contains(RenameSubscriptionForMultiple))

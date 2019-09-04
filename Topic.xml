@@ -28,7 +28,7 @@
     <parameter name="FavoriteViewletName" value="Favorite Viewlet for Topic"/>
     <parameter name="Favwgs" value="1"/>
     
-    <parameter name="CopyObjectNameForMultiple" value="SYSTEM.TEST.TOPIC.COPY"/>
+    <parameter name="CopyObjectNameForMultiple" value="TOPIC.COPY.MULTIPLE"/>
     
     <parameter name="MessageDataForMultiple" value="Add Message into the destination queue"/>
     <parameter name="PropertyNameForMultiple" value="Test"/>
@@ -71,13 +71,13 @@
         <include name="TopicProperties"/> 
         <include name="TopicEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
-        <include name="CompareTopics"/>
-        <!-- <include name="CopyAsFromCommandsForMultipleTopics"/>
+        <include name="CompareTopics"/> 
+        <include name="CopyAsFromCommandsForMultipleTopics"/>
         <include name="DeleteFromCommandsForMultipleTopics"/>
-        <include name="PublishFromCommandsForMultipleTopics"/> -->
+        <include name="PublishFromCommandsForMultipleTopics"/> 
         <include name="MultipleProperties"/>  
         <include name="AddToFavoriteForMultipleTopics"/>  
-        <include name="CreateTopicFromPlusIcon"/>  --> 
+        <include name="CreateTopicFromPlusIcon"/>   
         <include name="Logout"/> 
         
        </methods>

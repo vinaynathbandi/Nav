@@ -34,6 +34,7 @@ import testrail.TestRailAPI;
 @Listeners(TestClass.class)
 public class ProcessViewlet
 {
+	String FinalProcess="";
 	static WebDriver driver;
 	static String WGS_INDEX;
 	static String Screenshotpath;
@@ -817,23 +818,7 @@ public class ProcessViewlet
 	@TestRail(testCaseId = 127)
 	@Test(priority=12)
 	public void CopyAsFromCommandsForMultipleProcess(String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
-	{
-		int ProcessName_Index=3;
-		if(!WGSName.contains("MQM"))
-		{
-			ProcessName_Index=4;
-		} 
-		
-		//Get First process name
-		String FirstProcess=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ProcessName_Index +"]/div/span")).getText();
-		System.out.println("First process name: " +FirstProcess);
-		String FinalName1=FirstProcess+CopyObjectNameForMultiple;
-		
-		//Get Second Process name
-		String SecondProcess=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ ProcessName_Index +"]/div/span")).getText();
-		System.out.println("Second process name: " +SecondProcess);
-		String FinalName2=SecondProcess+CopyObjectNameForMultiple;
-		
+	{		
 		//Select the multiple processes and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -842,26 +827,47 @@ public class ProcessViewlet
     	driver.findElement(By.linkText("Copy As...")).click();
 		Thread.sleep(1000);
 		
+		//Get the Existing process name
+		String ExistingProcess=driver.findElement(By.xpath("//div[2]/div/input")).getText();
+		System.out.println("Existing process name is: " +ExistingProcess);
+		
 		//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(2000);
+    	
+    	FinalProcess=ExistingProcess+CopyObjectNameForMultiple;
+    	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("No exception occured");
+    	}
     	   	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
     	
-    	/*//Search with that name
+    	//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMultiple);
-    	Thread.sleep(2000);*/
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalProcess);
+    	Thread.sleep(2000);
     	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
+    	for(int j=0; j<=FinalProcess.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification condition
-    	if(Subviewlet.contains(FinalName1) && Subviewlet.contains(FinalName2))
+    	if(Subviewlet.contains(FinalProcess))
     	{
     		System.out.println("Multiple Process are copied");
     		context.setAttribute("Status",1);
@@ -877,14 +883,14 @@ public class ProcessViewlet
     	Thread.sleep(1000);		
 	}
 	
-	@Parameters({"RenameProcessForMultiple", "CopyObjectNameForMultiple"})
+	@Parameters({"RenameProcessForMultiple"})
 	@TestRail(testCaseId = 128)
 	@Test(priority=13)
-	public void RenameFromCommandsForMultipleProcess(String RenameProcessForMultiple, String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
+	public void RenameFromCommandsForMultipleProcess(String RenameProcessForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMultiple);
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalProcess);
     	
 		//Select the multiple processes and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -899,15 +905,25 @@ public class ProcessViewlet
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(4000);
     	
-    	for(int j=0; j<=CopyObjectNameForMultiple.length(); j++)
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("No exception occured");
+    	}
+    	
+    	for(int j=0; j<=FinalProcess.length(); j++)
     	{
     		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	
-    	/*//Search with that name
+    	//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameProcessForMultiple);
-    	Thread.sleep(1000);*/
+    	Thread.sleep(1000);
     	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
@@ -917,8 +933,13 @@ public class ProcessViewlet
     	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(ModifiedName);
     	
+    	for(int j=0; j<RenameProcessForMultiple.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification condition
-    	if(ModifiedName.contains(RenameProcessForMultiple) && ModifiedName.contains(RenameProcessForMultiple))
+    	if(ModifiedName.contains(RenameProcessForMultiple))
     	{
     		System.out.println("The multiple Process are renamed");
     		context.setAttribute("Status",1);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="6" total="9" passed="3">
+<testng-results skipped="0" failed="2" ignored="13" total="18" passed="3">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -11,19 +11,37 @@
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTransportViewlet.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSubscriptionViewlet.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAsFromCommandsForMultipleSubscriptions.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[Screenshots/ScreenshotsFailure/RenameFromCommandsForMultipleSubscriptions.png]]>
+    </line>
+    <line>
+      <![CDATA[<br/>Failed to execute method: RenameFromCommandsForMultipleSubscriptions<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/RenameFromCommandsForMultipleSubscriptions.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="46972" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:37:13Z">
+  <suite name="Navigator" duration-ms="100362" started-at="2019-09-04T11:49:21Z" finished-at="2019-09-04T11:51:02Z">
     <groups>
     </groups>
-    <test name="Test Transport Viewlet" duration-ms="46972" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:37:13Z">
-      <class name="ApodGUI.TransportViewlet">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="beforeTest" is-config="true" duration-ms="21" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:36:26Z">
+    <test name="Test Subscription Viewlet" duration-ms="100362" started-at="2019-09-04T11:49:21Z" finished-at="2019-09-04T11:51:02Z">
+      <class name="ApodGUI.SubscriptionViewlet">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="12" started-at="2019-09-04T11:49:21Z" finished-at="2019-09-04T11:49:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="Login" duration-ms="24832" started-at="2019-09-02T12:36:26Z" finished-at="2019-09-02T12:36:50Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="Login" duration-ms="25328" started-at="2019-09-04T11:49:21Z" finished-at="2019-09-04T11:49:47Z">
           <params>
             <param index="0">
               <value>
@@ -37,7 +55,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[TransportViewlet Verification]]>
+                <![CDATA[Subscription Verification]]>
               </value>
             </param>
           </params>
@@ -50,27 +68,27 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="521" started-at="2019-09-02T12:36:50Z" finished-at="2019-09-02T12:36:51Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="439" started-at="2019-09-04T11:49:47Z" finished-at="2019-09-04T11:49:47Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=TransportViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=SubscriptionViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddTransportViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="AddTransportViewlet" duration-ms="4723" started-at="2019-09-02T12:36:51Z" finished-at="2019-09-02T12:36:56Z">
+        <test-method status="PASS" signature="AddSubscriptionViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="AddSubscriptionViewlet" duration-ms="4406" started-at="2019-09-04T11:49:47Z" finished-at="2019-09-04T11:49:51Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[New Transport Viewlet]]>
+                <![CDATA[New Subscription Viewlet]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@463fd068]]>
+                <![CDATA[org.testng.TestRunner@421e361]]>
               </value>
             </param>
           </params>
@@ -79,37 +97,245 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTransportViewlet.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSubscriptionViewlet.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- AddTransportViewlet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="7603" started-at="2019-09-02T12:37:02Z" finished-at="2019-09-02T12:37:10Z">
+        </test-method> <!-- AddSubscriptionViewlet -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="8091" started-at="2019-09-04T11:49:58Z" finished-at="2019-09-04T11:50:06Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddTransportViewlet status=SUCCESS method=TransportViewlet.AddTransportViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TransportViewlet@2bbf4b8b] output=<br/>]]]>
+                <![CDATA[[TestResult name=AddSubscriptionViewlet status=SUCCESS method=SubscriptionViewlet.AddSubscriptionViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.SubscriptionViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:10, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="Logout" duration-ms="2674" started-at="2019-09-02T12:37:10Z" finished-at="2019-09-02T12:37:13Z">
+        <test-method status="PASS" signature="CopyAsFromCommandsForMultipleSubscriptions(java.lang.String, org.testng.ITestContext)[pri:10, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="CopyAsFromCommandsForMultipleSubscriptions" duration-ms="12919" started-at="2019-09-04T11:50:06Z" finished-at="2019-09-04T11:50:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SUB.MULTIPLE.COPY]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@421e361]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAsFromCommandsForMultipleSubscriptions.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CopyAsFromCommandsForMultipleSubscriptions -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="8297" started-at="2019-09-04T11:50:26Z" finished-at="2019-09-04T11:50:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CopyAsFromCommandsForMultipleSubscriptions status=SUCCESS method=SubscriptionViewlet.CopyAsFromCommandsForMultipleSubscriptions(java.lang.String, org.testng.ITestContext)[pri:10, instance:ApodGUI.SubscriptionViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="FAIL" signature="RenameFromCommandsForMultipleSubscriptions(java.lang.String, org.testng.ITestContext)[pri:11, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="RenameFromCommandsForMultipleSubscriptions" duration-ms="11643" started-at="2019-09-04T11:50:34Z" finished-at="2019-09-04T11:50:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SYSTEM.SUBSCRIPTION.RENAME]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@421e361]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"}
+  (Session info: chrome=76.0.3809.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63574}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: 6ed3a262797576e19bd6d72675e17cd3
+*** Element info: {Using=xpath, value=/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"}
+  (Session info: chrome=76.0.3809.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63574}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: 6ed3a262797576e19bd6d72675e17cd3
+*** Element info: {Using=xpath, value=/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+at ApodGUI.SubscriptionViewlet.RenameFromCommandsForMultipleSubscriptions(SubscriptionViewlet.java:918)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>Failed to execute method: RenameFromCommandsForMultipleSubscriptions<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/RenameFromCommandsForMultipleSubscriptions.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- RenameFromCommandsForMultipleSubscriptions -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="8147" started-at="2019-09-04T11:50:52Z" finished-at="2019-09-04T11:51:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=RenameFromCommandsForMultipleSubscriptions status=FAILURE method=SubscriptionViewlet.RenameFromCommandsForMultipleSubscriptions(java.lang.String, org.testng.ITestContext)[pri:11, instance:ApodGUI.SubscriptionViewlet@33c7e1bb] output=<br/>Failed to execute method: RenameFromCommandsForMultipleSubscriptions<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Screenshots/ScreenshotsFailure/RenameFromCommandsForMultipleSubscriptions.png]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="FAIL" signature="Logout()[pri:25, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="Logout" duration-ms="1186" started-at="2019-09-04T11:51:00Z" finished-at="2019-09-04T11:51:02Z">
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[unknown error: Element <i _ngcontent-c4="" aria-hidden="true" class="fa fa-power-off fa-lg" title="Logout"></i> is not clickable at point (1251, 22). Other element would receive the click: <ngb-modal-window role="dialog" tabindex="-1" class="modal fade show d-block">...</ngb-modal-window>
+  (Session info: chrome=76.0.3809.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63574}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: 6ed3a262797576e19bd6d72675e17cd3]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: unknown error: Element <i _ngcontent-c4="" aria-hidden="true" class="fa fa-power-off fa-lg" title="Logout"></i> is not clickable at point (1251, 22). Other element would receive the click: <ngb-modal-window role="dialog" tabindex="-1" class="modal fade show d-block">...</ngb-modal-window>
+  (Session info: chrome=76.0.3809.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63574}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: 6ed3a262797576e19bd6d72675e17cd3
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+at ApodGUI.SubscriptionViewlet.Logout(SubscriptionViewlet.java:1434)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TransportViewlet@2bbf4b8b]" name="tearDown" is-config="true" duration-ms="1" started-at="2019-09-02T12:37:13Z" finished-at="2019-09-02T12:37:13Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SubscriptionViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-04T11:51:02Z" finished-at="2019-09-04T11:51:02Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=TransportViewlet.Logout()[pri:10, instance:ApodGUI.TransportViewlet@2bbf4b8b] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=FAILURE method=SubscriptionViewlet.Logout()[pri:25, instance:ApodGUI.SubscriptionViewlet@33c7e1bb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.TransportViewlet -->
-    </test> <!-- Test Transport Viewlet -->
+      </class> <!-- ApodGUI.SubscriptionViewlet -->
+    </test> <!-- Test Subscription Viewlet -->
   </suite> <!-- Navigator -->
 </testng-results>

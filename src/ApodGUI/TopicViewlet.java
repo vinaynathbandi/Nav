@@ -34,6 +34,7 @@ import testrail.TestRailAPI;
 @Listeners(TestClass.class)
 public class TopicViewlet 
 {
+    String FinaleCopyAsName="";
 	static WebDriver driver;
 	static String WGS_INDEX;
 	static String Screenshotpath;
@@ -708,10 +709,10 @@ public class TopicViewlet
 		Thread.sleep(1000);
 	}
 	
-	@Parameters({"CopyObjectNameForMultiple"})
+	@Parameters({"CopyObjectNameForMultiple", "TopicUniquestring"})
 	@TestRail(testCaseId=142)
 	@Test(priority=11)
-	public void CopyAsFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
+	public void CopyAsFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, String TopicUniquestring, ITestContext context) throws InterruptedException
 	{
 		//Select the multiple Topics and choose Copy as for multiple topics
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -719,28 +720,41 @@ public class TopicViewlet
 		Actions Mousehovercopy=new Actions(driver);
 		Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Copy As...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(3000);
+		
+		//Get Existing string name
+		String Objectname=driver.findElement(By.xpath("//div[2]/div/input")).getText();
+		System.out.println("Existing object name is :" +Objectname);
 		
 		//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMultiple);
+    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestring);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(6000);
     	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
     	
-    	/*//Search with that name
+    	//Combine the string
+    	 FinaleCopyAsName=Objectname+CopyObjectNameForMultiple;
+    	
+    	//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMultiple);
-    	Thread.sleep(2000);*/
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinaleCopyAsName);
+    	Thread.sleep(2000);
     	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
+    	for(int j=0; j<=FinaleCopyAsName.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification condition
-    	if(Subviewlet.contains(CopyObjectNameForMultiple) && Subviewlet.contains(CopyObjectNameForMultiple))
+    	if(Subviewlet.contains(FinaleCopyAsName))
     	{
     		System.out.println("Multiple Topics are copied");
     		context.setAttribute("Status",1);
@@ -761,10 +775,10 @@ public class TopicViewlet
 	@Test(priority=12)
 	public void DeleteFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
 	{
-		/*//Send the New name into field
+		//Send the New name into field
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMultiple);
-    	Thread.sleep(2000);*/
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinaleCopyAsName);
+    	Thread.sleep(2000);
     	
     	//Select the multiple topics and choose Delete option for multiple topics
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -776,7 +790,7 @@ public class TopicViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(6000);
     	
     	//Refresh the view let
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
@@ -786,8 +800,13 @@ public class TopicViewlet
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
+    	for(int j=0; j<=FinaleCopyAsName.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification of Subscription delete
-    	if(Subviewlet.contains(CopyObjectNameForMultiple))
+    	if(Subviewlet.contains(FinaleCopyAsName))
     	{
     		System.out.println("Topics are not deleted");
     		context.setAttribute("Status",5);
@@ -806,12 +825,12 @@ public class TopicViewlet
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();*/
 	}
 	
-	@Parameters({"AddSubscriptionNameforMultiple", "MessageDataForMultiple", "PropertyNameForMultiple", "PropertyValueForMultiple", "DestinationTopicName"})
+	@Parameters({"AddSubscriptionNameforMultiple", "MessageDataForMultiple", "PropertyNameForMultiple", "PropertyValueForMultiple"})
 	@TestRail(testCaseId=144)
 	@Test(priority=13)
-	public void PublishFromCommandsForMultipleTopics(String AddSubscriptionNameforMultiple, String MessageDataForMultiple, String PropertyNameForMultiple, String PropertyValueForMultiple, String DestinationTopicName, ITestContext context) throws InterruptedException
+	public void PublishFromCommandsForMultipleTopics(String AddSubscriptionNameforMultiple, String MessageDataForMultiple, String PropertyNameForMultiple, String PropertyValueForMultiple, ITestContext context) throws InterruptedException
 	{
-		this.AddsubscriptionForMultiple(AddSubscriptionNameforMultiple, DestinationTopicName);
+		this.AddsubscriptionForMultiple(AddSubscriptionNameforMultiple);
 		
 		//Show Empty queues
     	driver.findElement(By.xpath("//i[3]")).click();
@@ -852,23 +871,17 @@ public class TopicViewlet
 		 driver.findElement(By.cssSelector(".btn-primary")).click();
 		 Thread.sleep(4000);
     	
-    	try
-    	{
-    		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
-    		{
-    			driver.findElement(By.xpath("//app-mod-errors-display/div/button")).click();
-    			driver.findElement(By.cssSelector(".btn-danger")).click();
-    			Thread.sleep(1000);
-    		}
-    	}
-    	catch (Exception e)
-    	{
-    		System.out.println("Error not present while publishing topic");
-    		context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Got an exception while publishing multiple topics, check details: "+ e.getMessage());
-    	}
-    	
+		 try
+	    {
+	    	driver.findElement(By.id("yes")).click();
+	    	driver.findElement(By.cssSelector(".btn-danger")).click();
+	    }
+	    catch (Exception e)
+	    {
+	    	System.out.println("Error not present while publishing topic");
+	    }
     	Thread.sleep(4000);
+    	
     	//get the Current depth of the queue
     	String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
     	int result1 = Integer.parseInt(Queuedepth1);
@@ -1328,8 +1341,8 @@ public class TopicViewlet
 	}
 	
 	
-	@Parameters({"AddSubscriptionNameforMultiple", "DestinationTopicName"})
-	public void AddsubscriptionForMultiple(String AddSubscriptionNameforMultiple, String DestinationTopicName) throws InterruptedException
+	@Parameters({"AddSubscriptionNameforMultiple"})
+	public void AddsubscriptionForMultiple(String AddSubscriptionNameforMultiple) throws InterruptedException
 	{		
 		//click on check box and choose create subscription
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1358,6 +1371,7 @@ public class TopicViewlet
 				{
 					String id=Topic.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
@@ -1395,6 +1409,7 @@ public class TopicViewlet
 				{
 					String id=Node.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
@@ -1419,6 +1434,7 @@ public class TopicViewlet
 				{
 					String id=Manager.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
@@ -1442,6 +1458,7 @@ public class TopicViewlet
 				{
 					String id=QueueName.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}

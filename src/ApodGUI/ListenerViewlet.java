@@ -34,6 +34,7 @@ import testrail.TestRailAPI;
 @Listeners(TestClass.class)
 public class ListenerViewlet  
 {
+	String FinalListenerName="";
 	static WebDriver driver;
 	static String WGS_INDEX;
 	static String Screenshotpath;
@@ -860,10 +861,6 @@ public class ListenerViewlet
 	@Test(priority=15)
 	public void CopyAsFromCommandsForMultiple(String CopyObjectNameForMUltiple, String ListenerName, ITestContext context) throws InterruptedException
 	{
-		/*//Search with the added process name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(ListenerName);
-    	Thread.sleep(1000);*/
-		
 		//Select Copy as From commands
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -872,26 +869,47 @@ public class ListenerViewlet
     	driver.findElement(By.linkText("Copy As...")).click();
     	Thread.sleep(2000);
     	
+    	//Get the existing name
+    	String ExistingListener=driver.findElement(By.xpath("//div[2]/div/input")).getText();
+    	System.out.println("Existing listener name is: " +ExistingListener);
+    	
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMUltiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(4000);
+    	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("No exception occured");
+    	}
+    	
+    	FinalListenerName=ExistingListener+CopyObjectNameForMUltiple;
     	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
     	
-    	/*//Search with that name
+    	//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMUltiple);
-    	Thread.sleep(1000);*/
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalListenerName);
+    	Thread.sleep(1000);
     	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
+    	for(int j=0; j<=FinalListenerName.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification condition
-    	if(Subviewlet.contains(CopyObjectNameForMUltiple))
+    	if(Subviewlet.contains(FinalListenerName))
     	{
     		System.out.println("Multiple Listeners are copied");
     		context.setAttribute("Status",1);
@@ -912,10 +930,10 @@ public class ListenerViewlet
 	@Test(priority=16)
 	public void RenameFromCommandsForMultiple(String RenameListenerForMultiple, String CopyObjectNameForMUltiple, ITestContext context) throws InterruptedException
 	{
-		/*//Search with that name
+		//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyObjectNameForMUltiple);
-    	Thread.sleep(1000);*/
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalListenerName);
+    	Thread.sleep(1000);
     	
 		//Select Rename From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -930,6 +948,16 @@ public class ListenerViewlet
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(4000);
     	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("No exception occured");
+    	}
+    	
     	/*//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameListenerForMultiple);
@@ -940,11 +968,16 @@ public class ListenerViewlet
     	Thread.sleep(4000);
     	
     	//Store the Subscription name into string
-    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
+    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(ModifiedName);
     	
+    	for(int j=0; j<=RenameListenerForMultiple.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification condition
-    	if(ModifiedName.equalsIgnoreCase(RenameListenerForMultiple))
+    	if(ModifiedName.contains(RenameListenerForMultiple))
     	{
     		System.out.println("Multiple Listeners ares renamed");
     		context.setAttribute("Status",1);
@@ -965,10 +998,10 @@ public class ListenerViewlet
 	@Test(priority=17)
 	public void DeleteFromCommandsForMultiple(String RenameListenerForMultiple, ITestContext context) throws InterruptedException
 	{
-		/*//Search with that name
+		//Search with that name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameListenerForMultiple);
-    	Thread.sleep(1000);*/
+    	Thread.sleep(1000);
     	
 		//Select Delete From commands
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -980,7 +1013,7 @@ public class ListenerViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(6000);
     	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
@@ -990,10 +1023,15 @@ public class ListenerViewlet
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
+    	for(int j=0; j<=RenameListenerForMultiple.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
     	//Verification of Subscription delete
     	if(Subviewlet.contains(RenameListenerForMultiple))
     	{
-    		System.out.println("Multiple Listener is not deleted");
+    		System.out.println("Multiple Listener are not deleted");
     		context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Failed to delete Multiple listeners using delete command");
     		driver.findElement(By.xpath("Multiple Listeners are failed")).click();

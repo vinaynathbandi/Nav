@@ -25,7 +25,7 @@
     <parameter name="FavoriteViewletName" value="Favorite Viewlet for Listener"/>
     <parameter name="Favwgs" value="1"/>
     
-    <parameter name="CopyObjectNameForMUltiple" value="Test.Listener.Multi.Copy"/>
+    <parameter name="CopyObjectNameForMUltiple" value="Test.Multi.Copy"/>
     <parameter name="RenameListenerForMultiple" value="Test.Listener.Multi.Rename"/>
     
     <parameter name="ListenerDescription" value="Multiple properties"/>
@@ -44,25 +44,25 @@
        
         <include name="Login"/>
         <include name="AddListenerViewlet"/> 
-        <include name="ShowObjectAttributesForListener"/> 
+       <!--  <include name="ShowObjectAttributesForListener"/>  -->
         <include name="CreateListener"/>
-       <!-- <include name="StartListener"/>
-        <include name="StopListener"/> 
+        <!-- <include name="StartListener"/>
+        <include name="StopListener"/>  -->
         <include name="CopyAsFromCommands"/>
         <include name="RenameFromCommands"/>
-        <include name="DeleteFromCommands"/>  -->
-        <include name="ListenerProperties"/>  
+        <include name="DeleteFromCommands"/> 
+       <!--  <include name="ListenerProperties"/>  
         <include name="ListenerEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareListeners"/>
-       <!-- <include name="StartListenerForMultiple"/>
+       <include name="StartListenerForMultiple"/>
         <include name="StopListenerForMultiple"/>
         <include name="CopyAsFromCommandsForMultiple"/>
         <include name="RenameFromCommandsForMultiple"/>
-        <include name="DeleteFromCommandsForMultiple"/>  -->
+        <include name="DeleteFromCommandsForMultiple"/> 
         <include name="ListenerMultipleProperties"/>  
         <include name="AddToFavoriteForMultipleListeners"/> 
-        <include name="CreateListenerFromPlusIcon"/>  
+        <include name="CreateListenerFromPlusIcon"/>  --> 
         <include name="Logout"/> 
         
        </methods>
