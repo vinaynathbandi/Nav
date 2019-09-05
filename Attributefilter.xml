@@ -12,6 +12,8 @@
   <parameter name="Node" value="DESKTOP-E1JT2VR"/>
   <parameter name="Queuemanager" value="MGR"/>
   <parameter name="ConditionName" value="Test Condtition"/>
+  <parameter name="AttributeName" value="Maximum Depth"/>
+  <parameter name="CompareOperation" value="is equal"/>
   <parameter name="ConditionData" value="20000"/>
   <parameter name="RowValue" value="Maximum Depth"/>
   <parameter name="ConditionValue" value="Maximum Depth"/>
