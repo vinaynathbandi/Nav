@@ -471,7 +471,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		//Edit Icon
 		driver.findElement(By.xpath("//img[@title='Load from file']")).click();
 		
-		driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
+		driver.findElement(By.id("accept-true")).click();
 		Thread.sleep(2000);
 		
 		//Loading a file from the load file option
@@ -488,7 +488,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(1000);
+	    Thread.sleep(5000);
 	    
 	    //verification of message
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
