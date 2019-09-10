@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutAmessageIntoQueue.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSearchCriteriaCondition.png" alt="""/" />]]>
+    </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="28631" started-at="2019-09-05T09:45:54Z" finished-at="2019-09-05T09:46:23Z">
+  <suite name="Testing Navigator Dashboard" duration-ms="68912" started-at="2019-09-05T13:24:48Z" finished-at="2019-09-05T13:25:57Z">
     <groups>
     </groups>
-    <test name="Attribute Filter Condition" duration-ms="28631" started-at="2019-09-05T09:45:54Z" finished-at="2019-09-05T09:46:23Z">
-      <class name="ApodGUI.AttributeFilterCondition">
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.AttributeFilterCondition@536aaa8d]" name="Login" duration-ms="14484" started-at="2019-09-05T09:45:54Z" finished-at="2019-09-05T09:46:09Z">
+    <test name="Add Dashboard reports" duration-ms="68912" started-at="2019-09-05T13:24:48Z" finished-at="2019-09-05T13:25:57Z">
+      <class name="ApodGUI.SearchCriteria">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.SearchCriteria@34cd072c]" name="beforeTest" is-config="true" duration-ms="12" started-at="2019-09-05T13:24:48Z" finished-at="2019-09-05T13:24:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.SearchCriteria@34cd072c]" name="Login" duration-ms="23457" started-at="2019-09-05T13:24:48Z" finished-at="2019-09-05T13:25:11Z">
           <params>
             <param index="0">
               <value>
@@ -21,75 +43,122 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[/navigator/#/login]]>
+                <![CDATA[Search Criteria Dashboard]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[Admin]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[admin]]>
+                <![CDATA[WGS10]]>
               </value>
             </param>
           </params>
           <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
+            </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="AddDashboard(java.lang.String, java.lang.String, int, java.lang.String)[pri:1, instance:ApodGUI.AttributeFilterCondition@536aaa8d]" name="AddDashboard" duration-ms="4756" started-at="2019-09-05T09:46:09Z" finished-at="2019-09-05T09:46:14Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@34cd072c]" name="tearDown" is-config="true" duration-ms="421" started-at="2019-09-05T13:25:11Z" finished-at="2019-09-05T13:25:12Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Attribute Filter Dashboard]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[DESKTOP-E1JT2VR]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[0]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[MGR]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=SearchCriteria.Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.SearchCriteria@34cd072c] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddDashboard -->
-        <test-method status="PASS" signature="AddAttributeFilterCondition(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:ApodGUI.AttributeFilterCondition@536aaa8d]" name="AddAttributeFilterCondition" duration-ms="9133" started-at="2019-09-05T09:46:14Z" finished-at="2019-09-05T09:46:23Z">
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="PutAmessageIntoQueue(java.lang.String, java.lang.String)[pri:1, instance:ApodGUI.SearchCriteria@34cd072c]" name="PutAmessageIntoQueue" duration-ms="30114" started-at="2019-09-05T13:25:12Z" finished-at="2019-09-05T13:25:42Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Test Condtition]]>
+                <![CDATA[Test the Message Search criteria condition]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[20000]]>
+                <![CDATA[WGS10]]>
               </value>
             </param>
-            <param index="2">
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutAmessageIntoQueue.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- PutAmessageIntoQueue -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@34cd072c]" name="tearDown" is-config="true" duration-ms="826" started-at="2019-09-05T13:25:42Z" finished-at="2019-09-05T13:25:43Z">
+          <params>
+            <param index="0">
               <value>
-                <![CDATA[Maximum Depth]]>
+                <![CDATA[[TestResult name=PutAmessageIntoQueue status=SUCCESS method=SearchCriteria.PutAmessageIntoQueue(java.lang.String, java.lang.String)[pri:1, instance:ApodGUI.SearchCriteria@34cd072c] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- AddAttributeFilterCondition -->
-        <test-method status="PASS" signature="Logout()[pri:3, instance:ApodGUI.AttributeFilterCondition@536aaa8d]" name="Logout" duration-ms="231" started-at="2019-09-05T09:46:23Z" finished-at="2019-09-05T09:46:23Z">
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="AddSearchCriteriaCondition(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.SearchCriteria@34cd072c]" name="AddSearchCriteriaCondition" duration-ms="12322" started-at="2019-09-05T13:25:43Z" finished-at="2019-09-05T13:25:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Search Queues]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Message Search criteria]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@b2c5e07]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSearchCriteriaCondition.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AddSearchCriteriaCondition -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@34cd072c]" name="tearDown" is-config="true" duration-ms="425" started-at="2019-09-05T13:25:55Z" finished-at="2019-09-05T13:25:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AddSearchCriteriaCondition status=SUCCESS method=SearchCriteria.AddSearchCriteriaCondition(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.SearchCriteria@34cd072c] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="Logout()[pri:20, instance:ApodGUI.SearchCriteria@34cd072c]" name="Logout" duration-ms="1305" started-at="2019-09-05T13:25:55Z" finished-at="2019-09-05T13:25:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-      </class> <!-- ApodGUI.AttributeFilterCondition -->
-    </test> <!-- Attribute Filter Condition -->
-  </suite> <!-- Navigator -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@34cd072c]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-05T13:25:57Z" finished-at="2019-09-05T13:25:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=SearchCriteria.Logout()[pri:20, instance:ApodGUI.SearchCriteria@34cd072c] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- ApodGUI.SearchCriteria -->
+    </test> <!-- Add Dashboard reports -->
+  </suite> <!-- Testing Navigator Dashboard -->
 </testng-results>

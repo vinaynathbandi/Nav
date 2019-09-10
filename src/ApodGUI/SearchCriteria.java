@@ -188,6 +188,7 @@ public class SearchCriteria
 	
 	
 	@Parameters({"SearchCriteriaName", "SearchCriteriaData"})
+	@TestRail(testCaseId = 349)
 	@Test(priority=2)
 	public void AddSearchCriteriaCondition(String SearchCriteriaName, String SearchCriteriaData, ITestContext context) throws Exception
 	{
@@ -196,7 +197,12 @@ public class SearchCriteria
 		driver.findElement(By.linkText("Edit viewlet")).click();
 		
 		//Search Criteria
-		driver.findElement(By.id("sc-find-messages-checkbox")).click();
+		boolean FindMessagesCheckbox=driver.findElement(By.id("sc-find-messages-checkbox")).isSelected();
+		if(FindMessagesCheckbox==false)
+		{
+			driver.findElement(By.id("sc-find-messages-checkbox")).click();
+		}
+		
 		driver.findElement(By.cssSelector("div.right > div.g-text-and-input.line > button.btn-white-round")).click();
 		Thread.sleep(1000);
 		
@@ -217,9 +223,9 @@ public class SearchCriteria
 		driver.findElement(By.xpath("//app-mod-message-data-criteria/div/div[3]/button")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[5]/button")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Queue);

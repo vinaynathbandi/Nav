@@ -134,6 +134,7 @@ public class AttributeFilterCondition
 	}
 	
 	@Parameters({"ConditionName", "AttributeName", "CompareOperation", "ConditionData", "RowValue"})
+	@TestRail(testCaseId = 348)
 	@Test(priority=2)
 	public static void AddAttributeFilterCondition(String ConditionName, String AttributeName, String CompareOperation, String ConditionData, String RowValue, ITestContext context) throws Exception
 	{	

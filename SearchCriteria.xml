@@ -9,18 +9,18 @@
   <parameter name="password" value="admin"/>
   <parameter name="Dashboardname" value="Search Criteria Dashboard"/>
   <parameter name="wgs" value="WGS10"/>
-  <parameter name="MessageData" value="Test the Message Search creteria condition"/>
+  <parameter name="MessageData" value="Test the Message Search criteria condition"/>
   <parameter name="Node" value="DESKTOP-E1JT2VR"/>
   <parameter name="Queuemanager" value="MGR"/>
   <parameter name="SearchCriteriaName" value="Search Queues"/>
-  <parameter name="SearchCriteriaData" value="Test the Message Search creteria condition"/>
+  <parameter name="SearchCriteriaData" value="Message Search criteria"/>
    
      <classes>
        <class name="ApodGUI.SearchCriteria">
        
           <methods>
             <include name="Login"/>
-            <include name="AddDashboard"/>
+            <include name="PutAmessageIntoQueue"/>
             <include name="AddSearchCriteriaCondition"/>
             <include name="Logout"/>
           </methods> 
