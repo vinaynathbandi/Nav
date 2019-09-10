@@ -624,27 +624,27 @@ public class ChannelViewlet
 			Channel_Status=7;
 		}
 		
-		//Store the Channel status into string
+		//Store the Channel status into string              
 		String ChannelStatus1=driver.findElement(By.xpath("//datatable-body-cell["+ Channel_Status +"]/div/span")).getText();
-		System.out.println(ChannelStatus1);
+		System.out.println("Channel1 Status from viewlet: " +ChannelStatus1);
 		
 		//Store second channel status into string
 		String ChannelStatus2=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Channel_Status +"]/div/span")).getText();
-		System.out.println(ChannelStatus2);
+		System.out.println("Channel2 Status from viewlet: " +ChannelStatus2);              
 		
 		//Select Two channels and choose show channel status
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.linkText("Show Channel Status")).click();
-		Thread.sleep(1000);
+		driver.findElement(By.linkText("Show Channels Status")).click();
+		Thread.sleep(4000);
 		
 		//Show multiple channels status page
 		String FirstchannelStatus=driver.findElement(By.xpath("//tr[2]/td[4]")).getText();
-		System.out.println(FirstchannelStatus);
+		System.out.println("Channel1 Status from popup: " +FirstchannelStatus);
 		
 		//Show second channel status
 		String SecondChannelstatus=driver.findElement(By.xpath("//tr[4]/td[4]")).getText();
-		System.out.println(SecondChannelstatus);
+		System.out.println("Channel2 Status from popup: " +SecondChannelstatus);
 		
 		//Verification
 		if(FirstchannelStatus.equalsIgnoreCase(ChannelStatus1) && SecondChannelstatus.equalsIgnoreCase(ChannelStatus2)) 
@@ -759,8 +759,8 @@ public class ChannelViewlet
 		//Select Two channels and choose properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("Properties...")).click();
-		Thread.sleep(1000);
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
 		
 		//Enter the Description
 		driver.findElement(By.id("description")).clear();
@@ -772,31 +772,31 @@ public class ChannelViewlet
 		
 		//Close the Popup
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		//Open the properties of first channel
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		String FirstChannelDescription=driver.findElement(By.id("description")).getAttribute("value");
 		String FirstChannelConnection=driver.findElement(By.id("connectionName")).getAttribute("value");
 		
 		//Close the Popup
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		//Open the properties of second channel
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		String SecondChannelDescription=driver.findElement(By.id("description")).getAttribute("value");
 		String SecondChannelConnection=driver.findElement(By.id("connectionName")).getAttribute("value");
 		
 		//Close the Popup
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		//Verification
 		if(FirstChannelDescription.equals(ChannelDescription) && FirstChannelConnection.equals(ChannelConnectionName) && SecondChannelDescription.equals(ChannelDescription) && SecondChannelConnection.equals(ChannelConnectionName))
