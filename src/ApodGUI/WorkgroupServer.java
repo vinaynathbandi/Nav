@@ -342,8 +342,9 @@ public class WorkgroupServer {
 			Actions MousehourNode = new Actions(driver);
 			MousehourNode.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Node...")).click();
+			Thread.sleep(2000);
 
-			// Create Node page
+			// Create Node page          
 			// driver.findElement(By.xpath("(//input[@type='text'])[4]")).click();
 			driver.findElement(By.xpath("//app-mod-node-properties-identity/div/div[2]/div/input")).sendKeys(NodeName);
 			driver.findElement(By.xpath("//div[3]/div/input")).sendKeys(Node_Hostname);
