@@ -214,10 +214,10 @@ public class EMSQueueMessages
 	@Test(priority=1)
 	public static void PutNewMessageIntoQueue(String MessageData, ITestContext context) throws InterruptedException
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Find the queue current depth
@@ -264,10 +264,10 @@ public class EMSQueueMessages
 	@TestRail(testCaseId=284)
 	public static void LoadFromFile(ITestContext context) throws InterruptedException, AWTException
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		//Find the queue current depth
 		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -280,7 +280,7 @@ public class EMSQueueMessages
 		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
 		driver.findElement(By.linkText("Load From File...")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
+		driver.findElement(By.id("accept-true")).click();
 		Thread.sleep(2000);
 		
 		//Loading the file into queue by using robot class
@@ -297,7 +297,7 @@ public class EMSQueueMessages
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(1000);
+	    Thread.sleep(5000);
 	    
 	    //store the queue depth after loading file
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -365,10 +365,10 @@ public class EMSQueueMessages
 	@TestRail(testCaseId=286)
 	public static void CopyAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		//Find the queue current depth
 		String depthbeforeCopy=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -431,10 +431,10 @@ public class EMSQueueMessages
 	@TestRail(testCaseId=287)
 	public static void MoveAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Find the queue current depth
