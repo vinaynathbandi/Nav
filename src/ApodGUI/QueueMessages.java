@@ -267,7 +267,7 @@ public class QueueMessages
 		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
 		driver.findElement(By.linkText("Load From File...")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
+		driver.findElement(By.id("accept-true")).click();
 		Thread.sleep(2000);
 		
 		//Loading the file into queue by using robot class
@@ -284,7 +284,7 @@ public class QueueMessages
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(1000);
+	    Thread.sleep(4000);
 	    
 	    //store the queue depth after loading file
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
