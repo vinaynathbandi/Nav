@@ -345,13 +345,13 @@ public class WorkgroupServer {
 
 			// Create Node page
 			// driver.findElement(By.xpath("(//input[@type='text'])[4]")).click();
-			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(NodeName);
-			driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(Node_Hostname);
-			driver.findElement(By.xpath("(//input[@type='text'])[5]")).sendKeys(Node_IPAddress);
+			driver.findElement(By.xpath("//app-mod-node-properties-identity/div/div[2]/div/input")).sendKeys(NodeName);
+			driver.findElement(By.xpath("//div[3]/div/input")).sendKeys(Node_Hostname);
+			driver.findElement(By.xpath("//div[5]/div/input")).sendKeys(Node_IPAddress);
 
 			//port number
-			driver.findElement(By.xpath("(//input[@type='text'])[6]")).clear();
-			driver.findElement(By.xpath("(//input[@type='text'])[6]")).sendKeys(Node_PortNumber);
+			driver.findElement(By.xpath("//div[7]/div/input")).clear();
+			driver.findElement(By.xpath("//div[7]/div/input")).sendKeys(Node_PortNumber);
 
 			// Submit
 			driver.findElement(By.cssSelector(".btn-primary")).click();
