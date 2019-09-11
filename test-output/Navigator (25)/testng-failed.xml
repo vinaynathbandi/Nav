@@ -9,21 +9,23 @@
     <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="ScheduleDurableName" value="Schedule.Durable"/>
     <parameter name="NameOfTheMonth" value="Apr"/>
     <parameter name="YearValue" value="2028"/>
     <parameter name="URL" value="/navigator/#/login"/>
     <classes>
       <class name="ApodGUI.Scheduling">
         <methods>
-          <include name="ProcessScheduling" invocation-numbers="0"/>
           <include name="beforeTest"/>
           <include name="TopicScheduling" invocation-numbers="0"/>
           <include name="SubScriptionScheduling" invocation-numbers="0"/>
           <include name="ManagerScheduling" invocation-numbers="0"/>
+          <include name="RouteScheduling" invocation-numbers="0"/>
           <include name="tearDown"/>
           <include name="BridgeScheduling" invocation-numbers="0"/>
           <include name="ChannelScheduling" invocation-numbers="0"/>
           <include name="DurableScheduling" invocation-numbers="0"/>
+          <include name="Logout"/>
         </methods>
       </class> <!-- ApodGUI.Scheduling -->
     </classes>

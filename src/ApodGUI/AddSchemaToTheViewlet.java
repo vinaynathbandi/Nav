@@ -259,7 +259,7 @@ public class AddSchemaToTheViewlet
 	public void RemoveAllAttributesButton(String DisplayedAttributesAfterRemoving, ITestContext context) throws InterruptedException
 	{
 		//Click on Remove all button
-		driver.findElement(By.xpath("//button[4]")).click();
+		driver.findElement(By.xpath("//div[2]/div[2]/button[4]")).click();
 		Thread.sleep(2000);
 		
 		//Store the Displayed attributes field data into string
@@ -318,7 +318,7 @@ public class AddSchemaToTheViewlet
 		driver.findElement(By.xpath("//div[3]/table/tbody/tr/td")).click();
 		
 		//click on remove button
-		driver.findElement(By.xpath("//button[3]")).click();
+		driver.findElement(By.xpath("//div[2]/div[2]/button[3]")).click();
 		Thread.sleep(2000);
 		
 		//Store the Displayed attributes field data into string

@@ -8,14 +8,59 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="7">Testing Navigator Dashboard</th></tr>
-<tr><td><a href="#t0">Add Dashboard reports</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">68,912</td><td></td><td></td></tr>
+<tr><th colspan="7">Navigator</th></tr>
+<tr><td><a href="#t0">Test Subscription Viewlet</a></td><td class="num">2</td><td class="num">0</td><td class="num attn">2</td><td class="num">106,277</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Testing Navigator Dashboard</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Add Dashboard reports &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">ApodGUI.SearchCriteria</td><td><a href="#m0">AddSearchCriteriaCondition</a></td><td rowspan="1">1567689943032</td><td rowspan="1">12322</td></tr><tr class="passedeven"><td><a href="#m1">Login</a></td><td rowspan="1">1567689888209</td><td rowspan="1">23457</td></tr><tr class="passedeven"><td><a href="#m2">Logout</a></td><td rowspan="1">1567689955782</td><td rowspan="1">1305</td></tr><tr class="passedeven"><td><a href="#m3">PutAmessageIntoQueue</a></td><td rowspan="1">1567689912090</td><td rowspan="1">30114</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Navigator</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test Subscription Viewlet &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">ApodGUI.SubscriptionViewlet</td><td><a href="#m0">CreateSubscriptionFromPlusIcon</a></td><td rowspan="1">1568211587547</td><td rowspan="1">39523</td></tr><tr class="failedeven"><td><a href="#m1">Logout</a></td><td rowspan="1">1568211644428</td><td rowspan="1">1155</td></tr><tr><th colspan="4">Test Subscription Viewlet &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">ApodGUI.SubscriptionViewlet</td><td><a href="#m2">AddSubscriptionViewlet</a></td><td rowspan="1">1568211565391</td><td rowspan="1">4356</td></tr><tr class="passedeven"><td><a href="#m3">Login</a></td><td rowspan="1">1568211539343</td><td rowspan="1">25564</td></tr></tbody>
 </table>
-<h2>Add Dashboard reports</h2><h3 id="m0">ApodGUI.SearchCriteria#AddSearchCriteriaCondition</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>Search Queues</td><td>Message Search criteria</td><td>org.testng.TestRunner@b2c5e07</td></tr><tr><th colspan="3">Messages</th></tr><tr><td colspan="3"><div class="messages"><br/><br/><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSearchCriteriaCondition.png" alt="""/" /></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">ApodGUI.SearchCriteria#Login</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th></tr><tr class="param stripe"><td>webdriver.chrome.driver</td><td>Drivers/chromedriver.exe</td><td>Search Criteria Dashboard</td><td>WGS10</td></tr><tr><th colspan="4">Messages</th></tr><tr><td colspan="4"><div class="messages"><br/><br/><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">ApodGUI.SearchCriteria#Logout</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">ApodGUI.SearchCriteria#PutAmessageIntoQueue</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>Test the Message Search criteria condition</td><td>WGS10</td></tr><tr><th colspan="2">Messages</th></tr><tr><td colspan="2"><div class="messages"><br/><br/><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutAmessageIntoQueue.png" alt="""/" /></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test Subscription Viewlet</h2><h3 id="m0">ApodGUI.SubscriptionViewlet#CreateSubscriptionFromPlusIcon</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th><th>Parameter #4</th><th>Parameter #5</th><th>Parameter #6</th><th>Parameter #7</th><th>Parameter #8</th></tr><tr class="param stripe"><td>DESKTOP-E1JT2VR</td><td>M1</td><td>SYSTEM.ADD.ICON.SUBSCRIPTION</td><td>UniqueIcon</td><td>DESKTOP-E1JT2VR</td><td>M1</td><td>ABCD</td><td>org.testng.TestRunner@421e361</td></tr><tr><th colspan="8">Messages</th></tr><tr><td colspan="8"><div class="messages"><br/>Failed to execute method: CreateSubscriptionFromPlusIcon<br/><br/><br/><br/><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateSubscriptionFromPlusIcon.png" alt="""/" /></div></td></tr><tr><th colspan="8">Exception</th></tr><tr><td colspan="8"><div class="stacktrace">org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Subscription failed because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Subscription failed&apos; is not a valid XPath expression.
+  (Session info: chrome=76.0.3809.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63766}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: 7718f21fe8b5c93b2697e142b24d92a2
+*** Element info: {Using=xpath, value=Subscription failed}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.SubscriptionViewlet.CreateSubscriptionFromPlusIcon(SubscriptionViewlet.java:1069)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">ApodGUI.SubscriptionViewlet#Logout</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-c4=&quot;&quot; aria-hidden=&quot;true&quot; class=&quot;fa fa-power-off fa-lg&quot; title=&quot;Logout&quot;&gt;&lt;/i&gt; is not clickable at point (1251, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot;&gt;...&lt;/ngb-modal-window&gt;
+  (Session info: chrome=76.0.3809.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63766}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: 7718f21fe8b5c93b2697e142b24d92a2
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at ApodGUI.SubscriptionViewlet.Logout(SubscriptionViewlet.java:1444)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">ApodGUI.SubscriptionViewlet#AddSubscriptionViewlet</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>New Subscription Viewlet</td><td>org.testng.TestRunner@421e361</td></tr><tr><th colspan="2">Messages</th></tr><tr><td colspan="2"><div class="messages"><br/><br/><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSubscriptionViewlet.png" alt="""/" /></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">ApodGUI.SubscriptionViewlet#Login</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>webdriver.chrome.driver</td><td>Drivers/chromedriver.exe</td><td>Subscription Verification</td></tr><tr><th colspan="3">Messages</th></tr><tr><td colspan="3"><div class="messages"><br/><br/><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

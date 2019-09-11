@@ -1,37 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (26)]">
-  <parameter name="ConnectionName" value="localhost"/>
-  <parameter name="password" value="admin"/>
-  <parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="RemoteQueueManagerName" value="QMGR_NAME"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="ConnectionInstanceName" value="REMOTE_QMGRS"/>
-  <parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE"/>
-  <parameter name="NewConnectionName" value="192.168.1.210"/>
-  <test name="Testing WorkGroup server viewlet options">
-    <parameter name="ConnectionName" value="localhost"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN"/>
+  <test thread-count="5" name="Attribute Filter Condition(failed)">
+    <parameter name="Dashboardname" value="Attribute Filter Dashboard"/>
+    <parameter name="wgs" value="0"/>
+    <parameter name="ConditionData" value="20000"/>
+    <parameter name="ConditionValue" value="Maximum Depth"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="RemoteQueueManagerName" value="QMGR_NAME"/>
+    <parameter name="Node" value="DESKTOP-E1JT2VR"/>
+    <parameter name="Queuemanager" value="MGR"/>
+    <parameter name="ConditionName" value="Test Condtition"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="ConnectionInstanceName" value="REMOTE_QMGRS"/>
-    <parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE"/>
-    <parameter name="NewConnectionName" value="192.168.1.210"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="RowValue" value="Maximum Depth"/>
+    <parameter name="AttributeName" value="Maximum Depth"/>
+    <parameter name="CompareOperation" value="is equal"/>
     <classes>
-      <class name="ApodGUI.AddRemoteQueueManager19564">
+      <class name="ApodGUI.AttributeFilterCondition">
         <methods>
-          <include name="Login"/>
-          <include name="AddRemoteQueueManager"/>
+          <include name="AddAttributeFilterCondition" invocation-numbers="0"/>
           <include name="Logout"/>
+          <include name="beforeTest"/>
+          <include name="AddDashboard" invocation-numbers="0"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ApodGUI.AddRemoteQueueManager19564 -->
+      </class> <!-- ApodGUI.AttributeFilterCondition -->
     </classes>
-  </test> <!-- Testing WorkGroup server viewlet options -->
+  </test> <!-- Attribute Filter Condition(failed) -->
 </suite> <!-- Failed suite [Navigator (26)] -->

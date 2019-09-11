@@ -21,15 +21,17 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import testrail.Settings;
+import testrail.TestClass;
 import testrail.TestRail;
 import testrail.TestRailAPI;
 
 
-
+@Listeners(TestClass.class)
 public class AttributeFilterCondition 
 {
 	static WebDriver driver;
@@ -105,9 +107,9 @@ public class AttributeFilterCondition
 		Thread.sleep(8000);
 	}
 	
-	@Parameters({"Dashboardname", "Node", "Queuemanager"})
+	@Parameters({"Dashboardname", "Node", "Queuemanager", "wgs"})
 	@Test(priority=1)
-	public static void AddDashboard(String Dashboardname, String Node, String Queuemanager) throws Exception
+	public static void AddDashboard(String Dashboardname, String Node, String Queuemanager, String wgs) throws Exception
 	{
 		
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -118,7 +120,7 @@ public class AttributeFilterCondition
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
-		dd.selectByVisibleText(WGSName);
+		dd.selectByVisibleText(wgs);
 		
 		/*//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();

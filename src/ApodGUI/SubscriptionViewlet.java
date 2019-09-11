@@ -47,6 +47,8 @@ public class SubscriptionViewlet {
 	static String DestinationQueue;
 	static String DWGSIcon;
 	static String DestinationTopicName;
+	static String Manager1;
+	static String Manager2;
 	
 	
 	@BeforeTest
@@ -64,6 +66,8 @@ public class SubscriptionViewlet {
 		DestinationQueue =Settings.getDestinationQueue();
 		DWGSIcon =Settings.getDWGSIcon();
 		DestinationTopicName =Settings.getDestinationTopicName();
+		Manager1 =Settings.getManager1();
+		Manager2 =Settings.getManager2();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
@@ -833,9 +837,244 @@ public class SubscriptionViewlet {
 		Thread.sleep(1000);	
 	}
 	
+	@Parameters({"DestinationNodeName", "DestinationManagerName", "AddSubscriptionNameFromIcon", "TopicStringDataFromICon", "NodeNameFromIcon", "DestinationManagerFromIcon", "DestinationQueueFromIcon"})
+	@TestRail(testCaseId=201)
+	@Test(priority=10)
+	public void CreateSubscriptionFromPlusIcon(String DestinationNodeName, String DestinationManagerName, String AddSubscriptionNameFromIcon, String TopicStringDataFromICon, String NodeNameFromIcon, String DestinationManagerFromIcon, String DestinationQueueFromIcon,ITestContext context) throws InterruptedException
+	{
+		String[] Managers= {Manager1, Manager2};
+		for(int m=0; m<=Managers.length; m++)
+		{
+		//Click on + icon present in the listener viewlet
+		driver.findElement(By.xpath("//img[@title='Add Subscription']")).click();
+		
+		//Select WGS
+		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
+		WGS.selectByVisibleText(WGSName);
+		
+		//Select Node
+		driver.findElement(By.xpath("//ng-select/div")).click();
+		
+		try 
+		{
+			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicNode.size());	
+			for (int i=0; i<TopicNode.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
+				String s=TopicNode.get(i).getText();
+				if(s.equals(Dnode))
+				{
+					String id=TopicNode.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
+		
+		//Select Manager
+        driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+        try 
+		{
+			List<WebElement> TopicManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicManager.size());	
+			for (int i=0; i<TopicManager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
+				String s=TopicManager.get(i).getText();
+				System.out.println("Manager name is: " +Managers[m]);
+				if(s.equals(Managers[m]))
+				{
+					String id=TopicManager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+        Thread.sleep(1000);
+        
+		//Click on Select path button
+		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
+		Thread.sleep(1000);
+		
+		//Give the Subscription name
+		driver.findElement(By.id("name")).clear();
+		driver.findElement(By.id("name")).sendKeys(AddSubscriptionNameFromIcon);
+		Thread.sleep(4000);
+		
+		//Select the Topic name from the list
+		try 
+		{
+			driver.findElement(By.id("topicName")).click();
+			List<WebElement> Topic=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(Topic.size());	
+			for (int i=0; i<Topic.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
+				String s=Topic.get(i).getText();
+				if(s.equals(DestinationTopicName))
+				{
+					String id=Topic.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
+		
+		//Topic string data
+		driver.findElement(By.id("topicString")).sendKeys(TopicStringDataFromICon);
+		
+		//Click on Destination tab
+		driver.findElement(By.linkText("Destination")).click();
+		
+		//Select WGS name
+		Select DestinationWGS=new Select(driver.findElement(By.id("destinationGMName")));
+		DestinationWGS.selectByVisibleText(DWGSIcon);
+		
+		//Select WGS name
+		/*driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).click();
+		driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).sendKeys("DESKTOP-E1JT2VR");
+		//span[@class, 'ng-option-label ng-star-inserted']*/	
+	
+		try 
+		{
+			driver.findElement(By.id("destinationNodeName")).click();
+			List<WebElement> Node=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(Node.size());	
+			for (int i=0; i<Node.size();i++)
+			{
+				System.out.println("Radio button text:" + Node.get(i).getText());
+				System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
+				String s=Node.get(i).getText();
+				if(s.equals(Dnode))
+				{
+					String id=Node.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(1000);
+		
+		//Select Manager value
+		try 
+		{
+			driver.findElement(By.id("destinationQMName")).click();
+			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(Manager.size());	
+			for (int i=0; i<Manager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Manager.get(i).getText());
+				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
+				String s=Manager.get(i).getText();
+				if(s.equals(Managers[m]))
+				{
+					String id=Manager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		//Select Queue name
+		try 
+		{
+			driver.findElement(By.id("destinationQName")).click();
+			List<WebElement> QueueName=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(QueueName.size());	
+			for (int i=0; i<QueueName.size();i++)
+			{
+				//System.out.println("Radio button text:" + QueueName.get(i).getText());
+				System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
+				String s=QueueName.get(i).getText();
+				if(s.equals(DestinationQueue))
+				{
+					String id=QueueName.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
+				
+		//Click on OK button
+		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+    	Thread.sleep(6000);
+    	
+    	try
+    	{
+    		driver.findElement(By.id("yes")).click();
+    	}
+    	catch (Exception e)
+    	{
+    		System.out.println("Error popup is occur");
+    	}
+    	
+    	//Search with the added Subscription name
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(AddSubscriptionNameFromIcon);
+    	Thread.sleep(1000);
+	
+    	//Store the viewlet data into string
+    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	//System.out.println(Subviewlet);
+    	
+    	//Search with the new name
+		for(int j=0; j<=AddSubscriptionNameFromIcon.length(); j++)
+    	{
+			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+    	
+    	//Verification
+    	if(Subviewlet.contains(AddSubscriptionNameFromIcon))
+    	{
+    		System.out.println("Subscription is added successfully");
+    		context.setAttribute("Status",1);
+			context.setAttribute("Comment", "Subscription is created successfully using add Icon");
+    	}
+    	else
+    	{
+    		System.out.println("Subscription is not added to the viewlet");
+    		context.setAttribute("Status",5);
+			context.setAttribute("Comment", "Failed to create subscription using add Icon");
+    		driver.findElement(By.xpath("Subscription failed")).click();
+    	}
+    	Thread.sleep(4000);
+	}
+	}
+	
 	@Parameters({"CopyObjectNameForMUltiple"})
 	@TestRail(testCaseId=196)
-	@Test(priority=10)
+	@Test(priority=11)
 	public void CopyAsFromCommandsForMultipleSubscriptions(String CopyObjectNameForMUltiple, ITestContext context) throws InterruptedException
 	{
 		//Select Copy As From commands
@@ -905,7 +1144,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"RenameSubscriptionForMultiple"})
 	@TestRail(testCaseId=197)
-	@Test(priority=11)
+	@Test(priority=12)
 	public void RenameFromCommandsForMultipleSubscriptions(String RenameSubscriptionForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
@@ -979,7 +1218,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"RenameSubscriptionForMultiple"})
 	@TestRail(testCaseId=198)
-	@Test(priority=12)
+	@Test(priority=13)
 	public void DeleteFromCommandsForMultipleSubscriptions(String RenameSubscriptionForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
@@ -1034,7 +1273,7 @@ public class SubscriptionViewlet {
 		
 	}
 	
-	@Test(priority=13)
+	@Test(priority=14)
 	@TestRail(testCaseId=199)
 	public void MultipleSubscriptionProperties(ITestContext context) throws InterruptedException
 	{
@@ -1134,7 +1373,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=200)
-	@Test(priority=14)
+	@Test(priority=15)
 	public static void AddToFavoriteForMultipleSubscription(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int Subscription_Id=5;
@@ -1183,235 +1422,6 @@ public class SubscriptionViewlet {
 		Thread.sleep(1000);
 	}
 	
-	@Parameters({"DestinationNodeName", "DestinationManagerName", "AddSubscriptionNameFromIcon", "TopicStringDataFromICon", "NodeNameFromIcon", "DestinationManagerFromIcon", "DestinationQueueFromIcon"})
-	@TestRail(testCaseId=201)
-	@Test(priority=15)
-	public void CreateSubscriptionFromPlusIcon(String DestinationNodeName, String DestinationManagerName, String AddSubscriptionNameFromIcon, String TopicStringDataFromICon, String NodeNameFromIcon, String DestinationManagerFromIcon, String DestinationQueueFromIcon,ITestContext context) throws InterruptedException
-	{
-		//Click on + icon present in the listener viewlet
-		driver.findElement(By.xpath("//img[@title='Add Subscription']")).click();
-		
-		//Select WGS
-		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
-		WGS.selectByVisibleText(WGSName);
-		
-		//Select Node
-		driver.findElement(By.xpath("//ng-select/div")).click();
-		
-		try 
-		{
-			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(TopicNode.size());	
-			for (int i=0; i<TopicNode.size();i++)
-			{
-				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
-				String s=TopicNode.get(i).getText();
-				if(s.equals(Dnode))
-				{
-					String id=TopicNode.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(2000);
-		
-		//Select Manager
-        driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
-        try 
-		{
-			List<WebElement> TopicManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(TopicManager.size());	
-			for (int i=0; i<TopicManager.size();i++)
-			{
-				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
-				String s=TopicManager.get(i).getText();
-				if(s.equals(DestinationManager))
-				{
-					String id=TopicManager.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-        Thread.sleep(1000);
-        
-		//Click on Select path button
-		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
-		Thread.sleep(1000);
-		
-		//Give the Subscription name
-		driver.findElement(By.id("name")).clear();
-		driver.findElement(By.id("name")).sendKeys(AddSubscriptionNameFromIcon);
-		Thread.sleep(4000);
-		
-		//Select the Topic name from the list
-		try 
-		{
-			driver.findElement(By.id("topicName")).click();
-			List<WebElement> Topic=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Topic.size());	
-			for (int i=0; i<Topic.size();i++)
-			{
-				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
-				String s=Topic.get(i).getText();
-				if(s.equals(DestinationTopicName))
-				{
-					String id=Topic.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(2000);
-		
-		//Topic string data
-		driver.findElement(By.id("topicString")).sendKeys(TopicStringDataFromICon);
-		
-		//Click on Destination tab
-		driver.findElement(By.linkText("Destination")).click();
-		
-		//Select WGS name
-		Select DestinationWGS=new Select(driver.findElement(By.id("destinationGMName")));
-		DestinationWGS.selectByVisibleText(DWGSIcon);
-		
-		//Select WGS name
-		/*driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).click();
-		driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).sendKeys("DESKTOP-E1JT2VR");
-		//span[@class, 'ng-option-label ng-star-inserted']*/	
-	
-		try 
-		{
-			driver.findElement(By.id("destinationNodeName")).click();
-			List<WebElement> Node=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Node.size());	
-			for (int i=0; i<Node.size();i++)
-			{
-				System.out.println("Radio button text:" + Node.get(i).getText());
-				System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
-				String s=Node.get(i).getText();
-				if(s.equals(Dnode))
-				{
-					String id=Node.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(1000);
-		
-		//Select Manager value
-		try 
-		{
-			driver.findElement(By.id("destinationQMName")).click();
-			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Manager.size());	
-			for (int i=0; i<Manager.size();i++)
-			{
-				//System.out.println("Radio button text:" + Manager.get(i).getText());
-				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
-				String s=Manager.get(i).getText();
-				if(s.equals(DestinationManager))
-				{
-					String id=Manager.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		
-		//Select Queue name
-		try 
-		{
-			driver.findElement(By.id("destinationQName")).click();
-			List<WebElement> QueueName=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(QueueName.size());	
-			for (int i=0; i<QueueName.size();i++)
-			{
-				//System.out.println("Radio button text:" + QueueName.get(i).getText());
-				System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
-				String s=QueueName.get(i).getText();
-				if(s.equals(DestinationQueue))
-				{
-					String id=QueueName.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(2000);
-				
-		//Click on OK button
-		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-    	Thread.sleep(6000);
-    	
-    	try
-    	{
-    		driver.findElement(By.id("yes")).click();
-    	}
-    	catch (Exception e)
-    	{
-    		System.out.println("Error popup is occur");
-    	}
-    	
-    	//Search with the added Subscription name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(AddSubscriptionNameFromIcon);
-    	Thread.sleep(1000);
-	
-    	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-    	//System.out.println(Subviewlet);
-    	
-    	//Search with the new name
-		for(int j=0; j<=AddSubscriptionNameFromIcon.length(); j++)
-    	{
-			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
-    	
-    	//Verification
-    	if(Subviewlet.contains(AddSubscriptionNameFromIcon))
-    	{
-    		System.out.println("Subscription is added successfully");
-    		context.setAttribute("Status",1);
-			context.setAttribute("Comment", "Subscription is created successfully using add Icon");
-    	}
-    	else
-    	{
-    		System.out.println("Subscription is not added to the viewlet");
-    		context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Failed to create subscription using add Icon");
-    		driver.findElement(By.xpath("Subscription failed")).click();
-    	}
-    	Thread.sleep(4000);
-	}
 
 	@Test(priority=25)
 	public void Logout() throws InterruptedException 

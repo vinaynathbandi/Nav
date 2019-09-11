@@ -226,7 +226,7 @@ public class WorkgroupServer {
 				DeleteWGS.click();
 				driver.findElement(By.linkText("Delete workgroup server")).click();
 				driver.findElement(By.cssSelector(".btn-primary")).click();
-				Thread.sleep(3000);
+				Thread.sleep(6000);
 
 				// Store the Viewlet data into string
 				String WGSServerData = driver.findElement(By.xpath("//datatable-body")).getText();
@@ -406,7 +406,7 @@ public class WorkgroupServer {
 			Actions Mousehour = new Actions(driver);
 			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Remote Queue Managers...")).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			// Click on Add button
 			driver.findElement(By.xpath("//div/div/div/div[2]/div/div/button")).click();
@@ -435,13 +435,11 @@ public class WorkgroupServer {
 			driver.findElement(By.name("channelName")).sendKeys(ChannelName);
 
 			// click on OK button
-			driver.findElement(By.xpath("//app-mod-remote-queue-manager-options/div/div[2]/div/div/div/button"))
-					.click();
-			Thread.sleep(2000);
+			driver.findElement(By.xpath("//app-mod-remote-queue-manager-options/div/div[2]/div/div/div/button")).click();
+			Thread.sleep(5000);
 
 			// Store the Queue managers into string
-			String Queuemanagers = driver
-					.findElement(By.xpath("//app-mod-remote-queue-manager-connections/div/div/div/div")).getText();
+			String Queuemanagers = driver.findElement(By.xpath("//app-mod-remote-queue-manager-connections/div/div/div/div")).getText();
 
 			// Verification
 			if (Queuemanagers.contains(RemoteQueueManagerName)) {
@@ -481,7 +479,7 @@ public class WorkgroupServer {
 			Actions Mousehour = new Actions(driver);
 			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Remote Queue Managers...")).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			// Click on Modify button
 			driver.findElement(By.xpath("//div[2]/div/div[2]/button")).click();
@@ -494,9 +492,8 @@ public class WorkgroupServer {
 			driver.findElement(By.name("connName")).sendKeys(Node_NewConnectionName);
 
 			// click on OK button
-			driver.findElement(By.xpath("//app-mod-remote-queue-manager-options/div/div[2]/div/div/div/button"))
-					.click();
-			Thread.sleep(2000);
+			driver.findElement(By.xpath("//app-mod-remote-queue-manager-options/div/div[2]/div/div/div/button")).click();
+			Thread.sleep(5000);
 
 			// Store the connection ip into string after modifying the name
 			String ChangedConnectionip = driver.findElement(By.xpath("//div[2]/div/table/tbody/tr/td[2]")).getText();
@@ -534,7 +531,7 @@ public class WorkgroupServer {
 			Actions Mousehour = new Actions(driver);
 			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Remote Queue Managers...")).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			// Select the required Queue manager
 			driver.findElement(By.xpath("//td[contains(.,'" + DeleteManagerName + "')]")).click();
@@ -542,7 +539,7 @@ public class WorkgroupServer {
 			// Click on Delete
 			driver.findElement(By.xpath("//div[3]/button")).click();
 			driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 
 			// Store the Queue managers into string
 			String Queuemanagers = driver.findElement(By.xpath("//app-mod-remote-queue-manager-connections/div/div/div/div")).getText();
@@ -585,7 +582,7 @@ public class WorkgroupServer {
 			Actions Mousehour = new Actions(driver);
 			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Remote EMS Managers...")).click();
-			Thread.sleep(1000);
+			Thread.sleep(2000);
 
 			// Click on Add button //app-dropdown[@id='dropdown-block']/div/ul/li[3]/a
 			driver.findElement(By.xpath("//div[2]/div/div/button")).click();
@@ -604,11 +601,10 @@ public class WorkgroupServer {
 
 			// click on OK button
 			driver.findElement(By.xpath("//app-mod-remote-ems-manager-options/div/div[2]/div/div/div/button")).click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 
 			// Store the EMS servers data into string
-			String RemoteEMSserver = driver
-					.findElement(By.xpath("//app-mod-remote-ems-manager-connections/div/div/div/div")).getText();
+			String RemoteEMSserver = driver.findElement(By.xpath("//app-mod-remote-ems-manager-connections/div/div/div/div")).getText();
 
 			// verification of Remote ems server
 			if (RemoteEMSserver.contains(AgentInstanceName) && RemoteEMSserver.contains(ServerName)) {
@@ -643,7 +639,7 @@ public class WorkgroupServer {
 
 			// click on OK button
 			driver.findElement(By.xpath("//app-mod-remote-ems-manager-options/div/div[2]/div/div/div/button")).click();
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 
 			// Store the Server URL value into string
 			String URL = driver.findElement(By.xpath("//div[2]/div/table/tbody/tr/td[2]")).getText();
@@ -681,11 +677,10 @@ public class WorkgroupServer {
 
 			// Click on Confirmation yes button
 			driver.findElement(By.id("accept-true")).click();
-			Thread.sleep(2000);
+			Thread.sleep(6000);
 
 			// Store the EMS servers data into string
-			String RemoteEMSserver = driver
-					.findElement(By.xpath("//app-mod-remote-ems-manager-connections/div/div/div/div")).getText();
+			String RemoteEMSserver = driver.findElement(By.xpath("//app-mod-remote-ems-manager-connections/div/div/div/div")).getText();
 
 			// verification of Remote ems server
 			if (RemoteEMSserver.contains(ServerName)) {

@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (20)]">
-  <test thread-count="5" name="Browse Message Options(failed)">
-    <parameter name="Dashboardname" value="EMS Queue Inside Messages"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="MessageData" value="Testing to add the new message into Queue"/>
-    <parameter name="Node" value="DESKTOP-E1JT2VR"/>
-    <parameter name="Queuemanager" value="MGR"/>
-    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Browse Messages"/>
-    <parameter name="URL" value="/navigator/#/login"/>
+  <test thread-count="5" name="EMS Queue Message Options(failed)">
+    <parameter name="Dashboardname" value="EMS Queues Messages"/>
     <parameter name="password" value="admin"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="MessageData" value="Put the message from Main options"/>
+    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Main"/>
     <parameter name="QueueName" value="EMS Local Queue"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.EMSQueuesInsideOptionsOfBrowse">
+      <class name="ApodGUI.EMSQueueMessages">
         <methods>
-          <include name="PutAMessageUsingPutNewIcon" invocation-numbers="0"/>
-          <include name="Logout"/>
+          <include name="CopyAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
+          <include name="MoveAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
           <include name="beforeTest"/>
-          <include name="LoadMessageFromFileUsingIcon" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="Logout"/>
+          <include name="ClearAllMessagesFromQueue" invocation-numbers="0"/>
+          <include name="PutNewMessageIntoQueue" invocation-numbers="0"/>
+          <include name="DeleteAllMessagesFromQueue" invocation-numbers="0"/>
+          <include name="LoadFromFile" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.EMSQueuesInsideOptionsOfBrowse -->
+      </class> <!-- ApodGUI.EMSQueueMessages -->
     </classes>
-  </test> <!-- Browse Message Options(failed) -->
+  </test> <!-- EMS Queue Message Options(failed) -->
 </suite> <!-- Failed suite [Navigator (20)] -->

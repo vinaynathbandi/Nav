@@ -888,7 +888,7 @@ public class EMSQueues
 		driver.findElement(By.cssSelector(".btn-group:nth-child(3) > .btn")).click();
 		Thread.sleep(2000);
 		
-		//Search with input dat
+		//Search with input data
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(QueueName);
 		
@@ -900,6 +900,13 @@ public class EMSQueues
 		{
 			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
 		}
+		
+		// Changing the Settings 
+		driver.findElement(By.cssSelector(".fa-cog")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[3]/button")).click();
+		Thread.sleep(1000);
 		
 		//Verification 
 		if(QueueData.contains(QueueName))

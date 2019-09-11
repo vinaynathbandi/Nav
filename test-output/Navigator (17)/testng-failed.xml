@@ -16,7 +16,7 @@
     <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="DeleteDurableName" value="Test.EMS.Durable"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="DurableName" value="EMS.Add.Durable"/>
+    <parameter name="DurableName" value="EMS.Add.Durable.selenium"/>
     <classes>
       <class name="ApodGUI.DurableViewlet">
         <methods>

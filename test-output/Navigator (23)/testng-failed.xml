@@ -1,39 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (23)]">
-  <test thread-count="5" name="Settings(failed)">
-    <parameter name="Dashboardname" value="Settings Dashboard"/>
-    <parameter name="wgs" value="MQM"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="objpath2" value="\\WGS10"/>
-    <parameter name="FavoriteViewletName" value="Fav Viewlet"/>
-    <parameter name="Favwgs" value="MQM - 1"/>
-    <parameter name="objpath1" value="\\MQM"/>
+  <test thread-count="5" name="Test Topic Viewlet(failed)">
+    <parameter name="Dashboardname" value="TopicViewlet Verification"/>
+    <parameter name="PropertyNameForMultiple" value="Test"/>
+    <parameter name="NodeName" value="DESKTOP-E1JT2VR"/>
+    <parameter name="FavoriteViewletName" value="Favorite Viewlet for Topic"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="TopicNameFromIcon" value="EMS.TOPIC.ICON"/>
+    <parameter name="CopyObjectName" value=".Copy"/>
     <parameter name="URL" value="/navigator/#/login"/>
     <parameter name="password" value="admin"/>
-    <parameter name="Manager4" value="Testing"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Manager3" value="TEST"/>
-    <parameter name="Manager2" value="MGR"/>
-    <parameter name="Manager1" value="M10"/>
+    <parameter name="DestinationQueue" value="AAA.LQ"/>
+    <parameter name="AddSubscriptionNameforMultiple" value="Test.Multiple.Sub421"/>
+    <parameter name="DWGS" value="WGS10"/>
+    <parameter name="MessageDataForMultiple" value="Add Message into the destination queue"/>
+    <parameter name="PropertyName" value="Test Property"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="uname" value="Admin"/>
+    <parameter name="DestinationManager" value="M10"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="MessageData" value="Test the publish option and sending the message to queue"/>
+    <parameter name="PropertyValue" value="Test Property value"/>
+    <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
+    <parameter name="CopyObjectNameForMultiple" value="SYSTEM.TEST.TOPIC.COPY"/>
+    <parameter name="TopicName" value="New Topic Viewlet"/>
+    <parameter name="PropertyValueForMultiple" value="Test"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="AddSubscriptionName" value="Test.Sub421"/>
+    <parameter name="Dnode" value="DESKTOP-E1JT2VR"/>
+    <parameter name="SchemaName" value="TopicSchema"/>
     <classes>
-      <class name="ApodGUI.NavigatorSettings">
+      <class name="ApodGUI.EMSTopic">
         <methods>
-          <include name="ShowTemporaryDynamicQueues" invocation-numbers="0"/>
-          <include name="ShowObjectSearchresultsFromActiveManagersOnly" invocation-numbers="0"/>
-          <include name="Login" invocation-numbers="0"/>
-          <include name="ShowManagersForDefaultSchemas" invocation-numbers="0"/>
-          <include name="ShowSystemObjectsOnly" invocation-numbers="0"/>
-          <include name="beforeTest"/>
-          <include name="ShowFullNamesForFavoriteShortcuts" invocation-numbers="0"/>
-          <include name="Logout"/>
-          <include name="ShowInActiveChannelsCheckbox" invocation-numbers="0"/>
-          <include name="ShowFullNamesForSearchResultsObjects" invocation-numbers="0"/>
-          <include name="ShowEmptyQueuesCheckbox" invocation-numbers="0"/>
+          <include name="AddToFavoriteViewlet" invocation-numbers="0"/>
+          <include name="ShowObjectAttributesForTopic"/>
           <include name="tearDown"/>
+          <include name="beforeTest"/>
+          <include name="AddToFavoriteForMultipleTopics" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.NavigatorSettings -->
+      </class> <!-- ApodGUI.EMSTopic -->
     </classes>
-  </test> <!-- Settings(failed) -->
+  </test> <!-- Test Topic Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (23)] -->

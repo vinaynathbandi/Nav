@@ -225,10 +225,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 	@Test(priority=1)
 	public static void PutAMessageUsingPutNewIcon(String MessageData, ITestContext context) throws InterruptedException
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Find the queue current depth
@@ -252,8 +252,8 @@ public class EMSQueuesInsideOptionsOfBrowse
 		driver.findElement(By.name("generalNumberOfMsgs")).sendKeys("6");
 		
 		//Message data
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).click();
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).sendKeys(MessageData);
+		//driver.findElement(By.id("encoding-text-9")).click();
+		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(2000);
 		
@@ -285,10 +285,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 	@TestRail(testCaseId=301)
 	public static void DeleteMessageUsingDeleteIcon(ITestContext context) throws Exception
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Find the queue current depth
@@ -343,10 +343,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 		String SecondQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(SecondQueueName);                
 		
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//store the target queue name into string
@@ -403,10 +403,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 		String SecondQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(SecondQueueName);
 		
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Store the target queue name into string
@@ -454,10 +454,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 	@TestRail(testCaseId=304)
 	public static void LoadMessageFromFileUsingIcon(ITestContext context) throws InterruptedException, AWTException
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Find the queue current depth
@@ -562,10 +562,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 	@TestRail(testCaseId=306)
 	public static void DeleteMessageUsingDeleteOption(ITestContext context) throws Exception
 	{
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Find the queue current depth
@@ -620,10 +620,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 		String SecondQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(SecondQueueName);
 		
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Store the Target queue name into string
@@ -680,10 +680,10 @@ public class EMSQueuesInsideOptionsOfBrowse
 		String SecondQueueName=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(SecondQueueName);
 		
-		int Queue_Depth=7;
+		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Queue_Depth=8;
+			Queue_Depth=7;
 		}
 		
 		//Store the target queue name into string after moving the message

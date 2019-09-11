@@ -23,12 +23,21 @@
     <parameter name="RenameListenerForMultiple" value="Test.Listener.Multi.Rename"/>
     <parameter name="ListenerDescription" value="Multiple properties"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="CopyObjectNameForMUltiple" value="Test.Listener.Multi.Copy"/>
+    <parameter name="CopyObjectNameForMUltiple" value="Test.Multi.Copy"/>
     <classes>
       <class name="ApodGUI.ListenerViewlet">
         <methods>
+          <include name="RenameFromCommands" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="ListenerMultipleProperties" invocation-numbers="0"/>
+          <include name="ListenerEvents" invocation-numbers="0"/>
+          <include name="CopyAsFromCommands" invocation-numbers="0"/>
+          <include name="AddToFavoriteForMultipleListeners" invocation-numbers="0"/>
+          <include name="CompareListeners" invocation-numbers="0"/>
+          <include name="DeleteFromCommandsForMultiple" invocation-numbers="0"/>
+          <include name="DeleteFromCommands" invocation-numbers="0"/>
+          <include name="RenameFromCommandsForMultiple" invocation-numbers="0"/>
+          <include name="CopyAsFromCommandsForMultiple" invocation-numbers="0"/>
+          <include name="ListenerProperties" invocation-numbers="0"/>
           <include name="beforeTest"/>
         </methods>
       </class> <!-- ApodGUI.ListenerViewlet -->

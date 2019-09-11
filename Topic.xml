@@ -17,7 +17,8 @@
     
     <parameter name="TopicNameFromOptions" value="SYSTEM.DEFAULT.TOPIC.Options"/>
     <parameter name="Description" value="Test the description "/>
-    <parameter name="TopicUniquestring" value="UniqueTopic"/>
+    <parameter name="TopicUniquestring" value="Test"/>
+    <parameter name="TopicUniquestringForCopyAs" value="TestCopy"/>
     
     <parameter name="CopyObjectName" value=".Copy"/>
     
@@ -44,6 +45,7 @@
     <parameter name="TopicNameFromIcon" value="SYSTEM.DEFAULT.TOPIC.Icon"/>
     <parameter name="DescriptionFromIcon" value= "Description"/>
     <parameter name="TopicUniquestringFromICon" value="UniqueName1"/>
+    <parameter name="TopicUniquestringForMultipleCopy" value="UniqueNameCopy"/>
     
     <parameter name="AddSubscriptionName" value="Test.Sub421"/>
     
@@ -63,21 +65,21 @@
        
         <include name="Login"/>
         <include name="AddTopicViewlet"/> 
-        <include name="ShowObjectAttributesForTopic"/> 
+        <include name="ShowObjectAttributesForTopic"/>  
         <include name="CreateTopic"/> 
         <include name="CopyAsFromCommands"/>
         <include name="DeleteFromCommands"/> 
-        <include name="PublishFromCommands"/> 
+       <!--  <include name="PublishFromCommands"/>   -->
         <include name="TopicProperties"/> 
         <include name="TopicEvents"/> 
-        <include name="AddToFavoriteViewlet"/>  
+        <include name="AddToFavoriteViewlet"/> 
+        <include name="CreateTopicFromPlusIcon"/> 
         <include name="CompareTopics"/> 
         <include name="CopyAsFromCommandsForMultipleTopics"/>
         <include name="DeleteFromCommandsForMultipleTopics"/>
-        <include name="PublishFromCommandsForMultipleTopics"/> 
+        <!-- <include name="PublishFromCommandsForMultipleTopics"/>  -->
         <include name="MultipleProperties"/>  
         <include name="AddToFavoriteForMultipleTopics"/>  
-        <include name="CreateTopicFromPlusIcon"/>   
         <include name="Logout"/> 
         
        </methods>

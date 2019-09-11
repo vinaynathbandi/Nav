@@ -46,6 +46,8 @@ public class TopicViewlet
 	static String DestinationManager;
 	static String DestinationQueue;
 	static String DestinationTopicName;
+	static String Manager1;
+	static String Manager2;
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -61,6 +63,8 @@ public class TopicViewlet
 		DestinationManager =Settings.getDestinationManager();
 		DestinationQueue =Settings.getDestinationQueue();
 		DestinationTopicName =Settings.getDestinationTopicName();
+		Manager1 =Settings.getManager1();
+		Manager2 =Settings.getManager2();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
@@ -124,7 +128,7 @@ public class TopicViewlet
 			
 		//Create viewlet button
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 	}
 	
 	@Parameters({"Topicname"})
@@ -214,7 +218,7 @@ public class TopicViewlet
 		
 		//Click on submit button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		try
 		{
@@ -232,7 +236,15 @@ public class TopicViewlet
 		//Store the Topic viewlet data into string
 		String Viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		
-		//Verification condition
+		//Edit the search field data
+    	for(int j=0; j<=TopicNameFromOptions.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+		
+    	//Verification condition
 		if(Viewletdata.contains(TopicNameFromOptions))
 		{
 			System.out.println("Topic is created successfully");
@@ -247,20 +259,12 @@ public class TopicViewlet
 			driver.findElement(By.xpath("Topic vielwr Failed")).click();
 		}
 		Thread.sleep(1000);
-		
-		//Edit the search field data
-    	for(int j=0; j<=TopicNameFromOptions.length(); j++)
-    	{
-    	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
 	}
 	
-	@Parameters({"CopyObjectName", "TopicNameFromOptions", "TopicUniquestring"})
+	@Parameters({"CopyObjectName", "TopicNameFromOptions", "TopicUniquestringForCopyAs"})
 	@TestRail(testCaseId=135)
 	@Test(priority=4)
-	public void CopyAsFromCommands(String CopyObjectName, String TopicNameFromOptions, String TopicUniquestring, ITestContext context) throws InterruptedException
+	public void CopyAsFromCommands(String CopyObjectName, String TopicNameFromOptions, String TopicUniquestringForCopyAs, ITestContext context) throws InterruptedException
 	{
 		//Search with the added Topic name
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromOptions);
@@ -276,7 +280,7 @@ public class TopicViewlet
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	
     	//Unique string
-    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestring);
+    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestringForCopyAs);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(5000);
     	
@@ -312,6 +316,7 @@ public class TopicViewlet
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
+    	
     	//Verification condition
     	if(Subviewlet.contains(CopyasTopicName))
     	{
@@ -351,7 +356,7 @@ public class TopicViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(5000);
     	
     	//Edit the search field data
     	for(int j=0; j<=CopyasTopicName.length(); j++)
@@ -493,7 +498,7 @@ public class TopicViewlet
 			driver.findElement(By.xpath("Name field is disabled")).click();
 			
 		}
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 	}
 	//@Parameters({"Eventsdata"})
@@ -614,7 +619,7 @@ public class TopicViewlet
 		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Storing the Favorite Viewlet data
 		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -637,7 +642,134 @@ public class TopicViewlet
 		
 	}
 	
+	@Parameters({"TopicNameFromIcon", "DescriptionFromIcon", "TopicUniquestringFromICon"})
+	@TestRail(testCaseId=147)
 	@Test(priority=10)
+	public void CreateTopicFromPlusIcon(String TopicNameFromIcon, String DescriptionFromIcon, String TopicUniquestringFromICon, ITestContext context) throws InterruptedException
+	{
+		//Click on + icon present in the viewlet
+		driver.findElement(By.xpath("//img[@title='Add Topic']")).click();
+		
+		//Select WGS
+		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
+		WGS.selectByVisibleText(WGSName);
+		
+		//Select Node 
+		driver.findElement(By.xpath("//div[2]/input")).click();
+		try 
+		{
+			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicNode.size());	
+			for (int i=0; i<TopicNode.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
+				String s=TopicNode.get(i).getText();
+				if(s.equals(Dnode))
+				{
+					String id=TopicNode.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
+		
+		/*//Select Manager
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		//Select Manager
+       // driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+        try 
+		{
+			List<WebElement> TopicManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicManager.size());	
+			for (int i=0; i<TopicManager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
+				String s=TopicManager.get(i).getText();
+				if(s.equals(Manager1))
+				{
+					String id=TopicManager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+        Thread.sleep(1000);*/
+		
+		//Click on Select path button
+		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
+		Thread.sleep(1000);
+		
+		//Give the name of the topic
+		driver.findElement(By.id("name")).clear();
+		driver.findElement(By.id("name")).sendKeys(TopicNameFromIcon);
+		
+		//Add Data into description field
+		driver.findElement(By.id("description")).sendKeys(DescriptionFromIcon);
+		
+		//Add Topic string
+		driver.findElement(By.id("topicString")).sendKeys(TopicUniquestringFromICon);
+		
+		//Click on submit button
+		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+		Thread.sleep(4000);
+		
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+		}
+		catch(Exception e)
+		{
+			System.out.println("No error messages");
+		}
+		
+		//Edit the search field data
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromIcon);
+    	
+		
+		//Store the Topic viewlet data into string
+		String Viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		//System.out.println(Viewletdata);
+		
+		//Verification condition
+		if(Viewletdata.contains(TopicNameFromIcon))
+		{
+			System.out.println("Topic is created successfully");
+			context.setAttribute("Status",1);
+			context.setAttribute("Comment", "Topics are added created using add icon");
+		}
+		else
+		{
+			System.out.println("Topic is not created");
+			context.setAttribute("Status",5);
+			context.setAttribute("Comment", "Failed to create topic using add icon");
+			driver.findElement(By.xpath("Topic vielwr Failed")).click();
+		}
+		Thread.sleep(1000);
+		
+		//Edit the search field data
+    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+		
+	}
+	
+	@Test(priority=11)
 	@TestRail(testCaseId=141)
 	public static void CompareTopics(ITestContext context) throws InterruptedException
 	{
@@ -709,16 +841,21 @@ public class TopicViewlet
 		Thread.sleep(1000);
 	}
 	
-	@Parameters({"CopyObjectNameForMultiple", "TopicUniquestring"})
+	@Parameters({"CopyObjectNameForMultiple", "TopicUniquestringForMultipleCopy", "TopicNameFromIcon"})
 	@TestRail(testCaseId=142)
-	@Test(priority=11)
-	public void CopyAsFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, String TopicUniquestring, ITestContext context) throws InterruptedException
+	@Test(priority=12)
+	public void CopyAsFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, String TopicUniquestringForMultipleCopy, String TopicNameFromIcon, ITestContext context) throws InterruptedException
 	{
+		//Search with the topic name from icon
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromIcon);
+		
 		//Select the multiple Topics and choose Copy as for multiple topics
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions Mousehovercopy=new Actions(driver);
 		Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+		Thread.sleep(2000);
     	driver.findElement(By.linkText("Copy As...")).click();
 		Thread.sleep(3000);
 		
@@ -728,7 +865,7 @@ public class TopicViewlet
 		
 		//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMultiple);
-    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestring);
+    	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestringForMultipleCopy);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(6000);
     	
@@ -772,7 +909,7 @@ public class TopicViewlet
 	
 	@Parameters({"CopyObjectNameForMultiple"})
 	@TestRail(testCaseId=143)
-	@Test(priority=12)
+	@Test(priority=13)
 	public void DeleteFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Send the New name into field
@@ -827,7 +964,7 @@ public class TopicViewlet
 	
 	@Parameters({"AddSubscriptionNameforMultiple", "MessageDataForMultiple", "PropertyNameForMultiple", "PropertyValueForMultiple"})
 	@TestRail(testCaseId=144)
-	@Test(priority=13)
+	@Test(priority=14)
 	public void PublishFromCommandsForMultipleTopics(String AddSubscriptionNameforMultiple, String MessageDataForMultiple, String PropertyNameForMultiple, String PropertyValueForMultiple, ITestContext context) throws InterruptedException
 	{
 		this.AddsubscriptionForMultiple(AddSubscriptionNameforMultiple);
@@ -912,7 +1049,7 @@ public class TopicViewlet
 	
 	@Parameters({"MultipleDescription", "Communicationinfo"})
 	@TestRail(testCaseId=145)
-	@Test(priority=14)
+	@Test(priority=15)
 	public void MultipleProperties(String MultipleDescription, String Communicationinfo, ITestContext context) throws InterruptedException
 	{
 		//Select the multiple topics and choose properties option for multiple topics
@@ -944,7 +1081,7 @@ public class TopicViewlet
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		//Open the properties for second topic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -957,7 +1094,7 @@ public class TopicViewlet
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		//Verification 
 		//if(FirstDescription.equals(MultipleDescription) && FirstCommunicationinfo.equals(Communicationinfo) && SecondDescription.equals(MultipleDescription) && SecondCommunicationinfo.equals(Communicationinfo))
@@ -979,7 +1116,7 @@ public class TopicViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=146)
-	@Test(priority=15)
+	@Test(priority=16)
 	public static void AddToFavoriteForMultipleTopics(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int TopicName_Index=3;
@@ -1026,132 +1163,7 @@ public class TopicViewlet
 				
 	}
 	
-	@Parameters({"TopicNameFromIcon", "DescriptionFromIcon", "TopicUniquestringFromICon"})
-	@TestRail(testCaseId=147)
-	@Test(priority=16)
-	public void CreateTopicFromPlusIcon(String TopicNameFromIcon, String DescriptionFromIcon, String TopicUniquestringFromICon, ITestContext context) throws InterruptedException
-	{
-		//Click on + icon present in the viewlet
-		driver.findElement(By.xpath("//img[@title='Add Topic']")).click();
-		
-		//Select WGS
-		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
-		WGS.selectByVisibleText(WGSName);
-		
-		//Select Node 
-		driver.findElement(By.xpath("//div[2]/input")).click();
-		try 
-		{
-			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(TopicNode.size());	
-			for (int i=0; i<TopicNode.size();i++)
-			{
-				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
-				String s=TopicNode.get(i).getText();
-				if(s.equals(Dnode))
-				{
-					String id=TopicNode.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(2000);
-		
-		//Select Manager
-		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
-		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
-		//Select Manager
-       // driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
-        try 
-		{
-			List<WebElement> TopicManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(TopicManager.size());	
-			for (int i=0; i<TopicManager.size();i++)
-			{
-				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
-				String s=TopicManager.get(i).getText();
-				if(s.equals(DestinationManager))
-				{
-					String id=TopicManager.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-					break;
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-        Thread.sleep(1000);
-		
-		//Click on Select path button
-		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
-		Thread.sleep(1000);
-		
-		//Give the name of the topic
-		driver.findElement(By.id("name")).clear();
-		driver.findElement(By.id("name")).sendKeys(TopicNameFromIcon);
-		
-		//Add Data into description field
-		driver.findElement(By.id("description")).sendKeys(DescriptionFromIcon);
-		
-		//Add Topic string
-		driver.findElement(By.id("topicString")).sendKeys(TopicUniquestringFromICon);
-		
-		//Click on submit button
-		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(4000);
-		
-		try
-		{
-			driver.findElement(By.id("yes")).click();
-		}
-		catch(Exception e)
-		{
-			System.out.println("No error messages");
-		}
-		
-		//Edit the search field data
-		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromIcon);
-    	
-		
-		//Store the Topic viewlet data into string
-		String Viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-		//System.out.println(Viewletdata);
-		
-		//Verification condition
-		if(Viewletdata.contains(TopicNameFromIcon))
-		{
-			System.out.println("Topic is created successfully");
-			context.setAttribute("Status",1);
-			context.setAttribute("Comment", "Topics are added created using add icon");
-		}
-		else
-		{
-			System.out.println("Topic is not created");
-			context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Failed to create topic using add icon");
-			driver.findElement(By.xpath("Topic vielwr Failed")).click();
-		}
-		Thread.sleep(1000);
-		
-		//Edit the search field data
-    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
-    	{
-    	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
-	}
-	
+
 	@Test(priority=20)
 	public static void Logout() throws InterruptedException
 	{

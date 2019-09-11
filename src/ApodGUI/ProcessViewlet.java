@@ -227,7 +227,7 @@ public class ProcessViewlet
 		
 		//Click on Select path
 		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Enter the process name
 		driver.findElement(By.id("name")).clear();
@@ -241,7 +241,7 @@ public class ProcessViewlet
 		
 		//Click on Submit the process
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		
 		try
 		{
@@ -339,7 +339,7 @@ public class ProcessViewlet
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(5000);
     	
     	//Edit the search field data
     	for(int j=0; j<=NewProcessName.length(); j++)
@@ -399,7 +399,7 @@ public class ProcessViewlet
     	//Send the New name into field
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameProcess);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(4000);
+    	Thread.sleep(6000);
     	
     	//Combining the strings 
     	String CopyasProcessName=NewProcessName+CopyObjectName;
@@ -458,7 +458,7 @@ public class ProcessViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(6000);
     	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -524,7 +524,7 @@ public class ProcessViewlet
 		
 		//Click on Submit the process
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		
 		try
 		{
@@ -599,7 +599,7 @@ public class ProcessViewlet
 			driver.findElement(By.xpath("Process name field is Enable")).click();
 		}
 		
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 	}
 	
 	
@@ -718,7 +718,7 @@ public class ProcessViewlet
 		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Storing the Favorite Viewlet data
 		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -810,7 +810,7 @@ public class ProcessViewlet
  		 context.setAttribute("Comment", "Got an exception while comparing process names. check deails: "+ e.getMessage());
         }
 		driver.findElement(By.cssSelector(".close-button")).click();
-		Thread.sleep(1000);	
+		Thread.sleep(4000);	
 		
 	}
 	
@@ -834,7 +834,7 @@ public class ProcessViewlet
 		//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(8000);
     	
     	FinalProcess=ExistingProcess+CopyObjectNameForMultiple;
     	
@@ -903,7 +903,7 @@ public class ProcessViewlet
     	//Send the New name into field
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameProcessForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(4000);
+    	Thread.sleep(6000);
     	
     	try
     	{
@@ -975,7 +975,7 @@ public class ProcessViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(5000);
     	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
@@ -1033,7 +1033,7 @@ public class ProcessViewlet
 		
 		//click on OK
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Open the properties for First process
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1046,7 +1046,7 @@ public class ProcessViewlet
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Open the properties for First process
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1059,7 +1059,7 @@ public class ProcessViewlet
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Verification 
 		if(FirstDescription.equals(MultipleDescription) && FirstApplicationID.equals(AppID) && SecondDescription.equals(MultipleDescription) && SecondApplicationID.equals(AppID))
@@ -1106,7 +1106,7 @@ public class ProcessViewlet
 		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Storing the Favorite Viewlet data
 		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();

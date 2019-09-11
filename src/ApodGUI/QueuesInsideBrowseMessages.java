@@ -182,8 +182,8 @@ public class QueuesInsideBrowseMessages
 			driver.findElement(By.name("generalNumberOfMsgs")).sendKeys("4");
 			
 			//Put a message data
-			driver.findElement(By.xpath("//*[@id=\"9\"]")).click();
-			driver.findElement(By.xpath("//*[@id=\"9\"]")).sendKeys(MessageData);
+			//driver.findElement(By.id("encoding-text-9")).click();
+			driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 			driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 			Thread.sleep(1000);
 			try
@@ -236,8 +236,8 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.name("generalNumberOfMsgs")).sendKeys("6");
 		
 		//Message data
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).click();
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).sendKeys(MessageData);
+		//driver.findElement(By.id("encoding-text-9")).click();
+		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(2000);
 		

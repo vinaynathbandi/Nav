@@ -23,7 +23,11 @@
     <classes>
       <class name="ApodGUI.EMSQueues">
         <methods>
+          <include name="AddToFavoriteForMultipleQueues" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="AddToFavoriteViewlet" invocation-numbers="0"/>
+          <include name="AddQueueFromPlusIcon" invocation-numbers="0"/>
+          <include name="Logout"/>
           <include name="QueueCommands" invocation-numbers="0"/>
           <include name="beforeTest"/>
         </methods>

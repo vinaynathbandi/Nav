@@ -21,13 +21,16 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import testrail.Settings;
+import testrail.TestClass;
 import testrail.TestRail;
 import testrail.TestRailAPI;
 
+@Listeners(TestClass.class)
 public class SearchCriteria 
 {
 	String Queue="";
@@ -163,8 +166,8 @@ public class SearchCriteria
 		driver.findElement(By.name("generalNumberOfMsgs")).sendKeys("1");
 		
 		//Put a message data
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).click();
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).sendKeys(MessageData);
+		//driver.findElement(By.id("encoding-text-9")).click();
+		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(1000);
 		try

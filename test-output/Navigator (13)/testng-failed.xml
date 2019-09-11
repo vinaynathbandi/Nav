@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (13)]">
-  <test thread-count="5" name="Test Route Viewlet(failed)">
-    <parameter name="Dashboardname" value="RouteViewlet Verification"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="DeleteRouteName" value="DeleteRoute"/>
-    <parameter name="RouteNameFromIcon" value="EMS-Route-New"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="Routename" value="New Route Viewlet"/>
-    <parameter name="FavoriteViewletName" value="Route Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="schemaName" value="RouteSchema"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="ConnectionURLName" value="tcp://127.0.0.1:7222"/>
+  <test thread-count="5" name="Test Cluster QM Viewlet(failed)">
+    <parameter name="Dashboardname" value="Cluster QM Verification"/>
     <parameter name="password" value="admin"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="ConnectionURLNameField" value="Test Connection"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="FavoriteViewletName" value="Cluster QM Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="ClusterQMSchema"/>
+    <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="Clustername" value="New Cluster Queue Manager Viewlet"/>
     <classes>
-      <class name="ApodGUI.RouteViewlet">
+      <class name="ApodGUI.ClusterQueueManager">
         <methods>
           <include name="beforeTest"/>
           <include name="tearDown"/>
-          <include name="AddToFavoriteForMultipleRoutes" invocation-numbers="0"/>
-          <include name="MultipleProperties" invocation-numbers="0"/>
+          <include name="Logout"/>
         </methods>
-      </class> <!-- ApodGUI.RouteViewlet -->
+      </class> <!-- ApodGUI.ClusterQueueManager -->
     </classes>
-  </test> <!-- Test Route Viewlet(failed) -->
+  </test> <!-- Test Cluster QM Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (13)] -->

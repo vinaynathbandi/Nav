@@ -184,8 +184,8 @@ public class EMSQueueMessages
 			driver.findElement(By.name("generalNumberOfMsgs")).sendKeys("4");
 			
 			//Put a message data
-			driver.findElement(By.xpath("//*[@id=\"9\"]")).click();
-			driver.findElement(By.xpath("//*[@id=\"9\"]")).sendKeys(MessageData);
+			driver.findElement(By.id("encoding-text-9")).click();
+			driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 			driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 			Thread.sleep(2000);
 			
@@ -233,8 +233,8 @@ public class EMSQueueMessages
 		Thread.sleep(1000);
 				
 		//Message data
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).click();
-		driver.findElement(By.xpath("//*[@id=\"9\"]")).sendKeys(MessageData);
+		//driver.findElement(By.id("encoding-text-9")).click();
+		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(2000);
 		
