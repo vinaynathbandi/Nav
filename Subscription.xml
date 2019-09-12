@@ -50,7 +50,7 @@
        
         <include name="Login"/>
         <include name="AddSubscriptionViewlet"/> 
-        <!-- <include name="CreateSubscriptionFromOptions"/> 
+        <include name="CreateSubscriptionFromOptions"/> 
         <include name="ShowObjectAttributesForSubscription"/> 
         <include name="CopyAsFromCommands"/>
         <include name="RenameFromCommands"/>
@@ -59,13 +59,13 @@
         <include name="SubscriptionEvents"/>  
         <include name="AddToFavoriteViewlet"/> 
           
-        <include name="CompareSubscription"/> -->
+        <include name="CompareSubscription"/> 
         <include name="CreateSubscriptionFromPlusIcon"/> 
-        <!-- <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
+        <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
         <include name="RenameFromCommandsForMultipleSubscriptions"/>
         <include name="DeleteFromCommandsForMultipleSubscriptions"/> 
         <include name="MultipleSubscriptionProperties"/>    
-        <include name="AddToFavoriteForMultipleSubscription"/>  --> 
+        <include name="AddToFavoriteForMultipleSubscription"/>  
           
         <include name="Logout"/> 
         

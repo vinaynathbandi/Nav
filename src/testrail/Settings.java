@@ -105,8 +105,30 @@ public class Settings {
 	private static String S_WGSName;
 	
 	private static String Manager1;
+	private static String Manager1Queuename;
+	
 	private static String Manager2;
+	private static String Manager2Queuename;
+	
 	private static String NodeWGS;
+	
+	public static String getManager2Queuename() {
+		return Manager2Queuename;
+	}
+
+
+	public static void setManager2Queuename(String manager2Queuename) {
+		Manager2Queuename = manager2Queuename;
+	}
+	
+	public static String getManager1Queuename() {
+		return Manager1Queuename;
+	}
+
+
+	public static void setManager1Queuename(String manager1Queuename) {
+		Manager1Queuename = manager1Queuename;
+	}
 	
 	public static String getNodeWGS() {
 		return NodeWGS;
@@ -319,6 +341,8 @@ public class Settings {
 			Manager1 = propertiesSetting.getProperty("Manager1");
 			Manager2 = propertiesSetting.getProperty("Manager2");
 			NodeWGS = propertiesSetting.getProperty("NodeWGS");
+			Manager1Queuename = propertiesSetting.getProperty("Manager1Queuename");
+			Manager2Queuename = propertiesSetting.getProperty("Manager2Queuename");
 			
 			
 		}
