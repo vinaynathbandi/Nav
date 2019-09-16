@@ -160,7 +160,7 @@ public class SubscriptionViewlet {
 		
 	    //Click on Save changes button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Subscription viewlet verification condition
 		if(driver.getPageSource().contains(Subscriptionname))
@@ -357,7 +357,7 @@ public class SubscriptionViewlet {
 				
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(10000);
     	
     	try
     	{
@@ -409,7 +409,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"CopyObjectName", "AddSubscriptionName"})
 	@TestRail(testCaseId=189)
-	@Test(priority=3)
+	@Test(priority=3, dependsOnMethods= {"CreateSubscriptionFromOptions"})
 	public void CopyAsFromCommands(String CopyObjectName, String AddSubscriptionName, ITestContext context) throws InterruptedException
 	{
 		//Search with the added Subscription name
@@ -425,7 +425,7 @@ public class SubscriptionViewlet {
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(5000);
+    	Thread.sleep(8000);
     	
     	//Edit the search field data
     	for(int j=0; j<=AddSubscriptionName.length(); j++)
@@ -477,7 +477,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"RenameSubscription", "CopyObjectName", "AddSubscriptionName"})
 	@TestRail(testCaseId=190)
-	@Test(priority=4)
+	@Test(priority=4, dependsOnMethods= {"CopyAsFromCommands"})
 	public void RenameFromCommands(String RenameSubscription, String CopyObjectName, String AddSubscriptionName, ITestContext context) throws InterruptedException
 	{    	
 		//Select Rename From commands
@@ -489,7 +489,7 @@ public class SubscriptionViewlet {
     	//Send the New name into field
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscription);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(5000);
+    	Thread.sleep(8000);
     	
     	//Combining the strings 
     	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
@@ -537,7 +537,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"RenameSubscription"})
 	@TestRail(testCaseId=191)
-	@Test(priority=5)
+	@Test(priority=5, dependsOnMethods= {"RenameFromCommands"})
 	public void DeleteFromCommands(String RenameSubscription,ITestContext context) throws InterruptedException
 	{   	
 		//Select Delete From commands
@@ -587,7 +587,7 @@ public class SubscriptionViewlet {
 		//click on checkbox and choose properties
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		try
 		{
@@ -613,6 +613,7 @@ public class SubscriptionViewlet {
 			context.setAttribute("Status",5);
     		context.setAttribute("Comment", "Subscription option is not working properly");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(4000);
 			driver.findElement(By.xpath("Subscription field is disabled")).click();
 			
 		}
@@ -624,7 +625,7 @@ public class SubscriptionViewlet {
     		context.setAttribute("Comment", "Exception occured while checking subscription properties, check details: "+ e.getMessage());
 			driver.findElement(By.id("yes")).click();
 		}
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 	}
 	
@@ -1051,7 +1052,7 @@ public class SubscriptionViewlet {
 				
 		//Click on OK button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(10000);
     	
     	try
     	{
@@ -1097,7 +1098,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"CopyObjectNameForMUltiple", "AddSubscriptionNameFromIcon"})
 	@TestRail(testCaseId=196)
-	@Test(priority=11)
+	@Test(priority=11, dependsOnMethods= {"CreateSubscriptionFromPlusIcon"})
 	public void CopyAsFromCommandsForMultipleSubscriptions(String CopyObjectNameForMUltiple, String AddSubscriptionNameFromIcon, ITestContext context) throws InterruptedException
 	{
 		//Search withe Subscription names
@@ -1119,7 +1120,7 @@ public class SubscriptionViewlet {
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMUltiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(8000);
     	
     	try
     	{
@@ -1171,7 +1172,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"RenameSubscriptionForMultiple"})
 	@TestRail(testCaseId=197)
-	@Test(priority=12)
+	@Test(priority=12, dependsOnMethods= {"CopyAsFromCommandsForMultipleSubscriptions"})
 	public void RenameFromCommandsForMultipleSubscriptions(String RenameSubscriptionForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
@@ -1190,7 +1191,7 @@ public class SubscriptionViewlet {
     	//Send the New name into field
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscriptionForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(8000);
     	
     	try
     	{
@@ -1245,7 +1246,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"RenameSubscriptionForMultiple"})
 	@TestRail(testCaseId=198)
-	@Test(priority=13)
+	@Test(priority=13, dependsOnMethods= {"RenameFromCommandsForMultipleSubscriptions"})
 	public void DeleteFromCommandsForMultipleSubscriptions(String RenameSubscriptionForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
@@ -1263,7 +1264,7 @@ public class SubscriptionViewlet {
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(8000);
     	
     	/*//clear the search data
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
@@ -1308,7 +1309,7 @@ public class SubscriptionViewlet {
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		
 		WebElement ele=driver.findElement(By.id("topicString"));
 		Actions a=new Actions(driver);
@@ -1320,12 +1321,12 @@ public class SubscriptionViewlet {
 		System.out.println("Multiple Properties data:" +Tooltipdata);
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		//click on checkbox and choose properties of first subscription
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		String FistSubscription=driver.findElement(By.id("topicString")).getAttribute("value");
 		
@@ -1334,12 +1335,12 @@ public class SubscriptionViewlet {
 		
 		//Clsoe the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//click on checkbox and choose properties of first subscription
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		String SecondSubscription=driver.findElement(By.id("topicString")).getAttribute("value");
 		
@@ -1348,7 +1349,7 @@ public class SubscriptionViewlet {
 		
 		//Clsoe the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		if(Tooltipdata.contains(FistSubscription) && Tooltipdata.contains(SecondSubscription))
 		{
@@ -1400,7 +1401,7 @@ public class SubscriptionViewlet {
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=200)
-	@Test(priority=15)
+	@Test(priority=15, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleSubscription(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int Subscription_Id=5;

@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Navigator">
-                    <span>C:\Users\Nagaraju.kagitala\git\TestNav\Nav\Subscription.xml</span>
+                    <span>C:\Users\Nagaraju.kagitala\git\TestNav\Nav\Workgroupserver.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods, 2 failed,   2 passed</span>
+                    <span class="method-stats">13 methods, 1 failed,  2 skipped,  10 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -102,15 +102,29 @@
                     <div class="method-list-content failed suite-Navigator">
                       <span>
                         <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.SubscriptionViewlet" hash-for-method="CreateSubscriptionFromPlusIcon(DESKTOP-E1JT2VR, M1, SYSTEM.ADD.ICON.SUBSCRIPTION, UniqueIcon, DESKTOP-E1JT2VR, M1, ABCD, org.testng...)">CreateSubscriptionFromPlusIcon(DESKTOP-E1JT2VR, M1, SYSTEM.ADD.ICON.SUBSCRIPTION, UniqueIcon, DESKTOP-E1JT2VR, M1, ABCD, org.testng...)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="failed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.SubscriptionViewlet" hash-for-method="Logout">Logout</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="AddRemoteQueueManager(REMOTE_QMGRS, QMGR_NAME_DELETE, localhost, SYSTEM.ADMIN.COMMAND.QUEUE, SYSTEM.DEF.SVRCONN, org.testn...)">AddRemoteQueueManager(REMOTE_QMGRS, QMGR_NAME_DELETE, localhost, SYSTEM.ADMIN.COMMAND.QUEUE, SYSTEM.DEF.SVRCONN, org.testn...)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Navigator -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Navigator" class="hide-methods skipped suite-Navigator"> (hide)</a> <!-- hide-methods skipped suite-Navigator -->
+                      <a href="#" panel-name="suite-Navigator" class="show-methods skipped suite-Navigator"> (show)</a> <!-- show-methods skipped suite-Navigator -->
+                    </span>
+                    <div class="method-list-content skipped suite-Navigator">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="DeleteRemoteQueueManager">DeleteRemoteQueueManager</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="ModifyRemoteQueueManager">ModifyRemoteQueueManager</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Navigator -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -121,12 +135,52 @@
                     <div class="method-list-content passed suite-Navigator">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.SubscriptionViewlet" hash-for-method="AddSubscriptionViewlet(New Subscription Viewlet, org.testng.TestRunner@421e361)">AddSubscriptionViewlet(New Subscription Viewlet, org.testng.TestRunner@421e361)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="AddNode(org.testng.TestRunner@5fdba6f9)">AddNode(org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.SubscriptionViewlet" hash-for-method="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Subscription Verification)">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Subscription Verification)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="AddRemoteEMSManager(EMSAGENT01, EMS-Server21, tcp://127.0.0.1:7221, org.testng.TestRunner@5fdba6f9)">AddRemoteEMSManager(EMSAGENT01, EMS-Server21, tcp://127.0.0.1:7221, org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="AddWorkgroupFromPlusIcon(org.testng.TestRunner@5fdba6f9)">AddWorkgroupFromPlusIcon(org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="DeleteRemoteEMSServer(EMS-Server21, org.testng.TestRunner@5fdba6f9)">DeleteRemoteEMSServer(EMS-Server21, org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="DeleteWorkgroup(WGS10, org.testng.TestRunner@5fdba6f9)">DeleteWorkgroup(WGS10, org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="EditWorkgroup(localhost, org.testng.TestRunner@5fdba6f9)">EditWorkgroup(localhost, org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, WGS10, org.testng.TestRunner@5fdba6f9)">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, WGS10, org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="Logout">Logout</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="ModifyRemoteEMSServer(tcp://127.0.0.1:7222, org.testng.TestRunner@5fdba6f9)">ModifyRemoteEMSServer(tcp://127.0.0.1:7222, org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.WorkgroupServer" hash-for-method="SearchFilter(org.testng.TestRunner@5fdba6f9)">SearchFilter(org.testng.TestRunner@5fdba6f9)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Navigator -->
@@ -144,58 +198,24 @@
           <div class="suite-Navigator-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">ApodGUI.SubscriptionViewlet</span>
+              <span class="class-name">ApodGUI.WorkgroupServer</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="CreateSubscriptionFromPlusIcon(DESKTOP-E1JT2VR, M1, SYSTEM.ADD.ICON.SUBSCRIPTION, UniqueIcon, DESKTOP-E1JT2VR, M1, ABCD, org.testng...)">
-                  </a> <!-- CreateSubscriptionFromPlusIcon(DESKTOP-E1JT2VR, M1, SYSTEM.ADD.ICON.SUBSCRIPTION, UniqueIcon, DESKTOP-E1JT2VR, M1, ABCD, org.testng...) -->
-                  <span class="method-name">CreateSubscriptionFromPlusIcon</span>
-                  <span class="parameters">(DESKTOP-E1JT2VR, M1, SYSTEM.ADD.ICON.SUBSCRIPTION, UniqueIcon, DESKTOP-E1JT2VR, M1, ABCD, org.testng.TestRunner@421e361)</span>
-                  <div class="stack-trace">org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Subscription failed because of the following error:
-SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Subscription failed&apos; is not a valid XPath expression.
-  (Session info: chrome=76.0.3809.132)
-  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
-Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
-System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63766}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
-Session ID: 7718f21fe8b5c93b2697e142b24d92a2
-*** Element info: {Using=xpath, value=Subscription failed}
-	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
-	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
-	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
-	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
-	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
-	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at ApodGUI.SubscriptionViewlet.CreateSubscriptionFromPlusIcon(SubscriptionViewlet.java:1069)
-... Removed 29 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="Logout">
-                  </a> <!-- Logout -->
-                  <span class="method-name">Logout</span>
-                  <div class="stack-trace">org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-c4=&quot;&quot; aria-hidden=&quot;true&quot; class=&quot;fa fa-power-off fa-lg&quot; title=&quot;Logout&quot;&gt;&lt;/i&gt; is not clickable at point (1251, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot;&gt;...&lt;/ngb-modal-window&gt;
+                  <a name="AddRemoteQueueManager(REMOTE_QMGRS, QMGR_NAME_DELETE, localhost, SYSTEM.ADMIN.COMMAND.QUEUE, SYSTEM.DEF.SVRCONN, org.testn...)">
+                  </a> <!-- AddRemoteQueueManager(REMOTE_QMGRS, QMGR_NAME_DELETE, localhost, SYSTEM.ADMIN.COMMAND.QUEUE, SYSTEM.DEF.SVRCONN, org.testn...) -->
+                  <span class="method-name">AddRemoteQueueManager</span>
+                  <span class="parameters">(REMOTE_QMGRS, QMGR_NAME_DELETE, localhost, SYSTEM.ADMIN.COMMAND.QUEUE, SYSTEM.DEF.SVRCONN, org.testng.TestRunner@5fdba6f9)</span>
+                  <div class="stack-trace">org.openqa.selenium.WebDriverException: unknown error: Element &lt;button _ngcontent-c35=&quot;&quot; class=&quot;btn btn-danger&quot; type=&quot;button&quot;&gt;...&lt;/button&gt; is not clickable at point (1034, 760). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot;&gt;...&lt;/ngb-modal-window&gt;
   (Session info: chrome=76.0.3809.132)
   (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
 Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
 System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:63766}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
-Session ID: 7718f21fe8b5c93b2697e142b24d92a2
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:55254}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: 7ec814b7baacf3186365a1e97a0cec69
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
 	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
@@ -206,33 +226,124 @@ Session ID: 7718f21fe8b5c93b2697e142b24d92a2
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
 	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
 	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
-	at ApodGUI.SubscriptionViewlet.Logout(SubscriptionViewlet.java:1444)
+	at ApodGUI.WorkgroupServer.AddRemoteQueueManager(WorkgroupServer.java:453)
 ... Removed 29 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Navigator-class-failed -->
-          <div class="suite-Navigator-class-passed">
+          <div class="suite-Navigator-class-skipped">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">ApodGUI.SubscriptionViewlet</span>
+              <img src="skipped.png"/>
+              <span class="class-name">ApodGUI.WorkgroupServer</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="AddSubscriptionViewlet(New Subscription Viewlet, org.testng.TestRunner@421e361)">
-                  </a> <!-- AddSubscriptionViewlet(New Subscription Viewlet, org.testng.TestRunner@421e361) -->
-                  <span class="method-name">AddSubscriptionViewlet</span>
-                  <span class="parameters">(New Subscription Viewlet, org.testng.TestRunner@421e361)</span>
+                  <a name="DeleteRemoteQueueManager">
+                  </a> <!-- DeleteRemoteQueueManager -->
+                  <span class="method-name">DeleteRemoteQueueManager</span>
+                  <div class="stack-trace">java.lang.Throwable: Method WorkgroupServer.DeleteRemoteQueueManager(java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.WorkgroupServer@33c7e1bb] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Subscription Verification)">
-                  </a> <!-- Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Subscription Verification) -->
+                  <a name="ModifyRemoteQueueManager">
+                  </a> <!-- ModifyRemoteQueueManager -->
+                  <span class="method-name">ModifyRemoteQueueManager</span>
+                  <div class="stack-trace">java.lang.Throwable: Method WorkgroupServer.ModifyRemoteQueueManager(java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.WorkgroupServer@33c7e1bb] depends on not successfully finished methods
+... Removed 18 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Navigator-class-skipped -->
+          <div class="suite-Navigator-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">ApodGUI.WorkgroupServer</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="AddNode(org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- AddNode(org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">AddNode</span>
+                  <span class="parameters">(org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="AddRemoteEMSManager(EMSAGENT01, EMS-Server21, tcp://127.0.0.1:7221, org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- AddRemoteEMSManager(EMSAGENT01, EMS-Server21, tcp://127.0.0.1:7221, org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">AddRemoteEMSManager</span>
+                  <span class="parameters">(EMSAGENT01, EMS-Server21, tcp://127.0.0.1:7221, org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="AddWorkgroupFromPlusIcon(org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- AddWorkgroupFromPlusIcon(org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">AddWorkgroupFromPlusIcon</span>
+                  <span class="parameters">(org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="DeleteRemoteEMSServer(EMS-Server21, org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- DeleteRemoteEMSServer(EMS-Server21, org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">DeleteRemoteEMSServer</span>
+                  <span class="parameters">(EMS-Server21, org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="DeleteWorkgroup(WGS10, org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- DeleteWorkgroup(WGS10, org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">DeleteWorkgroup</span>
+                  <span class="parameters">(WGS10, org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="EditWorkgroup(localhost, org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- EditWorkgroup(localhost, org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">EditWorkgroup</span>
+                  <span class="parameters">(localhost, org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, WGS10, org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- Login(webdriver.chrome.driver, Drivers/chromedriver.exe, WGS10, org.testng.TestRunner@5fdba6f9) -->
                   <span class="method-name">Login</span>
-                  <span class="parameters">(webdriver.chrome.driver, Drivers/chromedriver.exe, Subscription Verification)</span>
+                  <span class="parameters">(webdriver.chrome.driver, Drivers/chromedriver.exe, WGS10, org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Logout">
+                  </a> <!-- Logout -->
+                  <span class="method-name">Logout</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ModifyRemoteEMSServer(tcp://127.0.0.1:7222, org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- ModifyRemoteEMSServer(tcp://127.0.0.1:7222, org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">ModifyRemoteEMSServer</span>
+                  <span class="parameters">(tcp://127.0.0.1:7222, org.testng.TestRunner@5fdba6f9)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SearchFilter(org.testng.TestRunner@5fdba6f9)">
+                  </a> <!-- SearchFilter(org.testng.TestRunner@5fdba6f9) -->
+                  <span class="method-name">SearchFilter</span>
+                  <span class="parameters">(org.testng.TestRunner@5fdba6f9)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -240,59 +351,53 @@ Session ID: 7718f21fe8b5c93b2697e142b24d92a2
         </div> <!-- panel Navigator -->
         <div panel-name="test-xml-Navigator" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Nagaraju.kagitala\git\TestNav\Nav\Subscription.xml</span>
+            <span class="header-content">C:\Users\Nagaraju.kagitala\git\TestNav\Nav\Workgroupserver.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Navigator&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Test Subscription Viewlet&quot;&gt;
-    &lt;parameter name=&quot;Dashboardname&quot; value=&quot;Subscription Verification&quot;/&gt;
-    &lt;parameter name=&quot;AddSubscriptionNameFromIcon&quot; value=&quot;SYSTEM.ADD.ICON.SUBSCRIPTION&quot;/&gt;
-    &lt;parameter name=&quot;NodeName&quot; value=&quot;DESKTOP-E1JT2VR&quot;/&gt;
-    &lt;parameter name=&quot;DestinationNodeName&quot; value=&quot;DESKTOP-E1JT2VR&quot;/&gt;
-    &lt;parameter name=&quot;DestinationIconTopicName&quot; value=&quot;SYSTEM.ADMIN.TOPIC&quot;/&gt;
-    &lt;parameter name=&quot;FavoriteViewletName&quot; value=&quot;Subscription Favorite viewlet&quot;/&gt;
-    &lt;parameter name=&quot;Favwgs&quot; value=&quot;1&quot;/&gt;
-    &lt;parameter name=&quot;RenameSubscription&quot; value=&quot;Test.Subscription.Rename&quot;/&gt;
-    &lt;parameter name=&quot;schemaName&quot; value=&quot;SubscriptionSchema&quot;/&gt;
-    &lt;parameter name=&quot;CopyObjectName&quot; value=&quot;.Copy&quot;/&gt;
-    &lt;parameter name=&quot;URL&quot; value=&quot;/navigator/#/login&quot;/&gt;
-    &lt;parameter name=&quot;password&quot; value=&quot;admin&quot;/&gt;
-    &lt;parameter name=&quot;sDriver&quot; value=&quot;webdriver.chrome.driver&quot;/&gt;
-    &lt;parameter name=&quot;CopyObjectNameForMUltiple&quot; value=&quot;SUB.MULTIPLE.COPY&quot;/&gt;
-    &lt;parameter name=&quot;Subscriptionname&quot; value=&quot;New Subscription Viewlet&quot;/&gt;
-    &lt;parameter name=&quot;TopicStringData&quot; value=&quot;Unique&quot;/&gt;
-    &lt;parameter name=&quot;DestinationQueue&quot; value=&quot;AC&quot;/&gt;
-    &lt;parameter name=&quot;SubscriptionAttributes&quot; value=&quot;Attributes&quot;/&gt;
-    &lt;parameter name=&quot;DWGS&quot; value=&quot;WGS10&quot;/&gt;
-    &lt;parameter name=&quot;wgs&quot; value=&quot;1&quot;/&gt;
-    &lt;parameter name=&quot;uname&quot; value=&quot;Admin&quot;/&gt;
-    &lt;parameter name=&quot;DestinationManager&quot; value=&quot;AA&quot;/&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;WorkGroup server Viewlet&quot;&gt;
+    &lt;parameter name=&quot;ChangedHostName&quot; value=&quot;localhost&quot;/&gt;
+    &lt;parameter name=&quot;ServerURL&quot; value=&quot;tcp://127.0.0.1:7221&quot;/&gt;
+    &lt;parameter name=&quot;NodeName&quot; value=&quot;Node-Test&quot;/&gt;
     &lt;parameter name=&quot;sDriverpath&quot; value=&quot;Drivers/chromedriver.exe&quot;/&gt;
-    &lt;parameter name=&quot;DestinationTopicName&quot; value=&quot;SYSTEM.ADMIN.TOPIC&quot;/&gt;
-    &lt;parameter name=&quot;SubscriptionName&quot; value=&quot;A.M10.TestCopy.suscription.copy&quot;/&gt;
-    &lt;parameter name=&quot;NodeNameFromIcon&quot; value=&quot;DESKTOP-E1JT2VR&quot;/&gt;
-    &lt;parameter name=&quot;DestinationQueueFromIcon&quot; value=&quot;ABCD&quot;/&gt;
-    &lt;parameter name=&quot;TopicStringDataFromICon&quot; value=&quot;UniqueIcon&quot;/&gt;
-    &lt;parameter name=&quot;DestinationManagerName&quot; value=&quot;M1&quot;/&gt;
-    &lt;parameter name=&quot;WGSName&quot; value=&quot;WGS10 - 1&quot;/&gt;
-    &lt;parameter name=&quot;RenameSubscriptionForMultiple&quot; value=&quot;SYSTEM.SUBSCRIPTION.RENAME&quot;/&gt;
-    &lt;parameter name=&quot;DWGSIcon&quot; value=&quot;WGS10&quot;/&gt;
-    &lt;parameter name=&quot;AddSubscriptionName&quot; value=&quot;SYSTEM.ADD.NEW.SUBSCRIPTION121&quot;/&gt;
-    &lt;parameter name=&quot;DestinationManagerFromIcon&quot; value=&quot;M1&quot;/&gt;
+    &lt;parameter name=&quot;Node_NewConnectionName&quot; value=&quot;Local Host&quot;/&gt;
+    &lt;parameter name=&quot;DeleteWGSName&quot; value=&quot;WGS10&quot;/&gt;
+    &lt;parameter name=&quot;ConnectionInstanceName&quot; value=&quot;REMOTE_QMGRS&quot;/&gt;
+    &lt;parameter name=&quot;ConnectionName&quot; value=&quot;localhost&quot;/&gt;
+    &lt;parameter name=&quot;ChannelName&quot; value=&quot;SYSTEM.DEF.SVRCONN&quot;/&gt;
+    &lt;parameter name=&quot;sDriver&quot; value=&quot;webdriver.chrome.driver&quot;/&gt;
+    &lt;parameter name=&quot;RemoteQueueManagerName&quot; value=&quot;QMGR_NAME_DELETE&quot;/&gt;
+    &lt;parameter name=&quot;ServerName&quot; value=&quot;EMS-Server21&quot;/&gt;
+    &lt;parameter name=&quot;AgentInstanceName&quot; value=&quot;EMSAGENT01&quot;/&gt;
+    &lt;parameter name=&quot;IPAddress&quot; value=&quot;127.0.0.1&quot;/&gt;
+    &lt;parameter name=&quot;PortNumber&quot; value=&quot;5010&quot;/&gt;
+    &lt;parameter name=&quot;DeleteManagerName&quot; value=&quot;QMGR_NAME_DELETE&quot;/&gt;
+    &lt;parameter name=&quot;UpdatedServerURL&quot; value=&quot;tcp://127.0.0.1:7222&quot;/&gt;
+    &lt;parameter name=&quot;HostName&quot; value=&quot;DESKTOP-7T1JQ3H&quot;/&gt;
+    &lt;parameter name=&quot;CommandQueueName&quot; value=&quot;SYSTEM.ADMIN.COMMAND.QUEUE&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;ApodGUI.SubscriptionViewlet&quot;&gt;
+      &lt;class name=&quot;ApodGUI.WorkgroupServer&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;Login&quot;/&gt;
-          &lt;include name=&quot;AddSubscriptionViewlet&quot;/&gt;
-          &lt;include name=&quot;CreateSubscriptionFromPlusIcon&quot;/&gt;
+          &lt;include name=&quot;AddWorkgroupFromPlusIcon&quot;/&gt;
+          &lt;include name=&quot;EditWorkgroup&quot;/&gt;
+          &lt;include name=&quot;DeleteWorkgroup&quot;/&gt;
+          &lt;include name=&quot;AddNode&quot;/&gt;
+          &lt;include name=&quot;AddRemoteQueueManager&quot;/&gt;
+          &lt;include name=&quot;ModifyRemoteQueueManager&quot;/&gt;
+          &lt;include name=&quot;DeleteRemoteQueueManager&quot;/&gt;
+          &lt;include name=&quot;AddRemoteEMSManager&quot;/&gt;
+          &lt;include name=&quot;ModifyRemoteEMSServer&quot;/&gt;
+          &lt;include name=&quot;DeleteRemoteEMSServer&quot;/&gt;
+          &lt;include name=&quot;SearchFilter&quot;/&gt;
           &lt;include name=&quot;Logout&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- ApodGUI.SubscriptionViewlet --&gt;
+      &lt;/class&gt; &lt;!-- ApodGUI.WorkgroupServer --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test Subscription Viewlet --&gt;
+  &lt;/test&gt; &lt;!-- WorkGroup server Viewlet --&gt;
 &lt;/suite&gt; &lt;!-- Navigator --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -304,7 +409,7 @@ Session ID: 7718f21fe8b5c93b2697e142b24d92a2
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test Subscription Viewlet (1 class)</span>
+                <span class="test-name">WorkGroup server Viewlet (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -330,28 +435,64 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(13);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'CreateSubscriptionFromPlusIcon')
-data.setCell(0, 2, 'ApodGUI.SubscriptionViewlet')
-data.setCell(0, 3, 39523);
+data.setCell(0, 1, 'Login')
+data.setCell(0, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(0, 3, 34372);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'Login')
-data.setCell(1, 2, 'ApodGUI.SubscriptionViewlet')
-data.setCell(1, 3, 25564);
+data.setCell(1, 1, 'SearchFilter')
+data.setCell(1, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(1, 3, 23271);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'AddSubscriptionViewlet')
-data.setCell(2, 2, 'ApodGUI.SubscriptionViewlet')
-data.setCell(2, 3, 4356);
+data.setCell(2, 1, 'AddNode')
+data.setCell(2, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(2, 3, 16665);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'Logout')
-data.setCell(3, 2, 'ApodGUI.SubscriptionViewlet')
-data.setCell(3, 3, 1155);
+data.setCell(3, 1, 'EditWorkgroup')
+data.setCell(3, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(3, 3, 15860);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'AddRemoteEMSManager')
+data.setCell(4, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(4, 3, 14293);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'AddWorkgroupFromPlusIcon')
+data.setCell(5, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(5, 3, 12924);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'AddRemoteQueueManager')
+data.setCell(6, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(6, 3, 12465);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'Logout')
+data.setCell(7, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(7, 3, 11527);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'DeleteRemoteEMSServer')
+data.setCell(8, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(8, 3, 11468);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'DeleteWorkgroup')
+data.setCell(9, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(9, 3, 10615);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'ModifyRemoteEMSServer')
+data.setCell(10, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(10, 3, 6513);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'ModifyRemoteQueueManager')
+data.setCell(11, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(11, 3, 0);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'DeleteRemoteQueueManager')
+data.setCell(12, 2, 'ApodGUI.WorkgroupServer')
+data.setCell(12, 3, 0);
 window.suiteTableData['Navigator']= { tableData: data, tableDiv: 'times-div-Navigator'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <span class="suite-total-time">Total running time: 2 minutes</span>
               <div id="times-div-Navigator">
               </div> <!-- times-div-Navigator -->
             </div> <!-- times-div -->
@@ -363,64 +504,91 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Subscription Verification)</span>
+              <span class="reporter-method-name">AddRemoteEMSManager(EMSAGENT01, EMS-Server21, tcp://127.0.0.1:7221, org.testng.TestRunner@5fdba6f9)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br/></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddRemoteEMSManager.png" alt="""/" /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">DeleteWorkgroup(WGS10, org.testng.TestRunner@5fdba6f9)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br/></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteWorkgroup.png" alt="""/" /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">DeleteRemoteEMSServer(EMS-Server21, org.testng.TestRunner@5fdba6f9)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br/></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteRemoteEMSServer.png" alt="""/" /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">ModifyRemoteEMSServer(tcp://127.0.0.1:7222, org.testng.TestRunner@5fdba6f9)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br/></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ModifyRemoteEMSServer.png" alt="""/" /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">EditWorkgroup(localhost, org.testng.TestRunner@5fdba6f9)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br/></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/EditWorkgroup.png" alt="""/" /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">AddWorkgroupFromPlusIcon(org.testng.TestRunner@5fdba6f9)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Workgroup server is added successfylly</span>
+                <span class="reporter-method-output"><br/></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddWorkgroupFromPlusIcon.png" alt="""/" /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">AddNode(org.testng.TestRunner@5fdba6f9)</span>
+              <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br/></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddNode.png" alt="""/" /></span>
+              </div> <!-- reporter-method-output-div -->
+            </div> <!-- reporter-method-div -->
+            <div class="reporter-method-div">
+              <span class="reporter-method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, WGS10, org.testng.TestRunner@5fdba6f9)</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output"><br/></span>
                 <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">AddSubscriptionViewlet(New Subscription Viewlet, org.testng.TestRunner@421e361)</span>
+              <span class="reporter-method-name">SearchFilter(org.testng.TestRunner@5fdba6f9)</span>
               <div class="reporter-method-output-div">
+                <span class="reporter-method-output">Workgroup server is added successfylly</span>
                 <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSubscriptionViewlet.png" alt="""/" /></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/SearchFilter.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">CreateSubscriptionFromPlusIcon(DESKTOP-E1JT2VR, M1, SYSTEM.ADD.ICON.SUBSCRIPTION, UniqueIcon, DESKTOP-E1JT2VR, M1, ABCD, org.testng...)</span>
+              <span class="reporter-method-name">AddRemoteQueueManager(REMOTE_QMGRS, QMGR_NAME_DELETE, localhost, SYSTEM.ADMIN.COMMAND.QUEUE, SYSTEM.DEF.SVRCONN, org.testn...)</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><br/>Failed to execute method: CreateSubscriptionFromPlusIcon<br/></span>
+                <span class="reporter-method-output"><br/>Failed to execute method: AddRemoteQueueManager<br/></span>
                 <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateSubscriptionFromPlusIcon.png" alt="""/" /></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/AddRemoteQueueManager.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Navigator" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">14 ignored methods</span>
+            <span class="header-content">2 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">ApodGUI.SubscriptionViewlet</span>
+              <span class="ignored-class-name">ApodGUI.WorkgroupServer</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">CompareSubscription</span>
+                <span class="ignored-method-name">ConnectIcon</span>
                 <br/>
-                <span class="ignored-method-name">RenameFromCommands</span>
-                <br/>
-                <span class="ignored-method-name">CreateSubscriptionFromOptions</span>
-                <br/>
-                <span class="ignored-method-name">AddToFavoriteViewlet</span>
-                <br/>
-                <span class="ignored-method-name">AddToFavoriteForMultipleSubscription</span>
-                <br/>
-                <span class="ignored-method-name">ShowObjectAttributesForSubscription</span>
-                <br/>
-                <span class="ignored-method-name">SubscriptionProperties</span>
-                <br/>
-                <span class="ignored-method-name">DeleteFromCommands</span>
-                <br/>
-                <span class="ignored-method-name">MultipleSubscriptionProperties</span>
-                <br/>
-                <span class="ignored-method-name">RenameFromCommandsForMultipleSubscriptions</span>
-                <br/>
-                <span class="ignored-method-name">CopyAsFromCommands</span>
-                <br/>
-                <span class="ignored-method-name">SubscriptionEvents</span>
-                <br/>
-                <span class="ignored-method-name">CopyAsFromCommandsForMultipleSubscriptions</span>
-                <br/>
-                <span class="ignored-method-name">DeleteFromCommandsForMultipleSubscriptions</span>
+                <span class="ignored-method-name">AddToFavoriteviewlet</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -432,46 +600,100 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">ApodGUI.SubscriptionViewlet</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">ApodGUI.WorkgroupServer</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Subscription Verification)</span>
-                <span class="method-start">32 ms</span>
+                <span class="method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, WGS10, org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">28 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=Login status=SUCCESS method=SubscriptionViewlet.Login(java.lang.String, java.lang.S...)</span>
-                <span class="method-start">25598 ms</span>
+                <span class="method-name">tearDown([TestResult name=Login status=SUCCESS method=WorkgroupServer.Login(java.lang.String, java.lang.Strin...)</span>
+                <span class="method-start">34405 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">AddSubscriptionViewlet(New Subscription Viewlet, org.testng.TestRunner@421e361)</span>
-                <span class="method-start">26080 ms</span>
+                <span class="method-name">AddWorkgroupFromPlusIcon(org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">34842 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=AddSubscriptionViewlet status=SUCCESS method=SubscriptionViewlet.AddSubscriptionVie...)</span>
-                <span class="method-start">38720 ms</span>
+                <span class="method-name">tearDown([TestResult name=AddWorkgroupFromPlusIcon status=SUCCESS method=WorkgroupServer.AddWorkgroupFromPlus...)</span>
+                <span class="method-start">54262 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">EditWorkgroup(localhost, org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">61678 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=EditWorkgroup status=SUCCESS method=WorkgroupServer.EditWorkgroup(java.lang.String,...)</span>
+                <span class="method-start">84424 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">DeleteWorkgroup(WGS10, org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">91614 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=DeleteWorkgroup status=SUCCESS method=WorkgroupServer.DeleteWorkgroup(java.lang.Str...)</span>
+                <span class="method-start">108394 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">AddNode(org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">117339 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=AddNode status=SUCCESS method=WorkgroupServer.AddNode(org.testng.ITestContext)[pri:...)</span>
+                <span class="method-start">140133 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">CreateSubscriptionFromPlusIcon(DESKTOP-E1JT2VR, M1, SYSTEM.ADD.ICON.SUBSCRIPTION, UniqueIcon, DESKTOP-E1JT2VR, M1, ABCD, org.testng...)</span>
-                <span class="method-start">48236 ms</span>
+                <span class="method-name">AddRemoteQueueManager(REMOTE_QMGRS, QMGR_NAME_DELETE, localhost, SYSTEM.ADMIN.COMMAND.QUEUE, SYSTEM.DEF.SVRCONN, org.testn...)</span>
+                <span class="method-start">148364 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=CreateSubscriptionFromPlusIcon status=FAILURE method=SubscriptionViewlet.CreateSubs...)</span>
-                <span class="method-start">95610 ms</span>
+                <span class="method-name">tearDown([TestResult name=AddRemoteQueueManager status=FAILURE method=WorkgroupServer.AddRemoteQueueManager(j...)</span>
+                <span class="method-start">166821 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
+                <span class="method-name">AddRemoteEMSManager(EMSAGENT01, EMS-Server21, tcp://127.0.0.1:7221, org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">174181 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=AddRemoteEMSManager status=SUCCESS method=WorkgroupServer.AddRemoteEMSManager(java....)</span>
+                <span class="method-start">194584 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">ModifyRemoteEMSServer(tcp://127.0.0.1:7222, org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">202210 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=ModifyRemoteEMSServer status=SUCCESS method=WorkgroupServer.ModifyRemoteEMSServer(j...)</span>
+                <span class="method-start">214907 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">DeleteRemoteEMSServer(EMS-Server21, org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">222250 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=DeleteRemoteEMSServer status=SUCCESS method=WorkgroupServer.DeleteRemoteEMSServer(j...)</span>
+                <span class="method-start">239702 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">SearchFilter(org.testng.TestRunner@5fdba6f9)</span>
+                <span class="method-start">246993 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=SearchFilter status=SUCCESS method=WorkgroupServer.SearchFilter(org.testng.ITestCon...)</span>
+                <span class="method-start">276803 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
                 <span class="method-name">Logout</span>
-                <span class="method-start">105117 ms</span>
+                <span class="method-start">284561 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=Logout status=FAILURE method=SubscriptionViewlet.Logout()[pri:25, instance:ApodGUI....)</span>
-                <span class="method-start">106274 ms</span>
+                <span class="method-name">tearDown([TestResult name=Logout status=SUCCESS method=WorkgroupServer.Logout()[pri:13, instance:ApodGUI.Work...)</span>
+                <span class="method-start">296089 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

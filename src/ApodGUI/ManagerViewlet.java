@@ -300,7 +300,7 @@ public class ManagerViewlet
 		//Select Show topology option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show Topology")).click();
-		Thread.sleep(1000);
+		Thread.sleep(10000);
 		
 		//Store the Topology page data into string
 		String Topology=driver.findElement(By.cssSelector("svg")).getText();
@@ -333,7 +333,7 @@ public class ManagerViewlet
 		Actions MousehoverIncremental=new Actions(driver);
 		MousehoverIncremental.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]"))).perform();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]/ul/li")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Started all WMQ objects");
 		//Click on Yes confirmation button
@@ -350,7 +350,7 @@ public class ManagerViewlet
 		Actions MousehoverIncremental=new Actions(driver);
 		MousehoverIncremental.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]"))).perform();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]/ul/li[2]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Stopped all WMQ objects");
 		//Click on yes confirmation button
@@ -395,7 +395,7 @@ public class ManagerViewlet
 		Actions MousehoverIncremental=new Actions(driver);
 		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
 		driver.findElement(By.linkText("View Error Log...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		try
 		{
@@ -418,12 +418,12 @@ public class ManagerViewlet
 			
 			//Close the Error log page
 			driver.findElement(By.cssSelector(".btn-danger")).click();
-			Thread.sleep(1000);
+			Thread.sleep(4000);
 		}
 		
 		//Close the Error log page
 		driver.findElement(By.cssSelector(".btn-danger")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		}
 		catch (Exception e)
@@ -445,11 +445,11 @@ public class ManagerViewlet
 		//Select properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Click on General tab
 		driver.findElement(By.linkText("General")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Store the editable function in to a string
 		boolean FieldNamevalue=driver.findElement(By.id("name")).isEnabled();
@@ -463,6 +463,7 @@ public class ManagerViewlet
 			 context.setAttribute("Comment", "Manager Name field is UnEditable, condition working fine");
 				
 			 driver.findElement(By.cssSelector(".btn-primary")).click();
+			 Thread.sleep(6000);
 		}
 		else
 		{
@@ -470,6 +471,7 @@ public class ManagerViewlet
 			context.setAttribute("Comment", "Condition failed, manager name is in editable");
 			System.out.println("Manager Name field is Editable");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(6000);
 			driver.findElement(By.xpath("Manager name edit function Failed")).click();
 			
 		}
@@ -491,6 +493,7 @@ public class ManagerViewlet
 		//Enter the Query and Click on Submit
 		driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(Query);
 		driver.findElement(By.xpath("//app-mod-mqsc-console/div/div[2]/div[2]/button")).click();
+		Thread.sleep(4000);
 		
 		//Store the Console output into string
 		String ConsoleOutput=driver.findElement(By.xpath("//textarea")).getText();
@@ -504,11 +507,11 @@ public class ManagerViewlet
 		
 		//------------ Save the Console data into file using save button ---------------
 		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//------------Clear data by using clear button --------------
 		driver.findElement(By.xpath("//div[2]/div/div/button")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Store the Console output into string after clearing the console data
 		String ClearedConsoleOutput=driver.findElement(By.xpath("//textarea")).getText();
@@ -525,6 +528,9 @@ public class ManagerViewlet
 			System.out.println("Console not cleared");
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "MQSC console is nt cleared");
+			
+			driver.findElement(By.xpath("//div[4]/button")).click();
+			driver.findElement(By.id("Console not cleared")).click();
 			
 		}
 		
@@ -544,14 +550,14 @@ public class ManagerViewlet
 		Actions MousehoverIncremental=new Actions(driver);
 		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Discover now"))).perform();
 		driver.findElement(By.linkText("Incremental")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 				
 		//Select Full option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions MousehoverFull=new Actions(driver);
 		MousehoverFull.moveToElement(driver.findElement(By.linkText("Discover now"))).perform();
 		driver.findElement(By.linkText("Full")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Discover now option working fine");
@@ -576,7 +582,7 @@ public class ManagerViewlet
 		//Select Delete option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[8]")).click();
-		Thread.sleep(1000);	
+		Thread.sleep(4000);	
 		
 		//Click on confirmation Yes button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -715,7 +721,7 @@ public class ManagerViewlet
 		
 		//Submit
 		driver.findElement(By.xpath("//app-modal-add-viewlet-favorite/div/div[2]/button[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		int ManagerName_Index=3;
 		if(!WGSName.contains("MQM"))
@@ -738,7 +744,7 @@ public class ManagerViewlet
 		fav.selectByIndex(0);
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(".g-block-bottom-buttons > .g-button-blue")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Favorite viewlet data storing
 		String Fav1=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -914,7 +920,7 @@ public class ManagerViewlet
 		
 		//Close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		//Select the properties option for First manager
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -931,7 +937,7 @@ public class ManagerViewlet
 		
 		//Close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		//Select the properties option for Second manager
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -948,7 +954,7 @@ public class ManagerViewlet
 		
 		//Close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		//Verification
 		if(MultipleDescription.equals(FirstQM) && MultipleDescription.equals(SecondQM))
@@ -975,7 +981,7 @@ public class ManagerViewlet
 		
 	}
 	
-	@Test(priority=19)
+	@Test(priority=19, dependsOnMethods= {"AddToFavorites"})
 	@TestRail(testCaseId = 65)
 	public static void AddToFavoriteForMultipleManagers(ITestContext context) throws InterruptedException
 	{

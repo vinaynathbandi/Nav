@@ -148,7 +148,7 @@ public class QueuesViewlet
 		//Select Browse Messages Option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Browse messages")).click();
-		Thread.sleep(1000);               
+		Thread.sleep(4000);               
 		
 		//Store the browse message page value into string
 		String BrowseMessagespage=driver.findElement(By.cssSelector(".g-row-head:nth-child(2)")).getText();
@@ -166,6 +166,7 @@ public class QueuesViewlet
 			System.out.println("Message browse page is not opened");
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Faile to load message browse option");
+			driver.findElement(By.cssSelector(".close-button")).click();
 			driver.findElement(By.xpath("Message browse page is failed")).click();
 		}
 		//Close the popup page
@@ -198,7 +199,7 @@ public class QueuesViewlet
 		//Select show object Attributes Option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show Queue Status")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Store the column name "Name" into string
 		String Queuestatuspage=driver.findElement(By.cssSelector(".wrapper-console-tabs")).getText();
@@ -216,6 +217,7 @@ public class QueuesViewlet
 			System.out.println("Failed to open Show Queue Status page");
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Failed to open Show Queue Status page");
+			driver.findElement(By.cssSelector(".close-button")).click();
 			driver.findElement(By.xpath("Queue Status page opening is failed")).click();
 		}
 		
@@ -272,6 +274,13 @@ public class QueuesViewlet
 		String Firstqueue=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(Firstqueue);
 		
+		//Edit the search
+		for(int k=0; k<=QueueNameFromOptions.length(); k++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(1000);
+		
 		if(Firstqueue.equalsIgnoreCase(QueueNameFromOptions))
 		{
 			System.out.println("Queue is added successfully");
@@ -285,13 +294,6 @@ public class QueuesViewlet
 			context.setAttribute("Comment", "Failed to add Queue");
 			driver.findElement(By.id("Add Queue failed")).click();
 		}
-		
-		//Edit the search
-		for(int k=0; k<=QueueNameFromOptions.length(); k++)
-		{
-			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
-		}
-		Thread.sleep(1000);
 		
 		/*//Applying the loop from second queue onwords
 		for(int q=2; q<=100; q++)
@@ -343,7 +345,7 @@ public class QueuesViewlet
 		driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(ObjectName);
 		driver.findElement(By.xpath("//div[2]/input")).sendKeys(ObjectDescription);
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(3000);
+		Thread.sleep(8000);
 		
 		//---------  Delete the Queue -----------
 		//change settings
@@ -375,7 +377,7 @@ public class QueuesViewlet
 		
 		//Delete option
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		try
 		{
 		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
@@ -470,6 +472,7 @@ public class QueuesViewlet
 			context.setAttribute("Status", 1);
 			context.setAttribute("Comment", "Queue Name field is UnEditable");
 			 driver.findElement(By.cssSelector(".btn-primary")).click();
+			 Thread.sleep(4000);
 		}
 		else
 		{
@@ -477,6 +480,7 @@ public class QueuesViewlet
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Queue Name field is Editable");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(4000);
 			driver.findElement(By.xpath("Queue name edit function Failed")).click();
 			
 		}
@@ -691,6 +695,7 @@ public class QueuesViewlet
 	        System.out.println("No differences between Processes");
 	        context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got exception while opening comparision popup, check details: " + e.getMessage());
+			driver.findElement(By.cssSelector(".close-button")).click();
 	       } 
 		 
 		//Closing the compare popup page
@@ -706,7 +711,7 @@ public class QueuesViewlet
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show Queues Status")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Store the column name "Name" into string
 		String Queuestatuspage=driver.findElement(By.cssSelector(".wrapper-console-tabs")).getText();
@@ -724,6 +729,7 @@ public class QueuesViewlet
 			System.out.println("Show Multiple Queue Status page is opened");
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Failed to open multiple Queue Status page");
+			driver.findElement(By.cssSelector(".close-button")).click();
 			driver.findElement(By.xpath("Queue Status page opening is failed")).click();
 		}
 		
@@ -749,7 +755,7 @@ public class QueuesViewlet
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		
 		//Open the properties of first queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -761,7 +767,7 @@ public class QueuesViewlet
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Open the properties of Second queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -773,7 +779,7 @@ public class QueuesViewlet
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Verification
 		if(FirstQueuedata.equals(TestDescription) && SecondQueuedata.equals(TestDescription))
@@ -795,7 +801,7 @@ public class QueuesViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId = 79)
-	@Test(priority=12)
+	@Test(priority=12, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleQueues(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int QueueName_Index=3;
@@ -943,6 +949,13 @@ public class QueuesViewlet
 		String Firstqueue=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(Firstqueue);
 		
+		//Edit the search
+		for(int k=0; k<=Q_QueueName.length(); k++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(1000);
+		
 		if(Firstqueue.equalsIgnoreCase(Q_QueueName))
 		{
 			System.out.println("Queue is added successfully from icon");
@@ -957,12 +970,6 @@ public class QueuesViewlet
 			driver.findElement(By.id("Add Queue failed")).click();
 		}
 		
-		//Edit the search
-		for(int k=0; k<=Q_QueueName.length(); k++)
-		{
-			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
-		}
-		Thread.sleep(1000);
 		
 		// Changing the Settings 
 		driver.findElement(By.cssSelector(".fa-cog")).click();

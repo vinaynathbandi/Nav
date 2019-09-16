@@ -195,7 +195,7 @@ public class NodeViewlet {
 			// Select Show Topology option
 			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.linkText("Show Topology")).click();
-			Thread.sleep(22000);
+			Thread.sleep(25000);
 
 			// Save the topology page data into string
 			String Topology = driver.findElement(By.cssSelector("svg")).getText();
@@ -233,7 +233,7 @@ public class NodeViewlet {
 			// Select Events option
 			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.linkText("Events...")).click();
-			Thread.sleep(2000);
+			Thread.sleep(8000);
 
 			// Store the Event popup page value into string
 			String EventName = driver.findElement(By.cssSelector("th:nth-child(1)")).getText();
@@ -399,7 +399,7 @@ public class NodeViewlet {
 
 		// Submit
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -455,11 +455,13 @@ public class NodeViewlet {
 				context.setAttribute("Status", 1);
 				context.setAttribute("Comment", "Node Name field is UnEditable");
 				driver.findElement(By.cssSelector(".btn-danger")).click();
+				Thread.sleep(8000);
 			} else {
 				System.out.println("Node Name field is Editable");
 				context.setAttribute("Status", 5);
 				context.setAttribute("Comment", "Node Name field is Editable");
 				driver.findElement(By.cssSelector(".btn-danger")).click();
+				Thread.sleep(8000);
 				driver.findElement(By.xpath("Node name edit function Failed")).click();
 			}
 		} catch (Exception e) {
@@ -613,6 +615,7 @@ public class NodeViewlet {
 
 		// Click on Differences only
 		driver.findElement(By.cssSelector("div.differences > label.switch > span.slider.round")).click();
+		Thread.sleep(2000);
 		try
 		{
 		String difference1=driver.findElement(By.xpath("//tr[2]/td[2]")).getText();
@@ -658,7 +661,7 @@ public class NodeViewlet {
 
 	@Parameters({"TypeOfNode"})
 	@TestRail(testCaseId = 41)
-	@Test(priority = 18)
+	@Test(priority = 18, dependsOnMethods= {"CreateNodeUsingIcon"})
 	public static void DeleteNode(String TypeOfNode, ITestContext context) throws Exception 
 	{
 		// Search with node name
@@ -676,7 +679,7 @@ public class NodeViewlet {
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Delete")).click();
 		driver.findElement(By.id("accept-true")).click();
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 
 		// Edit the search field data
 		for (int j = 0; j <= NodeNameFromIcon.length(); j++) {
@@ -803,9 +806,7 @@ public class NodeViewlet {
 	public void AddtoFavoriteForMultipleNodes(String FavoriteViewletName,ITestContext context) throws InterruptedException {
 		try {
 		// Store two nodes data into string
-		String NodeName2 = driver.findElement(By.xpath(
-				"//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[3]/div/span"))
-				.getText();
+		String NodeName2 = driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
 		String NodeName3 = driver.findElement(By.xpath(
 				"//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[3]/div/span"))
 				.getText();
@@ -932,7 +933,7 @@ public class NodeViewlet {
 
 		// Final Submit
 		driver.findElement(By.xpath("//div[2]/div/div[2]/div[2]/button")).click();
-		Thread.sleep(8000);
+		Thread.sleep(20000);
 		
 		try
 		{

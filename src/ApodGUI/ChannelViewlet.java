@@ -157,7 +157,7 @@ public class ChannelViewlet
 		//Select channel status option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show Channel Status")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		int Channel_Status=6;
 		if(!WGSName.contains("MQM"))
@@ -209,7 +209,7 @@ public class ChannelViewlet
 		
 		//Click on yes button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		int Channel_Status=6;
 		if(!WGSName.contains("MQM"))
@@ -249,7 +249,7 @@ public class ChannelViewlet
 		
 		//Click on yes button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		int Channel_Status=6;
 		if(!WGSName.contains("MQM"))
@@ -289,6 +289,7 @@ public class ChannelViewlet
 		
 		//click on Ping option
 		driver.findElement(By.xpath("//div[4]/button")).click();
+		Thread.sleep(2000);
 		
 		try
 		{
@@ -370,7 +371,7 @@ public class ChannelViewlet
 		//Select channel properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Store the editable function in to a string
 		boolean FieldNamevalue=driver.findElement(By.id("name")).isEnabled();
@@ -383,6 +384,7 @@ public class ChannelViewlet
 			 driver.findElement(By.cssSelector(".btn-primary")).click();
 			 context.setAttribute("Status", 1);
 			 context.setAttribute("Comment", "Channel Name field is UnEditable");
+			 Thread.sleep(3000);
 		}
 		else
 		{
@@ -390,6 +392,7 @@ public class ChannelViewlet
 			context.setAttribute("Status", 5);
 			 context.setAttribute("Comment", "Channel Name field is Editable");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(3000);
 			driver.findElement(By.xpath("Channel name edit function Failed")).click();
 			
 		}
@@ -545,7 +548,7 @@ public class ChannelViewlet
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Compare")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Store the popup page value into string
 		String CompareChannels=driver.findElement(By.cssSelector("span.name")).getText();
@@ -636,7 +639,7 @@ public class ChannelViewlet
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show Channels Status")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		//Show multiple channels status page
 		String FirstchannelStatus=driver.findElement(By.xpath("//tr[2]/td[4]")).getText();
@@ -678,7 +681,7 @@ public class ChannelViewlet
 		Actions MousehoverstartCommands=new Actions(driver);
 		MousehoverstartCommands.moveToElement(driver.findElement(By.cssSelector(".vertical-nav > .ng-star-inserted:nth-child(3)"))).perform();
 		driver.findElement(By.cssSelector(".sub-menu > .ng-star-inserted:nth-child(1)")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Close the popup
 		driver.findElement(By.xpath("//div[3]/button")).click();
@@ -720,7 +723,7 @@ public class ChannelViewlet
 		Actions MousehoverStopCommands=new Actions(driver);
 		MousehoverStopCommands.moveToElement(driver.findElement(By.cssSelector(".vertical-nav > .ng-star-inserted:nth-child(3)"))).perform();
 		driver.findElement(By.cssSelector(".sub-menu > .ng-star-inserted:nth-child(2)")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 				
 		//Close the popup
 		driver.findElement(By.xpath("//div[3]/button")).click();
@@ -760,7 +763,7 @@ public class ChannelViewlet
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		
 		//Enter the Description
 		driver.findElement(By.id("description")).clear();
@@ -818,7 +821,7 @@ public class ChannelViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=115)
-	@Test(priority=16)
+	@Test(priority=16, dependsOnMethods= {"AddToFavorites"})
 	public static void AddToFavoriteForMultipleChannels(String FavoriteViewletName,ITestContext context) throws InterruptedException
 	{
 		int ChannelName_Index=3;

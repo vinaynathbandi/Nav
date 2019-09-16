@@ -104,7 +104,7 @@ public class WorkgroupServer {
 		// Delete the WGS10 if present
 		// ITestContext context = null;
 		this.DeleteWorkgroup(DeleteWGSName, context);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 	}
 
 	@Test(priority = 1)
@@ -185,12 +185,10 @@ public class WorkgroupServer {
 
 			// Click on Submit button
 			driver.findElement(By.cssSelector(".button-blue")).click();
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 
 			// Store the Host name into string
-			String HostName = driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[6]/div/span"))
-					.getText();
+			String HostName = driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[6]/div/span")).getText();
 			// System.out.println(HostName);
 
 			// Verification condition
@@ -226,7 +224,7 @@ public class WorkgroupServer {
 				DeleteWGS.click();
 				driver.findElement(By.linkText("Delete workgroup server")).click();
 				driver.findElement(By.cssSelector(".btn-primary")).click();
-				Thread.sleep(6000);
+				Thread.sleep(8000);
 
 				// Store the Viewlet data into string
 				String WGSServerData = driver.findElement(By.xpath("//datatable-body")).getText();
@@ -253,8 +251,7 @@ public class WorkgroupServer {
 			}
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Got exception while deleting workgroup server check details : " + e.getMessage());
+			context.setAttribute("Comment","Got exception while deleting workgroup server check details : " + e.getMessage());
 			// TODO Auto-generated catch block
 			System.out.println("Second WGS is not present");
 		}
@@ -336,9 +333,7 @@ public class WorkgroupServer {
 	public static void AddNode(ITestContext context) throws InterruptedException, IOException {
 		try {
 			// Click on checbox and Select the create node option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			Actions MousehourNode = new Actions(driver);
 			MousehourNode.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Node...")).click();
@@ -356,7 +351,7 @@ public class WorkgroupServer {
 
 			// Submit
 			driver.findElement(By.cssSelector(".btn-primary")).click();
-			Thread.sleep(6000);
+			Thread.sleep(8000);
 
 			// Refresh the Node viewlet
 			driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
@@ -383,26 +378,20 @@ public class WorkgroupServer {
 			 * File("F:\\Nagaraju\\Workgroup server\\AddNode.png"));
 			 */
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured when adding Node from Workspace page, check details: " + e.getMessage());
+			context.setAttribute("Comment","Exception occured when adding Node from Workspace page, check details: " + e.getMessage());
 			System.out.println("Exception occured when adding Node from Workspace page");
 			driver.findElement(By.cssSelector(".btn-danger")).click();
 		}
 		Thread.sleep(1000);
 	}
 
-	@Parameters({ "ConnectionInstanceName", "RemoteQueueManagerName", "ConnectionName", "CommandQueueName",
-			"ChannelName" })
+	@Parameters({ "ConnectionInstanceName", "RemoteQueueManagerName", "ConnectionName", "CommandQueueName", "ChannelName" })
 	@TestRail(testCaseId = 29)
 	@Test(priority = 5)
-	public void AddRemoteQueueManager(String ConnectionInstanceName, String RemoteQueueManagerName,
-			String ConnectionName, String CommandQueueName, String ChannelName, ITestContext context)
-			throws InterruptedException {
+	public void AddRemoteQueueManager(String ConnectionInstanceName, String RemoteQueueManagerName, String ConnectionName, String CommandQueueName, String ChannelName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
-					.click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			Actions Mousehour = new Actions(driver);
 			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Remote Queue Managers...")).click();
@@ -436,7 +425,7 @@ public class WorkgroupServer {
 
 			// click on OK button
 			driver.findElement(By.xpath("//app-mod-remote-queue-manager-options/div/div[2]/div/div/div/button")).click();
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 
 			// Store the Queue managers into string
 			String Queuemanagers = driver.findElement(By.xpath("//app-mod-remote-queue-manager-connections/div/div/div/div")).getText();
@@ -469,7 +458,7 @@ public class WorkgroupServer {
 
 	@TestRail(testCaseId = 30)
 	@Parameters({"Node_NewConnectionName"})
-	@Test(priority = 6)
+	@Test(priority = 6, dependsOnMethods= {"AddRemoteQueueManager"})
 	public void ModifyRemoteQueueManager(String Node_NewConnectionName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
@@ -493,7 +482,7 @@ public class WorkgroupServer {
 
 			// click on OK button
 			driver.findElement(By.xpath("//app-mod-remote-queue-manager-options/div/div[2]/div/div/div/button")).click();
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 
 			// Store the connection ip into string after modifying the name
 			String ChangedConnectionip = driver.findElement(By.xpath("//div[2]/div/table/tbody/tr/td[2]")).getText();
@@ -523,7 +512,7 @@ public class WorkgroupServer {
 
 	@Parameters({ "DeleteManagerName" })
 	@TestRail(testCaseId = 31)
-	@Test(priority = 7)
+	@Test(priority = 7, dependsOnMethods= {"AddRemoteQueueManager", "ModifyRemoteQueueManager"})
 	public void DeleteRemoteQueueManager(String DeleteManagerName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
@@ -539,7 +528,7 @@ public class WorkgroupServer {
 			// Click on Delete
 			driver.findElement(By.xpath("//div[3]/button")).click();
 			driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 
 			// Store the Queue managers into string
 			String Queuemanagers = driver.findElement(By.xpath("//app-mod-remote-queue-manager-connections/div/div/div/div")).getText();
@@ -561,8 +550,7 @@ public class WorkgroupServer {
 			driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured while Deleting remote Queue manager, Check details: " + e.getMessage());
+			context.setAttribute("Comment", "Exception occured while Deleting remote Queue manager, Check details: " + e.getMessage());
 			System.out.println("Exception occured when Deleting remote Queue manager");
 			driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
 		}
@@ -601,7 +589,7 @@ public class WorkgroupServer {
 
 			// click on OK button
 			driver.findElement(By.xpath("//app-mod-remote-ems-manager-options/div/div[2]/div/div/div/button")).click();
-			Thread.sleep(5000);
+			Thread.sleep(8000);
 
 			// Store the EMS servers data into string
 			String RemoteEMSserver = driver.findElement(By.xpath("//app-mod-remote-ems-manager-connections/div/div/div/div")).getText();
@@ -620,14 +608,13 @@ public class WorkgroupServer {
 			Thread.sleep(1000);
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured while adding Remote EMS server, Check details: " + e.getMessage());
+			context.setAttribute("Comment", "Exception occured while adding Remote EMS server, Check details: " + e.getMessage());
 		}
 	}
 
 	@Parameters({ "UpdatedServerURL" })
 	@TestRail(testCaseId = 33)
-	@Test(priority = 9)
+	@Test(priority = 9, dependsOnMethods= {"AddRemoteEMSManager"})
 	public void ModifyRemoteEMSServer(String UpdatedServerURL, ITestContext context) throws InterruptedException {
 		try {
 			// Click on Modify button
@@ -657,14 +644,13 @@ public class WorkgroupServer {
 			Thread.sleep(1000);
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured while editing Remote EMS server, Check details: " + e.getMessage());
+			context.setAttribute("Comment", "Exception occured while editing Remote EMS server, Check details: " + e.getMessage());
 		}
 	}
 
 	@Parameters({ "ServerName" })
 	@TestRail(testCaseId = 34)
-	@Test(priority = 10)
+	@Test(priority = 10, dependsOnMethods= {"AddRemoteEMSManager", "ModifyRemoteEMSServer"})
 	public void DeleteRemoteEMSServer(String ServerName, ITestContext context) throws InterruptedException {
 		try {
 			// Click on Server name
@@ -707,7 +693,6 @@ public class WorkgroupServer {
 	}
 
 	@Parameters({ "Dashboardname", "FavoriteViewletName", "Favwgs" })
-
 	@Test(priority = 11)
 	public void AddToFavoriteviewlet(String Dashboardname, String FavoriteViewletName, int Favwgs, ITestContext context)
 			throws InterruptedException {

@@ -152,7 +152,7 @@ public class TopicViewlet
 		dd.selectByVisibleText(WGSName);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		if(driver.getPageSource().contains(Topicname))
 		{
@@ -218,7 +218,7 @@ public class TopicViewlet
 		
 		//Click on submit button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(6000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -263,7 +263,7 @@ public class TopicViewlet
 	
 	@Parameters({"CopyObjectName", "TopicNameFromOptions", "TopicUniquestringForCopyAs"})
 	@TestRail(testCaseId=135)
-	@Test(priority=4)
+	@Test(priority=4, dependsOnMethods= {"CreateTopic"})
 	public void CopyAsFromCommands(String CopyObjectName, String TopicNameFromOptions, String TopicUniquestringForCopyAs, ITestContext context) throws InterruptedException
 	{
 		//Search with the added Topic name
@@ -282,7 +282,7 @@ public class TopicViewlet
     	//Unique string
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestringForCopyAs);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(5000);
+    	Thread.sleep(8000);
     	
     	//Edit the search field data
     	for(int j=0; j<=TopicNameFromOptions.length(); j++)
@@ -338,7 +338,7 @@ public class TopicViewlet
 	
 	@Parameters({"TopicNameFromOptions", "CopyObjectName"})
 	@TestRail(testCaseId=136)
-	@Test(priority=5)
+	@Test(priority=5, dependsOnMethods= {"CopyAsFromCommands"})
 	public void DeleteFromCommands(String TopicNameFromOptions, String CopyObjectName, ITestContext context) throws InterruptedException
 	{
 		String CopyasTopicName=TopicNameFromOptions+CopyObjectName;
@@ -356,7 +356,7 @@ public class TopicViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(5000);
+    	Thread.sleep(8000);
     	
     	//Edit the search field data
     	for(int j=0; j<=CopyasTopicName.length(); j++)
@@ -399,7 +399,7 @@ public class TopicViewlet
     	driver.findElement(By.xpath("//div[2]/input")).click();
     	Thread.sleep(1000);
     	driver.findElement(By.xpath("//div[3]/button")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
     	
     	//Search the queue
     	driver.findElement(By.xpath("//input[@type='text']")).clear();
@@ -427,7 +427,7 @@ public class TopicViewlet
     	driver.findElement(By.id("propertyName")).sendKeys(PropertyName);
     	driver.findElement(By.id("propertyValue")).sendKeys(PropertyValue);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(6000);
     	
     	try
     	{
@@ -475,7 +475,7 @@ public class TopicViewlet
 		//Select Properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//storing the name field status into boolean
 		boolean NameField=driver.findElement(By.id("name")).isEnabled();
@@ -488,6 +488,7 @@ public class TopicViewlet
 			context.setAttribute("Status",1);
 			context.setAttribute("Comment", "The Topic name field is Disabled");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(4000);
 		}
 		else
 		{
@@ -495,11 +496,10 @@ public class TopicViewlet
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "The Topic name field is Enabled on properties option");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(4000);
 			driver.findElement(By.xpath("Name field is disabled")).click();
 			
-		}
-		Thread.sleep(4000);
-		
+		}		
 	}
 	//@Parameters({"Eventsdata"})
 	@Test(priority=8)
@@ -723,7 +723,7 @@ public class TopicViewlet
 		
 		//Click on submit button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -743,6 +743,14 @@ public class TopicViewlet
 		String Viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		//System.out.println(Viewletdata);
 		
+		//Edit the search field data
+    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+		
 		//Verification condition
 		if(Viewletdata.contains(TopicNameFromIcon))
 		{
@@ -757,16 +765,7 @@ public class TopicViewlet
 			context.setAttribute("Comment", "Failed to create topic using add icon");
 			driver.findElement(By.xpath("Topic vielwr Failed")).click();
 		}
-		Thread.sleep(1000);
-		
-		//Edit the search field data
-    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
-    	{
-    	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
-		
+		Thread.sleep(1000);		
 	}
 	
 	@Test(priority=11)
@@ -843,7 +842,7 @@ public class TopicViewlet
 	
 	@Parameters({"CopyObjectNameForMultiple", "TopicUniquestringForMultipleCopy", "TopicNameFromIcon"})
 	@TestRail(testCaseId=142)
-	@Test(priority=12)
+	@Test(priority=12, dependsOnMethods= {"CreateTopicFromPlusIcon"})
 	public void CopyAsFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, String TopicUniquestringForMultipleCopy, String TopicNameFromIcon, ITestContext context) throws InterruptedException
 	{
 		//Search with the topic name from icon
@@ -867,7 +866,7 @@ public class TopicViewlet
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMultiple);
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestringForMultipleCopy);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(8000);
     	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
@@ -909,7 +908,7 @@ public class TopicViewlet
 	
 	@Parameters({"CopyObjectNameForMultiple"})
 	@TestRail(testCaseId=143)
-	@Test(priority=13)
+	@Test(priority=13, dependsOnMethods= {"CopyAsFromCommandsForMultipleTopics"})
 	public void DeleteFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Send the New name into field
@@ -927,7 +926,7 @@ public class TopicViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(8000);
     	
     	//Refresh the view let
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
@@ -1006,7 +1005,7 @@ public class TopicViewlet
 		 driver.findElement(By.id("propertyName")).sendKeys(PropertyNameForMultiple);
 		 driver.findElement(By.id("propertyValue")).sendKeys(PropertyValueForMultiple);
 		 driver.findElement(By.cssSelector(".btn-primary")).click();
-		 Thread.sleep(4000);
+		 Thread.sleep(6000);
     	
 		 try
 	    {
@@ -1056,7 +1055,7 @@ public class TopicViewlet
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);         
+		Thread.sleep(6000);         
 		
 		//Give the description for multiple topics
 		driver.findElement(By.id("description")).clear();
@@ -1068,12 +1067,12 @@ public class TopicViewlet
 		
 		//click on OK
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(5000);
+		Thread.sleep(8000);
 		
 		//Open the properties for First topic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Get the description and communication info for First topic
 		String FirstDescription=driver.findElement(By.id("description")).getAttribute("value");
@@ -1086,7 +1085,7 @@ public class TopicViewlet
 		//Open the properties for second topic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 				
 		//Get the description and communication info for second topic
 		String SecondDescription=driver.findElement(By.id("description")).getAttribute("value");
@@ -1116,7 +1115,7 @@ public class TopicViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=146)
-	@Test(priority=16)
+	@Test(priority=16, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleTopics(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int TopicName_Index=3;
@@ -1339,7 +1338,7 @@ public class TopicViewlet
 		
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(4000);
     	
     	try
     	{
@@ -1482,7 +1481,7 @@ public class TopicViewlet
 		
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+    	Thread.sleep(8000);
     	
     	try
     	{

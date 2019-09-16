@@ -127,7 +127,7 @@ public class EMSManagerViewlet
 		driver.findElement(By.id("ems")).click();
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 	}
 	

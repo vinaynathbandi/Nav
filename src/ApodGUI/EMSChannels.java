@@ -141,7 +141,7 @@ public class EMSChannels
 		driver.findElement(By.id("ems")).click();
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 	
 	}
 	
@@ -383,7 +383,7 @@ public class EMSChannels
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=280)
-	@Test(priority=16)
+	@Test(priority=16, dependsOnMethods= {"AddToFavorites"})
 	public static void AddToFavoriteForMultipleChannels(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int ChannelName_Index=3;

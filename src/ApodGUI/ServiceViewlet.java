@@ -175,7 +175,8 @@ public class ServiceViewlet {
 		Thread.sleep(2000);*/
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
+		
 		if(driver.getPageSource().contains(Servicename))
 		{
 			System.out.println("Service Viewlet is created");
@@ -465,7 +466,7 @@ public class ServiceViewlet {
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=179)
-	@Test(priority=6)
+	@Test(priority=6, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleServices(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int ServiceName_Index=3;

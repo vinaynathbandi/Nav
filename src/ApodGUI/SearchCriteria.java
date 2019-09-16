@@ -169,7 +169,8 @@ public class SearchCriteria
 		//driver.findElement(By.id("encoding-text-9")).click();
 		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
+		
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -212,12 +213,12 @@ public class SearchCriteria
 		//Search criteria name
 		driver.findElement(By.cssSelector(".input-group > .form-control")).sendKeys(SearchCriteriaName);
 		driver.findElement(By.cssSelector("button.btn.btn-outline-secondary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Add Message data
 		driver.findElement(By.xpath("//td/input")).click();
 		driver.findElement(By.xpath("//img[@alt='Data']")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Enter data
 		driver.findElement(By.xpath("//app-mod-message-data-criteria/div/div[2]/input")).sendKeys(SearchCriteriaData);

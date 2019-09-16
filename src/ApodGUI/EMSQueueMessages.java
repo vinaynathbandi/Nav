@@ -236,7 +236,7 @@ public class EMSQueueMessages
 		//driver.findElement(By.id("encoding-text-9")).click();
 		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		
 		//verification of message
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -281,7 +281,7 @@ public class EMSQueueMessages
 		driver.findElement(By.linkText("Load From File...")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.id("accept-true")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Loading the file into queue by using robot class
 		String filepath=System.getProperty("user.dir") + "\\" + UploadFilepath;
@@ -336,7 +336,7 @@ public class EMSQueueMessages
 		
 		//Click on Yes button
 		driver.findElement(By.cssSelector(".btn-group > .ng-star-inserted")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Export All Messages as TXT
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -348,7 +348,7 @@ public class EMSQueueMessages
 		
 		//Click on Yes button
 		driver.findElement(By.cssSelector(".btn-group > .ng-star-inserted")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Successfully exported all EMS queue messages");
@@ -403,7 +403,7 @@ public class EMSQueueMessages
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".viewlet-cell-checkbox > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		
 		//Getting the Second Queue depth after copying the all messages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -469,7 +469,7 @@ public class EMSQueueMessages
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(DestinationQueueName);
 		driver.findElement(By.cssSelector(".viewlet-cell-checkbox > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Second Queue depth after moving the all messages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -522,7 +522,7 @@ public class EMSQueueMessages
 		
 		//Click on Yes button for deleting the queue
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Queue name after deleting the messages
 		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();

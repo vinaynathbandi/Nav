@@ -132,7 +132,7 @@ public class NameListViewlet
 		dd.selectByVisibleText(WGSName);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		if(driver.getPageSource().contains(NameListname))
 		{
@@ -406,7 +406,7 @@ public class NameListViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=173)
-	@Test(priority=6)
+	@Test(priority=6, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleNameLists(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int NamelistName_Index=3;

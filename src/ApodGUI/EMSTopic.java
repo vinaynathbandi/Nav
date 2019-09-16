@@ -151,7 +151,7 @@ public class EMSTopic
 		driver.findElement(By.id("ems")).click();
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 	}
 	
 	
@@ -204,7 +204,7 @@ public class EMSTopic
 		
 		//Click on submit button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -239,7 +239,7 @@ public class EMSTopic
 	
 	@Parameters({"CopyObjectName", "TopicNameFromIcon" })
 	@TestRail(testCaseId=310)
-	@Test(priority=4)
+	@Test(priority=4, dependsOnMethods= {"CreateTopicFromPlusIcon"})
 	public static void CopyAsFromCommands(String CopyObjectName, String TopicNameFromIcon, ITestContext context) throws InterruptedException
 	{
 		//Store the EMS topic into string 
@@ -258,7 +258,7 @@ public class EMSTopic
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(8000);
     	
     	//Edit the search field data
     	for(int j=0; j<=TopicNameFromIcon.length(); j++)
@@ -278,10 +278,20 @@ public class EMSTopic
     	//Combining the strings 
     	String CopyasTopicName=TopicNameFromIcon+CopyObjectName;
     	System.out.println(CopyasTopicName);
+    	
+    	//Search with the copyas data
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyasTopicName);
     	    	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
     	//System.out.println(Subviewlet);
+    	
+    	for(int j=0; j<=CopyasTopicName.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
     	
     	//Verification condition
     	if(Subviewlet.contains(CopyasTopicName))
@@ -297,20 +307,19 @@ public class EMSTopic
 			context.setAttribute("Comment", "Failed to copy Topic using CopyAs command");
     		driver.findElement(By.xpath("Topic failed to copy")).click();
     	}
-    	Thread.sleep(1000);	
-    	
-    	//Search with that name
-    	driver.findElement(By.xpath("//input[@type='text']")).clear();
-    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(TopicNameFromIcon);
-    	Thread.sleep(1000);
-    	
+    	Thread.sleep(1000);	   	
 	}
 	
 	@Parameters({"TopicNameFromIcon", "CopyObjectName"})
 	@TestRail(testCaseId=311)
-	@Test(priority=5)
+	@Test(priority=5, dependsOnMethods= {"CopyAsFromCommands"})
 	public static void DeleteFromCommands(String TopicNameFromIcon, String CopyObjectName, ITestContext context) throws InterruptedException
 	{
+		String CopyasTopicName=TopicNameFromIcon+CopyObjectName;
+    	System.out.println(CopyasTopicName);
+    	
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyasTopicName);
 		    	
 		//Select Delete From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -320,12 +329,10 @@ public class EMSTopic
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(4000);
-    	
-    	String CopyasTopicName=TopicNameFromIcon+CopyObjectName;
+    	Thread.sleep(6000);
     	
     	//Edit the search field data
-    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
+    	for(int j=0; j<=CopyasTopicName.length(); j++)
     	{
     	
     	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
@@ -337,7 +344,7 @@ public class EMSTopic
     	//System.out.println(Subviewlet);
     	
     	//Verification of Subscription delete
-    	if(Subviewlet.contains(TopicNameFromIcon) && Subviewlet.contains(CopyasTopicName))
+    	if(Subviewlet.contains(CopyasTopicName))
     	{
     		System.out.println("Topic is not deleted");
     		context.setAttribute("Status", 5);
@@ -370,7 +377,7 @@ public class EMSTopic
     	driver.findElement(By.id("propertyName")).sendKeys(PropertyName);
     	driver.findElement(By.id("propertyValue")).sendKeys(PropertyValue);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(6000);
     	
     	try
     	{
@@ -480,7 +487,7 @@ public class EMSTopic
 		//Select Properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		
 		//storing the name field status into boolean
 		boolean NameField=driver.findElement(By.id("name")).isEnabled();
@@ -662,7 +669,7 @@ public class EMSTopic
 		//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(8000);
     	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
@@ -827,7 +834,7 @@ public class EMSTopic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000); 
+		Thread.sleep(8000); 
 		
 		WebElement Top=driver.findElement(By.id("name"));
 		Actions a=new Actions(driver);
@@ -844,7 +851,7 @@ public class EMSTopic
 		//Open the properties for First topic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Get the description and communication info for First topic
 		String FirstTopicName=driver.findElement(By.id("name")).getAttribute("value");
@@ -852,12 +859,12 @@ public class EMSTopic
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Open the properties for second topic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 				
 		//Get the description and communication info for second topic
 		String SecondTopicName=driver.findElement(By.id("name")).getAttribute("value");
@@ -865,7 +872,7 @@ public class EMSTopic
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Verification 
 		if(Tooltipdata.contains(FirstTopicName) && Tooltipdata.contains(SecondTopicName))
@@ -886,7 +893,7 @@ public class EMSTopic
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=346)
-	@Test(priority=15)
+	@Test(priority=15,dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleTopics(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int Topic_Name=3;

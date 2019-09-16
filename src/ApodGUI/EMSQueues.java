@@ -142,9 +142,7 @@ public class EMSQueues
 		driver.findElement(By.id("ems")).click();
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
-		
-		
+		Thread.sleep(6000);	
 	}
 	
 	@Test(priority=1)
@@ -172,6 +170,8 @@ public class EMSQueues
 			System.out.println("Message browse page is not opened");
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Failed to open message browse page");
+			driver.findElement(By.cssSelector(".close-button")).click();
+			Thread.sleep(1000);
 			driver.findElement(By.xpath("Message browse page is failed")).click();
 		}
 		//Close the popup page
@@ -203,7 +203,7 @@ public class EMSQueues
 		//Select show object Attributes Option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show EMS Queue Status")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Store the column name "Name" into string
 		String Queuestatuspage=driver.findElement(By.cssSelector(".wrapper-console-tabs")).getText();
@@ -245,7 +245,7 @@ public class EMSQueues
 		driver.findElement(By.name("name")).sendKeys(QueueNameFromOptions);
 		Thread.sleep(10000);
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(5000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -310,7 +310,7 @@ public class EMSQueues
 		Actions CopyMousehover=new Actions(driver);
 		CopyMousehover.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
 		driver.findElement(By.linkText("Copy as...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Store the Copy Queue name
 		String CopyQueue=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_ColumnIndex +"]/div/span")).getText();
@@ -410,7 +410,7 @@ public class EMSQueues
 		//Select Queue properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		
 		boolean FieldNamevalue=driver.findElement(By.id("name")).isEnabled();
 		System.out.println(FieldNamevalue);
@@ -673,7 +673,7 @@ public class EMSQueues
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show EMS Queues Status")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Store the column name "Name" into string
 		String Queuestatuspage=driver.findElement(By.cssSelector(".wrapper-console-tabs")).getText();
@@ -708,7 +708,7 @@ public class EMSQueues
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		
 		WebElement Top=driver.findElement(By.id("name"));
 		Actions a=new Actions(driver);
@@ -735,7 +735,7 @@ public class EMSQueues
 		//Open the properties of first queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[9]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Save the Connection URL value into string
 		String FirstQueuedata=driver.findElement(By.id("name")).getAttribute("value");
@@ -758,7 +758,7 @@ public class EMSQueues
 		//Open the properties of Second queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[9]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Save the Connection URL value into string
 		String SecondQueuedata=driver.findElement(By.id("name")).getAttribute("value");
@@ -796,7 +796,7 @@ public class EMSQueues
 	}
 	
 	@Parameters({"FavoriteViewletName"})
-	@Test(priority=12)
+	@Test(priority=12, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleQueues(String FavoriteViewletName) throws InterruptedException
 	{
 		int QueueName_Index=3;

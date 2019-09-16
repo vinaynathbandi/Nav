@@ -149,6 +149,7 @@ public class AttributeFilterCondition
 		//Add attribute filter
 		driver.findElement(By.cssSelector("button.btn-white-round")).click();
 		driver.findElement(By.xpath("//app-mod-manage-attribute-filter/div/button")).click();
+		Thread.sleep(2000);
 		
 		//Filter name
 		driver.findElement(By.cssSelector("div.mafa-filter-name > input")).sendKeys(ConditionName);
@@ -176,10 +177,11 @@ public class AttributeFilterCondition
 		//Enter the Condition value 
 		driver.findElement(By.cssSelector("td.mafa-table-row-cell > input")).click();
 		driver.findElement(By.cssSelector("td.mafa-table-row-cell > input")).sendKeys(ConditionData);
+		Thread.sleep(2000);
 		
 		//Click on Ok
 		driver.findElement(By.xpath("(//button[@type='button'])[10]")).click();
-		Thread.sleep(5000);
+		Thread.sleep(6000);
 		
 		//Select the added one
 		WebElement table=driver.findElement(By.tagName("table")).findElement(By.tagName("tbody"));
@@ -205,7 +207,7 @@ public class AttributeFilterCondition
 		
 		//Click on Apply
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 		
 		String Noofqueues=driver.findElement(By.xpath("//datatable-footer/div/span")).getText();
 		String[] Index1=Noofqueues.split(" Visible");

@@ -141,7 +141,7 @@ public class ListenerViewlet
 		dd.selectByVisibleText(WGSName);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		if(driver.getPageSource().contains(Listenerviewletname))
 		{
@@ -220,7 +220,7 @@ public class ListenerViewlet
 		
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -238,6 +238,14 @@ public class ListenerViewlet
 		//Store the viewlet data into string
 		String Listenerdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		
+		//Edit the search field data
+    	for(int j=0; j<=ListenerName.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+    	
 		//Verification condition
 		if(Listenerdata.contains(ListenerName))
 		{
@@ -253,14 +261,6 @@ public class ListenerViewlet
 			driver.findElement(By.xpath("Listener viewlet Failed")).click();
 		}
 		Thread.sleep(1000);
-		
-		//Edit the search field data
-    	for(int j=0; j<=ListenerName.length(); j++)
-    	{
-    	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
 	}
 	
 	@Parameters({"ListenerName"})
@@ -348,7 +348,7 @@ public class ListenerViewlet
 	
 	@Parameters({"CopyObjectName", "ListenerName"})
 	@TestRail(testCaseId=153)
-	@Test(priority=6)
+	@Test(priority=6, dependsOnMethods= {"CreateListener"})
 	public void CopyAsFromCommands(String CopyObjectName, String ListenerName, ITestContext context) throws InterruptedException
 	{
 		//Search with the added process name
@@ -364,7 +364,7 @@ public class ListenerViewlet
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(5000);
+    	Thread.sleep(8000);
     	
     	//Edit the search field data
     	for(int j=0; j<=ListenerName.length(); j++)
@@ -408,7 +408,7 @@ public class ListenerViewlet
 	
 	@Parameters({"RenameListener", "CopyObjectName", "ListenerName"})
 	@TestRail(testCaseId=154)
-	@Test(priority=7)
+	@Test(priority=7, dependsOnMethods= {"CopyAsFromCommands"})
 	public void RenameFromCommands(String RenameListener, String CopyObjectName, String ListenerName, ITestContext context) throws InterruptedException
 	{ 
     	//Combining the strings 
@@ -480,7 +480,7 @@ public class ListenerViewlet
 	
 	@Parameters({"RenameListener"})
 	@TestRail(testCaseId=155)
-	@Test(priority=8)
+	@Test(priority=8, dependsOnMethods= {"RenameFromCommands"})
 	public void DeleteFromCommands(String RenameListener, ITestContext context) throws InterruptedException
 	{
 		//Search with the deleted listener name
@@ -495,7 +495,7 @@ public class ListenerViewlet
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
+    	Thread.sleep(8000);
     	
     	//Search with the new name
 		for(int j=0; j<=RenameListener.length(); j++)
@@ -553,10 +553,11 @@ public class ListenerViewlet
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "The Listener name field is Enabled");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(4000);
 			driver.findElement(By.xpath("Listener field is disabled")).click();
 			
 		}
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 	}
 	
@@ -857,7 +858,7 @@ public class ListenerViewlet
 		
 		//Click on OK button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(4000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -879,7 +880,15 @@ public class ListenerViewlet
 		//Store the viewlet data into string
 		String Listenerdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		
-		//Verification condition
+		//Edit the search field data
+    	for(int j=0; j<=ListenerNameFromICon.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+		
+    	//Verification condition
 		if(Listenerdata.contains(ListenerNameFromICon))
 		{
 			System.out.println("Listener is created successfully from plus ICon");
@@ -894,14 +903,6 @@ public class ListenerViewlet
 			driver.findElement(By.xpath("Listener viewlet Failed")).click();
 		}
 		Thread.sleep(1000);
-		
-		//Edit the search field data
-    	for(int j=0; j<=ListenerNameFromICon.length(); j++)
-    	{
-    	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(4000);
 	}
 	
 	@Parameters({"ListenerName"})
@@ -1022,7 +1023,7 @@ public class ListenerViewlet
     	//Give the object name
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMUltiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(4000);
+    	Thread.sleep(8000);
     	
     	try
     	{
@@ -1073,7 +1074,7 @@ public class ListenerViewlet
 	
 	@Parameters({"RenameListenerForMultiple", "CopyObjectNameForMUltiple"})
 	@TestRail(testCaseId=163)
-	@Test(priority=17)
+	@Test(priority=17, dependsOnMethods= {"CopyAsFromCommandsForMultiple"})
 	public void RenameFromCommandsForMultiple(String RenameListenerForMultiple, String CopyObjectNameForMUltiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
@@ -1092,7 +1093,7 @@ public class ListenerViewlet
     	//Send the New name into field
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameListenerForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(4000);
+    	Thread.sleep(8000);
     	
     	try
     	{
@@ -1146,7 +1147,7 @@ public class ListenerViewlet
 	
 	@Parameters({"RenameListenerForMultiple"})
 	@TestRail(testCaseId=164)
-	@Test(priority=18)
+	@Test(priority=18, dependsOnMethods= {"RenameFromCommandsForMultiple"})
 	public void DeleteFromCommandsForMultiple(String RenameListenerForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
@@ -1160,7 +1161,7 @@ public class ListenerViewlet
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Delete")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(6000);
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -1205,40 +1206,41 @@ public class ListenerViewlet
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
+		try {
 		//give the description
 		driver.findElement(By.id("description")).clear();
 		driver.findElement(By.id("description")).sendKeys(ListenerDescription);
 		Thread.sleep(2000);
-		try {
+	
 		//Close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Open the first listener properties page
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Store the First listener description into string
 		String FirstDescription=driver.findElement(By.id("description")).getAttribute("value");
 		
 		//Close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Open the second listener name
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Store the second listener description into string
 		String SecondDescription=driver.findElement(By.id("description")).getAttribute("value");
 		
 		//Close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Verification
 		if(FirstDescription.equals(ListenerDescription) && SecondDescription.equals(ListenerDescription))
@@ -1265,7 +1267,7 @@ public class ListenerViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=166)
-	@Test(priority=20)
+	@Test(priority=20, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleListeners(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int ListenerName_Index=3;

@@ -120,7 +120,7 @@ public class AddSchemaToTheViewlet
 		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
 			
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(1000);
+		Thread.sleep(8000);
 		
 		if(driver.getPageSource().contains(Dashboardname))
 		{
@@ -162,7 +162,7 @@ public class AddSchemaToTheViewlet
 		}
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(5000);
 		
 		//Verification
 		String data=driver.findElement(By.xpath("//tbody")).getText();
@@ -200,7 +200,7 @@ public class AddSchemaToTheViewlet
 		driver.findElement(By.id("accept-true")).click();
 		Thread.sleep(4000);
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		//verification
 		String data=driver.findElement(By.cssSelector("select.select-options")).getText();
@@ -233,6 +233,7 @@ public class AddSchemaToTheViewlet
 		
 		//Click on Add All button
 		driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button")).click();
+		Thread.sleep(4000);
 		
 		String AvailableAttributes=driver.findElement(By.xpath("//div[2]/div/table/tbody")).getText();
 		System.out.println(AvailableAttributes);
@@ -260,7 +261,7 @@ public class AddSchemaToTheViewlet
 	{
 		//Click on Remove all button
 		driver.findElement(By.xpath("//div[2]/div[2]/button[4]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 		//Store the Displayed attributes field data into string
 		String DisplayedAttributes=driver.findElement(By.xpath("//div[3]/table/tbody")).getText();
@@ -290,6 +291,7 @@ public class AddSchemaToTheViewlet
 		//Send the Attribute name
 		driver.findElement(By.cssSelector("td[title=\""+ AttributeName +"\"]")).click();
 		driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]")).click();
+		Thread.sleep(4000);
 		
 		String DisplayedAttribute=driver.findElement(By.xpath("//div[3]/table/tbody")).getText();
 		
@@ -319,7 +321,7 @@ public class AddSchemaToTheViewlet
 		
 		//click on remove button
 		driver.findElement(By.xpath("//div[2]/div[2]/button[3]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Store the Displayed attributes field data into string
 		String DisplayedAttributes=driver.findElement(By.xpath("//div[3]/table/tbody")).getText();
@@ -389,6 +391,7 @@ public class AddSchemaToTheViewlet
 		
 		//click on move to bottom button
 		driver.findElement(By.xpath("//div[4]/button[2]")).click();
+		Thread.sleep(2000);
 		
 		//Store the bottom Attribute into string
 		String BottomAttribute=driver.findElement(By.xpath("//tr[63]/td")).getText();
@@ -425,7 +428,7 @@ public class AddSchemaToTheViewlet
 		
 		//Click on Move up button
 		driver.findElement(By.xpath("//div[4]/div/button")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Store the attribute into string
 		String AboveAttribute=driver.findElement(By.xpath("//tr[5]/td")).getText();
@@ -461,7 +464,7 @@ public class AddSchemaToTheViewlet
 		
 		//click on Move down button
 		driver.findElement(By.xpath("//div[4]/div/button[2]")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Store the Below attribute into string
 		String BelowAttributeName=driver.findElement(By.xpath("//tr[7]/td")).getText();

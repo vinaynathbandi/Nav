@@ -152,7 +152,7 @@ public class TransportViewlet
 		dd.selectByVisibleText(EMS_WGSNAME);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		if(driver.getPageSource().contains(Transportname))
 		{
@@ -195,7 +195,7 @@ public class TransportViewlet
 		//Select Properties option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	driver.findElement(By.linkText("Properties...")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(4000);
     	
     	//storing the name field status into boolean
 		boolean NameField=driver.findElement(By.id("name")).isEnabled();
@@ -421,7 +421,7 @@ public class TransportViewlet
 	}
 	
 	@Parameters({"FavoriteViewletName"})
-	@Test(priority=7)
+	@Test(priority=7, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleTransports(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
     	//Store the Transport Name into string

@@ -158,7 +158,7 @@ public class RouteViewlet {
 		dd.selectByVisibleText(EMS_WGSNAME);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		if(driver.getPageSource().contains(Routename))
 		{
@@ -208,7 +208,7 @@ public class RouteViewlet {
 		
 		//Close the window
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(6000);
+		Thread.sleep(10000);
 		
 		try
 		{
@@ -269,7 +269,7 @@ public class RouteViewlet {
 		//Select Show Status option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	driver.findElement(By.linkText("Show Routes Status")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(3000);
     	
     	//Store the Values into string
     	String Status1=driver.findElement(By.xpath("//tr[2]/td[2]")).getText();
@@ -300,7 +300,7 @@ public class RouteViewlet {
 	
 	@Parameters({"RouteNameFromIcon"})
 	@TestRail(testCaseId=205)
-	@Test(priority=4)
+	@Test(priority=4, dependsOnMethods= {"AddRouteFromPlusIcon"})
 	public void DeleteCommand(String RouteNameFromIcon, ITestContext context) throws InterruptedException
 	{
 		//Search option
@@ -313,11 +313,11 @@ public class RouteViewlet {
     	Actions Mousehour=new Actions(driver);
     	Mousehour.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Delete")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(3000);
     	
     	//Click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(8000);
     	
     	//Clear the search data
     	for(int j=0; j<=RouteNameFromIcon.length(); j++)
@@ -358,7 +358,7 @@ public class RouteViewlet {
 		//Select Properties option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	driver.findElement(By.linkText("Properties...")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(4000);
     	
     	//storing the name field status into boolean
 		boolean NameField=driver.findElement(By.id("name")).isEnabled();
@@ -380,6 +380,7 @@ public class RouteViewlet {
 			context.setAttribute("Status",5);
     		context.setAttribute("Comment", "Failed to show route properties");
 			driver.findElement(By.xpath("//div[3]/button")).click();
+			Thread.sleep(4000);
 			driver.findElement(By.xpath("Name field is disabled")).click();
 			
 		}
@@ -525,7 +526,7 @@ public class RouteViewlet {
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Compare")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Verification of popup
 		String CompareProcess=driver.findElement(By.cssSelector("span.name")).getText();
@@ -602,11 +603,11 @@ public class RouteViewlet {
 		Actions Mousehour=new Actions(driver);
 		Mousehour.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
 		driver.findElement(By.linkText("Delete")).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(8000);
     	
     	//Store the viewlet data into string
     	String viewletdata=driver.findElement(By.xpath("//datatable-body")).getText();
@@ -639,7 +640,7 @@ public class RouteViewlet {
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Give Connection url
 		driver.findElement(By.id("connectionURL")).clear();
@@ -653,7 +654,7 @@ public class RouteViewlet {
 		//Open the properties of first route
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Save the Connection URL value into string
 		String FirstRoutedata=driver.findElement(By.id("connectionURL")).getAttribute("value");
@@ -661,12 +662,12 @@ public class RouteViewlet {
 		
 		//close the properties page
 		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Open the properties of Second route
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Save the Connection URL value into string
 		String SecondRoutedata=driver.findElement(By.id("connectionURL")).getAttribute("value");
@@ -674,7 +675,7 @@ public class RouteViewlet {
 		
 		//close the properties page
 		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Verification
 		if(FirstRoutedata.equals(ConnectionURLName) && SecondRoutedata.equals(ConnectionURLName))
@@ -696,7 +697,7 @@ public class RouteViewlet {
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=212)
-	@Test(priority=11)
+	@Test(priority=11, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleRoutes(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		//Store the Route names into string

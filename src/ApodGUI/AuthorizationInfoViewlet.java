@@ -132,7 +132,7 @@ public class AuthorizationInfoViewlet {
 		dd.selectByVisibleText(WGSName);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		if(driver.getPageSource().contains(Authoinfoname))
 		{
@@ -389,7 +389,7 @@ public class AuthorizationInfoViewlet {
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=185)
-	@Test(priority=6)
+	@Test(priority=6, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleAuthInfo(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int AuthinfoName_Index=3;

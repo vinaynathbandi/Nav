@@ -159,7 +159,7 @@ public class DurableViewlet
 		dd.selectByVisibleText(EMS_WGSNAME);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		if(driver.getPageSource().contains(Durablename))
 		{
@@ -252,7 +252,7 @@ public class DurableViewlet
 		
 		//click on yes button
     	driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(10000);
     	
     	//Store the Topic viewlet data into string
     	String Viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -276,7 +276,7 @@ public class DurableViewlet
 	
 	@Parameters({"DurableName"})
 	@TestRail(testCaseId=233)
-	@Test(priority=13)
+	@Test(priority=13, dependsOnMethods= {"AddDurableFromPlusIcon"})
 	public void DeleteCommand(String DurableName,ITestContext context) throws InterruptedException
 	{ 
 		//Search the bridge name
@@ -289,19 +289,12 @@ public class DurableViewlet
     	Actions Mousehour=new Actions(driver);
     	Mousehour.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Delete")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(6000);
     	
     	//click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(1000);
-    	
-    	//Clear the search data
-    	for(int j=0; j<=DurableName.length(); j++)
-    	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
-    	}
-    	Thread.sleep(1000);
-    	
+    	    	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(3000);
@@ -310,8 +303,15 @@ public class DurableViewlet
     	String viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(viewletdata);
     	
+    	//Clear the search data
+    	for(int j=0; j<=DurableName.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(1000);
+    	
     	//verification
-    	if(viewletdata.contains(DeleteDurableName))
+    	if(viewletdata.contains(DurableName))
     	{
     		System.out.println("Durable is not deleted");
     		context.setAttribute("Status",1);
@@ -337,7 +337,7 @@ public class DurableViewlet
     	Actions Mousehourpurge=new Actions(driver);
     	Mousehourpurge.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Purge")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(6000);
     	
     	//click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -360,7 +360,7 @@ public class DurableViewlet
 		//Select Properties option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	driver.findElement(By.linkText("Properties...")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(6000);
     	
     	//storing the name field status into boolean
 		boolean NameField=driver.findElement(By.id("durableName")).isEnabled();
@@ -531,11 +531,11 @@ public class DurableViewlet
 		Actions Mousehour=new Actions(driver);
 		Mousehour.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
 		driver.findElement(By.linkText("Delete")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Click on Yes button
 		driver.findElement(By.cssSelector(".close-button")).click();
-		Thread.sleep(1000);	
+		Thread.sleep(6000);	
 		
 		//Store the viewlet data into string
     	String viewletdata=driver.findElement(By.xpath("//datatable-body")).getText();
@@ -574,7 +574,7 @@ public class DurableViewlet
 		
 		//Click on Yes button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		context.setAttribute("Status",1);
 		context.setAttribute("Comment", "Multiple purge option is working fine");
 		}
@@ -614,6 +614,7 @@ public class DurableViewlet
     	//Open the properties of first durable
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		Thread.sleep(4000);
 		
 		//Store the Topic name into string
 		String FirstTopicname=driver.findElement(By.xpath("//ng-select/div")).getText();
@@ -626,6 +627,7 @@ public class DurableViewlet
     	//Open the properties of Second durable
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		Thread.sleep(4000);
 		
 		//Store the Topic name into string
 		String SecondTopicname=driver.findElement(By.xpath("//ng-select/div")).getText();
@@ -655,7 +657,7 @@ public class DurableViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=241)
-	@Test(priority=11)
+	@Test(priority=11, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleDurables(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		//Store the Name list names

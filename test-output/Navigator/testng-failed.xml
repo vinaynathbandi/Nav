@@ -1,50 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Test Subscription Viewlet(failed)">
-    <parameter name="Dashboardname" value="Subscription Verification"/>
-    <parameter name="AddSubscriptionNameFromIcon" value="SYSTEM.ADD.ICON.SUBSCRIPTION"/>
-    <parameter name="NodeName" value="DESKTOP-E1JT2VR"/>
-    <parameter name="DestinationNodeName" value="DESKTOP-E1JT2VR"/>
-    <parameter name="DestinationIconTopicName" value="SYSTEM.ADMIN.TOPIC"/>
-    <parameter name="FavoriteViewletName" value="Subscription Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="RenameSubscription" value="Test.Subscription.Rename"/>
-    <parameter name="schemaName" value="SubscriptionSchema"/>
-    <parameter name="CopyObjectName" value=".Copy"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="CopyObjectNameForMUltiple" value="SUB.MULTIPLE.COPY"/>
-    <parameter name="Subscriptionname" value="New Subscription Viewlet"/>
-    <parameter name="TopicStringData" value="Unique"/>
-    <parameter name="DestinationQueue" value="AC"/>
-    <parameter name="SubscriptionAttributes" value="Attributes"/>
-    <parameter name="DWGS" value="WGS10"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="DestinationManager" value="AA"/>
+  <test thread-count="5" name="WorkGroup server Viewlet(failed)">
+    <parameter name="ChangedHostName" value="localhost"/>
+    <parameter name="ServerURL" value="tcp://127.0.0.1:7221"/>
+    <parameter name="NodeName" value="Node-Test"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
-    <parameter name="SubscriptionName" value="A.M10.TestCopy.suscription.copy"/>
-    <parameter name="NodeNameFromIcon" value="DESKTOP-E1JT2VR"/>
-    <parameter name="DestinationQueueFromIcon" value="ABCD"/>
-    <parameter name="TopicStringDataFromICon" value="UniqueIcon"/>
-    <parameter name="DestinationManagerName" value="M1"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="RenameSubscriptionForMultiple" value="SYSTEM.SUBSCRIPTION.RENAME"/>
-    <parameter name="DWGSIcon" value="WGS10"/>
-    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
-    <parameter name="DestinationManagerFromIcon" value="M1"/>
+    <parameter name="Node_NewConnectionName" value="Local Host"/>
+    <parameter name="DeleteWGSName" value="WGS10"/>
+    <parameter name="ConnectionInstanceName" value="REMOTE_QMGRS"/>
+    <parameter name="ConnectionName" value="localhost"/>
+    <parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="RemoteQueueManagerName" value="QMGR_NAME_DELETE"/>
+    <parameter name="ServerName" value="EMS-Server21"/>
+    <parameter name="AgentInstanceName" value="EMSAGENT01"/>
+    <parameter name="IPAddress" value="127.0.0.1"/>
+    <parameter name="PortNumber" value="5010"/>
+    <parameter name="DeleteManagerName" value="QMGR_NAME_DELETE"/>
+    <parameter name="UpdatedServerURL" value="tcp://127.0.0.1:7222"/>
+    <parameter name="HostName" value="DESKTOP-7T1JQ3H"/>
+    <parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE"/>
     <classes>
-      <class name="ApodGUI.SubscriptionViewlet">
+      <class name="ApodGUI.WorkgroupServer">
         <methods>
-          <include name="Logout"/>
+          <include name="ModifyRemoteQueueManager"/>
+          <include name="DeleteRemoteQueueManager"/>
+          <include name="AddRemoteQueueManager" invocation-numbers="0"/>
           <include name="beforeTest"/>
           <include name="tearDown"/>
-          <include name="CreateSubscriptionFromPlusIcon" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.SubscriptionViewlet -->
+      </class> <!-- ApodGUI.WorkgroupServer -->
     </classes>
-  </test> <!-- Test Subscription Viewlet(failed) -->
+  </test> <!-- WorkGroup server Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

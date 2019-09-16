@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -34,6 +35,7 @@ import testrail.TestRailAPI;
 @Listeners(TestClass.class)
 public class BridgeViewlet {
 	
+	String FinalBridgeName="";
 	static WebDriver driver;
 	static String WGS_INDEX;
 	static String Screenshotpath;
@@ -159,7 +161,7 @@ public class BridgeViewlet {
 		dd.selectByVisibleText(EMS_WGSNAME);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		if(driver.getPageSource().contains(Bridgename))
 		{
@@ -203,7 +205,6 @@ public class BridgeViewlet {
 		//Click on Select path
 		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
 		Thread.sleep(1000);
-		
 		
 		try
 		{
@@ -273,7 +274,7 @@ public class BridgeViewlet {
 		
 		//Click on Ok button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(6000);
+		Thread.sleep(10000);
 		try 
 		{
 			driver.findElement(By.id("yes")).click();
@@ -302,10 +303,10 @@ public class BridgeViewlet {
 		joiner.add(FinalType);
 		joiner.add(TargetName);
 		
-		String BridgeName = joiner.toString();
-		System.out.println(BridgeName);
+		FinalBridgeName = joiner.toString();
+		System.out.println(FinalBridgeName);
 	
-		if(Viewletdata.contains(BridgeName))
+		if(Viewletdata.contains(FinalBridgeName))
 		{
 			System.out.println("Bridge is added");
 			context.setAttribute("Status",1);
@@ -341,12 +342,12 @@ public class BridgeViewlet {
 	
 	
 	@TestRail(testCaseId=221)
-	@Test(priority=12)
+	@Test(priority=12, dependsOnMethods= {"AddBridgeFromPlusIcon"})
 	public void DeleteCommand( ITestContext context) throws InterruptedException
 	{
 		//Search the bridge name
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(DeleteBridgeName);
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalBridgeName);
 		Thread.sleep(1000);
 		
 		//Select Delete from commands option
@@ -354,16 +355,12 @@ public class BridgeViewlet {
     	Actions Mousehour=new Actions(driver);
     	Mousehour.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Delete")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
     	
     	//Click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(1000);
-    	
-    	//Clear the search data
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	Thread.sleep(1000);
-    	
+    	Thread.sleep(6000);
+    	    	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(3000);
@@ -372,8 +369,15 @@ public class BridgeViewlet {
     	String viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(viewletdata);
     	
+    	//Clear the search data
+    	for(int j=0; j<=FinalBridgeName.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(1000);
+    	
     	//verification
-    	if(viewletdata.contains(DeleteBridgeName))
+    	if(viewletdata.contains(FinalBridgeName))
     	{
     		System.out.println("Bridge is not deleted");
     		context.setAttribute("Status",1);
@@ -396,7 +400,7 @@ public class BridgeViewlet {
 		//Select properties option
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	driver.findElement(By.linkText("Properties...")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(8000);
     	
     	//storing the name field status into boolean
 		boolean NameField=driver.findElement(By.xpath("//ng-select/div")).isEnabled();
@@ -674,7 +678,7 @@ public class BridgeViewlet {
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		/*WebElement ele=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span"));
 		Actions a=new Actions(driver);
@@ -700,7 +704,7 @@ public class BridgeViewlet {
     	//Open the properties of first Bridge
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Get the Source type data and store into string
 		String FirstBridge=driver.findElement(By.id("targetSelector")).getAttribute("value");
@@ -708,12 +712,12 @@ public class BridgeViewlet {
 		
 		//Click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
     	
     	//Open the properties of second Bridge
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		//Get the Source type data and store into string
 		String SecondBridge=driver.findElement(By.id("targetSelector")).getAttribute("value");
@@ -721,7 +725,7 @@ public class BridgeViewlet {
 		
 		//Click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(2000);
     	
     	//Verification condition
     	if(SelectorInput.equals(FirstBridge) && SelectorInput.equals(SecondBridge))
@@ -743,7 +747,7 @@ public class BridgeViewlet {
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=229)
-	@Test(priority=10)
+	@Test(priority=10, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleBridges(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		//Store the Bridge names into string

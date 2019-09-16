@@ -239,7 +239,7 @@ public class QueuesInsideBrowseMessages
 		//driver.findElement(By.id("encoding-text-9")).click();
 		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		
 		//Store the depth value into string after adding the message into queue
 		WebElement Depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
@@ -286,7 +286,7 @@ public class QueuesInsideBrowseMessages
 		//Delete Icon
 		driver.findElement(By.cssSelector("img[title=\"Delete\"]")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		
 		//Store the depth value into string after deleting the message from the queue
 		WebElement DepthafterDelete=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
@@ -344,7 +344,7 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -397,13 +397,13 @@ public class QueuesInsideBrowseMessages
 		//Select Message check box
 		driver.findElement(By.xpath("//input[@name='name']")).click();
 		
-		//Copy Icon
+		//Move Icon
 		driver.findElement(By.xpath("//img[@title='Move message']")).click();
 		
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -440,6 +440,7 @@ public class QueuesInsideBrowseMessages
 		
 		//Edit Icon
 		driver.findElement(By.xpath("//img[@title='Edit message']")).click();
+		Thread.sleep(2000);
 		
 		//Store the edit message popup page title into string
 		String EditMessage=driver.findElement(By.cssSelector(".modal-title")).getText();
@@ -458,6 +459,7 @@ public class QueuesInsideBrowseMessages
 		
 		//Click on Data
 		driver.findElement(By.cssSelector(".g-tab:nth-child(7)")).click();
+		Thread.sleep(2000);
 		
 		//Message data
 		driver.findElement(By.id("7")).click();
@@ -494,7 +496,7 @@ public class QueuesInsideBrowseMessages
 		Thread.sleep(2000);
 		
 		driver.findElement(By.id("accept-true")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Loading a file from the load file option
 		String filepath=System.getProperty("user.dir") + "\\" + UploadFilepath;
@@ -552,7 +554,7 @@ public class QueuesInsideBrowseMessages
 		Thread.sleep(2000);
 		Actions a=new Actions(driver);
 		a.sendKeys(Keys.ENTER).perform();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Select Message check box
 		driver.findElement(By.xpath("//input[@name='name']")).click();
@@ -568,7 +570,7 @@ public class QueuesInsideBrowseMessages
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Exporting Messages is working fine");
 	
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		}catch(Exception e)
 		{
 			context.setAttribute("Status", 5);
@@ -589,6 +591,7 @@ public class QueuesInsideBrowseMessages
 		
 		//Edit option                   
 		driver.findElement(By.cssSelector(".item-dropdown:nth-child(1)")).click();
+		Thread.sleep(2000);
 		
 		//Store the Edit message popup page title into string
 		String EditMessage=driver.findElement(By.cssSelector(".modal-title")).getText();
@@ -641,7 +644,7 @@ public class QueuesInsideBrowseMessages
 		//Delete option
 		driver.findElement(By.cssSelector(".item-dropdown:nth-child(2)")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(8000);
 		
 		//Store the queue depth after deleting the message
 		WebElement DepthafterDelete=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
@@ -700,7 +703,7 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -761,7 +764,7 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();

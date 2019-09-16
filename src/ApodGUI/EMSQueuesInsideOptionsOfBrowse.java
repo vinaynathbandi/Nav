@@ -255,7 +255,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		//driver.findElement(By.id("encoding-text-9")).click();
 		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(8000);
 		
 		//Store the depth value into string after adding the message into queue
 		WebElement Depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
@@ -303,7 +303,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		//Delete Icon
 		driver.findElement(By.cssSelector("img[title=\"Delete\"]")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		//Store the depth value into string after deleting the message from the queue
 		WebElement DepthafterDelete=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
@@ -422,7 +422,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -472,7 +472,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		driver.findElement(By.xpath("//img[@title='Load from file']")).click();
 		
 		driver.findElement(By.id("accept-true")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		//Loading a file from the load file option
 		String filepath=System.getProperty("user.dir") + "\\" + UploadFilepath;
@@ -531,7 +531,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		Thread.sleep(2000);
 		Actions a=new Actions(driver);
 		a.sendKeys(Keys.ENTER).perform();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Select Message check box
 		driver.findElement(By.xpath("//input[@name='name']")).click();
@@ -545,7 +545,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		Thread.sleep(2000);
 		Actions a1=new Actions(driver);
 		a1.sendKeys(Keys.ENTER).perform();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Messages exported successfully using export icon option");
 		}
@@ -639,7 +639,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -699,7 +699,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
