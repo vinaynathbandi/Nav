@@ -1,43 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (18)]">
-  <test thread-count="5" name="Test EMS Queue Viewlet(failed)">
-    <parameter name="Dashboardname" value="QueuesViewlet Verification"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="LocalQueue" value="Local Queue"/>
-    <parameter name="QueueNameFromOptions" value="EMS_ABC"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="FavoriteViewletName" value="Queues Add to favorite"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="QueueDescription" value="Test the Queue"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="ObjectName" value=".Queue1"/>
+  <test thread-count="5" name="EMS Queue Message Options(failed)">
+    <parameter name="Dashboardname" value="EMS Queues Messages"/>
     <parameter name="password" value="admin"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="TestDescription" value="Multiple Description"/>
+    <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="SearchInputData" value="999999999"/>
-    <parameter name="QueueName" value="EMS_Add.New.Queue"/>
-    <parameter name="SchemaName" value="QueueSchema"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="MessageData" value="Put the message from Main options"/>
+    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Main"/>
+    <parameter name="QueueName" value="EMS Local Queue"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.EMSQueues">
+      <class name="ApodGUI.EMSQueueMessages">
         <methods>
-          <include name="CreateQueueFromOptions" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="QueueProperties" invocation-numbers="0"/>
-          <include name="MultipleQueueProperties" invocation-numbers="0"/>
-          <include name="AddQueueFromPlusIcon" invocation-numbers="0"/>
-          <include name="QueueCommands" invocation-numbers="0"/>
-          <include name="AddToFavoriteForMultipleQueues"/>
-          <include name="ShowQueueStatusForMultipleQueues" invocation-numbers="0"/>
-          <include name="CompareQueues" invocation-numbers="0"/>
-          <include name="AddToFavoriteViewlet" invocation-numbers="0"/>
-          <include name="QueueEvents" invocation-numbers="0"/>
-          <include name="Logout"/>
+          <include name="CopyAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
           <include name="beforeTest"/>
+          <include name="tearDown"/>
+          <include name="LoadFromFile" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.EMSQueues -->
+      </class> <!-- ApodGUI.EMSQueueMessages -->
     </classes>
-  </test> <!-- Test EMS Queue Viewlet(failed) -->
+  </test> <!-- EMS Queue Message Options(failed) -->
 </suite> <!-- Failed suite [Navigator (18)] -->

@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (20)]">
-  <test thread-count="5" name="EMS Queue Message Options(failed)">
-    <parameter name="Dashboardname" value="EMS Queues Messages"/>
+  <test thread-count="5" name="Test EMS Channel Viewlet(failed)">
+    <parameter name="Dashboardname" value="EMS Channel Verification"/>
     <parameter name="password" value="admin"/>
     <parameter name="wgs" value="1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="ChannelName" value="EMS Channel Viewlet"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="MessageData" value="Put the message from Main options"/>
-    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Main"/>
-    <parameter name="QueueName" value="EMS Local Queue"/>
+    <parameter name="FavoriteViewletName" value="Favorite for Channels"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="ChannelSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.EMSQueueMessages">
+      <class name="ApodGUI.EMSChannels">
         <methods>
-          <include name="CopyAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
-          <include name="MoveAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
-          <include name="beforeTest"/>
+          <include name="AddToFavoriteForMultipleChannels"/>
           <include name="tearDown"/>
-          <include name="Logout"/>
-          <include name="ClearAllMessagesFromQueue" invocation-numbers="0"/>
-          <include name="PutNewMessageIntoQueue" invocation-numbers="0"/>
-          <include name="DeleteAllMessagesFromQueue" invocation-numbers="0"/>
-          <include name="LoadFromFile" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="AddToFavorites" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.EMSQueueMessages -->
+      </class> <!-- ApodGUI.EMSChannels -->
     </classes>
-  </test> <!-- EMS Queue Message Options(failed) -->
+  </test> <!-- Test EMS Channel Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (20)] -->

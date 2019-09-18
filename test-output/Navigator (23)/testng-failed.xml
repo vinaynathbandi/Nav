@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (23)]">
-  <test thread-count="5" name="Settings(failed)">
-    <parameter name="Dashboardname" value="Settings Dashboard"/>
-    <parameter name="wgs" value="MQM"/>
+  <test thread-count="5" name="Attribute Filter Condition(failed)">
+    <parameter name="Dashboardname" value="Attribute Filter Dashboard"/>
+    <parameter name="wgs" value="WGS10"/>
+    <parameter name="ConditionData" value="20000"/>
+    <parameter name="ConditionValue" value="Maximum Depth"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="objpath2" value="\\WGS10"/>
-    <parameter name="FavoriteViewletName" value="Fav Viewlet"/>
-    <parameter name="Favwgs" value="MQM - 0"/>
-    <parameter name="objpath1" value="\\MQM"/>
+    <parameter name="Node" value="DESKTOP-E1JT2VR"/>
+    <parameter name="Queuemanager" value="MGR"/>
+    <parameter name="ConditionName" value="Test Condtition"/>
     <parameter name="URL" value="/navigator/#/login"/>
     <parameter name="password" value="admin"/>
-    <parameter name="Manager4" value="Testing"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Manager3" value="TEST"/>
-    <parameter name="Manager2" value="MGR"/>
-    <parameter name="Manager1" value="M10"/>
+    <parameter name="RowValue" value="Maximum Depth"/>
+    <parameter name="AttributeName" value="Maximum Depth"/>
+    <parameter name="CompareOperation" value="is equal"/>
     <classes>
-      <class name="ApodGUI.NavigatorSettings">
+      <class name="ApodGUI.AttributeFilterCondition">
         <methods>
-          <include name="ShowTemporaryDynamicQueues" invocation-numbers="0"/>
+          <include name="AddAttributeFilterCondition" invocation-numbers="0"/>
+          <include name="Logout"/>
           <include name="beforeTest"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- ApodGUI.NavigatorSettings -->
+      </class> <!-- ApodGUI.AttributeFilterCondition -->
     </classes>
-  </test> <!-- Settings(failed) -->
+  </test> <!-- Attribute Filter Condition(failed) -->
 </suite> <!-- Failed suite [Navigator (23)] -->
