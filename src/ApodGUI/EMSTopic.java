@@ -280,6 +280,7 @@ public class EMSTopic
     	System.out.println(CopyasTopicName);
     	
     	//Search with the copyas data
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
     	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyasTopicName);
     	    	
     	//Store the viewlet data into string
@@ -289,7 +290,7 @@ public class EMSTopic
     	for(int j=0; j<=CopyasTopicName.length(); j++)
     	{
     	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
     	
@@ -331,6 +332,10 @@ public class EMSTopic
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(6000);
     	
+    	//Store the viewlet data into string
+    	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
+    	//System.out.println(Subviewlet);
+    	
     	//Edit the search field data
     	for(int j=0; j<=CopyasTopicName.length(); j++)
     	{
@@ -338,10 +343,6 @@ public class EMSTopic
     	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
-    	
-    	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
-    	//System.out.println(Subviewlet);
     	
     	//Verification of Subscription delete
     	if(Subviewlet.contains(CopyasTopicName))
@@ -842,7 +843,7 @@ public class EMSTopic
 		
 		//Get tooltip data
 		String Tooltipdata=driver.findElement(By.tagName("ngb-tooltip-window")).getText();
-		//System.out.println(Tooltipdata);
+		System.out.println(Tooltipdata);
 				
 		//click on OK
 		driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -850,11 +851,12 @@ public class EMSTopic
 		
 		//Open the properties for First topic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(6000);
 		
 		//Get the description and communication info for First topic
 		String FirstTopicName=driver.findElement(By.id("name")).getAttribute("value");
+		System.out.println("First topic name is: " +FirstTopicName);
 		//String FirstCommunicationinfo=driver.findElement(By.id("communicationInfo")).getAttribute("value");
 		
 		//close the properties page
@@ -863,11 +865,12 @@ public class EMSTopic
 		
 		//Open the properties for second topic
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(6000);
 				
 		//Get the description and communication info for second topic
 		String SecondTopicName=driver.findElement(By.id("name")).getAttribute("value");
+		System.out.println("Second topic name is: " +SecondTopicName);
 		//String SecondCommunicationinfo=driver.findElement(By.id("communicationInfo")).getAttribute("value");
 		
 		//close the properties page

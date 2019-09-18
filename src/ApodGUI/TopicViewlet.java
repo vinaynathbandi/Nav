@@ -201,6 +201,9 @@ public class TopicViewlet
 	@Test(priority=3)
 	public void CreateTopic(String TopicNameFromOptions, String Description, String TopicUniquestring, ITestContext context) throws InterruptedException
 	{
+		//Search with the manager name
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(DestinationManager);
+		
 		//Select Create new Topic option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Create Topic")).click();
@@ -229,7 +232,13 @@ public class TopicViewlet
 			System.out.println("No error messages");
 		}
 		
+		for(int j=0; j<=DestinationManager.length(); j++)
+		{
+			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+		}
+		
 		//Search with the added Topic name
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromOptions);
     	Thread.sleep(1000);
 		
@@ -387,12 +396,12 @@ public class TopicViewlet
     	Thread.sleep(1000);
 	}
 	
-	@Parameters({"MessageData", "PropertyName", "PropertyValue", "AddSubscriptionName"})
+	@Parameters({"TopicNameFromOptions", "MessageData", "PropertyName", "PropertyValue", "AddSubscriptionName"})
 	@TestRail(testCaseId=137)
-	@Test(priority=6)
-	public void PublishFromCommands(String MessageData, String PropertyName, String PropertyValue, String AddSubscriptionName, ITestContext context) throws InterruptedException
-	{
-		this.Addsubscription(AddSubscriptionName);
+	@Test(priority=6, dependsOnMethods= {"CreateTopic"})
+	public void PublishFromCommands(String TopicNameFromOptions, String MessageData, String PropertyName, String PropertyValue, String AddSubscriptionName, ITestContext context) throws InterruptedException
+	{	
+		this.Addsubscription(AddSubscriptionName, TopicNameFromOptions);
 		
 		//Show Empty queues
     	driver.findElement(By.xpath("//i[3]")).click();
@@ -413,7 +422,12 @@ public class TopicViewlet
     	//get the Current depth of the queue
     	String Queuedepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
     	int result = Integer.parseInt(Queuedepth);
-		System.out.println(result);
+		System.out.println("Initial depth of the queue: " +result);
+		
+		//Search with subscription name
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromOptions);
+		Thread.sleep(2000);
     	
 		//Select publish From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -423,6 +437,7 @@ public class TopicViewlet
 		
     	//Send the New name into field
     	driver.findElement(By.id("messageData")).sendKeys(MessageData);
+    	Thread.sleep(2000);
     	
     	driver.findElement(By.id("propertyName")).sendKeys(PropertyName);
     	driver.findElement(By.id("propertyValue")).sendKeys(PropertyValue);
@@ -441,12 +456,41 @@ public class TopicViewlet
        	}
     	
     	Thread.sleep(4000);
-    	//get the Current depth of the queue
-    	String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
-    	int result1 = Integer.parseInt(Queuedepth1);
-		System.out.println(result1);
     	
-		//Show Empty queues
+    	for(int j=0; j<=TopicNameFromOptions.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
+    	//Open the browse messages page and close it
+    	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	driver.findElement(By.linkText("Browse messages")).click();
+    	Thread.sleep(1000);
+    	
+    	//Close the popup page
+    	driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
+    	Thread.sleep(2000);
+    	System.out.println("Pop up is closed");
+    	//Refresh the queue viewlet
+    	/*for(int i=0; i<=6; i++)
+    	{
+    		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+    	}
+    	Thread.sleep(2000);*/
+    	System.out.println("get queue depth");
+    	
+    	int Queue_Depth0=5;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		Queue_Depth0=6;
+    	}
+    	//get the Current depth of the queue
+    	String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth0 +"]/div/span")).getText();
+    	//String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth0 +"]/div/span")).getText();
+    	int result1 = Integer.parseInt(Queuedepth1);
+		System.out.println("Depth of the after publishing: " +result1);
+    	
+		//Restore the settings
     	driver.findElement(By.xpath("//i[3]")).click();
     	driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
     	Thread.sleep(1000);
@@ -1189,9 +1233,26 @@ public class TopicViewlet
 	
 	//Create Subscription Viewlet and Add Subscription
 	
-	@Parameters({"AddSubscriptionName"})
-	public void Addsubscription(String AddSubscriptionName) throws InterruptedException
+	@Parameters({"AddSubscriptionName", "TopicNameFromOptions"})
+	public void Addsubscription(String AddSubscriptionName, String TopicNameFromOptions) throws InterruptedException
 	{
+		//Search with subscription name
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromOptions);
+		
+		int Manager_Index=4;
+		if(!WGSName.contains("MQM"))
+		{
+			Manager_Index=5;
+		}
+		//Get the manager name 
+		String ManagerName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Manager_Index +"]/div/span")).getText();
+
+		for(int j=0; j<=TopicNameFromOptions.length(); j++)
+		{
+			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+		}
+		
 		//Click on Viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
@@ -1210,11 +1271,14 @@ public class TopicViewlet
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(2000);
 		
-		//click on check box and choose create subscription
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		//Search with the manager name
+		driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(ManagerName);
 		Thread.sleep(1000);
 		
+		//click on check box and choose create subscription
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Create Subscription")).click();
+		Thread.sleep(1000);
 		
 		//Give the Subscription name
 		driver.findElement(By.id("name")).clear();
@@ -1234,7 +1298,7 @@ public class TopicViewlet
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
 				String s=Topic.get(i).getText();
-				if(s.equals(DestinationTopicName))
+				if(s.equals(TopicNameFromOptions))
 				{
 					String id=Topic.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1357,7 +1421,7 @@ public class TopicViewlet
 	{		
 		//click on check box and choose create subscription
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		driver.findElement(By.linkText("Create Subscription")).click();
 		Thread.sleep(1000);
 		
 		//Give the Subscription name

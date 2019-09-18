@@ -13,7 +13,7 @@
     <parameter name="SubscriptionAttributes" value="Attributes"/>
     <parameter name="schemaName" value="SubscriptionSchema"/>
     
-    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
+    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.OPTIONS"/>
     <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
     <parameter name="TopicStringData" value="Unique"/>
     <parameter name="DWGS" value="WGS10"/>
@@ -34,13 +34,15 @@
     
     <parameter name="DestinationNodeName" value="DESKTOP-E1JT2VR"/>
     <parameter name="DestinationManagerName" value="M1"/>
-    <parameter name="AddSubscriptionNameFromIcon" value="SYSTEM.ADD.ICON.SUBSCRIPTION"/>
+    <parameter name="AddSubscriptionNameFromIcon" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.ICON"/>
     <parameter name="DestinationIconTopicName" value="SYSTEM.ADMIN.TOPIC"/>
     <parameter name="TopicStringDataFromICon" value="UniqueIcon"/>
     <parameter name="DWGSIcon" value="WGS10"/>
     <parameter name="NodeNameFromIcon" value="DESKTOP-E1JT2VR"/>
     <parameter name="DestinationManagerFromIcon" value="M1"/>
     <parameter name="DestinationQueueFromIcon" value="ABCD"/>
+    
+     <parameter name="SearchdataforMultipleProperties" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
 
   
      <classes>
@@ -65,7 +67,7 @@
         <include name="RenameFromCommandsForMultipleSubscriptions"/>
         <include name="DeleteFromCommandsForMultipleSubscriptions"/> 
         <include name="MultipleSubscriptionProperties"/>    
-        <include name="AddToFavoriteForMultipleSubscription"/>  
+        <include name="AddToFavoriteForMultipleSubscription"/>   
           
         <include name="Logout"/> 
         

@@ -30,7 +30,7 @@
     <suite-file path="EMSTopic.xml"/>
     <suite-file path="AddSchema.xml"/>
     <suite-file path="NavigatorSettings.xml"/> 
-    <suite-file path="Schedule.xml"/> 
+    <!-- <suite-file path="Schedule.xml"/>  -->
     <suite-file path="SearchCriteria.xml"/> 
     <suite-file path="Attributefilter.xml"/>
   	

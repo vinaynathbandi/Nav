@@ -69,7 +69,7 @@
         <include name="CreateTopic"/> 
         <include name="CopyAsFromCommands"/>
         <include name="DeleteFromCommands"/> 
-       <!--  <include name="PublishFromCommands"/>   -->
+       <!--  <include name="PublishFromCommands"/>  -->  
         <include name="TopicProperties"/> 
         <include name="TopicEvents"/> 
         <include name="AddToFavoriteViewlet"/> 

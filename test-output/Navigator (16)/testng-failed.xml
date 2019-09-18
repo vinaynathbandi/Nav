@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (16)]">
-  <test thread-count="5" name="Test Bridge Viewlet(failed)">
-    <parameter name="Dashboardname" value="BridgeViewlet Verification"/>
+  <test thread-count="5" name="Test Durable Viewlet(failed)">
+    <parameter name="Dashboardname" value="DurableViewlet Verification"/>
     <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="SourceTypevalue" value="Queue"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="DeleteBridgeName" value="topic:EMS.Topic1:topic:EMS.Topic2"/>
-    <parameter name="FavoriteViewletName" value="Bridge Favorite viewlet"/>
+    <parameter name="FavoriteViewletName" value="Durable Favorite viewlet"/>
     <parameter name="Favwgs" value="1"/>
-    <parameter name="SourceName" value="New Queue"/>
-    <parameter name="schemaName" value="BridgeSchema"/>
-    <parameter name="TargetName" value="EMS-Topic"/>
-    <parameter name="Bridgename" value="New Bridge Viewlet"/>
+    <parameter name="Durablename" value="New Durable Viewlet"/>
+    <parameter name="schemaName" value="DurableSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="SelectorInput" value="BridgeSelector1234"/>
+    <parameter name="SelectTopicName" value="EMS.Topic1"/>
     <parameter name="password" value="admin"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="DeleteDurableName" value="Test.EMS.Durable"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="TargetType" value="Topic"/>
+    <parameter name="DurableName" value="EMS.Add.Durable.selenium"/>
     <classes>
-      <class name="ApodGUI.BridgeViewlet">
+      <class name="ApodGUI.DurableViewlet">
         <methods>
-          <include name="beforeTest"/>
-          <include name="MultipleBridgeProperties" invocation-numbers="0"/>
+          <include name="AddToFavoriteForMultipleDurables" invocation-numbers="0"/>
+          <include name="MultipleProperties" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="CompareBridges" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="AddToFavoriteViewlet"/>
+          <include name="Logout"/>
         </methods>
-      </class> <!-- ApodGUI.BridgeViewlet -->
+      </class> <!-- ApodGUI.DurableViewlet -->
     </classes>
-  </test> <!-- Test Bridge Viewlet(failed) -->
+  </test> <!-- Test Durable Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (16)] -->

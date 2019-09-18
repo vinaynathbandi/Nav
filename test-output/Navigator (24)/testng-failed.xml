@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (24)]">
-  <test thread-count="5" name="Settings(failed)">
-    <parameter name="Dashboardname" value="Settings Dashboard"/>
-    <parameter name="wgs" value="MQM"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="objpath2" value="\\WGS10"/>
-    <parameter name="FavoriteViewletName" value="Fav Viewlet"/>
-    <parameter name="Favwgs" value="MQM - 0"/>
-    <parameter name="objpath1" value="\\MQM"/>
-    <parameter name="URL" value="/navigator/#/login"/>
+  <test thread-count="5" name="Schedule(failed)">
+    <parameter name="ViewletName" value="ScheduleViewletObject"/>
+    <parameter name="Dashboardname" value="Scheduling"/>
     <parameter name="password" value="admin"/>
-    <parameter name="Manager4" value="Testing"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Manager3" value="TEST"/>
-    <parameter name="Manager2" value="MGR"/>
-    <parameter name="Manager1" value="M10"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="ScheduleDurableName" value="Schedule.Durable"/>
+    <parameter name="NameOfTheMonth" value="Apr"/>
+    <parameter name="YearValue" value="2028"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.NavigatorSettings">
+      <class name="ApodGUI.Scheduling">
         <methods>
-          <include name="ShowTemporaryDynamicQueues" invocation-numbers="0"/>
+          <include name="ProcessScheduling" invocation-numbers="0"/>
+          <include name="ListenerScheduling" invocation-numbers="0"/>
           <include name="beforeTest"/>
+          <include name="TopicScheduling" invocation-numbers="0"/>
+          <include name="SubScriptionScheduling" invocation-numbers="0"/>
+          <include name="RouteScheduling" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="BridgeScheduling" invocation-numbers="0"/>
+          <include name="DurableScheduling" invocation-numbers="0"/>
+          <include name="Logout"/>
         </methods>
-      </class> <!-- ApodGUI.NavigatorSettings -->
+      </class> <!-- ApodGUI.Scheduling -->
     </classes>
-  </test> <!-- Settings(failed) -->
+  </test> <!-- Schedule(failed) -->
 </suite> <!-- Failed suite [Navigator (24)] -->

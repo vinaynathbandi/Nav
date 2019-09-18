@@ -401,7 +401,8 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.xpath("//img[@title='Move message']")).click();
 		
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
-		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//span/input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		

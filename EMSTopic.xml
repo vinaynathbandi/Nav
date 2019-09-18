@@ -53,9 +53,9 @@
        
         <include name="ShowObjectAttributesForTopic"/>  
         <include name="CreateTopicFromPlusIcon"/>
-       <!--  <include name="CopyAsFromCommands"/>
+        <include name="CopyAsFromCommands"/>
         <include name="DeleteFromCommands"/>  
-        <include name="EMSTopicPublish"/>  -->
+       <!-- <include name="EMSTopicPublish"/>  -->
         <include name="TopicProperties"/> 
         <include name="TopicEvents"/>  
         <include name="AddToFavoriteViewlet"/>    

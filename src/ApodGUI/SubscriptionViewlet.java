@@ -565,30 +565,35 @@ public class SubscriptionViewlet {
     	if(Subviewlet.contains(RenameSubscription))
     	{
     		System.out.println("Subscription is not deleted");
-    		context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Subscription is deleted successfully using delete command");
+    		context.setAttribute("Status",5);
+    		context.setAttribute("Comment", "Failed to delete subscription using delete command");
     		driver.findElement(By.xpath("Subscription delete failed")).click();
     	}
     	else
     	{
     		System.out.println("Subscription is deleted");
-    		context.setAttribute("Status",5);
-    		context.setAttribute("Comment", "Failed to delete subscription using delete command");
+    		context.setAttribute("Status",1);
+    		context.setAttribute("Comment", "Subscription is deleted successfully using delete command");
     	}
     	Thread.sleep(1000);
 	}
 	
 	
-	
+	@Parameters({"AddSubscriptionName"})
 	@Test(priority=6)
 	@TestRail(testCaseId=192)
-	public void SubscriptionProperties(ITestContext context) throws InterruptedException
+	public void SubscriptionProperties(String AddSubscriptionName, ITestContext context) throws InterruptedException
 	{
+		//Search with subscription name
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(AddSubscriptionName);
+		Thread.sleep(2000);
+		
 		//click on checkbox and choose properties
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(4000);
-		
+				
 		try
 		{
 		//storing the name field status into boolean
@@ -602,10 +607,12 @@ public class SubscriptionViewlet {
 			context.setAttribute("Status",1);
     		context.setAttribute("Comment", "Subscription option is working fine");
 			driver.findElement(By.cssSelector(".btn-primary")).click();
-			/*if(driver.findElement(By.id("yes")).isDisplayed())
-			{
-				driver.findElement(By.id("yes")).click();
-			}*/
+			Thread.sleep(2000);
+			
+			for(int j=0; j<=AddSubscriptionName.length(); j++)
+	    	{
+	    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+	    	}
 		}
 		else
 		{
@@ -623,7 +630,14 @@ public class SubscriptionViewlet {
 			System.out.println("Exception Occured");
 			context.setAttribute("Status",5);
     		context.setAttribute("Comment", "Exception occured while checking subscription properties, check details: "+ e.getMessage());
-			driver.findElement(By.id("yes")).click();
+			
+    		for(int j=0; j<=AddSubscriptionName.length(); j++)
+        	{
+        		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+        	}
+    		
+    		driver.findElement(By.id("yes")).click();
+    		driver.findElement(By.id("Name field not disabled")).click();
 		}
 		Thread.sleep(4000);
 		
@@ -1301,10 +1315,49 @@ public class SubscriptionViewlet {
 		
 	}
 	
+	@Parameters({"SearchdataforMultipleProperties"})
 	@Test(priority=14)
 	@TestRail(testCaseId=199)
-	public void MultipleSubscriptionProperties(ITestContext context) throws InterruptedException
+	public void MultipleSubscriptionProperties(String SearchdataforMultipleProperties, ITestContext context) throws InterruptedException
 	{
+		//Click on Edit viewlet
+		driver.findElement(By.xpath("//div[3]/app-viewlet/div/div[2]/div/div/div[2]/div[2]")).click();
+		driver.findElement(By.linkText("Edit viewlet")).click();
+		Thread.sleep(2000);
+		
+		//Select Manager value 
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		try 
+		{
+			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(Manager.size());	
+			for (int i=0; i<Manager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Manager.get(i).getText());
+				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
+				String s=Manager.get(i).getText();
+				System.out.println(s);
+				if(s.equals(DestinationManager))
+				{
+					String id=Manager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(6000);
+		
+		//Search with subscription name
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(SearchdataforMultipleProperties);
+		Thread.sleep(2000);
+		
 		//click on checkbox and choose properties
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1350,6 +1403,11 @@ public class SubscriptionViewlet {
 		//Clsoe the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(4000);
+		
+		for(int j=0; j<=SearchdataforMultipleProperties.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
 		
 		if(Tooltipdata.contains(FistSubscription) && Tooltipdata.contains(SecondSubscription))
 		{

@@ -17,12 +17,11 @@
     <classes>
       <class name="ApodGUI.QueuesInsideBrowseMessages">
         <methods>
-          <include name="Login" invocation-numbers="0"/>
           <include name="beforeTest"/>
           <include name="LoadMessageFromFileUsingIcon" invocation-numbers="0"/>
-          <include name="PutAMessageUsingPutNewIcon" invocation-numbers="0"/>
+          <include name="MoveMessageUsingMoveIcon" invocation-numbers="0"/>
+          <include name="EditMessageUsingEditIcon" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="Logout"/>
         </methods>
       </class> <!-- ApodGUI.QueuesInsideBrowseMessages -->
     </classes>

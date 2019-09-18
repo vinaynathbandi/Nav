@@ -596,7 +596,7 @@ public class DurableViewlet
 		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(6000);
 		
-		WebElement ele=driver.findElement(By.id("topicName"));
+		WebElement ele=driver.findElement(By.id("durableName"));
 		Actions a=new Actions(driver);
 		a.moveToElement(ele).perform();
 	
@@ -617,8 +617,9 @@ public class DurableViewlet
 		Thread.sleep(4000);
 		
 		//Store the Topic name into string
-		String FirstTopicname=driver.findElement(By.xpath("//ng-select/div")).getText();
-		System.out.println("First topic data: " +FirstTopicname);
+		//String FirstDurablename=driver.findElement(By.xpath("//ng-select/div")).getText();
+		String FirstDurablename=driver.findElement(By.id("durableName")).getAttribute("value");
+		System.out.println("First topic data: " +FirstDurablename);
 		
 		//Click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -630,15 +631,16 @@ public class DurableViewlet
 		Thread.sleep(4000);
 		
 		//Store the Topic name into string
-		String SecondTopicname=driver.findElement(By.xpath("//ng-select/div")).getText();
-		System.out.println("Second Topic data: " +SecondTopicname);
+		//String SecondDurablename=driver.findElement(By.xpath("//ng-select/div")).getText();
+		String SecondDurablename=driver.findElement(By.id("durableName")).getAttribute("value");
+		System.out.println("Second Topic data: " +SecondDurablename);
 		
 		//Click on yes button
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(10000);
     	
     	//Verification
-    	if(Tooltipdata.contains(FirstTopicname) && Tooltipdata.contains(SecondTopicname))
+    	if(Tooltipdata.contains(FirstDurablename) && Tooltipdata.contains(SecondDurablename))
     	{
     		System.out.println("Multiple durable properties are fine");
     		context.setAttribute("Status",1);

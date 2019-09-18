@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -256,7 +257,37 @@ public class NavigatorSettings
 		}
 		Thread.sleep(8000);
 		
-		for(int i=3; i<=180; i++)
+		driver.findElement(By.xpath("//input[@type='text']")).clear();
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("INQ");
+		String INQ=driver.findElement(By.xpath("//datatable-body")).getText();
+		
+		driver.findElement(By.xpath("//input[@type='text']")).clear();
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("HASH");
+		String HASH=driver.findElement(By.xpath("//datatable-body")).getText();
+		
+		driver.findElement(By.xpath("//input[@type='text']")).clear();
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("NSQ");
+		String NSQ=driver.findElement(By.xpath("//datatable-body")).getText();
+		
+		for(int j=0; j<=4; j++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
+		
+		if(INQ.contains("INQ") || HASH.contains("HASH") || NSQ.contains("NSQ"))
+		{
+			System.out.println("Show Temporary Dynamic Queues Check box is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Show Temporary Dynamic Queues Check box is working fine");
+		}
+		else
+		{
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Show Temporary Dynamic Queues Check box is not working properly");
+			//driver.findElement(By.id("Show Temporary Dynamic Queues Check box")).click();
+		}
+		
+		/*for(int i=3; i<=180; i++)
 		{
 		String Queuename=driver.findElement(By.xpath("//datatable-row-wrapper["+ i +"]/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getAttribute("innerText");
 		System.out.println(Queuename);
@@ -274,7 +305,7 @@ public class NavigatorSettings
 			context.setAttribute("Comment", "Show Temporary Dynamic Queues Check box is not working properly");
 			//driver.findElement(By.id("Show Temporary Dynamic Queues Check box")).click();
 		}
-		}
+		}*/
 	}
 	
 	@Parameters({"FavoriteViewletName", "objpath1", "objpath2"})

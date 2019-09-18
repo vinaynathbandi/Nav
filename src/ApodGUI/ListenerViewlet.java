@@ -43,6 +43,8 @@ public class ListenerViewlet
 	static String UploadFilepath;
 	static String Dnode;
 	static String DestinationManager;
+	static String Manager1;
+	static String Manager2;
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -55,6 +57,8 @@ public class ListenerViewlet
 		UploadFilepath =Settings.getUploadFilepath();
 		Dnode =Settings.getDnode();
 		DestinationManager =Settings.getDestinationManager();
+		Manager1 =Settings.getManager1();
+		Manager2 =Settings.getManager2();
 	}
 
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
@@ -775,6 +779,9 @@ public class ListenerViewlet
 	@Test(priority=13)
 	public void CreateListenerFromPlusIcon(String ListenerNameFromICon, String DescriptionFromIcon, ITestContext context) throws InterruptedException
 	{
+		String[] Managers= {Manager1, Manager2};
+		for(int m=0; m<=1; m++)
+		{
 		//Click on + icon present in the viewlet
 		driver.findElement(By.xpath("//img[@title='Add Listener']")).click();
 		
@@ -819,9 +826,9 @@ public class ListenerViewlet
 			for (int i=0; i<QueueManager.size();i++)
 			{
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + QueueManager.get(i).getAttribute("id"));
+				//System.out.println("Radio button id:" + QueueManager.get(i).getAttribute("id"));
 				String s=QueueManager.get(i).getText();
-				if(s.equals(DestinationManager))
+				if(Managers[m].contains(s))
 				{
 					String id=QueueManager.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -903,6 +910,7 @@ public class ListenerViewlet
 			driver.findElement(By.xpath("Listener viewlet Failed")).click();
 		}
 		Thread.sleep(1000);
+	}
 	}
 	
 	@Parameters({"ListenerName"})
@@ -1003,11 +1011,16 @@ public class ListenerViewlet
 	}
 	
 	
-	@Parameters({"CopyObjectNameForMUltiple", "ListenerName"})
+	@Parameters({"CopyObjectNameForMUltiple", "ListenerName", "ListenerNameFromICon"})
 	@TestRail(testCaseId=162)
 	@Test(priority=16)
-	public void CopyAsFromCommandsForMultiple(String CopyObjectNameForMUltiple, String ListenerName, ITestContext context) throws InterruptedException
+	public void CopyAsFromCommandsForMultiple(String CopyObjectNameForMUltiple, String ListenerName, String ListenerNameFromICon, ITestContext context) throws InterruptedException
 	{
+		//Search with that name
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(ListenerNameFromICon);
+    	Thread.sleep(1000);
+    	
 		//Select Copy as From commands
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1033,6 +1046,11 @@ public class ListenerViewlet
     	catch (Exception e)
     	{
     		System.out.println("No exception occured");
+    	}
+    	
+    	for(int j=0; j<=ListenerNameFromICon.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
     	}
     	
     	FinalListenerName=ExistingListener+CopyObjectNameForMUltiple;

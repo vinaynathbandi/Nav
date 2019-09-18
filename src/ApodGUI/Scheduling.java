@@ -361,9 +361,21 @@ public class Scheduling {
 		// Click on Viewlet button
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click();
-
-		// Create Queue
-		driver.findElement(By.cssSelector(".object-type:nth-child(13)")).click();
+		
+		//Create Route viewlet
+		WebElement ele=driver.findElement(By.className("left-block")).findElement(By.className("object-types"));
+		
+		List<WebElement> names=ele.findElements(By.tagName("div"));
+		System.out.println(names.size());
+		
+		for(WebElement click : names)
+		{
+			if(click.getText().equalsIgnoreCase("Route"))
+			{
+				click.click();
+				break;
+			}
+		}
 
 		this.CreateViewlet(ViewletName);
 
@@ -395,9 +407,21 @@ public class Scheduling {
 		// Click on Viewlet button
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click();
-
-		// Create Queue
-		driver.findElement(By.cssSelector(".object-type:nth-child(15)")).click();
+		
+		//Create Bridge viewlet
+		WebElement ele=driver.findElement(By.className("left-block")).findElement(By.className("object-types"));
+		
+		List<WebElement> names=ele.findElements(By.tagName("div"));
+		System.out.println(names.size());
+		
+		for(WebElement click : names)
+		{
+			if(click.getText().equalsIgnoreCase("Bridge"))
+			{
+				click.click();
+				break;
+			}
+		}
 
 		this.CreateViewlet(ViewletName);
 
@@ -428,9 +452,21 @@ public class Scheduling {
 		// Click on Viewlet button
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click();
-
-		// Create Queue
-		driver.findElement(By.cssSelector(".object-type:nth-child(16)")).click();
+		
+		//Create Durable viewlet
+		WebElement ele=driver.findElement(By.className("left-block")).findElement(By.className("object-types"));
+		
+		List<WebElement> names=ele.findElements(By.tagName("div"));
+		System.out.println(names.size());
+		
+		for(WebElement click : names)
+		{
+			if(click.getText().equalsIgnoreCase("Durable"))
+			{
+				click.click();
+				break;
+			}
+		}
 
 		this.CreateViewlet(ViewletName);
 

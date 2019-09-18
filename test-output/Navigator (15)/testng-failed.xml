@@ -24,10 +24,9 @@
       <class name="ApodGUI.BridgeViewlet">
         <methods>
           <include name="beforeTest"/>
-          <include name="AddBridgeFromPlusIcon" invocation-numbers="0"/>
-          <include name="AddToFavoriteForMultipleBridges" invocation-numbers="0"/>
           <include name="MultipleBridgeProperties" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="CompareBridges" invocation-numbers="0"/>
         </methods>
       </class> <!-- ApodGUI.BridgeViewlet -->
     </classes>

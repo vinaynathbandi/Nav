@@ -15,6 +15,7 @@
     <parameter name="URL" value="/navigator/#/login"/>
     <parameter name="password" value="admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="CopyObjectNameForMUltiple" value="SUB.MULTIPLE.COPY"/>
     <parameter name="Subscriptionname" value="New Subscription Viewlet"/>
     <parameter name="TopicStringData" value="Unique"/>
     <parameter name="DestinationQueue" value="AC"/>
@@ -31,13 +32,28 @@
     <parameter name="TopicStringDataFromICon" value="UniqueIcon"/>
     <parameter name="DestinationManagerName" value="M1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="RenameSubscriptionForMultiple" value="SYSTEM.SUBSCRIPTION.RENAME"/>
     <parameter name="DWGSIcon" value="WGS10"/>
     <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
     <parameter name="DestinationManagerFromIcon" value="M1"/>
     <classes>
       <class name="ApodGUI.SubscriptionViewlet">
         <methods>
+          <include name="CompareSubscription" invocation-numbers="0"/>
+          <include name="Logout"/>
+          <include name="CreateSubscriptionFromOptions" invocation-numbers="0"/>
+          <include name="RenameFromCommands"/>
+          <include name="AddToFavoriteViewlet" invocation-numbers="0"/>
+          <include name="AddToFavoriteForMultipleSubscription"/>
           <include name="beforeTest"/>
+          <include name="SubscriptionProperties" invocation-numbers="0"/>
+          <include name="DeleteFromCommands"/>
+          <include name="MultipleSubscriptionProperties" invocation-numbers="0"/>
+          <include name="RenameFromCommandsForMultipleSubscriptions"/>
+          <include name="CopyAsFromCommands"/>
+          <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
+          <include name="SubscriptionEvents" invocation-numbers="0"/>
+          <include name="DeleteFromCommandsForMultipleSubscriptions"/>
           <include name="tearDown"/>
           <include name="CreateSubscriptionFromPlusIcon" invocation-numbers="0"/>
         </methods>

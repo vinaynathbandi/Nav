@@ -20,9 +20,8 @@
       <class name="ApodGUI.AddSchemaToTheViewlet">
         <methods>
           <include name="tearDown"/>
-          <include name="RemoveAllAttributesButton" invocation-numbers="0"/>
+          <include name="AddAllAttributesButton" invocation-numbers="0"/>
           <include name="beforeTest"/>
-          <include name="RemoveAttributeButton" invocation-numbers="0"/>
         </methods>
       </class> <!-- ApodGUI.AddSchemaToTheViewlet -->
     </classes>
