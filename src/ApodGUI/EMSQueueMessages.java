@@ -162,14 +162,14 @@ public class EMSQueueMessages
 		driver.findElement(By.xpath("//div[3]/button")).click();
 		Thread.sleep(2000);
 		
-		/*//Check Show Empty Queues check box
+		//Check Show Empty Queues check box
 		driver.findElement(By.cssSelector(".fa-cog")).click();
 		driver.findElement(By.xpath("//div[2]/input")).click();
 		driver.findElement(By.xpath("//div[3]/button")).click();
 		Thread.sleep(2000);
 		
 		//put the messages into empty queues for testing
-		for(int m=1; m<=4; m++)
+		for(int m=1; m<=3; m++)
 		{
 			//Select the put new message option
 			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper["+ m +"]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -206,7 +206,7 @@ public class EMSQueueMessages
 		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(2000);*/
+		Thread.sleep(2000);
 	}
 	
 	@Parameters({"MessageData"})

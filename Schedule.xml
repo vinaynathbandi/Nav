@@ -23,11 +23,11 @@
        
         <include name="Login"/>
         <include name="ManagerScheduling"/>  
-        <include name="QueuesScheduling"/> 
+       <!--  <include name="QueuesScheduling"/> 
         <include name="ChannelScheduling"/> 
         <include name="ProcessScheduling"/> 
         <include name="TopicScheduling"/>
-        <include name="ListenerScheduling"/> 
+        <include name="ListenerScheduling"/> --> 
         <include name="SubScriptionScheduling"/>
         <include name="RouteScheduling"/>
         <include name="BridgeScheduling"/>

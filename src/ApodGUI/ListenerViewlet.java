@@ -1238,7 +1238,7 @@ public class ListenerViewlet
 		
 		//Open the first listener properties page
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(2000);
 		
 		//Store the First listener description into string
@@ -1250,7 +1250,7 @@ public class ListenerViewlet
 		
 		//Open the second listener name
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(2000);
 		
 		//Store the second listener description into string

@@ -33,7 +33,7 @@
         <include name="MoveToTopButton"/>
         <include name="MoveToBottomButton"/>
         <include name="MoveUpButton"/>
-        <include name="MoveDownButton"/> 
+        <include name="MoveDownButton"/>  
         <include name="Logout"/>
         
        </methods>

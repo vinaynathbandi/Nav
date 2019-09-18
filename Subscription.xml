@@ -56,9 +56,9 @@
         <include name="ShowObjectAttributesForSubscription"/> 
         <include name="CopyAsFromCommands"/>
         <include name="RenameFromCommands"/>
-        <include name="DeleteFromCommands"/>   
+        <include name="DeleteFromCommands"/>  
         <include name="SubscriptionProperties"/>
-        <include name="SubscriptionEvents"/>  
+        <include name="SubscriptionEvents"/>   
         <include name="AddToFavoriteViewlet"/> 
           
         <include name="CompareSubscription"/> 

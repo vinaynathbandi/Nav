@@ -214,7 +214,7 @@ public class NavigatorSettings
 		}
 		Thread.sleep(8000);
 		
-		for(int i=5; i<=20; i++)
+		for(int i=3; i<=20; i++)
 		{
 		String Depth=driver.findElement(By.xpath("//datatable-row-wrapper["+ i +"]/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
 		int result = Integer.parseInt(Depth);     

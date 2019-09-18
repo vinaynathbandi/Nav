@@ -55,6 +55,7 @@
         <include name="ListenerEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareListeners"/>
+        <include name="CreateListenerFromPlusIcon"/>  
        <!--  <include name="StartListenerForMultiple"/>
         <include name="StopListenerForMultiple"/>  -->
         <include name="CopyAsFromCommandsForMultiple"/>
@@ -62,7 +63,6 @@
         <include name="DeleteFromCommandsForMultiple"/> 
         <include name="ListenerMultipleProperties"/>  
         <include name="AddToFavoriteForMultipleListeners"/> 
-        <include name="CreateListenerFromPlusIcon"/>  
         <include name="Logout"/> 
         
        </methods>
