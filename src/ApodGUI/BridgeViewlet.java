@@ -810,10 +810,6 @@ public class BridgeViewlet {
 		driver.close();
 	}
 	
-	public void BridgeName()
-	{
-		
-	}
 	
 	@AfterMethod
 	public void tearDown(ITestResult result) {
