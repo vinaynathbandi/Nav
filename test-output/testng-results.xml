@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="2" ignored="5" total="12" passed="5">
+<testng-results skipped="0" failed="2" ignored="0" total="12" passed="10">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -12,6 +12,36 @@
     </line>
     <line>
       <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ManagerScheduling.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/QueuesScheduling.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ChannelScheduling.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ProcessScheduling.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/TopicScheduling.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ListenerScheduling.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
@@ -50,16 +80,16 @@
       <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/DurableScheduling.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="324975" started-at="2019-09-18T12:59:58Z" finished-at="2019-09-18T13:05:23Z">
+  <suite name="Navigator" duration-ms="622709" started-at="2019-09-23T11:12:38Z" finished-at="2019-09-23T11:23:01Z">
     <groups>
     </groups>
-    <test name="Schedule" duration-ms="324975" started-at="2019-09-18T12:59:58Z" finished-at="2019-09-18T13:05:23Z">
+    <test name="Schedule" duration-ms="622709" started-at="2019-09-23T11:12:38Z" finished-at="2019-09-23T11:23:01Z">
       <class name="ApodGUI.Scheduling">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="14" started-at="2019-09-18T12:59:58Z" finished-at="2019-09-18T12:59:58Z">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="13" started-at="2019-09-23T11:12:38Z" finished-at="2019-09-23T11:12:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="Login" duration-ms="23851" started-at="2019-09-18T12:59:58Z" finished-at="2019-09-18T13:00:22Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="Login" duration-ms="23150" started-at="2019-09-23T11:12:38Z" finished-at="2019-09-23T11:13:01Z">
           <params>
             <param index="0">
               <value>
@@ -86,7 +116,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="420" started-at="2019-09-18T13:00:22Z" finished-at="2019-09-18T13:00:22Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="437" started-at="2019-09-23T11:13:01Z" finished-at="2019-09-23T11:13:02Z">
           <params>
             <param index="0">
               <value>
@@ -97,7 +127,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ManagerScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.Scheduling@33c7e1bb]" name="ManagerScheduling" duration-ms="40962" started-at="2019-09-18T13:00:22Z" finished-at="2019-09-18T13:01:03Z">
+        <test-method status="PASS" signature="ManagerScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.Scheduling@33c7e1bb]" name="ManagerScheduling" duration-ms="40807" started-at="2019-09-23T11:13:02Z" finished-at="2019-09-23T11:13:43Z">
           <params>
             <param index="0">
               <value>
@@ -129,7 +159,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- ManagerScheduling -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9589" started-at="2019-09-18T13:01:12Z" finished-at="2019-09-18T13:01:21Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9560" started-at="2019-09-23T11:13:51Z" finished-at="2019-09-23T11:14:01Z">
           <params>
             <param index="0">
               <value>
@@ -140,7 +170,222 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="SubScriptionScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.Scheduling@33c7e1bb]" name="SubScriptionScheduling" duration-ms="27497" started-at="2019-09-18T13:01:21Z" finished-at="2019-09-18T13:01:49Z">
+        <test-method status="PASS" signature="QueuesScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.Scheduling@33c7e1bb]" name="QueuesScheduling" duration-ms="47781" started-at="2019-09-23T11:14:01Z" finished-at="2019-09-23T11:14:49Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ScheduleViewletObject]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Apr]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2028]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@1b266842]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/QueuesScheduling.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- QueuesScheduling -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9149" started-at="2019-09-23T11:14:57Z" finished-at="2019-09-23T11:15:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=QueuesScheduling status=SUCCESS method=Scheduling.QueuesScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.Scheduling@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ChannelScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.Scheduling@33c7e1bb]" name="ChannelScheduling" duration-ms="47592" started-at="2019-09-23T11:15:06Z" finished-at="2019-09-23T11:15:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ScheduleViewletObject]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Apr]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2028]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@1b266842]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ChannelScheduling.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ChannelScheduling -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9214" started-at="2019-09-23T11:16:02Z" finished-at="2019-09-23T11:16:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ChannelScheduling status=SUCCESS method=Scheduling.ChannelScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.Scheduling@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ProcessScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.Scheduling@33c7e1bb]" name="ProcessScheduling" duration-ms="47478" started-at="2019-09-23T11:16:11Z" finished-at="2019-09-23T11:16:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ScheduleViewletObject]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Apr]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2028]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@1b266842]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ProcessScheduling.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ProcessScheduling -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9195" started-at="2019-09-23T11:17:07Z" finished-at="2019-09-23T11:17:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ProcessScheduling status=SUCCESS method=Scheduling.ProcessScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.Scheduling@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="TopicScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.Scheduling@33c7e1bb]" name="TopicScheduling" duration-ms="27648" started-at="2019-09-23T11:17:16Z" finished-at="2019-09-23T11:17:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ScheduleViewletObject]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Apr]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2028]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@1b266842]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/TopicScheduling.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- TopicScheduling -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9097" started-at="2019-09-23T11:17:51Z" finished-at="2019-09-23T11:18:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=TopicScheduling status=SUCCESS method=Scheduling.TopicScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.Scheduling@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ListenerScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.Scheduling@33c7e1bb]" name="ListenerScheduling" duration-ms="47711" started-at="2019-09-23T11:18:00Z" finished-at="2019-09-23T11:18:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ScheduleViewletObject]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Apr]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2028]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@1b266842]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ListenerScheduling.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ListenerScheduling -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9392" started-at="2019-09-23T11:18:56Z" finished-at="2019-09-23T11:19:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ListenerScheduling status=SUCCESS method=Scheduling.ListenerScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.Scheduling@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="SubScriptionScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.Scheduling@33c7e1bb]" name="SubScriptionScheduling" duration-ms="27470" started-at="2019-09-23T11:19:06Z" finished-at="2019-09-23T11:19:33Z">
           <params>
             <param index="0">
               <value>
@@ -172,7 +417,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- SubScriptionScheduling -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9414" started-at="2019-09-18T13:01:57Z" finished-at="2019-09-18T13:02:06Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9511" started-at="2019-09-23T11:19:41Z" finished-at="2019-09-23T11:19:51Z">
           <params>
             <param index="0">
               <value>
@@ -183,7 +428,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="RouteScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:8, instance:ApodGUI.Scheduling@33c7e1bb]" name="RouteScheduling" duration-ms="47787" started-at="2019-09-18T13:02:06Z" finished-at="2019-09-18T13:02:54Z">
+        <test-method status="PASS" signature="RouteScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:8, instance:ApodGUI.Scheduling@33c7e1bb]" name="RouteScheduling" duration-ms="47648" started-at="2019-09-23T11:19:51Z" finished-at="2019-09-23T11:20:38Z">
           <params>
             <param index="0">
               <value>
@@ -215,7 +460,7 @@
             </line>
           </reporter-output>
         </test-method> <!-- RouteScheduling -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9629" started-at="2019-09-18T13:03:02Z" finished-at="2019-09-18T13:03:12Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9012" started-at="2019-09-23T11:20:46Z" finished-at="2019-09-23T11:20:55Z">
           <params>
             <param index="0">
               <value>
@@ -226,7 +471,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="FAIL" signature="BridgeScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:9, instance:ApodGUI.Scheduling@33c7e1bb]" name="BridgeScheduling" duration-ms="43940" started-at="2019-09-18T13:03:12Z" finished-at="2019-09-18T13:03:56Z">
+        <test-method status="FAIL" signature="BridgeScheduling(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:9, instance:ApodGUI.Scheduling@33c7e1bb]" name="BridgeScheduling" duration-ms="43885" started-at="2019-09-23T11:20:55Z" finished-at="2019-09-23T11:21:39Z">
           <params>
             <param index="0">
               <value>
@@ -260,8 +505,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
 System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61453}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
-Session ID: e22f1ff8362752596f7e61096bde5571
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50136}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: b1eeabbf35ee069780e6cd5dafb014f3
 *** Element info: {Using=xpath, value=Node creation failed}]]>
             </message>
             <full-stacktrace>
@@ -274,8 +519,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
 System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61453}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
-Session ID: e22f1ff8362752596f7e61096bde5571
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50136}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: b1eeabbf35ee069780e6cd5dafb014f3
 *** Element info: {Using=xpath, value=Node creation failed}
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -335,7 +580,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             </line>
           </reporter-output>
         </test-method> <!-- BridgeScheduling -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9195" started-at="2019-09-18T13:04:04Z" finished-at="2019-09-18T13:04:14Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9214" started-at="2019-09-23T11:21:47Z" finished-at="2019-09-23T11:21:56Z">
           <params>
             <param index="0">
               <value>
@@ -349,7 +594,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             </line>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="FAIL" signature="DurableScheduling(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:10, instance:ApodGUI.Scheduling@33c7e1bb]" name="DurableScheduling" duration-ms="38573" started-at="2019-09-18T13:04:14Z" finished-at="2019-09-18T13:04:52Z">
+        <test-method status="FAIL" signature="DurableScheduling(java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:10, instance:ApodGUI.Scheduling@33c7e1bb]" name="DurableScheduling" duration-ms="38669" started-at="2019-09-23T11:21:56Z" finished-at="2019-09-23T11:22:35Z">
           <params>
             <param index="0">
               <value>
@@ -387,8 +632,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
 System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61453}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
-Session ID: e22f1ff8362752596f7e61096bde5571
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50136}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: b1eeabbf35ee069780e6cd5dafb014f3
 *** Element info: {Using=xpath, value=(//input[@type='text'])[3]}]]>
             </message>
             <full-stacktrace>
@@ -400,8 +645,8 @@ For documentation on this error, please visit: http://seleniumhq.org/exceptions/
 Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
 System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61453}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
-Session ID: e22f1ff8362752596f7e61096bde5571
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:50136}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.132, webStorageEnabled: true}
+Session ID: b1eeabbf35ee069780e6cd5dafb014f3
 *** Element info: {Using=xpath, value=(//input[@type='text'])[3]}
 at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -460,7 +705,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             </line>
           </reporter-output>
         </test-method> <!-- DurableScheduling -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9730" started-at="2019-09-18T13:05:00Z" finished-at="2019-09-18T13:05:10Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9258" started-at="2019-09-23T11:22:43Z" finished-at="2019-09-23T11:22:52Z">
           <params>
             <param index="0">
               <value>
@@ -474,11 +719,11 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
             </line>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:25, instance:ApodGUI.Scheduling@33c7e1bb]" name="Logout" duration-ms="12968" started-at="2019-09-18T13:05:10Z" finished-at="2019-09-18T13:05:23Z">
+        <test-method status="PASS" signature="Logout()[pri:25, instance:ApodGUI.Scheduling@33c7e1bb]" name="Logout" duration-ms="8751" started-at="2019-09-23T11:22:52Z" finished-at="2019-09-23T11:23:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-18T13:05:23Z" finished-at="2019-09-18T13:05:23Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.Scheduling@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-23T11:23:01Z" finished-at="2019-09-23T11:23:01Z">
           <params>
             <param index="0">
               <value>

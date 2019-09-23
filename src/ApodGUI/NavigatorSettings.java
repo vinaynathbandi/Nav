@@ -213,8 +213,9 @@ public class NavigatorSettings
 			driver.findElement(By.xpath("//div[3]/button")).click();
 		}
 		Thread.sleep(8000);
-		
-		for(int i=3; i<=20; i++)
+		try
+		{
+		for(int i=2; i<=10; i++)
 		{
 		String Depth=driver.findElement(By.xpath("//datatable-row-wrapper["+ i +"]/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
 		int result = Integer.parseInt(Depth);     
@@ -230,9 +231,14 @@ public class NavigatorSettings
 		{
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Show Empty Queues Check box is not working properly");
-			driver.findElement(By.xpath("Checkbox not working")).click();
 		}
 		
+		}
+		}
+		catch (Exception e)
+		{
+			System.out.println("Exception occured");
+			driver.findElement(By.id("Show Empty queues checkbox failed")).click();
 		}
 		Thread.sleep(1000);
 	}
