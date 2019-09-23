@@ -18,6 +18,7 @@
     <suite-file path="AuthInfo.xml"/>
     <suite-file path="Subscription.xml"/>
     <suite-file path="ClusterQM.xml"/>
+    <suite-file path="ChannelAuthRecords.xml"/>
     <suite-file path="Route.xml"/>
     <suite-file path="Transport.xml"/>
     <suite-file path="Bridge.xml"/>
