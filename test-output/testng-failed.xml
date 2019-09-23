@@ -1,27 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Schedule(failed)">
-    <parameter name="ViewletName" value="ScheduleViewletObject"/>
-    <parameter name="Dashboardname" value="Scheduling"/>
+  <test thread-count="5" name="Test Channel Auth Records Viewlet(failed)">
+    <parameter name="ChannelAuthNameFromIcon" value="New.Channel.Icon"/>
+    <parameter name="Dashboardname" value="AuthInfo Verification"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="uname" value="Admin"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="FavoriteViewletName" value="Channel Auth Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="ChannelAuthNameFromOptions" value="New.Channel.Auth"/>
+    <parameter name="schemaName" value="AuthinfoSchema"/>
+    <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="Viewletname" value="New Channel Auth Records"/>
     <parameter name="password" value="admin"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="ScheduleDurableName" value="Schedule.Durable"/>
-    <parameter name="NameOfTheMonth" value="Apr"/>
-    <parameter name="YearValue" value="2028"/>
-    <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="MultipleDescription" value="Test Multiple Properties"/>
+    <parameter name="UserList" value="MQADMIN"/>
     <classes>
-      <class name="ApodGUI.Scheduling">
+      <class name="ApodGUI.ChannelAuthRecordsViewlet">
         <methods>
-          <include name="beforeTest"/>
+          <include name="DeleteChannelAuthRecordFromCommands" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="BridgeScheduling" invocation-numbers="0"/>
-          <include name="DurableScheduling" invocation-numbers="0"/>
+          <include name="ChannelAuthEvents" invocation-numbers="0"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.Scheduling -->
+      </class> <!-- ApodGUI.ChannelAuthRecordsViewlet -->
     </classes>
-  </test> <!-- Schedule(failed) -->
+  </test> <!-- Test Channel Auth Records Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

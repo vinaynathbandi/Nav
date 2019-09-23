@@ -175,7 +175,7 @@ public class ChannelAuthRecordsViewlet
 			
 			//Click on Submit the ChannelAuth
 			driver.findElement(By.cssSelector(".btn-primary")).click();
-			Thread.sleep(6000);
+			Thread.sleep(10000);
 			
 			try
 			{
@@ -305,7 +305,7 @@ public class ChannelAuthRecordsViewlet
 				driver.findElement(By.xpath("Channel auth name field is Enable")).click();
 			}
 			
-			Thread.sleep(1000);
+			Thread.sleep(4000);
 		}
 		
 	    @TestRail(testCaseId=535)
@@ -313,7 +313,7 @@ public class ChannelAuthRecordsViewlet
 		public static void ChannelAuthEvents(ITestContext context) throws InterruptedException
 		{
 	    	//Events option
-			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.linkText("Events...")).click();
 			Thread.sleep(1000);
 			
