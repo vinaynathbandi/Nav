@@ -328,6 +328,7 @@ public class SubscriptionViewlet {
 		{
 			ex.printStackTrace();
 		}
+		Thread.sleep(2000);
 		
 		//Select Queue name
 		try 
@@ -1025,6 +1026,7 @@ public class SubscriptionViewlet {
 		{
 			ex.printStackTrace();
 		}
+		Thread.sleep(2000);
 		
 		//Select Queue name
 		try 

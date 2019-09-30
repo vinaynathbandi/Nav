@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -171,7 +172,7 @@ public class QueueMessages
 			
 			//Put a message data
 			//driver.findElement(By.id("encoding-text-9")).click();
-			driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
+			driver.findElement(By.xpath("//textarea")).sendKeys(MessageData);
 			driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 			Thread.sleep(2000);
 			
@@ -219,7 +220,7 @@ public class QueueMessages
 				
 		//Message data
 		//driver.findElement(By.id("encoding-text-9")).click();
-		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
+		driver.findElement(By.xpath("//textarea")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(8000);
 		
@@ -284,7 +285,7 @@ public class QueueMessages
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(4000);
+	    Thread.sleep(8000);
 	    
 	    //store the queue depth after loading file
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -349,6 +350,18 @@ public class QueueMessages
 	@TestRail(testCaseId = 85)
 	public static void CopyAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
+		int manager_Depth=4;
+		if(!WGSName.contains("MQM"))
+		{
+			manager_Depth=5;
+		}
+		
+		//Get the Manager name of first one
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ manager_Depth +"]/div/span")).getText();
+		
+		//Search with that manager
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Managername);
+		
 		int Queue_Depth=5;
 		if(!WGSName.contains("MQM"))
 		{
@@ -414,6 +427,15 @@ public class QueueMessages
 	@TestRail(testCaseId = 86)
 	public static void MoveAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
+		int manager_Depth=4;
+		if(!WGSName.contains("MQM"))
+		{
+			manager_Depth=5;
+		}
+		
+		//Get the Manager name of first one
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ manager_Depth +"]/div/span")).getText();
+		
 		int Queue_Depth=5;
 		if(!WGSName.contains("MQM"))
 		{
@@ -457,6 +479,11 @@ public class QueueMessages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterMove=Integer.parseInt(FinalDepth);
 		System.out.println(FinalResultAfterMove);
+		
+		for(int i=0; i<=Managername.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
 				
 		//Verification
 		if(FinalResultBeforeMove==FinalResultAfterMove)
@@ -479,6 +506,7 @@ public class QueueMessages
 	@TestRail(testCaseId = 87)
 	public static void DeleteAllMessagesFromQueue(ITestContext context) throws InterruptedException
 	{
+		Thread.sleep(3000);
 		// Changing the Settings 
 		driver.findElement(By.cssSelector(".fa-cog")).click();
 		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
@@ -500,6 +528,7 @@ public class QueueMessages
 		Actions DeleteAllMessagesMousehour=new Actions(driver);
 		DeleteAllMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
 		driver.findElement(By.linkText("Delete All")).click();
+		Thread.sleep(4000);
 		
 		//Click on Yes button for deleting the queue
 		driver.findElement(By.cssSelector(".btn-primary")).click();

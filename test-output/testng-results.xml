@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="8" total="12" passed="4">
+<testng-results skipped="0" failed="0" ignored="18" total="22" passed="4">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -11,25 +11,25 @@
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddChannelAuthrecordsViewlet.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddListenerViewlet.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ChannelAuthEvents.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForListener.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="60876" started-at="2019-09-23T14:34:46Z" finished-at="2019-09-23T14:35:47Z">
+  <suite name="Navigator" duration-ms="130333" started-at="2019-09-27T15:22:57Z" finished-at="2019-09-27T15:25:07Z">
     <groups>
     </groups>
-    <test name="Test Channel Auth Records Viewlet" duration-ms="60876" started-at="2019-09-23T14:34:46Z" finished-at="2019-09-23T14:35:47Z">
-      <class name="ApodGUI.ChannelAuthRecordsViewlet">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="15" started-at="2019-09-23T14:34:46Z" finished-at="2019-09-23T14:34:46Z">
+    <test name="Test Listener Viewlet" duration-ms="130333" started-at="2019-09-27T15:22:57Z" finished-at="2019-09-27T15:25:07Z">
+      <class name="ApodGUI.ListenerViewlet">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="16" started-at="2019-09-27T15:22:57Z" finished-at="2019-09-27T15:22:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="Login" duration-ms="17293" started-at="2019-09-23T14:34:46Z" finished-at="2019-09-23T14:35:03Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="Login" duration-ms="25480" started-at="2019-09-27T15:22:57Z" finished-at="2019-09-27T15:23:22Z">
           <params>
             <param index="0">
               <value>
@@ -43,12 +43,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[AuthInfo Verification]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[1]]>
+                <![CDATA[Listener Viewlet Verification]]>
               </value>
             </param>
           </params>
@@ -61,22 +56,27 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="627" started-at="2019-09-23T14:35:03Z" finished-at="2019-09-23T14:35:04Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="433" started-at="2019-09-27T15:23:22Z" finished-at="2019-09-27T15:23:23Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=ChannelAuthRecordsViewlet.Login(java.lang.String, java.lang.String, java.lang.String, int)[pri:0, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=ListenerViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddChannelAuthrecordsViewlet(java.lang.String)[pri:1, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="AddChannelAuthrecordsViewlet" duration-ms="6068" started-at="2019-09-23T14:35:04Z" finished-at="2019-09-23T14:35:10Z">
+        <test-method status="PASS" signature="AddListenerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="AddListenerViewlet" duration-ms="8532" started-at="2019-09-27T15:23:23Z" finished-at="2019-09-27T15:23:31Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[New Channel Auth Records]]>
+                <![CDATA[New Listener Viewlet]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@1e4d3ce5]]>
               </value>
             </param>
           </params>
@@ -85,26 +85,31 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddChannelAuthrecordsViewlet.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddListenerViewlet.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- AddChannelAuthrecordsViewlet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="404" started-at="2019-09-23T14:35:10Z" finished-at="2019-09-23T14:35:10Z">
+        </test-method> <!-- AddListenerViewlet -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="11923" started-at="2019-09-27T15:23:42Z" finished-at="2019-09-27T15:23:54Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddChannelAuthrecordsViewlet status=SUCCESS method=ChannelAuthRecordsViewlet.AddChannelAuthrecordsViewlet(java.lang.String)[pri:1, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=AddListenerViewlet status=SUCCESS method=ListenerViewlet.AddListenerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ChannelAuthEvents(org.testng.ITestContext)[pri:5, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="ChannelAuthEvents" duration-ms="11543" started-at="2019-09-23T14:35:10Z" finished-at="2019-09-23T14:35:22Z">
+        <test-method status="PASS" signature="ShowObjectAttributesForListener(java.lang.String, org.testng.ITestContext)[pri:22, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="ShowObjectAttributesForListener" duration-ms="43634" started-at="2019-09-27T15:23:54Z" finished-at="2019-09-27T15:24:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@75d2da2d]]>
+                <![CDATA[ListnerSchema]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@1e4d3ce5]]>
               </value>
             </param>
           </params>
@@ -113,37 +118,37 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ChannelAuthEvents.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForListener.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- ChannelAuthEvents -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="9655" started-at="2019-09-23T14:35:30Z" finished-at="2019-09-23T14:35:40Z">
+        </test-method> <!-- ShowObjectAttributesForListener -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="12261" started-at="2019-09-27T15:24:48Z" finished-at="2019-09-27T15:25:01Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ChannelAuthEvents status=SUCCESS method=ChannelAuthRecordsViewlet.ChannelAuthEvents(org.testng.ITestContext)[pri:5, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=ShowObjectAttributesForListener status=SUCCESS method=ListenerViewlet.ShowObjectAttributesForListener(java.lang.String, org.testng.ITestContext)[pri:22, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:16, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="Logout" duration-ms="6775" started-at="2019-09-23T14:35:40Z" finished-at="2019-09-23T14:35:47Z">
+        <test-method status="PASS" signature="Logout()[pri:25, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="Logout" duration-ms="6673" started-at="2019-09-27T15:25:01Z" finished-at="2019-09-27T15:25:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-23T14:35:47Z" finished-at="2019-09-23T14:35:47Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-27T15:25:07Z" finished-at="2019-09-27T15:25:07Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=ChannelAuthRecordsViewlet.Logout()[pri:16, instance:ApodGUI.ChannelAuthRecordsViewlet@33c7e1bb] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=ListenerViewlet.Logout()[pri:25, instance:ApodGUI.ListenerViewlet@33c7e1bb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.ChannelAuthRecordsViewlet -->
-    </test> <!-- Test Channel Auth Records Viewlet -->
+      </class> <!-- ApodGUI.ListenerViewlet -->
+    </test> <!-- Test Listener Viewlet -->
   </suite> <!-- Navigator -->
 </testng-results>

@@ -1013,7 +1013,7 @@ public class ListenerViewlet
 	
 	@Parameters({"CopyObjectNameForMUltiple", "ListenerName", "ListenerNameFromICon"})
 	@TestRail(testCaseId=162)
-	@Test(priority=16)
+	@Test(priority=16, dependsOnMethods= {"CreateListenerFromPlusIcon"})
 	public void CopyAsFromCommandsForMultiple(String CopyObjectNameForMUltiple, String ListenerName, String ListenerNameFromICon, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
@@ -1220,6 +1220,19 @@ public class ListenerViewlet
 	@Test(priority=19)
 	public void ListenerMultipleProperties(String ListenerDescription, ITestContext context) throws InterruptedException
 	{
+		int transporttype_index=5;
+		if(!WGSName.contains("MQM"))
+		{
+			transporttype_index=6;
+		}
+		String TransportType=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ transporttype_index +"]/div/span")).getText();
+		System.out.println("Transport type is: " +TransportType);
+		
+		//Search with tranport type
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TransportType);
+    	Thread.sleep(1000);
+		
 		//Select Two Listeners and choose Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1259,6 +1272,11 @@ public class ListenerViewlet
 		//Close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
+		
+		for(int j=0; j<=TransportType.length(); j++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
 		
 		//Verification
 		if(FirstDescription.equals(ListenerDescription) && SecondDescription.equals(ListenerDescription))
@@ -1302,14 +1320,14 @@ public class ListenerViewlet
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Add to favorites...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 			
 		//Select the favorite viewlet name
 		Select fav=new Select(driver.findElement(By.cssSelector(".fav-select")));
 		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Storing the Favorite Viewlet data
 		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();

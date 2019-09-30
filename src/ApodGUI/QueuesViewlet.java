@@ -759,11 +759,12 @@ public class QueuesViewlet
 		
 		//Open the properties of first queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[10]")).click();
-		Thread.sleep(1000);
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
 		
 		//Save the Connection URL value into string
 		String FirstQueuedata=driver.findElement(By.id("description")).getAttribute("value");
+		System.out.println("First queue property is: " +FirstQueuedata);
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -771,11 +772,12 @@ public class QueuesViewlet
 		
 		//Open the properties of Second queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[10]")).click();
-		Thread.sleep(1000);
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
 		
 		//Save the Connection URL value into string
 		String SecondQueuedata=driver.findElement(By.id("description")).getAttribute("value");
+		System.out.println("Second queue property data is: " +SecondQueuedata);
 		
 		//close the properties page
 		driver.findElement(By.cssSelector(".btn-primary")).click();

@@ -3,7 +3,7 @@
 <suite name="All Suites"> 
   <suite-files>
   
-    <suite-file path="Workgroupserver.xml"/> 
+    <!-- <suite-file path="Workgroupserver.xml"/>  -->
     <suite-file path="Node.xml"/>  
     <suite-file path="Manager.xml"/>
     <suite-file path="Queues.xml"/> 
@@ -19,7 +19,7 @@
     <suite-file path="Subscription.xml"/>
     <suite-file path="ClusterQM.xml"/>
     <suite-file path="ChannelAuthRecords.xml"/>
-    <suite-file path="Route.xml"/>
+   <!--  <suite-file path="Route.xml"/>
     <suite-file path="Transport.xml"/>
     <suite-file path="Bridge.xml"/>
     <suite-file path="Durable.xml"/> 
@@ -33,7 +33,7 @@
     <suite-file path="NavigatorSettings.xml"/> 
     <suite-file path="Schedule.xml"/>  
     <suite-file path="SearchCriteria.xml"/> 
-    <suite-file path="Attributefilter.xml"/>
+    <suite-file path="Attributefilter.xml"/> -->
   	
   </suite-files>
 </suite>

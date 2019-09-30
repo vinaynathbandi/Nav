@@ -183,7 +183,7 @@ public class QueuesInsideBrowseMessages
 			
 			//Put a message data
 			//driver.findElement(By.id("encoding-text-9")).click();
-			driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
+			driver.findElement(By.xpath("//textarea")).sendKeys(MessageData);
 			driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 			Thread.sleep(1000);
 			try
@@ -237,7 +237,7 @@ public class QueuesInsideBrowseMessages
 		
 		//Message data
 		//driver.findElement(By.id("encoding-text-9")).click();
-		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
+		driver.findElement(By.xpath("//textarea")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(8000);
 		
@@ -316,6 +316,18 @@ public class QueuesInsideBrowseMessages
 	@TestRail(testCaseId = 91)
 	public static void CopyMessageUsingCopyIcon(ITestContext context) throws InterruptedException
 	{
+		int manager_Depth=4;
+		if(!WGSName.contains("MQM"))
+		{
+			manager_Depth=5;
+		}
+		
+		//Get the Manager name of first one
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ manager_Depth +"]/div/span")).getText();
+		
+		//Search with that manager
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Managername);
+		
 		int QueueName_Index=3;
 		if(!WGSName.contains("MQM"))
 		{
@@ -375,6 +387,15 @@ public class QueuesInsideBrowseMessages
 	@TestRail(testCaseId = 92)
 	public static void MoveMessageUsingMoveIcon(ITestContext context) throws InterruptedException
 	{
+		int manager_Depth=4;
+		if(!WGSName.contains("MQM"))
+		{
+			manager_Depth=5;
+		}
+		
+		//Get the Manager name of first one
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ manager_Depth +"]/div/span")).getText();
+		
 		int QueueName_Index=3;
 		if(!WGSName.contains("MQM"))
 		{
@@ -412,6 +433,11 @@ public class QueuesInsideBrowseMessages
 		System.out.println(FinalResultAfterCopy);
 		
 		int Final=TargetCopy+1;
+		
+		for(int i=0; i<=Managername.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
 		
 		//Verification
 		if(Final==FinalResultAfterCopy)
@@ -628,6 +654,7 @@ public class QueuesInsideBrowseMessages
 	@TestRail(testCaseId = 97)
 	public static void DeleteMessageUsingDeleteOption(ITestContext context) throws Exception
 	{
+		
 		int Queue_Depth=5;
 		if(!WGSName.contains("MQM"))
 		{
@@ -675,6 +702,18 @@ public class QueuesInsideBrowseMessages
 	@TestRail(testCaseId = 98)
 	public static void CopyMessageUsingCopyOption(ITestContext context) throws InterruptedException
 	{
+		int manager_Depth=4;
+		if(!WGSName.contains("MQM"))
+		{
+			manager_Depth=5;
+		}
+		
+		//Get the Manager name of first one
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ manager_Depth +"]/div/span")).getText();
+		
+		//Search with that manager
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Managername);
+		
 		int QueueName_Index=3;
 		if(!WGSName.contains("MQM"))
 		{
@@ -736,6 +775,15 @@ public class QueuesInsideBrowseMessages
 	@TestRail(testCaseId = 99)
 	public static void MoveMessageUsingMoveOption(ITestContext context) throws InterruptedException
 	{
+		int manager_Depth=4;
+		if(!WGSName.contains("MQM"))
+		{
+			manager_Depth=5;
+		}
+		
+		//Get the Manager name of first one
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ manager_Depth +"]/div/span")).getText();
+		
 		int QueueName_Index=3;
 		if(!WGSName.contains("MQM"))
 		{
@@ -755,6 +803,7 @@ public class QueuesInsideBrowseMessages
 		//Store the target queue name into string after moving the message
 		String TargetQueueDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int TargetCopy=Integer.parseInt(TargetQueueDepth);
+		Thread.sleep(2000);
 		
 		//Select Message check box
 		driver.findElement(By.xpath("//input[@name='name']")).click();
@@ -763,6 +812,7 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.cssSelector(".item-dropdown:nth-child(4)")).click();
 		
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
+		Thread.sleep(3000);
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
@@ -773,6 +823,11 @@ public class QueuesInsideBrowseMessages
 		System.out.println(FinalResultAfterCopy);
 		
 		int Final=TargetCopy+1;
+		
+		for(int i=0; i<=Managername.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
 		
 		//Verification
 		if(Final==FinalResultAfterCopy)

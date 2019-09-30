@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Test Channel Auth Records Viewlet(failed)">
-    <parameter name="ChannelAuthNameFromIcon" value="New.Channel.Icon"/>
-    <parameter name="Dashboardname" value="AuthInfo Verification"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="FavoriteViewletName" value="Channel Auth Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="ChannelAuthNameFromOptions" value="New.Channel.Auth"/>
-    <parameter name="schemaName" value="AuthinfoSchema"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="Viewletname" value="New Channel Auth Records"/>
+  <test thread-count="5" name="Browse Message Options(failed)">
+    <parameter name="Dashboardname" value="Queue Inside Messages"/>
     <parameter name="password" value="admin"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="MultipleDescription" value="Test Multiple Properties"/>
-    <parameter name="UserList" value="MQADMIN"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="MessageData" value="Testing to add the new message into Queue"/>
+    <parameter name="Queuemanager" value="MGR"/>
+    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Browse Messages"/>
+    <parameter name="QueueName" value="Local Queue"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.ChannelAuthRecordsViewlet">
+      <class name="ApodGUI.QueuesInsideBrowseMessages">
         <methods>
-          <include name="DeleteChannelAuthRecordFromCommands" invocation-numbers="0"/>
-          <include name="tearDown"/>
-          <include name="ChannelAuthEvents" invocation-numbers="0"/>
+          <include name="Login" invocation-numbers="0"/>
           <include name="beforeTest"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ApodGUI.ChannelAuthRecordsViewlet -->
+      </class> <!-- ApodGUI.QueuesInsideBrowseMessages -->
     </classes>
-  </test> <!-- Test Channel Auth Records Viewlet(failed) -->
+  </test> <!-- Browse Message Options(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

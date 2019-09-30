@@ -830,9 +830,11 @@ public class ChannelViewlet
 			ChannelName_Index=4;
 		}
 		
-		//Storage of channel names
+		//Storage of channel names    
 		String channelname1=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ ChannelName_Index +"]/div/span")).getText();
+		System.out.println("Second channel:" +channelname1);
 		String channelname2=driver.findElement(By.xpath("//datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ ChannelName_Index +"]/div/span")).getText();
+		System.out.println("Third channel:" +channelname2);
 		
 		//Select Addto favorite option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -845,7 +847,7 @@ public class ChannelViewlet
 		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector("div.g-block-bottom-buttons.buttons-block > button.g-button-blue")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
 		
 		//Get the data from favorite viewlet
 		String Favoritedata=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();

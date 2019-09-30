@@ -42,11 +42,11 @@
         <include name="CreateQueueFromOptions"/>  
         <include name="QueueCommands"/> 
         <include name="QueueProperties"/>
-        <include name="QueueEvents"/> 
+        <include name="QueueEvents"/>  
         <include name="AddToFavoriteViewlet"/> 
          
         <include name="CompareQueues"/> 
-        <include name="ShowQueueStatusForMultipleQueues"/>
+        <include name="ShowQueueStatusForMultipleQueues"/> 
         <include name="MultipleQueueProperties"/> 
         <include name="AddToFavoriteForMultipleQueues"/>
         <include name="SearchFilter"/>

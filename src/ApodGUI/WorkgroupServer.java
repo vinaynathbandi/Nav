@@ -125,11 +125,11 @@ public class WorkgroupServer {
 
 			// Click on Verify
 			driver.findElement(By.xpath("//form/div[2]/button[2]")).click();
-			Thread.sleep(2000);
+			Thread.sleep(6000);
 
 			// Click on submit button
 			driver.findElement(By.cssSelector(".button-blue")).click();
-			Thread.sleep(8000);
+			Thread.sleep(18000);
 
 			// Store the Viewlet data into string
 			String ViewletData = driver.findElement(By.cssSelector("datatable-body.datatable-body")).getText();
@@ -520,14 +520,24 @@ public class WorkgroupServer {
 			Actions Mousehour = new Actions(driver);
 			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Remote Queue Managers...")).click();
-			Thread.sleep(2000);
-
-			// Select the required Queue manager
-			driver.findElement(By.xpath("//td[contains(.,'" + DeleteManagerName + "')]")).click();
+			Thread.sleep(5000);
+			
+			boolean RMQM=driver.findElement(By.xpath("//td[contains(.,'" + DeleteManagerName + "')]")).isEnabled();
+			System.out.println("Status of deleting rmqm is :" +RMQM);
+			if(RMQM)
+			{
+				System.out.println("Deleting remote queue manager is already selected");
+			}
+			else
+			{
+				// Select the required Queue manager
+				driver.findElement(By.xpath("//td[contains(.,'" + DeleteManagerName + "')]")).click();
+				
+			}
 
 			// Click on Delete
-			driver.findElement(By.xpath("//div[3]/button")).click();
-			driver.findElement(By.xpath("//app-mod-confirmation/div/div[2]/div/div/div/button")).click();
+			driver.findElement(By.xpath("//button[contains(.,'Delete')]")).click();
+			driver.findElement(By.id("accept-true")).click();
 			Thread.sleep(8000);
 
 			// Store the Queue managers into string
@@ -553,6 +563,7 @@ public class WorkgroupServer {
 			context.setAttribute("Comment", "Exception occured while Deleting remote Queue manager, Check details: " + e.getMessage());
 			System.out.println("Exception occured when Deleting remote Queue manager");
 			driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
+			driver.findElement(By.id("Delete failed")).click();
 		}
 		Thread.sleep(1000);
 	}
