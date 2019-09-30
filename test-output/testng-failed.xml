@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Browse Message Options(failed)">
-    <parameter name="Dashboardname" value="Queue Inside Messages"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Add a Schema]">
+  <test thread-count="5" name="Add Schema Condition(failed)">
+    <parameter name="Dashboardname" value="Schema"/>
+    <parameter name="wgs" value="0"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="Attribute" value="Manager Name,Usage,Scope,Get Messages"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="MessageData" value="Testing to add the new message into Queue"/>
-    <parameter name="Queuemanager" value="MGR"/>
-    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Browse Messages"/>
-    <parameter name="QueueName" value="Local Queue"/>
     <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="DisplayedAttributesAfterRemovingAttribute" value="In order to create schema atleast one attribute has to be added"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="Total" value="2"/>
+    <parameter name="DisplayedAttributesAfterRemoving" value="In order to create schema atleast one attribute has to be added"/>
+    <parameter name="AttributeName" value="Manager Name"/>
+    <parameter name="AttributeFirstValue" value="Manager Name"/>
+    <parameter name="SchemaName" value="Test Schema"/>
     <classes>
-      <class name="ApodGUI.QueuesInsideBrowseMessages">
+      <class name="ApodGUI.AddSchemaToTheViewlet">
         <methods>
-          <include name="Login" invocation-numbers="0"/>
-          <include name="beforeTest"/>
           <include name="tearDown"/>
+          <include name="Logout"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.QueuesInsideBrowseMessages -->
+      </class> <!-- ApodGUI.AddSchemaToTheViewlet -->
     </classes>
-  </test> <!-- Browse Message Options(failed) -->
-</suite> <!-- Failed suite [Navigator] -->
+  </test> <!-- Add Schema Condition(failed) -->
+</suite> <!-- Failed suite [Add a Schema] -->
