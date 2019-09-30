@@ -112,15 +112,26 @@ public class AddSchemaToTheViewlet
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
 		driver.findElement(By.name("dashboardName")).sendKeys(Dashboardname);
 		
-		//Check box selection
-		driver.findElement(By.id("createInitialViewlets")).click();
-		
-		//Work group server selection
-		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
-		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
-			
+		//Create viewlet button
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(8000);
+		Thread.sleep(2000);
+		
+		//--------- Create Queue viewlet-----------
+		//Click on Viewlet
+		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
+		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
+			
+		//Create Route viewlet
+		driver.findElement(By.cssSelector(".object-type:nth-child(3)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys("LocalQueue");
+		
+		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
+		Thread.sleep(1000);
+		dd.selectByVisibleText(WGSName);
+	
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(1000);
 		
 		if(driver.getPageSource().contains(Dashboardname))
 		{
@@ -220,7 +231,8 @@ public class AddSchemaToTheViewlet
 			context.setAttribute("Status", 1);
 			context.setAttribute("Comment", "Schema is Deleted successfully");
 			
-		}	
+		}
+		Thread.sleep(2000);
 	}
 	
 	@Test(priority=4)
@@ -232,11 +244,11 @@ public class AddSchemaToTheViewlet
 		driver.findElement(By.cssSelector("button.g-btn-blue-style")).click();
 		
 		//Click on Add All button
-		driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button")).click();
-		Thread.sleep(4000);
+		driver.findElement(By.xpath("//button[contains(.,'Add all ')]")).click();
+		Thread.sleep(6000);
 		
 		String AvailableAttributes=driver.findElement(By.xpath("//div[2]/div/table/tbody")).getText();
-		System.out.println(AvailableAttributes);
+		System.out.println("Attributes are: " +AvailableAttributes);
 		
 		if(AvailableAttributes.equalsIgnoreCase(""))
 		{
@@ -485,16 +497,17 @@ public class AddSchemaToTheViewlet
 		}
 		Thread.sleep(1000);
 		
-		//Click on Cancel buttons
-		driver.findElement(By.cssSelector(".btn-danger")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.cssSelector(".g-button-red")).click();
-		Thread.sleep(1000);
 	}
 	
 	@Test(priority=12)
 	public static void Logout() throws InterruptedException
 	{
+		//Click on Cancel buttons
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.cssSelector(".g-button-red")).click();
+		Thread.sleep(1000);
+		
 		//Delete the dashboard 
 		try
 		{

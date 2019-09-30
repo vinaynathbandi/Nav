@@ -78,13 +78,15 @@ public class EMSQueuesInsideOptionsOfBrowse
 		String uname=Settings.getNav_Username();
 		String password=Settings.getNav_Password();
 		
+		String filepath=System.getProperty("user.dir") + "\\" + DownloadPath;
+		
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
 			System.setProperty(sDriver, sDriverpath);
 			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 			chromePrefs.put("profile.default_content_settings.popups", 0);
 			chromePrefs.put("download.prompt_for_download", "false");
-			chromePrefs.put("download.default_directory", DownloadPath);
+			chromePrefs.put("download.default_directory", filepath);
 			ChromeOptions options = new ChromeOptions();
 			options.setExperimentalOption("prefs", chromePrefs);
 			driver=new ChromeDriver(options);
@@ -253,7 +255,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		
 		//Message data
 		//driver.findElement(By.id("encoding-text-9")).click();
-		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
+		driver.findElement(By.xpath("//textarea")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(8000);
 		

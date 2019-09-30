@@ -88,6 +88,8 @@ public class ManagerViewlet
 		String uname=Settings.getNav_Username();
 		String password=Settings.getNav_Password();
 		
+		String filepath=System.getProperty("user.dir") + "\\" + DownloadPath;
+		
 		//Selecting the browser
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
@@ -96,7 +98,7 @@ public class ManagerViewlet
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 		chromePrefs.put("profile.default_content_settings.popups", 0);
 		chromePrefs.put("download.prompt_for_download", "false");
-		chromePrefs.put("download.default_directory", DownloadPath);
+		chromePrefs.put("download.default_directory", filepath);
 		ChromeOptions options = new ChromeOptions();
 		options.setExperimentalOption("prefs", chromePrefs);
 		driver=new ChromeDriver(options);
