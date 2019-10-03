@@ -218,7 +218,7 @@ public class QueueMessages
 		Actions MessagesMousehour=new Actions(driver);
 		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
 		driver.findElement(By.linkText("Put New Message")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 				
 		//Message data
 		//driver.findElement(By.id("encoding-text-9")).click();
@@ -611,7 +611,201 @@ public class QueueMessages
 		
 	}
 	
-	@Test(priority=8)
+	@TestRail(testCaseId = 550)
+	@Test(priority=9)
+	public void PutMessageUsingJsonFile(ITestContext context) throws InterruptedException, AWTException
+	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
+		//Find the queue current depth
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
+		int result = Integer.parseInt(depthbefore);
+		System.out.println(result);
+		
+		//Select put new message Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Put New Message")).click();
+		Thread.sleep(4000);
+		
+		//click on Attache file option
+		driver.findElement(By.xpath("//input[3]")).click();
+		Thread.sleep(3000);
+		
+		//Loading the file into queue by using robot class
+		String filepath=System.getProperty("user.dir") + "\\" + "Screenshots\\Staticimages\\File.json";
+		StringSelection stringSelection = new StringSelection(filepath);
+		//StringSelection stringSelection = new StringSelection(UploadFilepath);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+	    Robot robot = new Robot();
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(8000);
+				
+		
+		driver.findElement(By.id("save-message")).click();
+		Thread.sleep(8000);
+		
+		//verification of message
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
+		int result1 = Integer.parseInt(depthafter);
+		//int Final=result1-1;
+		//System.out.println(Final);
+				
+		//Message increment condition
+		if(!(result1==result))
+		{
+			System.out.println("The Json file is added to the Queue like a message");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Successfully uploaded the json file to queue");
+		}
+		else
+		{
+			System.out.println("The Json file is not added to the Queue like a message");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to add new message to queue");
+			driver.findElement(By.xpath("Condition is Failed")).click();
+		}
+		Thread.sleep(1000);
+	}
+	
+	@TestRail(testCaseId = 551)
+	@Test(priority=10)
+	public void PutMessageUsingXMLFile(ITestContext context) throws InterruptedException, AWTException
+	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
+		//Find the queue current depth
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
+		int result = Integer.parseInt(depthbefore);
+		System.out.println(result);
+		
+		//Select put new message Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Put New Message")).click();
+		Thread.sleep(4000);
+		
+		//click on Attache file option
+		driver.findElement(By.xpath("//input[3]")).click();
+		Thread.sleep(3000);
+		
+		//Loading the file into queue by using robot class
+		String filepath=System.getProperty("user.dir") + "\\" + "Screenshots\\Staticimages\\FileX.xml";
+		StringSelection stringSelection = new StringSelection(filepath);
+		//StringSelection stringSelection = new StringSelection(UploadFilepath);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+	    Robot robot = new Robot();
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(8000);
+				
+		
+		driver.findElement(By.id("save-message")).click();
+		Thread.sleep(8000);
+		
+		//verification of message
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
+		int result1 = Integer.parseInt(depthafter);
+		//int Final=result1-1;
+		//System.out.println(Final);
+				
+		//Message increment condition
+		if(!(result1==result))
+		{
+			System.out.println("The xml file is added to the Queue like a message");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Successfully uploaded the xml file to queue");
+		}
+		else
+		{
+			System.out.println("The xml file is not added to the Queue like a message");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to add new message to queue");
+			driver.findElement(By.xpath("Condition is Failed")).click();
+		}
+		Thread.sleep(1000);
+	}
+	
+	@TestRail(testCaseId = 552)
+	@Parameters({"HexMessageData"})
+	@Test(priority=11)
+	public static void PutHexMessageIntoQueue(String HexMessageData, ITestContext context) throws InterruptedException
+	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
+		
+		//Find the queue current depth
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
+		int result = Integer.parseInt(depthbefore);
+		System.out.println("Before putting hex message: " +result);
+		
+		//Select put new message Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Put New Message")).click();
+		Thread.sleep(4000);
+		
+		//Message data
+		//driver.findElement(By.xpath("//textarea")).click();
+		driver.findElement(By.xpath("//textarea")).sendKeys(HexMessageData);
+		Thread.sleep(2000);
+		
+		//Clickon HEX button
+		driver.findElement(By.xpath("//button[contains(.,'Hex')]")).click();
+		Thread.sleep(2000);
+				
+		//Close the popup window 
+		driver.findElement(By.id("save-message")).click();
+		Thread.sleep(8000);
+		
+		//verification of message
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
+		int result1 = Integer.parseInt(depthafter);
+		int Final=result1-1;
+		System.out.println("After putting hex message: " + Final);
+				
+		//Message increment condition
+		if(Final==result)
+		{
+			System.out.println("The new message was successfully added into the Queue");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "The new message was successfully added to Queue");
+		}
+		else
+		{
+			System.out.println("The new message was not added into the Queue");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to add new message to Queue");
+			driver.findElement(By.xpath("Condition is Failed")).click();
+		}
+	}
+	
+	@Test(priority=20)
 	public static void Logout() throws Exception
 	{
 		try

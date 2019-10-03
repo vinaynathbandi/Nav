@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
+<testng-results skipped="0" failed="1" ignored="11" total="18" passed="6">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -11,61 +11,49 @@
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowInActiveChannelsCheckbox.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTopicViewlet.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowEmptyQueuesCheckbox.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTopic.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowTemporaryDynamicQueues.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAsFromCommands.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowFullNamesForFavoriteShortcuts.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteFromCommands.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[Screenshots/ScreenshotsFailure/PublishFromCommands.png]]>
+    </line>
+    <line>
+      <![CDATA[<br/>Failed to execute method: PublishFromCommands<br/>]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowFullNamesForSearchResultsObjects.png" alt="""/" />]]>
-    </line>
-    <line>
-      <![CDATA[<br/>]]>
-    </line>
-    <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowSystemObjectsOnly.png" alt="""/" />]]>
-    </line>
-    <line>
-      <![CDATA[<br/>]]>
-    </line>
-    <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectSearchresultsFromActiveManagersOnly.png" alt="""/" />]]>
-    </line>
-    <line>
-      <![CDATA[<br/>]]>
-    </line>
-    <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowManagersForDefaultSchemas.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/PublishFromCommands.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="314866" started-at="2019-09-30T11:45:32Z" finished-at="2019-09-30T11:50:47Z">
+  <suite name="Navigator" duration-ms="336520" started-at="2019-10-03T13:02:43Z" finished-at="2019-10-03T13:08:19Z">
     <groups>
     </groups>
-    <test name="Settings" duration-ms="314866" started-at="2019-09-30T11:45:32Z" finished-at="2019-09-30T11:50:47Z">
-      <class name="ApodGUI.NavigatorSettings">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="beforeTest" is-config="true" duration-ms="14" started-at="2019-09-30T11:45:32Z" finished-at="2019-09-30T11:45:32Z">
+    <test name="Test Topic Viewlet" duration-ms="336520" started-at="2019-10-03T13:02:43Z" finished-at="2019-10-03T13:08:19Z">
+      <class name="ApodGUI.TopicViewlet">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="15" started-at="2019-10-03T13:02:43Z" finished-at="2019-10-03T13:02:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="Login" duration-ms="37259" started-at="2019-09-30T11:45:32Z" finished-at="2019-09-30T11:46:09Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="Login" duration-ms="29225" started-at="2019-10-03T13:02:43Z" finished-at="2019-10-03T13:03:12Z">
           <params>
             <param index="0">
               <value>
@@ -79,22 +67,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[Settings Dashboard]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[MQM]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[MQM - 0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[Fav Viewlet]]>
+                <![CDATA[TopicViewlet Verification]]>
               </value>
             </param>
           </params>
@@ -107,121 +80,70 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="422" started-at="2019-09-30T11:46:09Z" finished-at="2019-09-30T11:46:10Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="416" started-at="2019-10-03T13:03:12Z" finished-at="2019-10-03T13:03:13Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=NavigatorSettings.Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=TopicViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowInActiveChannelsCheckbox(org.testng.ITestContext)[pri:1, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowInActiveChannelsCheckbox" duration-ms="9712" started-at="2019-09-30T11:46:10Z" finished-at="2019-09-30T11:46:19Z">
+        <test-method status="PASS" signature="AddTopicViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="AddTopicViewlet" duration-ms="10345" started-at="2019-10-03T13:03:13Z" finished-at="2019-10-03T13:03:23Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowInActiveChannelsCheckbox.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- ShowInActiveChannelsCheckbox -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="11348" started-at="2019-09-30T11:46:30Z" finished-at="2019-09-30T11:46:41Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ShowInActiveChannelsCheckbox status=SUCCESS method=NavigatorSettings.ShowInActiveChannelsCheckbox(org.testng.ITestContext)[pri:1, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowEmptyQueuesCheckbox(org.testng.ITestContext)[pri:2, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowEmptyQueuesCheckbox" duration-ms="9424" started-at="2019-09-30T11:46:41Z" finished-at="2019-09-30T11:46:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowEmptyQueuesCheckbox.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- ShowEmptyQueuesCheckbox -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="11572" started-at="2019-09-30T11:47:01Z" finished-at="2019-09-30T11:47:12Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ShowEmptyQueuesCheckbox status=SUCCESS method=NavigatorSettings.ShowEmptyQueuesCheckbox(org.testng.ITestContext)[pri:2, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowTemporaryDynamicQueues(org.testng.ITestContext)[pri:3, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowTemporaryDynamicQueues" duration-ms="10443" started-at="2019-09-30T11:47:12Z" finished-at="2019-09-30T11:47:23Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowTemporaryDynamicQueues.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- ShowTemporaryDynamicQueues -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="11276" started-at="2019-09-30T11:47:34Z" finished-at="2019-09-30T11:47:45Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ShowTemporaryDynamicQueues status=SUCCESS method=NavigatorSettings.ShowTemporaryDynamicQueues(org.testng.ITestContext)[pri:3, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowFullNamesForFavoriteShortcuts(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowFullNamesForFavoriteShortcuts" duration-ms="16157" started-at="2019-09-30T11:47:45Z" finished-at="2019-09-30T11:48:01Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Fav Viewlet]]>
+                <![CDATA[New Topic Viewlet]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[\\MQM]]>
+                <![CDATA[org.testng.TestRunner@704deff2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTopicViewlet.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AddTopicViewlet -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="12549" started-at="2019-10-03T13:03:34Z" finished-at="2019-10-03T13:03:46Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AddTopicViewlet status=SUCCESS method=TopicViewlet.AddTopicViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TopicViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="CreateTopic(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="CreateTopic" duration-ms="32539" started-at="2019-10-03T13:03:46Z" finished-at="2019-10-03T13:04:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[SYSTEM.DEFAULT.TOPIC.Options]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test the description ]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[\\WGS10]]>
+                <![CDATA[Test]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
+                <![CDATA[org.testng.TestRunner@704deff2]]>
               </value>
             </param>
           </params>
@@ -230,36 +152,41 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowFullNamesForFavoriteShortcuts.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTopic.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- ShowFullNamesForFavoriteShortcuts -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="11324" started-at="2019-09-30T11:48:11Z" finished-at="2019-09-30T11:48:23Z">
+        </test-method> <!-- CreateTopic -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="12735" started-at="2019-10-03T13:04:29Z" finished-at="2019-10-03T13:04:42Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ShowFullNamesForFavoriteShortcuts status=SUCCESS method=NavigatorSettings.ShowFullNamesForFavoriteShortcuts(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
+                <![CDATA[[TestResult name=CreateTopic status=SUCCESS method=TopicViewlet.CreateTopic(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.TopicViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowFullNamesForSearchResultsObjects(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowFullNamesForSearchResultsObjects" duration-ms="9407" started-at="2019-09-30T11:48:23Z" finished-at="2019-09-30T11:48:32Z">
+        <test-method status="PASS" signature="CopyAsFromCommands(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="CopyAsFromCommands" duration-ms="32321" started-at="2019-10-03T13:04:42Z" depends-on-methods="ApodGUI.TopicViewlet.CreateTopic" finished-at="2019-10-03T13:05:14Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[\\MQM]]>
+                <![CDATA[.Copy]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[\\WGS10]]>
+                <![CDATA[SYSTEM.DEFAULT.TOPIC.Options]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
+                <![CDATA[TestCopy]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@704deff2]]>
               </value>
             </param>
           </params>
@@ -268,64 +195,36 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowFullNamesForSearchResultsObjects.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAsFromCommands.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- ShowFullNamesForSearchResultsObjects -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="11586" started-at="2019-09-30T11:48:42Z" finished-at="2019-09-30T11:48:54Z">
+        </test-method> <!-- CopyAsFromCommands -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="12577" started-at="2019-10-03T13:05:25Z" finished-at="2019-10-03T13:05:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ShowFullNamesForSearchResultsObjects status=SUCCESS method=NavigatorSettings.ShowFullNamesForSearchResultsObjects(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
+                <![CDATA[[TestResult name=CopyAsFromCommands status=SUCCESS method=TopicViewlet.CopyAsFromCommands(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.TopicViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowSystemObjectsOnly(org.testng.ITestContext)[pri:6, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowSystemObjectsOnly" duration-ms="10735" started-at="2019-09-30T11:48:54Z" finished-at="2019-09-30T11:49:05Z">
+        <test-method status="PASS" signature="DeleteFromCommands(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="DeleteFromCommands" duration-ms="17592" started-at="2019-10-03T13:05:38Z" depends-on-methods="ApodGUI.TopicViewlet.CopyAsFromCommands" finished-at="2019-10-03T13:05:55Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowSystemObjectsOnly.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- ShowSystemObjectsOnly -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="13186" started-at="2019-09-30T11:49:16Z" finished-at="2019-09-30T11:49:29Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=ShowSystemObjectsOnly status=SUCCESS method=NavigatorSettings.ShowSystemObjectsOnly(org.testng.ITestContext)[pri:6, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowObjectSearchresultsFromActiveManagersOnly(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowObjectSearchresultsFromActiveManagersOnly" duration-ms="12782" started-at="2019-09-30T11:49:29Z" finished-at="2019-09-30T11:49:42Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[TEST]]>
+                <![CDATA[SYSTEM.DEFAULT.TOPIC.Options]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Testing]]>
+                <![CDATA[.Copy]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
+                <![CDATA[org.testng.TestRunner@704deff2]]>
               </value>
             </param>
           </params>
@@ -334,65 +233,174 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectSearchresultsFromActiveManagersOnly.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteFromCommands.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- ShowObjectSearchresultsFromActiveManagersOnly -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="11275" started-at="2019-09-30T11:49:52Z" finished-at="2019-09-30T11:50:04Z">
+        </test-method> <!-- DeleteFromCommands -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="11726" started-at="2019-10-03T13:06:05Z" finished-at="2019-10-03T13:06:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ShowObjectSearchresultsFromActiveManagersOnly status=SUCCESS method=NavigatorSettings.ShowObjectSearchresultsFromActiveManagersOnly(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
+                <![CDATA[[TestResult name=DeleteFromCommands status=SUCCESS method=TopicViewlet.DeleteFromCommands(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.TopicViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowManagersForDefaultSchemas(org.testng.ITestContext)[pri:8, instance:ApodGUI.NavigatorSettings@30a3107a]" name="ShowManagersForDefaultSchemas" duration-ms="11776" started-at="2019-09-30T11:50:04Z" finished-at="2019-09-30T11:50:16Z">
+        <test-method status="FAIL" signature="PublishFromCommands(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="PublishFromCommands" duration-ms="98733" started-at="2019-10-03T13:06:17Z" depends-on-methods="ApodGUI.TopicViewlet.CreateTopic" finished-at="2019-10-03T13:07:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@51549490]]>
+                <![CDATA[SYSTEM.DEFAULT.TOPIC.Options]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test the publish option and sending the message to queue]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Test Property]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Test Property value]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Test.Sub421]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[Test]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[org.testng.TestRunner@704deff2]]>
               </value>
             </param>
           </params>
+          <exception class="org.openqa.selenium.InvalidSelectorException">
+            <message>
+              <![CDATA[invalid selector: Unable to locate an element with the xpath expression Publish failed because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string 'Publish failed' is not a valid XPath expression.
+  (Session info: chrome=77.0.3865.90)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:64123}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 77.0.3865.90, webStorageEnabled: true}
+Session ID: bed87cec7b447b7167cb75bac89b6e86
+*** Element info: {Using=xpath, value=Publish failed}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Publish failed because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string 'Publish failed' is not a valid XPath expression.
+  (Session info: chrome=77.0.3865.90)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.85.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:64123}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 77.0.3865.90, webStorageEnabled: true}
+Session ID: bed87cec7b447b7167cb75bac89b6e86
+*** Element info: {Using=xpath, value=Publish failed}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+at ApodGUI.TopicViewlet.PublishFromCommands(TopicViewlet.java:513)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
           <reporter-output>
+            <line>
+              <![CDATA[<br/>Failed to execute method: PublishFromCommands<br/>]]>
+            </line>
             <line>
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowManagersForDefaultSchemas.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/PublishFromCommands.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- ShowManagersForDefaultSchemas -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="11711" started-at="2019-09-30T11:50:25Z" finished-at="2019-09-30T11:50:37Z">
+        </test-method> <!-- PublishFromCommands -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="11105" started-at="2019-10-03T13:08:06Z" finished-at="2019-10-03T13:08:17Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ShowManagersForDefaultSchemas status=SUCCESS method=NavigatorSettings.ShowManagersForDefaultSchemas(org.testng.ITestContext)[pri:8, instance:ApodGUI.NavigatorSettings@30a3107a] output=<br/>]]]>
+                <![CDATA[[TestResult name=PublishFromCommands status=FAILURE method=TopicViewlet.PublishFromCommands(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.TopicViewlet@33c7e1bb] output=<br/>Failed to execute method: PublishFromCommands<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
+            <line>
+              <![CDATA[Screenshots/ScreenshotsFailure/PublishFromCommands.png]]>
+            </line>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:9, instance:ApodGUI.NavigatorSettings@30a3107a]" name="Logout" duration-ms="9798" started-at="2019-09-30T11:50:37Z" finished-at="2019-09-30T11:50:47Z">
+        <test-method status="PASS" signature="Logout()[pri:20, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="Logout" duration-ms="2454" started-at="2019-10-03T13:08:17Z" finished-at="2019-10-03T13:08:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.NavigatorSettings@30a3107a]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-09-30T11:50:47Z" finished-at="2019-09-30T11:50:47Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TopicViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="1" started-at="2019-10-03T13:08:19Z" finished-at="2019-10-03T13:08:19Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=NavigatorSettings.Logout()[pri:9, instance:ApodGUI.NavigatorSettings@30a3107a] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=TopicViewlet.Logout()[pri:20, instance:ApodGUI.TopicViewlet@33c7e1bb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.NavigatorSettings -->
-    </test> <!-- Settings -->
+      </class> <!-- ApodGUI.TopicViewlet -->
+    </test> <!-- Test Topic Viewlet -->
   </suite> <!-- Navigator -->
 </testng-results>

@@ -307,15 +307,17 @@ public class TopicViewlet
     	
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasTopicName);
+    	Thread.sleep(2000);
     	
-    	//Refresh the viewlet
+    	/*//Refresh the viewlet
     	for(int i=0; i<=2; i++)
     	{
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
-    	Thread.sleep(4000);
-    	}
+    	Thread.sleep(2000);
+    	}*/
+    	Thread.sleep(6000);
     	    	
-    	//Store the viewlet data into string
+    	//Store the viewlet data into string  
     	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println("Viewlet data after copy as: " +Subviewlet);
     	
@@ -396,19 +398,19 @@ public class TopicViewlet
     	Thread.sleep(1000);
 	}
 	
-	@Parameters({"TopicNameFromOptions", "MessageData", "PropertyName", "PropertyValue", "AddSubscriptionName"})
+	@Parameters({"TopicNameFromOptions", "MessageData", "PropertyName", "PropertyValue", "AddSubscriptionName", "TopicUniquestring"})
 	@TestRail(testCaseId=137)
 	@Test(priority=6, dependsOnMethods= {"CreateTopic"})
-	public void PublishFromCommands(String TopicNameFromOptions, String MessageData, String PropertyName, String PropertyValue, String AddSubscriptionName, ITestContext context) throws InterruptedException
+	public void PublishFromCommands(String TopicNameFromOptions, String MessageData, String PropertyName, String PropertyValue, String AddSubscriptionName, String TopicUniquestring, ITestContext context) throws InterruptedException
 	{	
-		this.Addsubscription(AddSubscriptionName, TopicNameFromOptions);
+		this.Addsubscription(AddSubscriptionName, TopicNameFromOptions, TopicUniquestring);
 		
 		//Show Empty queues
     	driver.findElement(By.xpath("//i[3]")).click();
     	driver.findElement(By.xpath("//div[2]/input")).click();
     	Thread.sleep(1000);
     	driver.findElement(By.xpath("//div[3]/button")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(8000);
     	
     	//Search the queue
     	driver.findElement(By.xpath("//input[@type='text']")).clear();
@@ -424,10 +426,10 @@ public class TopicViewlet
     	int result = Integer.parseInt(Queuedepth);
 		System.out.println("Initial depth of the queue: " +result);
 		
-		//Search with subscription name
+		//Search with topic name
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromOptions);
-		Thread.sleep(2000);
+		Thread.sleep(4000);
     	
 		//Select publish From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -465,11 +467,11 @@ public class TopicViewlet
     	//Open the browse messages page and close it
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	driver.findElement(By.linkText("Browse messages")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(4000);
     	
     	//Close the popup page
     	driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(4000);
     	System.out.println("Pop up is closed");
     	//Refresh the queue viewlet
     	/*for(int i=0; i<=6; i++)
@@ -493,9 +495,9 @@ public class TopicViewlet
 		//Restore the settings
     	driver.findElement(By.xpath("//i[3]")).click();
     	driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(4000);
     	driver.findElement(By.xpath("//div[3]/button")).click();
-    	Thread.sleep(1000);
+    	Thread.sleep(6000);
     	
     	if(result!=result1)
     	{
@@ -1233,8 +1235,8 @@ public class TopicViewlet
 	
 	//Create Subscription Viewlet and Add Subscription
 	
-	@Parameters({"AddSubscriptionName", "TopicNameFromOptions"})
-	public void Addsubscription(String AddSubscriptionName, String TopicNameFromOptions) throws InterruptedException
+	@Parameters({"AddSubscriptionName", "TopicNameFromOptions", "TopicUniquestring"})
+	public void Addsubscription(String AddSubscriptionName, String TopicNameFromOptions, String TopicUniquestring) throws InterruptedException
 	{
 		//Search with subscription name
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
@@ -1269,7 +1271,7 @@ public class TopicViewlet
 		
 	    //Click on Save changes button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(2000);
+		Thread.sleep(6000);
 		
 		//Search with the manager name
 		driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(ManagerName);
@@ -1292,11 +1294,11 @@ public class TopicViewlet
 		{
 			driver.findElement(By.id("topicName")).click();
 			List<WebElement> Topic=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Topic.size());	
+			//System.out.println(Topic.size());	
 			for (int i=0; i<Topic.size();i++)
 			{
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
+				//System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
 				String s=Topic.get(i).getText();
 				if(s.equals(TopicNameFromOptions))
 				{
@@ -1313,10 +1315,12 @@ public class TopicViewlet
 		Thread.sleep(1000);
 		
 		//Give the Topic String
-		//driver.findElement(By.id("topicString")).sendKeys(TopicStringData);
+		driver.findElement(By.id("topicString")).sendKeys(TopicUniquestring);
+		Thread.sleep(3000);
 		
 		//Click on Destination tab
 		driver.findElement(By.linkText("Destination")).click();
+		Thread.sleep(4000);
 		
 		//Select WGS name
 		Select DestinationWGS=new Select(driver.findElement(By.id("destinationGMName")));
@@ -1331,11 +1335,11 @@ public class TopicViewlet
 		{
 			driver.findElement(By.id("destinationNodeName")).click();
 			List<WebElement> Node=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Node.size());	
+			//System.out.println(Node.size());	
 			for (int i=0; i<Node.size();i++)
 			{
-				System.out.println("Radio button text:" + Node.get(i).getText());
-				System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
+				//System.out.println("Radio button text:" + Node.get(i).getText());
+			//	System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
 				String s=Node.get(i).getText();
 				if(s.equals(Dnode))
 				{
@@ -1349,18 +1353,18 @@ public class TopicViewlet
 		{
 			ex.printStackTrace();
 		}
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Select Manager value
 		try 
 		{
 			driver.findElement(By.id("destinationQMName")).click();
 			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Manager.size());	
+			//System.out.println(Manager.size());	
 			for (int i=0; i<Manager.size();i++)
 			{
 				//System.out.println("Radio button text:" + Manager.get(i).getText());
-				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
+			//	System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
 				String s=Manager.get(i).getText();
 				if(s.equals(DestinationManager))
 				{
@@ -1374,17 +1378,18 @@ public class TopicViewlet
 		{
 			ex.printStackTrace();
 		}
+		Thread.sleep(3000);
 		
 		//Select Queue name
 		try 
 		{
 			driver.findElement(By.id("destinationQName")).click();
 			List<WebElement> QueueName=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(QueueName.size());	
+			//System.out.println(QueueName.size());	
 			for (int i=0; i<QueueName.size();i++)
 			{
 				//System.out.println("Radio button text:" + QueueName.get(i).getText());
-				System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
+				//System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
 				String s=QueueName.get(i).getText();
 				if(s.equals(DestinationQueue))
 				{
@@ -1402,7 +1407,7 @@ public class TopicViewlet
 		
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(4000);
+    	Thread.sleep(8000);
     	
     	try
     	{

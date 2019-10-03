@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Navigator">
-              <span class="suite-name border-passed">Navigator</span>
+              <span class="suite-name border-failed">Navigator</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Navigator">
-                    <span>C:\Users\Nagaraju.kagitala\git\TestNav\Nav\NavigatorSettings.xml</span>
+                    <span>C:\Users\Nagaraju.kagitala\git\TestNav\Nav\Topic.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">10 methods,   10 passed</span>
+                    <span class="method-stats">7 methods, 1 failed,   6 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Navigator" class="hide-methods failed suite-Navigator"> (hide)</a> <!-- hide-methods failed suite-Navigator -->
+                      <a href="#" panel-name="suite-Navigator" class="show-methods failed suite-Navigator"> (show)</a> <!-- show-methods failed suite-Navigator -->
+                    </span>
+                    <div class="method-list-content failed suite-Navigator">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.TopicViewlet" hash-for-method="PublishFromCommands(SYSTEM.DEFAULT.TOPIC.Options, Test the publish option and sending the message to queue, Test Propert...)">PublishFromCommands(SYSTEM.DEFAULT.TOPIC.Options, Test the publish option and sending the message to queue, Test Propert...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Navigator -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,52 +116,32 @@
                     <div class="method-list-content passed suite-Navigator">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Settings Dashboard, MQM, MQM - 0, Fav Viewlet)">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Settings Dashboard, MQM, MQM - 0, Fav Viewlet)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.TopicViewlet" hash-for-method="AddTopicViewlet(New Topic Viewlet, org.testng.TestRunner@704deff2)">AddTopicViewlet(New Topic Viewlet, org.testng.TestRunner@704deff2)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="Logout">Logout</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.TopicViewlet" hash-for-method="CopyAsFromCommands(.Copy, SYSTEM.DEFAULT.TOPIC.Options, TestCopy, org.testng.TestRunner@704deff2)">CopyAsFromCommands(.Copy, SYSTEM.DEFAULT.TOPIC.Options, TestCopy, org.testng.TestRunner@704deff2)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowEmptyQueuesCheckbox(org.testng.TestRunner@51549490)">ShowEmptyQueuesCheckbox(org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.TopicViewlet" hash-for-method="CreateTopic(SYSTEM.DEFAULT.TOPIC.Options, Test the description , Test, org.testng.TestRunner@704deff2)">CreateTopic(SYSTEM.DEFAULT.TOPIC.Options, Test the description , Test, org.testng.TestRunner@704deff2)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowFullNamesForFavoriteShortcuts(Fav Viewlet, \\MQM, \\WGS10, org.testng.TestRunner@51549490)">ShowFullNamesForFavoriteShortcuts(Fav Viewlet, \\MQM, \\WGS10, org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.TopicViewlet" hash-for-method="DeleteFromCommands(SYSTEM.DEFAULT.TOPIC.Options, .Copy, org.testng.TestRunner@704deff2)">DeleteFromCommands(SYSTEM.DEFAULT.TOPIC.Options, .Copy, org.testng.TestRunner@704deff2)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowFullNamesForSearchResultsObjects(\\MQM, \\WGS10, org.testng.TestRunner@51549490)">ShowFullNamesForSearchResultsObjects(\\MQM, \\WGS10, org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.TopicViewlet" hash-for-method="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification)">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowInActiveChannelsCheckbox(org.testng.TestRunner@51549490)">ShowInActiveChannelsCheckbox(org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowManagersForDefaultSchemas(org.testng.TestRunner@51549490)">ShowManagersForDefaultSchemas(org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowObjectSearchresultsFromActiveManagersOnly(TEST, Testing, org.testng.TestRunner@51549490)">ShowObjectSearchresultsFromActiveManagersOnly(TEST, Testing, org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowSystemObjectsOnly(org.testng.TestRunner@51549490)">ShowSystemObjectsOnly(org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.NavigatorSettings" hash-for-method="ShowTemporaryDynamicQueues(org.testng.TestRunner@51549490)">ShowTemporaryDynamicQueues(org.testng.TestRunner@51549490)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Navigator" title="ApodGUI.TopicViewlet" hash-for-method="Logout">Logout</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Navigator -->
@@ -162,18 +156,93 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Navigator" class="panel Navigator">
-          <div class="suite-Navigator-class-passed">
+          <div class="suite-Navigator-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">ApodGUI.NavigatorSettings</span>
+              <img src="failed.png"/>
+              <span class="class-name">ApodGUI.TopicViewlet</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Settings Dashboard, MQM, MQM - 0, Fav Viewlet)">
-                  </a> <!-- Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Settings Dashboard, MQM, MQM - 0, Fav Viewlet) -->
+                  <a name="PublishFromCommands(SYSTEM.DEFAULT.TOPIC.Options, Test the publish option and sending the message to queue, Test Propert...)">
+                  </a> <!-- PublishFromCommands(SYSTEM.DEFAULT.TOPIC.Options, Test the publish option and sending the message to queue, Test Propert...) -->
+                  <span class="method-name">PublishFromCommands</span>
+                  <span class="parameters">(SYSTEM.DEFAULT.TOPIC.Options, Test the publish option and sending the message to queue, Test Property, Test Property value, Test.Sub421, Test, org.testng.TestRunner@704deff2)</span>
+                  <div class="stack-trace">org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Publish failed because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Publish failed&apos; is not a valid XPath expression.
+  (Session info: chrome=77.0.3865.90)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:64123}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 77.0.3865.90, webStorageEnabled: true}
+Session ID: bed87cec7b447b7167cb75bac89b6e86
+*** Element info: {Using=xpath, value=Publish failed}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.TopicViewlet.PublishFromCommands(TopicViewlet.java:513)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Navigator-class-failed -->
+          <div class="suite-Navigator-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">ApodGUI.TopicViewlet</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="AddTopicViewlet(New Topic Viewlet, org.testng.TestRunner@704deff2)">
+                  </a> <!-- AddTopicViewlet(New Topic Viewlet, org.testng.TestRunner@704deff2) -->
+                  <span class="method-name">AddTopicViewlet</span>
+                  <span class="parameters">(New Topic Viewlet, org.testng.TestRunner@704deff2)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="CopyAsFromCommands(.Copy, SYSTEM.DEFAULT.TOPIC.Options, TestCopy, org.testng.TestRunner@704deff2)">
+                  </a> <!-- CopyAsFromCommands(.Copy, SYSTEM.DEFAULT.TOPIC.Options, TestCopy, org.testng.TestRunner@704deff2) -->
+                  <span class="method-name">CopyAsFromCommands</span>
+                  <span class="parameters">(.Copy, SYSTEM.DEFAULT.TOPIC.Options, TestCopy, org.testng.TestRunner@704deff2)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="CreateTopic(SYSTEM.DEFAULT.TOPIC.Options, Test the description , Test, org.testng.TestRunner@704deff2)">
+                  </a> <!-- CreateTopic(SYSTEM.DEFAULT.TOPIC.Options, Test the description , Test, org.testng.TestRunner@704deff2) -->
+                  <span class="method-name">CreateTopic</span>
+                  <span class="parameters">(SYSTEM.DEFAULT.TOPIC.Options, Test the description , Test, org.testng.TestRunner@704deff2)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="DeleteFromCommands(SYSTEM.DEFAULT.TOPIC.Options, .Copy, org.testng.TestRunner@704deff2)">
+                  </a> <!-- DeleteFromCommands(SYSTEM.DEFAULT.TOPIC.Options, .Copy, org.testng.TestRunner@704deff2) -->
+                  <span class="method-name">DeleteFromCommands</span>
+                  <span class="parameters">(SYSTEM.DEFAULT.TOPIC.Options, .Copy, org.testng.TestRunner@704deff2)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Login(webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification)">
+                  </a> <!-- Login(webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification) -->
                   <span class="method-name">Login</span>
-                  <span class="parameters">(webdriver.chrome.driver, Drivers/chromedriver.exe, Settings Dashboard, MQM, MQM - 0, Fav Viewlet)</span>
+                  <span class="parameters">(webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -183,115 +252,72 @@
                   <span class="method-name">Logout</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowEmptyQueuesCheckbox(org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowEmptyQueuesCheckbox(org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowEmptyQueuesCheckbox</span>
-                  <span class="parameters">(org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowFullNamesForFavoriteShortcuts(Fav Viewlet, \\MQM, \\WGS10, org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowFullNamesForFavoriteShortcuts(Fav Viewlet, \\MQM, \\WGS10, org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowFullNamesForFavoriteShortcuts</span>
-                  <span class="parameters">(Fav Viewlet, \\MQM, \\WGS10, org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowFullNamesForSearchResultsObjects(\\MQM, \\WGS10, org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowFullNamesForSearchResultsObjects(\\MQM, \\WGS10, org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowFullNamesForSearchResultsObjects</span>
-                  <span class="parameters">(\\MQM, \\WGS10, org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowInActiveChannelsCheckbox(org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowInActiveChannelsCheckbox(org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowInActiveChannelsCheckbox</span>
-                  <span class="parameters">(org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowManagersForDefaultSchemas(org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowManagersForDefaultSchemas(org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowManagersForDefaultSchemas</span>
-                  <span class="parameters">(org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowObjectSearchresultsFromActiveManagersOnly(TEST, Testing, org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowObjectSearchresultsFromActiveManagersOnly(TEST, Testing, org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowObjectSearchresultsFromActiveManagersOnly</span>
-                  <span class="parameters">(TEST, Testing, org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowSystemObjectsOnly(org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowSystemObjectsOnly(org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowSystemObjectsOnly</span>
-                  <span class="parameters">(org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="ShowTemporaryDynamicQueues(org.testng.TestRunner@51549490)">
-                  </a> <!-- ShowTemporaryDynamicQueues(org.testng.TestRunner@51549490) -->
-                  <span class="method-name">ShowTemporaryDynamicQueues</span>
-                  <span class="parameters">(org.testng.TestRunner@51549490)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Navigator-class-passed -->
         </div> <!-- panel Navigator -->
         <div panel-name="test-xml-Navigator" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Nagaraju.kagitala\git\TestNav\Nav\NavigatorSettings.xml</span>
+            <span class="header-content">C:\Users\Nagaraju.kagitala\git\TestNav\Nav\Topic.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Navigator&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Settings&quot;&gt;
-    &lt;parameter name=&quot;Dashboardname&quot; value=&quot;Settings Dashboard&quot;/&gt;
-    &lt;parameter name=&quot;wgs&quot; value=&quot;MQM&quot;/&gt;
-    &lt;parameter name=&quot;uname&quot; value=&quot;Admin&quot;/&gt;
-    &lt;parameter name=&quot;sDriverpath&quot; value=&quot;Drivers/chromedriver.exe&quot;/&gt;
-    &lt;parameter name=&quot;objpath2&quot; value=&quot;\\WGS10&quot;/&gt;
-    &lt;parameter name=&quot;FavoriteViewletName&quot; value=&quot;Fav Viewlet&quot;/&gt;
-    &lt;parameter name=&quot;Favwgs&quot; value=&quot;MQM - 0&quot;/&gt;
-    &lt;parameter name=&quot;objpath1&quot; value=&quot;\\MQM&quot;/&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test Topic Viewlet&quot;&gt;
+    &lt;parameter name=&quot;Dashboardname&quot; value=&quot;TopicViewlet Verification&quot;/&gt;
+    &lt;parameter name=&quot;PropertyNameForMultiple&quot; value=&quot;Test&quot;/&gt;
+    &lt;parameter name=&quot;Description&quot; value=&quot;Test the description &quot;/&gt;
+    &lt;parameter name=&quot;NodeName&quot; value=&quot;DESKTOP-E1JT2VR&quot;/&gt;
+    &lt;parameter name=&quot;DescriptionFromIcon&quot; value=&quot;Description&quot;/&gt;
+    &lt;parameter name=&quot;Attributes&quot; value=&quot;Topic Name,Topic Description,Topic String,Inhibit Publications,Inhibit Subscriptions,Durable Subscriptions,Default Priority,Default Persistence,Default Put Response Type,Durable Model Queue,Non-durable Model Queue,Non-Persistent Msg Delivery,Persistent Msg Delivery,Wildcard Operation,Communication information name,Proxy Subscriptions,Publication Scope,Subscription Scope,Use Dead Letter Queue,Topic Type,Cluster Name,Hosting Queue Manager&quot;/&gt;
+    &lt;parameter name=&quot;FavoriteViewletName&quot; value=&quot;Favorite Viewlet for Topic&quot;/&gt;
+    &lt;parameter name=&quot;Favwgs&quot; value=&quot;1&quot;/&gt;
+    &lt;parameter name=&quot;TopicUniquestringFromICon&quot; value=&quot;UniqueName1&quot;/&gt;
+    &lt;parameter name=&quot;schemaName&quot; value=&quot;TopicSchema&quot;/&gt;
+    &lt;parameter name=&quot;CopyObjectName&quot; value=&quot;.Copy&quot;/&gt;
+    &lt;parameter name=&quot;TopicNameFromIcon&quot; value=&quot;SYSTEM.DEFAULT.TOPIC.Icon&quot;/&gt;
     &lt;parameter name=&quot;URL&quot; value=&quot;/navigator/#/login&quot;/&gt;
     &lt;parameter name=&quot;password&quot; value=&quot;admin&quot;/&gt;
-    &lt;parameter name=&quot;Manager4&quot; value=&quot;Testing&quot;/&gt;
+    &lt;parameter name=&quot;TopicNameFromOptions&quot; value=&quot;SYSTEM.DEFAULT.TOPIC.Options&quot;/&gt;
     &lt;parameter name=&quot;sDriver&quot; value=&quot;webdriver.chrome.driver&quot;/&gt;
-    &lt;parameter name=&quot;Manager3&quot; value=&quot;TEST&quot;/&gt;
-    &lt;parameter name=&quot;Manager2&quot; value=&quot;MGR&quot;/&gt;
-    &lt;parameter name=&quot;Manager1&quot; value=&quot;M10&quot;/&gt;
+    &lt;parameter name=&quot;TopicUniquestring&quot; value=&quot;Test&quot;/&gt;
+    &lt;parameter name=&quot;DestinationQueue&quot; value=&quot;AAA.LQ&quot;/&gt;
+    &lt;parameter name=&quot;AddSubscriptionNameforMultiple&quot; value=&quot;Test.Multiple.Sub421&quot;/&gt;
+    &lt;parameter name=&quot;MultipleDescription&quot; value=&quot;Test Multiple Topics Description&quot;/&gt;
+    &lt;parameter name=&quot;DWGS&quot; value=&quot;WGS10&quot;/&gt;
+    &lt;parameter name=&quot;MessageDataForMultiple&quot; value=&quot;Add Message into the destination queue&quot;/&gt;
+    &lt;parameter name=&quot;PropertyName&quot; value=&quot;Test Property&quot;/&gt;
+    &lt;parameter name=&quot;wgs&quot; value=&quot;1&quot;/&gt;
+    &lt;parameter name=&quot;uname&quot; value=&quot;Admin&quot;/&gt;
+    &lt;parameter name=&quot;DestinationManager&quot; value=&quot;M10&quot;/&gt;
+    &lt;parameter name=&quot;sDriverpath&quot; value=&quot;Drivers/chromedriver.exe&quot;/&gt;
+    &lt;parameter name=&quot;MessageData&quot; value=&quot;Test the publish option and sending the message to queue&quot;/&gt;
+    &lt;parameter name=&quot;PropertyValue&quot; value=&quot;Test Property value&quot;/&gt;
+    &lt;parameter name=&quot;DestinationTopicName&quot; value=&quot;SYSTEM.ADMIN.TOPIC&quot;/&gt;
+    &lt;parameter name=&quot;TopicUniquestringForMultipleCopy&quot; value=&quot;UniqueNameCopy&quot;/&gt;
+    &lt;parameter name=&quot;CopyObjectNameForMultiple&quot; value=&quot;TOPIC.COPY.MULTIPLE&quot;/&gt;
+    &lt;parameter name=&quot;Communicationinfo&quot; value=&quot;Test Communication&quot;/&gt;
+    &lt;parameter name=&quot;PropertyValueForMultiple&quot; value=&quot;Test&quot;/&gt;
+    &lt;parameter name=&quot;WGSName&quot; value=&quot;WGS10 - 1&quot;/&gt;
+    &lt;parameter name=&quot;AddSubscriptionName&quot; value=&quot;Test.Sub421&quot;/&gt;
+    &lt;parameter name=&quot;Dnode&quot; value=&quot;DESKTOP-E1JT2VR&quot;/&gt;
+    &lt;parameter name=&quot;TopicUniquestringForCopyAs&quot; value=&quot;TestCopy&quot;/&gt;
+    &lt;parameter name=&quot;Topicname&quot; value=&quot;New Topic Viewlet&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;ApodGUI.NavigatorSettings&quot;&gt;
+      &lt;class name=&quot;ApodGUI.TopicViewlet&quot;&gt;
         &lt;methods&gt;
           &lt;include name=&quot;Login&quot;/&gt;
-          &lt;include name=&quot;ShowInActiveChannelsCheckbox&quot;/&gt;
-          &lt;include name=&quot;ShowEmptyQueuesCheckbox&quot;/&gt;
-          &lt;include name=&quot;ShowTemporaryDynamicQueues&quot;/&gt;
-          &lt;include name=&quot;ShowFullNamesForFavoriteShortcuts&quot;/&gt;
-          &lt;include name=&quot;ShowFullNamesForSearchResultsObjects&quot;/&gt;
-          &lt;include name=&quot;ShowSystemObjectsOnly&quot;/&gt;
-          &lt;include name=&quot;ShowObjectSearchresultsFromActiveManagersOnly&quot;/&gt;
-          &lt;include name=&quot;ShowManagersForDefaultSchemas&quot;/&gt;
+          &lt;include name=&quot;AddTopicViewlet&quot;/&gt;
+          &lt;include name=&quot;CreateTopic&quot;/&gt;
+          &lt;include name=&quot;CopyAsFromCommands&quot;/&gt;
+          &lt;include name=&quot;DeleteFromCommands&quot;/&gt;
+          &lt;include name=&quot;PublishFromCommands&quot;/&gt;
           &lt;include name=&quot;Logout&quot;/&gt;
         &lt;/methods&gt;
-      &lt;/class&gt; &lt;!-- ApodGUI.NavigatorSettings --&gt;
+      &lt;/class&gt; &lt;!-- ApodGUI.TopicViewlet --&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Settings --&gt;
+  &lt;/test&gt; &lt;!-- Test Topic Viewlet --&gt;
 &lt;/suite&gt; &lt;!-- Navigator --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -303,7 +329,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Settings (1 class)</span>
+                <span class="test-name">Test Topic Viewlet (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -329,52 +355,40 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(10);
+data.addRows(7);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Login')
-data.setCell(0, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(0, 3, 37259);
+data.setCell(0, 1, 'PublishFromCommands')
+data.setCell(0, 2, 'ApodGUI.TopicViewlet')
+data.setCell(0, 3, 98733);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ShowFullNamesForFavoriteShortcuts')
-data.setCell(1, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(1, 3, 16157);
+data.setCell(1, 1, 'CreateTopic')
+data.setCell(1, 2, 'ApodGUI.TopicViewlet')
+data.setCell(1, 3, 32539);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'ShowObjectSearchresultsFromActiveManagersOnly')
-data.setCell(2, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(2, 3, 12782);
+data.setCell(2, 1, 'CopyAsFromCommands')
+data.setCell(2, 2, 'ApodGUI.TopicViewlet')
+data.setCell(2, 3, 32321);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'ShowManagersForDefaultSchemas')
-data.setCell(3, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(3, 3, 11776);
+data.setCell(3, 1, 'Login')
+data.setCell(3, 2, 'ApodGUI.TopicViewlet')
+data.setCell(3, 3, 29225);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'ShowSystemObjectsOnly')
-data.setCell(4, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(4, 3, 10735);
+data.setCell(4, 1, 'DeleteFromCommands')
+data.setCell(4, 2, 'ApodGUI.TopicViewlet')
+data.setCell(4, 3, 17592);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'ShowTemporaryDynamicQueues')
-data.setCell(5, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(5, 3, 10443);
+data.setCell(5, 1, 'AddTopicViewlet')
+data.setCell(5, 2, 'ApodGUI.TopicViewlet')
+data.setCell(5, 3, 10345);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'Logout')
-data.setCell(6, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(6, 3, 9798);
-data.setCell(7, 0, 7)
-data.setCell(7, 1, 'ShowInActiveChannelsCheckbox')
-data.setCell(7, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(7, 3, 9712);
-data.setCell(8, 0, 8)
-data.setCell(8, 1, 'ShowEmptyQueuesCheckbox')
-data.setCell(8, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(8, 3, 9424);
-data.setCell(9, 0, 9)
-data.setCell(9, 1, 'ShowFullNamesForSearchResultsObjects')
-data.setCell(9, 2, 'ApodGUI.NavigatorSettings')
-data.setCell(9, 3, 9407);
+data.setCell(6, 2, 'ApodGUI.TopicViewlet')
+data.setCell(6, 3, 2454);
 window.suiteTableData['Navigator']= { tableData: data, tableDiv: 'times-div-Navigator'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 2 minutes</span>
+              <span class="suite-total-time">Total running time: 3 minutes</span>
               <div id="times-div-Navigator">
               </div> <!-- times-div-Navigator -->
             </div> <!-- times-div -->
@@ -386,75 +400,82 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowManagersForDefaultSchemas(org.testng.TestRunner@51549490)</span>
+              <span class="reporter-method-name">AddTopicViewlet(New Topic Viewlet, org.testng.TestRunner@704deff2)</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowManagersForDefaultSchemas.png" alt="""/" /></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTopicViewlet.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowSystemObjectsOnly(org.testng.TestRunner@51549490)</span>
+              <span class="reporter-method-name">DeleteFromCommands(SYSTEM.DEFAULT.TOPIC.Options, .Copy, org.testng.TestRunner@704deff2)</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowSystemObjectsOnly.png" alt="""/" /></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteFromCommands.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowObjectSearchresultsFromActiveManagersOnly(TEST, Testing, org.testng.TestRunner@51549490)</span>
+              <span class="reporter-method-name">CopyAsFromCommands(.Copy, SYSTEM.DEFAULT.TOPIC.Options, TestCopy, org.testng.TestRunner@704deff2)</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectSearchresultsFromActiveManagersOnly.png" alt="""/" /></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAsFromCommands.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowTemporaryDynamicQueues(org.testng.TestRunner@51549490)</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowTemporaryDynamicQueues.png" alt="""/" /></span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowFullNamesForFavoriteShortcuts(Fav Viewlet, \\MQM, \\WGS10, org.testng.TestRunner@51549490)</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowFullNamesForFavoriteShortcuts.png" alt="""/" /></span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowInActiveChannelsCheckbox(org.testng.TestRunner@51549490)</span>
-              <div class="reporter-method-output-div">
-                <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowInActiveChannelsCheckbox.png" alt="""/" /></span>
-              </div> <!-- reporter-method-output-div -->
-            </div> <!-- reporter-method-div -->
-            <div class="reporter-method-div">
-              <span class="reporter-method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Settings Dashboard, MQM, MQM - 0, Fav Viewlet)</span>
+              <span class="reporter-method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification)</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output"><br/></span>
                 <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowFullNamesForSearchResultsObjects(\\MQM, \\WGS10, org.testng.TestRunner@51549490)</span>
+              <span class="reporter-method-name">CreateTopic(SYSTEM.DEFAULT.TOPIC.Options, Test the description , Test, org.testng.TestRunner@704deff2)</span>
               <div class="reporter-method-output-div">
                 <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowFullNamesForSearchResultsObjects.png" alt="""/" /></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTopic.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
             <div class="reporter-method-div">
-              <span class="reporter-method-name">ShowEmptyQueuesCheckbox(org.testng.TestRunner@51549490)</span>
+              <span class="reporter-method-name">PublishFromCommands(SYSTEM.DEFAULT.TOPIC.Options, Test the publish option and sending the message to queue, Test Propert...)</span>
               <div class="reporter-method-output-div">
+                <span class="reporter-method-output"><br/>Failed to execute method: PublishFromCommands<br/></span>
                 <span class="reporter-method-output"><br/></span>
-                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowEmptyQueuesCheckbox.png" alt="""/" /></span>
+                <span class="reporter-method-output"><img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/PublishFromCommands.png" alt="""/" /></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Navigator" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">11 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">ApodGUI.TopicViewlet</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">DeleteFromCommandsForMultipleTopics</span>
+                <br/>
+                <span class="ignored-method-name">PublishFromCommandsForMultipleTopics</span>
+                <br/>
+                <span class="ignored-method-name">CompareTopics</span>
+                <br/>
+                <span class="ignored-method-name">AddToFavoriteViewlet</span>
+                <br/>
+                <span class="ignored-method-name">CreateTopicFromPlusIcon</span>
+                <br/>
+                <span class="ignored-method-name">TopicProperties</span>
+                <br/>
+                <span class="ignored-method-name">CopyAsFromCommandsForMultipleTopics</span>
+                <br/>
+                <span class="ignored-method-name">AddToFavoriteForMultipleTopics</span>
+                <br/>
+                <span class="ignored-method-name">ShowObjectAttributesForTopic</span>
+                <br/>
+                <span class="ignored-method-name">MultipleProperties</span>
+                <br/>
+                <span class="ignored-method-name">TopicEvents</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Navigator" class="panel">
@@ -463,90 +484,68 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">ApodGUI.NavigatorSettings</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">ApodGUI.TopicViewlet</div> <!-- chronological-class-name -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, Settings Dashboard, MQM, MQM - 0, Fav Viewlet)</span>
-                <span class="method-start">30 ms</span>
+                <span class="method-name">Login(webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification)</span>
+                <span class="method-start">31 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=Login status=SUCCESS method=NavigatorSettings.Login(java.lang.String, java.lang.Str...)</span>
-                <span class="method-start">37291 ms</span>
+                <span class="method-name">tearDown([TestResult name=Login status=SUCCESS method=TopicViewlet.Login(java.lang.String, java.lang.String, ...)</span>
+                <span class="method-start">29258 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">ShowInActiveChannelsCheckbox(org.testng.TestRunner@51549490)</span>
-                <span class="method-start">37715 ms</span>
+                <span class="method-name">AddTopicViewlet(New Topic Viewlet, org.testng.TestRunner@704deff2)</span>
+                <span class="method-start">29676 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowInActiveChannelsCheckbox status=SUCCESS method=NavigatorSettings.ShowInActiveCh...)</span>
-                <span class="method-start">58136 ms</span>
+                <span class="method-name">tearDown([TestResult name=AddTopicViewlet status=SUCCESS method=TopicViewlet.AddTopicViewlet(java.lang.String...)</span>
+                <span class="method-start">50916 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">ShowEmptyQueuesCheckbox(org.testng.TestRunner@51549490)</span>
-                <span class="method-start">69486 ms</span>
+                <span class="method-name">CreateTopic(SYSTEM.DEFAULT.TOPIC.Options, Test the description , Test, org.testng.TestRunner@704deff2)</span>
+                <span class="method-start">63466 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowEmptyQueuesCheckbox status=SUCCESS method=NavigatorSettings.ShowEmptyQueuesChec...)</span>
-                <span class="method-start">88839 ms</span>
+                <span class="method-name">tearDown([TestResult name=CreateTopic status=SUCCESS method=TopicViewlet.CreateTopic(java.lang.String, java.l...)</span>
+                <span class="method-start">106468 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">ShowTemporaryDynamicQueues(org.testng.TestRunner@51549490)</span>
-                <span class="method-start">100412 ms</span>
+                <span class="method-name">CopyAsFromCommands(.Copy, SYSTEM.DEFAULT.TOPIC.Options, TestCopy, org.testng.TestRunner@704deff2)</span>
+                <span class="method-start">119205 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowTemporaryDynamicQueues status=SUCCESS method=NavigatorSettings.ShowTemporaryDyn...)</span>
-                <span class="method-start">121608 ms</span>
+                <span class="method-name">tearDown([TestResult name=CopyAsFromCommands status=SUCCESS method=TopicViewlet.CopyAsFromCommands(java.lang....)</span>
+                <span class="method-start">162118 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">ShowFullNamesForFavoriteShortcuts(Fav Viewlet, \\MQM, \\WGS10, org.testng.TestRunner@51549490)</span>
-                <span class="method-start">132886 ms</span>
+                <span class="method-name">DeleteFromCommands(SYSTEM.DEFAULT.TOPIC.Options, .Copy, org.testng.TestRunner@704deff2)</span>
+                <span class="method-start">174695 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowFullNamesForFavoriteShortcuts status=SUCCESS method=NavigatorSettings.ShowFullN...)</span>
-                <span class="method-start">159372 ms</span>
+                <span class="method-name">tearDown([TestResult name=DeleteFromCommands status=SUCCESS method=TopicViewlet.DeleteFromCommands(java.lang....)</span>
+                <span class="method-start">202279 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">ShowFullNamesForSearchResultsObjects(\\MQM, \\WGS10, org.testng.TestRunner@51549490)</span>
-                <span class="method-start">170698 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">PublishFromCommands(SYSTEM.DEFAULT.TOPIC.Options, Test the publish option and sending the message to queue, Test Propert...)</span>
+                <span class="method-start">214007 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowFullNamesForSearchResultsObjects status=SUCCESS method=NavigatorSettings.ShowFu...)</span>
-                <span class="method-start">190402 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">ShowSystemObjectsOnly(org.testng.TestRunner@51549490)</span>
-                <span class="method-start">201988 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowSystemObjectsOnly status=SUCCESS method=NavigatorSettings.ShowSystemObjectsOnly...)</span>
-                <span class="method-start">223590 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">ShowObjectSearchresultsFromActiveManagersOnly(TEST, Testing, org.testng.TestRunner@51549490)</span>
-                <span class="method-start">236776 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowObjectSearchresultsFromActiveManagersOnly status=SUCCESS method=NavigatorSettin...)</span>
-                <span class="method-start">260488 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">ShowManagersForDefaultSchemas(org.testng.TestRunner@51549490)</span>
-                <span class="method-start">271763 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=ShowManagersForDefaultSchemas status=SUCCESS method=NavigatorSettings.ShowManagersF...)</span>
-                <span class="method-start">293352 ms</span>
+                <span class="method-name">tearDown([TestResult name=PublishFromCommands status=FAILURE method=TopicViewlet.PublishFromCommands(java.lan...)</span>
+                <span class="method-start">322954 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">Logout</span>
-                <span class="method-start">305063 ms</span>
+                <span class="method-start">334060 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=Logout status=SUCCESS method=NavigatorSettings.Logout()[pri:9, instance:ApodGUI.Nav...)</span>
-                <span class="method-start">314862 ms</span>
+                <span class="method-name">tearDown([TestResult name=Logout status=SUCCESS method=TopicViewlet.Logout()[pri:20, instance:ApodGUI.TopicVi...)</span>
+                <span class="method-start">336515 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

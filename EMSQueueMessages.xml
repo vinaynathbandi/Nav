@@ -14,6 +14,7 @@
     <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Main"/>
     <parameter name="MessageData" value="Put the message from Main options"/>
+    <parameter name="HexMessageData" value="10C20000E0A5E6F6FDFFE0AEE00FE6FCFDFFE6FD93"/>
       
      <classes>
       <class name="ApodGUI.EMSQueueMessages">
@@ -28,6 +29,9 @@
         <include name="MoveAllMessagesFromOneQueueToAnotherQueue"/> 
         <include name="DeleteAllMessagesFromQueue"/>   
         <include name="ClearAllMessagesFromQueue"/>  
+        <include name="PutMessageUsingJsonFile"/>
+        <include name="PutMessageUsingXMLFile"/>  
+        <include name="PutHexMessageIntoQueue"/> 
         <include name="Logout"/> 
         
        </methods>
