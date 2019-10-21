@@ -1459,12 +1459,13 @@ public class TopicViewlet
 		{
 			ex.printStackTrace();
 		}
-		Thread.sleep(1000);
+		Thread.sleep(3000);
 		//Give the Topic String
 		//driver.findElement(By.id("topicString")).sendKeys(TopicStringData);
 		
 		//Click on Destination tab
 		driver.findElement(By.linkText("Destination")).click();
+		Thread.sleep(2000);
 		
 		//Select WGS name
 		Select DestinationWGS=new Select(driver.findElement(By.id("destinationGMName")));
@@ -1497,7 +1498,7 @@ public class TopicViewlet
 		{
 			ex.printStackTrace();
 		}
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		//Select Manager value
 		try 
@@ -1522,6 +1523,7 @@ public class TopicViewlet
 		{
 			ex.printStackTrace();
 		}
+		Thread.sleep(2000);
 		
 		//Select Queue name
 		try 

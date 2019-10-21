@@ -16,6 +16,8 @@
   <parameter name="Queuemanager" value="MGR"/>
   <parameter name="MessageData" value="Testing to add the new message into Queue"/>
   
+  <parameter name="RouteTemplateName" value="RouteTemplate"/>
+  
    
      <classes>
        <class name="ApodGUI.QueuesInsideBrowseMessages">
@@ -33,7 +35,8 @@
             <include name="EditMessageUsingEditOption"/>
             <include name="DeleteMessageUsingDeleteOption"/>
             <include name="CopyMessageUsingCopyOption"/>
-            <include name="MoveMessageUsingMoveOption"/>  
+            <include name="MoveMessageUsingMoveOption"/> 
+            <include name="RerouteQueueToCurrentManager"/>  
             <include name="Logout"/>
           </methods> 
           

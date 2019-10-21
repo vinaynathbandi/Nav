@@ -7,6 +7,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -849,7 +850,132 @@ public class QueuesInsideBrowseMessages
 		
 	}
 	
+	@TestRail(testCaseId = 556)
+	@Parameters({"RouteTemplateName"})
 	@Test(priority=12)
+	public void RerouteQueueToCurrentManager(String RouteTemplateName, ITestContext context) throws InterruptedException
+	{
+		int QMName=4;
+		if(!WGSName.contains("MQM"))
+		{
+			QMName=5;
+		}
+		//Get the Queue manager name
+		String QM=driver.findElement(By.xpath("//datatable-body-cell["+ QMName +"]/div/span")).getText();
+		
+		//Search with that queue manager name
+		driver.findElement(By.xpath("//input[@type='text']")).clear();
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(QM);
+		
+		int QName=3;
+		if(!WGSName.contains("MQM"))
+		{
+			QName=4;
+		}
+		
+		//Get the destination queue name
+		String DestionationQueue=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QName +"]/div/span")).getText();
+		
+		int QueueDepth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			QueueDepth=6;
+		}
+		
+		String CurrentQueueDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueDepth +"]/div/span")).getText();
+		int BeforeReroute=Integer.parseInt(CurrentQueueDepth);
+		System.out.println("Queue depth before sending: " +BeforeReroute);
+		
+		//Select Message check box
+		driver.findElement(By.xpath("//input[@name='name']")).click();
+		
+		//Click on Reroute icon
+		driver.findElement(By.xpath("//img[@title='Re-route']")).click();
+		
+		//Routing template name
+		driver.findElement(By.cssSelector(".ng-input > input")).sendKeys(RouteTemplateName);
+		
+		//Click on Next
+		driver.findElement(By.xpath("//button[contains(.,'Next ')]")).click();
+		
+		//New Destination checkbox
+		boolean Destination=driver.findElement(By.id("routingDestination_NEW_DESTINATION")).isSelected();
+		
+		if(Destination==false)
+		{
+			driver.findElement(By.id("routingDestination_NEW_DESTINATION")).click();
+		}
+		Thread.sleep(2000);
+		
+		//Click on Next
+		driver.findElement(By.xpath("//button[contains(.,'Next ')]")).click();
+		Thread.sleep(3000);
+		
+		//Click on Queue dropdown
+		driver.findElement(By.cssSelector(".ng-select-container")).click();
+		Thread.sleep(2000);
+		
+		//Select Queue name
+		try 
+		{
+			WebElement Dropdownname=driver.findElement(By.tagName("ng-dropdown-panel"));
+			List<WebElement> QueueName=Dropdownname.findElements(By.tagName("div"));
+			//System.out.println(QueueName.size());	
+			
+			for(WebElement div:QueueName)
+			{
+				if(div.getAttribute("class").contains("ng-dropdown-panel-items"))
+				{
+					List<WebElement> Drop=div.findElements(By.tagName("div"));
+					//System.out.println("Size of the Dropdown values are: " +Drop.size());
+					
+					for(WebElement Final:Drop)
+					{
+						//System.out.println("Drop down values are: " +Final.getText());
+						if(Final.getText().equalsIgnoreCase(DestionationQueue))
+						{
+							Final.click();
+							break;
+						}
+					}
+				}
+			}
+			Thread.sleep(6000);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Queue is not selected");
+		}
+				
+		//Click on Next
+		driver.findElement(By.xpath("//button[contains(.,'Next ')]")).click();
+		//Click on Next
+		driver.findElement(By.xpath("//button[contains(.,'Next ')]")).click();
+		
+		//Click on Finish
+		driver.findElement(By.xpath("//button[contains(.,'Finish')]")).click();
+		Thread.sleep(8000);
+		
+		String CurrentQueueDepth1=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ QueueDepth +"]/div/span")).getText();
+		int AfterReroute=Integer.parseInt(CurrentQueueDepth1);
+		System.out.println("Queue depth After sending messages :" +AfterReroute);
+		
+		if(AfterReroute==BeforeReroute)
+		{
+			System.out.println("Reroute is not working");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to move messages");
+			driver.findElement(By.xpath("Reroute is Failed")).click();
+		}
+		else
+		{
+			System.out.println("Reroute is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Reroute Messages to destination queue successfully");
+		}
+	}
+	
+	@Test(priority=20)
 	public void Logout() throws InterruptedException 
 	{
 		try
