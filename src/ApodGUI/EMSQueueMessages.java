@@ -170,7 +170,7 @@ public class EMSQueueMessages
 		driver.findElement(By.xpath("//div[3]/button")).click();
 		Thread.sleep(2000);
 		
-		//put the messages into empty queues for testing
+		/*//put the messages into empty queues for testing
 		for(int m=1; m<=3; m++)
 		{
 			//Select the put new message option
@@ -201,7 +201,7 @@ public class EMSQueueMessages
 			{
 				System.out.println("No Exception");
 			}
-		}
+		}*/
 		
 		//Restoring the Default Settings
 		driver.findElement(By.cssSelector(".fa-cog")).click();

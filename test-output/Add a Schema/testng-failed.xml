@@ -20,7 +20,7 @@
       <class name="ApodGUI.AddSchemaToTheViewlet">
         <methods>
           <include name="tearDown"/>
-          <include name="Logout"/>
+          <include name="AddAllAttributesButton" invocation-numbers="0"/>
           <include name="beforeTest"/>
         </methods>
       </class> <!-- ApodGUI.AddSchemaToTheViewlet -->

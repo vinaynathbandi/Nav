@@ -242,8 +242,9 @@ public class AddSchemaToTheViewlet
 		//Click on Manage viewlets Schema icon
 		driver.findElement(By.cssSelector("img[title=\"Manage viewlet schemas\"]")).click();
 		driver.findElement(By.cssSelector("button.g-btn-blue-style")).click();
+		Thread.sleep(2000);
 		
-		//Click on Add All button
+		//Click on Add All button  
 		driver.findElement(By.xpath("//button[contains(.,'Add all ')]")).click();
 		Thread.sleep(6000);
 		

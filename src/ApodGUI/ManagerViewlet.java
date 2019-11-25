@@ -242,12 +242,18 @@ public class ManagerViewlet
 		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
 		Thread.sleep(2000);
 		
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(M_QueueManagerName);
+		
 		/*driver.findElement(By.xpath("//div[3]/app-viewlet/div/div[2]/div/div[2]/div/div/img")).click();
 		Thread.sleep(2000);*/
 		
 		//Get the Viewlets Data
 		String viewlet1=driver.findElement(By.xpath("//datatable-body")).getText();
 		
+		for(int i=0; i<=M_QueueManagerName.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
 		
 		//Verification condition 
 		if(viewlet1.contains(M_QueueManagerName))
@@ -289,7 +295,7 @@ public class ManagerViewlet
 	@Test(priority=3)
 	@TestRail(testCaseId = 49)
 	public void ShowTopology(ITestContext context) throws InterruptedException
-	{
+	{		
 		int ManagerName_Index=3;
 		if(!WGSName.contains("MQM"))
 		{
@@ -364,6 +370,10 @@ public class ManagerViewlet
 	@TestRail(testCaseId = 52)
 	public void Security(ITestContext context) throws InterruptedException
 	{
+		/*//Search with Active keyword
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Active");
+		Thread.sleep(2000);*/
+				
 		//Select the Security from Commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions MousehoverIncremental=new Actions(driver);
@@ -1085,8 +1095,17 @@ public class ManagerViewlet
 			System.out.println("No message is displaying");
 		} 
 		
+		//Search with created QM name
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(QueueManagerNameFromOptions);
+		
 		//Store the Manager viewlet data into string
 		String ManagerData=driver.findElement(By.xpath("//datatable-body")).getText();
+		
+		//Edit the search data
+		for(int i=0; i<=QueueManagerNameFromOptions.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
 		
 		//Verification condition 
 		if(ManagerData.contains(QueueManagerNameFromOptions))
@@ -1109,8 +1128,12 @@ public class ManagerViewlet
 	@Test(priority=21)
 	public static void SearchFilter(String SearchInputData,ITestContext context) throws InterruptedException
 	{
+		//Get the manager name into string
+		String Manager=driver.findElement(By.xpath("//datatable-body-cell[3]")).getText();
+		//String Manager=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
+		
 		//Click on search field
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(SearchInputData);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Manager);
 		Thread.sleep(2000);
 		
 		//Store the viewlet data into string
@@ -1118,7 +1141,7 @@ public class ManagerViewlet
 		//System.out.println(Viewletdata);
 		       
 		//Verify the Search data is present in the Viewlet
-	    if(Viewletdata.toUpperCase().contains(SearchInputData.toUpperCase()))
+	    if(Viewletdata.toUpperCase().contains(Manager.toUpperCase()))
 	    {
 	       System.out.println("Search is working fine");
 	       context.setAttribute("Status", 1);

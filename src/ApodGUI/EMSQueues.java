@@ -295,25 +295,30 @@ public class EMSQueues
 			
 	}
 	
-	@Parameters({"ObjectName"})
+	@Parameters({"ObjectName", "QueueNameFromOptions"})
 	@TestRail(testCaseId=293)
 	@Test(priority=5)
-	public static void QueueCommands(String ObjectName, ITestContext context) throws InterruptedException
+	public static void QueueCommands(String ObjectName, String QueueNameFromOptions, ITestContext context) throws InterruptedException
 	{
 		int Queue_ColumnIndex=3;
-		if(!EMS_WGSNAME.equalsIgnoreCase("MQM"))
+		if(!EMS_WGSNAME.contains("MQM"))
 		{
 			Queue_ColumnIndex=4;
 		}
+		
+		//Search with input data
+		driver.findElement(By.xpath("//input[@type='text']")).clear();
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(QueueNameFromOptions);
+				
 		//Select copy as option from Commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions CopyMousehover=new Actions(driver);
 		CopyMousehover.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
 		driver.findElement(By.linkText("Copy as...")).click();
 		Thread.sleep(4000);
 		
 		//Store the Copy Queue name
-		String CopyQueue=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_ColumnIndex +"]/div/span")).getText();
+		String CopyQueue=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_ColumnIndex +"]/div/span")).getText();
 		System.out.println("Copy Queue name is:" +CopyQueue); 
 		Thread.sleep(2000);
 		
@@ -324,6 +329,11 @@ public class EMSQueues
 		
 		String CopyAsQueue=CopyQueue+ObjectName;
 		System.out.println("Copy as Queue name is:" +CopyAsQueue);
+		
+		for(int i=0; i<=QueueNameFromOptions.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
 		
 		//Search with input data
 		driver.findElement(By.xpath("//input[@type='text']")).clear();

@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (2)]">
-  <test thread-count="5" name="Queue Message Options(failed)">
-    <parameter name="Dashboardname" value="Queues Messages Verification"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="0"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
+  <test thread-count="5" name="Test Durable Viewlet(failed)">
+    <parameter name="Dashboardname" value="DurableViewlet Verification"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="NodeViewletName" value="AddNodeVerification"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="MessageData" value="Put the message from Main options"/>
-    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Main"/>
-    <parameter name="QueueName" value="Local Queue"/>
+    <parameter name="FavoriteViewletName" value="Durable Favorite viewlet"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="Durablename" value="New Durable Viewlet"/>
+    <parameter name="schemaName" value="DurableSchema"/>
     <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="SelectTopicName" value="EMS.Topic1"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="DeleteDurableName" value="Test.EMS.Durable"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="DurableName" value="EMS.Add.Durable.selenium"/>
     <classes>
-      <class name="ApodGUI.QueueMessages">
+      <class name="ApodGUI.DurableViewlet">
         <methods>
-          <include name="LoadFromFile" invocation-numbers="0"/>
-          <include name="beforeTest"/>
+          <include name="Properties" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.QueueMessages -->
+      </class> <!-- ApodGUI.DurableViewlet -->
     </classes>
-  </test> <!-- Queue Message Options(failed) -->
+  </test> <!-- Test Durable Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (2)] -->

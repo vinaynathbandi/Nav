@@ -15,10 +15,10 @@
 
 		<parameter name="ConnectionInstanceName" value="REMOTE_QMGRS" />
 		<parameter name="RemoteQueueManagerName" value="QMGR_NAME_DELETE" />
-		<parameter name="ConnectionName" value="localhost" />
+		<parameter name="ConnectionName" value="127.0.0.1(4321)" />
 		<parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE" />
 		<parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN" />
-		<parameter name="Node_NewConnectionName" value="Local Host"/>
+		<parameter name="Node_NewConnectionName" value="127.0.0.1(1234)"/>
 
 		<parameter name="DeleteManagerName" value="QMGR_NAME_DELETE" />
 
@@ -41,10 +41,10 @@
 					<include name="AddNode" />
 				    <include name="AddRemoteQueueManager" />
 					<include name="ModifyRemoteQueueManager" />
-					<include name="DeleteRemoteQueueManager" /> 
-					<include name="AddRemoteEMSManager" />
+					<include name="DeleteRemoteQueueManager" />  
+				    <include name="AddRemoteEMSManager" />
 					<include name="ModifyRemoteEMSServer" />
-					<include name="DeleteRemoteEMSServer" /> 
+				    <include name="DeleteRemoteEMSServer" />  
 
 					<include name="SearchFilter" />   
 					<include name="Logout" />

@@ -1,0 +1,1970 @@
++-----------------------------------------------------------------------------+
+|                                                                             |
+| IBM MQ First Failure Symptom Report                                         |
+| =========================================                                   |
+|                                                                             |
+| Date/Time         :- Tue July 02 2019 11:18:43 India Standard Time          |
+| UTC Time          :- 1562046523.766000                                      |
+| UTC Time Offset   :- 330 ((UNKNOWN))                                        |
+| Host Name         :- DESKTOP-12K34B8                                        |
+| Operating System  :- Windows 8 Professional x64 Edition, Build 9200         |
+| PIDS              :- 5724H7251                                              |
+| LVLS              :- 9.0.0.0                                                |
+| Product Long Name :- IBM MQ for Windows (x64 platform)                      |
+| Vendor            :- IBM                                                    |
+| O/S Registered    :- 1                                                      |
+| Data Path         :- C:\ProgramData\IBM\MQ                                  |
+| Installation Path :- C:\Program Files\IBM\MQ                                |
+| Installation Name :- Installation1    (1)                                   |
+| License Type      :- Production                                             |
+| Probe Id          :- XY200003                                               |
+| Application Name  :- MQM                                                    |
+| Component         :- xgmWriteNTEventLog                                     |
+| SCCS Info         :- F:\build\slot1\p900_P\src\lib\cs\pc\winnt\amqxgmsn.c,  |
+| Line Number       :- 1207                                                   |
+| Build Date        :- May 12 2016                                            |
+| Build Level       :- p900-L160512.4                                         |
+| Build Type        :- IKAP - (Production)                                    |
+| UserID            :- MUSR_MQADMIN                                           |
+| Process Name      :- C:\Program Files\IBM\MQ\bin64\amqzxma0.exe             |
+| Arguments         :- -m TEST -u MUSR_MQADMIN@DESKTOP-12K34B8                |
+| Addressing mode   :- 64-bit                                                 |
+| Process           :- 00001004                                               |
+| Thread            :- 00000001    ECMain                                     |
+| Session           :- 00000000                                               |
+| QueueManager      :- TEST                                                   |
+| UserApp           :- FALSE                                                  |
+| ConnId(1) IPCC    :- 2                                                      |
+| ConnId(2) QM      :- 2                                                      |
+| ConnId(3) QM-P    :- 2                                                      |
+| ConnId(4) App     :- 2                                                      |
+| Last HQC          :- 1.0.0-1222208                                          |
+| Last HSHMEMB      :- 2.4.4-4288                                             |
+| Last ObjectName   :-                                                        |
+| Major Errorcode   :- xecF_E_UNEXPECTED_SYSTEM_RC                            |
+| Minor Errorcode   :- OK                                                     |
+| Probe Type        :- MSGAMQ6119                                             |
+| Probe Severity    :- 2                                                      |
+| Probe Description :- AMQ6119: An internal IBM MQ error has occurred (WinNT  |
+|   error 1722 from RegisterEventSource.)                                     |
+| FDCSequenceNumber :- 0                                                      |
+| Comment1          :- WinNT error 1722 from RegisterEventSource.             |
+| Comment2          :- The RPC server is unavailable.                         |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+MQM Function Stack
+amqzxma0
+zxcExecutionController
+xcsDisplayMessageForSubpool
+xcsDisplayMessage
+xgmWriteNTEventLog
+xcsFFST
+
+MQM Trace History
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xufCloseIniRead
+---} xufCloseIniRead rc=OK
+--} xcsBrowseFileCallback rc=OK
+-} xcsBrowseIniCallback rc=OK
+} xcsGetQMDetails rc=OK
+{ xcsFreeMemFn
+} xcsFreeMemFn rc=OK
+{ xcsQueryValueForSubpool
+} xcsQueryValueForSubpool rc=OK
+{ xcsDisplayMessage
+-{ xcsGetMemFn
+-} xcsGetMemFn rc=OK
+-{ xcsGetMessage
+--{ xcsGetMemFn
+--} xcsGetMemFn rc=OK
+--{ xeeConvertInserts
+---{ xcsGetMemFn
+---} xcsGetMemFn rc=OK
+--} xeeConvertInserts rc=OK
+--{ xgmNTGetMessage
+---{ xgmDetermineMsgCatLanguage
+---} xgmDetermineMsgCatLanguage rc=OK
+--} xgmNTGetMessage rc=OK
+--{ xcsFreeMemFn
+--} xcsFreeMemFn rc=OK
+--{ xcsFreeMemFn
+--} xcsFreeMemFn rc=OK
+-} xcsGetMessage rc=OK
+-{ xcsIsEnvironment
+-} xcsIsEnvironment rc=OK
+-{ xeeOpenFiles
+--{ xcsCreateFile
+--} xcsCreateFile rc=OK
+-} xeeOpenFiles rc=OK
+-{ xeeGenerateInfoString
+-} xeeGenerateInfoString rc=OK
+-{ xeeCloseFiles
+-} xeeCloseFiles rc=OK
+-{ xeeGenerateInfoString
+-} xeeGenerateInfoString rc=OK
+-{ xgmWriteNTEventLog
+--{ xgmCheckMsgRequired
+--} xgmCheckMsgRequired rc=OK
+--{ xeeConvertInserts
+---{ xcsGetMemFn
+---} xcsGetMemFn rc=OK
+--} xeeConvertInserts rc=OK
+--{ xcsFFST
+
+Thread Control Block (xihTHREAD pCtl)
+000001F341660E70   58494854  40160000  00000000  00000000    XIHT@...........
+000001F341660E80   01000000  00000000  F4000000  00000000    ........ô.......
+000001F341660E90   B0496741  F3010000  00000000  00000000    .IgAó...........
+000001F341660EA0   00010000  00000000  00000000  00000000    ................
+000001F341660EB0   56000000  03000000  00000000  00000000    V...............
+000001F341660EC0   00000000  00000000  00000000  00000000    ................
+000001F341660ED0 to 000001F341660FB0 suppressed, lines same as above
+000001F341660FC0   80E35560  C5000000  00000000  00000000    €ãU`............
+000001F341660FD0   80E35560  C5000000  80E45560  C5000000    €ãU`....€äU`....
+000001F341660FE0   03000000  00000000  00000000  00000000    ................
+000001F341660FF0   00000000  00000000  26000000  00000000    ........&.......
+000001F341661000   700E6641  F3010000  00001000  00000000    p.fAó...........
+000001F341661010   2D5DDD98  FD7F0000  801F0000  7F020000    -]Ý˜ý...€.......
+000001F341661020   00000000  00000000  00000000  00000000    ................
+000001F341661030 to 000001F3416610B0 suppressed, lines same as above
+000001F3416610C0   A0F15560  C5000000  20396541  F3010000     ñU`.... 9eAó...
+000001F3416610D0   A0F15560  C5000000  A0F25560  C5000000     ñU`.... òU`....
+000001F3416610E0   22000000  00000000  05000000  00000000    "...............
+000001F3416610F0   00000000  00000000  00000000  00000000    ................
+000001F341661100   00000000  00000000  00000000  00000000    ................
+000001F341661110   D3738793  FD7F0000  801F0000  7F020000    Ós‡“ý...€.......
+000001F341661120   00000000  00000000  00000000  00000000    ................
+000001F341661130 to 000001F3416611B0 suppressed, lines same as above
+000001F3416611C0   00EC5560  C5000000  E0646841  F3010000    .ìU`....àdhAó...
+000001F3416611D0   00EC5560  C5000000  00ED5560  C5000000    .ìU`.....íU`....
+000001F3416611E0   68D06C41  F3010000  700E6641  F3010000    hÐlAó...p.fAó...
+000001F3416611F0   00000000  00000000  382A2A42  F3010000    ........8**Bó...
+000001F341661200   00000000  00000000  01000100  00000000    ................
+000001F341661210   4FA0CF92  FD7F0000  801F0000  7F020000    O Ï’ý...€.......
+000001F341661220   00000000  00000000  00000000  00000000    ................
+000001F341661230 to 000001F3416619B0 suppressed, lines same as above
+000001F3416619C0   16000000  1A000000  00000000  00000000    ................
+000001F3416619D0   00000000  00000000  00000000  00000000    ................
+000001F3416619E0   00000000  00000000  00000000  00000000    ................
+000001F3416619F0   00000000  00000000  0DFD165D  0B34CE15    .........ý.].4..
+000001F341661A00   4D555352  5F4D5141  444D494E  00000000    MUSR_MQADMIN....
+000001F341661A10   00000000  00000000  1C000000  01050000    ................
+000001F341661A20   00000005  15000000  AF7FF74B  3CABE577    ........¯.÷K<«åw
+000001F341661A30   6AA8442D  EC030000  00000000  00000000    j¨D-ì...........
+000001F341661A40   01000000  00000000  00000000  00000000    ................
+000001F341661A50   00000000  00000000  00000000  00000000    ................
+000001F341661A60   90056641  F3010000  00000000  00000000    ?.fAó...........
+000001F341661A70   00000000  00000000  00000000  00000000    ................
+000001F341661A80 to 000001F341661AA0 suppressed, lines same as above
+000001F341661AB0   00000000  00000000  A78800F0  008800F0    ........§ˆ.ð.ˆ.ð
+000001F341661AC0   7D5D00F0  165C00F0  C86000F0  035C00F0    }].ð.\.ð.`.ð.\.ð
+000001F341661AD0   155C00F0  885E00F0  C96000F0  005C00F0    .\.ðˆ^.ð.`.ð.\.ð
+000001F341661AE0   B46000F0  F46100F0  735D00F0  735D00F0    .`.ðôa.ðs].ðs].ð
+000001F341661AF0   735D00F0  735D00F0  2A0400F0  335D00F0    s].ðs].ð*..ð3].ð
+000001F341661B00   830C00F0  B50C00F0  A55D00F0  00000000    ƒ..ðµ..ð¥].ð....
+000001F341661B10   00000000  00000000  00000000  00000000    ................
+000001F341661B20 to 000001F341661B80 suppressed, lines same as above
+000001F341661B90   00000000  00000000  055C00F0  055C0000    .........\.ð.\..
+000001F341661BA0   0F600000  0D6000F0  0D600000  0B600000    .`...`.ð.`...`..
+000001F341661BB0   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661BC0   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661BD0   065C00F0  065C0000  0B6000F0  0D6000F0    .\.ð.\...`.ð.`.ð
+000001F341661BE0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661BF0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661C00   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661C10   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661C20   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661C30   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661C40   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661C50   0F600000  0D6000F0  0D600000  0B600000    .`...`.ð.`...`..
+000001F341661C60   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661C70   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661C80   065C00F0  065C0000  0B6000F0  0D6000F0    .\.ð.\...`.ð.`.ð
+000001F341661C90   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661CA0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661CB0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661CC0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661CD0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661CE0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661CF0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661D00   0F600000  0D6000F0  0D600000  0B600000    .`...`.ð.`...`..
+000001F341661D10   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661D20   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661D30   065C00F0  065C0000  0B6000F0  0D6000F0    .\.ð.\...`.ð.`.ð
+000001F341661D40   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661D50   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661D60   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661D70   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661D80   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661D90   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661DA0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661DB0   0F600000  0D6000F0  0D600000  0B600000    .`...`.ð.`...`..
+000001F341661DC0   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661DD0   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661DE0   065C00F0  065C0000  0B6000F0  0D6000F0    .\.ð.\...`.ð.`.ð
+000001F341661DF0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661E00   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661E10   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661E20   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661E30   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661E40   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661E50   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661E60   0F600000  0D6000F0  0D600000  0B600000    .`...`.ð.`...`..
+000001F341661E70   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661E80   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661E90   065C00F0  065C0000  0B6000F0  0D6000F0    .\.ð.\...`.ð.`.ð
+000001F341661EA0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661EB0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661EC0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661ED0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661EE0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341661EF0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341661F00   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341661F10   0F600000  0B600000  065C00F0  065C0000    .`...`...\.ð.\..
+000001F341661F20   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661F30   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341661F40   126000F0  12600000  30610000  09600000    .`.ð.`..0a..	`..
+000001F341661F50   7C5D0000  065C00F0  065C0000  595D00F0    |]...\.ð.\..Y].ð
+000001F341661F60   595D0000  165C00F0  055C00F0  055C0000    Y]...\.ð.\.ð.\..
+000001F341661F70   4C5C00F0  055C00F0  055C0000  535C00F0    L\.ð.\.ð.\..S\.ð
+000001F341661F80   055C00F0  055C0000  535C0000  CA6000F0    .\.ð.\..S\...`.ð
+000001F341661F90   C96000F0  C9600000  CA600000  065C00F0    .`.ð.`...`...\.ð
+000001F341661FA0   065C0000  065C00F0  065C0000  4C5C0000    .\...\.ð.\..L\..
+000001F341661FB0   CB5D00F0  CB5D0000  925D00F0  D15E00F0    .].ð.]..’].ðÑ^.ð
+000001F341661FC0   D15E0000  925D0000  895E00F0  895E0000    Ñ^..’]..‰^.ð‰^..
+000001F341661FD0   935D00F0  935D0000  895E00F0  895E0000    “].ð“]..‰^.ð‰^..
+000001F341661FE0   C86000F0  CF6000F0  CF600000  535C00F0    .`.ðÏ`.ðÏ`..S\.ð
+000001F341661FF0   055C00F0  055C0000  535C0000  035C00F0    .\.ð.\..S\...\.ð
+000001F341662000   4C5C00F0  055C00F0  055C0000  535C00F0    L\.ð.\.ð.\..S\.ð
+000001F341662010   055C00F0  055C0000  535C0000  CA6000F0    .\.ð.\..S\...`.ð
+000001F341662020   C96000F0  C9600000  CA600000  065C00F0    .`.ð.`...`...\.ð
+000001F341662030   065C0000  065C00F0  065C0000  4C5C0000    .\...\.ð.\..L\..
+000001F341662040   B36000F0  B3600000  135C00F0  135C0000    .`.ð.`...\.ð.\..
+000001F341662050   D15E00F0  D15E0000  CB5D00F0  CB5D0000    Ñ^.ðÑ^...].ð.]..
+000001F341662060   055C00F0  055C0000  135C00F0  135C0000    .\.ð.\...\.ð.\..
+000001F341662070   135C00F0  135C0000  135C00F0  135C0000    .\.ð.\...\.ð.\..
+000001F341662080   1F5E00F0  205E00F0  205E0000  1F5E0000    .^.ð ^.ð ^...^..
+000001F341662090   135C00F0  135C0000  135C00F0  135C0000    .\.ð.\...\.ð.\..
+000001F3416620A0   135C00F0  885E00F0  885E0000  135C0000    .\.ðˆ^.ðˆ^...\..
+000001F3416620B0   655D00F0  655D0000  155C00F0  155C0000    e].ðe]...\.ð.\..
+000001F3416620C0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F3416620D0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F3416620E0   0D600000  0B600000  065C00F0  065C0000    .`...`...\.ð.\..
+000001F3416620F0   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341662100   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341662110   0B6000F0  0D6000F0  0D600000  0F6000F0    .`.ð.`.ð.`...`.ð
+000001F341662120   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662130   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341662140   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341662150   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662160   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341662170   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341662180   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662190   0D600000  0B600000  065C00F0  065C0000    .`...`...\.ð.\..
+000001F3416621A0   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F3416621B0   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F3416621C0   0B6000F0  0D6000F0  0D600000  0F6000F0    .`.ð.`.ð.`...`.ð
+000001F3416621D0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F3416621E0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F3416621F0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341662200   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662210   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341662220   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341662230   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662240   0D600000  0B600000  065C00F0  065C0000    .`...`...\.ð.\..
+000001F341662250   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341662260   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341662270   0B6000F0  0D6000F0  0D600000  0F6000F0    .`.ð.`.ð.`...`.ð
+000001F341662280   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662290   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F3416622A0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F3416622B0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F3416622C0   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F3416622D0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F3416622E0   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F3416622F0   0D600000  0B600000  065C00F0  065C0000    .`...`...\.ð.\..
+000001F341662300   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341662310   065C00F0  065C0000  065C00F0  065C0000    .\.ð.\...\.ð.\..
+000001F341662320   0B6000F0  0D6000F0  0D600000  0F6000F0    .`.ð.`.ð.`...`.ð
+000001F341662330   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662340   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341662350   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341662360   055C00F0  055C0000  0F600000  0D6000F0    .\.ð.\...`...`.ð
+000001F341662370   0D600000  0F6000F0  055C00F0  055C0000    .`...`.ð.\.ð.\..
+000001F341662380   0F600000  0D6000F0  0D600000  0F6000F0    .`...`.ð.`...`.ð
+000001F341662390   00000000  00000000  00000000  00000000    ................
+000001F3416623A0   4A010000  1A000000  00000000  00000000    J...............
+000001F3416623B0   00000000  00000000  00000000  00000000    ................
+000001F3416623C0   00000000  00000000  01000000  01000000    ................
+000001F3416623D0   00000000  00000000  00000000  00000000    ................
+000001F3416623E0   00000000  00000000  00000000  00000000    ................
+000001F3416623F0   00000000  463A5C62  75696C64  5C736C6F    ....F:\build\slo
+000001F341662400   74315C70  3930305F  505C7372  635C6C69    t1\p900_P\src\li
+000001F341662410   625C6373  5C70635C  77696E6E  745C616D    b\cs\pc\winnt\am
+000001F341662420   7178676D  736E2E63  00000000  00000000    qxgmsn.c........
+000001F341662430   00000000  00000000  B7040000  00000000    ........·.......
+000001F341662440   00000000  00000000  00000000  00000000    ................
+000001F341662450 to 000001F341662460 suppressed, lines same as above
+000001F341662470   85922B4C  AC8C0500  C0246641  F3010000    …’+L¬Œ...$fAó...
+000001F341662480   00000000  00000000  00000000  00000000    ................
+000001F341662490 to 000001F3416624A0 suppressed, lines same as above
+
+
+Thread Common Services (xihTHREADCOMMONSERVICES pCtl->pCS)
+000001F341660590   58494353  00000000  00000000  00000000    XICS............
+000001F3416605A0   00000000  00000000  00000000  00000000    ................
+000001F3416605B0   05000000  01000000  00000000  00000000    ................
+000001F3416605C0   60BBE398  FD7F0000  706D6841  F3010000    `.ã˜ý...pmhAó...
+000001F3416605D0   E0646841  F3010000  C0536841  F3010000    àdhAó....ShAó...
+000001F3416605E0   60656941  F3010000  00000000  00000000    `eiAó...........
+000001F3416605F0   00000000  00000000  00000000  01000000    ................
+000001F341660600   01000000  01000000  01000000  00000000    ................
+000001F341660610   00000000  00000000  00000000  00000000    ................
+000001F341660620 to 000001F341660660 suppressed, lines same as above
+000001F341660670   00000000  00000000  01000000  00000000    ................
+000001F341660680   40720E00  02000000  00000000  402D1A00    @r..........@-..
+000001F341660690   03000000  00000000  402D1A00  00000000    ........@-......
+000001F3416606A0   00000000  00000000  00000000  00000000    ................
+000001F3416606B0   00000000  00000000  00000000  00000000    ................
+000001F3416606C0   00000000  00000000  40823F42  F3010000    ........@‚?Bó...
+000001F3416606D0   403D1442  F3010000  403D7B42  F3010000    @=.Bó...@={Bó...
+000001F3416606E0   00000000  00000000  00000000  00000000    ................
+000001F3416606F0   00000000  00000000  00000000  02000000    ................
+000001F341660700   02000000  02000000  02000000  00000000    ................
+000001F341660710   00000000  00000000  00000000  00000000    ................
+000001F341660720   00000000  00000000  00000000  00000000    ................
+000001F341660730   00000000  00000000  20CA6641  F3010000    ........ .fAó...
+000001F341660740   60CB6641  F3010000  A0296541  F3010000    `.fAó... )eAó...
+000001F341660750   10CE6941  F3010000  00000000  00000000    ..iAó...........
+000001F341660760   00000000  00000000  00000000  00000000    ................
+000001F341660770   40403442  F3010000  40C0FC41  F3010000    @@4Bó...@.üAó...
+000001F341660780   40C06442  F3010000  00000000  00000000    @.dBó...........
+000001F341660790   00000000  00000000  00000000  00000000    ................
+000001F3416607A0 to 000001F3416607D0 suppressed, lines same as above
+000001F3416607E0   00000000  00000000  00000000  02000000    ................
+000001F3416607F0   05000000  09000000  0C000000  0F000000    ....	...........
+000001F341660800   11000000  13000000  16000000  18000000    ................
+000001F341660810   1A000000  1B000000  1B000000  1D000000    ................
+000001F341660820   21000000  23000000  26000000  28000000    !...#...&...(...
+000001F341660830   00EA6941  F3010000  87000000  00000000    .êiAó...‡.......
+000001F341660840   00000000  00000000  00000000  00000000    ................
+000001F341660850 to 000001F341660880 suppressed, lines same as above
+000001F341660890   00000000  00000000  54455354  00000000    ........TEST....
+000001F3416608A0   00000000  00000000  00000000  00000000    ................
+000001F3416608B0 to 000001F3416608E0 suppressed, lines same as above
+000001F3416608F0   00000000  00000000  00000000  54455354    ............TEST
+000001F341660900   00000000  00000000  00000000  00000000    ................
+000001F341660910 to 000001F341660950 suppressed, lines same as above
+000001F341660960   00000000  00000000                        ........
+
+
+Thread Common Common Services (xihTHREADCOMMONSERVICES pCtl->Common.pCCS)
+000001F3416624C0   58494343  00000000  00000000  00000000    XICC............
+000001F3416624D0   00000000  00000000  00000000  00000000    ................
+000001F3416624E0 to 000001F341662560 suppressed, lines same as above
+000001F341662570   FFFFFFFF  00000000  00000000  00000000    ÿÿÿÿ............
+000001F341662580   00000000  00000000  00000000  00000000    ................
+000001F341662590 to 000001F3416625D0 suppressed, lines same as above
+000001F3416625E0   01000000  00000000  A06F8793  FD7F0000    ........ o‡“ý...
+000001F3416625F0   00000000  00000000  00000000  00000000    ................
+000001F341662600 to 000001F341662650 suppressed, lines same as above
+000001F341662660   01000000  00000000  40A61200  22000000    ........@¦.."...
+000001F341662670   04000000  C0100000  00000000  00000000    ................
+000001F341662680   00000000  00000000  00000000  00000000    ................
+000001F341662690 to 000001F3416626A0 suppressed, lines same as above
+000001F3416626B0   D0E56441  F3010000  00000001  00000000    ÐådAó...........
+000001F3416626C0   00000000  00000000  00000000  00000000    ................
+000001F3416626D0   00000000  00000000  00000000  00000000    ................
+000001F3416626E0   804E1B42  F3010000  00000000  00000000    €N.Bó...........
+
+
+Common Services Control Block (CSCtrl)
+000001F34166CDA0   58494820  90030000  01000000  00000000    XIH ?...........
+000001F34166CDB0   30726641  F3010000  04010000  01000000    0rfAó...........
+000001F34166CDC0   52030000  02000000  01000000  00000000    R...............
+000001F34166CDD0   00000000  00000000  E0696741  F3010000    ........àigAó...
+000001F34166CDE0   00300000  00000000  40F26441  F3010000    .0......@òdAó...
+000001F34166CDF0   C4000000  00000000  50286541  F3010000    ........P(eAó...
+000001F34166CE00   3C000000  00000000  70696441  F3010000    <.......pidAó...
+000001F34166CE10   01000000  00000000  20226541  F3010000    ........ "eAó...
+000001F34166CE20   433A5C50  726F6772  616D4461  74615C49    C:\ProgramData\I
+000001F34166CE30   424D5C4D  51000000  00000000  00000000    BM\MQ...........
+000001F34166CE40   00000000  00000000  00000000  00000000    ................
+000001F34166CE50 to 000001F34166CF10 suppressed, lines same as above
+000001F34166CF20   00000000  00000000  26000000  80000000    ........&...€...
+000001F34166CF30   70FA6C41  F3010000  00000000  00000000    púlAó...........
+000001F34166CF40   00000000  00000000  00000000  00000000    ................
+000001F34166CF50 to 000001F34166D030 suppressed, lines same as above
+000001F34166D040   00000000  00000000  03000000  00000000    ................
+000001F34166D050   00000000  00000000  706D6841  F3010000    ........pmhAó...
+000001F34166D060   E0646841  F3010000  C0536841  F3010000    àdhAó....ShAó...
+000001F34166D070   60656941  F3010000  00000000  00000000    `eiAó...........
+000001F34166D080   00000000  00000000  00000000  00000000    ................
+000001F34166D090 to 000001F34166D0D0 suppressed, lines same as above
+000001F34166D0E0   E0696741  F3010000  E4040000  00000000    àigAó...ä.......
+000001F34166D0F0   00000000  00000000  00000000  00000000    ................
+000001F34166D100 to 000001F34166D110 suppressed, lines same as above
+000001F34166D120   80761842  F3010000  02000000  00000000    €v.Bó...........
+
+
+Process Control Block (xihPROCESS)
+00007FFD990518E0   58494850  180E0000  EC030000  02000000    XIHP....ì.......
+00007FFD990518F0   9C260000  00000000  941C0000  00000000    œ&......”.......
+00007FFD99051900   00000000  00000000  00000000  00000000    ................
+00007FFD99051910 to 00007FFD99051960 suppressed, lines same as above
+00007FFD99051970   00000000  00000000  0D000000  00000000    ................
+00007FFD99051980   700E6641  F3010000  A0A46941  F3010000    p.fAó... ¤iAó...
+00007FFD99051990   01000000  1C000000  01050000  00000005    ................
+00007FFD990519A0   15000000  AF7FF74B  3CABE577  6AA8442D    ....¯.÷K<«åwj¨D-
+00007FFD990519B0   EC030000  00000000  00000000  433A5C50    ì...........C:\P
+00007FFD990519C0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+00007FFD990519D0   515C6572  726F7273  00000000  00000000    Q\errors........
+00007FFD990519E0   00000000  00000000  00000000  00000000    ................
+00007FFD990519F0 to 00007FFD99051AB0 suppressed, lines same as above
+00007FFD99051AC0   00000000  00000000  01000000  433A5C50    ............C:\P
+00007FFD99051AD0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+00007FFD99051AE0   515C736F  636B6574  735C4053  59535445    Q\sockets\@SYSTE
+00007FFD99051AF0   4D5C716D  67726C6F  636C5C44  45534B54    M\qmgrlocl\DESKT
+00007FFD99051B00   4F502D31  324B3334  42385C31  5C547261    OP-12K34B8\1\Tra
+00007FFD99051B10   63652E73  686D0000  00000000  00000000    ce.shm..........
+00007FFD99051B20   00000000  00000000  00000000  00000000    ................
+00007FFD99051B30 to 00007FFD99051BC0 suppressed, lines same as above
+00007FFD99051BD0   00000000  00000000  F8000000  00000000    ........ø.......
+00007FFD99051BE0   FC000000  00000000  00000000  00000000    ü...............
+00007FFD99051BF0   00005D41  F3010000  00000000  00000000    ..]Aó...........
+00007FFD99051C00   00000000  00000000  00000000  00000000    ................
+00007FFD99051C10 to 00007FFD99051CF0 suppressed, lines same as above
+00007FFD99051D00   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ÿÿÿÿÿÿÿÿÿÿÿÿ....
+00007FFD99051D10   00000000  01000000  FEFFFFFF  00000000    .........ÿÿÿ....
+00007FFD99051D20   00000000  01000000  00000000  00000000    ................
+00007FFD99051D30   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ÿÿÿÿÿÿÿÿÿÿÿÿ....
+00007FFD99051D40   00000000  00000000  00000000  00000000    ................
+00007FFD99051D50   D0070002  00000000  FFFFFFFF  FFFFFFFF    Ð.......ÿÿÿÿÿÿÿÿ
+00007FFD99051D60   FFFFFFFF  00000000  00000000  00000000    ÿÿÿÿ............
+00007FFD99051D70   00000000  00000000  D0070002  00000000    ........Ð.......
+00007FFD99051D80   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ÿÿÿÿÿÿÿÿÿÿÿÿ....
+00007FFD99051D90   00000000  00000000  00000000  00000000    ................
+00007FFD99051DA0   D0070002  00000000  FFFFFFFF  FFFFFFFF    Ð.......ÿÿÿÿÿÿÿÿ
+00007FFD99051DB0   FFFFFFFF  00000000  00000000  00000000    ÿÿÿÿ............
+00007FFD99051DC0   00000000  00000000  D0070002  00000000    ........Ð.......
+00007FFD99051DD0   4D555352  5F4D5141  444D494E  00000000    MUSR_MQADMIN....
+00007FFD99051DE0   00000000  00000000  00000000  00000003    ................
+00007FFD99051DF0   00000000  00000000  00000000  00000000    ................
+00007FFD99051E00 to 00007FFD99051E20 suppressed, lines same as above
+00007FFD99051E30   1F000000  01050000  00000005  15000000    ................
+00007FFD99051E40   AF7FF74B  3CABE577  6AA8442D  EB030000    ¯.÷K<«åwj¨D-ë...
+00007FFD99051E50   00000000  00000000  01010000  00000005    ................
+00007FFD99051E60   12000000  00000000  00000000  00000000    ................
+00007FFD99051E70   00000000  00000000  00000000  01020000    ................
+00007FFD99051E80   00000005  20000000  20020000  00000000    .... ... .......
+00007FFD99051E90   00000000  00000000  00000000  00000000    ................
+00007FFD99051EA0   01010000  00000001  00000000  00000000    ................
+00007FFD99051EB0   00000000  00000000  00000000  00000000    ................
+00007FFD99051EC0 to 00007FFD99051ED0 suppressed, lines same as above
+00007FFD99051EE0   00000000  00000000  B0040000  00000000    ................
+00007FFD99051EF0   20676441  F3010000  06000000  02000000     gdAó...........
+00007FFD99051F00   05000000  00000000  00000000  F0230000    ............ð#..
+00007FFD99051F10   30000000  00000000  00000000  00000000    0...............
+00007FFD99051F20   00000000  00000000  00000000  00000000    ................
+00007FFD99051F30 to 00007FFD99052350 suppressed, lines same as above
+00007FFD99052360   00000000  00000000  00400000  58495343    .........@..XISC
+00007FFD99052370   FFFFFFFF  00100000  40000000  00000000    ÿÿÿÿ....@.......
+00007FFD99052380   86AECE06  708C0500  00000000  00000000    †®..pŒ..........
+00007FFD99052390   00000000  00000000  00000000  00000000    ................
+00007FFD990523A0   00000000  00000000  4A010000  28554E4B    ........J...(UNK
+00007FFD990523B0   4E4F574E  29000000  00000000  00000000    NOWN)...........
+00007FFD990523C0   00000000  00000000  00000000  00000000    ................
+00007FFD990523D0   00000000  00000000  00000000  00000000    ................
+00007FFD990523E0   00000000  00000000  00000000  00544553    .............TES
+00007FFD990523F0   54000000  00000000  00000000  00000000    T...............
+00007FFD99052400   00000000  00000000  00000000  00000000    ................
+00007FFD99052410 to 00007FFD99052440 suppressed, lines same as above
+00007FFD99052450   00000000  04000000  00280000  0A000000    .........(......
+00007FFD99052460   00000000  00000000  01000000  31000000    ............1...
+00007FFD99052470   00000000  00000000  00000000  00496E73    .............Ins
+00007FFD99052480   74616C6C  6174696F  6E310000  0000433A    tallation1....C:
+00007FFD99052490   5C50726F  6772616D  2046696C  65735C49    \Program Files\I
+00007FFD990524A0   424D5C4D  51000000  00000000  00000000    BM\MQ...........
+00007FFD990524B0   00000000  00000000  00000000  00000000    ................
+00007FFD990524C0 to 00007FFD99052570 suppressed, lines same as above
+00007FFD99052580   00000000  00000000  00000000  00000053    ...............S
+00007FFD99052590   4F465457  4152455C  49424D5C  57656253    OFTWARE\IBM\WebS
+00007FFD990525A0   70686572  65204D51  5C496E73  74616C6C    phere MQ\Install
+00007FFD990525B0   6174696F  6E5C496E  7374616C  6C617469    ation\Installati
+00007FFD990525C0   6F6E3100  00000000  31000000  00000000    on1.....1.......
+00007FFD990525D0   00000000  00000000  00000000  00000000    ................
+00007FFD990525E0 to 00007FFD990526B0 suppressed, lines same as above
+00007FFD990526C0   00000000  00000000  00000000  0050726F    .............Pro
+00007FFD990526D0   64756374  696F6E00  00000000  00000000    duction.........
+00007FFD990526E0   11000000  00000000  05000000  00000000    ................
+00007FFD990526F0   20396541  F3010000                         9eAó...
+
+
+Zut Common Anchor (zutCOMMON_ANCHOR)
+00007FFD9904D3D0   5A554341  5A535441  02000000  00000000    ZUCAZSTA........
+00007FFD9904D3E0   524D5141  00000000  FFFFFFFF  FFFFFFFF    RMQA....ÿÿÿÿÿÿÿÿ
+00007FFD9904D3F0   FFFFFFFF  00000000  00000000  00000000    ÿÿÿÿ............
+00007FFD9904D400   00000000  00000000  D0070002  00000000    ........Ð.......
+00007FFD9904D410   0000403F  1F000000  00000000  00000000    ..@?............
+00007FFD9904D420   506A6441  F3010000  00000000  00000000    PjdAó...........
+00007FFD9904D430   00000000  64000000  64000000  00000000    ....d...d.......
+00007FFD9904D440   00000000  00000000  00000000  00000000    ................
+00007FFD9904D450   00000000  00000000  00000000  00000000    ................
+00007FFD9904D460   10276641  F3010000  08286641  F3010000    .'fAó....(fAó...
+00007FFD9904D470   00000000  00000000  00000000  00000000    ................
+00007FFD9904D480 to 00007FFD9904D490 suppressed, lines same as above
+00007FFD9904D4A0   00000000  00000000  10D40499  FD7F0000    .........Ô.™ý...
+00007FFD9904D4B0   00000000  00000000  00000000  00000000    ................
+00007FFD9904D4C0   00000000  00000000  00000000  00000000    ................
+00007FFD9904D4D0   05000000  00000000  06000000  00000000    ................
+00007FFD9904D4E0   00000000  00000000                        ........
+
+
+Suspend/Resume Area (SRA) for Subpool 1
+{
+  Eye:              xlsT
+  Pid:              1004
+  Tid:              1
+  ConnId:           2
+  Posted:           0
+  Flags:            0X80000000
+  OwnerFlags:       0X0
+  ResumingConnId:   0
+  TimerFlags:       0
+  LockOwnerCount    0
+  ProgramName       amqzxma0.exe
+  WaitCount         25858
+  SPCheckCount      25858
+  WaitType          31
+  RetryCount        0
+  Event             1
+  hEvent            584
+  Self:             1::0::0-208960
+  Next:             0::0::0-0
+  Prev:             0::0::0-0
+  OwnerCountRW:     0
+  RWAccess:         0
+  Priority          0X0
+}xlsSUSRESAREA
+000001F342344040   786C7354  EC030000  01000000  02000000    xlsTì...........
+000001F342344050   00000000  00000080  00000000  00000000    .......€........
+000001F342344060   00000000  1F000000  00000000  00000000    ................
+000001F342344070   00000000  00000000  00000000  00000000    ................
+000001F342344080   00000000  00000000  00000000  01000000    ................
+000001F342344090   00000000  40300300  02650000  00000000    ....@0...e......
+000001F3423440A0   00000000  00000000  48020000  00000000    ........H.......
+000001F3423440B0   01000000  00000000  02650000  00000000    .........e......
+000001F3423440C0   00000000  00000000  06000000  00000000    ................
+000001F3423440D0   616D717A  786D6130  2E657865  00000000    amqzxma0.exe....
+000001F3423440E0   00000000  00000000  00000000  00000000    ................
+000001F3423440F0   00000000  00000000  00000000  00000000    ................
+000001F342344100   00000000  00000000                        ........
+
+
+Suspend/Resume Area (SRA) for Subpool 2
+{
+  Eye:              xlsT
+  Pid:              1004
+  Tid:              1
+  ConnId:           2
+  Posted:           0
+  Flags:            0X80000000
+  OwnerFlags:       0X0
+  ResumingConnId:   13
+  TimerFlags:       0
+  LockOwnerCount    0
+  ProgramName       amqzxma0.exe
+  WaitCount         65
+  SPCheckCount      15
+  WaitType          31
+  RetryCount        0
+  Event             1
+  hEvent            540
+  Self:             2::0::0-176192
+  Next:             0::0::0-0
+  Prev:             0::0::0-0
+  OwnerCountRW:     0
+  RWAccess:         0
+  Priority          0X1000010
+}xlsSUSRESAREA
+000001F341FCC040   786C7354  EC030000  01000000  02000000    xlsTì...........
+000001F341FCC050   00000000  00000080  00000000  00000000    .......€........
+000001F341FCC060   00000000  1F000000  00000000  00000000    ................
+000001F341FCC070   0D000000  00000000  00000000  00000000    ................
+000001F341FCC080   00000000  00000000  00000000  02000000    ................
+000001F341FCC090   00000000  40B00200  41000000  00000000    ....@...A.......
+000001F341FCC0A0   00000000  00000000  1C020000  00000000    ................
+000001F341FCC0B0   01000000  00000000  0F000000  00000000    ................
+000001F341FCC0C0   00000000  00000000  05000000  10000001    ................
+000001F341FCC0D0   616D717A  786D6130  2E657865  00000000    amqzxma0.exe....
+000001F341FCC0E0   00000000  00000000  00000000  00000000    ................
+000001F341FCC0F0   00000000  00000000  00000000  00000000    ................
+000001F341FCC100   00000000  00000000                        ........
+
+
+Suspend/Resume Area (SRA) for Subpool 3
+{
+  Eye:              xlsT
+  Pid:              1004
+  Tid:              1
+  ConnId:           2
+  Posted:           0
+  Flags:            0X80000000
+  OwnerFlags:       0X0
+  ResumingConnId:   0
+  TimerFlags:       0
+  LockOwnerCount    0
+  ProgramName       amqzxma0.exe
+  WaitCount         0
+  SPCheckCount      0
+  WaitType          31
+  RetryCount        0
+  Event             1
+  hEvent            624
+  Self:             3::0::0-241728
+  Next:             0::0::0-0
+  Prev:             0::0::0-0
+  OwnerCountRW:     0
+  RWAccess:         0
+  Priority          0X0
+}xlsSUSRESAREA
+000001F34264C040   786C7354  EC030000  01000000  02000000    xlsTì...........
+000001F34264C050   00000000  00000080  00000000  00000000    .......€........
+000001F34264C060   00000000  1F000000  00000000  00000000    ................
+000001F34264C070   00000000  00000000  00000000  00000000    ................
+000001F34264C080   00000000  00000000  00000000  03000000    ................
+000001F34264C090   00000000  40B00300  00000000  00000000    ....@...........
+000001F34264C0A0   00000000  00000000  70020000  00000000    ........p.......
+000001F34264C0B0   01000000  00000000  00000000  00000000    ................
+000001F34264C0C0   00000000  00000000  07000000  00000000    ................
+000001F34264C0D0   616D717A  786D6130  2E657865  00000000    amqzxma0.exe....
+000001F34264C0E0   00000000  00000000  00000000  00000000    ................
+000001F34264C0F0   00000000  00000000  00000000  00000000    ................
+000001F34264C100   00000000  00000000                        ........
+
+{
+  Eye:           xruT
+  Flags:         0X1
+  self:          2::0::0-2178688
+  hProc          2::0::0-1992320
+  StackSize:     0
+  StackUsed:     0
+  PrivateGetBytes:  10389096
+  PrivateFreeBytes: 10347440
+  RecordCount:   52016
+  Sequence:      52017
+  {
+    userTime:     11406250
+    kernelTime:   522812500
+    userTime:     11250000
+    kernelTime:   522812500
+  }xruTHREAD_OS
+}xruTHREAD
+{
+  Eye:           xruP
+  Flags:         0X1
+  Options:       0X4
+  Pid.Tid        1004.1 amqzxma0.exe
+  self:          2::0::0-1992320
+  PrivateBytes[23] 11824
+  PrivateBytes[24] 18952
+  PrivateBytes[26] 6624
+  PrivateBytes[28] 2640
+  PrivateBytes[34] 2296
+  StackBytes:    0
+  RecordCount:   25841
+  Sequence:      52017
+  TargetCollectionTime: 2019-07-02 11:18:44.192
+  TargetRecordTime:     2019-07-02 11:18:16.275
+  {
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522187500 (156250)
+    PageFaultCount              817950 (897)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              6012928 (2682880)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               4104192 (-405504)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4104192 (-405504)
+   } at 2019-07-02 11:18:11.275
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522031250 (0)
+    PageFaultCount              817182 (0)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              3403776 (0)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               4509696 (0)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4509696 (0)
+   } at 2019-07-02 11:18:01.140
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522031250 (0)
+    PageFaultCount              817182 (129)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              3403776 (528384)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               4509696 (598016)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4509696 (598016)
+   } at 2019-07-02 11:17:51.135
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522031250 (0)
+    PageFaultCount              817053 (0)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              2875392 (-454656)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               3911680 (-598016)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                3911680 (-598016)
+   } at 2019-07-02 11:17:41.134
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522031250 (0)
+    PageFaultCount              817053 (0)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              3330048 (0)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               4509696 (0)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4509696 (0)
+   } at 2019-07-02 11:17:31.120
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522031250 (0)
+    PageFaultCount              817053 (111)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              3330048 (-57344)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               4509696 (0)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4509696 (0)
+   } at 2019-07-02 11:17:21.120
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522031250 (0)
+    PageFaultCount              816942 (0)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              3387392 (0)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               4509696 (0)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4509696 (0)
+   } at 2019-07-02 11:17:11.119
+   {
+    userTime:                   11718750 (0)
+    kernelTime:                 522031250 (0)
+    PageFaultCount              816942 (0)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              3387392 (0)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (0)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (0)
+    PagefileUsage               4509696 (0)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4509696 (0)
+   } at 2019-07-02 11:17:01.106
+   {
+    userTime:                   11718750 (-156250)
+    kernelTime:                 522031250 (-781250)
+    PageFaultCount              816942 (4294964998)
+    PeakWorkingSetSize          52486144 (0)
+    WorkingSetSize              3387392 (-5914624)
+    QuotaPeakPagedPoolUsage     441480 (0)
+    QuotaPagedPoolUsage         434000 (8808)
+    QuotaPeakNonPagedPoolUsage  21736 (0)
+    QuotaNonPagedPoolUsage      19264 (2168)
+    PagefileUsage               4509696 (1138688)
+    PeakPageFileUsage           6021120 (0)
+    PrivateUsage                4509696 (1138688)
+   } at 2019-07-02 11:16:51.101
+  }xruPROCESS_OS
+}xruPROCESS
+
+MTime Control Block
+000001F3415C0000                       58435043  01000000            XCPC....
+000001F3415C0010   01000000  01000000  093D0000  B9650000    ........	=...e..
+000001F3415C0020   96980000  34000000  0E000000  00000000    –˜..4...........
+000001F3415C0030   F0A43500  00000000  006F5FF2  02000000    ð¤5......o_ò....
+000001F3415C0040   60A32B4C  AC8C0500  49000000  01000000    `£+L¬Œ..I.......
+000001F3415C0050   00000000  00000000  47000000  00000000    ........G.......
+000001F3415C0060   BB445305  708C0500  80969800  01000000    .DS.pŒ..€–˜.....
+
+
+MTime Index
+000000C56055C5C0   49000000                                  I...
+
+
+MTime Entries
+000001F3415C1E30                       00000000  00000000            ........
+000001F3415C1E40   44000000  43000000  44000000  00000000    D...C...D.......
+000001F3415C1E50   44000000  F0A43500  44000000  C2000000    D...ð¤5.D.......
+000001F3415C1E60   44000000  6727C488  44000000  A78C0500    D...g'.ˆD...§Œ..
+000001F3415C1E70   44000000  442B3458  44000000  00000000    D...D+4XD.......
+000001F3415C1E80   44000000  00000000  44000000  00000000    D.......D.......
+000001F3415C1E90   44000000  7A8C0500  44000000  8102D115    D...zŒ..D...?.Ñ.
+000001F3415C1EA0   44000000  43000000  00000000  00000000    D...C...........
+000001F3415C1EB0   45000000  45000000  45000000  00000000    E...E...E.......
+000001F3415C1EC0   45000000  F0A43500  45000000  C5000000    E...ð¤5.E.......
+000001F3415C1ED0   45000000  7A25437B  45000000  A88C0500    E...z%C{E...¨Œ..
+000001F3415C1EE0   45000000  4FC9D02E  45000000  00000000    E...O.Ð.E.......
+000001F3415C1EF0   45000000  00000000  45000000  00000000    E.......E.......
+000001F3415C1F00   45000000  7A8C0500  45000000  8102D115    E...zŒ..E...?.Ñ.
+000001F3415C1F10   45000000  45000000  00000000  00000000    E...E...........
+000001F3415C1F20   46000000  46000000  46000000  00000000    F...F...F.......
+000001F3415C1F30   46000000  F0A43500  46000000  C8000000    F...ð¤5.F.......
+000001F3415C1F40   46000000  7796A26D  46000000  A98C0500    F...w–¢mF...©Œ..
+000001F3415C1F50   46000000  DF6D6405  46000000  00000000    F....md.F.......
+000001F3415C1F60   46000000  00000000  46000000  00000000    F.......F.......
+000001F3415C1F70   46000000  7A8C0500  46000000  8102D115    F...zŒ..F...?.Ñ.
+000001F3415C1F80   46000000  46000000  00000000  00000000    F...F...........
+000001F3415C1F90   47000000  47000000  47000000  00000000    G...G...G.......
+000001F3415C1FA0   47000000  F0A43500  47000000  CB000000    G...ð¤5.G.......
+000001F3415C1FB0   47000000  A64B0460  47000000  A98C0500    G...¦K.`G...©Œ..
+000001F3415C1FC0   47000000  78B7F8DB  47000000  00000000    G...x·ø.G.......
+000001F3415C1FD0   47000000  00000000  47000000  00000000    G.......G.......
+000001F3415C1FE0   47000000  7A8C0500  47000000  8102D115    G...zŒ..G...?.Ñ.
+000001F3415C1FF0   47000000  47000000  00000000  00000000    G...G...........
+000001F3415C2000   48000000  48000000  48000000  00000000    H...H...H.......
+000001F3415C2010   48000000  F0A43500  48000000  CE000000    H...ð¤5.H.......
+000001F3415C2020   48000000  97C66C52  48000000  AA8C0500    H...—ÆlRH...ªŒ..
+000001F3415C2030   48000000  39EE8EB2  48000000  00000000    H...9îŽ.H.......
+000001F3415C2040   48000000  00000000  48000000  00000000    H.......H.......
+000001F3415C2050   48000000  7A8C0500  48000000  8102D115    H...zŒ..H...?.Ñ.
+000001F3415C2060   48000000  48000000  00000000  00000000    H...H...........
+000001F3415C2070   49000000  49000000  49000000  00000000    I...I...I.......
+000001F3415C2080   49000000  F0A43500  49000000  D1000000    I...ð¤5.I...Ñ...
+000001F3415C2090   49000000  F4E2CF44  49000000  AB8C0500    I...ôâÏDI...«Œ..
+000001F3415C20A0   49000000  FC9D2389  49000000  00000000    I...ü?#‰I.......
+000001F3415C20B0   49000000  00000000  49000000  00000000    I.......I.......
+000001F3415C20C0   49000000  7A8C0500  49000000  8102D115    I...zŒ..I...?.Ñ.
+000001F3415C20D0   49000000  49000000  00000000  00000000    I...I...........
+000001F3415C20E0   00000000  00000000  00000000  00000000    ................
+000001F3415C20F0 to 000001F3415C22F0 suppressed, lines same as above
+000001F3415C2300   00000000  00000000                        ........
+
+pCtl->pCS->threadConnectCount[1] = 1
+pCtl->pCS->threadConnectedSubpools[1] = 000001F341686D70
+000001F341686D70   54455354  00000000  00000000  00000000    TEST............
+000001F341686D80   00000000  00000000  00000000  00000000    ................
+000001F341686D90 to 000001F341686DA0 suppressed, lines same as above
+000001F341686DB0   5C406970  63630000  00000000  00000000    \@ipcc..........
+000001F341686DC0   01000000  01000000  01410000  433A5C50    .........A..C:\P
+000001F341686DD0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+000001F341686DE0   51000000  00000000  00000000  00000000    Q...............
+000001F341686DF0   00000000  00000000  00000000  00000000    ................
+000001F341686E00 to 000001F341686EC0 suppressed, lines same as above
+000001F341686ED0   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+000001F341686EE0   49424D5C  4D515C71  6D677273  5C544553    IBM\MQ\qmgrs\TES
+000001F341686EF0   54000000  00000000  00000000  00000000    T...............
+000001F341686F00   00000000  00000000  00000000  00000000    ................
+000001F341686F10 to 000001F341686FC0 suppressed, lines same as above
+000001F341686FD0   00000000  00004445  534B544F  502D3132    ......DESKTOP-12
+000001F341686FE0   4B333442  38000000  00000000  00000000    K34B8...........
+000001F341686FF0   00000000  00000000  00000000  00000000    ................
+000001F341687000 to 000001F341687010 suppressed, lines same as above
+000001F341687020   00000000  00000000  00000000  03000000    ................
+000001F341687030   C0103142  F3010000  00000000  00000000    ..1Bó...........
+000001F341687040   A05C6441  F3010000  C0CA6641  F3010000     \dAó.....fAó...
+000001F341687050   305D6441  F3010000  B04B6941  F3010000    0]dAó....KiAó...
+000001F341687060   00000000  00000000  38020000  00000000    ........8.......
+000001F341687070   3C020000  00000000  34020000  00000000    <.......4.......
+000001F341687080   30020000  00000000  40020000  00000000    0.......@.......
+000001F341687090   44020000  00000000  2C020000  00000000    D.......,.......
+000001F3416870A0   00000000  00000000  00000000  00000000    ................
+000001F3416870B0   00000000  00000000  00000000  00000000    ................
+000001F3416870C0   00000000  00000000                        ........
+
+pconnSubpool[1].connExtentList = 000001F341694BB0
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   000001F342311000
+  0001   0x00000000   0001   0000000000   000001F342911000
+  0002   0x00000000   0002   0000000000   000001F3431E1000
+  0003   0x00000001   0003   0000000000   000001F342311000
+  0004   0x00000000   0004   0000000000   000001F348D51000
+  0005   0x00000000   0005   0000000000   000001F348D81000
+  0006   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[2] = 1
+pCtl->pCS->threadConnectedSubpools[2] = 000001F3416864E0
+000001F3416864E0   54455354  00000000  00000000  00000000    TEST............
+000001F3416864F0   00000000  00000000  00000000  00000000    ................
+000001F341686500 to 000001F341686510 suppressed, lines same as above
+000001F341686520   5C40716D  67720000  00000000  00000000    \@qmgr..........
+000001F341686530   02000000  01000000  02400000  433A5C50    .........@..C:\P
+000001F341686540   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+000001F341686550   51000000  00000000  00000000  00000000    Q...............
+000001F341686560   00000000  00000000  00000000  00000000    ................
+000001F341686570 to 000001F341686630 suppressed, lines same as above
+000001F341686640   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+000001F341686650   49424D5C  4D515C71  6D677273  5C544553    IBM\MQ\qmgrs\TES
+000001F341686660   54000000  00000000  00000000  00000000    T...............
+000001F341686670   00000000  00000000  00000000  00000000    ................
+000001F341686680 to 000001F341686730 suppressed, lines same as above
+000001F341686740   00000000  00004445  534B544F  502D3132    ......DESKTOP-12
+000001F341686750   4B333442  38000000  00000000  00000000    K34B8...........
+000001F341686760   00000000  00000000  00000000  00000000    ................
+000001F341686770 to 000001F341686780 suppressed, lines same as above
+000001F341686790   00000000  00000000  00000000  03000000    ................
+000001F3416867A0   C010FA41  F3010000  00000000  00000000    ..úAó...........
+000001F3416867B0   705C6441  F3010000  D0C46641  F3010000    p\dAó...Ð.fAó...
+000001F3416867C0   505E6441  F3010000  A0876941  F3010000    P^dAó... ‡iAó...
+000001F3416867D0   00000000  00000000  90000000  00000000    ........?.......
+000001F3416867E0   7C000000  00000000  10020000  00000000    |...............
+000001F3416867F0   0C020000  00000000  FC010000  00000000    ........ü.......
+000001F341686800   F8010000  00000000  08020000  00000000    ø...............
+000001F341686810   00000000  00000000  00000000  00000000    ................
+000001F341686820   00000000  00000000  00000000  00000000    ................
+000001F341686830   00000000  00000000                        ........
+
+pconnSubpool[2].connExtentList = 000001F3416987A0
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   000001F341FA1000
+  0001   0x00000000   0001   0000000000   000001F3422A1000
+  0002   0x00000000   8191   0000000000   0000000000000000
+  0003   0x00000000   0003   0000000000   000001F3478E1000
+  0004   0x00000000   8191   0000000000   0000000000000000
+  0007   0x00000000   0000   0000000000   000001F349891000
+  0008   0x00000000   0000   0000000000   000001F349BE1000
+  0009   0x00000000   8191   0000000000   0000000000000000
+  0011   0x00000000   0011   0000000000   000001F347D01000
+  0012   0x00000000   0012   0000000000   000001F347F91000
+  0013   0x00000000   0013   0000000000   000001F348451000
+  0014   0x00000000   0014   0000000000   000001F348571000
+  0015   0x00000000   8191   0000000000   0000000000000000
+  0016   0x00000000   0016   0000000000   000001F348C21000
+  0017   0x00000000   0017   0000000000   000001F348C31000
+  0018   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[3] = 1
+pCtl->pCS->threadConnectedSubpools[3] = 000001F3416853C0
+000001F3416853C0   54455354  00000000  00000000  00000000    TEST............
+000001F3416853D0   00000000  00000000  00000000  00000000    ................
+000001F3416853E0 to 000001F3416853F0 suppressed, lines same as above
+000001F341685400   5C40716D  70657273  69737400  00000000    \@qmpersist.....
+000001F341685410   03000000  01000000  03400000  433A5C50    .........@..C:\P
+000001F341685420   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+000001F341685430   51000000  00000000  00000000  00000000    Q...............
+000001F341685440   00000000  00000000  00000000  00000000    ................
+000001F341685450 to 000001F341685510 suppressed, lines same as above
+000001F341685520   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+000001F341685530   49424D5C  4D515C71  6D677273  5C544553    IBM\MQ\qmgrs\TES
+000001F341685540   54000000  00000000  00000000  00000000    T...............
+000001F341685550   00000000  00000000  00000000  00000000    ................
+000001F341685560 to 000001F341685610 suppressed, lines same as above
+000001F341685620   00000000  00004445  534B544F  502D3132    ......DESKTOP-12
+000001F341685630   4B333442  38000000  00000000  00000000    K34B8...........
+000001F341685640   00000000  00000000  00000000  00000000    ................
+000001F341685650 to 000001F341685660 suppressed, lines same as above
+000001F341685670   00000000  00000000  00000000  03000000    ................
+000001F341685680   C0106142  F3010000  00000000  00000000    ..aBó...........
+000001F341685690   005D6441  F3010000  F0296541  F3010000    .]dAó...ð)eAó...
+000001F3416856A0   B05B6441  F3010000  70296941  F3010000    .[dAó...p)iAó...
+000001F3416856B0   00000000  00000000  60020000  00000000    ........`.......
+000001F3416856C0   64020000  00000000  5C020000  00000000    d.......\.......
+000001F3416856D0   58020000  00000000  68020000  00000000    X.......h.......
+000001F3416856E0   6C020000  00000000  54020000  00000000    l.......T.......
+000001F3416856F0   00000000  00000000  00000000  00000000    ................
+000001F341685700   00000000  00000000  00000000  00000000    ................
+000001F341685710   00000000  00000000                        ........
+
+pconnSubpool[3].connExtentList = 000001F341692970
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   000001F342611000
+  0001   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[4] = 1
+pCtl->pCS->threadConnectedSubpools[4] = 000001F341696560
+000001F341696560   54455354  00000000  00000000  00000000    TEST............
+000001F341696570   00000000  00000000  00000000  00000000    ................
+000001F341696580 to 000001F341696590 suppressed, lines same as above
+000001F3416965A0   5C406170  70000000  00000000  00000000    \@app...........
+000001F3416965B0   04000000  01000000  04310000  433A5C50    .........1..C:\P
+000001F3416965C0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+000001F3416965D0   51000000  00000000  00000000  00000000    Q...............
+000001F3416965E0   00000000  00000000  00000000  00000000    ................
+000001F3416965F0 to 000001F3416966B0 suppressed, lines same as above
+000001F3416966C0   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+000001F3416966D0   49424D5C  4D515C71  6D677273  5C544553    IBM\MQ\qmgrs\TES
+000001F3416966E0   54000000  00000000  00000000  00000000    T...............
+000001F3416966F0   00000000  00000000  00000000  00000000    ................
+000001F341696700 to 000001F3416967B0 suppressed, lines same as above
+000001F3416967C0   00000000  00004445  534B544F  502D3132    ......DESKTOP-12
+000001F3416967D0   4B333442  38000000  00000000  00000000    K34B8...........
+000001F3416967E0   00000000  00000000  00000000  00000000    ................
+000001F3416967F0 to 000001F341696800 suppressed, lines same as above
+000001F341696810   00000000  00000000  00000000  01000000    ................
+000001F341696820   C010A047  F3010000  00000000  00000000    .. Gó...........
+000001F341696830   306C6441  F3010000  60CE6941  F3010000    0ldAó...`.iAó...
+000001F341696840   60726441  F3010000  107F6941  F3010000    `rdAó.....iAó...
+000001F341696850   00000000  00000000  FC020000  00000000    ........ü.......
+000001F341696860   00030000  00000000  F8020000  00000000    ........ø.......
+000001F341696870   F4020000  00000000  04030000  00000000    ô...............
+000001F341696880   08030000  00000000  F0020000  00000000    ........ð.......
+000001F341696890   00000000  00000000  00000000  00000000    ................
+000001F3416968A0   00000000  00000000  00000000  00000000    ................
+000001F3416968B0   00000000  00000000                        ........
+
+pconnSubpool[4].connExtentList = 000001F341697F10
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   000001F347A01000
+  0001   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[5] = 0
+pCtl->pCS->threadConnectedSubpools[5] = 0000000000000000
+pCtl->pCS->threadConnectCount[6] = 0
+pCtl->pCS->threadConnectedSubpools[6] = 0000000000000000
+
+Component Dumps (Thread 00000001)
+------< "main()" >-----
+ECAnchor{
+  StrucID:              ZXEA
+  pidEC:                1004
+  ulECState             0x0
+  ulResourceState       0x606fc1ff
+  ulECOptions           0x0
+  ulAgentCount          0
+  ulConnectionCount     0
+  ulAgentSeq            1
+  ECLockFile            0
+  CCSID                 0
+  RMConfigLen           0
+  RMConfigSet           1
+  RuntimeMQ             0
+  lEverySoOften         500
+  ShutdownType          1
+  bCreateOrEnable...    0
+  OAMProcessPID         7316
+  OAMConnId             6
+  RepositoryProcessID   9616
+  Prefix                C:\ProgramData\IBM\MQ
+  FastPathProcessCount[0]  0
+  FastPathProcessCount[1]  0
+  FastPathProcessCount[2]  0
+  FastPathProcessCount[3]  0
+  FastPathProcessCount[4]  0
+  FastPathProcessCount[5]  0
+  FastPathProcessCount[6]  0
+  FastPathProcessCount[7]  0
+  bPermitFailover       0
+  bPermitStandby        0
+  bTellAppsToReconnect  0
+  bShuttingDown         1
+  HealthCheckSequence   25843
+  zxcWithin             0
+  NextHealthCheck       2019-07-02 11:18:11.315
+  StartupComplete       2019-06-29 11:25:17.875
+}
+
+ECAnchor
+000001F3422A28D0                       5A584541  EC030000            ZXEAì...
+000001F3422A28E0   00000000  FFC16F60  00000000  00000000    ....ÿ.o`........
+000001F3422A28F0   00000000  01000000  00000000  00000000    ................
+000001F3422A2900   00000000  00000000  00000000  00000000    ................
+000001F3422A2910   01000000  00000000  F4010000  01000000    ........ô.......
+000001F3422A2920   00000000  941C0000  90250000  433A5C50    ....”...?%..C:\P
+000001F3422A2930   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+000001F3422A2940   51000000  00000000  00000000  00000000    Q...............
+000001F3422A2950   00000000  00000000  00000000  00000000    ................
+000001F3422A2960 to 000001F3422A2A20 suppressed, lines same as above
+000001F3422A2A30   00000000  00000000  02000000  00000000    ................
+000001F3422A2A40   C0000000  00000000  00000000  00000000    ................
+000001F3422A2A50   00000000  00000000  00000000  07000000    ................
+000001F3422A2A60   00000000  00000000  00000000  00000000    ................
+000001F3422A2A70   01000000  00000000  C0000000  00000000    ................
+000001F3422A2A80   700E6641  F3010000  00000000  00000000    p.fAó...........
+000001F3422A2A90   01000000  00000000  C0000000  0A000000    ................
+000001F3422A2AA0   01000000  40030000  00000000  00000000    ....@...........
+000001F3422A2AB0   00000000  0A000000  01000000  40030000    ............@...
+000001F3422A2AC0   0A000000  01000000  80250000  5A435031    ........€%..ZCP1
+000001F3422A2AD0   09000000  01000000  C0030000  09000000    	...........	...
+000001F3422A2AE0   01000000  809F1100  80AFA242  F3010000    ....€Ÿ..€¯¢Bó...
+000001F3422A2AF0   11000000  02000000  C0030000  00000000    ................
+000001F3422A2B00   00000000  00000000  00000000  00000000    ................
+000001F3422A2B10   00000000  02000000  00000000  403F0400    ............@?..
+000001F3422A2B20   0A000000  01000000  801D0000  00000000    ........€.......
+000001F3422A2B30   00000000  00000000  00000000  00000000    ................
+000001F3422A2B40 to 000001F3422A2B50 suppressed, lines same as above
+000001F3422A2B60   00000000  02000000  00000000  C0400400    .............@..
+000001F3422A2B70   02000000  00000000  40420400  02000000    ........@B......
+000001F3422A2B80   00000000  C0430400  02000000  00000000    .....C..........
+000001F3422A2B90   40450400  02000000  00000000  C0460400    @E...........F..
+000001F3422A2BA0   02000000  00000000  40480400  02000000    ........@H......
+000001F3422A2BB0   00000000  C0490400  02000000  00000000    .....I..........
+000001F3422A2BC0   404B0400  00000000  00000000  00000000    @K..............
+000001F3422A2BD0   00000000  00000000  00000000  00000000    ................
+000001F3422A2BE0 to 000001F3422A2C20 suppressed, lines same as above
+000001F3422A2C30   00000000  00000000  01000000  90250000    ............?%..
+000001F3422A2C40   E0030000  00000000  00000000  00000000    à...............
+000001F3422A2C50   01000000  941C0000  B0020000  00000000    ....”...........
+000001F3422A2C60   02000000  00000000  40B91A00  06000000    ........@.......
+000001F3422A2C70   C0124D42  F3010000  40408742  F3010000    ..MBó...@@‡Bó...
+000001F3422A2C80   803A2042  F3010000  04000000  00000000    €: Bó...........
+000001F3422A2C90   C0000000  02000000  00000000  C0000000    ................
+000001F3422A2CA0   03000000  00000000  C0000000  00000000    ................
+000001F3422A2CB0   00000000  00000000  00000000  01000000    ................
+000001F3422A2CC0   00000000  00000000  00000000  00000000    ................
+000001F3422A2CD0 to 000001F3422A2CE0 suppressed, lines same as above
+000001F3422A2CF0   F3640000  00000000  00000000  00000000    ód..............
+000001F3422A2D00   86CE3C4A  AC8C0500  8E78230A  708C0500    †.<J¬Œ..Žx#.pŒ..
+000001F3422A2D10   00000000  1D010105  00000000  00051500    ................
+000001F3422A2D20   0000AF7F  F74B3CAB  E5776AA8  442DEC03    ..¯.÷K<«åwj¨D-ì.
+000001F3422A2D30   00000000  00000000  00000000  00000000    ................
+
+zcpPIPE{
+  Eye             ZCP2
+  hPool           1::0::0-192
+  State           0X1
+  hSet            1::1::1-960
+  CacheSize       10000
+  hMsgCache       1::1::1-2308928
+  {
+    hEvent      1::0::0-660544
+    {
+      Eye:              xlsE
+      Identifier        25
+      Attributes:       2
+      Posted:           TRUE
+      Flags:            0x80000000
+      {
+        Eye:              xlsP
+        RequestCount:     39
+        SleepCount:       0
+        SleepTime:        0
+        SpinCount:        0
+        SubpoolId:        1
+      }
+      Queue:            0::0::0-0
+      hGlobal:          1::0::0-11904
+      Creator:          0x2
+      EVENTHistorySize  0
+    }xlsEVENT
+    hMessage    0::0::0-0
+    MsgOffset   -1
+    OwnerPID    0
+    OwnerTID    0
+    DftTimeout  10000
+    State       0x2
+    AState      0x1
+    MsgState    0x0
+  }Terminus[0]
+  {
+    hEvent      1::0::0-660800
+    {
+      Eye:              xlsE
+      Identifier        26
+      Attributes:       2
+      Posted:           FALSE
+      Flags:            0x3
+      {
+        Eye:              xlsP
+        RequestCount:     51716
+        SleepCount:       0
+        SleepTime:        0
+        SpinCount:        0
+        SubpoolId:        1
+      }
+      Queue:            0::0::0-0
+      hGlobal:          1::0::0-11904
+      Creator:          0x2
+      EVENTHistorySize  0
+    }xlsEVENT
+    hMessage    0::0::0-0
+    MsgOffset   -1
+    OwnerPID    1004
+    OwnerTID    1
+    DftTimeout  10000
+    State       0x0
+    AState      0x0
+    MsgState    0x0
+  }Terminus[1]
+  PipeType        1
+  DftTimeout      10000
+  hmtxSharedPipe  1::0::0-281408
+  {
+    Eye:              xlsM
+    Identifier        24
+    Name:         IPCCPSet
+    xihSubpoolNumber: 1
+    Flags:            0X0
+    PostCount:        6
+    OwnerConnId:      0
+    OwnerPid:         0
+    OwnerTid:         0
+    {
+      Eye:              xlsP
+      RequestCount:     18
+      SleepCount:       0
+      SleepTime:        0
+      SpinCount:        0
+      SubpoolId:        1
+    }
+    Waiting:          0
+    xlsGlobal:        1::0::0-11904
+    QueueHead:        0::0::0-0
+    QueueTail:        0::0::0-0
+    RequestCount:     19
+    Depth:            0
+    DepthHWM:         5
+    TimedOut:         6
+    SpinLimit:        451
+    ConsecutiveSpinFails 0
+    SpinAcquires      13
+    TotalSpinCount:   13
+    SpinAcquiresX     18
+    CheckProcessCount 6
+  }xlsMUTEX
+  InitiatorToken  0x0
+  ResponderToken  0x0
+  hReservedMsg    0::0::0-0
+  PropsSize       1024
+  hPropsCache     1::1::1-3462912
+}
+
+PropsCache
+000001F342C5E700   00000000  00000000  00000000  00000000    ................
+000001F342C5E710 to 000001F342C5EAF0 suppressed, lines same as above
+
+
+labSessionAnchor
+000001F3422A1980   4C534142  00000000  41534142  00000000    LSAB....ASAB....
+000001F3422A1990   00000000  17FD165D  5A000000  0B000000    .....ý.]Z.......
+000001F3422A19A0   40030000  62000000  0C000000  80030000    @...b.......€...
+000001F3422A19B0   6A000000  0D000000  40030000  72000000    j.......@...r...
+000001F3422A19C0   0E000000  40030000  433A5C50  726F6772    ....@...C:\Progr
+000001F3422A19D0   616D4461  74615C49  424D5C4D  515C716D    amData\IBM\MQ\qm
+000001F3422A19E0   6772735C  54455354  00000000  00000000    grs\TEST........
+000001F3422A19F0   00000000  00000000  00000000  00000000    ................
+000001F3422A1A00 to 000001F3422A1A60 suppressed, lines same as above
+000001F3422A1A70   00000000  00000000  5A000000  0B000000    ........Z.......
+000001F3422A1A80   00540700  41444841  01000000  514D414E    .T..ADHA....QMAN
+000001F3422A1A90   41474552  5C514D51  4D4F424A  43415400    AGER\QMQMOBJCAT.
+000001F3422A1AA0   00000000  00000000  00000000  00000000    ................
+000001F3422A1AB0 to 000001F3422A1B80 suppressed, lines same as above
+000001F3422A1B90   00000000  FFFFFFFF  5A000000  0B000000    ....ÿÿÿÿZ.......
+000001F3422A1BA0   80090000  62000000  0C000000  40DD2500    €	..b.......@Ý%.
+000001F3422A1BB0   62000000  0C000000  000A0000  6A000000    b...........j...
+000001F3422A1BC0   0D000000  C0090000  06000000  6A000000    .....	......j...
+000001F3422A1BD0   0D000000  00920400  6A000000  0D000000    .....’..j.......
+000001F3422A1BE0   40F20400  02000000  00000000  407E0700    @ò..........@~..
+000001F3422A1BF0   6A000000  0D000000  C08F0400  00000000    j........?......
+000001F3422A1C00   00800000  00000000  8D800000  6A000000    .€......?€..j...
+000001F3422A1C10   0D000000  80360500  00000000  00000000    ....€6..........
+000001F3422A1C20   02000000  00000000  C07F0700  6A000000    ............j...
+000001F3422A1C30   0D000000  C0F20400  02000000  00000000    .....ò..........
+000001F3422A1C40   40810700  6A000000  0D000000  00F30400    @?..j........ó..
+000001F3422A1C50   02000000  00000000  C08E0700  6A000000    .........Ž..j...
+000001F3422A1C60   0D000000  40F50400  02000000  00000000    ....@õ..........
+000001F3422A1C70   40900700  6A000000  0D000000  80F50400    @?..j.......€õ..
+000001F3422A1C80   6A000000  0D000000  C0B20500  0D000000    j...............
+000001F3422A1C90   00000000  00000000  00000000  00000000    ................
+000001F3422A1CA0 to 000001F3422A1CC0 suppressed, lines same as above
+000001F3422A1CD0   00100000  00000000  00100000  00000000    ................
+000001F3422A1CE0   02000000  00000000  C0820700  6A000000    .........‚..j...
+000001F3422A1CF0   0D000000  40F30400  02500000  00000000    ....@ó...P......
+000001F3422A1D00   00600000  00000000  02000000  00000000    .`..............
+000001F3422A1D10   40840700  6A000000  0D000000  80F30400    @„..j.......€ó..
+000001F3422A1D20   60100000  00000000  00200000  00000000    `........ ......
+000001F3422A1D30   02000000  00000000  C0850700  6A000000    .........…..j...
+000001F3422A1D40   0D000000  C0F30400  03600000  00000000    .....ó...`......
+000001F3422A1D50   00700000  00000000  02000000  00000000    .p..............
+000001F3422A1D60   40870700  6A000000  0D000000  00F40400    @‡..j........ô..
+000001F3422A1D70   01200000  00000000  00300000  00000000    . .......0......
+000001F3422A1D80   02000000  00000000  C0880700  6A000000    .........ˆ..j...
+000001F3422A1D90   0D000000  40F40400  02300000  00000000    ....@ô...0......
+000001F3422A1DA0   00400000  00000000  02000000  00000000    .@..............
+000001F3422A1DB0   408A0700  6A000000  0D000000  80F40400    @Š..j.......€ô..
+000001F3422A1DC0   06400000  00000000  00500000  00000000    .@.......P......
+000001F3422A1DD0   02000000  00000000  C08B0700  6A000000    .........‹..j...
+000001F3422A1DE0   0D000000  C0F40400  F5700000  00000000    .....ô..õp......
+000001F3422A1DF0   00800000  00000000  02000000  00000000    .€..............
+000001F3422A1E00   408D0700  6A000000  0D000000  00F50400    @?..j........õ..
+000001F3422A1E10   02000000  08000000  00761700  02000000    .........v......
+000001F3422A1E20   00000000  C0980600  00000000  00000000    .....˜..........
+000001F3422A1E30   02000000  00000000  00000000  00000000    ................
+000001F3422A1E40   00000000  00000000  00000000  00000000    ................
+000001F3422A1E50 to 000001F3422A1EB0 suppressed, lines same as above
+000001F3422A1EC0   00000000  FFFFFFFF  FFFFFFFF  00000000    ....ÿÿÿÿÿÿÿÿ....
+000001F3422A1ED0   00000000  6B010000  B7ACCCA1  00000000    ....k...·¬.¡....
+000001F3422A1EE0   00000000  00000000  00000000  00008000    ..............€.
+000001F3422A1EF0   00000000  00000000  00000000  02000000    ................
+000001F3422A1F00   48EAF549  AC8C0500  00000000  00000000    HêõI¬Œ..........
+000001F3422A1F10   8DEAF549  AC8C0500  2A000000  05000000    ?êõI¬Œ..*.......
+000001F3422A1F20   40030000  00000000  00000000  00000000    @...............
+000001F3422A1F30   54455354  20202020  20202020  20202020    TEST            
+000001F3422A1F40   20202020  20202020  20202020  20202020                    
+000001F3422A1F50   20202020  20202020  20202020  20202020                    
+000001F3422A1F60   54455354  00000000  00000000  00000000    TEST............
+000001F3422A1F70   00000000  00000000  00000000  00000000    ................
+000001F3422A1F80   00000000  00000000  00000000  00000000    ................
+000001F3422A1F90   00544553  54000000  00000000  00000000    .TEST...........
+000001F3422A1FA0   00000000  00000000  00000000  00000000    ................
+000001F3422A1FB0   00000000  00000000  00000000  00000000    ................
+000001F3422A1FC0   0000433A  5C50726F  6772616D  44617461    ..C:\ProgramData
+000001F3422A1FD0   5C49424D  5C4D5100  00000000  00000000    \IBM\MQ.........
+000001F3422A1FE0   00000000  00000000  00000000  00000000    ................
+000001F3422A1FF0 to 000001F3422A20B0 suppressed, lines same as above
+000001F3422A20C0   00000000  00000043  3A5C5072  6F677261    .......C:\Progra
+000001F3422A20D0   6D446174  615C4942  4D5C4D51  5C716D67    mData\IBM\MQ\qmg
+000001F3422A20E0   72735C54  45535400  00000000  00000000    rs\TEST.........
+000001F3422A20F0   00000000  00000000  00000000  00000000    ................
+000001F3422A2100 to 000001F3422A21C0 suppressed, lines same as above
+000001F3422A21D0   00000000  00000000  00544553  545F3230    .........TEST_20
+000001F3422A21E0   31392D30  342D3039  5F32302E  30342E35    19-04-09_20.04.5
+000001F3422A21F0   35202020  20202020  20202020  20202020    5               
+000001F3422A2200   20202020  20202020  20000000  00000000             .......
+000001F3422A2210   02000000  00000000  00000000  00000000    ................
+000001F3422A2220   00000000  00000000  00000000  0A000000    ................
+000001F3422A2230   01000000  40230000  0A000000  01000000    ....@#..........
+000001F3422A2240   C0230000  00000000  00000000  00000000    .#..............
+000001F3422A2250   00000000  00000000  00000000  00000000    ................
+000001F3422A2260 to 000001F3422A22A0 suppressed, lines same as above
+000001F3422A22B0   02000000  00000000  400F0A00  00000000    ........@.......
+000001F3422A22C0   00000000  00000000  00000000  00000000    ................
+000001F3422A22D0   84190000  00000000  7A6C6C52  45535400    „.......zllREST.
+000001F3422A22E0   00000000  00000000  00000000  00000000    ................
+000001F3422A22F0   00000000  00000000  00000000  00000000    ................
+000001F3422A2300   00000000  00000000  02000000  00000000    ................
+000001F3422A2310   40751D00  1A000000  02000000  00000000    @u..............
+000001F3422A2320   40100A00  01000000  01000000  84190000    @...........„...
+000001F3422A2330   D0020000  00000000  5C1D0000  00000000    Ð.......\.......
+000001F3422A2340   7A6C6C43  52495400  00000000  00000000    zllCRIT.........
+000001F3422A2350   00000000  00000000  00000000  00000000    ................
+000001F3422A2360   00000000  00000000  00000000  00000000    ................
+000001F3422A2370   02000000  00000000  40AE1B00  0D000000    ........@®......
+000001F3422A2380   02000000  00000000  40110A00  01000000    ........@.......
+000001F3422A2390   01000000  5C1D0000  AC030000  00000000    ....\...¬.......
+000001F3422A23A0   64140000  00000000  7A6C6C50  55425355    d.......zllPUBSU
+000001F3422A23B0   42000000  00000000  00000000  00000000    B...............
+000001F3422A23C0   00000000  00000000  00000000  00000000    ................
+000001F3422A23D0   00000000  00000000  02000000  00000000    ................
+000001F3422A23E0   40E71900  20000000  02000000  00000000    @ç.. ...........
+000001F3422A23F0   40120A00  01000000  01000000  64140000    @...........d...
+000001F3422A2400   C8030000  00000000  EC250000  00000000    ........ì%......
+000001F3422A2410   616D7166  71707562  2E657865  00000000    amqfqpub.exe....
+000001F3422A2420   00000000  00000000  00000000  00000000    ................
+000001F3422A2430   00000000  00000000  00000000  00000000    ................
+000001F3422A2440   02000000  00000000  80E91C00  36000000    ........€é..6...
+000001F3422A2450   02000000  00000000  40130A00  00000000    ........@.......
+000001F3422A2460   00000000  EC250000  00000000  00000000    ....ì%..........
+000001F3422A2470   0A000000  01000000  40030000  0A000000    ........@.......
+000001F3422A2480   01000000  40200000  00000000  00000000    ....@ ..........
+000001F3422A2490   00000000  19000000  00000000  C0041C00    ................
+000001F3422A24A0   19000000  00000000  C00A1C00  00008001    ..............€.
+000001F3422A24B0   00002000  00002000  00001000  FFFFFFFF    .. ... .....ÿÿÿÿ
+000001F3422A24C0   00020000  00000200  00020000  10270000    .............'..
+000001F3422A24D0   FFFFFFFF  00F80000  00008000  00000004    ÿÿÿÿ.ø....€.....
+000001F3422A24E0   00101100  00108100  10270000  10270000    ......?..'...'..
+000001F3422A24F0   30750000  10270000  10270000  E8030000    0u...'...'..è...
+000001F3422A2500   64000000  54010000  0A000000  3C000000    d...T.......<...
+000001F3422A2510   D0070000  50C30000  64000000  1E000000    Ð...P...d.......
+000001F3422A2520   20A10700  80000000  00040000  FFFFFF7F     ¡..€.......ÿÿÿ.
+000001F3422A2530   FFFFFFFF  FFFFFFFF  E0930400  FFC99A3B    ÿÿÿÿÿÿÿÿà“..ÿ.š;
+000001F3422A2540   00000100  05000000  14000000  00080000    ................
+000001F3422A2550   00120400  00000000  00000100  7F000000    ................
+000001F3422A2560   00010000  F4010000  80982300  008D2700    ....ô...€˜#..?'.
+000001F3422A2570   008D2700  001A4F00  100E0000  64000000    .?'...O.....d...
+000001F3422A2580   10270000  50000000  5A000000  19000000    .'..P...Z.......
+000001F3422A2590   00000000  03000000  E8030000  10270000    ........è....'..
+000001F3422A25A0   03000000  01000000  20A10700  00000400    ........ ¡......
+000001F3422A25B0   FFFFFFFF  01000000  FFFFFFFF  40000000    ÿÿÿÿ....ÿÿÿÿ@...
+000001F3422A25C0   00001000  10270000  10270000  10270000    .....'...'...'..
+000001F3422A25D0   00000200  00000200  2C010000  2C010000    ........,...,...
+000001F3422A25E0   00040000  08070000  00800000  FFFFFFFF    .........€..ÿÿÿÿ
+000001F3422A25F0   FFFFFFFF  FFFFFFFF  FFFFFFFF  FFFFFFFF    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+000001F3422A2600   00000000  FFFFFFFF  30000000  01000000    ....ÿÿÿÿ0.......
+000001F3422A2610   01000000  01000000  00001000  03280000    .............(..
+000001F3422A2620   F7010000  F7010000  0F000000  66000000    ÷...÷.......f...
+000001F3422A2630   FFFFFFFF  40000000  05000000  30750000    ÿÿÿÿ@.......0u..
+000001F3422A2640   02000000  00000000  04000000  78000000    ............x...
+000001F3422A2650   0A000000  00000000  FFFFFFFF  00000000    ........ÿÿÿÿ....
+000001F3422A2660   32000000  10270000  05000000  00000000    2....'..........
+000001F3422A2670   00000000  50460000  2C010000  00000000    ....PF..,.......
+000001F3422A2680   00000000  01000000  FFFFFFFF  FFFFFFFF    ........ÿÿÿÿÿÿÿÿ
+000001F3422A2690   FFFFFFFF  FFFFFFFF  FFFFFFFF  FFFFFFFF    ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+000001F3422A26A0   01000000  00000000  00000000  00000000    ................
+000001F3422A26B0   00000000  00000000  00000000  21000000    ............!...
+000001F3422A26C0   04000000  40030000  21000000  04000000    ....@...!.......
+000001F3422A26D0   80090000  02000000  00000000  802D1A00    €	..........€-..
+000001F3422A26E0   22000000  02000000  00000000  40540A00    "...........@T..
+000001F3422A26F0   02000000  00000000  40550A00  02000000    ........@U......
+000001F3422A2700   00000000  40560A00  00000000  0DFD165D    ....@V.......ý.]
+000001F3422A2710   15CE3401  00000000  00000000  00000000    ..4.............
+000001F3422A2720   00000000  00000000  00000000  00000000    ................
+000001F3422A2730   19BA3A1B  C0311600  00000000  00000000    ..:..1..........
+000001F3422A2740   00000000  00000000  00000000  00000000    ................
+000001F3422A2750 to 000001F3422A2850 suppressed, lines same as above
+000001F3422A2860   00000000  00000000  00000000  01000000    ................
+000001F3422A2870   01000000  00000000  00000000  0A000000    ................
+000001F3422A2880   01000000  C01F0000                        ........
+
+
+zapSTATUS
+000001F3422A2880                       00000000  00000000            ........
+000001F3422A2890   00000000  00000000  02000000  00000000    ................
+000001F3422A28A0   C03D0400  0A000000  01000000  40030000    .=..........@...
+000001F3422A28B0   00000000  08000000  00000000  00000000    ................
+000001F3422A28C0   02000000  00000000  00000000  00000000    ................
+000001F3422A28D0   00000000  00000000                        ........
+
+-------------------------------------
+
+ Environment Variables
+ALLUSERSPROFILE=C:\ProgramData
+APMW_EMS_HOME=E:\nastel\apwmq\nsqcmems
+APPDATA=C:\Users\MUSR_MQADMIN\AppData\Roaming
+APWMQ_CM_OPTIONS=-m*; -nREMOTE_QMGRS; -s5020; -u; -e
+APWMQ_EVT_OPTIONS=-m*;
+APWMQ_GS_OPTIONS=-mMQM -s4010 -Dnastel_apwmq_db_ds -Usa -Pnastel1234  -pDnastel_permv3_db_ds -pUsa -pPnastel1234 ; +au; -e
+APWMQ_GS_OPTIONS_DEV=-mDEV -s4052 -Dnastel_apwmq_db_ds_mysql -Uroot -Pnastel1234  -pDnastel_permv3_db_ds_mysql -pUroot -pPnastel1234 ; +au; -e
+APWMQ_HOME=E:\nastel\apwmq\
+APWMQ_LA_OPTIONS=-m*;-i
+APWMQ_LS_OPTIONS=-m*; -s5010; -u; -e
+APWMQ_MS_OPTIONS=-m*;
+AUTOPILOT_HOME=E:\nastel\AutoPilotM6
+CATALINA_HOME=E:\nastel\AutoPilotM6\apache-tomcat
+CLASSPATH=C:\Program Files\IBM\MQ\java\lib\com.ibm.mqjms.jar;C:\Program Files\IBM\MQ\java\lib\com.ibm.mq.jar
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+CommonProgramFiles=C:\Program Files\Common Files
+CommonProgramW6432=C:\Program Files\Common Files
+COMPUTERNAME=DESKTOP-12K34B8
+ComSpec=C:\Windows\system32\cmd.exe
+DriverData=C:\Windows\System32\Drivers\DriverData
+ERLANG_HOME=C:\Program Files\erl10.3
+INCLUDE=C:\Program Files\IBM\MQ\tools\c\include;C:\Program Files\IBM\MQ\tools\cplus\include
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_181
+KRB5CCNAME=E:\nastel\Kerberos\krb5cache
+LIB=C:\Program Files\IBM\MQ\tools\lib64;C:\Program Files\IBM\MQ\tools\lib
+LOCALAPPDATA=C:\Users\MUSR_MQADMIN\AppData\Local
+MQ_FILE_PATH=C:\Program Files\IBM\MQ
+MQ_JAVA_DATA_PATH=C:\ProgramData\IBM\MQ
+MQ_JAVA_INSTALL_PATH=C:\Program Files\IBM\MQ\java
+MQ_JAVA_LIB_PATH=C:\Program Files\IBM\MQ\java\lib64;C:\Program Files\IBM\MQ\java\lib
+MQ_JRE_PATH=C:\Program Files\IBM\MQ\java\jre
+NUMBER_OF_PROCESSORS=4
+OS=Windows_NT
+PATH=C:\Program Files\IBM\MQ\bin64;C:\Program Files\IBM\MQ\bin;C:\Program Files\IBM\MQ\java\lib;C:\Program Files\IBM\MQ\java\lib64;D:\app\OracleUser\product\12.1.0\dbhome_1\bin;E:\nastel\apwmq\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\IBM\MQ\java\lib;C:\Program Files\IBM\MQ\java\lib64;C:\nastel\apwmq\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\nastel\AutoPilotM6\bin;C:\Program Files\IBM\MQ\bin64;C:\Program Files\IBM\MQ\bin;C:\Program Files\IBM\MQ\tools\c\samples\bin;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\PrivateAssemblies\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;E:\nastel\AutoPilotM6\bin;C:\nastel\mksnt;C:\Program Files\PuTTY\;E:\nastel\AutoPilotM6\bin;C:\Users\MUSR_MQADMIN\AppData\Local\Microsoft\WindowsApps;C:\Program Files\IBM\MQ\gskit8\lib64
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE=AMD64
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+PROCESSOR_LEVEL=6
+PROCESSOR_REVISION=5e03
+ProgramData=C:\ProgramData
+ProgramFiles(x86)=C:\Program Files (x86)
+ProgramFiles=C:\Program Files
+ProgramW6432=C:\Program Files
+PSModulePath=%ProgramFiles%\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\PowerShell\Modules\
+PUBLIC=C:\Users\Public
+SystemDrive=C:
+SystemRoot=C:\Windows
+TEMP=C:\Users\MUSR_M~1\AppData\Local\Temp
+TIBEMS_ROOT=E:\nastel\tibco\ems\8.4
+TMP=C:\Users\MUSR_M~1\AppData\Local\Temp
+USERDOMAIN=DESKTOP-12K34B8
+USERNAME=MUSR_MQADMIN
+USERPROFILE=C:\Users\MUSR_MQADMIN
+VBOX_MSI_INSTALL_PATH=C:\Program Files\Oracle\VirtualBox\
+windir=C:\Windows

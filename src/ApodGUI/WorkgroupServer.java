@@ -2,6 +2,7 @@ package ApodGUI;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -457,18 +458,19 @@ public class WorkgroupServer {
 	}
 
 	@TestRail(testCaseId = 30)
-	@Parameters({"Node_NewConnectionName"})
+	@Parameters({"Node_NewConnectionName", "RemoteQueueManagerName"})
 	@Test(priority = 6, dependsOnMethods= {"AddRemoteQueueManager"})
-	public void ModifyRemoteQueueManager(String Node_NewConnectionName, ITestContext context) throws InterruptedException {
+	public void ModifyRemoteQueueManager(String Node_NewConnectionName, String RemoteQueueManagerName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
-			driver.findElement(By.xpath(
-					"/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"))
 					.click();
 			Actions Mousehour = new Actions(driver);
 			Mousehour.moveToElement(driver.findElement(By.linkText("Create"))).perform();
 			driver.findElement(By.linkText("Remote Queue Managers...")).click();
 			Thread.sleep(2000);
+			
+			this.ServerSelection(RemoteQueueManagerName);
 
 			// Click on Modify button
 			driver.findElement(By.xpath("//div[2]/div/div[2]/button")).click();
@@ -479,13 +481,18 @@ public class WorkgroupServer {
 			// Connection name
 			driver.findElement(By.name("connName")).clear();
 			driver.findElement(By.name("connName")).sendKeys(Node_NewConnectionName);
+			Thread.sleep(2000);
 
 			// click on OK button
 			driver.findElement(By.xpath("//app-mod-remote-queue-manager-options/div/div[2]/div/div/div/button")).click();
 			Thread.sleep(8000);
+			
+			this.ServerSelection(RemoteQueueManagerName);
+			Thread.sleep(2000);
 
 			// Store the connection ip into string after modifying the name
 			String ChangedConnectionip = driver.findElement(By.xpath("//div[2]/div/table/tbody/tr/td[2]")).getText();
+			System.out.println("Changed connection is: " +ChangedConnectionip);
 
 			if (ChangedConnectionip.equalsIgnoreCase(Node_NewConnectionName)) {
 				context.setAttribute("Status", 1);
@@ -522,7 +529,28 @@ public class WorkgroupServer {
 			driver.findElement(By.linkText("Remote Queue Managers...")).click();
 			Thread.sleep(5000);
 			
-			boolean RMQM=driver.findElement(By.xpath("//td[contains(.,'" + DeleteManagerName + "')]")).isEnabled();
+			WebElement bu=driver.findElement(By.tagName("table")).findElement(By.tagName("tbody"));
+			List<WebElement> tr=bu.findElements(By.tagName("tr"));
+			System.out.println("No of trs: " +tr.size());
+			for(WebElement active : tr)
+			{
+				System.out.println("Text is: " +active.getText());
+				if(active.getText().contains(DeleteManagerName))
+				{
+					//System.out.println("Class is: " +active.getAttribute("class"));
+					if(active.getAttribute("class").contains("table-row-selected"))
+					{
+						System.out.println("Server is already selected");
+					}
+					else
+					{
+						active.click();
+						break;
+					}
+				}
+			}
+			
+			/*boolean RMQM=driver.findElement(By.xpath("//td[contains(.,'" + DeleteManagerName + "')]")).isEnabled();
 			System.out.println("Status of deleting rmqm is :" +RMQM);
 			if(RMQM)
 			{
@@ -533,7 +561,7 @@ public class WorkgroupServer {
 				// Select the required Queue manager
 				driver.findElement(By.xpath("//td[contains(.,'" + DeleteManagerName + "')]")).click();
 				
-			}
+			}*/
 
 			// Click on Delete
 			driver.findElement(By.xpath("//button[contains(.,'Delete')]")).click();
@@ -623,11 +651,54 @@ public class WorkgroupServer {
 		}
 	}
 
-	@Parameters({ "UpdatedServerURL" })
+	@Parameters({ "UpdatedServerURL", "ServerName"})
 	@TestRail(testCaseId = 33)
 	@Test(priority = 9, dependsOnMethods= {"AddRemoteEMSManager"})
-	public void ModifyRemoteEMSServer(String UpdatedServerURL, ITestContext context) throws InterruptedException {
+	public void ModifyRemoteEMSServer(String UpdatedServerURL, String ServerName, ITestContext context) throws InterruptedException {
 		try {
+			
+			WebElement bu=driver.findElement(By.tagName("table")).findElement(By.tagName("tbody"));
+			List<WebElement> tr=bu.findElements(By.tagName("tr"));
+			System.out.println("No of trs: " +tr.size());
+			for(WebElement active : tr)
+			{
+				System.out.println("Text is: " +active.getText());
+				if(active.getText().contains(ServerName))
+				{
+					//System.out.println("Class is: " +active.getAttribute("class"));
+					if(active.getAttribute("class").contains("table-row-selected"))
+					{
+						System.out.println("Server is already selected");
+					}
+					else
+					{
+						active.click();
+						break;
+					}
+				}
+			}
+			
+			/*
+			WebElement ss=driver.findElement(By.xpath("//td[contains(.,'" + ServerName + "')]"));
+			
+			WebElement parentElement = ss.findElement(By.xpath("./.."));
+			String ll=ss.getAttribute("class");
+			System.out.println("Value is: " +ll);
+			boolean REMS=driver.findElement(By.xpath("//td[contains(.,'" + ServerName + "')]")).isSelected();
+			System.out.println("Remote EMS server selection is: " +REMS);
+			
+			if(REMS==true)
+			{
+				System.out.println("EMS server is already selected");
+			}
+			else
+			{
+				//Click on Remote EMS server name
+				driver.findElement(By.xpath("//td[contains(.,'" + ServerName + "')]")).click();				
+			}
+			
+			Thread.sleep(2000); */
+			
 			// Click on Modify button
 			driver.findElement(By.xpath("//div[2]/div/div[2]/button")).click();
 
@@ -664,8 +735,44 @@ public class WorkgroupServer {
 	@Test(priority = 10, dependsOnMethods= {"AddRemoteEMSManager", "ModifyRemoteEMSServer"})
 	public void DeleteRemoteEMSServer(String ServerName, ITestContext context) throws InterruptedException {
 		try {
-			// Click on Server name
-			driver.findElement(By.xpath("//td[contains(.,'" + ServerName + "')]")).click();
+			
+			WebElement bu=driver.findElement(By.tagName("table")).findElement(By.tagName("tbody"));
+			List<WebElement> tr=bu.findElements(By.tagName("tr"));
+			System.out.println("No of trs: " +tr.size());
+			for(WebElement active : tr)
+			{
+				System.out.println("Text is: " +active.getText());
+				if(active.getText().contains(ServerName))
+				{
+					//System.out.println("Class is: " +active.getAttribute("class"));
+					if(active.getAttribute("class").contains("table-row-selected"))
+					{
+						System.out.println("Server is already selected");
+					}
+					else
+					{
+						active.click();
+						break;
+					}
+				}
+			}
+			
+			/*//Click on Remote EMS server name
+			driver.findElement(By.xpath("//td[contains(.,'" + ServerName + "')]")).click();	
+			
+			boolean REMS=driver.findElement(By.xpath("//td[contains(.,'" + ServerName + "')]")).isSelected();
+			System.out.println("Remote EMS server selection is: " +REMS);
+			Thread.sleep(3000);
+			
+			if(REMS==true)
+			{
+				System.out.println("EMS server is already selected");
+			}
+			else
+			{
+				//Click on Remote EMS server name
+				driver.findElement(By.xpath("//td[contains(.,'" + ServerName + "')]")).click();	
+			}*/
 
 			Thread.sleep(2000);
 
@@ -849,6 +956,30 @@ public class WorkgroupServer {
 		// Logout
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	public void ServerSelection(String RemoteQueueManagerName)
+	{
+		WebElement bu=driver.findElement(By.tagName("table")).findElement(By.tagName("tbody"));
+		List<WebElement> tr=bu.findElements(By.tagName("tr"));
+		System.out.println("No of trs: " +tr.size());
+		for(WebElement active : tr)
+		{
+			System.out.println("Text is: " +active.getText());
+			if(active.getText().contains(RemoteQueueManagerName))
+			{
+				//System.out.println("Class is: " +active.getAttribute("class"));
+				if(active.getAttribute("class").contains("table-row-selected"))
+				{
+					System.out.println("Server is already selected");
+				}
+				else
+				{
+					active.click();
+					break;
+				}
+			}
+		}
 	}
 
 	@AfterMethod

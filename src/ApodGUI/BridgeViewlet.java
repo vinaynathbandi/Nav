@@ -380,15 +380,18 @@ public class BridgeViewlet {
     	if(viewletdata.contains(FinalBridgeName))
     	{
     		System.out.println("Bridge is not deleted");
-    		context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Bridge is deleted successfuuly");
+    		context.setAttribute("Status",5);
+    		context.setAttribute("Comment", "Failed to delete bridge");
     		driver.findElement(By.xpath("Bridge delete failed")).click();
+    		
     	}
     	else
     	{
     		System.out.println("Bridge is deleted");
-    		context.setAttribute("Status",5);
-    		context.setAttribute("Comment", "Failed to delete bridge");
+    		context.setAttribute("Status",1);
+    		context.setAttribute("Comment", "Bridge is deleted successfuuly");
+    		
+    		
     	}
     	Thread.sleep(1000);
 	}

@@ -472,6 +472,7 @@ public class ChannelAuthRecordsViewlet
 					if(s.equals(Dnode))
 					{
 						String id=ChannelauthNode.get(i).getAttribute("id");
+						Thread.sleep(2000);
 						driver.findElement(By.id(id)).click();
 						break;
 					}
@@ -497,7 +498,7 @@ public class ChannelAuthRecordsViewlet
 					//System.out.println("Radio button text:" + Topic.get(i).getText());
 					System.out.println("Radio button id:" + ChannelAuthManager.get(i).getAttribute("id"));
 					String s=ChannelAuthManager.get(i).getText();
-					if(s.equals(Manager1))
+					if(s.equals(Manager2))
 					{
 						String id=ChannelAuthManager.get(i).getAttribute("id");
 						driver.findElement(By.id(id)).click();

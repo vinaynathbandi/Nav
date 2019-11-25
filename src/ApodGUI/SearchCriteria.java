@@ -167,7 +167,7 @@ public class SearchCriteria
 		
 		//Put a message data
 		//driver.findElement(By.id("encoding-text-9")).click();
-		driver.findElement(By.id("encoding-text-9")).sendKeys(MessageData);
+		driver.findElement(By.xpath("//textarea")).sendKeys(MessageData);
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(4000);
 		

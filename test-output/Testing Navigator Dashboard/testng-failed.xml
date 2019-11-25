@@ -18,7 +18,9 @@
       <class name="ApodGUI.SearchCriteria">
         <methods>
           <include name="AddSearchCriteriaCondition" invocation-numbers="0"/>
+          <include name="PutAmessageIntoQueue" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="Logout"/>
           <include name="beforeTest"/>
         </methods>
       </class> <!-- ApodGUI.SearchCriteria -->

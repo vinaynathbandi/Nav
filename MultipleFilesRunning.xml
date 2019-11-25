@@ -3,10 +3,10 @@
 <suite name="All Suites"> 
   <suite-files>
   
-    <!-- <suite-file path="Workgroupserver.xml"/> 
-    <suite-file path="Node.xml"/>  
-    <suite-file path="Manager.xml"/>
-    <suite-file path="Queues.xml"/> 
+   <!--  <suite-file path="Workgroupserver.xml"/> 
+    <suite-file path="Node.xml"/>   
+    <suite-file path="Manager.xml"/> 
+    <suite-file path="Queues.xml"/>  
     <suite-file path="QueuesInsidemessages.xml"/>
     <suite-file path="QueueMessages.xml"/>
     <suite-file path="Channel.xml"/>
@@ -23,17 +23,17 @@
     <suite-file path="Transport.xml"/>
     <suite-file path="Bridge.xml"/>
     <suite-file path="Durable.xml"/> 
-    <suite-file path="EMSManager.xml"/>
-    <suite-file path="EMSQueues.xml"/>
+    <suite-file path="EMSManager.xml"/>  
+    <suite-file path="EMSQueues.xml"/> 
     <suite-file path="EMSQueuesInsideBrowse.xml"/> 
     <suite-file path="EMSQueueMessages.xml"/>
     <suite-file path="EMSChannel.xml"/>
-    <suite-file path="EMSTopic.xml"/>  -->
-    <suite-file path="AddSchema.xml"/>
+    <suite-file path="EMSTopic.xml"/>  
+    <suite-file path="AddSchema.xml"/> -->
     <suite-file path="NavigatorSettings.xml"/> 
    <!--  <suite-file path="Schedule.xml"/>  --> 
     <suite-file path="SearchCriteria.xml"/> 
-    <suite-file path="Attributefilter.xml"/> 
+    <suite-file path="Attributefilter.xml"/>  
   	
   </suite-files>
 </suite>

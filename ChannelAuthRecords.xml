@@ -30,15 +30,15 @@
        
         <include name="Login"/>
         <include name="AddChannelAuthrecordsViewlet"/> 
-        <include name="CreateChannelAuthRecordFromOptions"/>
+        <!--  <include name="CreateChannelAuthRecordFromOptions"/>
         <include name="DeleteChannelAuthRecordFromCommands"/>
         <include name="ChannelAuthProperties"/> 
         <include name="ChannelAuthEvents"/>
-        <include name="AddToFavoriteViewlet"/>  
+        <include name="AddToFavoriteViewlet"/>  --> 
         <include name="CreateChannelAuthRecordFromPlusIcon"/>
-        <!-- <include name="DeleteMultipleChannelAuthRecordsFromCommands"/>   -->
+        <!-- <include name="DeleteMultipleChannelAuthRecordsFromCommands"/>  
         <include name="MultipleChannelAuthRecordsProperties"/>
-        <include name="AddToFavoriteForMultipleChannelAuthRecords"/>   
+        <include name="AddToFavoriteForMultipleChannelAuthRecords"/>    -->
         <include name="Logout"/> 
         
        </methods>

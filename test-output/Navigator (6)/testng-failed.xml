@@ -1,42 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (6)]">
-  <test thread-count="5" name="Test Listener Viewlet(failed)">
-    <parameter name="Dashboardname" value="Listener Viewlet Verification"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="Description" value="Description from Options"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="RenameListener" value="Test.Listener.First1.Rename"/>
-    <parameter name="DescriptionFromIcon" value="Icon Description"/>
-    <parameter name="Attributes" value="Listener Mask,Listener Description,Transport Type,Start Mode,Listener Status,IP Address,Port,Backlog,Transaction Program Name,SPX Socket,NetBIOS Adapter Number,NetBIOS Session Count,NetBIOS Local Name,Commands,NetBIOS Name Count"/>
-    <parameter name="FavoriteViewletName" value="Favorite Viewlet for Listener"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="schemaName" value="ListnerSchema"/>
-    <parameter name="ListenerName" value="Test.Listener.First1"/>
-    <parameter name="ListenerNameFromICon" value="Test.Listener.Icon"/>
-    <parameter name="CopyObjectName" value=".Copy"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="Listenerviewletname" value="New Listener Viewlet"/>
+  <test thread-count="5" name="EMS Queue Message Options(failed)">
+    <parameter name="Dashboardname" value="EMS Queues Messages"/>
     <parameter name="password" value="admin"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="RenameListenerForMultiple" value="Test.Listener.Multi.Rename"/>
-    <parameter name="ListenerDescription" value="Multiple properties"/>
+    <parameter name="uname" value="Admin"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="CopyObjectNameForMUltiple" value="Test.Multi.Copy"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="MessageData" value="Put the message from Main options"/>
+    <parameter name="DownloadPath" value="F:\Navigator Exported Messages\From Main"/>
+    <parameter name="HexMessageData" value="10C20000E0A5E6F6FDFFE0AEE00FE6FCFDFFE6FD93"/>
+    <parameter name="QueueName" value="EMS Local Queue"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.ListenerViewlet">
+      <class name="ApodGUI.EMSQueueMessages">
         <methods>
-          <include name="AddToFavoriteViewlet"/>
+          <include name="PutMessageUsingXMLFile" invocation-numbers="0"/>
+          <include name="Login" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="ListenerMultipleProperties" invocation-numbers="0"/>
-          <include name="AddToFavoriteForMultipleListeners" invocation-numbers="0"/>
-          <include name="DeleteFromCommandsForMultiple" invocation-numbers="0"/>
-          <include name="RenameFromCommandsForMultiple"/>
-          <include name="CopyAsFromCommandsForMultiple"/>
+          <include name="PutHexMessageIntoQueue" invocation-numbers="0"/>
+          <include name="PutNewMessageIntoQueue" invocation-numbers="0"/>
+          <include name="DeleteAllMessagesFromQueue" invocation-numbers="0"/>
+          <include name="CopyAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
+          <include name="MoveAllMessagesFromOneQueueToAnotherQueue" invocation-numbers="0"/>
           <include name="beforeTest"/>
+          <include name="PutMessageUsingJsonFile" invocation-numbers="0"/>
+          <include name="Logout"/>
+          <include name="ClearAllMessagesFromQueue" invocation-numbers="0"/>
+          <include name="LoadFromFile" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.ListenerViewlet -->
+      </class> <!-- ApodGUI.EMSQueueMessages -->
     </classes>
-  </test> <!-- Test Listener Viewlet(failed) -->
+  </test> <!-- EMS Queue Message Options(failed) -->
 </suite> <!-- Failed suite [Navigator (6)] -->

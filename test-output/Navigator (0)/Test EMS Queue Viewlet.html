@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test EMS Queue Viewlet</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>5/2/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>10/4/1</td>
 </tr><tr>
-<td>Started on:</td><td>Thu Aug 22 18:49:20 IST 2019</td>
+<td>Started on:</td><td>Tue Nov 12 11:46:23 IST 2019</td>
 </tr>
-<tr><td>Total time:</td><td>178 seconds (178416 ms)</td>
+<tr><td>Total time:</td><td>493 seconds (493201 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,25 +75,28 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='ApodGUI.EMSQueues.CreateQueueFromOptions()'><b>CreateQueueFromOptions</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: EMS_ABC, org.testng.TestRunner@704b2127<br/>
-<a href="#Output-1439361845" onClick='toggleBox("Output-1439361845", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.EMSQueues.AddToFavoriteViewlet()'><b>AddToFavoriteViewlet</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: Queues Add to favorite<br/>
+<a href="#Output-1479100519" onClick='toggleBox("Output-1479100519", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1439361845" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1439361845">
-<br/>Failed to execute method: CreateQueueFromOptions<br/><br/>
+<a href="#Output-1479100519" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1479100519">
+<br/>Failed to execute method: AddToFavoriteViewlet<br/><br/>
 <br/><br/>
-<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsFailure/CreateQueueFromOptions.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/AddToFavoriteViewlet.png" alt="""/" /><br/>
 </div>
 </td>
-<td><div><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-c3=&quot;&quot; class=&quot;fa fa-cog fa-lg&quot; title=&quot;User Settings&quot;&gt;&lt;/i&gt; is not clickable at point (1177, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot;&gt;...&lt;/ngb-modal-window&gt;
-  (Session info: chrome=76.0.3809.100)
-  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+<td><div><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Queue not add to favorite because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Queue not add to favorite&apos; is not a valid XPath expression.
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
 Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
-System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54821}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.100, webStorageEnabled: true}
-Session ID: 42e6dcb208e2be13ea7b7aad34059072
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
+*** Element info: {Using=xpath, value=Queue not add to favorite}
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
 	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
@@ -102,19 +105,24 @@ Session ID: 42e6dcb208e2be13ea7b7aad34059072
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
-	at ApodGUI.EMSQueues.CreateQueueFromOptions(EMSQueues.java:263)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1439361845", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1439361845'><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-c3=&quot;&quot; class=&quot;fa fa-cog fa-lg&quot; title=&quot;User Settings&quot;&gt;&lt;/i&gt; is not clickable at point (1177, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot;&gt;...&lt;/ngb-modal-window&gt;
-  (Session info: chrome=76.0.3809.100)
-  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.EMSQueues.AddToFavoriteViewlet(EMSQueues.java:584)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1479100519", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1479100519'><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Queue not add to favorite because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Queue not add to favorite&apos; is not a valid XPath expression.
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
 Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
-System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54821}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.100, webStorageEnabled: true}
-Session ID: 42e6dcb208e2be13ea7b7aad34059072
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
+*** Element info: {Using=xpath, value=Queue not add to favorite}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -127,9 +135,11 @@ Session ID: 42e6dcb208e2be13ea7b7aad34059072
 	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
-	at ApodGUI.EMSQueues.CreateQueueFromOptions(EMSQueues.java:263)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.EMSQueues.AddToFavoriteViewlet(EMSQueues.java:584)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -157,30 +167,191 @@ Session ID: 42e6dcb208e2be13ea7b7aad34059072
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>19</td>
-<td>ApodGUI.EMSQueues@7113b13f</td></tr>
+<td>8</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
 <tr>
-<td title='ApodGUI.EMSQueues.QueueCommands()'><b>QueueCommands</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: .Queue1, org.testng.TestRunner@704b2127<br/>
-<a href="#Output-1270383967" onClick='toggleBox("Output-1270383967", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.EMSQueues.CreateQueueFromOptions()'><b>CreateQueueFromOptions</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: EMS_ABC, org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-2099932844" onClick='toggleBox("Output-2099932844", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1270383967" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1270383967">
+<a href="#Output-2099932844" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2099932844">
+<br/>Failed to execute method: CreateQueueFromOptions<br/><br/>
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateQueueFromOptions.png" alt="""/" /><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-pyu-c4=&quot;&quot; class=&quot;fa fa-cog fa-lg&quot; title=&quot;User Settings&quot;&gt;&lt;/i&gt; is not clickable at point (1177, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot; aria-modal=&quot;true&quot;&gt;...&lt;/ngb-modal-window&gt;
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at ApodGUI.EMSQueues.CreateQueueFromOptions(EMSQueues.java:261)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2099932844", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2099932844'><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-pyu-c4=&quot;&quot; class=&quot;fa fa-cog fa-lg&quot; title=&quot;User Settings&quot;&gt;&lt;/i&gt; is not clickable at point (1177, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot; aria-modal=&quot;true&quot;&gt;...&lt;/ngb-modal-window&gt;
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at ApodGUI.EMSQueues.CreateQueueFromOptions(EMSQueues.java:261)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1204)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>24</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.Logout()'><b>Logout</b><br>Test class: ApodGUI.EMSQueues</td>
+<td><div><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-pyu-c4=&quot;&quot; class=&quot;fa fa-cog fa-lg&quot; title=&quot;User Settings&quot;&gt;&lt;/i&gt; is not clickable at point (1177, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot; aria-modal=&quot;true&quot;&gt;...&lt;/ngb-modal-window&gt;
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at ApodGUI.EMSQueues.Logout(EMSQueues.java:947)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1187146208", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1187146208'><pre>org.openqa.selenium.WebDriverException: unknown error: Element &lt;i _ngcontent-pyu-c4=&quot;&quot; class=&quot;fa fa-cog fa-lg&quot; title=&quot;User Settings&quot;&gt;&lt;/i&gt; is not clickable at point (1177, 22). Other element would receive the click: &lt;ngb-modal-window role=&quot;dialog&quot; tabindex=&quot;-1&quot; class=&quot;modal fade show d-block&quot; aria-modal=&quot;true&quot;&gt;...&lt;/ngb-modal-window&gt;
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+	at ApodGUI.EMSQueues.Logout(EMSQueues.java:947)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1204)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.QueueCommands()'><b>QueueCommands</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: .Queue1, org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-413550077" onClick='toggleBox("Output-413550077", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-413550077" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-413550077">
 <br/>Failed to execute method: QueueCommands<br/><br/>
 <br/><br/>
-<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsFailure/QueueCommands.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/QueueCommands.png" alt="""/" /><br/>
 </div>
 </td>
 <td><div><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Queue creation failed because of the following error:
 SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Queue creation failed&apos; is not a valid XPath expression.
-  (Session info: chrome=76.0.3809.100)
-  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
 Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
-System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54821}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.100, webStorageEnabled: true}
-Session ID: 42e6dcb208e2be13ea7b7aad34059072
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
 *** Element info: {Using=xpath, value=Queue creation failed}
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
@@ -194,19 +365,19 @@ Session ID: 42e6dcb208e2be13ea7b7aad34059072
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
 	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at ApodGUI.EMSQueues.QueueCommands(EMSQueues.java:355)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1270383967", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1270383967'><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Queue creation failed because of the following error:
+	at ApodGUI.EMSQueues.QueueCommands(EMSQueues.java:354)
+... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace413550077", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace413550077'><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Queue creation failed because of the following error:
 SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Queue creation failed&apos; is not a valid XPath expression.
-  (Session info: chrome=76.0.3809.100)
-  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.17134 x86_64) (WARNING: The server did not provide any stacktrace information)
+  (Session info: chrome=78.0.3904.97)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
 For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
 Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
-System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.85.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54821}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 76.0.3809.100, webStorageEnabled: true}
-Session ID: 42e6dcb208e2be13ea7b7aad34059072
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:60581}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 78.0.3904.97, webStorageEnabled: true}
+Session ID: c99067433fd57ddbab4ebdd69ffef6b8
 *** Element info: {Using=xpath, value=Queue creation failed}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
@@ -224,7 +395,7 @@ Session ID: 42e6dcb208e2be13ea7b7aad34059072
 	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
 	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at ApodGUI.EMSQueues.QueueCommands(EMSQueues.java:355)
+	at ApodGUI.EMSQueues.QueueCommands(EMSQueues.java:354)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -252,8 +423,8 @@ Session ID: 42e6dcb208e2be13ea7b7aad34059072
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>10</td>
-<td>ApodGUI.EMSQueues@7113b13f</td></tr>
+<td>15</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -263,62 +434,170 @@ Session ID: 42e6dcb208e2be13ea7b7aad34059072
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='ApodGUI.EMSQueues.AddQueueFromPlusIcon()'><b>AddQueueFromPlusIcon</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: EMS_Add.New.Queue, Test the Queue, org.testng.TestRunner@704b2127<br/>
-<a href="#Output-1412612727" onClick='toggleBox("Output-1412612727", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.EMSQueues.AddQueueFromPlusIcon()'><b>AddQueueFromPlusIcon</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: EMS_Add.New.Queue, Test the Queue, org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-1841099284" onClick='toggleBox("Output-1841099284", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1412612727" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1412612727">
+<a href="#Output-1841099284" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1841099284">
 <br/><br/>
-<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/AddQueueFromPlusIcon.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddQueueFromPlusIcon.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>36</td>
-<td>ApodGUI.EMSQueues@7113b13f</td></tr>
+<td>34</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
 <tr>
-<td title='ApodGUI.EMSQueues.Login()'><b>Login</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: webdriver.chrome.driver, Drivers/chromedriver.exe, QueuesViewlet Verification, Local Queue<br/>
-<a href="#Output-1517758613" onClick='toggleBox("Output-1517758613", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.EMSQueues.BrowseMessages()'><b>BrowseMessages</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-1059080630" onClick='toggleBox("Output-1059080630", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1517758613" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1517758613">
+<a href="#Output-1059080630" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1059080630">
 <br/><br/>
-<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /><br/>
-</div>
-</td>
-<td></td>
-<td>19</td>
-<td>ApodGUI.EMSQueues@7113b13f</td></tr>
-<tr>
-<td title='ApodGUI.EMSQueues.Logout()'><b>Logout</b><br>Test class: ApodGUI.EMSQueues</td>
-<td></td>
-<td>5</td>
-<td>ApodGUI.EMSQueues@7113b13f</td></tr>
-<tr>
-<td title='ApodGUI.EMSQueues.MultipleQueueProperties()'><b>MultipleQueueProperties</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: Multiple Description, org.testng.TestRunner@704b2127<br/>
-<a href="#Output-1269339945" onClick='toggleBox("Output-1269339945", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1269339945" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1269339945">
-<br/><br/>
-<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/MultipleQueueProperties.png" alt="""/" /><br/>
-</div>
-</td>
-<td></td>
-<td>19</td>
-<td>ApodGUI.EMSQueues@7113b13f</td></tr>
-<tr>
-<td title='ApodGUI.EMSQueues.ShowQueueStatus()'><b>ShowQueueStatus</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: org.testng.TestRunner@704b2127<br/>
-<a href="#Output-1661161169" onClick='toggleBox("Output-1661161169", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1661161169" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1661161169">
-<br/><br/>
-<img src=" F:\Selenium Automation\TestRailNavigator/Screenshots/ScreenshotsSuccess/ShowQueueStatus.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/BrowseMessages.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
 <td>2</td>
-<td>ApodGUI.EMSQueues@7113b13f</td></tr>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.CompareQueues()'><b>CompareQueues</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-523794808" onClick='toggleBox("Output-523794808", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-523794808" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-523794808">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CompareQueues.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.Login()'><b>Login</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: webdriver.chrome.driver, Drivers/chromedriver.exe, QueuesViewlet Verification, Local Queue<br/>
+<a href="#Output-443502884" onClick='toggleBox("Output-443502884", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-443502884" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-443502884">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>30</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.MultipleQueueProperties()'><b>MultipleQueueProperties</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: Multiple Description, org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-1103067610" onClick='toggleBox("Output-1103067610", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1103067610" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1103067610">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/MultipleQueueProperties.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>68</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.QueueEvents()'><b>QueueEvents</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-739703515" onClick='toggleBox("Output-739703515", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-739703515" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-739703515">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/QueueEvents.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.QueueProperties()'><b>QueueProperties</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-783785150" onClick='toggleBox("Output-783785150", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-783785150" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-783785150">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/QueueProperties.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>18</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.ShowObjectAttributesForQueues()'><b>ShowObjectAttributesForQueues</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: QueueSchema, org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-1249070084" onClick='toggleBox("Output-1249070084", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1249070084" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1249070084">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForQueues.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.ShowQueueStatus()'><b>ShowQueueStatus</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-234223040" onClick='toggleBox("Output-234223040", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-234223040" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-234223040">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowQueueStatus.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+<tr>
+<td title='ApodGUI.EMSQueues.ShowQueueStatusForMultipleQueues()'><b>ShowQueueStatusForMultipleQueues</b><br>Test class: ApodGUI.EMSQueues<br>Parameters: org.testng.TestRunner@ec2bf82<br/>
+<a href="#Output-284034271" onClick='toggleBox("Output-284034271", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-284034271" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-284034271">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowQueueStatusForMultipleQueues.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>ApodGUI.EMSQueues@42d8062c</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='ApodGUI.EMSQueues.AddToFavoriteForMultipleQueues()'><b>AddToFavoriteForMultipleQueues</b><br>Test class: ApodGUI.EMSQueues</td>
+<td><div><pre>java.lang.Throwable: Method EMSQueues.AddToFavoriteForMultipleQueues(java.lang.String)[pri:12, instance:ApodGUI.EMSQueues@42d8062c] depends on not successfully finished methods
+... Removed 19 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace373342545", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace373342545'><pre>java.lang.Throwable: Method EMSQueues.AddToFavoriteForMultipleQueues(java.lang.String)[pri:12, instance:ApodGUI.EMSQueues@42d8062c] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1204)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
 </table><p>
 </body>
 </html>

@@ -1,58 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (7)]">
-  <test thread-count="5" name="Test Topic Viewlet(failed)">
-    <parameter name="Dashboardname" value="TopicViewlet Verification"/>
-    <parameter name="PropertyNameForMultiple" value="Test"/>
-    <parameter name="Description" value="Test the description "/>
-    <parameter name="NodeName" value="DESKTOP-E1JT2VR"/>
-    <parameter name="DescriptionFromIcon" value="Description"/>
-    <parameter name="Attributes" value="Topic Name,Topic Description,Topic String,Inhibit Publications,Inhibit Subscriptions,Durable Subscriptions,Default Priority,Default Persistence,Default Put Response Type,Durable Model Queue,Non-durable Model Queue,Non-Persistent Msg Delivery,Persistent Msg Delivery,Wildcard Operation,Communication information name,Proxy Subscriptions,Publication Scope,Subscription Scope,Use Dead Letter Queue,Topic Type,Cluster Name,Hosting Queue Manager"/>
-    <parameter name="FavoriteViewletName" value="Favorite Viewlet for Topic"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="TopicUniquestringFromICon" value="UniqueName1"/>
-    <parameter name="schemaName" value="TopicSchema"/>
-    <parameter name="CopyObjectName" value=".Copy"/>
-    <parameter name="TopicNameFromIcon" value="SYSTEM.DEFAULT.TOPIC.Icon"/>
-    <parameter name="URL" value="/navigator/#/login"/>
+  <test thread-count="5" name="Test EMS Channel Viewlet(failed)">
+    <parameter name="Dashboardname" value="EMS Channel Verification"/>
     <parameter name="password" value="admin"/>
-    <parameter name="TopicNameFromOptions" value="SYSTEM.DEFAULT.TOPIC.Options"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="TopicUniquestring" value="UniqueTopic"/>
-    <parameter name="DestinationQueue" value="AAA.LQ"/>
-    <parameter name="AddSubscriptionNameforMultiple" value="Test.Multiple.Sub421"/>
-    <parameter name="MultipleDescription" value="Test Multiple Topics Description"/>
-    <parameter name="DWGS" value="WGS10"/>
-    <parameter name="MessageDataForMultiple" value="Add Message into the destination queue"/>
-    <parameter name="PropertyName" value="Test Property"/>
     <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="DestinationManager" value="M10"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="MessageData" value="Test the publish option and sending the message to queue"/>
-    <parameter name="PropertyValue" value="Test Property value"/>
-    <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
-    <parameter name="CopyObjectNameForMultiple" value="TOPIC.COPY.MULTIPLE"/>
-    <parameter name="Communicationinfo" value="Test Communication"/>
-    <parameter name="PropertyValueForMultiple" value="Test"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="AddSubscriptionName" value="Test.Sub421"/>
-    <parameter name="Dnode" value="DESKTOP-E1JT2VR"/>
-    <parameter name="Topicname" value="New Topic Viewlet"/>
+    <parameter name="ChannelName" value="EMS Channel Viewlet"/>
+    <parameter name="uname" value="Admin"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="FavoriteViewletName" value="Favorite for Channels"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="ChannelSchema"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.TopicViewlet">
+      <class name="ApodGUI.EMSChannels">
         <methods>
-          <include name="DeleteFromCommandsForMultipleTopics" invocation-numbers="0"/>
-          <include name="PublishFromCommands" invocation-numbers="0"/>
-          <include name="PublishFromCommandsForMultipleTopics" invocation-numbers="0"/>
-          <include name="beforeTest"/>
-          <include name="TopicProperties" invocation-numbers="0"/>
-          <include name="CopyAsFromCommandsForMultipleTopics" invocation-numbers="0"/>
-          <include name="CopyAsFromCommands" invocation-numbers="0"/>
+          <include name="AddToFavoriteForMultipleChannels"/>
           <include name="tearDown"/>
-          <include name="DeleteFromCommands" invocation-numbers="0"/>
+          <include name="beforeTest"/>
+          <include name="AddToFavorites" invocation-numbers="0"/>
+          <include name="Events" invocation-numbers="0"/>
+          <include name="ComapareChannels" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.TopicViewlet -->
+      </class> <!-- ApodGUI.EMSChannels -->
     </classes>
-  </test> <!-- Test Topic Viewlet(failed) -->
+  </test> <!-- Test EMS Channel Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (7)] -->

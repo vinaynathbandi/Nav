@@ -180,7 +180,7 @@ public class DurableViewlet
 	
 	@Parameters({"schemaName"})
 	@TestRail(testCaseId=232)
-	@Test(priority=12)
+	@Test(priority=13)
 	public static void ShowObjectAttributesForDurable(String schemaName, ITestContext context) throws InterruptedException
 	{		
 		try {
@@ -276,7 +276,7 @@ public class DurableViewlet
 	
 	@Parameters({"DurableName"})
 	@TestRail(testCaseId=233)
-	@Test(priority=13, dependsOnMethods= {"AddDurableFromPlusIcon"})
+	@Test(priority=12, dependsOnMethods= {"AddDurableFromPlusIcon"})
 	public void DeleteCommand(String DurableName,ITestContext context) throws InterruptedException
 	{ 
 		//Search the bridge name
@@ -314,15 +314,15 @@ public class DurableViewlet
     	if(viewletdata.contains(DurableName))
     	{
     		System.out.println("Durable is not deleted");
-    		context.setAttribute("Status",1);
-			context.setAttribute("Comment", "Durable viewlet is deleted successfully using delete command");
+    		context.setAttribute("Status",5);
+			context.setAttribute("Comment", "Failed to delete Durable viewlet using delete command");
     		driver.findElement(By.xpath("Durable delete failed")).click();
     	}
     	else
     	{
     		System.out.println("Durable is deleted");
-    		context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Failed to delete Durable viewlet using delete command");
+    		context.setAttribute("Status",1);
+			context.setAttribute("Comment", "Durable viewlet is deleted successfully using delete command");
     	}
     	Thread.sleep(1000);
 	}

@@ -1,44 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator (0)]">
-  <test thread-count="5" name="Test Node Viewlet(failed)">
-    <parameter name="Dashboardname" value="Favorite viewlet"/>
-    <parameter name="QueueManagerName" value="QMNode"/>
-    <parameter name="Description" value="Test Manager From options"/>
-    <parameter name="NodeName" value="Node-Test"/>
-    <parameter name="FavoriteViewletName" value="Add Node into Favorite"/>
-    <parameter name="Favwgs" value="0"/>
-    <parameter name="DefaultTransmissionQueue" value="Add.Queue"/>
-    <parameter name="HostNameFromIcon" value="DESKTOP-7T1JQ3H"/>
-    <parameter name="URL" value="/navigator/#/login"/>
+  <test thread-count="5" name="Test EMS Channel Viewlet(failed)">
+    <parameter name="Dashboardname" value="EMS Channel Verification"/>
     <parameter name="password" value="admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="NodeViewletName" value="Node viewlet"/>
-    <parameter name="WGSPassword" value="admin"/>
-    <parameter name="PortNo" value="4020"/>
-    <parameter name="HostName" value="Localhost"/>
-    <parameter name="wgs" value="0"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="ChannelName" value="EMS Channel Viewlet"/>
     <parameter name="uname" value="Admin"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="NodeViewletname" value="Node Viewlet"/>
-    <parameter name="TypeOfNode" value="MQM"/>
-    <parameter name="NodeDashboardname" value="Node Dashboard"/>
-    <parameter name="NodeNameFromIcon" value="TestNodeFromIcon"/>
-    <parameter name="IPAddressFromIcon" value="127.0.0.1"/>
-    <parameter name="SearchInputData" value="DESKTOP-7T1JQ3H"/>
-    <parameter name="IPAddress" value="127.0.0.1"/>
-    <parameter name="SchemaName" value="NodeSchema"/>
+    <parameter name="FavoriteViewletName" value="Favorite for Channels"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="schemaName" value="ChannelSchema"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.NodeViewlet">
+      <class name="ApodGUI.EMSChannels">
         <methods>
+          <include name="AddToFavoriteForMultipleChannels"/>
           <include name="tearDown"/>
-          <include name="Logout"/>
           <include name="beforeTest"/>
-          <include name="ShowObjectAttributesforNode" invocation-numbers="0"/>
-          <include name="CreateQueueManagerFromNodeViewletOptions" invocation-numbers="0"/>
-          <include name="ShowTopology" invocation-numbers="0"/>
+          <include name="AddToFavorites" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.NodeViewlet -->
+      </class> <!-- ApodGUI.EMSChannels -->
     </classes>
-  </test> <!-- Test Node Viewlet(failed) -->
+  </test> <!-- Test EMS Channel Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator (0)] -->
