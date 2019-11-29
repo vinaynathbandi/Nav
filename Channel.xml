@@ -20,6 +20,10 @@
     
     <parameter name="ChannelDescription" value="Multiple channel Description"/>
     <parameter name="ChannelConnectionName" value="Multiple channel connection"/>
+    
+    <parameter name="ChannelType" value="Sender"/>
+    <parameter name="ChannelName" value="System.Sender.Icon"/>
+    <parameter name="ConnectionName" value="192.168.1.203(4443)"/>
 
   
      <classes>
@@ -44,6 +48,7 @@
         <include name="StopMultipleChannelsFromCommands"/> -->
         <include name="MultipleProperties"/> 
         <include name="AddToFavoriteForMultipleChannels"/> 
+        <include name="CreateChannelFromIcon"/>
         <include name="Logout"/> 
         
        </methods>

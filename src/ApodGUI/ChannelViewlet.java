@@ -1,14 +1,17 @@
 package ApodGUI;
 
 import java.io.File;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -38,6 +41,9 @@ public class ChannelViewlet
 	static String DownloadPath;
 	static String WGSName;
 	static String UploadFilepath;
+	static String Dnode;
+	static String Manager1;
+	
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		System.out.println("BeforeTest");
@@ -47,6 +53,8 @@ public class ChannelViewlet
 		DownloadPath =Settings.getDownloadPath();
 		WGSName =Settings.getWGSNAME();
 		UploadFilepath =Settings.getUploadFilepath();
+		Dnode =Settings.getDnode();
+		Manager1 =Settings.getManager1();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs", "ChannelName"})
@@ -147,6 +155,168 @@ public class ChannelViewlet
 		{
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got exception while showing object attributes, check details: "+  e.getMessage());
+		}
+	}
+	
+	
+	@TestRail(testCaseId=758)
+	@Parameters({"ChannelType", "ChannelName", "ConnectionName"})
+	@Test(priority=21)
+	public void CreateChannelFromIcon(String ChannelType, String ChannelName, String ConnectionName, ITestContext context) throws InterruptedException
+	{
+		//Click on + icon
+		driver.findElement(By.xpath("//img[@title='Add Channel']")).click();
+		
+		//Select WGS
+		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
+		WGS.selectByVisibleText(WGSName);
+		
+		//Select Node 
+		driver.findElement(By.xpath("//div[2]/input")).click();
+		try 
+		{
+			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicNode.size());	
+			for (int i=0; i<TopicNode.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
+				String s=TopicNode.get(i).getText();
+				if(s.equals(Dnode))
+				{
+					String id=TopicNode.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(4000);
+		
+		//Select Manager
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+        try 
+		{
+			List<WebElement> TopicManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicManager.size());	
+			for (int i=0; i<TopicManager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
+				String s=TopicManager.get(i).getText();
+				if(s.equals(Manager1))
+				{
+					String id=TopicManager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+        Thread.sleep(4000);
+		
+		//Select the channel type
+        Select channel=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div[2]/select")));
+        channel.selectByVisibleText(ChannelType);
+        Thread.sleep(2000);
+        
+        //Click on Select path button
+		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
+		Thread.sleep(3000);
+		
+		//Channel name
+		driver.findElement(By.id("name")).clear();
+		driver.findElement(By.id("name")).sendKeys(ChannelName);
+		
+		//Connection name
+		driver.findElement(By.id("connectionName")).clear();
+		driver.findElement(By.id("connectionName")).sendKeys(ConnectionName);
+		
+		//Click on Transmission queue
+		driver.findElement(By.cssSelector("#generalObjName input")).click();
+		
+		List <WebElement> tq=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+		System.out.println("List of elements are: " +tq.size());
+		
+		for(WebElement ss : tq)
+		{
+			//System.out.println("Radio button id:" + tq.get(ss).getAttribute("id"));
+			WebElement value=ss.findElement(By.tagName("span"));
+			System.out.println("Text is: " +value.getText());
+			if(value.getText().equalsIgnoreCase("SYSTEM.CLUSTER.TRANSMIT.QUEUE"))
+			{
+				value.click();
+				break;
+			}
+			
+		}
+		
+		//Click on Ok button
+		driver.findElement(By.xpath("//button[contains(.,'Ok')]")).click();
+		Thread.sleep(8000);
+		
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+		}
+		catch(Exception e)
+		{
+			System.out.println("No error messages");
+		}
+		
+		//Select the inactive checkbox
+		driver.findElement(By.cssSelector(".fa-cog")).click();
+
+		// Show Inactive channels check box
+		WebElement Checkbox = driver.findElement(By.xpath("//input[@name='user-settings']"));
+		if (Checkbox.isSelected()) {
+			driver.findElement(By.xpath("//div[3]/button")).click();
+		} else {
+			Checkbox.click();
+			driver.findElement(By.xpath("//div[3]/button")).click();
+		}
+		Thread.sleep(4000);
+		
+		//Search with Added channel name
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(ChannelName);
+		Thread.sleep(3000);
+		
+		//Get the viewlet data into string
+		String Viewletdata=driver.findElement(By.xpath("//datatable-body")).getText();
+		//System.out.println("Channel data is: " +Viewletdata);
+		
+		//Restore default settings
+		driver.findElement(By.cssSelector(".fa-cog")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[3]/button")).click();
+		Thread.sleep(4000);
+		
+		//Remove the search data
+		for(int i=0; i<=ChannelName.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
+		
+		//verification
+		if(Viewletdata.contains(ChannelName))
+		{
+			System.out.println("Channel is added");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Channel is created successfully");
+		}
+		else
+		{
+			System.out.println("Channel is not added");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to create channel");
+			driver.findElement(By.id("Channel adding failed")).click();
 		}
 	}
 	
