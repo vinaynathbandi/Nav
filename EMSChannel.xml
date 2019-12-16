@@ -27,6 +27,7 @@
         <include name="Events"/>
         <include name="AddToFavorites"/>  
         <include name="ComapareChannels"/>
+        <include name="CheckDifferencesForEMSChannels"/>
         <include name="AddToFavoriteForMultipleChannels"/> 
         <include name="Logout"/> 
         

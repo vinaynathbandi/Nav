@@ -55,7 +55,8 @@
         <include name="Properties"/> 
         <include name="ProcessEvents"/>  
         <include name="AddToFavoriteViewlet"/>  
-        <include name="CompareProcessNames"/>   
+        <include name="CompareProcessNames"/>
+        <include name="CheckDifferencesForProcess"/>
         <include name="CopyAsFromCommandsForMultipleProcess"/>
         <include name="RenameFromCommandsForMultipleProcess"/>
         <include name="DeleteFromCommandsForMultipleProcess"/> 

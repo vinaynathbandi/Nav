@@ -53,8 +53,10 @@
         <include name="DeleteFromCommands"/>   
         <include name="ListenerProperties"/>  
         <include name="ListenerEvents"/>  -->
-        <include name="AddToFavoriteViewlet"/>  
+        <include name="AddToFavoriteViewlet"/> 
+         
         <include name="CompareListeners"/>
+        <include name="CheckDifferencesForListeners"/>
         <include name="CreateListenerFromPlusIcon"/>  
         <!-- <include name="StartListenerForMultiple"/>
         <include name="StopListenerForMultiple"/> -->

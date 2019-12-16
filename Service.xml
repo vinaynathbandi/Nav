@@ -31,7 +31,8 @@
         <include name="ShowObjectAttributesForService"/>
         <include name="ServiceEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
-        <include name="CompareServiceNames"/>  
+        <include name="CompareServiceNames"/> 
+        <include name="CheckDifferencesForServices"/> 
         <include name="AddToFavoriteForMultipleServices"/>  
         <include name="Logout"/> 
         

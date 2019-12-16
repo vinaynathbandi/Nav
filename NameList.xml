@@ -30,8 +30,10 @@
         <include name="AddNameListViewlet"/> 
         <include name="ShowObjectAttributesForNameList"/>
         <include name="NameListEvents"/> 
-        <include name="AddToFavoriteViewlet"/>  
-        <include name="CompareNameLists"/>  
+        <include name="AddToFavoriteViewlet"/>
+          
+        <include name="CompareNameLists"/> 
+        <include name="CheckDifferencesForNameList"/> 
         <include name="AddToFavoriteForMultipleNameLists"/> 
         <include name="Logout"/> 
         

@@ -74,7 +74,9 @@
         <include name="TopicEvents"/> 
         <include name="AddToFavoriteViewlet"/> 
         <include name="CreateTopicFromPlusIcon"/> 
+        
         <include name="CompareTopics"/> 
+        <include name="CheckDifferencesForTopics"/>
         <include name="CopyAsFromCommandsForMultipleTopics"/>
         <include name="DeleteFromCommandsForMultipleTopics"/>
         <!-- <include name="PublishFromCommandsForMultipleTopics"/>  -->

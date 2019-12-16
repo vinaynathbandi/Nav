@@ -64,8 +64,10 @@
        <!--  <include name="Delete"/>
         <include name="DeleteFromDB"/> -->
         <include name="Events"/> 
-        <include name="AddToFavorites"/>  
+        <include name="AddToFavorites"/> 
+         
         <include name="CompareManagers"/>
+        <include name="CheckDifferencesForManagers"/>
         <!-- <include name="StartAllWMQObjectsForMultipleManagers"/>
         <include name="StopAllWMQObjectsForMultipleManagers"/>  --> 
         <include name="MultipleManagersProperties"/>

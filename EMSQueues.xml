@@ -43,7 +43,8 @@
         <include name="QueueEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
          
-        <include name="CompareQueues"/> 
+        <include name="CompareQueues"/>
+        <include name="CheckDifferencesForEMSQueues"/> 
         <include name="ShowQueueStatusForMultipleQueues"/> 
         <include name="MultipleQueueProperties"/> 
         <include name="AddToFavoriteForMultipleQueues"/>  

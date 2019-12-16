@@ -818,77 +818,133 @@ public class TopicViewlet
 	@TestRail(testCaseId=141)
 	public static void CompareTopics(ITestContext context) throws InterruptedException
 	{
-		//Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.linkText("Compare")).click();
-		Thread.sleep(1000);
-		
-		//Verification of popup
-		String CompareProcess=driver.findElement(By.cssSelector("span.name")).getText();
-		System.out.println(CompareProcess);
-				
-		if(CompareProcess.equalsIgnoreCase("Compare"))
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
 		{
-			System.out.println("Process Compare page is opened");
+			Name_Index=4;
 		}
-		else
-		{
-			System.out.println("Process Compare page is not opened");
-			context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Failed to open compare option");
+		
+		//Get the First object Name
+		String compare1 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		//System.out.println("First obj name is: " +compare1);
+		
+		//Get the second object name
+		String compare2 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		//System.out.println("Second obj name is: " +compare2);
+		
+		// Select compare option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+
+		// System.out.println("Cpmare to: " + compare1 + "::"+ compare2);
+		String comparenameslist = compare1 + "::" + compare2;
+		driver.findElement(By.linkText("Compare")).click();
+		Thread.sleep(2000);
+		System.out.println("Before names are: " +comparenameslist);
+
+
+		// Reading comparing
+		String aftercompare1 = driver.findElement(By.xpath("//th[2]")).getText();
+		String aftercompare2 = driver.findElement(By.xpath("//th[3]")).getText();
+		String verifycomparenamelist = aftercompare1 + "::" + aftercompare2;
+		System.out.println("After names are: " +verifycomparenamelist);
+
+		if (verifycomparenamelist.compareTo(comparenameslist) == 0) {
+			System.out.println("Compare page is opened with selected object names");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Compare option is working fine");
+		} else {
+			System.out.println("Compare page is not opened with selected objetcs");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to compare option");
+			driver.findElement(By.cssSelector(".close-button")).click();
 			driver.findElement(By.xpath("Comparision failed")).click();
 		}
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(2000);
+	}
+	
+	
+	@Test(priority=12)
+	public void CheckDifferencesForTopics(ITestContext context) throws InterruptedException
+	{
+		// Select compare option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-				
-		//Differences only
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Compare")).click();
+		Thread.sleep(2000);
+		
+		// Check differences only option while compare
 		driver.findElement(By.cssSelector("div.differences > label.switch > span.slider.round")).click();
-		Thread.sleep(1000);
-		try
-		{
-		String difference1=driver.findElement(By.xpath("//tr[2]/td[2]")).getText();
-		System.out.println("First value" +difference1);
-		String difference2=driver.findElement(By.xpath("//tr[2]/td[3]")).getText();
-		System.out.println("Second value" +difference2);
-		
-		if(!(difference1.isEmpty() && difference2.isEmpty()))
-		{
-		
-		if(difference1.equalsIgnoreCase(difference2))
-		{
+		Thread.sleep(4000);
+		try {
+
+			List<WebElement> AttributesData = driver.findElements(By.xpath("//tbody/tr"));
+			System.out.println("AttributesData count: " + AttributesData.size());
+
+			boolean verifydiff = false;
+			for (int i = 0; i < AttributesData.size(); i++) {
+				String cls = AttributesData.get(i).getAttribute("style");
+				//System.out.println("classname: "+ cls);
+				if (!cls.contains("display: none")) {
+					//System.out.println("index: " + i);
+					String secondvalue;
+					String firstvalue;
+					if (i == 0) {
+						firstvalue = driver.findElement(By.xpath("//td[2]")).getText();
+						System.out.println("First value: " + firstvalue);
+						secondvalue = driver.findElement(By.xpath("//td[3]")).getText();
+						System.out.println("Second value: " + secondvalue);
+						if (!firstvalue.equalsIgnoreCase(secondvalue)) {
+							verifydiff = true;
+						}
+
+					} else {
+						int j = i + 1;
+						//System.out.println("index changed: " + j);
+						firstvalue = driver.findElement(By.xpath("//tr[" + j + "]/td[2]")).getText();
+						System.out.println("First value: " + firstvalue);
+						secondvalue = driver.findElement(By.xpath("//tr[" + j + "]/td[3]")).getText();
+						System.out.println("Second value: " + secondvalue);
+						if (!firstvalue.equalsIgnoreCase(secondvalue)) {
+							verifydiff = true;
+						}
+
+					}
+				}
+
+			}
+
+			//System.out.println("");
+			if (!verifydiff) {
+				System.out.println("Popup showing the same values Differences");
+				context.setAttribute("Status", 5);
+				context.setAttribute("Comment", "Differences is not working");
+				driver.findElement(By.xpath("Differences")).click();
+			} else {
+				System.out.println("Popup showing the Different values");
+				context.setAttribute("Status", 1);
+				context.setAttribute("Comment", "Showing the different values");
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			System.out.println("Popup showing the same values Differences");
-			context.setAttribute("Status",5);
-    		context.setAttribute("Comment", "Bridge comparision is working fine");
-    		driver.findElement(By.xpath("Differences")).click();
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Got an exception while differentiate object values, check details: " + e.getMessage());
+			driver.findElement(By.cssSelector(".close-button")).click();
+			driver.findElement(By.xpath("Differences")).click();
 		}
-		else
-		{
-			System.out.println("Popup showing the Different values");
-			context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Showing the different values");
-			
-		}
-		}
-		else
-		{
-			System.out.println("Empty records");
-			context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Showing the different values");
-		}
-		}
-		catch (Exception e) {
-         // TODO Auto-generated catch block
-         System.out.println("No differences between Topics");
-         context.setAttribute("Status",5);
-		 context.setAttribute("Comment", "Got an exception while comparing topic names, check details: "+ e.getMessage());
-        }
 		driver.findElement(By.cssSelector(".close-button")).click();
 		Thread.sleep(1000);
 	}
 	
+	
 	@Parameters({"CopyObjectNameForMultiple", "TopicUniquestringForMultipleCopy", "TopicNameFromIcon"})
 	@TestRail(testCaseId=142)
-	@Test(priority=12, dependsOnMethods= {"CreateTopicFromPlusIcon"})
+	@Test(priority=13, dependsOnMethods= {"CreateTopicFromPlusIcon"})
 	public void CopyAsFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, String TopicUniquestringForMultipleCopy, String TopicNameFromIcon, ITestContext context) throws InterruptedException
 	{
 		//Search with the topic name from icon
@@ -954,7 +1010,7 @@ public class TopicViewlet
 	
 	@Parameters({"CopyObjectNameForMultiple"})
 	@TestRail(testCaseId=143)
-	@Test(priority=13, dependsOnMethods= {"CopyAsFromCommandsForMultipleTopics"})
+	@Test(priority=14, dependsOnMethods= {"CopyAsFromCommandsForMultipleTopics"})
 	public void DeleteFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Send the New name into field
@@ -1009,7 +1065,7 @@ public class TopicViewlet
 	
 	@Parameters({"AddSubscriptionNameforMultiple", "MessageDataForMultiple", "PropertyNameForMultiple", "PropertyValueForMultiple"})
 	@TestRail(testCaseId=144)
-	@Test(priority=14)
+	@Test(priority=15)
 	public void PublishFromCommandsForMultipleTopics(String AddSubscriptionNameforMultiple, String MessageDataForMultiple, String PropertyNameForMultiple, String PropertyValueForMultiple, ITestContext context) throws InterruptedException
 	{
 		this.AddsubscriptionForMultiple(AddSubscriptionNameforMultiple);
@@ -1094,7 +1150,7 @@ public class TopicViewlet
 	
 	@Parameters({"MultipleDescription", "Communicationinfo"})
 	@TestRail(testCaseId=145)
-	@Test(priority=15)
+	@Test(priority=16)
 	public void MultipleProperties(String MultipleDescription, String Communicationinfo, ITestContext context) throws InterruptedException
 	{
 		//Select the multiple topics and choose properties option for multiple topics
@@ -1161,7 +1217,7 @@ public class TopicViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=146)
-	@Test(priority=16, dependsOnMethods= {"AddToFavoriteViewlet"})
+	@Test(priority=17, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleTopics(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int TopicName_Index=3;

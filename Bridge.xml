@@ -42,6 +42,7 @@
         <include name="BridgeEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareBridges"/>  
+        <include name="CheckDifferencesForBridges"/>
        <!--  <include name="DeleteMultiples"/> --> 
         <include name="MultipleBridgeProperties"/>  
         <include name="AddToFavoriteForMultipleBridges"/>  

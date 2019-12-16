@@ -49,6 +49,7 @@
 					<include name="DeleteNode" />
 					<include name="PropertiesOfNode" />
 					<include name="CompareTwoNodes" />
+					<include name="CheckDifferencesForNodes"/>
 					<include name="SearchFilter" />
 					<include name="CreateNodeUsingIcon" />
 				

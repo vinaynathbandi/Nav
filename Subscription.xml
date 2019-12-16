@@ -62,6 +62,7 @@
         <include name="AddToFavoriteViewlet"/> 
           
         <include name="CompareSubscription"/> 
+        <include name="CheckDifferencesForSubscriptions"/>
         <include name="CreateSubscriptionFromPlusIcon"/> 
         <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
         <include name="RenameFromCommandsForMultipleSubscriptions"/>

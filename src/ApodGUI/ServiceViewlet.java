@@ -1,6 +1,7 @@
 package ApodGUI;
 
 import java.io.File;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -8,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -394,79 +396,132 @@ public class ServiceViewlet {
 	 @TestRail(testCaseId=178)
 	public static void CompareServiceNames(ITestContext context) throws InterruptedException
 	{
-		//Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.linkText("Compare")).click();
-		Thread.sleep(1000);
-		
-		//Verification of popup
-		String CompareProcess=driver.findElement(By.cssSelector("span.name")).getText();
-		System.out.println(CompareProcess);
-				
-		if(CompareProcess.equalsIgnoreCase("Compare"))
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
 		{
-			System.out.println("Process Compare page is opened");
-			context.setAttribute("Status",1);
-			context.setAttribute("Comment", "Comparing Servive names option is working fine");
+			Name_Index=4;
 		}
-		else
-		{
-			System.out.println("Process Compare page is not opened");
-			context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Failed to compare service names option");
+		
+		//Get the First object Name
+		String compare1 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		//System.out.println("First obj name is: " +compare1);
+		
+		//Get the second object name
+		String compare2 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		//System.out.println("Second obj name is: " +compare2);
+		
+		// Select compare option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+
+		// System.out.println("Cpmare to: " + compare1 + "::"+ compare2);
+		String comparenameslist = compare1 + "::" + compare2;
+		driver.findElement(By.linkText("Compare")).click();
+		Thread.sleep(2000);
+		System.out.println("Before names are: " +comparenameslist);
+
+
+		// Reading comparing
+		String aftercompare1 = driver.findElement(By.xpath("//th[2]")).getText();
+		String aftercompare2 = driver.findElement(By.xpath("//th[3]")).getText();
+		String verifycomparenamelist = aftercompare1 + "::" + aftercompare2;
+		System.out.println("After names are: " +verifycomparenamelist);
+
+		if (verifycomparenamelist.compareTo(comparenameslist) == 0) {
+			System.out.println("Compare page is opened with selected object names");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Compare option is working fine");
+		} else {
+			System.out.println("Compare page is not opened with selected objetcs");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to compare option");
+			driver.findElement(By.cssSelector(".close-button")).click();
 			driver.findElement(By.xpath("Comparision failed")).click();
 		}
-		Thread.sleep(1000);
-				
-		//Differences only
-		driver.findElement(By.cssSelector("div.differences > label.switch > span.slider.round")).click();
-		Thread.sleep(1000);
-		try
-		{
-		String difference1=driver.findElement(By.xpath("//tr[2]/td[2]")).getText();
-		System.out.println("First value" +difference1);
-		String difference2=driver.findElement(By.xpath("//tr[2]/td[3]")).getText();
-		System.out.println("Second value" +difference2);
-		
-		if(!(difference1.isEmpty() && difference2.isEmpty()))
-		{
-		
-		if(difference1.equalsIgnoreCase(difference2))
-		{
-			System.out.println("Popup showing the same values Differences");
-			context.setAttribute("Status",5);
-    		context.setAttribute("Comment", "Bridge comparision is working fine");
-    		driver.findElement(By.xpath("Differences")).click();
-		}
-		else
-		{
-			System.out.println("Popup showing the Different values");
-			context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Showing the different values");
-			
-		}
-		}
-		else
-		{
-			System.out.println("Empty records");
-			context.setAttribute("Status",1);
-    		context.setAttribute("Comment", "Showing the different values");
-		}
-		}
-		catch (Exception e) {
-         // TODO Auto-generated catch block
-         System.out.println("No differences between Names lists");
-         context.setAttribute("Status",5);
-			context.setAttribute("Comment", "Got an exception while comparing service names option, check details: "+ e.getMessage());
-        }
 		driver.findElement(By.cssSelector(".close-button")).click();
-		Thread.sleep(1000);	
+		Thread.sleep(2000);
+	}
+	
+	
+	@Test(priority=6)
+	public void CheckDifferencesForServices(ITestContext context) throws InterruptedException
+	{
+		// Select compare option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Compare")).click();
+		Thread.sleep(2000);
+		
+		// Check differences only option while compare
+		driver.findElement(By.cssSelector("div.differences > label.switch > span.slider.round")).click();
+		Thread.sleep(4000);
+		try {
+
+			List<WebElement> AttributesData = driver.findElements(By.xpath("//tbody/tr"));
+			System.out.println("AttributesData count: " + AttributesData.size());
+
+			boolean verifydiff = false;
+			for (int i = 0; i < AttributesData.size(); i++) {
+				String cls = AttributesData.get(i).getAttribute("style");
+				//System.out.println("classname: "+ cls);
+				if (!cls.contains("display: none")) {
+					//System.out.println("index: " + i);
+					String secondvalue;
+					String firstvalue;
+					if (i == 0) {
+						firstvalue = driver.findElement(By.xpath("//td[2]")).getText();
+						System.out.println("First value: " + firstvalue);
+						secondvalue = driver.findElement(By.xpath("//td[3]")).getText();
+						System.out.println("Second value: " + secondvalue);
+						if (!firstvalue.equalsIgnoreCase(secondvalue)) {
+							verifydiff = true;
+						}
+
+					} else {
+						int j = i + 1;
+						//System.out.println("index changed: " + j);
+						firstvalue = driver.findElement(By.xpath("//tr[" + j + "]/td[2]")).getText();
+						System.out.println("First value: " + firstvalue);
+						secondvalue = driver.findElement(By.xpath("//tr[" + j + "]/td[3]")).getText();
+						System.out.println("Second value: " + secondvalue);
+						if (!firstvalue.equalsIgnoreCase(secondvalue)) {
+							verifydiff = true;
+						}
+
+					}
+				}
+
+			}
+
+			//System.out.println("");
+			if (!verifydiff) {
+				System.out.println("Popup showing the same values Differences");
+				context.setAttribute("Status", 5);
+				context.setAttribute("Comment", "Differences is not working");
+				driver.findElement(By.xpath("Differences")).click();
+			} else {
+				System.out.println("Popup showing the Different values");
+				context.setAttribute("Status", 1);
+				context.setAttribute("Comment", "Showing the different values");
+
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("Popup showing the same values Differences");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Got an exception while differentiate object values, check details: " + e.getMessage());
+			driver.findElement(By.cssSelector(".close-button")).click();
+			driver.findElement(By.xpath("Differences")).click();
+		}
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(1000);
 	}	
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=179)
-	@Test(priority=6, dependsOnMethods= {"AddToFavoriteViewlet"})
+	@Test(priority=7, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleServices(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int ServiceName_Index=3;

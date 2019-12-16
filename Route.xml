@@ -33,16 +33,18 @@
        
         <include name="Login"/>
         <include name="AddRouteViewlet"/> 
-        <!-- <include name="ShowObjectAttributesForRoute"/> 
-        <include name="RouteStatus"/> -->
+        <include name="ShowObjectAttributesForRoute"/> 
+        <include name="RouteStatus"/> 
         <include name="DeleteCommand"/>   
-       <!--  <include name="Properties"/>
+        <include name="Properties"/>
         <include name="RouteEvents"/> 
-        <include name="AddToFavoriteViewlet"/>  
-        <include name="CompareRoutes"/>  -->
-       <!--  <include name="DeleteMultiples"/>   -->
-        <!-- <include name="MultipleProperties"/> 
-        <include name="AddToFavoriteForMultipleRoutes"/> -->
+        <include name="AddToFavoriteViewlet"/> 
+         
+        <include name="CompareRoutes"/> 
+        <include name="CheckDifferencesForRoutes"/> 
+        <include name="DeleteMultiples"/>   
+        <include name="MultipleProperties"/> 
+        <include name="AddToFavoriteForMultipleRoutes"/> 
         <include name="AddRouteFromPlusIcon"/>  
         <include name="Logout"/> 
         

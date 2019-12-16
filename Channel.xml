@@ -43,6 +43,7 @@
         <include name="Events"/>
         <include name="AddToFavorites"/>  
         <include name="ComapareChannels"/>
+        <include name="CheckDifferencesForChannels"/>
         <include name="ShowChannelStatusForMultiple"/> 
         <!-- <include name="StartMultipleChannelsFromCommands"/>
         <include name="StopMultipleChannelsFromCommands"/> -->
