@@ -33,7 +33,7 @@ import testrail.TestClass;
 import testrail.TestRail;
 import testrail.TestRailAPI;
 
-@Listeners(TestClass.class)
+//@Listeners(TestClass.class)
 public class WorkgroupServer {
 	static WebDriver driver;
 	static String IPAddress;
@@ -44,10 +44,9 @@ public class WorkgroupServer {
 	String Screenshotpath;
 	static String NodeName;
 	static String Node_PortNumber;
-	static String Node_NewConnectionName;
-	static String WGSSearchInputData;
 	static String Node_Hostname;
 	static String Node_IPAddress;
+	static String WGSName;
 
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -61,10 +60,9 @@ public class WorkgroupServer {
 		Screenshotpath = Settings.getScreenshotPath();
 		NodeName = Settings.getNodeName();
 		Node_PortNumber = Settings.getNode_PortNumber();
-		Node_NewConnectionName = Settings.getNode_NewConnectionName();
-		WGSSearchInputData = Settings.getWGSSearchInputData();
 		Node_Hostname =Settings.getNode_Hostname();
 		Node_IPAddress =Settings.getNode_IPAddress();
+		WGSName =Settings.getWGSNAME();
 	}
 
 	@Test
@@ -162,10 +160,116 @@ public class WorkgroupServer {
 		}
 		Thread.sleep(1000);
 	}
+	
+	@Test(priority=2)
+	public void DefaultConnection(ITestContext context) throws InterruptedException
+	{
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		/*driver.findElement(By.linkText("Default Connection")).click();
+		Thread.sleep(4000);
+		
+		//click on Confirmation ok button
+		driver.findElement(By.id("accept-true")).click();
+		Thread.sleep(2000);*/
+		List<WebElement> lst=Getlist();
+		
+		for(WebElement li : lst)
+		{
+			System.out.println("in for loop");
+			System.out.println("options are: " +li.getText());
+			if(li.getText().equalsIgnoreCase("Default Connection"))
+			{
+				try {
+				li.findElement(By.tagName("i"));
+				System.out.println("Try block");
+				
+				driver.findElement(By.linkText("Default Connection")).click();
+				Thread.sleep(4000);
+				System.out.println("Default");
+				//click on Confirmation ok button
+				driver.findElement(By.id("accept-true")).click();
+				Thread.sleep(2000);
+				
+				driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+				
+				boolean Def=false;
+				List<WebElement> innerlst=Getlist();
+				System.out.println("Normal list");
+				for(WebElement lis : innerlst)
+				{
+					if(lis.getText().contains("Edit workgroup server"))
+					{
+						System.out.println("Default connection is not seletced and working fine");
+						context.setAttribute("Status", 1);
+						context.setAttribute("Comment", "Default connection option is working");
+						Def=true;
+						driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+						break;
+					}
+				}
+				
+				if(!Def)
+				{
+					System.out.println("failed");
+					context.setAttribute("Status", 5);
+					context.setAttribute("Comment", "Default connection option is not working");
+					driver.findElement(By.id("Deafult connection")).click();
+				}
+				break;
+				
+				}
+				catch (Exception e) {
+					// TODO: handle exception
+					
+					System.out.println("Exception");
+					driver.findElement(By.linkText("Default Connection")).click();
+					Thread.sleep(4000);
+					
+					//click on Confirmation ok button
+					driver.findElement(By.id("accept-true")).click();
+					Thread.sleep(2000);
+					
+					driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+					boolean verifyconnection=false;
+					List<WebElement> innerlst=Getlist();
+					System.out.println("Exception list");
+					for(WebElement lis : innerlst)
+					{
+						if(lis.getText().contains("Edit workgroup server"))
+						{
+							verifyconnection=true;
+							System.out.println("Failed");
+							context.setAttribute("Status", 5);
+							context.setAttribute("Comment", "Default connection option is not working");
+							driver.findElement(By.id("Deafult connection")).click();
+							break;
+						}
+					}
+					
+					if(!verifyconnection)
+					{
+						System.out.println("Default connection is seletced and working fine");
+						//driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+						driver.findElement(By.linkText("Default Connection")).click();
+						Thread.sleep(4000);
+						
+						//click on Confirmation ok button
+						driver.findElement(By.id("accept-true")).click();
+						Thread.sleep(2000);
+						
+						context.setAttribute("Status", 1);
+						context.setAttribute("Comment", "Default connection option is working");
+						break;
+					}
+				}
+			}
+			
+		}		
+	}
 
 	@Parameters({ "ChangedHostName" })
 	@TestRail(testCaseId = 26)
-	@Test(priority = 2)
+	@Test(priority = 3, dependsOnMethods= {"DefaultConnection"})
 	public static void EditWorkgroup(String ChangedHostName, ITestContext context) throws Exception {
 		try {
 			// Select the Edit WGS option
@@ -189,8 +293,8 @@ public class WorkgroupServer {
 			Thread.sleep(8000);
 
 			// Store the Host name into string
-			String HostName = driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[6]/div/span")).getText();
-			// System.out.println(HostName);
+			String HostName = driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[5]/div/span")).getText();
+			System.out.println("Host name is: " +HostName);
 
 			// Verification condition
 			if (HostName.equalsIgnoreCase(ChangedHostName)) {
@@ -216,7 +320,7 @@ public class WorkgroupServer {
 
 	@Parameters({"DeleteWGSName"})
 	@TestRail(testCaseId = 27)
-	@Test(priority = 4)
+	@Test(priority = 4, dependsOnMethods= {"DefaultConnection"})
 	public void DeleteWorkgroup(String DeleteWGSName, ITestContext context) throws Exception {
 		try {				                                                     
 			WebElement DeleteWGS = driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
@@ -258,7 +362,7 @@ public class WorkgroupServer {
 		}
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 30)
 
 	public static void ConnectIcon(ITestContext context) throws InterruptedException {
 		try {
@@ -330,7 +434,7 @@ public class WorkgroupServer {
 	}
 
 	@TestRail(testCaseId = 28)
-	@Test(priority = 4)
+	@Test(priority = 5)
 	public static void AddNode(ITestContext context) throws InterruptedException, IOException {
 		try {
 			// Click on checbox and Select the create node option
@@ -388,7 +492,7 @@ public class WorkgroupServer {
 
 	@Parameters({ "ConnectionInstanceName", "RemoteQueueManagerName", "ConnectionName", "CommandQueueName", "ChannelName" })
 	@TestRail(testCaseId = 29)
-	@Test(priority = 5)
+	@Test(priority = 6)
 	public void AddRemoteQueueManager(String ConnectionInstanceName, String RemoteQueueManagerName, String ConnectionName, String CommandQueueName, String ChannelName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
@@ -459,7 +563,7 @@ public class WorkgroupServer {
 
 	@TestRail(testCaseId = 30)
 	@Parameters({"Node_NewConnectionName", "RemoteQueueManagerName"})
-	@Test(priority = 6, dependsOnMethods= {"AddRemoteQueueManager"})
+	@Test(priority = 7, dependsOnMethods= {"AddRemoteQueueManager"})
 	public void ModifyRemoteQueueManager(String Node_NewConnectionName, String RemoteQueueManagerName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
@@ -519,7 +623,7 @@ public class WorkgroupServer {
 
 	@Parameters({ "DeleteManagerName" })
 	@TestRail(testCaseId = 31)
-	@Test(priority = 7, dependsOnMethods= {"AddRemoteQueueManager", "ModifyRemoteQueueManager"})
+	@Test(priority = 8, dependsOnMethods= {"AddRemoteQueueManager", "ModifyRemoteQueueManager"})
 	public void DeleteRemoteQueueManager(String DeleteManagerName, ITestContext context) throws InterruptedException {
 		try {
 			// Select Remote queue manager option
@@ -598,7 +702,7 @@ public class WorkgroupServer {
 
 	@Parameters({ "AgentInstanceName", "ServerName", "ServerURL" })
 	@TestRail(testCaseId = 32)
-	@Test(priority = 8)
+	@Test(priority = 9)
 	public void AddRemoteEMSManager(String AgentInstanceName, String ServerName, String ServerURL, ITestContext context)
 			throws InterruptedException {
 		try {
@@ -653,7 +757,7 @@ public class WorkgroupServer {
 
 	@Parameters({ "UpdatedServerURL", "ServerName"})
 	@TestRail(testCaseId = 33)
-	@Test(priority = 9, dependsOnMethods= {"AddRemoteEMSManager"})
+	@Test(priority = 10, dependsOnMethods= {"AddRemoteEMSManager"})
 	public void ModifyRemoteEMSServer(String UpdatedServerURL, String ServerName, ITestContext context) throws InterruptedException {
 		try {
 			
@@ -732,7 +836,7 @@ public class WorkgroupServer {
 
 	@Parameters({ "ServerName" })
 	@TestRail(testCaseId = 34)
-	@Test(priority = 10, dependsOnMethods= {"AddRemoteEMSManager", "ModifyRemoteEMSServer"})
+	@Test(priority = 11, dependsOnMethods= {"AddRemoteEMSManager", "ModifyRemoteEMSServer"})
 	public void DeleteRemoteEMSServer(String ServerName, ITestContext context) throws InterruptedException {
 		try {
 			
@@ -811,7 +915,7 @@ public class WorkgroupServer {
 	}
 
 	@Parameters({ "Dashboardname", "FavoriteViewletName", "Favwgs" })
-	@Test(priority = 11)
+	@Test(priority = 41)
 	public void AddToFavoriteviewlet(String Dashboardname, String FavoriteViewletName, int Favwgs, ITestContext context)
 			throws InterruptedException {
 		try {
@@ -888,8 +992,60 @@ public class WorkgroupServer {
 		}
 	}
 
+	@Test(priority=12)
+	public void WGSProperties(ITestContext context) throws InterruptedException
+	{
+		//Click on check box and choose Properties option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties")).click();
+		Thread.sleep(6000);
+		
+		//Store the editable function in to a string
+		boolean FieldNamevalue=driver.findElement(By.id("name")).isEnabled();
+		System.out.println(FieldNamevalue);
+		
+		//Verification of name field is editable or not
+		if(FieldNamevalue == false)
+		{
+			System.out.println("WGS Name field is UnEditable");
+			 driver.findElement(By.cssSelector(".btn-primary")).click();
+			 context.setAttribute("Status", 1);
+			 context.setAttribute("Comment", "WGS Name field is UnEditable");
+			 Thread.sleep(3000);
+		}
+		else
+		{
+			System.out.println("WGS Name field is Editable");
+			context.setAttribute("Status", 5);
+			 context.setAttribute("Comment", "WGS Name field is Editable");
+			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(3000);
+			driver.findElement(By.xpath("WGS name edit function Failed")).click();
+		}
+		Thread.sleep(1000);
+	}
+	
+	@Parameters({"schemaName"})
+	@Test(priority=13)
+	public static void ShowObjectAttributes(String schemaName, ITestContext context) throws InterruptedException
+	{		
+		try {
+		ObjectsVerificationForAllViewlets obj=new ObjectsVerificationForAllViewlets();
+		obj.WGSAttributes(driver, schemaName, WGSName);
+		context.setAttribute("Status", 1);
+		context.setAttribute("Comment", "Show object attributes working fine");
+		
+		}catch(Exception e)
+		{
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Got exception while showing object attributes, check details: "+  e.getMessage());
+			driver.findElement(By.id("Difference failed")).click();
+		}
+	}
+	
+	
 	@TestRail(testCaseId = 35)
-	@Test(priority = 12)
+	@Test(priority = 14)
 	public void SearchFilter(ITestContext context) throws Exception {
 		try {
 			// Add New WGS10
@@ -934,14 +1090,12 @@ public class WorkgroupServer {
 			Thread.sleep(2000);
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured while doing search on workgroup server, Check details: " + e.getMessage());
-
+			context.setAttribute("Comment", "Exception occured while doing search on workgroup server, Check details: " + e.getMessage());
 			driver.findElement(By.id("Failing the condition")).click();
 		}
 	}
-
-	@Test(priority = 13)
+	
+	@Test(priority = 23)
 	public void Logout() throws Exception {
 		try {
 			// Close the opened Dashboard
@@ -956,6 +1110,14 @@ public class WorkgroupServer {
 		// Logout
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	
+	public List<WebElement> Getlist()
+	{
+		WebElement lis=driver.findElement(By.className("wrapper-dropdown")).findElement(By.tagName("ul"));
+		List<WebElement> op=lis.findElements(By.tagName("li"));
+		return op;
 	}
 	
 	public void ServerSelection(String RemoteQueueManagerName)

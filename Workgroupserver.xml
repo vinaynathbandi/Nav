@@ -27,6 +27,8 @@
 		<parameter name="ServerURL" value="tcp://127.0.0.1:7221" />
 
 		<parameter name="UpdatedServerURL" value="tcp://127.0.0.1:7222" />
+		
+		<parameter name="schemaName" value="WGS Schema"/>
 
 
 		<classes>
@@ -36,17 +38,20 @@
 				<methods>
 					<include name="Login" />
 				    <include name="AddWorkgroupFromPlusIcon" />
+				    <include name="DefaultConnection"/> 
 				    <include name="EditWorkgroup" />
-					<include name="DeleteWorkgroup" /> 
-					<include name="AddNode" />
+				    <include name="DeleteWorkgroup" /> 
+				    <include name="AddNode" />
 				    <include name="AddRemoteQueueManager" />
 					<include name="ModifyRemoteQueueManager" />
-					<include name="DeleteRemoteQueueManager" />  
+					<include name="DeleteRemoteQueueManager" />   
 				    <include name="AddRemoteEMSManager" />
 					<include name="ModifyRemoteEMSServer" />
 				    <include name="DeleteRemoteEMSServer" />  
 
 					<include name="SearchFilter" />   
+					<include name="WGSProperties"/>  
+					<include name="ShowObjectAttributes"/>  
 					<include name="Logout" />
 				</methods>
 

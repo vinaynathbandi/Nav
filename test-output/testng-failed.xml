@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Test Durable Viewlet(failed)">
-    <parameter name="Dashboardname" value="DurableViewlet Verification"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
+  <test thread-count="5" name="WorkGroup server Viewlet(failed)">
+    <parameter name="ChangedHostName" value="localhost"/>
+    <parameter name="ServerURL" value="tcp://127.0.0.1:7221"/>
+    <parameter name="NodeName" value="Node-Test"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="FavoriteViewletName" value="Durable Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="Durablename" value="New Durable Viewlet"/>
-    <parameter name="schemaName" value="DurableSchema"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="SelectTopicName" value="EMS.Topic1"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="DeleteDurableName" value="Test.EMS.Durable"/>
+    <parameter name="Node_NewConnectionName" value="127.0.0.1(1234)"/>
+    <parameter name="schemaName" value="WGS Schema"/>
+    <parameter name="DeleteWGSName" value="WGS10"/>
+    <parameter name="ConnectionInstanceName" value="REMOTE_QMGRS"/>
+    <parameter name="ConnectionName" value="127.0.0.1(4321)"/>
+    <parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="DurableName" value="EMS.Add.Durable.selenium"/>
+    <parameter name="RemoteQueueManagerName" value="QMGR_NAME_DELETE"/>
+    <parameter name="ServerName" value="EMS-Server21"/>
+    <parameter name="AgentInstanceName" value="EMSAGENT01"/>
+    <parameter name="IPAddress" value="127.0.0.1"/>
+    <parameter name="PortNumber" value="5010"/>
+    <parameter name="DeleteManagerName" value="QMGR_NAME_DELETE"/>
+    <parameter name="UpdatedServerURL" value="tcp://127.0.0.1:7222"/>
+    <parameter name="HostName" value="DESKTOP-7T1JQ3H"/>
+    <parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE"/>
     <classes>
-      <class name="ApodGUI.DurableViewlet">
+      <class name="ApodGUI.WorkgroupServer">
         <methods>
-          <include name="tearDown"/>
+          <include name="DefaultConnection"/>
+          <include name="EditWorkgroup" invocation-numbers="0"/>
           <include name="beforeTest"/>
-          <include name="AddDurableFromPlusIcon" invocation-numbers="0"/>
-          <include name="DeleteCommand"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ApodGUI.DurableViewlet -->
+      </class> <!-- ApodGUI.WorkgroupServer -->
     </classes>
-  </test> <!-- Test Durable Viewlet(failed) -->
+  </test> <!-- WorkGroup server Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

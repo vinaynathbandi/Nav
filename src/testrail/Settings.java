@@ -112,6 +112,29 @@ public class Settings {
 	
 	private static String NodeWGS;
 	
+	private static String WGSName_CreateDashboard;
+	private static String EMSWGS_CreateDashboard;
+	
+	public static String getEMSWGS_CreateDashboard() {
+		return EMSWGS_CreateDashboard;
+	}
+
+
+	public static void setEMSWGS_CreateDashboard(String eMSWGS_CreateDashboard) {
+		EMSWGS_CreateDashboard = eMSWGS_CreateDashboard;
+	}
+
+
+	public static String getWGSName_CreateDashboard() {
+		return WGSName_CreateDashboard;
+	}
+
+
+	public static void setWGSName_CreateDashboard(String wGSName_CreateDashboard) {
+		WGSName_CreateDashboard = wGSName_CreateDashboard;
+	}
+
+
 	public static String getManager2Queuename() {
 		return Manager2Queuename;
 	}
@@ -343,6 +366,9 @@ public class Settings {
 			NodeWGS = propertiesSetting.getProperty("NodeWGS");
 			Manager1Queuename = propertiesSetting.getProperty("Manager1Queuename");
 			Manager2Queuename = propertiesSetting.getProperty("Manager2Queuename");
+			
+			WGSName_CreateDashboard = propertiesSetting.getProperty("WGSName_CreateDashboard");
+			EMSWGS_CreateDashboard = propertiesSetting.getProperty("EMSWGS_CreateDashboard");
 			
 			
 		}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="18" total="22" passed="4">
+<testng-results skipped="0" failed="0" ignored="13" total="18" passed="5">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -8,28 +8,37 @@
       <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
     </line>
     <line>
-      <![CDATA[<br/>]]>
-    </line>
-    <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddListenerViewlet.png" alt="""/" />]]>
+      <![CDATA[Workgroup server is added successfylly]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForListener.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddWorkgroupFromPlusIcon.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DefaultConnection.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/EditWorkgroup.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="133741" started-at="2019-11-12T10:44:11Z" finished-at="2019-11-12T10:46:25Z">
+  <suite name="Navigator" duration-ms="146101" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:24:25Z">
     <groups>
     </groups>
-    <test name="Test Listener Viewlet" duration-ms="133741" started-at="2019-11-12T10:44:11Z" finished-at="2019-11-12T10:46:25Z">
-      <class name="ApodGUI.ListenerViewlet">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="12" started-at="2019-11-12T10:44:11Z" finished-at="2019-11-12T10:44:11Z">
+    <test name="WorkGroup server Viewlet" duration-ms="146101" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:24:25Z">
+      <class name="ApodGUI.WorkgroupServer">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="beforeTest" is-config="true" duration-ms="33" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:21:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="Login" duration-ms="25429" started-at="2019-11-12T10:44:11Z" finished-at="2019-11-12T10:44:37Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="Login" duration-ms="39112" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:22:38Z">
           <params>
             <param index="0">
               <value>
@@ -43,7 +52,12 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[Listener Viewlet Verification]]>
+                <![CDATA[WGS10]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[org.testng.TestRunner@31f924f5]]>
               </value>
             </param>
           </params>
@@ -56,27 +70,53 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="498" started-at="2019-11-12T10:44:37Z" finished-at="2019-11-12T10:44:37Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="558" started-at="2019-12-26T10:22:38Z" finished-at="2019-12-26T10:22:39Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=ListenerViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=WorkgroupServer.Login(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddListenerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="AddListenerViewlet" duration-ms="8246" started-at="2019-11-12T10:44:37Z" finished-at="2019-11-12T10:44:46Z">
+        <test-method status="PASS" signature="AddWorkgroupFromPlusIcon(org.testng.ITestContext)[pri:1, instance:ApodGUI.WorkgroupServer@1563da5]" name="AddWorkgroupFromPlusIcon" duration-ms="28262" started-at="2019-12-26T10:22:39Z" finished-at="2019-12-26T10:23:07Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[New Listener Viewlet]]>
+                <![CDATA[org.testng.TestRunner@31f924f5]]>
               </value>
             </param>
-            <param index="1">
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Workgroup server is added successfylly]]>
+            </line>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddWorkgroupFromPlusIcon.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AddWorkgroupFromPlusIcon -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="12654" started-at="2019-12-26T10:23:07Z" finished-at="2019-12-26T10:23:19Z">
+          <params>
+            <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1e4d3ce5]]>
+                <![CDATA[[TestResult name=AddWorkgroupFromPlusIcon status=SUCCESS method=WorkgroupServer.AddWorkgroupFromPlusIcon(org.testng.ITestContext)[pri:1, instance:ApodGUI.WorkgroupServer@1563da5] output=Workgroup server is added successfylly]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="DefaultConnection(org.testng.ITestContext)[pri:2, instance:ApodGUI.WorkgroupServer@1563da5]" name="DefaultConnection" duration-ms="23944" started-at="2019-12-26T10:23:19Z" finished-at="2019-12-26T10:23:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@31f924f5]]>
               </value>
             </param>
           </params>
@@ -85,31 +125,31 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddListenerViewlet.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DefaultConnection.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- AddListenerViewlet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="13172" started-at="2019-11-12T10:44:58Z" finished-at="2019-11-12T10:45:11Z">
+        </test-method> <!-- DefaultConnection -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="405" started-at="2019-12-26T10:23:43Z" finished-at="2019-12-26T10:23:44Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddListenerViewlet status=SUCCESS method=ListenerViewlet.AddListenerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=DefaultConnection status=SUCCESS method=WorkgroupServer.DefaultConnection(org.testng.ITestContext)[pri:2, instance:ApodGUI.WorkgroupServer@1563da5] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="ShowObjectAttributesForListener(java.lang.String, org.testng.ITestContext)[pri:22, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="ShowObjectAttributesForListener" duration-ms="44541" started-at="2019-11-12T10:45:11Z" finished-at="2019-11-12T10:45:56Z">
+        <test-method status="PASS" signature="EditWorkgroup(java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.WorkgroupServer@1563da5]" name="EditWorkgroup" duration-ms="16561" started-at="2019-12-26T10:23:44Z" depends-on-methods="ApodGUI.WorkgroupServer.DefaultConnection" finished-at="2019-12-26T10:24:00Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[ListnerSchema]]>
+                <![CDATA[localhost]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@1e4d3ce5]]>
+                <![CDATA[org.testng.TestRunner@31f924f5]]>
               </value>
             </param>
           </params>
@@ -118,37 +158,37 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForListener.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/EditWorkgroup.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- ShowObjectAttributesForListener -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="13565" started-at="2019-11-12T10:46:09Z" finished-at="2019-11-12T10:46:23Z">
+        </test-method> <!-- EditWorkgroup -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="12911" started-at="2019-12-26T10:24:00Z" finished-at="2019-12-26T10:24:13Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=ShowObjectAttributesForListener status=SUCCESS method=ListenerViewlet.ShowObjectAttributesForListener(java.lang.String, org.testng.ITestContext)[pri:22, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=EditWorkgroup status=SUCCESS method=WorkgroupServer.EditWorkgroup(java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.WorkgroupServer@1563da5] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:25, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="Logout" duration-ms="2529" started-at="2019-11-12T10:46:23Z" finished-at="2019-11-12T10:46:25Z">
+        <test-method status="PASS" signature="Logout()[pri:23, instance:ApodGUI.WorkgroupServer@1563da5]" name="Logout" duration-ms="11612" started-at="2019-12-26T10:24:13Z" finished-at="2019-12-26T10:24:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-11-12T10:46:25Z" finished-at="2019-11-12T10:46:25Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="1" started-at="2019-12-26T10:24:25Z" finished-at="2019-12-26T10:24:25Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=ListenerViewlet.Logout()[pri:25, instance:ApodGUI.ListenerViewlet@33c7e1bb] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=WorkgroupServer.Logout()[pri:23, instance:ApodGUI.WorkgroupServer@1563da5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.ListenerViewlet -->
-    </test> <!-- Test Listener Viewlet -->
+      </class> <!-- ApodGUI.WorkgroupServer -->
+    </test> <!-- WorkGroup server Viewlet -->
   </suite> <!-- Navigator -->
 </testng-results>

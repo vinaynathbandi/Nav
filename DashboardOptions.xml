@@ -10,19 +10,19 @@
     <parameter name="ScreenshotPath" value="F://Dashboardlogin"/>
     
     <parameter name="Dashboardname" value="Dashboard Verficaton"/>
-    <parameter name="WGSName" value="MQM"/>
+    <parameter name="WGSName1" value="MQM"/>
     <parameter name="Node" value="DESKTOP-E1JT2VR"/>
     <parameter name="QueueManager" value="M1"/>
     
     <parameter name="EMSDashboardname" value="EMS Dashboard"/>
-    <parameter name="EMSWGSName" value="MQM"/>
+    <parameter name="EMSWGSName" value="WGS10"/>
     <parameter name="EMSNode" value="EMSAGENT01"/>
     <parameter name="EMSQueueManager" value="EMS-SERVER"/>
     
     <parameter name="NewDashboardName" value="DashboardRenamed"/>
                
      <classes>
-      <class name="ApodGUI.DashboardOptionss">
+      <class name="ApodGUI.DashboardOptions">
        
        <methods>
        
@@ -30,7 +30,8 @@
         <include name="CreateWGSDashboard"/>
         <include name="CreateEMSDashboard"/>
         <include name="SetAsDeafaultOption"/>
-        <include name="RenameDashboard"/>   
+        <include name="RenameDashboard"/>  
+        <include name="DeleteDashboard"/>  
        
         <include name="Logout"/> 
         

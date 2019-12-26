@@ -2,7 +2,6 @@ package ApodGUI;
 
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +27,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
@@ -37,17 +37,9 @@ import testrail.TestRailAPI;
 public class DashboardOptions 
 {
 	static WebDriver driver;
-	static String WGS_INDEX;
 	static String Screenshotpath;
-	static String DownloadPath;
-	static String WGSName;
-	static String UploadFilepath;
-	static String EMS_WGS_INDEX;
-	static String EMS_WGSNAME;
-	static String SelectTopicName;
-	static String DeleteDurableName;
-	static String Dnode;
-	static String Manager1;
+	static String WGSName_CreateDashboard;
+	static String EMSWGS_CreateDashboard;
 
 	
 	@BeforeTest
@@ -55,17 +47,9 @@ public class DashboardOptions
 		System.out.println("BeforeTest");
 		Settings.read();
 		
-		WGS_INDEX =Settings.getWGS_INDEX();
 		Screenshotpath =Settings.getScreenshotPath();
-		DownloadPath =Settings.getDownloadPath();
-		WGSName =Settings.getWGSNAME();
-		UploadFilepath =Settings.getUploadFilepath();
-		EMS_WGS_INDEX =Settings.getEMS_WGS_INDEX();
-		EMS_WGSNAME =Settings.getEMS_WGSNAME();
-		SelectTopicName = Settings.getSelectTopicName(); 
-		DeleteDurableName =Settings.getDeleteDurableName();
-		Dnode =Settings.getDnode();
-		Manager1 =Settings.getManager1();
+		WGSName_CreateDashboard =Settings.getWGSName_CreateDashboard();
+		EMSWGS_CreateDashboard =Settings.getEMSWGS_CreateDashboard();
 	}
 		
 	@Parameters({"sDriver", "sDriverpath"})
@@ -114,9 +98,9 @@ public class DashboardOptions
 	}
 	
 	@TestRail(testCaseId=754)
-	@Parameters({"Dashboardname"})
+	@Parameters({"Dashboardname", "Node", "QueueManager"})
 	@Test(priority=1)
-	public void CreateWGSDashboard(String Dashboardname, ITestContext context) throws InterruptedException
+	public void CreateWGSDashboard(String Dashboardname, String Node, String QueueManager, ITestContext context) throws InterruptedException
 	{
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -125,21 +109,21 @@ public class DashboardOptions
 		
 		
 		//Work group server selection
-		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
+		Select dd=new Select(driver.findElement(By.name("wgsKey")));
 		Thread.sleep(2000);
-		dd.selectByVisibleText(WGSName);
+		dd.selectByVisibleText(WGSName_CreateDashboard);
 				
 		/*//Select Node
 		driver.findElement(By.name("node")).click();
-		driver.findElement(By.name("node")).sendKeys(Dnode);
+		driver.findElement(By.name("node")).sendKeys(Node);
 		
 		//Select QM
 		driver.findElement(By.name("queueMngr")).click();
-		driver.findElement(By.name("queueMngr")).sendKeys(Manager1);*/
+		driver.findElement(By.name("queueMngr")).sendKeys(QueueManager);*/
 			
 		//Create viewlet button
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		
 		WebElement cla=driver.findElement(By.className("tabs-panel-left-relative-block")).findElement(By.tagName("ul"));
 		List<WebElement> lis=cla.findElements(By.tagName("li"));
@@ -175,9 +159,9 @@ public class DashboardOptions
 	}
 	
 	@TestRail(testCaseId=755)
-	@Parameters({"EMSDashboardname", "EMSWGSName", "EMSNode", "EMSQueueManager"})
+	@Parameters({"EMSDashboardname", "EMSNode", "EMSQueueManager"})
 	@Test(priority=2)
-	public void CreateEMSDashboard(String EMSDashboardname, String EMSWGSName, String EMSNode, String EMSQueueManager, ITestContext context) throws InterruptedException
+	public void CreateEMSDashboard(String EMSDashboardname, String EMSNode, String EMSQueueManager, ITestContext context) throws InterruptedException
 	{
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -191,7 +175,7 @@ public class DashboardOptions
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
-		dd.selectByVisibleText(EMSWGSName);
+		dd.selectByVisibleText(EMSWGS_CreateDashboard);
 		
 		/*//Select node
 		driver.findElement(By.name("node")).click();
@@ -384,11 +368,64 @@ public class DashboardOptions
 	}
 	
 	
+	@Parameters({"NewDashboardName"})
+	@Test(priority=6)
+	public void DeleteDashboard(String NewDashboardName, ITestContext context) throws InterruptedException
+	{
+		//Delete the dashboard 
+		try
+		{
+			driver.findElement(By.cssSelector(".active .g-tab-btn-close-block")).click();
+			//driver.findElement(By.cssSelector(".fa-times")).click();
+			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(6000);
+			
+			WebElement cla1=driver.findElement(By.className("tabs-panel-left-relative-block")).findElement(By.tagName("ul"));
+			List<WebElement> lis1=cla1.findElements(By.tagName("li"));
+			System.out.println("No of dashboards are: " +lis1.size());
+			
+			StringBuffer buffer=new StringBuffer();
+			for(WebElement li1: lis1)
+			{
+				//System.out.println("titles are: " +li.getAttribute("class"));
+				WebElement fi1=li1.findElement(By.className("g-tab-title"));
+				//System.out.println("Names are: " +fi.getText());
+				buffer.append(fi1.getText());
+				buffer.append(",");
+			}
+			
+			String DashboardNames=buffer.toString();
+			System.out.println("List of dashboards are: " +DashboardNames);
+			
+			if(DashboardNames.contains(NewDashboardName))
+			{
+				System.out.println("Dashboard is not Deleted");
+				context.setAttribute("Status", 5);
+				context.setAttribute("Comment", "Failed to Delete Dashboard");
+				driver.findElement(By.id("Delete failed")).click();
+			}
+			else
+			{
+				System.out.println("Dashboard is Deleted");
+				context.setAttribute("Status", 1);
+				context.setAttribute("Comment", "Dashboard is deleted successfully");
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println("Dashboards are not present");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to Delete Dashboard");
+			driver.findElement(By.id("Delete failed")).click();
+		}
+		Thread.sleep(1000);
+		
+	}
+	
+	
 	@Test(priority=20)
 	public static void Logout() throws InterruptedException
 	{
-		for(int i=0; i<=1; i++)
-		{
 		//Logout
 		try
 		{
@@ -403,7 +440,7 @@ public class DashboardOptions
 		}
 		Thread.sleep(1000);	
 	
-		}
+		
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
