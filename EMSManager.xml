@@ -12,6 +12,10 @@
     <parameter name="wgs" value="1"/>
     <parameter name="Managername" value="EMS Manager"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    
+    <parameter name="Queue" value="create queue "/>
+    <parameter name="Queuename" value="CommandQueue1"/>
+    <parameter name="Query" value="show queues"/>
       
     <parameter name="FavoriteViewletName" value="EMS Manager Favorite Viewlet"/>
    
@@ -24,6 +28,9 @@
        <methods>
        
         <include name="Login"/>
+        <include name="EMSMQSCConsoleCommandOption"/>
+        <include name="SaveMQSCConsoleResponceData"/>
+        <include name="ClearMQSCConsoleResponceData"/>
         <include name="ShowObjectAttributes"/>   
         <include name="AddToFavorites"/>
         <include name="Logout"/> 

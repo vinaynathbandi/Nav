@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>TestNG:  Dashboard functions</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Dashboard functions</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>7/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Dec 26 16:41:45 IST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>160 seconds (160686 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='ApodGUI.DashboardOptions.CreateEMSDashboard()'><b>CreateEMSDashboard</b><br>Test class: ApodGUI.DashboardOptions<br>Parameters: EMS Dashboard, EMSAGENT01, EMS-SERVER, org.testng.TestRunner@75c56eb9<br/>
+<a href="#Output-487792155" onClick='toggleBox("Output-487792155", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-487792155" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-487792155">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateEMSDashboard.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>ApodGUI.DashboardOptions@1563da5</td></tr>
+<tr>
+<td title='ApodGUI.DashboardOptions.CreateWGSDashboard()'><b>CreateWGSDashboard</b><br>Test class: ApodGUI.DashboardOptions<br>Parameters: Dashboard Verficaton, DESKTOP-E1JT2VR, M1, org.testng.TestRunner@75c56eb9<br/>
+<a href="#Output-834466358" onClick='toggleBox("Output-834466358", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-834466358" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-834466358">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateWGSDashboard.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>7</td>
+<td>ApodGUI.DashboardOptions@1563da5</td></tr>
+<tr>
+<td title='ApodGUI.DashboardOptions.DeleteDashboard()'><b>DeleteDashboard</b><br>Test class: ApodGUI.DashboardOptions<br>Parameters: DashboardRenamed, org.testng.TestRunner@75c56eb9<br/>
+<a href="#Output-2080643905" onClick='toggleBox("Output-2080643905", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2080643905" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2080643905">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteDashboard.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>7</td>
+<td>ApodGUI.DashboardOptions@1563da5</td></tr>
+<tr>
+<td title='ApodGUI.DashboardOptions.Login()'><b>Login</b><br>Test class: ApodGUI.DashboardOptions<br>Parameters: webdriver.chrome.driver, F:\\Automation\\lib\\Drivers\\chromedriver.exe<br/>
+<a href="#Output-1371376476" onClick='toggleBox("Output-1371376476", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1371376476" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1371376476">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>14</td>
+<td>ApodGUI.DashboardOptions@1563da5</td></tr>
+<tr>
+<td title='ApodGUI.DashboardOptions.Logout()'><b>Logout</b><br>Test class: ApodGUI.DashboardOptions</td>
+<td></td>
+<td>2</td>
+<td>ApodGUI.DashboardOptions@1563da5</td></tr>
+<tr>
+<td title='ApodGUI.DashboardOptions.RenameDashboard()'><b>RenameDashboard</b><br>Test class: ApodGUI.DashboardOptions<br>Parameters: DashboardRenamed, Dashboard Verficaton, org.testng.TestRunner@75c56eb9<br/>
+<a href="#Output-1687627235" onClick='toggleBox("Output-1687627235", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1687627235" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1687627235">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/RenameDashboard.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>13</td>
+<td>ApodGUI.DashboardOptions@1563da5</td></tr>
+<tr>
+<td title='ApodGUI.DashboardOptions.SetAsDeafaultOption()'><b>SetAsDeafaultOption</b><br>Test class: ApodGUI.DashboardOptions<br>Parameters: EMS-SERVER, Dashboard Verficaton, org.testng.TestRunner@75c56eb9<br/>
+<a href="#Output-803893384" onClick='toggleBox("Output-803893384", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-803893384" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-803893384">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/SetAsDeafaultOption.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>16</td>
+<td>ApodGUI.DashboardOptions@1563da5</td></tr>
+</table><p>
+</body>
+</html>

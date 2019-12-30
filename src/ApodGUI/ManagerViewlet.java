@@ -37,18 +37,7 @@ import testrail.TestRailAPI;
 public class ManagerViewlet 
 {
 	static WebDriver driver;
-	static String IPAddress;
-	static String HostName;
-	static String PortNo;
-	static String WGSPassword;
-	static String Node_hostname;
-	static String NodeNameFromIcon;
-	static String HostNameFromIcon;
-	static String IPAddressFromIcon;
-	static String QueueManagerName;
-	static String Node_Hostname;
 	static String DefaultTransmissionQueue;
-	static String WGS_INDEX;
 	static String Screenshotpath;
 	static String DownloadPath;
 	static String M_QueueManagerName;
@@ -59,18 +48,8 @@ public class ManagerViewlet
 	public void beforeTest() throws Exception {
 		System.out.println("BeforeTest");
 		Settings.read();
-		IPAddress = Settings.getIPAddress();
-		HostName = Settings.getWGS_HostName();
-		PortNo = Settings.getWGS_PortNo();
-		WGSPassword = Settings.getWGS_Password();
-		Node_hostname = Settings.getNode_Hostname();
-		NodeNameFromIcon = Settings.getNode_NameFromIcon();
-		HostNameFromIcon = Settings.getHostNameFromIcon();
-		IPAddressFromIcon = Settings.getIPAddressFromIcon();
-		QueueManagerName = Settings.getQueueManagerName();
-		Node_Hostname =Settings.getNode_Hostname();
+
 		DefaultTransmissionQueue =Settings.getDefaultTransmissionQueue();
-		WGS_INDEX =Settings.getWGS_INDEX();
 		Screenshotpath =Settings.getScreenshotPath();
 		DownloadPath =Settings.getDownloadPath();
 		M_QueueManagerName =Settings.getM_QueueManagerName();
@@ -287,8 +266,8 @@ public class ManagerViewlet
 		catch(Exception e)
 		{
 			context.setAttribute("Status", 5);
-			context.setAttribute("Comment",
-					"Exception occured while showing object attributes, Check details: " + e.getMessage());
+			context.setAttribute("Comment", "Exception occured while showing object attributes, Check details: " + e.getMessage());
+			driver.findElement(By.id("Objects verification failed")).click();
 		}
 	}
 	
@@ -493,7 +472,7 @@ public class ManagerViewlet
 	@Parameters({"Query"})
 	@TestRail(testCaseId = 55)
 	@Test(priority=9)
-	public static void MQSCConsole(String Query,ITestContext context) throws InterruptedException
+	public static void MQSCConsoleCommandOption(String Query, ITestContext context) throws InterruptedException
 	{
 		//Select the Console option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -508,25 +487,58 @@ public class ManagerViewlet
 		Thread.sleep(4000);
 		
 		//Store the Console output into string
-		String ConsoleOutput=driver.findElement(By.xpath("//textarea")).getText();
-		System.out.println(ConsoleOutput);
-		
-		if(ConsoleOutput.contains("QUEUE(NASTEL.EVENT.QUEUE)"))
+		String ConsoleOutput=driver.findElement(By.xpath("//textarea")).getAttribute("value");
+		//System.out.println("Responce data is: " +ConsoleOutput);
+				
+		if(ConsoleOutput.contains("NASTEL.EVENT.QUEUE") || ConsoleOutput.contains("SYSTEM.ADMIN"))
 		{
 			System.out.println("Query executed");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "MQSC console Query is executed");
 		}
-		Thread.sleep(1000);
+		else
+		{
+			System.out.println("Query Failed");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "MQSC console query failed");
+			driver.findElement(By.xpath("//div[4]/button")).click();
+			driver.findElement(By.id("Console Query failed")).click();
+		}
+		Thread.sleep(1000);				
+	}
+	
+	
+	@Test(priority=10, dependsOnMethods= {"MQSCConsoleCommandOption"})
+	public void SaveMQSCConsoleResponceData(ITestContext context) throws InterruptedException
+	{
+		try
+		{
+			driver.findElement(By.xpath("//div[3]/button")).click();
+			Thread.sleep(4000);
+			System.out.println("Responce data is saved");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "MQSC console Responce data saved");
+		}
+		catch (Exception e)
+		{
+			System.out.println("Responce data is not saved");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "MQSC console Responce data not saved");
+			driver.findElement(By.id("Console save failed")).click();
+		}
 		
-		//------------ Save the Console data into file using save button ---------------
-		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(4000);
-		
-		//------------Clear data by using clear button --------------
+	}
+	
+	
+	@Test(priority=11, dependsOnMethods= {"MQSCConsoleCommandOption"})
+	public void ClearMQSCConsoleResponceData(ITestContext context) throws InterruptedException
+	{
+		//Clear data by using clear button 
 		driver.findElement(By.xpath("//div[2]/div/div/button")).click();
 		Thread.sleep(4000);
 		
 		//Store the Console output into string after clearing the console data
-		String ClearedConsoleOutput=driver.findElement(By.xpath("//textarea")).getText();
+		String ClearedConsoleOutput=driver.findElement(By.xpath("//textarea")).getAttribute("value");
 		System.out.println(ClearedConsoleOutput);
 		
 		if(ClearedConsoleOutput.equalsIgnoreCase(""))
@@ -549,11 +561,11 @@ public class ManagerViewlet
 		//close the window
 		driver.findElement(By.xpath("//div[4]/button")).click();
 		Thread.sleep(1000);
-				
+		
 	}
 	
 	@TestRail(testCaseId = 56)
-	@Test(priority=10)
+	@Test(priority=12)
 	public static void DiscoverNow(ITestContext context) throws InterruptedException
 	{
 		try {
@@ -584,7 +596,7 @@ public class ManagerViewlet
 	
 	@Parameters({"DeleteManagerName"})
 	@TestRail(testCaseId = 57)
-	@Test(priority=11)
+	@Test(priority=13)
 	public void Delete(String DeleteManagerName, ITestContext context) throws InterruptedException
 	{
 		try {
@@ -609,7 +621,7 @@ public class ManagerViewlet
 	
 	@Parameters({"DeleteManagerCheckboxValue", "QueueManagerName"})
 	@TestRail(testCaseId = 58)
-	@Test(priority=12)
+	@Test(priority=14)
 	public void DeleteFromDB(int DeleteManagerCheckboxValue, String QueueManagerName, ITestContext context) throws InterruptedException
 	{
 		//Select Delete from Database option
@@ -638,7 +650,7 @@ public class ManagerViewlet
 	}
 	
 	@TestRail(testCaseId = 59)
-	@Test(priority=13)
+	@Test(priority=15)
 	public static void Events(ITestContext context) throws InterruptedException
 	{
 		//Select Events option
@@ -716,7 +728,7 @@ public class ManagerViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId = 60)
-	@Test(priority=14)
+	@Test(priority=16)
 	public static void AddToFavorites(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		//Create favorite Viewlet
@@ -779,7 +791,7 @@ public class ManagerViewlet
 		
 	}
 	
-	@Test(priority=15)
+	@Test(priority=17)
 	@TestRail(testCaseId = 61)
 	public static void CompareManagers(ITestContext context) throws InterruptedException
 	{
@@ -790,17 +802,17 @@ public class ManagerViewlet
 		}
 		
 		//Get the First object Name
-		String compare1 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare1 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		//System.out.println("First obj name is: " +compare1);
 		
 		//Get the second object name
-		String compare2 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare2 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		//System.out.println("Second obj name is: " +compare2);
 		
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 
 		// System.out.println("Cpmare to: " + compare1 + "::"+ compare2);
 		String comparenameslist = compare1 + "::" + compare2;
@@ -831,13 +843,13 @@ public class ManagerViewlet
 	}
 	
 	
-	@Test(priority=16)
+	@Test(priority=18)
 	public void CheckDifferencesForManagers(ITestContext context) throws InterruptedException
 	{
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(2000);
 		
@@ -907,7 +919,7 @@ public class ManagerViewlet
 	}
 	
 	
-	@Test(priority=17)
+	@Test(priority=19)
 	@TestRail(testCaseId = 62)
 	public void StartAllWMQObjectsForMultipleManagers(ITestContext context) throws InterruptedException
 	{
@@ -933,7 +945,7 @@ public class ManagerViewlet
 		
 	}
 	
-	@Test(priority=18)
+	@Test(priority=20)
 	@TestRail(testCaseId = 63)
 	public void StopAllWMQObjectsForMultipleManagers(ITestContext context) throws InterruptedException
 	{
@@ -961,7 +973,7 @@ public class ManagerViewlet
 	
 	@Parameters({"MultipleDescription"})
 	@TestRail(testCaseId = 64)
-	@Test(priority=19)
+	@Test(priority=21)
 	public void MultipleManagersProperties(String MultipleDescription, ITestContext context) throws InterruptedException
 	{
 		try {
@@ -985,7 +997,7 @@ public class ManagerViewlet
 		
 		//Select the properties option for First manager
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(2000);
 		
 		//Click on General tab
@@ -1002,7 +1014,7 @@ public class ManagerViewlet
 		
 		//Select the properties option for Second manager
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(2000);
 		
 		//Click on General tab
@@ -1042,7 +1054,7 @@ public class ManagerViewlet
 		
 	}
 	
-	@Test(priority=20, dependsOnMethods= {"AddToFavorites"})
+	@Test(priority=22, dependsOnMethods= {"AddToFavorites"})
 	@TestRail(testCaseId = 65)
 	public static void AddToFavoriteForMultipleManagers(ITestContext context) throws InterruptedException
 	{
@@ -1103,7 +1115,7 @@ public class ManagerViewlet
 	
 	@Parameters({"QueueManagerNameFromOptions", "DefaultTransmissionQueueFromOptions", "DescriptionFromOptions"})
 	
-	@Test(priority=21)
+	@Test(priority=23)
 	@TestRail(testCaseId = 66)
 	public void CreateQueueManagerFromOptions(String QueueManagerNameFromOptions, String DefaultTransmissionQueueFromOptions, String DescriptionFromOptions,ITestContext context) throws InterruptedException
 	{
@@ -1174,7 +1186,7 @@ public class ManagerViewlet
 	
 	@Parameters({"SearchInputData"})
 	@TestRail(testCaseId = 67)
-	@Test(priority=22)
+	@Test(priority=29)
 	public static void SearchFilter(String SearchInputData,ITestContext context) throws InterruptedException
 	{
 		//Get the manager name into string

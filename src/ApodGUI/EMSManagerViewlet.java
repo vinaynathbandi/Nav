@@ -2,6 +2,7 @@ package ApodGUI;
 
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -10,9 +11,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -32,31 +35,19 @@ import testrail.TestRailAPI;
 public class EMSManagerViewlet 
 {
 	static WebDriver driver;
-	static String WGS_INDEX;
 	static String Screenshotpath;
 	static String DownloadPath;
-	static String WGSName;
-	static String UploadFilepath;
-	static String EMS_WGS_INDEX;
 	static String EMS_WGSNAME;
-	static String SelectTopicName;
-	static String DeleteDurableName;
-
+	
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		System.out.println("BeforeTest");
 		Settings.read();
 		
-		WGS_INDEX =Settings.getWGS_INDEX();
 		Screenshotpath =Settings.getScreenshotPath();
 		DownloadPath =Settings.getDownloadPath();
-		WGSName =Settings.getWGSNAME();
-		UploadFilepath =Settings.getUploadFilepath();
-		EMS_WGS_INDEX =Settings.getEMS_WGS_INDEX();
 		EMS_WGSNAME =Settings.getEMS_WGSNAME();
-		SelectTopicName = Settings.getSelectTopicName(); 
-		DeleteDurableName =Settings.getDeleteDurableName();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "Managername"})
@@ -68,11 +59,20 @@ public class EMSManagerViewlet
 		String uname=Settings.getNav_Username();
 		String password=Settings.getNav_Password();
 		
+		String filepath=System.getProperty("user.dir") + "\\" + DownloadPath;
+		
 		//Selecting the browser
 		if(sDriver.equalsIgnoreCase("webdriver.chrome.driver"))
 		{
 		System.setProperty(sDriver, sDriverpath);
-		driver=new ChromeDriver();
+		
+		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+		chromePrefs.put("profile.default_content_settings.popups", 0);
+		chromePrefs.put("download.prompt_for_download", "false");
+		chromePrefs.put("download.default_directory", filepath);
+		ChromeOptions options = new ChromeOptions();
+		options.setExperimentalOption("prefs", chromePrefs);
+		driver=new ChromeDriver(options);
 		}
 		else if(sDriver.equalsIgnoreCase("webdriver.ie.driver"))
 		{
@@ -152,7 +152,7 @@ public class EMSManagerViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId=282)
-	@Test(priority=1)
+	@Test(priority=6)
 	public static void AddToFavorites(String FavoriteViewletName,ITestContext context) throws InterruptedException
 	{
 		//Create favorite Viewlet
@@ -213,6 +213,111 @@ public class EMSManagerViewlet
 			driver.findElement(By.id("Add EMS Manager to favorite failed")).click();
 		}
 		Thread.sleep(1000);
+	}
+	
+	@Parameters({"Query", "Queue", "Queuename"})
+	@TestRail(testCaseId = 55)
+	@Test(priority=2)
+	public static void EMSMQSCConsoleCommandOption(String Query, String Queue, String Queuename, ITestContext context) throws InterruptedException
+	{
+		//Select the Console option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("EMS Scripts"))).perform();
+		driver.findElement(By.linkText("Console...")).click();
+		Thread.sleep(6000);
+		
+		//Create a queue using query 
+		driver.findElement(By.xpath("//app-mod-mqsc-console/div/div[2]/div/div/input")).sendKeys(Queue + Queuename);
+		driver.findElement(By.xpath("//button[contains(.,'Submit')]")).click();
+		Thread.sleep(6000);
+		
+		//Click on Clear button
+		driver.findElement(By.xpath("//button[contains(.,'Clear')]")).click();
+		Thread.sleep(3000);
+		
+		//Enter the Query and Click on Submit
+		driver.findElement(By.xpath("//app-mod-mqsc-console/div/div[2]/div/div/input")).clear();
+		driver.findElement(By.xpath("//app-mod-mqsc-console/div/div[2]/div/div/input")).sendKeys(Query);
+		driver.findElement(By.xpath("//button[contains(.,'Submit')]")).click();
+		Thread.sleep(6000);
+		
+		//Store the Console output into string
+		String ConsoleOutput=driver.findElement(By.xpath("//textarea")).getAttribute("value");
+		System.out.println("Responce data is: " +ConsoleOutput);
+				
+		if(ConsoleOutput.contains(Queuename))
+		{
+			System.out.println("Query executed");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "MQSC console Query is executed");
+		}
+		else
+		{
+			System.out.println("Query Failed");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "MQSC console query failed");
+			driver.findElement(By.xpath("//button[contains(.,'Close')]")).click();
+			driver.findElement(By.id("Console Query failed")).click();
+		}
+		Thread.sleep(1000);				
+	}
+	
+	
+	@Test(priority=3, dependsOnMethods= {"EMSMQSCConsoleCommandOption"})
+	public void SaveMQSCConsoleResponceData(ITestContext context) throws InterruptedException
+	{
+		try
+		{
+			driver.findElement(By.xpath("//button[contains(.,'Save')]")).click();
+			Thread.sleep(4000);
+			System.out.println("Responce data is saved");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "MQSC console Responce data saved");
+		}
+		catch (Exception e)
+		{
+			System.out.println("Responce data is not saved");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "MQSC console Responce data not saved");
+			driver.findElement(By.id("Console save failed")).click();
+		}
+		
+	}
+	
+	
+	@Test(priority=4, dependsOnMethods= {"EMSMQSCConsoleCommandOption"})
+	public void ClearMQSCConsoleResponceData(ITestContext context) throws InterruptedException
+	{
+		//Clear data by using clear button 
+		driver.findElement(By.xpath("//button[contains(.,'Clear')]")).click();
+		Thread.sleep(4000);
+		
+		//Store the Console output into string after clearing the console data
+		String ClearedConsoleOutput=driver.findElement(By.xpath("//textarea")).getAttribute("value");
+		System.out.println(ClearedConsoleOutput);
+		
+		if(ClearedConsoleOutput.equalsIgnoreCase(""))
+		{
+			System.out.println("Console cleared");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "MQSC console cleared");
+		}
+		else
+		{
+			System.out.println("Console not cleared");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "MQSC console is nt cleared");
+			
+			driver.findElement(By.xpath("//button[contains(.,'Close')]")).click();
+			driver.findElement(By.id("Console not cleared")).click();
+			
+		}
+		
+		//close the window
+		driver.findElement(By.xpath("//button[contains(.,'Close')]")).click();
+		Thread.sleep(1000);
+		
 	}
 	
 	@Test(priority=10)

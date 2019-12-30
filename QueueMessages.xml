@@ -23,10 +23,12 @@
        
         <include name="Login"/>
         <include name="PutNewMessageIntoQueue"/> 
-        <include name="LoadFromFile"/>
+        <include name="LoadFromFileUsingYesbutton"/> 
+        <include name="LoadFromFileUsingConfigurebuttonWithSingleMessage"/>
+        <include name="LoadFromFileUsingConfigurebuttonWithMultipleMessages"/>
         <include name="ExportAllMessages"/>
-        <include name="CopyAllMessagesFromOneQueueToAnotherQueue"/>
-        <include name="MoveAllMessagesFromOneQueueToAnotherQueue"/> 
+        <include name="CopyAllMessagesFromOneQueueToAnotherQueue"/> 
+        <include name="MoveAllMessagesFromOneQueueToAnotherQueue"/>  
         <include name="DeleteAllMessagesFromQueue"/>   
         <include name="ClearAllMessagesFromQueue"/>  
         <include name="PutMessageUsingJsonFile"/>

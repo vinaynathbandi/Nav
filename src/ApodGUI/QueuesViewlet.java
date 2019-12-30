@@ -35,25 +35,21 @@ import testrail.TestRailAPI;
 public class QueuesViewlet 
 {
 	static WebDriver driver;
-	static String WGS_INDEX;
 	static String Screenshotpath;
-	static String DownloadPath;
 	static String WGSName;
 	static String Q_QueueName;
-	static String Q_SearchInputData;
 	static String Dnode;
 	static String DestinationManager;
+	static String FinalQueuename="";
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		System.out.println("BeforeTest");
 		Settings.read();
-		WGS_INDEX =Settings.getWGS_INDEX();
+		
 		Screenshotpath =Settings.getScreenshotPath();
-		DownloadPath =Settings.getDownloadPath();
 		WGSName =Settings.getWGSNAME();
 		Q_QueueName =Settings.getQ_QueueName();
-		Q_SearchInputData =Settings.getQ_SearchInputData();
 		Dnode =Settings.getDnode();
 		DestinationManager =Settings.getDestinationManager();
 	}
@@ -138,13 +134,19 @@ public class QueuesViewlet
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(1000);
 		
+		//Restore Default settings 
+		driver.findElement(By.cssSelector(".fa-cog")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[3]/button")).click();
+		Thread.sleep(1000);
 		
 	}
 	
 	@Test(priority=1)
 	@TestRail(testCaseId = 68)
 	public static void BrowseMessages(ITestContext context) throws InterruptedException
-	{
+	{		
 		//Select Browse Messages Option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Browse messages")).click();
@@ -188,6 +190,7 @@ public class QueuesViewlet
 		{
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got an exception, check details: " + e.getMessage());
+			driver.findElement(By.id("Objects verification failed")).click();
 		}
 		
 	}
@@ -329,11 +332,21 @@ public class QueuesViewlet
 			
 	}
 	
-	@Parameters({"ObjectName", "ObjectDescription", "QueueNameFromOptions"})
+	@Parameters({"ObjectName", "ObjectDescription"})
 	@TestRail(testCaseId = 72)
 	@Test(priority=5)
-	public static void QueueCommands(String ObjectName, String ObjectDescription, String QueueNameFromOptions, ITestContext context) throws InterruptedException
+	public static void CopyAsQueueCommands(String ObjectName, String ObjectDescription, ITestContext context) throws InterruptedException
 	{
+		int QueueName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			QueueName_Index=4;
+		}
+		
+		//Take the Queue name whcih one you want to delete
+		String Queuenamebefore=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
+		System.out.println(Queuenamebefore);
+		
 		//Select copy as option from Commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions CopyMousehover=new Actions(driver);
@@ -347,27 +360,46 @@ public class QueuesViewlet
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
 		
-		//---------  Delete the Queue -----------
-		//change settings
-		/*driver.findElement(By.cssSelector(".fa-cog")).click();
-		driver.findElement(By.xpath("//div[2]/input")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(1000);*/
+		FinalQueuename=Queuenamebefore + ObjectName;
 		
 		//Search with empty queue name
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(QueueNameFromOptions);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(FinalQueuename);
 		Thread.sleep(1000);
 		
-		int QueueName_Index=3;
-		if(!WGSName.contains("MQM"))
-		{
-			QueueName_Index=4;
-		}
-		//Take the Queue name whcih one you want to delete
-		String Queuenamebefore=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
-		System.out.println(Queuenamebefore);
+		//Store the Queue name after deleting the Queue
+		String ViewletData=driver.findElement(By.xpath("//datatable-body")).getText();
+		System.out.println("Viewlet data is: " +ViewletData);
 		
+		for(int i=0; i<=FinalQueuename.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(2000);
+		
+		if(ViewletData.contains(FinalQueuename))
+		{
+			System.out.println("Copy as option is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Copy as working");
+		}
+		else
+		{
+			System.out.println("Copy as option is not working");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Copy as failed");
+			driver.findElement(By.xpath("Copy As failed")).click();
+		}
+				
+	}
+	
+	
+	@Test(priority=6)
+	public void DeleteQueueFromCommandsOption(ITestContext context) throws InterruptedException
+	{
+		//Search with empty queue name
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(FinalQueuename);
+		Thread.sleep(1000);
+				
 		//Select Commands option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions DeleteMousehover=new Actions(driver);
@@ -394,7 +426,14 @@ public class QueuesViewlet
 			String ViewletData=driver.findElement(By.xpath("//datatable-body")).getText();
 			System.out.println(ViewletData);
 			
-			if(ViewletData.equalsIgnoreCase(QueueNameFromOptions))
+			//Edit the search
+			for(int k=0; k<=FinalQueuename.length(); k++)
+			{
+				driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+			}
+			Thread.sleep(1000);
+			
+			if(ViewletData.contains(FinalQueuename))
 			{
 				System.out.println("Queue is not deleted");
 				context.setAttribute("Status", 5);
@@ -417,7 +456,14 @@ public class QueuesViewlet
 			String ViewletData=driver.findElement(By.xpath("//datatable-body")).getText();
 			System.out.println(ViewletData);
 			
-			if(ViewletData.equalsIgnoreCase(QueueNameFromOptions))
+			//Edit the search
+			for(int k=0; k<=FinalQueuename.length(); k++)
+			{
+				driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+			}
+			Thread.sleep(1000);
+			
+			if(ViewletData.contains(FinalQueuename))
 			{
 				System.out.println("Queue is not deleted");
 				context.setAttribute("Status", 5);
@@ -434,26 +480,11 @@ public class QueuesViewlet
 			Thread.sleep(1000);
 			
 			context.setAttribute("Status", 1);
-			context.setAttribute("Comment", "Message deleted");
-            
-        }
-		
-		//Edit the search
-		for(int k=0; k<=QueueNameFromOptions.length(); k++)
-		{
-			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
-		}
-		Thread.sleep(1000);
-		
-		// Changing the Settings 
-		driver.findElement(By.cssSelector(".fa-cog")).click();
-		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(1000);	
+			context.setAttribute("Comment", "Message deleted"); 
+        }	
 	}
 	
-	@Test(priority=6)
+	@Test(priority=7)
 	@TestRail(testCaseId = 73)
 	public static void QueueProperties(ITestContext context) throws InterruptedException
 	{
@@ -486,7 +517,7 @@ public class QueuesViewlet
 		}
 	}
 	
-	@Test(priority=7)
+	@Test(priority=8)
 	@TestRail(testCaseId = 74)
 	public static void QueueEvents(ITestContext context) throws InterruptedException
 	{
@@ -563,7 +594,7 @@ public class QueuesViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId = 75)
-	@Test(priority=8)
+	@Test(priority=9)
 	public void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		//Select the viewlet option and select the favorite checkbox
@@ -624,7 +655,7 @@ public class QueuesViewlet
 		
 	}
 	
-	@Test(priority=9)
+	@Test(priority=10)
 	@TestRail(testCaseId = 76)
 	public static void CompareQueues(ITestContext context) throws InterruptedException
 	{
@@ -635,17 +666,17 @@ public class QueuesViewlet
 		}
 		
 		//Get the First object Name
-		String compare1 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare1 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		//System.out.println("First obj name is: " +compare1);
 		
 		//Get the second object name
-		String compare2 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare2 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		//System.out.println("Second obj name is: " +compare2);
 		
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 
 		// System.out.println("Cpmare to: " + compare1 + "::"+ compare2);
 		String comparenameslist = compare1 + "::" + compare2;
@@ -676,13 +707,13 @@ public class QueuesViewlet
 	}
 	
 	
-	@Test(priority=10)
+	@Test(priority=11)
 	public void CheckDifferencesForQueues(ITestContext context) throws InterruptedException
 	{
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(2000);
 		
@@ -751,7 +782,7 @@ public class QueuesViewlet
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=11)
+	@Test(priority=12)
 	@TestRail(testCaseId = 77)
 	public static void ShowQueueStatusForMultipleQueues(ITestContext context) throws InterruptedException
 	{
@@ -788,7 +819,7 @@ public class QueuesViewlet
 	
 	@Parameters({"TestDescription"})
 	@TestRail(testCaseId = 78)
-	@Test(priority=12)
+	@Test(priority=13)
 	public void MultipleQueueProperties(String TestDescription, ITestContext context) throws InterruptedException
 	{
 		//Select viewlet option
@@ -851,7 +882,7 @@ public class QueuesViewlet
 	
 	@Parameters({"FavoriteViewletName"})
 	@TestRail(testCaseId = 79)
-	@Test(priority=13, dependsOnMethods= {"AddToFavoriteViewlet"})
+	@Test(priority=14, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleQueues(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int QueueName_Index=3;
@@ -900,7 +931,7 @@ public class QueuesViewlet
 	
 	@Parameters({"QueueDescription"})
 	@TestRail(testCaseId = 81)
-	@Test(priority=14)
+	@Test(priority=15)
 	public void AddQueueFromPlusIcon(String QueueDescription, ITestContext context) throws InterruptedException
 	{
 		try
@@ -980,11 +1011,11 @@ public class QueuesViewlet
 			
 		}
 		
-		//Change the Settings We need to check show empty queues for verification
+		/*//Change the Settings We need to check show empty queues for verification
 		driver.findElement(By.cssSelector(".fa-cog")).click();
 		driver.findElement(By.cssSelector(".checkbox:nth-child(2) > input")).click();
 		driver.findElement(By.cssSelector(".btn-group:nth-child(3) > .btn")).click();
-		Thread.sleep(2000);
+		Thread.sleep(2000);*/
 		
 		//Serach with empty queue name
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Q_QueueName);
@@ -1021,12 +1052,12 @@ public class QueuesViewlet
 		}
 		
 		
-		// Changing the Settings 
+		/*// Changing the Settings 
 		driver.findElement(By.cssSelector(".fa-cog")).click();
 		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(1000);	
+		Thread.sleep(1000);	*/
 		}
 		
 		catch (Exception e)
@@ -1044,6 +1075,196 @@ public class QueuesViewlet
 		Thread.sleep(2000);		
 	}
 	
+	@Parameters({"CopyAsNameForMultiple", "ObjectDescriptionForMultiples"})
+	@Test(priority=16)
+	public void CopyAsForMultipleQueues(String CopyAsNameForMultiple, String ObjectDescriptionForMultiples, ITestContext context) throws InterruptedException
+	{
+		try
+		{
+		int ManagerName_Index=4;
+		if(!WGSName.contains("MQM"))
+		{
+			ManagerName_Index=5;
+		}
+		
+		driver.findElement(By.cssSelector(".fa-cog")).click();
+		driver.findElement(By.cssSelector(".checkbox:nth-child(2) > input")).click();
+		driver.findElement(By.cssSelector(".btn-group:nth-child(3) > .btn")).click();
+		Thread.sleep(2000);
+		
+		String[] Managers = new String[10];
+		for(int i=0; i<10; i++)
+		{
+			int k=i+1;
+			//Get the Queue manager names
+		    Managers[i]=driver.findElement(By.xpath("//datatable-row-wrapper["+ k +"]/datatable-body-row/div[2]/datatable-body-cell["+ ManagerName_Index +"]/div/span")).getText();
+			System.out.println("Managers are: " +Managers[i]);
+			
+			String FirstMr=Managers[0];
+			//System.out.println("initial manager name is: " +FirstMr);
+			if(i>0)
+			{
+				if(FirstMr.equalsIgnoreCase(Managers[i]))
+				{
+					System.out.println("managers are matched");
+					
+				}
+				else
+				{
+					System.out.println("Index values is: " +i);
+					driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+					driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper["+ k +"]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+					Thread.sleep(4000);
+					Actions CopyMousehover=new Actions(driver);
+					CopyMousehover.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+					driver.findElement(By.linkText("Copy as...")).click();
+					Thread.sleep(1000);
+					
+					//Object Details
+					driver.findElement(By.xpath("//div[2]/div/input")).clear();
+					driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyAsNameForMultiple);
+					driver.findElement(By.xpath("//div[2]/input")).sendKeys(ObjectDescriptionForMultiples);
+					driver.findElement(By.cssSelector(".btn-primary")).click();
+					Thread.sleep(8000);
+					
+					//Search with empty queue name
+					driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyAsNameForMultiple);
+					Thread.sleep(1000);
+					
+					//Store the Queue name after deleting the Queue
+					String ViewletData=driver.findElement(By.xpath("//datatable-body")).getText();
+					System.out.println("Viewlet data is: " +ViewletData);
+					
+					for(int m=0; m<=CopyAsNameForMultiple.length(); m++)
+					{
+						driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+					}
+					Thread.sleep(2000);
+					
+					if(ViewletData.contains(CopyAsNameForMultiple))
+					{
+						System.out.println("Copy as option is working fine for multiples");
+						context.setAttribute("Status", 1);
+						context.setAttribute("Comment", "Copy as working");
+					}
+					else
+					{
+						System.out.println("Copy as option is not working for multiples");
+						context.setAttribute("Status", 5);
+						context.setAttribute("Comment", "Multi Copy as failed");
+						driver.findElement(By.xpath("Multi Copy As failed")).click();
+					}
+					break;
+					
+				}
+			
+			}
+		}
+		}
+		
+		catch (Exception e)
+		{
+			System.out.println("Copy as option is not working for multiples");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Multi Copy as failed");
+			driver.findElement(By.xpath("Multi Copy As failed")).click();
+		}	
+	}
+	
+	
+	@Parameters({"CopyAsNameForMultiple"})
+	@Test(priority=17)
+	public void DeleteMultipleQueues(String CopyAsNameForMultiple, ITestContext context) throws InterruptedException
+	{
+		//Search with empty queue name
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyAsNameForMultiple);
+		Thread.sleep(1000);
+				
+		//Select Commands option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions DeleteMousehover=new Actions(driver);
+		DeleteMousehover.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
+		driver.findElement(By.linkText("Delete Queue")).click();
+		Thread.sleep(1000);
+		
+		//Delete option
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(8000);
+		try
+		{
+		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
+		{
+			driver.findElement(By.xpath("//app-mod-errors-display/div/button")).click();
+			
+			//Click on Cancel button
+			driver.findElement(By.xpath("//div[3]/button")).click();
+		}
+		
+		else
+		{
+			//Store the Queue name after deleting the Queue
+			String ViewletData=driver.findElement(By.xpath("//datatable-body")).getText();
+			System.out.println(ViewletData);
+			
+			//Edit the search
+			for(int k=0; k<=CopyAsNameForMultiple.length(); k++)
+			{
+				driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+			}
+			Thread.sleep(1000);
+			
+			if(ViewletData.contains(CopyAsNameForMultiple))
+			{
+				System.out.println("Queue is not deleted");
+				context.setAttribute("Status", 5);
+				context.setAttribute("Comment", "Failed to delete queue");
+				driver.findElement(By.xpath("Queue Delete failed")).click();
+			}
+			else
+			{
+				
+				System.out.println("Queue is deleted Successfully");
+				context.setAttribute("Status", 1);
+				context.setAttribute("Comment", "Queue deleted Successfully");
+			}
+			Thread.sleep(1000);
+		}
+		}
+		catch (Exception e) 
+		{
+			//Store the Queue name after deleting the Queue
+			String ViewletData=driver.findElement(By.xpath("//datatable-body")).getText();
+			System.out.println(ViewletData);
+			
+			//Edit the search
+			for(int k=0; k<=CopyAsNameForMultiple.length(); k++)
+			{
+				driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+			}
+			Thread.sleep(1000);
+			
+			if(ViewletData.contains(CopyAsNameForMultiple))
+			{
+				System.out.println("Queue is not deleted");
+				context.setAttribute("Status", 5);
+				context.setAttribute("Comment", "Failed to delete queue");
+				driver.findElement(By.xpath("Queue Delete failed")).click();
+			}
+			else
+			{
+				
+				System.out.println("Queue is deleted Successfully");
+				context.setAttribute("Status", 1);
+				context.setAttribute("Comment", "Queue deleted Successfully");
+			}
+			Thread.sleep(1000);
+			
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Message deleted"); 
+        }	
+		
+	}
 	
 	@TestRail(testCaseId = 80)
 	@Test(priority=19)

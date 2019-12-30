@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="13" total="18" passed="5">
+<testng-results skipped="0" failed="0" ignored="5" total="14" passed="9">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -8,37 +8,58 @@
       <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" />]]>
     </line>
     <line>
-      <![CDATA[Workgroup server is added successfylly]]>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAllMessagesFromOneQueueToAnotherQueue.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddWorkgroupFromPlusIcon.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/MoveAllMessagesFromOneQueueToAnotherQueue.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DefaultConnection.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteAllMessagesFromQueue.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/EditWorkgroup.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ClearAllMessagesFromQueue.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutMessageUsingJsonFile.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutMessageUsingXMLFile.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutHexMessageIntoQueue.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="146101" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:24:25Z">
+  <suite name="Navigator" duration-ms="332777" started-at="2019-12-30T11:02:55Z" finished-at="2019-12-30T11:08:28Z">
     <groups>
     </groups>
-    <test name="WorkGroup server Viewlet" duration-ms="146101" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:24:25Z">
-      <class name="ApodGUI.WorkgroupServer">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="beforeTest" is-config="true" duration-ms="33" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:21:59Z">
+    <test name="EMS Queue Message Options" duration-ms="332777" started-at="2019-12-30T11:02:55Z" finished-at="2019-12-30T11:08:28Z">
+      <class name="ApodGUI.EMSQueueMessages">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="beforeTest" is-config="true" duration-ms="14" started-at="2019-12-30T11:02:55Z" finished-at="2019-12-30T11:02:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="Login" duration-ms="39112" started-at="2019-12-26T10:21:59Z" finished-at="2019-12-26T10:22:38Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="Login" duration-ms="34671" started-at="2019-12-30T11:02:55Z" finished-at="2019-12-30T11:03:30Z">
           <params>
             <param index="0">
               <value>
@@ -52,12 +73,17 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[WGS10]]>
+                <![CDATA[EMS Queues Messages]]>
               </value>
             </param>
             <param index="3">
               <value>
-                <![CDATA[org.testng.TestRunner@31f924f5]]>
+                <![CDATA[Put the message from Main options]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[EMS Local Queue]]>
               </value>
             </param>
           </params>
@@ -70,53 +96,22 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="558" started-at="2019-12-26T10:22:38Z" finished-at="2019-12-26T10:22:39Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="367" started-at="2019-12-30T11:03:30Z" finished-at="2019-12-30T11:03:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=WorkgroupServer.Login(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=EMSQueueMessages.Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddWorkgroupFromPlusIcon(org.testng.ITestContext)[pri:1, instance:ApodGUI.WorkgroupServer@1563da5]" name="AddWorkgroupFromPlusIcon" duration-ms="28262" started-at="2019-12-26T10:22:39Z" finished-at="2019-12-26T10:23:07Z">
+        <test-method status="PASS" signature="CopyAllMessagesFromOneQueueToAnotherQueue(org.testng.ITestContext)[pri:6, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="CopyAllMessagesFromOneQueueToAnotherQueue" duration-ms="10794" started-at="2019-12-30T11:03:30Z" finished-at="2019-12-30T11:03:41Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@31f924f5]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[Workgroup server is added successfylly]]>
-            </line>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddWorkgroupFromPlusIcon.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- AddWorkgroupFromPlusIcon -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="12654" started-at="2019-12-26T10:23:07Z" finished-at="2019-12-26T10:23:19Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=AddWorkgroupFromPlusIcon status=SUCCESS method=WorkgroupServer.AddWorkgroupFromPlusIcon(org.testng.ITestContext)[pri:1, instance:ApodGUI.WorkgroupServer@1563da5] output=Workgroup server is added successfylly]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="DefaultConnection(org.testng.ITestContext)[pri:2, instance:ApodGUI.WorkgroupServer@1563da5]" name="DefaultConnection" duration-ms="23944" started-at="2019-12-26T10:23:19Z" finished-at="2019-12-26T10:23:43Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@31f924f5]]>
+                <![CDATA[org.testng.TestRunner@35432107]]>
               </value>
             </param>
           </params>
@@ -125,31 +120,171 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DefaultConnection.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAllMessagesFromOneQueueToAnotherQueue.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- DefaultConnection -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="405" started-at="2019-12-26T10:23:43Z" finished-at="2019-12-26T10:23:44Z">
+        </test-method> <!-- CopyAllMessagesFromOneQueueToAnotherQueue -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="13301" started-at="2019-12-30T11:03:53Z" finished-at="2019-12-30T11:04:06Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=DefaultConnection status=SUCCESS method=WorkgroupServer.DefaultConnection(org.testng.ITestContext)[pri:2, instance:ApodGUI.WorkgroupServer@1563da5] output=<br/>]]]>
+                <![CDATA[[TestResult name=CopyAllMessagesFromOneQueueToAnotherQueue status=SUCCESS method=EMSQueueMessages.CopyAllMessagesFromOneQueueToAnotherQueue(org.testng.ITestContext)[pri:6, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="EditWorkgroup(java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.WorkgroupServer@1563da5]" name="EditWorkgroup" duration-ms="16561" started-at="2019-12-26T10:23:44Z" depends-on-methods="ApodGUI.WorkgroupServer.DefaultConnection" finished-at="2019-12-26T10:24:00Z">
+        <test-method status="PASS" signature="MoveAllMessagesFromOneQueueToAnotherQueue(org.testng.ITestContext)[pri:7, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="MoveAllMessagesFromOneQueueToAnotherQueue" duration-ms="8826" started-at="2019-12-30T11:04:06Z" finished-at="2019-12-30T11:04:15Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[localhost]]>
+                <![CDATA[org.testng.TestRunner@35432107]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/MoveAllMessagesFromOneQueueToAnotherQueue.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- MoveAllMessagesFromOneQueueToAnotherQueue -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="13473" started-at="2019-12-30T11:04:27Z" finished-at="2019-12-30T11:04:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=MoveAllMessagesFromOneQueueToAnotherQueue status=SUCCESS method=EMSQueueMessages.MoveAllMessagesFromOneQueueToAnotherQueue(org.testng.ITestContext)[pri:7, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="DeleteAllMessagesFromQueue(org.testng.ITestContext)[pri:8, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="DeleteAllMessagesFromQueue" duration-ms="12756" started-at="2019-12-30T11:04:40Z" finished-at="2019-12-30T11:04:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@35432107]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteAllMessagesFromQueue.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- DeleteAllMessagesFromQueue -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="13299" started-at="2019-12-30T11:05:05Z" finished-at="2019-12-30T11:05:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=DeleteAllMessagesFromQueue status=SUCCESS method=EMSQueueMessages.DeleteAllMessagesFromQueue(org.testng.ITestContext)[pri:8, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ClearAllMessagesFromQueue(org.testng.ITestContext)[pri:9, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="ClearAllMessagesFromQueue" duration-ms="14632" started-at="2019-12-30T11:05:19Z" finished-at="2019-12-30T11:05:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@35432107]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ClearAllMessagesFromQueue.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ClearAllMessagesFromQueue -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="13304" started-at="2019-12-30T11:05:45Z" finished-at="2019-12-30T11:05:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ClearAllMessagesFromQueue status=SUCCESS method=EMSQueueMessages.ClearAllMessagesFromQueue(org.testng.ITestContext)[pri:9, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="PutMessageUsingJsonFile(org.testng.ITestContext)[pri:10, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="PutMessageUsingJsonFile" duration-ms="23998" started-at="2019-12-30T11:05:58Z" finished-at="2019-12-30T11:06:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@35432107]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutMessageUsingJsonFile.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- PutMessageUsingJsonFile -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="13610" started-at="2019-12-30T11:06:34Z" finished-at="2019-12-30T11:06:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=PutMessageUsingJsonFile status=SUCCESS method=EMSQueueMessages.PutMessageUsingJsonFile(org.testng.ITestContext)[pri:10, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="PutMessageUsingXMLFile(org.testng.ITestContext)[pri:11, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="PutMessageUsingXMLFile" duration-ms="26672" started-at="2019-12-30T11:06:47Z" finished-at="2019-12-30T11:07:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@35432107]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutMessageUsingXMLFile.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- PutMessageUsingXMLFile -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="13292" started-at="2019-12-30T11:07:26Z" finished-at="2019-12-30T11:07:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=PutMessageUsingXMLFile status=SUCCESS method=EMSQueueMessages.PutMessageUsingXMLFile(org.testng.ITestContext)[pri:11, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="PutHexMessageIntoQueue(java.lang.String, org.testng.ITestContext)[pri:12, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="PutHexMessageIntoQueue" duration-ms="17385" started-at="2019-12-30T11:07:39Z" finished-at="2019-12-30T11:07:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[10C20000E0A5E6F6FDFFE0AEE00FE6FCFDFFE6FD93]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@31f924f5]]>
+                <![CDATA[org.testng.TestRunner@35432107]]>
               </value>
             </param>
           </params>
@@ -158,37 +293,37 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/EditWorkgroup.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutHexMessageIntoQueue.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- EditWorkgroup -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="12911" started-at="2019-12-26T10:24:00Z" finished-at="2019-12-26T10:24:13Z">
+        </test-method> <!-- PutHexMessageIntoQueue -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="12793" started-at="2019-12-30T11:08:09Z" finished-at="2019-12-30T11:08:21Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=EditWorkgroup status=SUCCESS method=WorkgroupServer.EditWorkgroup(java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.WorkgroupServer@1563da5] output=<br/>]]]>
+                <![CDATA[[TestResult name=PutHexMessageIntoQueue status=SUCCESS method=EMSQueueMessages.PutHexMessageIntoQueue(java.lang.String, org.testng.ITestContext)[pri:12, instance:ApodGUI.EMSQueueMessages@30a3107a] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:23, instance:ApodGUI.WorkgroupServer@1563da5]" name="Logout" duration-ms="11612" started-at="2019-12-26T10:24:13Z" finished-at="2019-12-26T10:24:25Z">
+        <test-method status="PASS" signature="Logout()[pri:20, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="Logout" duration-ms="6404" started-at="2019-12-30T11:08:21Z" finished-at="2019-12-30T11:08:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.WorkgroupServer@1563da5]" name="tearDown" is-config="true" duration-ms="1" started-at="2019-12-26T10:24:25Z" finished-at="2019-12-26T10:24:25Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSQueueMessages@30a3107a]" name="tearDown" is-config="true" duration-ms="0" started-at="2019-12-30T11:08:28Z" finished-at="2019-12-30T11:08:28Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=WorkgroupServer.Logout()[pri:23, instance:ApodGUI.WorkgroupServer@1563da5] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=EMSQueueMessages.Logout()[pri:20, instance:ApodGUI.EMSQueueMessages@30a3107a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.WorkgroupServer -->
-    </test> <!-- WorkGroup server Viewlet -->
+      </class> <!-- ApodGUI.EMSQueueMessages -->
+    </test> <!-- EMS Queue Message Options -->
   </suite> <!-- Navigator -->
 </testng-results>

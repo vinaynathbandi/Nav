@@ -39,31 +39,23 @@ import testrail.TestRailAPI;
 public class EMSQueueMessages 
 {
 	static WebDriver driver;
-	static String WGS_INDEX;
 	static String Screenshotpath;
 	static String DownloadPath;
-	static String WGSName;
 	static String UploadFilepath;
-	static String EMS_WGS_INDEX;
+	static String UploadLargeFile;
 	static String EMS_WGSNAME;
-	static String SelectTopicName;
-	static String DeleteDurableName;
-
+	
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		System.out.println("BeforeTest");
 		Settings.read();
 		
-		WGS_INDEX =Settings.getWGS_INDEX();
 		Screenshotpath =Settings.getScreenshotPath();
 		DownloadPath =Settings.getDownloadPath();
-		WGSName =Settings.getWGSNAME();
 		UploadFilepath =Settings.getUploadFilepath();
-		EMS_WGS_INDEX =Settings.getEMS_WGS_INDEX();
 		EMS_WGSNAME =Settings.getEMS_WGSNAME();
-		SelectTopicName = Settings.getSelectTopicName(); 
-		DeleteDurableName =Settings.getDeleteDurableName();
+		UploadLargeFile =Settings.getUploadLargeFile();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "MessageData", "QueueName"})
@@ -264,7 +256,7 @@ public class EMSQueueMessages
 	
 	@Test(priority=2)
 	@TestRail(testCaseId=284)
-	public static void LoadFromFile(ITestContext context) throws InterruptedException, AWTException
+	public static void LoadFromFileUsingYesbutton(ITestContext context) throws InterruptedException, AWTException
 	{
 		int Queue_Depth=6;
 		if(!EMS_WGSNAME.contains("MQM"))
@@ -324,6 +316,151 @@ public class EMSQueueMessages
 	}
 	
 	@Test(priority=3)
+	public void LoadFromFileUsingConfigurebuttonWithSingleMessage(ITestContext context) throws InterruptedException, AWTException
+	{
+		int Queue_Depth=6;
+		if(!EMS_WGSNAME.contains("MQM"))
+		{
+			Queue_Depth=7;
+		}
+		//Find the queue current depth
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
+		int result = Integer.parseInt(depthbefore);
+		System.out.println(result);
+		
+		//Select Load from file Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Load From File...")).click();
+		Thread.sleep(1000);
+		
+		//Click on Configure
+		driver.findElement(By.xpath("//button[contains(.,'Configure')]")).click();
+		Thread.sleep(4000);
+		
+		//Select single option
+		Select dd=new Select(driver.findElement(By.xpath("//div[3]/div/div/select")));
+		dd.selectByVisibleText("Create Single Message");
+		Thread.sleep(3000);
+		
+		//Use once button
+		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+		Thread.sleep(4000);
+		
+		//Loading the file into queue by using robot class
+		String filepath=System.getProperty("user.dir") + "\\" + UploadLargeFile;
+		StringSelection stringSelection = new StringSelection(filepath);
+		//StringSelection stringSelection = new StringSelection(UploadFilepath);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+	    Robot robot = new Robot();
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(14000);
+	    
+	    //store the queue depth after loading file
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
+		int result1 = Integer.parseInt(depthafter);
+		int Final=result1 - 1;
+		System.out.println(Final);
+				
+		//Message increment condition
+		if(Final==result)
+		{
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "File uploaded successfully");
+			System.out.println("The file is uploaded successfully");
+		}
+		else
+		{
+			System.out.println("The file is not uploaded successfully");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "File upload failed");
+			driver.findElement(By.xpath("Condition is Failed")).click();
+		}
+		Thread.sleep(1000);
+		
+	}
+	
+	@Test(priority=4)
+	public void LoadFromFileUsingConfigurebuttonWithMultipleMessages(ITestContext context) throws InterruptedException, AWTException
+	{
+		int Queue_Depth=6;
+		if(!EMS_WGSNAME.contains("MQM"))
+		{
+			Queue_Depth=7;
+		}
+		//Find the queue current depth
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
+		int result = Integer.parseInt(depthbefore);
+		System.out.println(result);
+		
+		//Select Load from file Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Load From File...")).click();
+		Thread.sleep(1000);
+		
+		//Click on Configure
+		driver.findElement(By.xpath("//button[contains(.,'Configure')]")).click();
+		Thread.sleep(4000);
+		
+		//Select single option
+		Select dd=new Select(driver.findElement(By.xpath("//div[3]/div/div/select")));
+		dd.selectByVisibleText("Create Multiple Messages");
+		Thread.sleep(3000);
+		
+		//Use once button
+		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+		Thread.sleep(4000);
+		
+		//Loading the file into queue by using robot class
+		String filepath=System.getProperty("user.dir") + "\\" + UploadLargeFile;
+		StringSelection stringSelection = new StringSelection(filepath);
+		//StringSelection stringSelection = new StringSelection(UploadFilepath);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+	    Robot robot = new Robot();
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(20000);
+	    
+	    //store the queue depth after loading file
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
+		int result1 = Integer.parseInt(depthafter);
+		System.out.println(result1);
+				
+		//Message increment condition
+		if(result1 > result+1)
+		{
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "File uploaded successfully");
+			System.out.println("The file is uploaded successfully");
+		}
+		else
+		{
+			System.out.println("The file is not uploaded successfully");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "File upload failed");
+			driver.findElement(By.xpath("Condition is Failed")).click();
+		}
+		Thread.sleep(1000);	
+	}
+	
+	
+	@Test(priority=5)
 	@TestRail(testCaseId=285)
 	public static void ExportAllMessages(ITestContext context) throws InterruptedException
 	{
@@ -363,7 +500,7 @@ public class EMSQueueMessages
 		
 	}
 	
-	@Test(priority=4)
+	@Test(priority=6)
 	@TestRail(testCaseId=286)
 	public static void CopyAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
@@ -429,7 +566,7 @@ public class EMSQueueMessages
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=5)
+	@Test(priority=7)
 	@TestRail(testCaseId=287)
 	public static void MoveAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
@@ -495,7 +632,7 @@ public class EMSQueueMessages
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=6)
+	@Test(priority=8)
 	@TestRail(testCaseId=288)
 	public static void DeleteAllMessagesFromQueue(ITestContext context) throws InterruptedException
 	{
@@ -548,7 +685,7 @@ public class EMSQueueMessages
 		
 	}
 	
-	@Test(priority=7)
+	@Test(priority=9)
 	@TestRail(testCaseId=289)
 	public static void ClearAllMessagesFromQueue(ITestContext context) throws InterruptedException
 	{
@@ -602,7 +739,7 @@ public class EMSQueueMessages
 	}
 	
 	@TestRail(testCaseId = 553)
-	@Test(priority=9)
+	@Test(priority=10)
 	public void PutMessageUsingJsonFile(ITestContext context) throws InterruptedException, AWTException
 	{
 		int Queue_Depth=6;
@@ -671,7 +808,7 @@ public class EMSQueueMessages
 	}
 	
 	@TestRail(testCaseId = 554)
-	@Test(priority=10)
+	@Test(priority=11)
 	public void PutMessageUsingXMLFile(ITestContext context) throws InterruptedException, AWTException
 	{
 		
@@ -742,7 +879,7 @@ public class EMSQueueMessages
 	
 	@TestRail(testCaseId = 555)
 	@Parameters({"HexMessageData"})
-	@Test(priority=11)
+	@Test(priority=12)
 	public static void PutHexMessageIntoQueue(String HexMessageData, ITestContext context) throws InterruptedException
 	{
 		int Queue_Depth=6;

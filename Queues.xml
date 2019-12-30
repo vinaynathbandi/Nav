@@ -21,7 +21,7 @@
     <parameter name="QueueName" value="Add.New.Queue"/>
     <parameter name="QueueDescription" value="Test the Queue"/>
     
-    <parameter name="ObjectName" value="TesttheObject"/>
+    <parameter name="ObjectName" value="Copy"/>
     <parameter name="ObjectDescription" value="TesttheobjectDescription"/>
     
     <parameter name="FavoriteViewletName" value="Queues Add to favorite"/>
@@ -29,6 +29,9 @@
     
     <parameter name="SearchInputData" value="999999999"/>
     <parameter name="TestDescription" value="Multiple Description"/>
+    
+    <parameter name="CopyAsNameForMultiple" value="MultipleQueues.Copy"/>
+    <parameter name="ObjectDescriptionForMultiples" value="Multiple queues copy as"/>
       
      <classes>
       <class name="ApodGUI.QueuesViewlet">
@@ -40,18 +43,22 @@
         <include name="ShowObjectAttributesForQueues"/> 
         <include name="ShowQueueStatus"/>
         <include name="CreateQueueFromOptions"/>  
-        <include name="QueueCommands"/> 
+        <include name="CopyAsQueueCommands"/> 
+        <include name="DeleteQueueFromCommandsOption"/>
         <include name="QueueProperties"/>
-        <include name="QueueEvents"/>  
+        <include name="QueueEvents"/>    
         <include name="AddToFavoriteViewlet"/> 
          
-        <include name="CompareQueues"/>
-        <include name="CheckDifferencesForQueues"/> 
+        <include name="CompareQueues"/> 
+        <include name="CheckDifferencesForQueues"/>
         <include name="ShowQueueStatusForMultipleQueues"/> 
         <include name="MultipleQueueProperties"/> 
-        <include name="AddToFavoriteForMultipleQueues"/>
-        <include name="SearchFilter"/>
+        <include name="AddToFavoriteForMultipleQueues"/> 
+        <include name="SearchFilter"/> 
         <include name="AddQueueFromPlusIcon"/>   
+        
+        <include name="CopyAsForMultipleQueues"/> 
+        <include name="DeleteMultipleQueues"/>
         <include name="Logout"/> 
         
        </methods>

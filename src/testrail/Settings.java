@@ -93,6 +93,7 @@ public class Settings {
 	
 	private static String M_QueueManagerName;
 	private static String UploadFilepath;
+	private static String UploadLargeFile;
 	private static String DWGS;
 	
 	private static String EMS_WGS_INDEX;
@@ -114,6 +115,15 @@ public class Settings {
 	
 	private static String WGSName_CreateDashboard;
 	private static String EMSWGS_CreateDashboard;
+	
+	public static String getUploadLargeFile() {
+		return UploadLargeFile;
+	}
+
+
+	public static void setUploadLargeFile(String uploadLargeFile) {
+		UploadLargeFile = uploadLargeFile;
+	}
 	
 	public static String getEMSWGS_CreateDashboard() {
 		return EMSWGS_CreateDashboard;
@@ -349,6 +359,7 @@ public class Settings {
 			DestinationQueueFromIcon= propertiesSetting.getProperty("DestinationQueueFromIcon");
 			M_QueueManagerName= propertiesSetting.getProperty("M_QueueManagerName");
 			UploadFilepath = propertiesSetting.getProperty("UploadFilepath");
+			UploadLargeFile = propertiesSetting.getProperty("UploadLargeFile");
 			DWGS = propertiesSetting.getProperty("DWGS");
 			
 			EMS_WGS_INDEX = propertiesSetting.getProperty("EMS_WGS_INDEX");

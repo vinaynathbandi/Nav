@@ -35,15 +35,10 @@ import testrail.TestRailAPI;
 public class EMSQueues 
 {
 	static WebDriver driver;
-	static String WGS_INDEX;
 	static String Screenshotpath;
-	static String DownloadPath;
 	static String WGSName;
-	static String UploadFilepath;
-	static String EMS_WGS_INDEX;
 	static String EMS_WGSNAME;
-	static String SelectTopicName;
-	static String DeleteDurableName;
+	static String CopyAsQueue="";
 
 	
 	@BeforeTest
@@ -51,15 +46,9 @@ public class EMSQueues
 		System.out.println("BeforeTest");
 		Settings.read();
 		
-		WGS_INDEX =Settings.getWGS_INDEX();
 		Screenshotpath =Settings.getScreenshotPath();
-		DownloadPath =Settings.getDownloadPath();
 		WGSName =Settings.getWGSNAME();
-		UploadFilepath =Settings.getUploadFilepath();
-		EMS_WGS_INDEX =Settings.getEMS_WGS_INDEX();
 		EMS_WGSNAME =Settings.getEMS_WGSNAME();
-		SelectTopicName = Settings.getSelectTopicName(); 
-		DeleteDurableName =Settings.getDeleteDurableName();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "LocalQueue"})
@@ -297,9 +286,9 @@ public class EMSQueues
 	}
 	
 	@Parameters({"ObjectName", "QueueNameFromOptions"})
-	@TestRail(testCaseId=293)
-	@Test(priority=5)
-	public static void QueueCommands(String ObjectName, String QueueNameFromOptions, ITestContext context) throws InterruptedException
+	@TestRail(testCaseId=293) 
+	@Test(priority=5, dependsOnMethods= {"CreateQueueFromOptions"})
+	public static void CopyAsOptionFromQueueCommands(String ObjectName, String QueueNameFromOptions, ITestContext context) throws InterruptedException
 	{
 		int Queue_ColumnIndex=3;
 		if(!EMS_WGSNAME.contains("MQM"))
@@ -328,7 +317,7 @@ public class EMSQueues
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
-		String CopyAsQueue=CopyQueue+ObjectName;
+		CopyAsQueue=CopyQueue+ObjectName;
 		System.out.println("Copy as Queue name is:" +CopyAsQueue);
 		
 		for(int i=0; i<=QueueNameFromOptions.length(); i++)
@@ -366,14 +355,11 @@ public class EMSQueues
 		}
 		Thread.sleep(4000);
 		
-		//---------  Delete the Queue -----------
-		/*//change settings
-		driver.findElement(By.cssSelector(".fa-cog")).click();
-		driver.findElement(By.xpath("//div[2]/input")).click();
-		Thread.sleep(1000);
-		driver.findElement(By.xpath("//div[3]/button")).click();
-		Thread.sleep(1000);*/
-		
+	}
+	
+	@Test(priority=6, dependsOnMethods= {"CopyAsOptionFromQueueCommands"})
+	public void DeleteoptionFromQueueCommands(ITestContext context) throws InterruptedException
+	{		
 		//Search with input data
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyAsQueue);
@@ -410,11 +396,10 @@ public class EMSQueues
 			System.out.println("Queue is deleted successfully");
 			context.setAttribute("Status", 1);
 			context.setAttribute("Comment", "Queue Delete option is working fine");
-		}
-		
+		}	
 	}
 	
-	@Test(priority=6)
+	@Test(priority=7)
 	@TestRail(testCaseId=294)
 	public static void QueueProperties(ITestContext context) throws InterruptedException
 	{
@@ -464,7 +449,7 @@ public class EMSQueues
 		}
 	}
 	
-	@Test(priority=7)
+	@Test(priority=8)
 	@TestRail(testCaseId=295)
 	public static void QueueEvents(ITestContext context) throws InterruptedException
 	{
@@ -540,7 +525,7 @@ public class EMSQueues
 	}
 	
 	@Parameters({"FavoriteViewletName"})
-	@Test(priority=8)
+	@Test(priority=9)
 	public void AddToFavoriteViewlet(String FavoriteViewletName) throws InterruptedException
 	{
 		//Select the viewlet option and select the favorite checkbox
@@ -598,7 +583,7 @@ public class EMSQueues
 		
 	}
 	
-	@Test(priority=9)
+	@Test(priority=10)
 	@TestRail(testCaseId=296)
 	public static void CompareQueues(ITestContext context) throws InterruptedException
 	{
@@ -608,18 +593,18 @@ public class EMSQueues
 			Name_Index=4;
 		}
 		
-		//Get the First object Name
-		String compare1 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
-		//System.out.println("First obj name is: " +compare1);
+		//Get the First object Name 
+		String compare1 = driver.findElement(By.xpath("//datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		System.out.println("First obj name is: " +compare1);
 		
 		//Get the second object name
-		String compare2 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
-		//System.out.println("Second obj name is: " +compare2);
+		String compare2 = driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		System.out.println("Second obj name is: " +compare2);
 		
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 
 		// System.out.println("Cpmare to: " + compare1 + "::"+ compare2);
 		String comparenameslist = compare1 + "::" + compare2;
@@ -650,13 +635,13 @@ public class EMSQueues
 	}
 	
 	
-	@Test(priority=10)
+	@Test(priority=11)
 	public void CheckDifferencesForEMSQueues(ITestContext context) throws InterruptedException
 	{
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(2000);
 		
@@ -725,7 +710,7 @@ public class EMSQueues
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=11)
+	@Test(priority=12)
 	@TestRail(testCaseId=297)
 	public static void ShowQueueStatusForMultipleQueues(ITestContext context) throws InterruptedException
 	{
@@ -761,7 +746,7 @@ public class EMSQueues
 	
 	@Parameters({"TestDescription"})
 	@TestRail(testCaseId=298)
-	@Test(priority=12)
+	@Test(priority=13)
 	public void MultipleQueueProperties(String TestDescription, ITestContext context) throws InterruptedException
 	{
 		//Select viewlet option
@@ -856,7 +841,7 @@ public class EMSQueues
 	}
 	
 	@Parameters({"FavoriteViewletName"})
-	@Test(priority=13, dependsOnMethods= {"AddToFavoriteViewlet"})
+	@Test(priority=14, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleQueues(String FavoriteViewletName) throws InterruptedException
 	{
 		int QueueName_Index=3;
@@ -900,10 +885,10 @@ public class EMSQueues
 	}
 	
 	
-	@Parameters({"QueueName", "QueueDescription"})
+	@Parameters({"QueueName", "QueueDescription", "EMSDnode", "EMSDestinationManager"})
 	@TestRail(testCaseId=299)
-	@Test(priority=14)
-	public void AddQueueFromPlusIcon(String QueueName, String QueueDescription, ITestContext context) throws InterruptedException
+	@Test(priority=15)
+	public void AddQueueFromPlusIcon(String QueueName, String QueueDescription, String EMSDnode, String EMSDestinationManager,ITestContext context) throws InterruptedException
 	{
 		// Changing the Settings 
 		driver.findElement(By.cssSelector(".fa-cog")).click();
@@ -917,20 +902,65 @@ public class EMSQueues
 		//Click on + icon
 		driver.findElement(By.xpath("//img[@title='Add EMS Queue']")).click();
 		
-		/*//Select Node 
+		//Select Node 
 		driver.findElement(By.xpath("//div[2]/input")).click();
-		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		try 
+		{
+			List<WebElement> QueueNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(QueueNode.size());	
+			for (int i=0; i<QueueNode.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + QueueNode.get(i).getAttribute("id"));
+				String s=QueueNode.get(i).getText();
+				if(s.equals(EMSDnode))
+				{
+					String id=QueueNode.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
 		
 		//Select Manager
 		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
-		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();*/
+		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
 		
+        try 
+		{
+			List<WebElement> QueueManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(QueueManager.size());	
+			for (int i=0; i<QueueManager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + QueueManager.get(i).getAttribute("id"));
+				String s=QueueManager.get(i).getText();
+				if(s.equals(EMSDestinationManager))
+				{
+					String id=QueueManager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+        Thread.sleep(1000);
+		
+ 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
 		//Create Queue Window
-		driver.findElement(By.name("name")).sendKeys(QueueName);
-		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+		driver.findElement(By.id("name")).sendKeys(QueueName);
+		driver.findElement(By.xpath("//button[contains(.,'Ok')]")).click();
 		Thread.sleep(6000);
 		
 		try

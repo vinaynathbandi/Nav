@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="WorkGroup server Viewlet(failed)">
-    <parameter name="ChangedHostName" value="localhost"/>
-    <parameter name="ServerURL" value="tcp://127.0.0.1:7221"/>
-    <parameter name="NodeName" value="Node-Test"/>
+  <test thread-count="5" name="Test EMS Queue Viewlet(failed)">
+    <parameter name="Dashboardname" value="QueuesViewlet Verification"/>
+    <parameter name="wgs" value="1"/>
+    <parameter name="uname" value="Admin"/>
+    <parameter name="LocalQueue" value="Local Queue"/>
+    <parameter name="QueueNameFromOptions" value="EMS_ABC"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="Node_NewConnectionName" value="127.0.0.1(1234)"/>
-    <parameter name="schemaName" value="WGS Schema"/>
-    <parameter name="DeleteWGSName" value="WGS10"/>
-    <parameter name="ConnectionInstanceName" value="REMOTE_QMGRS"/>
-    <parameter name="ConnectionName" value="127.0.0.1(4321)"/>
-    <parameter name="ChannelName" value="SYSTEM.DEF.SVRCONN"/>
+    <parameter name="FavoriteViewletName" value="Queues Add to favorite"/>
+    <parameter name="Favwgs" value="1"/>
+    <parameter name="EMSDestinationManager" value="EMS-SERVER"/>
+    <parameter name="QueueDescription" value="Test the Queue"/>
+    <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="ObjectName" value=".Queue1"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="TestDescription" value="Multiple Description"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="RemoteQueueManagerName" value="QMGR_NAME_DELETE"/>
-    <parameter name="ServerName" value="EMS-Server21"/>
-    <parameter name="AgentInstanceName" value="EMSAGENT01"/>
-    <parameter name="IPAddress" value="127.0.0.1"/>
-    <parameter name="PortNumber" value="5010"/>
-    <parameter name="DeleteManagerName" value="QMGR_NAME_DELETE"/>
-    <parameter name="UpdatedServerURL" value="tcp://127.0.0.1:7222"/>
-    <parameter name="HostName" value="DESKTOP-7T1JQ3H"/>
-    <parameter name="CommandQueueName" value="SYSTEM.ADMIN.COMMAND.QUEUE"/>
+    <parameter name="SearchInputData" value="999999999"/>
+    <parameter name="QueueName" value="EMS_Add.New.Queue"/>
+    <parameter name="SchemaName" value="QueueSchema"/>
+    <parameter name="EMSDnode" value="EMSAGENT01"/>
     <classes>
-      <class name="ApodGUI.WorkgroupServer">
+      <class name="ApodGUI.EMSQueues">
         <methods>
-          <include name="DefaultConnection"/>
-          <include name="EditWorkgroup" invocation-numbers="0"/>
-          <include name="beforeTest"/>
           <include name="tearDown"/>
+          <include name="AddQueueFromPlusIcon" invocation-numbers="0"/>
+          <include name="Logout"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.WorkgroupServer -->
+      </class> <!-- ApodGUI.EMSQueues -->
     </classes>
-  </test> <!-- WorkGroup server Viewlet(failed) -->
+  </test> <!-- Test EMS Queue Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

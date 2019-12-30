@@ -40,20 +40,22 @@ import testrail.TestRailAPI;
 public class QueueMessages 
 {
 	static WebDriver driver;
-	static String WGS_INDEX;
 	static String Screenshotpath;
 	static String DownloadPath;
 	static String WGSName;
 	static String UploadFilepath;
+	static String UploadLargeFile;
+	
 	@BeforeTest
 	public void beforeTest() throws Exception {
 		System.out.println("BeforeTest");
 		Settings.read();
-		WGS_INDEX =Settings.getWGS_INDEX();
+		
 		Screenshotpath =Settings.getScreenshotPath();
 		DownloadPath =Settings.getDownloadPath();
 		WGSName =Settings.getWGSNAME();
 		UploadFilepath =Settings.getUploadFilepath();
+		UploadLargeFile =Settings.getUploadLargeFile();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs", "MessageData", "QueueName"})
@@ -252,7 +254,7 @@ public class QueueMessages
 	
 	@Test(priority=2)
 	@TestRail(testCaseId = 83)
-	public static void LoadFromFile(ITestContext context) throws InterruptedException, AWTException
+	public static void LoadFromFileUsingYesbutton(ITestContext context) throws InterruptedException, AWTException
 	{
 		int Queue_Depth=5;
 		if(!WGSName.contains("MQM"))
@@ -311,7 +313,153 @@ public class QueueMessages
 		Thread.sleep(1000); 
 	}
 	
+	
 	@Test(priority=3)
+	public void LoadFromFileUsingConfigurebuttonWithSingleMessage(ITestContext context) throws InterruptedException, AWTException
+	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
+		//Find the queue current depth
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
+		int result = Integer.parseInt(depthbefore);
+		System.out.println(result);
+		
+		//Select Load from file Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Load From File...")).click();
+		Thread.sleep(1000);
+		
+		//Click on Configure
+		driver.findElement(By.xpath("//button[contains(.,'Configure')]")).click();
+		Thread.sleep(4000);
+		
+		//Select single option
+		Select dd=new Select(driver.findElement(By.xpath("//div[3]/div/div/select")));
+		dd.selectByVisibleText("Create Single Message");
+		Thread.sleep(3000);
+		
+		//Use once button
+		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+		Thread.sleep(4000);
+		
+		//Loading the file into queue by using robot class
+		String filepath=System.getProperty("user.dir") + "\\" + UploadLargeFile;
+		StringSelection stringSelection = new StringSelection(filepath);
+		//StringSelection stringSelection = new StringSelection(UploadFilepath);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+	    Robot robot = new Robot();
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(14000);
+	    
+	    //store the queue depth after loading file
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
+		int result1 = Integer.parseInt(depthafter);
+		int Final=result1 - 1;
+		System.out.println(Final);
+				
+		//Message increment condition
+		if(Final==result)
+		{
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "File uploaded successfully");
+			System.out.println("The file is uploaded successfully");
+		}
+		else
+		{
+			System.out.println("The file is not uploaded successfully");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "File upload failed");
+			driver.findElement(By.xpath("Condition is Failed")).click();
+		}
+		Thread.sleep(1000);
+		
+	}
+	
+	@Test(priority=4)
+	public void LoadFromFileUsingConfigurebuttonWithMultipleMessages(ITestContext context) throws InterruptedException, AWTException
+	{
+		int Queue_Depth=5;
+		if(!WGSName.contains("MQM"))
+		{
+			Queue_Depth=6;
+		}
+		//Find the queue current depth
+		String depthbefore=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
+		int result = Integer.parseInt(depthbefore);
+		System.out.println(result);
+		
+		//Select Load from file Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Load From File...")).click();
+		Thread.sleep(1000);
+		
+		//Click on Configure
+		driver.findElement(By.xpath("//button[contains(.,'Configure')]")).click();
+		Thread.sleep(4000);
+		
+		//Select single option
+		Select dd=new Select(driver.findElement(By.xpath("//div[3]/div/div/select")));
+		dd.selectByVisibleText("Create Multiple Messages");
+		Thread.sleep(3000);
+		
+		//Use once button
+		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+		Thread.sleep(4000);
+		
+		//Loading the file into queue by using robot class
+		String filepath=System.getProperty("user.dir") + "\\" + UploadLargeFile;
+		StringSelection stringSelection = new StringSelection(filepath);
+		//StringSelection stringSelection = new StringSelection(UploadFilepath);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+	    Robot robot = new Robot();
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+		robot.keyPress(KeyEvent.VK_CONTROL);
+		robot.keyPress(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_V);
+		robot.keyRelease(KeyEvent.VK_CONTROL);
+		Thread.sleep(2000);
+	    robot.keyPress(KeyEvent.VK_ENTER);
+	    robot.keyRelease(KeyEvent.VK_ENTER);
+	    Thread.sleep(20000);
+	    
+	    //store the queue depth after loading file
+		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
+		int result1 = Integer.parseInt(depthafter);
+		System.out.println(result1);
+				
+		//Message increment condition
+		if(result1 > result+1)
+		{
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "File uploaded successfully");
+			System.out.println("The file is uploaded successfully");
+		}
+		else
+		{
+			System.out.println("The file is not uploaded successfully");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "File upload failed");
+			driver.findElement(By.xpath("Condition is Failed")).click();
+		}
+		Thread.sleep(1000);	
+	}
+	
+	
+	@Test(priority=5)
 	@TestRail(testCaseId = 84)
 	public static void ExportAllMessages(ITestContext context) throws InterruptedException
 	{
@@ -348,7 +496,7 @@ public class QueueMessages
 		}
 	}
 	
-	@Test(priority=4)
+	@Test(priority=6)
 	@TestRail(testCaseId = 85)
 	public static void CopyAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
@@ -425,7 +573,7 @@ public class QueueMessages
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=5)
+	@Test(priority=7)
 	@TestRail(testCaseId = 86)
 	public static void MoveAllMessagesFromOneQueueToAnotherQueue(ITestContext context) throws InterruptedException
 	{
@@ -504,7 +652,7 @@ public class QueueMessages
 		Thread.sleep(1000);
 	}
 	
-	@Test(priority=6)
+	@Test(priority=8)
 	@TestRail(testCaseId = 87)
 	public static void DeleteAllMessagesFromQueue(ITestContext context) throws InterruptedException
 	{
@@ -521,9 +669,20 @@ public class QueueMessages
 		{
 			QueueName_Index=4;
 		}
+		
 		//Queue Name before deleting messages
 		String Queuename=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(Queuename);
+		
+		int ManagerName_Index=4;
+		if(!WGSName.contains("MQM"))
+		{
+			ManagerName_Index=5;
+		}
+		
+		//Get the manager name
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ ManagerName_Index +"]/div/span")).getText();
+		System.out.println("Manager name is: " +Managername);
 		
 		//Select Delete All option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -540,13 +699,27 @@ public class QueueMessages
 		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(QueuenameAfter);
 		
+		
+		//Get the manager name
+		String ManagernameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ ManagerName_Index +"]/div/span")).getText();
+		System.out.println("Manager name is: " +ManagernameAfter);
+		
 		//verification condition
 		if(Queuename.equalsIgnoreCase(QueuenameAfter))
 		{
-			System.out.println("Messages are not deleted from the queue");
-			context.setAttribute("Status", 5);
-			context.setAttribute("Comment", "Failed to delete messages");
-			driver.findElement(By.xpath("Deleting messages failed")).click();
+			if(Managername.equalsIgnoreCase(ManagernameAfter))
+			{
+				System.out.println("Messages are not deleted from the queue");
+				context.setAttribute("Status", 5);
+				context.setAttribute("Comment", "Failed to delete messages");
+				driver.findElement(By.xpath("Deleting messages failed")).click();
+			}
+			else
+			{
+				System.out.println("Messages are deleted from the queue");
+				context.setAttribute("Status", 1);
+				context.setAttribute("Comment", "Messages deleted successfully");
+			}
 		}
 		else
 		{
@@ -558,7 +731,7 @@ public class QueueMessages
 		
 	}
 	
-	@Test(priority=7)
+	@Test(priority=9)
 	@TestRail(testCaseId = 88)
 	public static void ClearAllMessagesFromQueue(ITestContext context) throws InterruptedException
 	{
@@ -579,6 +752,16 @@ public class QueueMessages
 		String Queuename=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(Queuename);
 		
+		int ManagerName_Index=4;
+		if(!WGSName.contains("MQM"))
+		{
+			ManagerName_Index=5;
+		}
+		
+		//Get the manager name
+		String Managername=driver.findElement(By.xpath("//datatable-body-cell["+ ManagerName_Index +"]/div/span")).getText();
+		System.out.println("Manager name is: " +Managername);
+		
 		//Select Clear All option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions DeleteAllMessagesMousehour=new Actions(driver);
@@ -593,13 +776,26 @@ public class QueueMessages
 		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(QueuenameAfter);
 		
+		//Get the manager name
+		String ManagernameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ ManagerName_Index +"]/div/span")).getText();
+		System.out.println("Manager name is: " +ManagernameAfter);
+		
 		//verification condition
 		if(Queuename.equalsIgnoreCase(QueuenameAfter))
 		{
-			System.out.println("Messages are not Cleared from the queue");
-			context.setAttribute("Status", 5);
-			context.setAttribute("Comment", "Failed to clear messages");
-			driver.findElement(By.xpath("Clear messages failed")).click();
+			if(Managername.equalsIgnoreCase(ManagernameAfter))
+			{
+				System.out.println("Messages are not Cleared from the queue");
+				context.setAttribute("Status", 5);
+				context.setAttribute("Comment", "Failed to clear messages");
+				driver.findElement(By.xpath("Clear messages failed")).click();
+			}
+			else
+			{
+				System.out.println("Messages are Cleared from the queue");
+				context.setAttribute("Status", 1);
+				context.setAttribute("Comment", "Messages cleared successfully");
+			}
 		}
 		else
 		{
@@ -612,7 +808,7 @@ public class QueueMessages
 	}
 	
 	@TestRail(testCaseId = 550)
-	@Test(priority=9)
+	@Test(priority=10)
 	public void PutMessageUsingJsonFile(ITestContext context) throws InterruptedException, AWTException
 	{
 		int Queue_Depth=5;
@@ -680,7 +876,7 @@ public class QueueMessages
 	}
 	
 	@TestRail(testCaseId = 551)
-	@Test(priority=10)
+	@Test(priority=11)
 	public void PutMessageUsingXMLFile(ITestContext context) throws InterruptedException, AWTException
 	{
 		int Queue_Depth=5;
@@ -749,7 +945,7 @@ public class QueueMessages
 	
 	@TestRail(testCaseId = 552)
 	@Parameters({"HexMessageData"})
-	@Test(priority=11)
+	@Test(priority=12)
 	public static void PutHexMessageIntoQueue(String HexMessageData, ITestContext context) throws InterruptedException
 	{
 		int Queue_Depth=5;

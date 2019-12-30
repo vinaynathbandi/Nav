@@ -55,26 +55,27 @@
         <include name="ShowObjectAttributes"/>    
         <include name="ShowTopology"/>  
         <!-- <include name="StartAllWMQObjects"/> 
-        <include name="StopAllWMQObjects"/> -->  
+        <include name="StopAllWMQObjects"/>  --> 
         <include name="Security"/>
         <include name="ViewErrorLogs"/> 
         <include name="Properties"/> 
-        <include name="MQSCConsole"/>
+        <include name="MQSCConsoleCommandOption"/>
+        <include name="SaveMQSCConsoleResponceData"/>
+        <include name="ClearMQSCConsoleResponceData"/>
         <include name="DiscoverNow"/>
        <!--  <include name="Delete"/>
         <include name="DeleteFromDB"/> -->
         <include name="Events"/> 
-        <include name="AddToFavorites"/> 
-         
+        <include name="AddToFavorites"/>   
         <include name="CompareManagers"/>
         <include name="CheckDifferencesForManagers"/>
         <!-- <include name="StartAllWMQObjectsForMultipleManagers"/>
         <include name="StopAllWMQObjectsForMultipleManagers"/>  --> 
         <include name="MultipleManagersProperties"/>
         <include name="AddToFavoriteForMultipleManagers"/> 
-        <include name="CreateQueueManagerFromOptions"/>  
+        <include name="CreateQueueManagerFromOptions"/>   
         <include name="SearchFilter"/>   
-        <include name="Logout"/> 
+        <include name="Logout"/>  
         
        </methods>
        
