@@ -1,0 +1,30 @@
+TIBCO Enterprise Message Service Administration Tool.
+Copyright 2003-2017 by TIBCO Software Inc.
+All rights reserved.
+
+Version 8.4.0 V14 7/20/2017
+
+Connected to: tcp://127.0.0.1:7222
+Command: show queues
+                                                              All Msgs            Persistent Msgs  
+  Queue Name                        SNFGXIBCT  Pre  Rcvrs     Msgs    Size        Msgs    Size   
+  >                                 ---------    5*     0        0     0.0 Kb        0     0.0 Kb
+  $sys.admin                        +-----+--    5*     0        0     0.0 Kb        0     0.0 Kb
+  $sys.lookup                       ------+--    5*     0        0     0.0 Kb        0     0.0 Kb
+  $sys.redelivery.delay             +--------    5*     0        0     0.0 Kb        0     0.0 Kb
+  $sys.undelivered                  +--------    5*     0        0     0.0 Kb        0     0.0 Kb
+* $TMP$.EMS-SERVER.38A85E09A71F7.3  ---------    5      1        0     0.0 Kb        0     0.0 Kb
+* $TMP$.EMS-SERVER.38A85E09A71FA.1  ---------    5      1        0     0.0 Kb        0     0.0 Kb
+  CommandQueue1                     ---------    5*     0        0     0.0 Kb        0     0.0 Kb
+  EMS-Test                          ---------    5*     0        1     0.1 Kb        1     0.1 Kb
+  EMS111                            ---------    5*     0        0     0.0 Kb        0     0.0 Kb
+  EMSS                              ---------    5*     0        1     0.1 Kb        1     0.1 Kb
+  local queue12                     ---------    5*     0        0     0.0 Kb        0     0.0 Kb
+  LoclQueue1                        ------+--    5      0        4     0.4 Kb        4     0.4 Kb
+  MoveQueue                         ---------    5*     0        0     0.0 Kb        0     0.0 Kb
+  NEWQUEUE                          ---------    5      0        2     0.3 Kb        2     0.3 Kb
+  sample                            ---------    5*     0        0     0.0 Kb        0     0.0 Kb
+  TestQueue1                        ---------    5*     0        0     0.0 Kb        0     0.0 Kb
+  TestQueue10                       ---------    5      0        0     0.0 Kb        0     0.0 Kb
+  TestQueue2                        ---------    5      0        0     0.0 Kb        0     0.0 Kb
+  TestQueue3                        ---------    5*     0        5     0.6 Kb        5     0.6 Kb
