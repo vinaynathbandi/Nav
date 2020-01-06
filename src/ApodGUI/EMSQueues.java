@@ -169,6 +169,7 @@ public class EMSQueues
 		Thread.sleep(1000);
 	}
 	
+	@TestRail(testCaseId=790)
 	@Parameters({"SchemaName"})
 	@Test(priority=20)
 	public static void ShowObjectAttributesForQueues(String SchemaName, ITestContext context) throws InterruptedException
@@ -182,6 +183,7 @@ public class EMSQueues
 		{
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got exception while showing object attributes, check details: "+  e.getMessage());
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 		
 	}
@@ -357,6 +359,7 @@ public class EMSQueues
 		
 	}
 	
+	@TestRail(testCaseId=791)
 	@Test(priority=6, dependsOnMethods= {"CopyAsOptionFromQueueCommands"})
 	public void DeleteoptionFromQueueCommands(ITestContext context) throws InterruptedException
 	{		
@@ -524,6 +527,7 @@ public class EMSQueues
 		driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
 	}
 	
+	@TestRail(testCaseId=793)
 	@Parameters({"FavoriteViewletName"})
 	@Test(priority=9)
 	public void AddToFavoriteViewlet(String FavoriteViewletName) throws InterruptedException
@@ -634,7 +638,7 @@ public class EMSQueues
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId=792)
 	@Test(priority=11)
 	public void CheckDifferencesForEMSQueues(ITestContext context) throws InterruptedException
 	{
@@ -840,6 +844,7 @@ public class EMSQueues
 		
 	}
 	
+	@TestRail(testCaseId=794)
 	@Parameters({"FavoriteViewletName"})
 	@Test(priority=14, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleQueues(String FavoriteViewletName) throws InterruptedException

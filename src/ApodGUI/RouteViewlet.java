@@ -569,7 +569,7 @@ public class RouteViewlet {
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 782)
 	@Test(priority=9)
 	public void CheckDifferencesForRoutes(ITestContext context) throws InterruptedException
 	{

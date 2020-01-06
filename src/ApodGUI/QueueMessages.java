@@ -313,7 +313,7 @@ public class QueueMessages
 		Thread.sleep(1000); 
 	}
 	
-	
+	@TestRail(testCaseId = 770)
 	@Test(priority=3)
 	public void LoadFromFileUsingConfigurebuttonWithSingleMessage(ITestContext context) throws InterruptedException, AWTException
 	{
@@ -387,6 +387,7 @@ public class QueueMessages
 		
 	}
 	
+	@TestRail(testCaseId = 771)
 	@Test(priority=4)
 	public void LoadFromFileUsingConfigurebuttonWithMultipleMessages(ITestContext context) throws InterruptedException, AWTException
 	{

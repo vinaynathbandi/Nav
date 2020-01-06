@@ -383,7 +383,7 @@ public class NameListViewlet
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 777)
 	@Test(priority=6)
 	public void CheckDifferencesForNameList(ITestContext context) throws InterruptedException
 	{

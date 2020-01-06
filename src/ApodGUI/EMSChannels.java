@@ -356,7 +356,7 @@ public class EMSChannels
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 784)
 	@Test(priority=12)
 	public void CheckDifferencesForEMSChannels(ITestContext context) throws InterruptedException
 	{

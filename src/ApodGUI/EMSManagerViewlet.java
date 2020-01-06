@@ -216,7 +216,7 @@ public class EMSManagerViewlet
 	}
 	
 	@Parameters({"Query", "Queue", "Queuename"})
-	@TestRail(testCaseId = 55)
+	@TestRail(testCaseId = 785)
 	@Test(priority=2)
 	public static void EMSMQSCConsoleCommandOption(String Query, String Queue, String Queuename, ITestContext context) throws InterruptedException
 	{
@@ -263,7 +263,7 @@ public class EMSManagerViewlet
 		Thread.sleep(1000);				
 	}
 	
-	
+	@TestRail(testCaseId = 786)
 	@Test(priority=3, dependsOnMethods= {"EMSMQSCConsoleCommandOption"})
 	public void SaveMQSCConsoleResponceData(ITestContext context) throws InterruptedException
 	{
@@ -285,7 +285,7 @@ public class EMSManagerViewlet
 		
 	}
 	
-	
+	@TestRail(testCaseId = 787)
 	@Test(priority=4, dependsOnMethods= {"EMSMQSCConsoleCommandOption"})
 	public void ClearMQSCConsoleResponceData(ITestContext context) throws InterruptedException
 	{

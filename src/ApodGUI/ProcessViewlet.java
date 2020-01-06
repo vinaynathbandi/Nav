@@ -803,7 +803,7 @@ public class ProcessViewlet
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 774)
 	@Test(priority=12)
 	public void CheckDifferencesForProcess(ITestContext context) throws InterruptedException
 	{

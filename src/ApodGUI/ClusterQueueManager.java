@@ -375,7 +375,7 @@ public class ClusterQueueManager {
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 781)
 	@Test(priority=6)
 	public void CheckDifferencesForClusterQMs(ITestContext context) throws InterruptedException
 	{

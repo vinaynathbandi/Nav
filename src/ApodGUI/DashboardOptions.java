@@ -367,7 +367,7 @@ public class DashboardOptions
 		Thread.sleep(1000);
 	}
 	
-	
+	@TestRail(testCaseId=796)
 	@Parameters({"NewDashboardName"})
 	@Test(priority=6)
 	public void DeleteDashboard(String NewDashboardName, ITestContext context) throws InterruptedException

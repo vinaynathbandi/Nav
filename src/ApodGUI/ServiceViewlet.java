@@ -443,7 +443,7 @@ public class ServiceViewlet {
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 778)
 	@Test(priority=6)
 	public void CheckDifferencesForServices(ITestContext context) throws InterruptedException
 	{

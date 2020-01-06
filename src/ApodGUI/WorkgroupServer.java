@@ -161,6 +161,8 @@ public class WorkgroupServer {
 		Thread.sleep(1000);
 	}
 	
+	
+	@TestRail(testCaseId = 759)
 	@Test(priority=2)
 	public void DefaultConnection(ITestContext context) throws InterruptedException
 	{
@@ -992,6 +994,7 @@ public class WorkgroupServer {
 		}
 	}
 
+	@TestRail(testCaseId = 760)
 	@Test(priority=12)
 	public void WGSProperties(ITestContext context) throws InterruptedException
 	{
@@ -1025,6 +1028,7 @@ public class WorkgroupServer {
 		Thread.sleep(1000);
 	}
 	
+	@TestRail(testCaseId = 761)
 	@Parameters({"schemaName"})
 	@Test(priority=13)
 	public static void ShowObjectAttributes(String schemaName, ITestContext context) throws InterruptedException

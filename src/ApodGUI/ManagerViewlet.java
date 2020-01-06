@@ -507,7 +507,7 @@ public class ManagerViewlet
 		Thread.sleep(1000);				
 	}
 	
-	
+	@TestRail(testCaseId = 763)
 	@Test(priority=10, dependsOnMethods= {"MQSCConsoleCommandOption"})
 	public void SaveMQSCConsoleResponceData(ITestContext context) throws InterruptedException
 	{
@@ -529,7 +529,7 @@ public class ManagerViewlet
 		
 	}
 	
-	
+	@TestRail(testCaseId = 764)
 	@Test(priority=11, dependsOnMethods= {"MQSCConsoleCommandOption"})
 	public void ClearMQSCConsoleResponceData(ITestContext context) throws InterruptedException
 	{
@@ -842,7 +842,7 @@ public class ManagerViewlet
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 765)
 	@Test(priority=18)
 	public void CheckDifferencesForManagers(ITestContext context) throws InterruptedException
 	{

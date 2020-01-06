@@ -120,6 +120,7 @@ public class TemporaryViewlet
 		Thread.sleep(2000);
 	}
 	
+	@TestRail(testCaseId=797)
 	@Parameters({"Dashboardname"})
 	@Test(priority=1)
 	public void CreateTemporaryViewletUsingDirectOption(String Dashboardname, ITestContext context) throws Exception
@@ -197,6 +198,8 @@ public class TemporaryViewlet
 		}
 	}
 	
+	
+	@TestRail(testCaseId=798)
 	@Parameters({"Dashboardname"})
 	@Test(priority=2)
 	public void CreateTemporaryViewletUsingTemporaryViewletCheckbox(String Dashboardname, ITestContext context) throws Exception

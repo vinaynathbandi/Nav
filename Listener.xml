@@ -52,7 +52,7 @@
         <include name="RenameFromCommands"/>
         <include name="DeleteFromCommands"/>   
         <include name="ListenerProperties"/>  
-        <include name="ListenerEvents"/>  -->
+        <include name="ListenerEvents"/>  
         <include name="AddToFavoriteViewlet"/> 
          
         <include name="CompareListeners"/>

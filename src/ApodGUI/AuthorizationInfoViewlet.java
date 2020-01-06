@@ -379,7 +379,7 @@ public class AuthorizationInfoViewlet {
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 779)
 	@Test(priority=6)
 	public void CheckDifferencesForAuthInfos(ITestContext context) throws InterruptedException
 	{

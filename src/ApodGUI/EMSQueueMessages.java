@@ -315,6 +315,8 @@ public class EMSQueueMessages
 		Thread.sleep(1000); 
 	}
 	
+	
+	@TestRail(testCaseId=788)
 	@Test(priority=3)
 	public void LoadFromFileUsingConfigurebuttonWithSingleMessage(ITestContext context) throws InterruptedException, AWTException
 	{
@@ -388,6 +390,7 @@ public class EMSQueueMessages
 		
 	}
 	
+	@TestRail(testCaseId=789)
 	@Test(priority=4)
 	public void LoadFromFileUsingConfigurebuttonWithMultipleMessages(ITestContext context) throws InterruptedException, AWTException
 	{

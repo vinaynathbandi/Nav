@@ -154,7 +154,7 @@ public class EMSTopic
 		Thread.sleep(6000);
 	}
 	
-	
+	@TestRail(testCaseId=795)
 	@Parameters({"schemaName"})
 	@Test(priority=17)
 	public static void ShowObjectAttributesForTopic(String SchemaName, ITestContext context) throws InterruptedException
@@ -169,6 +169,7 @@ public class EMSTopic
 		{
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Got exception while showing object attributes, check details: "+  e.getMessage());
+			driver.findElement(By.id("Failed object attributes")).click();
 		}
 	}
 	

@@ -392,7 +392,7 @@ public class QueuesViewlet
 				
 	}
 	
-	
+	@TestRail(testCaseId = 766)
 	@Test(priority=6)
 	public void DeleteQueueFromCommandsOption(ITestContext context) throws InterruptedException
 	{
@@ -706,7 +706,7 @@ public class QueuesViewlet
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 767)
 	@Test(priority=11)
 	public void CheckDifferencesForQueues(ITestContext context) throws InterruptedException
 	{
@@ -1075,6 +1075,7 @@ public class QueuesViewlet
 		Thread.sleep(2000);		
 	}
 	
+	@TestRail(testCaseId = 768)
 	@Parameters({"CopyAsNameForMultiple", "ObjectDescriptionForMultiples"})
 	@Test(priority=16)
 	public void CopyAsForMultipleQueues(String CopyAsNameForMultiple, String ObjectDescriptionForMultiples, ITestContext context) throws InterruptedException
@@ -1171,9 +1172,9 @@ public class QueuesViewlet
 		}	
 	}
 	
-	
-	@Parameters({"CopyAsNameForMultiple"})
-	@Test(priority=17)
+	@TestRail(testCaseId = 769)
+	@Parameters({"CopyAsNameForMultiple"}) 
+	@Test(priority=17, dependsOnMethods= {"CopyAsForMultipleQueues"})
 	public void DeleteMultipleQueues(String CopyAsNameForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search with empty queue name

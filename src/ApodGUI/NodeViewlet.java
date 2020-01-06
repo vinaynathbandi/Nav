@@ -640,7 +640,7 @@ public class NodeViewlet {
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 762)
 	@Test(priority=11)
 	public void CheckDifferencesForNodes(ITestContext context) throws InterruptedException
 	{

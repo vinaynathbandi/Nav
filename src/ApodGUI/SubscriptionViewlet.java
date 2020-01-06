@@ -833,7 +833,7 @@ public class SubscriptionViewlet {
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 780)
 	@Test(priority=10)
 	public void CheckDifferencesForSubscriptions(ITestContext context) throws InterruptedException
 	{

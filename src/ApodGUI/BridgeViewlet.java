@@ -611,7 +611,7 @@ public class BridgeViewlet {
 		Thread.sleep(2000);
 	}
 	
-	
+	@TestRail(testCaseId = 783)
 	@Test(priority=8)
 	public void CheckDifferencesForBridges(ITestContext context) throws InterruptedException
 	{
