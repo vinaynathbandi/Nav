@@ -436,11 +436,10 @@ public class EMSTopic
 	
 	@Parameters({"MessageData", "PropertyName", "PropertyValue", "DurableName", "TopicNameFromIcon"})
 	@TestRail(testCaseId=312)
-	@Test(priority=6)
-	//@Test(priority=6, dependsOnMethods= {"CreateTopicFromPlusIcon"})
+	@Test(priority=6, dependsOnMethods= {"CreateTopicFromPlusIcon"})
 	public void EMSTopicPublish(String MessageData, String PropertyName, String PropertyValue, String DurableName, String TopicNameFromIcon, ITestContext context) throws InterruptedException
 	{
-		//this.CreateDurable(DurableName, TopicNameFromIcon);
+		this.CreateDurable(DurableName, TopicNameFromIcon);
 		
 		//Search with topic name
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(TopicNameFromIcon);
