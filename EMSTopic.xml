@@ -12,12 +12,14 @@
     
     <parameter name="TopicName" value="New Topic Viewlet"/>
     <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="DurableViewletName" value="Durable Viewlet"/>
     
     <parameter name="TopicNameFromIcon" value="EMS.TOPIC.ICON"/>
     
     <parameter name="SchemaName" value="TopicSchema"/>    
     
     <parameter name="CopyObjectName" value=".Copy"/>
+    <parameter name="DurableName" value="Publish.Durable"/>
     
     <parameter name="MessageData" value="Test the publish option and sending the message to queue"/>
     <parameter name="PropertyName" value="Test Property"/>
@@ -42,6 +44,9 @@
     <parameter name="DestinationManager" value="M10"/>
     <parameter name="DestinationQueue" value="AAA.LQ"/>
     
+    <parameter name="EMSDnode" value="EMSAGENT01"/>
+    <parameter name="EMSDestinationManager" value="EMS-SERVER"/>
+    
     <parameter name="AddSubscriptionNameforMultiple" value="Test.Multiple.Sub421"/>
    
      <classes>
@@ -51,20 +56,20 @@
        
         <include name="Login"/>
        
-        <include name="ShowObjectAttributesForTopic"/>  
+        <include name="ShowObjectAttributesForTopic"/>   
         <include name="CreateTopicFromPlusIcon"/>
         <include name="CopyAsFromCommands"/>
         <include name="DeleteFromCommands"/>  
-       <!-- <include name="EMSTopicPublish"/>  -->
+        <include name="EMSTopicPublish"/> 
         <include name="TopicProperties"/> 
         <include name="TopicEvents"/>  
         <include name="AddToFavoriteViewlet"/>    
 
-        <!-- <include name="CopyAsFromCommandsForMultipleTopics"/>
-        <include name="DeleteFromCommandsForMultipleTopics"/>
-        <include name="PublishFromCommandsForMultipleTopics"/> -->
+      <!--  <include name="CopyAsFromCommandsForMultipleTopics"/>
+        <include name="DeleteFromCommandsForMultipleTopics"/>  -->
+        <include name="PublishFromCommandsForMultipleTopics"/> 
         <include name="MultipleProperties"/>  
-        <include name="AddToFavoriteForMultipleTopics"/>    
+        <include name="AddToFavoriteForMultipleTopics"/>   
       
         <include name="Logout"/> 
         

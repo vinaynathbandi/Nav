@@ -27,9 +27,9 @@
         <include name="Login"/>
         <include name="AddTransportViewlet"/> 
         <include name="ShowObjectAttributesForTransport"/>
-        <include name="Properties"/>
+        <!-- <include name="Properties"/>
         <include name="TransportEvents"/> 
-        <include name="AddToFavoriteViewlet"/>  
+        <include name="AddToFavoriteViewlet"/>  --> 
         <include name="Logout"/> 
         
        </methods>

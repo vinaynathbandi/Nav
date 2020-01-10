@@ -93,7 +93,7 @@ public class TestRailAPI {
 						 * System.out.println("defect id: " + defect_id);
 						 */
 
-						if(run_id==24)
+						if(run_id==33)
 						{
 						JSONObject r = addResult(status_id, comment, run_id, p_caseId, methodname);
 						}
@@ -242,7 +242,7 @@ public class TestRailAPI {
 						 * 
 						 * System.out.println("defect id: " + defect_id);
 						 */
-						if(run_id==24)
+						if(run_id==33)
 						{
 							JSONObject r = UpdateResult(run_id, p_caseId, methodname);
 						}

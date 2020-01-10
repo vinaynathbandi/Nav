@@ -255,6 +255,7 @@ public class RouteViewlet {
 		{
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Failed to show object attributes for route viewlet, check details: "+ e.getMessage());
+			driver.findElement(By.id("Objects attributes failed")).click();
 		}
 	}
 	
@@ -291,6 +292,10 @@ public class RouteViewlet {
     		System.out.println("Route status page is not verified");
     		context.setAttribute("Status",5);
     		context.setAttribute("Comment", "Failed to verify route status");
+    		//Close the status Popup page
+        	driver.findElement(By.cssSelector(".close-button")).click();
+        	Thread.sleep(1000);
+        	driver.findElement(By.id("Route status failed")).click();
     	}
     	
     	//Close the status Popup page
@@ -467,8 +472,14 @@ public class RouteViewlet {
 	@Test(priority=7)
 	public static void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
     	//Store the Route Name into string
-		String RouteName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String RouteName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		//Create favorite viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -649,9 +660,15 @@ public class RouteViewlet {
 	@TestRail(testCaseId=210)
 	public void DeleteMultiples(ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
 		//Store the Route names into string
-		String FirstName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String SecondName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String FirstName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String SecondName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		
 		//Select Delete from commands option
@@ -667,7 +684,7 @@ public class RouteViewlet {
     	Thread.sleep(8000);
     	
     	//Store the viewlet data into string
-    	String viewletdata=driver.findElement(By.xpath("//datatable-body")).getText();
+    	String viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(viewletdata);
     	
     	//verification
@@ -757,9 +774,15 @@ public class RouteViewlet {
 	@Test(priority=12, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleRoutes(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
 		//Store the Route names into string
-		String RouteName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String RouteName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String RouteName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String RouteName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		//Select Add to favorite viewlet option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();

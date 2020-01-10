@@ -185,6 +185,7 @@ public class TransportViewlet
 		{
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Exception occured while checking show object attributes option, check details: "+ e.getMessage());
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 	}
 	

@@ -31,9 +31,9 @@
         <include name="EMSMQSCConsoleCommandOption"/>
         <include name="SaveMQSCConsoleResponceData"/>
         <include name="ClearMQSCConsoleResponceData"/>
-        <include name="ShowObjectAttributes"/>   
+        <include name="ShowObjectAttributes"/>    
         <include name="AddToFavorites"/>
-        <include name="Logout"/> 
+        <include name="Logout"/>  
         
        </methods>
        

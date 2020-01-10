@@ -337,6 +337,7 @@ public class BridgeViewlet {
 		{
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Failed to show object attributes for Bridge viewlet");
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 	}
 	
@@ -509,8 +510,14 @@ public class BridgeViewlet {
 	@Test(priority=6)
 	public static void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
     	//Store the Bridge Name into string
-		String BridgeName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String BridgeName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		//Create favorite viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -585,7 +592,7 @@ public class BridgeViewlet {
 
 		// System.out.println("Cpmare to: " + compare1 + "::"+ compare2);
 		String comparenameslist = compare1 + "::" + compare2;
-		driver.findElement(By.linkText("Compare")).click();
+		driver.findElement(By.linkText("Show Bridge Attributes")).click();
 		Thread.sleep(2000);
 		System.out.println("Before names are: " +comparenameslist);
 
@@ -619,7 +626,7 @@ public class BridgeViewlet {
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.linkText("Compare")).click();
+		driver.findElement(By.linkText("Show Bridge Attributes")).click();
 		Thread.sleep(2000);
 		
 		// Check differences only option while compare
@@ -691,9 +698,15 @@ public class BridgeViewlet {
 	@TestRail(testCaseId=227)
 	public void DeleteMultiples(ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
 		//Store the Bridge names into string          
-		String FirstName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String SecondName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String FirstName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String SecondName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		//Select Delete from Commands option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -708,7 +721,7 @@ public class BridgeViewlet {
     	Thread.sleep(1000);
     	
     	//Store the viewlet data into string
-    	String viewletdata=driver.findElement(By.xpath("//datatable-body")).getText();
+    	String viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	System.out.println(viewletdata);
     	
     	//verification
@@ -763,7 +776,7 @@ public class BridgeViewlet {
 		
     	//Open the properties of first Bridge
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+    	driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(4000);
 		
 		//Get the Source type data and store into string
@@ -776,7 +789,7 @@ public class BridgeViewlet {
     	
     	//Open the properties of second Bridge
     	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+    	driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(4000);
 		
 		//Get the Source type data and store into string
@@ -810,9 +823,15 @@ public class BridgeViewlet {
 	@Test(priority=10, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleBridges(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
 		//Store the Bridge names into string
-		String BridgeName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String BridgeName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String BridgeName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String BridgeName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		//Select Add to favorite option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();

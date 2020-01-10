@@ -219,11 +219,26 @@ public class EMSObjects
 		//Add the Required attributes which are located in the Object attribute page
 		for (String FinalListOfAttributes : ListOfAttributesPresent)
 		{
-			
-		driver.findElement(By.cssSelector("td[title=\""+ FinalListOfAttributes +"\"]")).click();
-		driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]")).click();
-		//driver.findElement(By.cssSelector(".add-buttons > .g-btn-blue-style:nth-child(2)")).click();
-		Thread.sleep(1000);
+			//System.out.println("Attribute is: " +FinalListOfAttributes);
+			String FinalString="";
+			if(FinalListOfAttributes.contains("'From' Queue name"))
+			{
+				FinalString=FinalListOfAttributes.replace("'", "\"");
+				
+			}
+			else if(FinalListOfAttributes.contains("'To' Queue name"))
+			{
+				FinalString=FinalListOfAttributes.replace("'", "\"");
+			}
+			else
+			{
+				FinalString=FinalListOfAttributes;
+			}
+			//System.out.println("FinalString is: " +FinalString); 
+			driver.findElement(By.xpath("//td[contains(.,'"+ FinalString +"')]")).click();
+			driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]")).click();
+			//driver.findElement(By.cssSelector(".add-buttons > .g-btn-blue-style:nth-child(2)")).click();
+			Thread.sleep(1000);
 		}
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(2000);

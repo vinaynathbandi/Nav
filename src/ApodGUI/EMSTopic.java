@@ -70,9 +70,9 @@ public class EMSTopic
 		DestinationQueue =Settings.getDestinationQueue();
 	}
 	
-	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "TopicName"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "TopicName", "DurableViewletName"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String TopicName) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String TopicName, String DurableViewletName) throws Exception
 	{
 		Settings.read();
 		String URL = Settings.getSettingURL();
@@ -138,7 +138,7 @@ public class EMSTopic
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
 		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
 			
-		//Create Route viewlet
+		//Create topic viewlet
 		driver.findElement(By.cssSelector(".object-type:nth-child(6)")).click();
 		driver.findElement(By.name("viewletName")).clear();
 		driver.findElement(By.name("viewletName")).sendKeys(TopicName);
@@ -150,6 +150,22 @@ public class EMSTopic
 		//Click on EMS checkbox
 		driver.findElement(By.id("ems")).click();
 	
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(6000);
+		
+		//--- Create EMS Durable viewlet ---- 
+		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
+		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
+			
+		//Create topic viewlet
+		driver.findElement(By.cssSelector(".object-type:nth-child(17)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys(DurableViewletName);
+		
+		Select dd1=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
+		Thread.sleep(1000);
+		dd1.selectByVisibleText(EMS_WGSNAME);
+			
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 	}
@@ -174,30 +190,86 @@ public class EMSTopic
 	}
 	
 	
-	@Parameters({"TopicNameFromIcon"})
+	@Parameters({"TopicNameFromIcon", "EMSDnode", "EMSDestinationManager"})
 	@TestRail(testCaseId=309)
 	@Test(priority=2)
-	public void CreateTopicFromPlusIcon(String TopicNameFromIcon, ITestContext context) throws InterruptedException
+	public void CreateTopicFromPlusIcon(String TopicNameFromIcon, String EMSDnode, String EMSDestinationManager, ITestContext context) throws InterruptedException
 	{
 		//Click on + icon present in the viewlet
 		driver.findElement(By.xpath("//img[@title='Add EMS Topic']")).click();
 		
-		//Select WGS
+		//Select Node 
+		driver.findElement(By.xpath("//div[2]/input")).click();
+		try 
+		{
+			List<WebElement> QueueNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(QueueNode.size());	
+			for (int i=0; i<QueueNode.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + QueueNode.get(i).getAttribute("id"));
+				String s=QueueNode.get(i).getText();
+				if(s.equals(EMSDnode))
+				{
+					String id=QueueNode.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
+		
+		//Select Manager
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		
+        try 
+		{
+			List<WebElement> QueueManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(QueueManager.size());	
+			for (int i=0; i<QueueManager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + QueueManager.get(i).getAttribute("id"));
+				String s=QueueManager.get(i).getText();
+				if(s.equals(EMSDestinationManager))
+				{
+					String id=QueueManager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+        Thread.sleep(1000);
+		
+ 		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(6000);
+		
+		/*//Select WGS
 		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
 		WGS.selectByVisibleText(EMS_WGSNAME);
 		
-		/*//Select Node 
+		//Select Node 
 		driver.findElement(By.xpath("//div[2]/input")).click();
 		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
 		
 		//Select Manager
          driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
 	     //driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
-         driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[2]")).click();*/
+         driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[2]")).click();
 		
 		//Click on Select path button
 		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
-		Thread.sleep(1000);
+		Thread.sleep(1000);*/
 		
 		//Give the name of the topic
 		driver.findElement(By.id("name")).clear();
@@ -362,126 +434,68 @@ public class EMSTopic
     	Thread.sleep(1000);
 	}
 	
-	@Parameters({"MessageData", "PropertyName", "PropertyValue"})
+	@Parameters({"MessageData", "PropertyName", "PropertyValue", "DurableName", "TopicNameFromIcon"})
 	@TestRail(testCaseId=312)
 	@Test(priority=6)
-	public void EMSTopicPublish(String MessageData, String PropertyName, String PropertyValue, ITestContext context) throws InterruptedException
+	//@Test(priority=6, dependsOnMethods= {"CreateTopicFromPlusIcon"})
+	public void EMSTopicPublish(String MessageData, String PropertyName, String PropertyValue, String DurableName, String TopicNameFromIcon, ITestContext context) throws InterruptedException
 	{
+		//this.CreateDurable(DurableName, TopicNameFromIcon);
+		
+		//Search with topic name
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(TopicNameFromIcon);
+		
 		//Select publish From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-    	Actions Mousehovercopy=new Actions(driver);
-    	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
-    	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[4]")).click();
-		
-    	//Send the New name into field
-    	driver.findElement(By.id("messageData")).sendKeys(MessageData);
-    	
-    	driver.findElement(By.id("propertyName")).sendKeys(PropertyName);
-    	driver.findElement(By.id("propertyValue")).sendKeys(PropertyValue);
-    	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(6000);
-    	
-    	try
-    	{
-    		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
-    		{
-    			context.setAttribute("Status", 1);
-    			context.setAttribute("Comment", "EMS topic is published successfuly");
-    			driver.findElement(By.xpath("//app-mod-errors-display/div/button")).click();
-    			driver.findElement(By.cssSelector(".btn-danger")).click();
-    			Thread.sleep(1000);
-    		}
-    	}
-    	catch (Exception e)
-    	{
-    		System.out.println("Error not present while publishing topic");
-    		context.setAttribute("Status", 5);
-			context.setAttribute("Comment", "Failed to publish EMS  topic, check details: "+ e.getMessage());
-    	}
-		
-	}
-	
-	@Parameters({"MessageData", "PropertyName", "PropertyValue", "AddSubscriptionName", "DestinationTopicName"})
-	
-	@Test(priority=66)
-	public void PublishFromCommands(String MessageData, String PropertyName, String PropertyValue, String AddSubscriptionName, String DestinationTopicName) throws InterruptedException
-	{
-		this.Addsubscription(AddSubscriptionName, DestinationTopicName);
-		
-		//Show Empty queues
-    	driver.findElement(By.xpath("//i[3]")).click();
-    	driver.findElement(By.xpath("//div[2]/input")).click();
-    	Thread.sleep(1000);
-    	driver.findElement(By.xpath("//div[3]/button")).click();
-    	Thread.sleep(1000);
-    	
-    	//Search the queue
-    	driver.findElement(By.xpath("//input[@type='text']")).clear();
-    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(DestinationQueue);
-    	
-    	int Queue_Depth=6;
-    	if(!EMS_WGSNAME.contains("MQM"))
-    	{
-    		Queue_Depth=7;
-    	}
-    	
-    	//get the Current depth of the queue
-    	String Queuedepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
-    	int result = Integer.parseInt(Queuedepth);
-		System.out.println(result);
-    	
-		//Select publish From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Publish")).click();
 		
     	//Send the New name into field
-    	driver.findElement(By.id("messageData")).sendKeys(MessageData);
+    	driver.findElement(By.xpath("//textarea")).sendKeys(MessageData);
     	
-    	driver.findElement(By.id("propertyName")).sendKeys(PropertyName);
-    	driver.findElement(By.id("propertyValue")).sendKeys(PropertyValue);
+    	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(PropertyName);
+    	driver.findElement(By.xpath("//div[3]/div/input")).sendKeys(PropertyValue);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(2000);
+    	Thread.sleep(10000);
     	
-    	try
+    	//Remove the search data
+    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
     	{
-    		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
-    		{
-    			driver.findElement(By.xpath("//app-mod-errors-display/div/button")).click();
-    			driver.findElement(By.cssSelector(".btn-danger")).click();
-    			Thread.sleep(1000);
-    		}
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
-    	catch (Exception e)
-    	{
-    		System.out.println("Error not present while publishing topic");
-    	}
-    	
     	Thread.sleep(4000);
-    	//get the Current depth of the queue
-    	String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
-    	int result1 = Integer.parseInt(Queuedepth1);
-		System.out.println(result1);
     	
-		//Show Empty queues
-    	driver.findElement(By.xpath("//i[3]")).click();
-    	driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
-    	Thread.sleep(1000);
-    	driver.findElement(By.xpath("//div[3]/button")).click();
-    	Thread.sleep(1000);
+    	//Search with durable name
+    	driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(DurableName);
     	
-    	if(result!=result1)
+    	int Pending_Count=7;
+		if(!EMS_WGSNAME.contains("MQM"))
+		{
+			Pending_Count=8;
+		}
+    	
+    	String PendingCountvalue=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Pending_Count +"]/div/span")).getText();
+    	int PendingCount=Integer.parseInt(PendingCountvalue);
+    	System.out.println("Pending count is: " +PendingCount);
+    	
+    	if(PendingCount == 1)
     	{
-    		System.out.println("Publish the messgae into queue is done");
+    		System.out.println("EMS topic publish is working fine");
+    		context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "EMS topic is published successfuly");
     	}
     	else
     	{
-    		System.out.println("Publish the messgae into queue is failed");
-    		driver.findElement(By.xpath("Publish failed")).click();
+    		System.out.println("EMS topic publish option failed");
+    		context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to publish EMS  topic");
+			driver.findElement(By.id("publish failed")).click();
     	}
+    			
 	}
 	
+		
 	@Test(priority=7)
 	@TestRail(testCaseId=313)
 	public void TopicProperties(ITestContext context) throws InterruptedException
@@ -635,7 +649,7 @@ public class EMSTopic
 		Thread.sleep(1000);
 		
 		//Storing the Favorite Viewlet data
-		String Favdata=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Favdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		                                            
 		//Verification of topic added to favorite viewlet 
 		if(Favdata.contains(TopicName))
@@ -748,8 +762,7 @@ public class EMSTopic
 	@Test(priority=13)
 	public void PublishFromCommandsForMultipleTopics(String AddSubscriptionNameforMultiple, String MessageDataForMultiple, String PropertyNameForMultiple, String PropertyValueForMultiple, String DestinationTopicName) throws InterruptedException
 	{
-		this.AddsubscriptionForMultiple(AddSubscriptionNameforMultiple, DestinationTopicName);
-		
+				
 		//Show Empty queues
     	driver.findElement(By.xpath("//i[3]")).click();
     	driver.findElement(By.xpath("//div[2]/input")).click();
@@ -924,7 +937,7 @@ public class EMSTopic
 		Thread.sleep(1000);
 		
 		//Storing the Favorite Viewlet data
-		String Favdata=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Favdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		
 		//Verification of topics added to favorite viewlet
 		if(Favdata.contains(TopicName2) && Favdata.contains(TopicName3))
@@ -965,57 +978,48 @@ public class EMSTopic
 	}
 	
 	
-	//Create Subscription Viewlet and Add Subscription
-	
-	@Parameters({"AddSubscriptionName", "DestinationTopicName"})
-	public void Addsubscription(String AddSubscriptionName, String DestinationTopicName) throws InterruptedException
+	public void CreateDurable(String DurableName, String TopicNameFromIcon) throws InterruptedException
 	{
-		//Click on Viewlet
-		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
-		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
-			
-		//Create subscription
-		driver.findElement(By.cssSelector(".object-type:nth-child(12)")).click();
-		driver.findElement(By.name("viewletName")).clear();
-		driver.findElement(By.name("viewletName")).sendKeys("Test Subscription");
+		//Click on + icon
+		driver.findElement(By.xpath("//img[@title='Add EMS Durable']")).click();
 		
-		//Work group server selection
-		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
-		Thread.sleep(2000);
-		dd.selectByVisibleText(EMS_WGSNAME);
+		//Select WGS
+		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
+		WGS.selectByVisibleText(EMS_WGSNAME);
 		
-	    //Click on Save changes button
-		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(2000);
-		
-		//click on check box and choose create subscription
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
+		//Select Node 
+		driver.findElement(By.xpath("//div[2]/input")).click();
+		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
 		Thread.sleep(1000);
 		
+		//Select Manager
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		Thread.sleep(1000);
 		
-		//Give the Subscription name
-		driver.findElement(By.id("name")).clear();
-		driver.findElement(By.id("name")).sendKeys(AddSubscriptionName);
+		//Click on Select path
+		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
+		Thread.sleep(1000);
 		
-		//Select the Topic name from the list
-		/*driver.findElement(By.cssSelector(".ng-input > input")).click();
-		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();*/
+		//Durable Name
+		driver.findElement(By.id("durableName")).sendKeys(DurableName);
 		
+		//Topic Name selection
 		try 
 		{
 			driver.findElement(By.id("topicName")).click();
-			List<WebElement> Topic=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Topic.size());	
-			for (int i=0; i<Topic.size();i++)
+			List<WebElement> TopicList=driver.findElements(By.className("ng-option"));
+			System.out.println(TopicList.size());	
+			for (int i=0; i<TopicList.size();i++)
 			{
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
-				String s=Topic.get(i).getText();
-				if(s.equals(DestinationTopicName))
+				System.out.println("Radio button id:" + TopicList.get(i).getAttribute("id"));
+				String s=TopicList.get(i).getText();
+				if(s.equals(TopicNameFromIcon))
 				{
-					String id=Topic.get(i).getAttribute("id");
+					String id=TopicList.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
+					break;
 				}
 			}
 		}
@@ -1025,245 +1029,31 @@ public class EMSTopic
 		}
 		Thread.sleep(1000);
 		
-		//Give the Topic String
-		//driver.findElement(By.id("topicString")).sendKeys(TopicStringData);
-		
-		//Click on Destination tab
-		driver.findElement(By.linkText("Destination")).click();
-		
-		//Select WGS name
-		Select DestinationWGS=new Select(driver.findElement(By.id("destinationGMName")));
-		DestinationWGS.selectByVisibleText(DWGS);
-		
-		//Select WGS name
-		/*driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).click();
-		driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).sendKeys("DESKTOP-E1JT2VR");
-		//span[@class, 'ng-option-label ng-star-inserted']*/	
-	
-		try 
-		{
-			driver.findElement(By.id("destinationNodeName")).click();
-			List<WebElement> Node=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Node.size());	
-			for (int i=0; i<Node.size();i++)
-			{
-				System.out.println("Radio button text:" + Node.get(i).getText());
-				System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
-				String s=Node.get(i).getText();
-				if(s.equals(Dnode))
-				{
-					String id=Node.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(1000);
-		
-		//Select Manager value
-		try 
-		{
-			driver.findElement(By.id("destinationQMName")).click();
-			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Manager.size());	
-			for (int i=0; i<Manager.size();i++)
-			{
-				//System.out.println("Radio button text:" + Manager.get(i).getText());
-				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
-				String s=Manager.get(i).getText();
-				if(s.equals(DestinationManager))
-				{
-					String id=Manager.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		
-		//Select Queue name
-		try 
-		{
-			driver.findElement(By.id("destinationQName")).click();
-			List<WebElement> QueueName=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(QueueName.size());	
-			for (int i=0; i<QueueName.size();i++)
-			{
-				//System.out.println("Radio button text:" + QueueName.get(i).getText());
-				System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
-				String s=QueueName.get(i).getText();
-				if(s.equals(DestinationQueue))
-				{
-					String id=QueueName.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(2000);
-		
-		//Click on OK button
-		driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
+		//click on yes button
+    	driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+    	Thread.sleep(10000);
     	
-    	try
-    	{
-    		driver.findElement(By.id("yes")).click();
-    	}
-    	catch (Exception e)
-    	{
-    		System.out.println("No exception Occured");
-    	}
+    	/*//Store the Topic viewlet data into string
+    	String Viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	System.out.println(Viewletdata);
+    	
+    	if(Viewletdata.contains(DurableName))
+		{
+			System.out.println("Durable is added");
+			context.setAttribute("Status",1);
+			context.setAttribute("Comment", "Durable viewlet is created successfully using add Icon");
+		}
+		else
+		{
+			System.out.println("Durable is not added");
+			context.setAttribute("Status",5);
+			context.setAttribute("Comment", "Failed to add Durable viewlet using add Icon");
+			driver.findElement(By.id("Durable add Failed")).click();
+		}
+		Thread.sleep(2000);	*/
 		
 	}
-	
-	
-	@Parameters({"AddSubscriptionNameforMultiple", "DestinationTopicName"})
-	public void AddsubscriptionForMultiple(String AddSubscriptionNameforMultiple, String DestinationTopicName) throws InterruptedException
-	{		
-		//click on check box and choose create subscription
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]")).click();
-		Thread.sleep(1000);
 		
-		//Give the Subscription name
-		driver.findElement(By.id("name")).clear();
-		driver.findElement(By.id("name")).sendKeys(AddSubscriptionNameforMultiple);
-		
-		/*//Select the Topic name from the list
-		driver.findElement(By.cssSelector(".ng-input > input")).click();
-		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();*/
-		
-		try 
-		{
-			driver.findElement(By.id("topicName")).click();
-			List<WebElement> Topic=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Topic.size());	
-			for (int i=0; i<Topic.size();i++)
-			{
-				//System.out.println("Radio button text:" + Topic.get(i).getText());
-				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
-				String s=Topic.get(i).getText();
-				if(s.equals(DestinationTopicName))
-				{
-					String id=Topic.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(1000);
-		//Give the Topic String
-		//driver.findElement(By.id("topicString")).sendKeys(TopicStringData);
-		
-		//Click on Destination tab
-		driver.findElement(By.linkText("Destination")).click();
-		
-		//Select WGS name
-		Select DestinationWGS=new Select(driver.findElement(By.id("destinationGMName")));
-		DestinationWGS.selectByVisibleText(DWGS);
-		
-		//Select WGS name
-		/*driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).click();
-		driver.findElement(By.xpath("//ng-select[@id='destinationNodeName']/div")).sendKeys("DESKTOP-E1JT2VR");
-		//span[@class, 'ng-option-label ng-star-inserted']*/	
-	
-		try 
-		{
-			driver.findElement(By.id("destinationNodeName")).click();
-			List<WebElement> Node=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Node.size());	
-			for (int i=0; i<Node.size();i++)
-			{
-				//System.out.println("Radio button text:" + Node.get(i).getText());
-				System.out.println("Radio button id:" + Node.get(i).getAttribute("id"));
-				String s=Node.get(i).getText();
-				if(s.equals(Dnode))
-				{
-					String id=Node.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(1000);
-		
-		//Select Manager value
-		try 
-		{
-			driver.findElement(By.id("destinationQMName")).click();
-			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(Manager.size());	
-			for (int i=0; i<Manager.size();i++)
-			{
-				//System.out.println("Radio button text:" + Manager.get(i).getText());
-				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
-				String s=Manager.get(i).getText();
-				if(s.equals(DestinationManager))
-				{
-					String id=Manager.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		
-		//Select Queue name
-		try 
-		{
-			driver.findElement(By.id("destinationQName")).click();
-			List<WebElement> QueueName=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
-			System.out.println(QueueName.size());	
-			for (int i=0; i<QueueName.size();i++)
-			{
-				//System.out.println("Radio button text:" + QueueName.get(i).getText());
-				System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
-				String s=QueueName.get(i).getText();
-				if(s.equals(DestinationQueue))
-				{
-					String id=QueueName.get(i).getAttribute("id");
-					driver.findElement(By.id(id)).click();
-				}
-			}
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-		Thread.sleep(2000);
-		
-		//Click on OK button
-		driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(3000);
-    	
-    	try
-    	{
-    		driver.findElement(By.id("yes")).click();
-    	}
-    	catch (Exception e)
-    	{
-    		System.out.println("No Exception occured");
-    	}
-		
-	}
-	
 	@AfterMethod
 	public void tearDown(ITestResult result) {
 

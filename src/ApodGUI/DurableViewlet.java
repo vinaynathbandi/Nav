@@ -193,6 +193,7 @@ public class DurableViewlet
 		{
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Faile to show object attributes for Durable viewlet");
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 	}
 	
@@ -466,8 +467,14 @@ public class DurableViewlet
 	@Test(priority=7)
 	public static void AddToFavoriteViewlet(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
     	//Store the Route Name
-		String DurableName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String DurableName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		                                             
 		//Create Favorite viewlet
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -521,9 +528,15 @@ public class DurableViewlet
 	@TestRail(testCaseId=238)
 	public void DeleteMultiples(ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
 		//Store the Durable names into string
-		String FirstName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String SecondName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String FirstName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String SecondName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		//Select delete option from command for multiple
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -545,14 +558,14 @@ public class DurableViewlet
     	if(viewletdata.contains(FirstName) || viewletdata.contains(SecondName))
     	{
     		System.out.println("Multiple Durables are not deleted");
-    		context.setAttribute("Status",1);
+    		context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Failed to delete Multiple Durable");
     		driver.findElement(By.xpath("Multiple Durables delete failed")).click();
     	}
     	else
     	{
     		System.out.println("Multiple Durables are deleted");
-    		context.setAttribute("Status",5);
+    		context.setAttribute("Status",1);
 			context.setAttribute("Comment", "Multiple Durables are deleted successfully");
     	}
     	Thread.sleep(1000);
@@ -662,9 +675,15 @@ public class DurableViewlet
 	@Test(priority=11, dependsOnMethods= {"AddToFavoriteViewlet"})
 	public static void AddToFavoriteForMultipleDurables(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		int Name_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			Name_Index=4;
+		}
+		
 		//Store the Name list names
-		String DurableName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
-		String DurableName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[4]/div/span")).getText();
+		String DurableName2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String DurableName3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		
 		//Select compare option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();

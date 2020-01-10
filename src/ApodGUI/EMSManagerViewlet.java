@@ -171,14 +171,14 @@ public class EMSManagerViewlet
 		driver.findElement(By.xpath("//app-modal-add-viewlet-favorite/div/div[2]/button[2]")).click();
 		Thread.sleep(2000);
 		
-		int Node_Name=6;
+		int Node_Name=3;
 		if(!EMS_WGSNAME.contains("MQM"))
 		{
-			Node_Name=7;
+			Node_Name=4;
 		}
-		//node names data storage
+		//node names data storage  
 		String NodeName=driver.findElement(By.xpath("//datatable-body-cell["+ Node_Name +"]/div/span")).getText();
-		System.out.println(NodeName);
+		System.out.println("Node name is: " +NodeName);
 		
 		//----------- Add Manager to favorite viewlet -----------------
 		//Select Add tofavorite option
@@ -189,14 +189,14 @@ public class EMSManagerViewlet
 		
 		//Select the favorite viewlet name
 		Select fav=new Select(driver.findElement(By.cssSelector(".fav-select")));
-		fav.selectByIndex(0);
+		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(".g-block-bottom-buttons > .g-button-blue")).click();
 		Thread.sleep(2000);
 		
 		//Favorite viewlet data storing
 		String Fav1=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-		System.out.println(Fav1);
+		System.out.println("Fav viewlet data is: " +Fav1);
 		
 		//Verification condition
 		if(Fav1.contains(NodeName))

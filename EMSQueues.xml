@@ -36,7 +36,7 @@
        <methods>
        
        <include name="Login"/>
-        <include name="BrowseMessages"/>   
+        <include name="BrowseMessages"/>    
         <include name="ShowObjectAttributesForQueues"/>  
         <include name="ShowQueueStatus"/> 
         <include name="CreateQueueFromOptions"/> 
@@ -44,14 +44,14 @@
         <include name="DeleteoptionFromQueueCommands"/>
         <include name="QueueProperties"/>
         <include name="QueueEvents"/> 
-        <include name="AddToFavoriteViewlet"/>  
+        <include name="AddToFavoriteViewlet"/>   
          
         <include name="CompareQueues"/> 
         <include name="CheckDifferencesForEMSQueues"/>
         <include name="ShowQueueStatusForMultipleQueues"/> 
         <include name="MultipleQueueProperties"/> 
         <include name="AddToFavoriteForMultipleQueues"/>   
-        <include name="AddQueueFromPlusIcon"/>  
+        <include name="AddQueueFromPlusIcon"/>   
         <include name="Logout"/>  
         
        </methods>
