@@ -3,13 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ApodGUI.ListenerViewlet">
+      <class name="ApodGUI.AttributeFilterCondition">
         <methods>
-          <include name="CreateListenerFromPlusIcon"/>
-          <include name="tearDown"/>
+          <include name="AddAttributeFilterCondition"/>
+          <include name="Logout"/>
           <include name="beforeTest"/>
+          <include name="Login"/>
+          <include name="AddDashboard"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- ApodGUI.ListenerViewlet -->
+      </class> <!-- ApodGUI.AttributeFilterCondition -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

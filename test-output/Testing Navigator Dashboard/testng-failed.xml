@@ -3,22 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Testing Navigator Dashboard]">
   <test thread-count="5" name="Add Dashboard reports(failed)">
     <parameter name="Dashboardname" value="Search Criteria Dashboard"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="wgs" value="WGS10"/>
     <parameter name="SearchCriteriaData" value="Message Search criteria"/>
-    <parameter name="uname" value="Admin"/>
+    <parameter name="LocalQueue" value="Queues Viewlest"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
     <parameter name="MessageData" value="Test the Message Search criteria condition"/>
-    <parameter name="Node" value="DESKTOP-E1JT2VR"/>
-    <parameter name="Queuemanager" value="MGR"/>
     <parameter name="SearchCriteriaName" value="Search Queues"/>
-    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
       <class name="ApodGUI.SearchCriteria">
         <methods>
           <include name="AddSearchCriteriaCondition" invocation-numbers="0"/>
-          <include name="PutAmessageIntoQueue" invocation-numbers="0"/>
           <include name="tearDown"/>
           <include name="Logout"/>
           <include name="beforeTest"/>
