@@ -3,22 +3,12 @@
 <suite name="Navigator">
  <test name="Dashboard functions">
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="sDriverpath" value="F:\\Automation\\lib\\Drivers\\chromedriver.exe"/>
-    <parameter name="URL" value="http://localhost:8080/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="ScreenshotPath" value="F://Dashboardlogin"/>
-    
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+       
     <parameter name="Dashboardname" value="Dashboard Verficaton"/>
-    <parameter name="WGSName1" value="MQM"/>
-    <parameter name="Node" value="DESKTOP-E1JT2VR"/>
-    <parameter name="QueueManager" value="M1"/>
-    
+       
     <parameter name="EMSDashboardname" value="EMS Dashboard"/>
-    <parameter name="EMSWGSName" value="WGS10"/>
-    <parameter name="EMSNode" value="EMSAGENT01"/>
-    <parameter name="EMSQueueManager" value="EMS-SERVER"/>
-    
+        
     <parameter name="NewDashboardName" value="DashboardRenamed"/>
                
      <classes>

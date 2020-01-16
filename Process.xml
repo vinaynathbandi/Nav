@@ -4,15 +4,10 @@
  <test name="Test Process Viewlet">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+  
     <parameter name="Dashboardname" value="ProcessViewlet Verification"/>
-    <parameter name="wgs" value="1"/>
-    
     <parameter name="Processname" value="Process Viewlet"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
-    
+       
     <parameter name="NewProcessName" value="Test.New.process121"/>
     <parameter name="ProcessDescription" value="Test Process"/>
     <parameter name="ApplicationId" value="Test12"/>
@@ -28,16 +23,12 @@
     <parameter name="ApplicationIdFromOptions" value="Process123"/>
     
     <parameter name="FavoriteViewletName" value="Favorite for Process"/>
-    <parameter name="Favwgs" value="1"/>
-    
+      
     <parameter name="CopyObjectNameForMultiple" value=".CopyMultiple"/>
     <parameter name="RenameProcessForMultiple" value="Test.Process.Rename"/>
     
     <parameter name="MultipleDescription" value="Test Description option for Multiple"/>
-    <parameter name="AppID" value="App123"/>
-     
-     <parameter name="Attributes" value="Process Name,Process Description,Application ID,Application Type,Environment Data,User Data"/>     
-   
+    <parameter name="AppID" value="App123"/>  
   
      <classes>
       <class name="ApodGUI.ProcessViewlet">
@@ -53,7 +44,7 @@
         <include name="DeleteFromCommands"/> 
         <include name="CreateProcess"/> 
         <include name="Properties"/> 
-        <include name="ProcessEvents"/>  
+        <include name="ProcessEvents"/>   
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareProcessNames"/>
         <include name="CheckDifferencesForProcess"/>

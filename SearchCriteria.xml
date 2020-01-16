@@ -4,14 +4,13 @@
   <test name="Add Dashboard reports">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="password" value="admin"/>
+ 
   <parameter name="Dashboardname" value="Search Criteria Dashboard"/>
-  <parameter name="wgs" value="WGS10"/>
-  <parameter name="MessageData" value="Test the Message Search criteria condition"/>
-  <parameter name="Node" value="DESKTOP-E1JT2VR"/>
-  <parameter name="Queuemanager" value="MGR"/>
+  <parameter name="LocalQueue" value="Queues Viewlest"/>
+  
+   <parameter name="MessageData" value="Test the Message Search criteria condition"/>
+ <!-- <parameter name="Node" value="DESKTOP-E1JT2VR"/>
+  <parameter name="Queuemanager" value="MGR"/> -->
   <parameter name="SearchCriteriaName" value="Search Queues"/>
   <parameter name="SearchCriteriaData" value="Message Search criteria"/>
    

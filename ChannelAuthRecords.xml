@@ -4,30 +4,25 @@
  <test name="Test Channel Auth Records Viewlet">
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+    
     <parameter name="Dashboardname" value="AuthInfo Verification"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="Viewletname" value="New Channel Auth Records"/>
+    
     <parameter name="ChannelAuthNameFromOptions" value="New.Channel.Auth"/>
     <parameter name="UserList" value="MQADMIN"/>
+    
     <parameter name="MultipleDescription" value="Test Multiple Properties"/>
     
     <parameter name="schemaName" value="AuthinfoSchema"/>
     
     <parameter name="FavoriteViewletName" value="Channel Auth Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
-    
+        
     <parameter name="ChannelAuthNameFromIcon" value="New.Channel.Icon"/>
    
-  
      <classes>
       <class name="ApodGUI.ChannelAuthRecordsViewlet">
        
        <methods>
-       
         <include name="Login"/>
         <include name="AddChannelAuthrecordsViewlet"/> 
         <include name="CreateChannelAuthRecordFromOptions"/>
@@ -36,7 +31,7 @@
         <include name="ChannelAuthEvents"/>
         <include name="AddToFavoriteViewlet"/>  
         <include name="CreateChannelAuthRecordFromPlusIcon"/>
-        <include name="DeleteMultipleChannelAuthRecordsFromCommands"/>  
+      <!--   <include name="DeleteMultipleChannelAuthRecordsFromCommands"/>   -->
         <include name="MultipleChannelAuthRecordsProperties"/>
         <include name="AddToFavoriteForMultipleChannelAuthRecords"/>    
         <include name="Logout"/> 

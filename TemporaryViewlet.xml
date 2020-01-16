@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Navigator">
-	<test name="WorkGroup server Viewlet">
+	<test name="Temporary viewlets">
 		<parameter name="sDriver" value="webdriver.chrome.driver" />
 		<parameter name="sDriverpath" value="Drivers/chromedriver.exe" />
 	   

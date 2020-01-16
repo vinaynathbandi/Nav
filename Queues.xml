@@ -7,31 +7,28 @@
   <parameter name="URL" value="/navigator/#/login"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="password" value="admin"/>
-    <parameter name="LocalQueue" value="Local Queue"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
     
     <parameter name="Dashboardname" value="QueuesViewlet Verification"/>
-    <parameter name="wgs" value="1"/>
+    <parameter name="LocalQueue" value="Local Queue"/>
     
     <parameter name="schemaName" value="QueueSchema"/>
     
     <parameter name="QueueNameFromOptions" value="ABCTest"/>
     <parameter name="QueueDescriptionFromOptions" value="Description of Queue from options"/>
-        
+    
     <parameter name="QueueName" value="Add.New.Queue"/>
     <parameter name="QueueDescription" value="Test the Queue"/>
     
     <parameter name="ObjectName" value="Copy"/>
     <parameter name="ObjectDescription" value="TesttheobjectDescription"/>
     
-    <parameter name="FavoriteViewletName" value="Queues Add to favorite"/>
-    <parameter name="Favwgs" value="1"/>
+     <parameter name="FavoriteViewletName" value="Queues Add to favorite"/>
+     
+     <parameter name="TestDescription" value="Multiple Description"/>
+     
+     <parameter name="CopyAsNameForMultiple" value="MultipleQueues.Copy"/>
+     <parameter name="ObjectDescriptionForMultiples" value="Multiple queues copy as"/>
     
-    <parameter name="SearchInputData" value="999999999"/>
-    <parameter name="TestDescription" value="Multiple Description"/>
-    
-    <parameter name="CopyAsNameForMultiple" value="MultipleQueues.Copy"/>
-    <parameter name="ObjectDescriptionForMultiples" value="Multiple queues copy as"/>
       
      <classes>
       <class name="ApodGUI.QueuesViewlet">
@@ -47,11 +44,11 @@
         <include name="DeleteQueueFromCommandsOption"/>
         <include name="QueueProperties"/>
         <include name="QueueEvents"/>    
-        <include name="AddToFavoriteViewlet"/> 
+        <include name="AddToFavoriteViewlet"/>  
          
         <include name="CompareQueues"/> 
         <include name="CheckDifferencesForQueues"/>
-        <include name="ShowQueueStatusForMultipleQueues"/> 
+       <!--  <include name="ShowQueueStatusForMultipleQueues"/> --> 
         <include name="MultipleQueueProperties"/> 
         <include name="AddToFavoriteForMultipleQueues"/> 
         <include name="SearchFilter"/> 

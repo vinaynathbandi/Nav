@@ -58,9 +58,9 @@ public class QueueMessages
 		UploadLargeFile =Settings.getUploadLargeFile();
 	}
 	
-	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs", "MessageData", "QueueName"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "MessageData", "QueueName"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String Dashboardname, int wgs, String MessageData, String QueueName) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String MessageData, String QueueName) throws Exception
 	{
 		Settings.read();
 		String URL = Settings.getSettingURL();
@@ -521,14 +521,14 @@ public class QueueMessages
 		//Find the queue current depth
 		String depthbeforeCopy=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int resultCopy = Integer.parseInt(depthbeforeCopy);
-		System.out.println(resultCopy);
+		System.out.println("Initial depth is: " +resultCopy);
 		
 		//Store depth of the target queue 
 		String TargetQueueDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int TargetCopy=Integer.parseInt(TargetQueueDepth);
 		
 		int FinalResultBefore=resultCopy+TargetCopy;
-		System.out.println(FinalResultBefore);
+		System.out.println("Required Target queue depth is: " +FinalResultBefore);
 		
 		int QueueName_Index=3;
 		if(!WGSName.contains("MQM"))
@@ -555,7 +555,7 @@ public class QueueMessages
 		//Getting the Second Queue depth after copying the all messages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterCopy=Integer.parseInt(FinalDepth);
-		System.out.println(FinalResultAfterCopy);
+		System.out.println("Final Depth of target queue is: " +FinalResultAfterCopy);
 		
 		//Verification
 		if(FinalResultBefore==FinalResultAfterCopy)

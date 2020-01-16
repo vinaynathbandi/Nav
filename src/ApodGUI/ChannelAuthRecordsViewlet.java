@@ -67,9 +67,9 @@ public class ChannelAuthRecordsViewlet
 		Manager2 =Settings.getManager2();
 	}
 	
-	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String Dashboardname, int wgs) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname) throws Exception
 	{
 		Settings.read();
 		String URL = Settings.getSettingURL();
@@ -586,14 +586,14 @@ public class ChannelAuthRecordsViewlet
 		}
 		
 	    @TestRail(testCaseId=538)
-		@Parameters({"RenameProcessForMultiple"})
+		@Parameters({"DeletedChannelAuthRecords"})
 		@Test(priority=8)
-		public void DeleteMultipleChannelAuthRecordsFromCommands(String RenameProcessForMultiple, ITestContext context) throws InterruptedException
+		public void DeleteMultipleChannelAuthRecordsFromCommands(String DeletedChannelAuthRecords, ITestContext context) throws InterruptedException
 		{
-			/*//Send the New name into field
-			driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-	    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameProcessForMultiple);
-	    	Thread.sleep(2000);*/
+			//Send the New name into field
+			driver.findElement(By.xpath("//input[@type='text']")).clear();
+	    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(DeletedChannelAuthRecords);
+	    	Thread.sleep(2000);
 	    	
 	    	//Select the multiple processes and choose Add to favorite viewlet option
 			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -615,8 +615,13 @@ public class ChannelAuthRecordsViewlet
 	    	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
 	    	//System.out.println(Subviewlet);
 	    	
+	    	for(int i=0; i<=DeletedChannelAuthRecords.length(); i++)
+	    	{
+	    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+	    	}
+	    	
 	    	//Verification of Subscription delete
-	    	if(Subviewlet.contains(RenameProcessForMultiple))
+	    	if(Subviewlet.contains(DeletedChannelAuthRecords))
 	    	{
 	    		System.out.println("Multiple channel auth records are not deleted");
 	    		context.setAttribute("Status",5);
@@ -629,11 +634,7 @@ public class ChannelAuthRecordsViewlet
 	    		context.setAttribute("Status",1);
 				context.setAttribute("Comment", "Channel auth records are deleted");
 	    	}
-	    	Thread.sleep(1000);
-	    	
-	    	/*//Clear the search data
-	    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();*/
-	    	
+	    	Thread.sleep(1000);	    	
 		}
 		
 	    @TestRail(testCaseId=539)

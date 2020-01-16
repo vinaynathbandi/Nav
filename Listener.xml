@@ -4,15 +4,9 @@
  <test name="Test Listener Viewlet">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+  
     <parameter name="Dashboardname" value="Listener Viewlet Verification"/>
-    <parameter name="wgs" value="1"/>
-    
     <parameter name="Listenerviewletname" value="New Listener Viewlet"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
-    
     <parameter name="schemaName" value="ListnerSchema"/>
     
     <parameter name="ListenerName" value="Test.Listener.First1"/>
@@ -23,19 +17,14 @@
     <parameter name="RenameListener" value="Test.Listener.First1.Rename"/>
     
     <parameter name="FavoriteViewletName" value="Favorite Viewlet for Listener"/>
-    <parameter name="Favwgs" value="1"/>
+   
+    <parameter name="ListenerNameFromICon" value="Test.Listener.Icon"/>
+    <parameter name="DescriptionFromIcon" value="Icon Description"/>
     
     <parameter name="CopyObjectNameForMUltiple" value="Test.Multi.Copy"/>
     <parameter name="RenameListenerForMultiple" value="Test.Listener.Multi.Rename"/>
     
-    <parameter name="ListenerDescription" value="Multiple properties"/>
-    
-    <parameter name="ListenerNameFromICon" value="Test.Listener.Icon"/>
-    <parameter name="DescriptionFromIcon" value="Icon Description"/>
-    
-   
-    <parameter name="Attributes" value="Listener Mask,Listener Description,Transport Type,Start Mode,Listener Status,IP Address,Port,Backlog,Transaction Program Name,SPX Socket,NetBIOS Adapter Number,NetBIOS Session Count,NetBIOS Local Name,Commands,NetBIOS Name Count"/>
-    
+    <parameter name="ListenerDescription" value="Multiple properties"/>  
  
      <classes>
       <class name="ApodGUI.ListenerViewlet">

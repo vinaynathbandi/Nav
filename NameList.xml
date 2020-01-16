@@ -4,23 +4,15 @@
  <test name="Test Name List Viewlet">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+  
     <parameter name="Dashboardname" value="NameListViewlet Verification"/>
-    <parameter name="wgs" value="1"/>
-    
     <parameter name="NameListname" value="New NameList Viewlet"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="NameListAttributes" value="Attributes"/>
+    <parameter name="SchemaName" value="NameListSchema"/>
     
     <parameter name="FavoriteViewletName" value="NameList Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
     
-    <parameter name="SchemaName" value="NameListSchema"/>
-    <parameter name="Attributes" value="Namelist Name,Namelist Description,Namelist Names,Type"/>
-
-  
+    <parameter name="NameListAttributes" value="Attributes"/>
+      
      <classes>
       <class name="ApodGUI.NameListViewlet">
        
@@ -34,7 +26,7 @@
           
         <include name="CompareNameLists"/> 
         <include name="CheckDifferencesForNameList"/> 
-        <include name="AddToFavoriteForMultipleNameLists"/> 
+        <include name="AddToFavoriteForMultipleNameLists"/>  
         <include name="Logout"/> 
         
        </methods>

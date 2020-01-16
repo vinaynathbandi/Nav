@@ -59,9 +59,9 @@ public class QueuesInsideBrowseMessages
 		UploadFilepath =Settings.getUploadFilepath();
 	}
 
-	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs", "Queuemanager", "MessageData", "QueueName"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "Queuemanager", "MessageData", "QueueName"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String Dashboardname, int wgs, String Queuemanager, String MessageData, String QueueName) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String Queuemanager, String MessageData, String QueueName) throws Exception
 	{
 		Settings.read();
 		String URL = Settings.getSettingURL();
@@ -169,7 +169,7 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.xpath("//div[3]/button")).click();
 		Thread.sleep(2000);
 		
-		//put the messages into empty queues for testing
+		/*//put the messages into empty queues for testing
 		for(int m=1; m<=3; m++)
 		{
 			//Select the put new message option
@@ -199,7 +199,7 @@ public class QueuesInsideBrowseMessages
 			{
 				System.out.println("No Exception");
 			}
-		}
+		}*/
 		
 		//Restoring the Default Settings
 		driver.findElement(By.cssSelector(".fa-cog")).click();
@@ -597,6 +597,7 @@ public class QueuesInsideBrowseMessages
 		Thread.sleep(2000);
 		Actions a1=new Actions(driver);
 		a1.sendKeys(Keys.ENTER).perform();
+		
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Exporting Messages is working fine");
 	
@@ -605,6 +606,7 @@ public class QueuesInsideBrowseMessages
 		{
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Failed to export message, check details: "+ e.getMessage());
+			driver.findElement(By.id("Export failed")).click();
 		}
 	}
 	
@@ -888,9 +890,11 @@ public class QueuesInsideBrowseMessages
 		
 		//Select Message check box
 		driver.findElement(By.xpath("//input[@name='name']")).click();
+		Thread.sleep(4000);
 		
-		//Click on Reroute icon
-		driver.findElement(By.xpath("//img[@title='Re-route']")).click();
+		//Click on Reroute icon 
+		//driver.findElement(By.xpath("//img[@title='Re-route']")).click();
+		driver.findElement(By.xpath("//app-console-tab/div/div[2]/div/div/div[4]/img")).click();
 		
 		//Routing template name
 		driver.findElement(By.cssSelector(".ng-input > input")).sendKeys(RouteTemplateName);

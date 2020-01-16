@@ -8,11 +8,6 @@
 		<parameter name="ChangedHostName" value="localhost" />
 		<parameter name="DeleteWGSName" value="WGS10"/>
 
-		<parameter name="NodeName" value="Node-Test" />
-		<parameter name="HostName" value="DESKTOP-7T1JQ3H" />
-		<parameter name="IPAddress" value="127.0.0.1" />
-		<parameter name="PortNumber" value="5010" />
-
 		<parameter name="ConnectionInstanceName" value="REMOTE_QMGRS" />
 		<parameter name="RemoteQueueManagerName" value="QMGR_NAME_DELETE" />
 		<parameter name="ConnectionName" value="127.0.0.1(4321)" />
@@ -41,9 +36,9 @@
 				    <include name="DefaultConnection"/> 
 				    <include name="EditWorkgroup" />
 				    <include name="DeleteWorkgroup" /> 
-				    <include name="AddNode" />
+				    <include name="AddNode" /> 
 				    <include name="AddRemoteQueueManager" />
-					<include name="ModifyRemoteQueueManager" />
+				    <include name="ModifyRemoteQueueManager" />  
 					<include name="DeleteRemoteQueueManager" />   
 				    <include name="AddRemoteEMSManager" />
 					<include name="ModifyRemoteEMSServer" />

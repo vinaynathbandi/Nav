@@ -528,7 +528,7 @@ public class EMSTopic
 		Thread.sleep(1000);
 		
 	}
-	//@Parameters({"Eventsdata"})
+	
 	@Test(priority=8)
 	@TestRail(testCaseId=314)
 	public static void TopicEvents(ITestContext context) throws InterruptedException

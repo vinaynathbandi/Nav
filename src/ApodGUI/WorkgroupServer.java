@@ -33,7 +33,7 @@ import testrail.TestClass;
 import testrail.TestRail;
 import testrail.TestRailAPI;
 
-//@Listeners(TestClass.class)
+@Listeners(TestClass.class)
 public class WorkgroupServer {
 	static WebDriver driver;
 	static String IPAddress;

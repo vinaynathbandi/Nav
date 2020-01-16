@@ -4,20 +4,16 @@
   <test name="Attribute Filter Condition">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-  <parameter name="uname" value="Admin"/>
-  <parameter name="password" value="admin"/>
+ 
   <parameter name="Dashboardname" value="Attribute Filter Dashboard"/>
-  <parameter name="wgs" value="WGS10"/>
-  <parameter name="Node" value="DESKTOP-E1JT2VR"/>
-  <parameter name="Queuemanager" value="MGR"/>
+  <parameter name="LocalQueue" value="Queue Viewlet"/>
+  
   <parameter name="ConditionName" value="Test Condtition"/>
   <parameter name="AttributeName" value="Maximum Depth"/>
   <parameter name="CompareOperation" value="is equal"/>
   <parameter name="ConditionData" value="20000"/>
   <parameter name="RowValue" value="Maximum Depth"/>
-  <parameter name="ConditionValue" value="Maximum Depth"/>
-   
+     
      <classes>
        <class name="ApodGUI.AttributeFilterCondition">
        

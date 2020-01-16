@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="11" total="15" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -11,25 +11,25 @@
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTemporaryViewletUsingDirectOption.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleTopics.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTemporaryViewletUsingTemporaryViewletCheckbox.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Navigator" duration-ms="112362" started-at="2020-01-09T09:53:10Z" finished-at="2020-01-09T09:55:02Z">
+  <suite name="Navigator" duration-ms="140399" started-at="2020-01-16T08:11:09Z" finished-at="2020-01-16T08:13:29Z">
     <groups>
     </groups>
-    <test name="Test Topic Viewlet" duration-ms="112362" started-at="2020-01-09T09:53:10Z" finished-at="2020-01-09T09:55:02Z">
-      <class name="ApodGUI.EMSTopic">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.EMSTopic@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="12" started-at="2020-01-09T09:53:10Z" finished-at="2020-01-09T09:53:10Z">
+    <test name="WorkGroup server Viewlet" duration-ms="140399" started-at="2020-01-16T08:11:09Z" finished-at="2020-01-16T08:13:29Z">
+      <class name="ApodGUI.TemporaryViewlet">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.TemporaryViewlet@1563da5]" name="beforeTest" is-config="true" duration-ms="13" started-at="2020-01-16T08:11:09Z" finished-at="2020-01-16T08:11:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.EMSTopic@33c7e1bb]" name="Login" duration-ms="40053" started-at="2020-01-09T09:53:10Z" finished-at="2020-01-09T09:53:50Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TemporaryViewlet@1563da5]" name="Login" duration-ms="23169" started-at="2020-01-16T08:11:09Z" finished-at="2020-01-16T08:11:32Z">
           <params>
             <param index="0">
               <value>
@@ -43,17 +43,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[TopicViewlet Verification]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[New Topic Viewlet]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[Durable Viewlet]]>
+                <![CDATA[Temp]]>
               </value>
             </param>
           </params>
@@ -66,27 +56,27 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSTopic@33c7e1bb]" name="tearDown" is-config="true" duration-ms="411" started-at="2020-01-09T09:53:50Z" finished-at="2020-01-09T09:53:51Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TemporaryViewlet@1563da5]" name="tearDown" is-config="true" duration-ms="421" started-at="2020-01-16T08:11:32Z" finished-at="2020-01-16T08:11:33Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=EMSTopic.Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.EMSTopic@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=TemporaryViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.TemporaryViewlet@1563da5] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddToFavoriteViewlet(java.lang.String, org.testng.ITestContext)[pri:9, instance:ApodGUI.EMSTopic@33c7e1bb]" name="AddToFavoriteViewlet" duration-ms="7743" started-at="2020-01-09T09:53:51Z" finished-at="2020-01-09T09:53:58Z">
+        <test-method status="PASS" signature="CreateTemporaryViewletUsingDirectOption(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TemporaryViewlet@1563da5]" name="CreateTemporaryViewletUsingDirectOption" duration-ms="24341" started-at="2020-01-16T08:11:33Z" finished-at="2020-01-16T08:11:57Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Favorite Viewlet for Topic]]>
+                <![CDATA[Temp]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@1869fbd2]]>
+                <![CDATA[org.testng.TestRunner@5f77d0f9]]>
               </value>
             </param>
           </params>
@@ -95,31 +85,31 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTemporaryViewletUsingDirectOption.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- AddToFavoriteViewlet -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSTopic@33c7e1bb]" name="tearDown" is-config="true" duration-ms="14940" started-at="2020-01-09T09:54:12Z" finished-at="2020-01-09T09:54:27Z">
+        </test-method> <!-- CreateTemporaryViewletUsingDirectOption -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TemporaryViewlet@1563da5]" name="tearDown" is-config="true" duration-ms="13906" started-at="2020-01-16T08:12:12Z" finished-at="2020-01-16T08:12:26Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddToFavoriteViewlet status=SUCCESS method=EMSTopic.AddToFavoriteViewlet(java.lang.String, org.testng.ITestContext)[pri:9, instance:ApodGUI.EMSTopic@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=CreateTemporaryViewletUsingDirectOption status=SUCCESS method=TemporaryViewlet.CreateTemporaryViewletUsingDirectOption(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.TemporaryViewlet@1563da5] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddToFavoriteForMultipleTopics(java.lang.String, org.testng.ITestContext)[pri:15, instance:ApodGUI.EMSTopic@33c7e1bb]" name="AddToFavoriteForMultipleTopics" duration-ms="4752" started-at="2020-01-09T09:54:27Z" depends-on-methods="ApodGUI.EMSTopic.AddToFavoriteViewlet" finished-at="2020-01-09T09:54:32Z">
+        <test-method status="PASS" signature="CreateTemporaryViewletUsingTemporaryViewletCheckbox(java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.TemporaryViewlet@1563da5]" name="CreateTemporaryViewletUsingTemporaryViewletCheckbox" duration-ms="24275" started-at="2020-01-16T08:12:26Z" finished-at="2020-01-16T08:12:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Favorite Viewlet for Topic]]>
+                <![CDATA[Temp]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@1869fbd2]]>
+                <![CDATA[org.testng.TestRunner@5f77d0f9]]>
               </value>
             </param>
           </params>
@@ -128,37 +118,37 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleTopics.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTemporaryViewletUsingTemporaryViewletCheckbox.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- AddToFavoriteForMultipleTopics -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSTopic@33c7e1bb]" name="tearDown" is-config="true" duration-ms="14659" started-at="2020-01-09T09:54:45Z" finished-at="2020-01-09T09:55:00Z">
+        </test-method> <!-- CreateTemporaryViewletUsingTemporaryViewletCheckbox -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TemporaryViewlet@1563da5]" name="tearDown" is-config="true" duration-ms="17865" started-at="2020-01-16T08:13:05Z" finished-at="2020-01-16T08:13:23Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddToFavoriteForMultipleTopics status=SUCCESS method=EMSTopic.AddToFavoriteForMultipleTopics(java.lang.String, org.testng.ITestContext)[pri:15, instance:ApodGUI.EMSTopic@33c7e1bb] output=<br/>]]]>
+                <![CDATA[[TestResult name=CreateTemporaryViewletUsingTemporaryViewletCheckbox status=SUCCESS method=TemporaryViewlet.CreateTemporaryViewletUsingTemporaryViewletCheckbox(java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.TemporaryViewlet@1563da5] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:20, instance:ApodGUI.EMSTopic@33c7e1bb]" name="Logout" duration-ms="2475" started-at="2020-01-09T09:55:00Z" finished-at="2020-01-09T09:55:02Z">
+        <test-method status="PASS" signature="Logout()[pri:27, instance:ApodGUI.TemporaryViewlet@1563da5]" name="Logout" duration-ms="6346" started-at="2020-01-16T08:13:23Z" finished-at="2020-01-16T08:13:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.EMSTopic@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2020-01-09T09:55:02Z" finished-at="2020-01-09T09:55:02Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.TemporaryViewlet@1563da5]" name="tearDown" is-config="true" duration-ms="0" started-at="2020-01-16T08:13:29Z" finished-at="2020-01-16T08:13:29Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=EMSTopic.Logout()[pri:20, instance:ApodGUI.EMSTopic@33c7e1bb] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=TemporaryViewlet.Logout()[pri:27, instance:ApodGUI.TemporaryViewlet@1563da5] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.EMSTopic -->
-    </test> <!-- Test Topic Viewlet -->
+      </class> <!-- ApodGUI.TemporaryViewlet -->
+    </test> <!-- WorkGroup server Viewlet -->
   </suite> <!-- Navigator -->
 </testng-results>

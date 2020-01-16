@@ -4,15 +4,13 @@
  <test name="Add Schema Condition">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+  
     <parameter name="Dashboardname" value="Schema"/>
-    <parameter name="wgs" value="0"/>
+   
     <parameter name="Attribute" value="Manager Name,Usage,Scope,Get Messages"/>
     <parameter name="AttributeFirstValue" value="Manager Name"/>
     <parameter name="SchemaName" value="Test Schema"/> 
-    <parameter name="Total" value="2"/>
+   
     <parameter name="DisplayedAttributesAfterRemoving" value="In order to create schema atleast one attribute has to be added"/>
     <parameter name="AttributeName" value="Manager Name"/>
     <parameter name="DisplayedAttributesAfterRemovingAttribute" value="In order to create schema atleast one attribute has to be added"/>

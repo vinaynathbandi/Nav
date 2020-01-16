@@ -66,9 +66,9 @@ public class SearchCriteria
 		Manager2 =Settings.getManager2();
 	}
 	
-	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "LocalQueue"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String wgs) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String LocalQueue) throws Exception
 	{
 		Settings.read();
 		String URL = Settings.getSettingURL();
@@ -112,15 +112,15 @@ public class SearchCriteria
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
 		driver.findElement(By.name("dashboardName")).sendKeys(Dashboardname);
-		driver.findElement(By.id("createInitialViewlets")).click();
 		
 		
+		/*driver.findElement(By.id("createInitialViewlets")).click();
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
 		dd.selectByVisibleText(wgs);
 		
-		/*//Selection of Node
+		//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();
 		driver.findElement(By.cssSelector(".field-queuem-input")).sendKeys(Node);
 		
@@ -131,11 +131,29 @@ public class SearchCriteria
 		//Create viewlet button
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(6000);	
+		
+		
+		//--------- Create Queue viewlet-----------
+		//Click on Viewlet
+		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
+		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
+			
+		//Create Route viewlet
+		driver.findElement(By.cssSelector(".object-type:nth-child(3)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys(LocalQueue);
+		
+		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
+		Thread.sleep(1000);
+		dd.selectByVisibleText(WGSName);
+	
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(1000);
 	}
 	
-	@Parameters({"MessageData", "wgs"})
+	@Parameters({"MessageData"})
 	@Test(priority=1)
-	public void PutAmessageIntoQueue(String MessageData, String wgs) throws Exception
+	public void PutAmessageIntoQueue(String MessageData) throws Exception
 	{
 		//Check Show Empty Queues check box
 		driver.findElement(By.cssSelector(".fa-cog")).click();
@@ -144,7 +162,7 @@ public class SearchCriteria
 		Thread.sleep(2000);
 		
 		int QueueName=3;
-		if(!wgs.equalsIgnoreCase("MQM"))
+		if(!WGSName.contains("MQM"))
 		{
 			QueueName=4;
 		}
@@ -156,9 +174,8 @@ public class SearchCriteria
 		//Select the put new message option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Actions PutMessagesMousehour=new Actions(driver);
-		PutMessagesMousehour.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]"))).perform();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li")).click();
-		Thread.sleep(1000);
+		PutMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Put New Message")).click();
 		
 		//Select the number of messages
 		driver.findElement(By.name("generalNumberOfMsgs")).click();
@@ -210,7 +227,7 @@ public class SearchCriteria
 		driver.findElement(By.cssSelector("div.right > div.g-text-and-input.line > button.btn-white-round")).click();
 		Thread.sleep(1000);
 		
-		//Search criteria name
+		/*//Search criteria name
 		driver.findElement(By.cssSelector(".input-group > .form-control")).sendKeys(SearchCriteriaName);
 		driver.findElement(By.cssSelector("button.btn.btn-outline-secondary")).click();
 		Thread.sleep(2000);
@@ -232,7 +249,7 @@ public class SearchCriteria
 		Thread.sleep(6000);
 		
 		driver.findElement(By.xpath("//input[@type='text']")).clear();
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Queue);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Queue);*/
 		
 		//Store the table body
 		String ViewletData=driver.findElement(By.xpath("//datatable-body")).getText();

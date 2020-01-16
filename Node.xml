@@ -8,52 +8,35 @@
 		<parameter name="uname" value="Admin" />
 		<parameter name="password" value="admin" />
 
-		<parameter name="TypeOfNode" value="MQM" />
 		<parameter name="NodeDashboardname" value="Node Dashboard"/>
 		<parameter name="NodeViewletName" value="Node viewlet"/>
+		
+		<parameter name="Description" value="Test Manager From options" />
 
 		<parameter name="Dashboardname" value="Favorite viewlet" />
 		<parameter name="FavoriteViewletName" value="Add Node into Favorite" />
 		<parameter name="Favwgs" value="0" />
-		<parameter name="wgs" value="0" />
-		<parameter name="NodeViewletname" value="Node Viewlet" />
-		<parameter name="SearchInputData" value="DESKTOP-7T1JQ3H" />
-
+		
 		<parameter name="SchemaName" value="NodeSchema" />
-
-		<parameter name="NodeNameFromIcon" value="TestNodeFromIcon" />
-		<parameter name="HostNameFromIcon" value="DESKTOP-7T1JQ3H" />
-		<parameter name="IPAddressFromIcon" value="127.0.0.1" />
-
-		<parameter name="QueueManagerName" value="QMNode" />
-		<parameter name="DefaultTransmissionQueue" value="Add.Queue" />
-		<parameter name="Description" value="Test Manager From options" />
-
-		<parameter name="NodeName" value="Node-Test" />
-
-		<parameter name="IPAddress" value="127.0.0.1" />
-		<parameter name="HostName" value="Localhost" />
-		<parameter name="PortNo" value="4020" />
-		<parameter name="WGSPassword" value="admin" />
 
 		<classes>
 			<class name="ApodGUI.NodeViewlet">
 
 				<methods>
 					<include name="Login" />
-				    <include name="ShowObjectAttributesforNode" />   
+				    <!-- <include name="ShowObjectAttributesforNode" />   
 				    <include name="ShowTopology" /> 
 				    <include name="NodeEvents" />
 					<include name="ManageAndUnmanageNode" />
 					<include name="DiscoverNow" />
 					<include name="DeleteNode" />
-					<include name="PropertiesOfNode" />
+					<include name="PropertiesOfNode" /> -->
 					<include name="CompareTwoNodes" />
 					<include name="CheckDifferencesForNodes"/>
-					<include name="SearchFilter" />
+					<!-- <include name="SearchFilter" />
 					<include name="CreateNodeUsingIcon" />
 				
-				 	<include name="CreateQueueManagerFromNodeViewletOptions" />   
+				 	<include name="CreateQueueManagerFromNodeViewletOptions" />    -->
 					<include name="Logout" />
 
 				</methods>

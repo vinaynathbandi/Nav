@@ -98,7 +98,9 @@ public class Settings {
 	
 	private static String EMS_WGS_INDEX;
 	private static String EMS_WGSNAME;
-	
+	private static String EMSNode;
+	private static String EMSQueueManager;	
+
 	private static String SourceName;
 	private static String TargetName;
 	private static String SelectTopicName;
@@ -115,6 +117,24 @@ public class Settings {
 	
 	private static String WGSName_CreateDashboard;
 	private static String EMSWGS_CreateDashboard;
+	
+	public static String getEMSQueueManager() {
+		return EMSQueueManager;
+	}
+
+
+	public static void setEMSQueueManager(String eMSQueueManager) {
+		EMSQueueManager = eMSQueueManager;
+	}
+	
+	public static String getEMSNode() {
+		return EMSNode;
+	}
+
+
+	public static void setEMSNode(String eMSNode) {
+		EMSNode = eMSNode;
+	}
 	
 	public static String getUploadLargeFile() {
 		return UploadLargeFile;
@@ -364,6 +384,8 @@ public class Settings {
 			
 			EMS_WGS_INDEX = propertiesSetting.getProperty("EMS_WGS_INDEX");
 			EMS_WGSNAME = propertiesSetting.getProperty("EMS_WGSNAME");
+			EMSNode = propertiesSetting.getProperty("EMSNode");
+			EMSQueueManager = propertiesSetting.getProperty("EMSQueueManager");
 			
 			SourceName = propertiesSetting.getProperty("SourceName");
 			TargetName = propertiesSetting.getProperty("TargetName");

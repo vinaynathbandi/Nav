@@ -57,9 +57,9 @@ public class ChannelViewlet
 		Manager1 =Settings.getManager1();
 	}
 	
-	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "wgs", "ChannelName"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "ChannelName"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String Dashboardname, int wgs, String ChannelName) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String ChannelName) throws Exception
 	{
 		Settings.read();
 		String URL = Settings.getSettingURL();
@@ -179,7 +179,7 @@ public class ChannelViewlet
 			System.out.println(TopicNode.size());	
 			for (int i=0; i<TopicNode.size();i++)
 			{
-				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button text:" + TopicNode.get(i).getText());
 				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
 				String s=TopicNode.get(i).getText();
 				if(s.equals(Dnode))

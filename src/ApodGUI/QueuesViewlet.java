@@ -666,12 +666,12 @@ public class QueuesViewlet
 		}
 		
 		//Get the First object Name
-		String compare1 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
-		//System.out.println("First obj name is: " +compare1);
+		String compare1 = driver.findElement(By.xpath("//datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		System.out.println("First obj name is: " +compare1);
 		
 		//Get the second object name
-		String compare2 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
-		//System.out.println("Second obj name is: " +compare2);
+		String compare2 = driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		System.out.println("Second obj name is: " +compare2);
 		
 		// Select compare option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1088,10 +1088,10 @@ public class QueuesViewlet
 			ManagerName_Index=5;
 		}
 		
-		driver.findElement(By.cssSelector(".fa-cog")).click();
+		/*driver.findElement(By.cssSelector(".fa-cog")).click();
 		driver.findElement(By.cssSelector(".checkbox:nth-child(2) > input")).click();
 		driver.findElement(By.cssSelector(".btn-group:nth-child(3) > .btn")).click();
-		Thread.sleep(2000);
+		Thread.sleep(2000);*/
 		
 		String[] Managers = new String[10];
 		for(int i=0; i<10; i++)

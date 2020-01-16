@@ -40,6 +40,8 @@ public class DashboardOptions
 	static String Screenshotpath;
 	static String WGSName_CreateDashboard;
 	static String EMSWGS_CreateDashboard;
+	static String Node_Hostname;
+	static String Manager1;
 
 	
 	@BeforeTest
@@ -50,6 +52,8 @@ public class DashboardOptions
 		Screenshotpath =Settings.getScreenshotPath();
 		WGSName_CreateDashboard =Settings.getWGSName_CreateDashboard();
 		EMSWGS_CreateDashboard =Settings.getEMSWGS_CreateDashboard();
+		Node_Hostname =Settings.getNode_Hostname();
+		Manager1 =Settings.getManager1();
 	}
 		
 	@Parameters({"sDriver", "sDriverpath"})
@@ -98,9 +102,9 @@ public class DashboardOptions
 	}
 	
 	@TestRail(testCaseId=754)
-	@Parameters({"Dashboardname", "Node", "QueueManager"})
+	@Parameters({"Dashboardname"})
 	@Test(priority=1)
-	public void CreateWGSDashboard(String Dashboardname, String Node, String QueueManager, ITestContext context) throws InterruptedException
+	public void CreateWGSDashboard(String Dashboardname, ITestContext context) throws InterruptedException
 	{
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -159,9 +163,9 @@ public class DashboardOptions
 	}
 	
 	@TestRail(testCaseId=755)
-	@Parameters({"EMSDashboardname", "EMSNode", "EMSQueueManager"})
+	@Parameters({"EMSDashboardname"})
 	@Test(priority=2)
-	public void CreateEMSDashboard(String EMSDashboardname, String EMSNode, String EMSQueueManager, ITestContext context) throws InterruptedException
+	public void CreateEMSDashboard(String EMSDashboardname, ITestContext context) throws InterruptedException
 	{
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
@@ -223,9 +227,9 @@ public class DashboardOptions
 	}
 	
 	@TestRail(testCaseId=756)
-	@Parameters({"EMSQueueManager", "Dashboardname"})
+	@Parameters({"Dashboardname"})
 	@Test(priority=3)
-	public void SetAsDeafaultOption(String EMSQueueManager, String Dashboardname, ITestContext context) throws Exception
+	public void SetAsDeafaultOption(String Dashboardname, ITestContext context) throws Exception
 	{
 		
 		Settings.read();

@@ -268,6 +268,7 @@ public class ManagerViewlet
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Exception occured while showing object attributes, Check details: " + e.getMessage());
 			driver.findElement(By.id("Objects verification failed")).click();
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 	}
 	
@@ -765,7 +766,7 @@ public class ManagerViewlet
 		
 		//Select the favorite viewlet name
 		Select fav=new Select(driver.findElement(By.cssSelector(".fav-select")));
-		fav.selectByIndex(0);
+		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(".g-block-bottom-buttons > .g-button-blue")).click();
 		Thread.sleep(6000);
@@ -1054,9 +1055,11 @@ public class ManagerViewlet
 		
 	}
 	
+	
+	@Parameters({"FavoriteViewletName"})
 	@Test(priority=22, dependsOnMethods= {"AddToFavorites"})
 	@TestRail(testCaseId = 65)
-	public static void AddToFavoriteForMultipleManagers(ITestContext context) throws InterruptedException
+	public static void AddToFavoriteForMultipleManagers(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
 		int ManagerName_Index=3;
 		if(!WGSName.contains("MQM"))
@@ -1081,7 +1084,7 @@ public class ManagerViewlet
 		{
 		//Select the favorite viewlet name
 		Select fav=new Select(driver.findElement(By.cssSelector(".fav-select")));
-		fav.selectByIndex(0);
+		fav.selectByVisibleText(FavoriteViewletName);
 		Thread.sleep(2000);
 		driver.findElement(By.cssSelector(".g-block-bottom-buttons > .g-button-blue")).click();
 		Thread.sleep(4000);
@@ -1114,7 +1117,6 @@ public class ManagerViewlet
 	}
 	
 	@Parameters({"QueueManagerNameFromOptions", "DefaultTransmissionQueueFromOptions", "DescriptionFromOptions"})
-	
 	@Test(priority=23)
 	@TestRail(testCaseId = 66)
 	public void CreateQueueManagerFromOptions(String QueueManagerNameFromOptions, String DefaultTransmissionQueueFromOptions, String DescriptionFromOptions,ITestContext context) throws InterruptedException
@@ -1184,10 +1186,10 @@ public class ManagerViewlet
 		Thread.sleep(2000);
 	}
 	
-	@Parameters({"SearchInputData"})
+	
 	@TestRail(testCaseId = 67)
 	@Test(priority=29)
-	public static void SearchFilter(String SearchInputData,ITestContext context) throws InterruptedException
+	public static void SearchFilter(ITestContext context) throws InterruptedException
 	{
 		//Get the manager name into string
 		String Manager=driver.findElement(By.xpath("//datatable-body-cell[3]")).getText();
@@ -1217,7 +1219,7 @@ public class ManagerViewlet
 	    }
 	    
 	    //Clear the search field data
-	    for(int k=0; k<=SearchInputData.length(); k++)
+	    for(int k=0; k<=Manager.length(); k++)
 	    {
 	    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
 	    }

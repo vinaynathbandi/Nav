@@ -107,22 +107,22 @@ public class AttributeFilterCondition
 		Thread.sleep(8000);
 	}
 	
-	@Parameters({"Dashboardname", "Node", "Queuemanager", "wgs"})
+	@Parameters({"Dashboardname", "LocalQueue"})
 	@Test(priority=1)
-	public static void AddDashboard(String Dashboardname, String Node, String Queuemanager, String wgs) throws Exception
+	public static void AddDashboard(String Dashboardname, String LocalQueue) throws Exception
 	{
 		
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
 		driver.findElement(By.name("dashboardName")).sendKeys(Dashboardname);
-		driver.findElement(By.id("createInitialViewlets")).click();
 		
 		
+		/*driver.findElement(By.id("createInitialViewlets")).click();
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
 		dd.selectByVisibleText(wgs);
 		
-		/*//Selection of Node
+		//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();
 		driver.findElement(By.cssSelector(".field-queuem-input")).sendKeys(Node);
 		
@@ -133,6 +133,23 @@ public class AttributeFilterCondition
 		//Create viewlet button
 		driver.findElement(By.xpath("//button[@type='submit']")).click();
 		Thread.sleep(2000);
+		
+		//--------- Create Queue viewlet-----------
+		//Click on Viewlet
+		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
+		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
+			
+		//Create Route viewlet
+		driver.findElement(By.cssSelector(".object-type:nth-child(3)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys(LocalQueue);
+		
+		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
+		Thread.sleep(1000);
+		dd.selectByVisibleText(WGSName);
+	
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(1000);
 	}
 	
 	@Parameters({"ConditionName", "AttributeName", "CompareOperation", "ConditionData", "RowValue"})

@@ -4,23 +4,14 @@
  <test name="Test Service Viewlet">
    <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+  
     <parameter name="Dashboardname" value="ServiceViewlet Verification"/>
-    <parameter name="wgs" value="1"/>
     <parameter name="Servicename" value="New Service Viewlet"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="schemaName" value="ServiceSchema"/>
+    <parameter name="FavoriteViewletName" value="Service Favorite viewlet"/>
     
     <parameter name="DestinationManager" value="M10"/>
-    
-    <parameter name="schemaName" value="ServiceSchema"/>
-    <parameter name="Attributes" value="Service Name,Service Description,Service Type,Start Mode,Start Command,Start Arguments,STDERR,STDOUT,Stop Command,Stop Arguments"/>
-    
-    <parameter name="FavoriteViewletName" value="Service Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
-
-  
+     
      <classes>
       <class name="ApodGUI.ServiceViewlet">
        

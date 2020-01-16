@@ -4,11 +4,8 @@
  <test name="Test Subscription Viewlet">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+  
     <parameter name="Dashboardname" value="Subscription Verification"/>
-    <parameter name="wgs" value="1"/>
     <parameter name="Subscriptionname" value="New Subscription Viewlet"/>
     <parameter name="SubscriptionAttributes" value="Attributes"/>
     <parameter name="schemaName" value="SubscriptionSchema"/>
@@ -16,35 +13,19 @@
     <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.OPTIONS"/>
     <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
     <parameter name="TopicStringData" value="Unique"/>
-    <parameter name="DWGS" value="WGS10"/>
-    <parameter name="NodeName" value="DESKTOP-E1JT2VR"/>
-    <parameter name="DestinationManager" value="AA"/>
-    <parameter name="DestinationQueue" value="AC"/>
-    
-    <parameter name="FavoriteViewletName" value="Subscription Favorite viewlet"/>
-    <parameter name="Favwgs" value="1"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
     
     <parameter name="CopyObjectName" value=".Copy"/>
     <parameter name="RenameSubscription" value="Test.Subscription.Rename"/>
-    <parameter name="SubscriptionName" value="A.M10.TestCopy.suscription.copy"/>
     
-    <parameter name="CopyObjectNameForMUltiple" value="SUB.MULTIPLE.COPY"/>
-    <parameter name="RenameSubscriptionForMultiple" value="SYSTEM.SUBSCRIPTION.RENAME"/>  
+    <parameter name="FavoriteViewletName" value="Subscription Favorite viewlet"/>
     
-    <parameter name="DestinationNodeName" value="DESKTOP-E1JT2VR"/>
-    <parameter name="DestinationManagerName" value="M1"/>
     <parameter name="AddSubscriptionNameFromIcon" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.ICON"/>
-    <parameter name="DestinationIconTopicName" value="SYSTEM.ADMIN.TOPIC"/>
     <parameter name="TopicStringDataFromICon" value="UniqueIcon"/>
-    <parameter name="DWGSIcon" value="WGS10"/>
-    <parameter name="NodeNameFromIcon" value="DESKTOP-E1JT2VR"/>
-    <parameter name="DestinationManagerFromIcon" value="M1"/>
-    <parameter name="DestinationQueueFromIcon" value="ABCD"/>
+    <parameter name="CopyObjectNameForMUltiple" value="SUB.MULTIPLE.COPY"/>
+    <parameter name="RenameSubscriptionForMultiple" value="SYSTEM.SUBSCRIPTION.RENAME"/>
     
-     <parameter name="SearchdataforMultipleProperties" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
-
-  
+    <parameter name="SearchdataforMultipleProperties" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
+      
      <classes>
       <class name="ApodGUI.SubscriptionViewlet">
        
@@ -62,7 +43,7 @@
         <include name="AddToFavoriteViewlet"/> 
           
         <include name="CompareSubscription"/> 
-        <include name="CheckDifferencesForSubscriptions"/>
+        <include name="CheckDifferencesForSubscriptions"/>  
         <include name="CreateSubscriptionFromPlusIcon"/> 
         <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
         <include name="RenameFromCommandsForMultipleSubscriptions"/>

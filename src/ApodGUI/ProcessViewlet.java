@@ -318,6 +318,7 @@ public class ProcessViewlet
 		{
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Failed to show object attribute page, check details: "+ e.getMessage());
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 	}
 	
