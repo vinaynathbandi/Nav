@@ -17,7 +17,7 @@ import java.util.Map;
 public class TestRailAPI {
 
 	static String api;
-
+	
 	public static APIClient client() throws Exception {
 		// TODO make this read from settings/config file
 
@@ -49,6 +49,7 @@ public class TestRailAPI {
 
 			// Read project id
 			long project_id = Long.parseLong(Settings.getSettingProjectId());
+			long testrun_id= Long.parseLong(Settings.getTestRunID());
 			JSONArray testrunsarr = new JSONArray();
 			Integer suite_id = 0;
 			Integer run_id = 0;
@@ -93,7 +94,7 @@ public class TestRailAPI {
 						 * System.out.println("defect id: " + defect_id);
 						 */
 
-						if(run_id==33)
+						if(run_id==testrun_id)
 						{
 						JSONObject r = addResult(status_id, comment, run_id, p_caseId, methodname);
 						}
@@ -201,6 +202,7 @@ public class TestRailAPI {
 			APIClient client = TestRailAPI.client();
 			// Read project id
 			long project_id = Long.parseLong(Settings.getSettingProjectId());
+			long testrun_id= Long.parseLong(Settings.getTestRunID());
 			JSONArray testrunsarr = new JSONArray();
 			Integer suite_id = 0;
 			Integer run_id = 0;
@@ -242,7 +244,7 @@ public class TestRailAPI {
 						 * 
 						 * System.out.println("defect id: " + defect_id);
 						 */
-						if(run_id==33)
+						if(run_id==testrun_id)
 						{
 							JSONObject r = UpdateResult(run_id, p_caseId, methodname);
 						}

@@ -592,19 +592,13 @@ public class NodeViewlet {
 	@Test(priority = 10)
 	@TestRail(testCaseId = 43)
 	public static void CompareTwoNodes(ITestContext context) throws InterruptedException 
-	{
-		int Name_Index=3;
-		if(!WGSName.contains("MQM"))
-		{
-			Name_Index=4;
-		}
-		
+	{	
 		//Get the First object Name                         
-		String compare1 = driver.findElement(By.xpath("//datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare1 = driver.findElement(By.xpath("//datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
 		System.out.println("First obj name is: " +compare1);
 		
 		//Get the second object name
-		String compare2 = driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare2 = driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[3]/div/span")).getText();
 		System.out.println("Second obj name is: " +compare2);
 		
 		// Select compare option

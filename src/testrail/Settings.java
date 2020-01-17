@@ -116,7 +116,21 @@ public class Settings {
 	private static String NodeWGS;
 	
 	private static String WGSName_CreateDashboard;
+	
 	private static String EMSWGS_CreateDashboard;
+	private static String TestRunID;
+	
+	
+	public static String getTestRunID() {
+		return TestRunID;
+	}
+
+
+	public static void setTestRunID(String testRunID) {
+		TestRunID = testRunID;
+	}
+
+	
 	
 	public static String getEMSQueueManager() {
 		return EMSQueueManager;
@@ -402,6 +416,7 @@ public class Settings {
 			
 			WGSName_CreateDashboard = propertiesSetting.getProperty("WGSName_CreateDashboard");
 			EMSWGS_CreateDashboard = propertiesSetting.getProperty("EMSWGS_CreateDashboard");
+			TestRunID = propertiesSetting.getProperty("TestRunID");
 			
 			
 		}

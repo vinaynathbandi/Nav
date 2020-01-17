@@ -24,19 +24,19 @@
 
 				<methods>
 					<include name="Login" />
-				    <!-- <include name="ShowObjectAttributesforNode" />   
+				    <include name="ShowObjectAttributesforNode" />   
 				    <include name="ShowTopology" /> 
 				    <include name="NodeEvents" />
 					<include name="ManageAndUnmanageNode" />
 					<include name="DiscoverNow" />
 					<include name="DeleteNode" />
-					<include name="PropertiesOfNode" /> -->
+					<include name="PropertiesOfNode" /> 
 					<include name="CompareTwoNodes" />
-					<include name="CheckDifferencesForNodes"/>
-					<!-- <include name="SearchFilter" />
+				    <include name="CheckDifferencesForNodes"/>
+				    <include name="SearchFilter" />
 					<include name="CreateNodeUsingIcon" />
 				
-				 	<include name="CreateQueueManagerFromNodeViewletOptions" />    -->
+				 	<include name="CreateQueueManagerFromNodeViewletOptions" />   
 					<include name="Logout" />
 
 				</methods>

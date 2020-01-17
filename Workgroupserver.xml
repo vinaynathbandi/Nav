@@ -39,7 +39,7 @@
 				    <include name="AddNode" /> 
 				    <include name="AddRemoteQueueManager" />
 				    <include name="ModifyRemoteQueueManager" />  
-					<include name="DeleteRemoteQueueManager" />   
+				    <include name="DeleteRemoteQueueManager" />    
 				    <include name="AddRemoteEMSManager" />
 					<include name="ModifyRemoteEMSServer" />
 				    <include name="DeleteRemoteEMSServer" />  
