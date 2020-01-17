@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -226,6 +227,33 @@ public class SearchCriteria
 		
 		driver.findElement(By.cssSelector("div.right > div.g-text-and-input.line > button.btn-white-round")).click();
 		Thread.sleep(1000);
+		
+		//Click on Add icon
+		driver.findElement(By.xpath("//img[@alt='new']")).click();
+		
+		//Double click on Element
+		Actions actionclick=new Actions(driver);
+		WebElement DC=driver.findElement(By.xpath("//span[contains(.,'Double Click here to Write Message Criteria Name')]"));
+		actionclick.doubleClick(DC).build().perform();
+		
+		driver.findElement(By.cssSelector(".active > .datatable-row-center .ng-star-inserted")).click();
+		driver.findElement(By.cssSelector(".active > .datatable-row-center .ng-star-inserted")).sendKeys(SearchCriteriaName);
+		
+		//Click on Data enter icon
+		driver.findElement(By.xpath("//img[@alt='Data']")).click();
+		
+		//Enter the search data
+		driver.findElement(By.xpath("//div[2]/textarea")).sendKeys(SearchCriteriaData);
+		
+		//Click on Save button
+		driver.findElement(By.xpath("//app-mod-data/div/div[2]/div/div/div/button")).click();
+		
+		//Click on save button in windo
+		driver.findElement(By.xpath("//button[contains(.,'Save')]")).click();
+		
+		//Click on Apply changes button
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(6000);
 		
 		/*//Search criteria name
 		driver.findElement(By.cssSelector(".input-group > .form-control")).sendKeys(SearchCriteriaName);

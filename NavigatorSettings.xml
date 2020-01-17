@@ -4,9 +4,7 @@
  <test name="Settings">
   <parameter name="sDriver" value="webdriver.chrome.driver"/>
   <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+  
     <parameter name="Dashboardname" value="Settings Dashboard"/>
     <parameter name="wgs" value="MQM"/>
     <parameter name="FavoriteViewletName" value="Fav Viewlet"/>

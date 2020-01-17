@@ -9,8 +9,7 @@
   <parameter name="LocalQueue" value="Queues Viewlest"/>
   
    <parameter name="MessageData" value="Test the Message Search criteria condition"/>
- <!-- <parameter name="Node" value="DESKTOP-E1JT2VR"/>
-  <parameter name="Queuemanager" value="MGR"/> -->
+ 
   <parameter name="SearchCriteriaName" value="Search Queues"/>
   <parameter name="SearchCriteriaData" value="Message Search criteria"/>
    

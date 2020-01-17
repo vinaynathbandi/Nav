@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Dashboard functions(failed)">
-    <parameter name="Dashboardname" value="Dashboard Verficaton"/>
-    <parameter name="EMSDashboardname" value="EMS Dashboard"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Testing Navigator Dashboard]">
+  <test thread-count="5" name="Add Dashboard reports(failed)">
+    <parameter name="Dashboardname" value="Search Criteria Dashboard"/>
+    <parameter name="SearchCriteriaData" value="Message Search criteria"/>
+    <parameter name="LocalQueue" value="Queues Viewlest"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="NewDashboardName" value="DashboardRenamed"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="MessageData" value="Test the Message Search criteria condition"/>
+    <parameter name="SearchCriteriaName" value="Search Queues"/>
     <classes>
-      <class name="ApodGUI.DashboardOptions">
+      <class name="ApodGUI.SearchCriteria">
         <methods>
-          <include name="RenameDashboard" invocation-numbers="0"/>
-          <include name="CreateWGSDashboard"/>
-          <include name="DeleteDashboard" invocation-numbers="0"/>
-          <include name="beforeTest"/>
-          <include name="SetAsDeafaultOption"/>
-          <include name="CreateEMSDashboard"/>
+          <include name="AddSearchCriteriaCondition" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="Logout"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.DashboardOptions -->
+      </class> <!-- ApodGUI.SearchCriteria -->
     </classes>
-  </test> <!-- Dashboard functions(failed) -->
-</suite> <!-- Failed suite [Navigator] -->
+  </test> <!-- Add Dashboard reports(failed) -->
+</suite> <!-- Failed suite [Testing Navigator Dashboard] -->

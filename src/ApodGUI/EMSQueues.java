@@ -658,36 +658,55 @@ public class EMSQueues
 			System.out.println("AttributesData count: " + AttributesData.size());
 
 			boolean verifydiff = false;
-			for (int i = 0; i < AttributesData.size(); i++) {
+			String difference1=driver.findElement(By.xpath("//tr[4]/td[2]")).getText();
+			System.out.println("First value" +difference1);
+			String difference2=driver.findElement(By.xpath("//tr[4]/td[3]")).getText();
+			System.out.println("Second value" +difference2);
+
+			if(!(difference1.isEmpty() && difference2.isEmpty()))
+			{
+			for (int i = 0; i < AttributesData.size(); i++) 
+			{
 				String cls = AttributesData.get(i).getAttribute("style");
-				//System.out.println("classname: "+ cls);
-				if (!cls.contains("display: none")) {
-					//System.out.println("index: " + i);
+				System.out.println("classname: "+ cls);
+				if (!cls.contains("display: none")) 
+					{
+					System.out.println("index: " + i);
 					String secondvalue;
 					String firstvalue;
-					if (i == 0) {
+					if (i == 0)
+					{
 						firstvalue = driver.findElement(By.xpath("//td[2]")).getText();
-						System.out.println("First value: " + firstvalue);
+						System.out.println("First value" + firstvalue);
 						secondvalue = driver.findElement(By.xpath("//td[3]")).getText();
-						System.out.println("Second value: " + secondvalue);
-						if (!firstvalue.equalsIgnoreCase(secondvalue)) {
+						System.out.println("Second value" + secondvalue);
+						
+						if (!firstvalue.equalsIgnoreCase(secondvalue)) 
+						{
 							verifydiff = true;
 						}
-
-					} else {
+					} 
+					else
+					{
 						int j = i + 1;
-						//System.out.println("index changed: " + j);
+						System.out.println("index changed: " + j);
 						firstvalue = driver.findElement(By.xpath("//tr[" + j + "]/td[2]")).getText();
-						System.out.println("First value: " + firstvalue);
+						System.out.println("First value" + firstvalue);
 						secondvalue = driver.findElement(By.xpath("//tr[" + j + "]/td[3]")).getText();
-						System.out.println("Second value: " + secondvalue);
-						if (!firstvalue.equalsIgnoreCase(secondvalue)) {
+						System.out.println("Second value" + secondvalue);
+						if (!firstvalue.equalsIgnoreCase(secondvalue)) 
+						{
 							verifydiff = true;
 						}
-
 					}
 				}
 
+				}
+			
+			}
+			else
+			{
+			verifydiff=true;
 			}
 
 			//System.out.println("");
