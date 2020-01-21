@@ -701,7 +701,8 @@ public class TopicViewlet
 		WGS.selectByVisibleText(WGSName);
 		
 		//Select Node 
-		driver.findElement(By.xpath("//div[2]/input")).click();
+		driver.findElement(By.xpath("//ng-select/div")).click();
+		Thread.sleep(2000);
 		try 
 		{
 			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
@@ -714,6 +715,7 @@ public class TopicViewlet
 				if(s.equals(Dnode))
 				{
 					String id=TopicNode.get(i).getAttribute("id");
+					Thread.sleep(3000);
 					driver.findElement(By.id(id)).click();
 					break;
 				}

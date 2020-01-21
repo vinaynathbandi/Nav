@@ -1,0 +1,3630 @@
++-----------------------------------------------------------------------------+
+|                                                                             |
+| IBM MQ First Failure Symptom Report                                         |
+| =========================================                                   |
+|                                                                             |
+| Date/Time         :- Wed December 11 2019 12:20:42 India Standard Time      |
+| UTC Time          :- 1576047042.125000                                      |
+| UTC Time Offset   :- 330 ((UNKNOWN))                                        |
+| Host Name         :- DESKTOP-E1JT2VR                                        |
+| Operating System  :- Windows 8 Professional x64 Edition, Build 9200         |
+| PIDS              :- 5724H7251                                              |
+| LVLS              :- 9.0.0.0                                                |
+| Product Long Name :- IBM MQ for Windows (x64 platform)                      |
+| Vendor            :- IBM                                                    |
+| O/S Registered    :- 1                                                      |
+| Data Path         :- C:\ProgramData\IBM\MQ                                  |
+| Installation Path :- C:\Program Files\IBM\MQ                                |
+| Installation Name :- Installation1    (1)                                   |
+| License Type      :- Production                                             |
+| Probe Id          :- XY200003                                               |
+| Application Name  :- MQM                                                    |
+| Component         :- xgmWriteNTEventLog                                     |
+| SCCS Info         :- F:\build\slot1\p900_P\src\lib\cs\pc\winnt\amqxgmsn.c,  |
+| Line Number       :- 1207                                                   |
+| Build Date        :- May 12 2016                                            |
+| Build Level       :- p900-L160512.4                                         |
+| Build Type        :- IKAP - (Production)                                    |
+| UserID            :- SYSTEM                                                 |
+| Process Name      :- C:\Program Files\IBM\MQ\bin64\amqzmuc0.exe             |
+| Arguments         :- -m M1                                                  |
+| Addressing mode   :- 64-bit                                                 |
+| Process           :- 00010004                                               |
+| Thread            :- 00000001    Critical                                   |
+| Session           :- 00000000                                               |
+| QueueManager      :- M1                                                     |
+| UserApp           :- FALSE                                                  |
+| ConnId(1) IPCC    :- 5                                                      |
+| ConnId(2) QM      :- 13                                                     |
+| Last HQC          :- 1.0.0-1222208                                          |
+| Last HSHMEMB      :- 2.12.12-1495872                                        |
+| Last ObjectName   :-                                                        |
+| Major Errorcode   :- xecF_E_UNEXPECTED_SYSTEM_RC                            |
+| Minor Errorcode   :- OK                                                     |
+| Probe Type        :- MSGAMQ6119                                             |
+| Probe Severity    :- 2                                                      |
+| Probe Description :- AMQ6119: An internal IBM MQ error has occurred (WinNT  |
+|   error 1722 from RegisterEventSource.)                                     |
+| FDCSequenceNumber :- 0                                                      |
+| Comment1          :- WinNT error 1722 from RegisterEventSource.             |
+| Comment2          :- The RPC server is unavailable.                         |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+MQM Function Stack
+amqzmuc0
+zmuUtilityManager
+zmuShutdownPhase
+zmuStopThisTask
+xcsDisplayMessageForSubpool
+xcsDisplayMessage
+xgmWriteNTEventLog
+xcsFFST
+
+MQM Trace History
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xcsFreeMemFn
+----} xcsFreeMemFn rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xufCloseIniRead
+---} xufCloseIniRead rc=OK
+--} xcsBrowseFileCallback rc=OK
+-} xcsBrowseIniCallback rc=OK
+} xcsGetQMDetails rc=OK
+{ xcsFreeMemFn
+} xcsFreeMemFn rc=OK
+{ xcsQueryValueForSubpool
+} xcsQueryValueForSubpool rc=OK
+{ xcsDisplayMessage
+-{ xcsGetMemFn
+-} xcsGetMemFn rc=OK
+-{ xcsGetMessage
+--{ xcsGetMemFn
+--} xcsGetMemFn rc=OK
+--{ xeeConvertInserts
+---{ xcsGetMemFn
+---} xcsGetMemFn rc=OK
+--} xeeConvertInserts rc=OK
+--{ xgmNTGetMessage
+---{ xgmDetermineMsgCatLanguage
+---} xgmDetermineMsgCatLanguage rc=OK
+--} xgmNTGetMessage rc=OK
+--{ xcsFreeMemFn
+--} xcsFreeMemFn rc=OK
+--{ xcsFreeMemFn
+--} xcsFreeMemFn rc=OK
+-} xcsGetMessage rc=OK
+-{ xcsIsEnvironment
+-} xcsIsEnvironment rc=OK
+-{ xeeOpenFiles
+--{ xcsCreateFile
+--} xcsCreateFile rc=OK
+-} xeeOpenFiles rc=OK
+-{ xeeGenerateInfoString
+-} xeeGenerateInfoString rc=OK
+-{ xeeCloseFiles
+-} xeeCloseFiles rc=OK
+-{ xeeGenerateInfoString
+-} xeeGenerateInfoString rc=OK
+-{ xgmWriteNTEventLog
+--{ xgmCheckMsgRequired
+--} xgmCheckMsgRequired rc=OK
+--{ xeeConvertInserts
+---{ xcsGetMemFn
+---} xcsGetMemFn rc=OK
+--} xeeConvertInserts rc=OK
+--{ xcsFFST
+
+Thread Control Block (xihTHREAD pCtl)
+0000015BE728EFD0   58494854  40160000  00000000  00000000    XIHT@...........
+0000015BE728EFE0   01000000  00000000  00010000  00000000    ................
+0000015BE728EFF0   80EC29E7  5B010000  00000000  00000000    ?.)?[...........
+0000015BE728F000   00010000  00000000  00000000  00000000    ................
+0000015BE728F010   4A000000  01000000  00000000  00000000    J...............
+0000015BE728F020   00000000  00000000  00000000  00000000    ................
+0000015BE728F030 to 0000015BE728F110 suppressed, lines same as above
+0000015BE728F120   00DACFBA  2F000000  00000000  00000000    ..../...........
+0000015BE728F130   00DACFBA  2F000000  00DBCFBA  2F000000    ..../......./...
+0000015BE728F140   03000000  00000000  00000000  00000000    ................
+0000015BE728F150   00000000  00000000  25000000  00000000    ........%.......
+0000015BE728F160   D0EF28E7  5B010000  00000800  00000000    ..(?[...........
+0000015BE728F170   2D5D1B12  F97F0000  801F0000  7F020000    -]......?.......
+0000015BE728F180   00000000  00000000  00000000  00000000    ................
+0000015BE728F190 to 0000015BE728F210 suppressed, lines same as above
+0000015BE728F220   A0E9CFBA  2F000000  C01C37E8  5B010000    ??../.....7?[...
+0000015BE728F230   A0E9CFBA  2F000000  A0EACFBA  2F000000    ??../...??../...
+0000015BE728F240   00000000  00000000  08000000  00000000    ................
+0000015BE728F250   18309712  F97F0000  06000000  00000000    .0?.............
+0000015BE728F260   00000000  00000000  00000000  00000000    ................
+0000015BE728F270   78DD0EF4  F87F0000  801F0000  7F020000    x...?...?.......
+0000015BE728F280   00000000  00000000  00000000  00000000    ................
+0000015BE728F290 to 0000015BE728FB10 suppressed, lines same as above
+0000015BE728FB20   18000000  00000000  00000000  00000000    ................
+0000015BE728FB30   00000000  00000000  00000000  00000000    ................
+0000015BE728FB40   00000000  FFFFFFFF  00000000  00000000    ....????........
+0000015BE728FB50   00000000  00000000  00000000  00000000    ................
+0000015BE728FB60   53595354  454D0000  00000000  00000000    SYSTEM..........
+0000015BE728FB70   00000000  00000000  0C000000  01010000    ................
+0000015BE728FB80   00000005  12000000  00000000  00000000    ................
+0000015BE728FB90   00000000  00000000  00000000  00000000    ................
+0000015BE728FBA0   01000000  00000000  00000000  00000000    ................
+0000015BE728FBB0   00000000  00000000  00000000  00000000    ................
+0000015BE728FBC0   200629E7  5B010000  00000000  00000000     .)?[...........
+0000015BE728FBD0   00000000  00000000  00000000  00000000    ................
+0000015BE728FBE0 to 0000015BE728FC00 suppressed, lines same as above
+0000015BE728FC10   00000000  00000000  558800F0  A58800F0    ........U?..??..
+0000015BE728FC20   588800F0  608800F0  7D5D00F0  165C00F0    X?..`?..}]...\..
+0000015BE728FC30   C86000F0  035C00F0  155C00F0  885E00F0    .`...\...\..?^..
+0000015BE728FC40   C96000F0  A55D00F0  00000000  00000000    .`..?]..........
+0000015BE728FC50   00000000  00000000  00000000  00000000    ................
+0000015BE728FC60 to 0000015BE728FCE0 suppressed, lines same as above
+0000015BE728FCF0   00000000  00000000  065C00F0  065C0000    .........\...\..
+0000015BE728FD00   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE728FD10   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE728FD20   126000F0  12600000  30610000  09600000    .`...`..0a..	`..
+0000015BE728FD30   7C5D0000  065C00F0  065C0000  595D00F0    |]...\...\..Y]..
+0000015BE728FD40   595D0000  165C00F0  055C00F0  055C0000    Y]...\...\...\..
+0000015BE728FD50   4C5C00F0  055C00F0  055C0000  535C00F0    L\...\...\..S\..
+0000015BE728FD60   055C00F0  055C0000  535C0000  CA6000F0    .\...\..S\...`..
+0000015BE728FD70   C96000F0  C9600000  CA600000  065C00F0    .`...`...`...\..
+0000015BE728FD80   065C0000  065C00F0  065C0000  4C5C0000    .\...\...\..L\..
+0000015BE728FD90   CB5D00F0  CB5D0000  925D00F0  D15E00F0    .]...]..?]...^..
+0000015BE728FDA0   D15E0000  925D0000  895E00F0  895E0000    .^..?]..?^..?^..
+0000015BE728FDB0   935D00F0  935D0000  895E00F0  895E0000    ?]..?]..?^..?^..
+0000015BE728FDC0   C86000F0  CF6000F0  CF600000  535C00F0    .`...`...`..S\..
+0000015BE728FDD0   055C00F0  055C0000  535C0000  035C00F0    .\...\..S\...\..
+0000015BE728FDE0   4C5C00F0  055C00F0  055C0000  535C00F0    L\...\...\..S\..
+0000015BE728FDF0   055C00F0  055C0000  535C0000  CA6000F0    .\...\..S\...`..
+0000015BE728FE00   C96000F0  C9600000  CA600000  065C00F0    .`...`...`...\..
+0000015BE728FE10   065C0000  065C00F0  065C0000  4C5C0000    .\...\...\..L\..
+0000015BE728FE20   B36000F0  B3600000  135C00F0  135C0000    .`...`...\...\..
+0000015BE728FE30   D15E00F0  D15E0000  CB5D00F0  CB5D0000    .^...^...]...]..
+0000015BE728FE40   055C00F0  055C0000  135C00F0  135C0000    .\...\...\...\..
+0000015BE728FE50   135C00F0  135C0000  135C00F0  135C0000    .\...\...\...\..
+0000015BE728FE60   1F5E00F0  205E00F0  205E0000  1F5E0000    .^.. ^.. ^...^..
+0000015BE728FE70   135C00F0  135C0000  135C00F0  135C0000    .\...\...\...\..
+0000015BE728FE80   135C00F0  885E00F0  885E0000  135C0000    .\..?^..?^...\..
+0000015BE728FE90   655D00F0  655D0000  155C00F0  155C0000    e]..e]...\...\..
+0000015BE728FEA0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE728FEB0 to 0000015BE728FF20 suppressed, lines same as above
+0000015BE728FF30   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE728FF40   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE728FF50   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE728FF60   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE728FF70   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE728FF80   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE728FF90   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE728FFA0   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE728FFB0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE728FFC0   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE728FFD0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE728FFE0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE728FFF0   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290000   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290010   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290020   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE7290030   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290040   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290050   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290060   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290070   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290080   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290090   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE72900A0   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE72900B0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72900C0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE72900D0   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE72900E0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE72900F0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290100   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290110   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290120   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290130   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290140   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290150   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290160   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290170   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290180   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE7290190   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE72901A0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE72901B0   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72901C0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE72901D0   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE72901E0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72901F0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290200   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290210   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290220   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290230   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE7290240   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290250   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290260   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290270   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290280   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290290   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72902A0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE72902B0   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE72902C0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72902D0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE72902E0   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE72902F0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290300   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290310   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290320   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290330   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290340   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290350   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290360   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290370   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290380   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290390   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE72903A0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE72903B0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE72903C0   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72903D0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE72903E0   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE72903F0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290400   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290410   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE7290420   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290430   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290440   0D600000  0B600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE7290450   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290460   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+0000015BE7290470   0B6000F0  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE7290480   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE7290490   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE72904A0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72904B0   055C00F0  055C0000  0F600000  0D6000F0    .\...\...`...`..
+0000015BE72904C0   0D600000  0F6000F0  055C00F0  055C0000    .`...`...\...\..
+0000015BE72904D0   0F600000  0D6000F0  0D600000  0F6000F0    .`...`...`...`..
+0000015BE72904E0   055C00F0  055C0000  0F600000  0B600000    .\...\...`...`..
+0000015BE72904F0   00000000  00000000  00000000  00000000    ................
+0000015BE7290500   6A000000  1C000000  00000000  00000000    j...............
+0000015BE7290510   00000000  00000000  00000000  00000000    ................
+0000015BE7290520   00000000  00000000  01000000  01000000    ................
+0000015BE7290530   00000000  00000000  00000000  00000000    ................
+0000015BE7290540   00000000  00000000  00000000  00000000    ................
+0000015BE7290550   00000000  463A5C62  75696C64  5C736C6F    ....F:\build\slo
+0000015BE7290560   74315C70  3930305F  505C7372  635C6C69    t1\p900_P\src\li
+0000015BE7290570   625C6373  5C70635C  77696E6E  745C616D    b\cs\pc\winnt\am
+0000015BE7290580   7178676D  736E2E63  00000000  00000000    qxgmsn.c........
+0000015BE7290590   00000000  00000000  B7040000  00000000    ................
+0000015BE72905A0   00000000  00000000  00000000  00000000    ................
+0000015BE72905B0 to 0000015BE72905C0 suppressed, lines same as above
+0000015BE72905D0   325E160C  68990500  000A29E7  5B010000    2^..h?....)?[...
+0000015BE72905E0   00000000  00000000  00000000  00000000    ................
+0000015BE72905F0 to 0000015BE7290600 suppressed, lines same as above
+
+
+Thread Common Services (xihTHREADCOMMONSERVICES pCtl->pCS)
+0000015BE7290620   58494353  00000000  00000000  00000000    XICS............
+0000015BE7290630   00000000  00000000  00000000  00000000    ................
+0000015BE7290640   03000000  01000000  00000000  00000000    ................
+0000015BE7290650   60BB2112  F97F0000  60132CE7  5B010000    `.!.....`.,?[...
+0000015BE7290660   E00F2CE7  5B010000  00000000  00000000    ?.,?[...........
+0000015BE7290670   00000000  00000000  00000000  00000000    ................
+0000015BE7290680   00000000  00000000  00000000  01000000    ................
+0000015BE7290690   01000000  00000000  00000000  00000000    ................
+0000015BE72906A0   00000000  00000000  00000000  00000000    ................
+0000015BE72906B0 to 0000015BE72906F0 suppressed, lines same as above
+0000015BE7290700   00000000  00000000  01000000  00000000    ................
+0000015BE7290710   40DB0E00  02000000  00000000  40AE1B00    @...........@?..
+0000015BE7290720   00000000  00000000  00000000  00000000    ................
+0000015BE7290730 to 0000015BE7290740 suppressed, lines same as above
+0000015BE7290750   00000000  00000000  40EB29E8  5B010000    ........@?)?[...
+0000015BE7290760   40BE06E8  5B010000  00000000  00000000    @..?[...........
+0000015BE7290770   00000000  00000000  00000000  00000000    ................
+0000015BE7290780   00000000  00000000  00000000  05000000    ................
+0000015BE7290790   0D000000  00000000  00000000  00000000    ................
+0000015BE72907A0   00000000  00000000  00000000  00000000    ................
+0000015BE72907B0   00000000  00000000  00000000  00000000    ................
+0000015BE72907C0   00000000  00000000  A02927E7  5B010000    ........?)'?[...
+0000015BE72907D0   C02727E7  5B010000  00000000  00000000    .''?[...........
+0000015BE72907E0   00000000  00000000  00000000  00000000    ................
+0000015BE72907F0   00000000  00000000  00000000  00000000    ................
+0000015BE7290800   40411EE8  5B010000  40C3EDE7  5B010000    @A.?[...@.??[...
+0000015BE7290810   00000000  00000000  00000000  00000000    ................
+0000015BE7290820 to 0000015BE7290870 suppressed, lines same as above
+0000015BE7290880   01000000  01000000  01000000  01000000    ................
+0000015BE7290890   01000000  01000000  01000000  01000000    ................
+0000015BE72908A0   02000000  02000000  02000000  02000000    ................
+0000015BE72908B0   02000000  02000000  02000000  08000000    ................
+0000015BE72908C0   20B027E7  5B010000  0D000000  00000000     .'?[...........
+0000015BE72908D0   00000000  00000000  00000000  00000000    ................
+0000015BE72908E0 to 0000015BE7290910 suppressed, lines same as above
+0000015BE7290920   00000000  00000000  4D310000  00000000    ........M1......
+0000015BE7290930   00000000  00000000  00000000  00000000    ................
+0000015BE7290940 to 0000015BE72909E0 suppressed, lines same as above
+0000015BE72909F0   00000000  00000000                        ........
+
+
+Thread Common Common Services (xihTHREADCOMMONSERVICES pCtl->Common.pCCS)
+0000015BE7290A00   58494343  00000000  00000000  00000000    XICC............
+0000015BE7290A10   00000000  00000000  00000000  00000000    ................
+0000015BE7290A20 to 0000015BE7290A70 suppressed, lines same as above
+0000015BE7290A80   00000000  00000000  801943E7  5B010000    ........?.C?[...
+0000015BE7290A90   00000000  00000000  00000000  00000000    ................
+0000015BE7290AA0 to 0000015BE7290B10 suppressed, lines same as above
+0000015BE7290B20   01000000  00000000  F01F4BF7  F87F0000    ..........K.?...
+0000015BE7290B30   00000000  00000000  00000000  00000000    ................
+0000015BE7290B40 to 0000015BE7290B90 suppressed, lines same as above
+0000015BE7290BA0   01000000  00000000  40A61200  62000000    ........@?..b...
+0000015BE7290BB0   0C000000  40D31600  00000000  00000000    ....@...........
+0000015BE7290BC0   00000000  00000000  00000000  00000000    ................
+0000015BE7290BD0 to 0000015BE7290BE0 suppressed, lines same as above
+0000015BE7290BF0   D00927E7  5B010000  00000001  00000000    .	'?[...........
+0000015BE7290C00   00000000  00000000  00000000  00000000    ................
+0000015BE7290C10   00000000  00000000  00000000  00000000    ................
+0000015BE7290C20   C0590CE8  5B010000  00000000  00000000    .Y.?[...........
+
+
+Common Services Control Block (CSCtrl)
+0000015BE72BCA00   58494820  90030000  01000000  00000000    XIH ?...........
+0000015BE72BCA10   004E29E7  5B010000  04010000  01000000    .N)?[...........
+0000015BE72BCA20   B5010000  02000000  01000000  00000000    ................
+0000015BE72BCA30   00000000  00000000  B0DF2BE7  5B010000    ..........+?[...
+0000015BE72BCA40   00300000  00000000  306226E7  5B010000    .0......0b&?[...
+0000015BE72BCA50   C4000000  00000000  A00628E7  5B010000    ........?.(?[...
+0000015BE72BCA60   3C000000  00000000  903D27E7  5B010000    <.......?='?[...
+0000015BE72BCA70   01000000  00000000  100628E7  5B010000    ..........(?[...
+0000015BE72BCA80   433A5C50  726F6772  616D4461  74615C49    C:\ProgramData\I
+0000015BE72BCA90   424D5C4D  51000000  00000000  00000000    BM\MQ...........
+0000015BE72BCAA0   00000000  00000000  00000000  00000000    ................
+0000015BE72BCAB0 to 0000015BE72BCB70 suppressed, lines same as above
+0000015BE72BCB80   00000000  00000000  12000000  80000000    ............?...
+0000015BE72BCB90   D0252AE7  5B010000  00000000  00000000    .%*?[...........
+0000015BE72BCBA0   00000000  00000000  00000000  00000000    ................
+0000015BE72BCBB0 to 0000015BE72BCC90 suppressed, lines same as above
+0000015BE72BCCA0   00000000  00000000  03000000  00000000    ................
+0000015BE72BCCB0   00000000  00000000  60132CE7  5B010000    ........`.,?[...
+0000015BE72BCCC0   E00F2CE7  5B010000  40FB30E7  5B010000    ?.,?[...@.0?[...
+0000015BE72BCCD0   00000000  00000000  00000000  00000000    ................
+0000015BE72BCCE0 to 0000015BE72BCD30 suppressed, lines same as above
+0000015BE72BCD40   B0DF2BE7  5B010000  E4040000  00000000    ..+?[...?.......
+0000015BE72BCD50   01000000  00000000  F0B10C12  F97F0000    ................
+0000015BE72BCD60   00000000  00000000  00000000  00000000    ................
+0000015BE72BCD70   00000000  00000000  00000000  00000000    ................
+0000015BE72BCD80   C07D09E8  5B010000  02000000  00000000    .}	?[...........
+
+
+Process Control Block (xihPROCESS)
+00007FF9124318E0   58494850  180E0000  14270000  00000000    XIHP.....'......
+00007FF9124318F0   00000000  00000000  00000000  00000000    ................
+00007FF912431900 to 00007FF912431960 suppressed, lines same as above
+00007FF912431970   00000000  00000000  1B000000  00000000    ................
+00007FF912431980   D0EF28E7  5B010000  A0FA2DE7  5B010000    ..(?[...??-?[...
+00007FF912431990   01000000  0C000000  01010000  00000005    ................
+00007FF9124319A0   12000000  00000000  00000000  00000000    ................
+00007FF9124319B0   00000000  00000000  00000000  433A5C50    ............C:\P
+00007FF9124319C0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+00007FF9124319D0   515C6572  726F7273  00000000  00000000    Q\errors........
+00007FF9124319E0   00000000  00000000  00000000  00000000    ................
+00007FF9124319F0 to 00007FF912431AB0 suppressed, lines same as above
+00007FF912431AC0   00000000  00000000  01000000  433A5C50    ............C:\P
+00007FF912431AD0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+00007FF912431AE0   515C736F  636B6574  735C4053  59535445    Q\sockets\@SYSTE
+00007FF912431AF0   4D5C716D  67726C6F  636C5C44  45534B54    M\qmgrlocl\DESKT
+00007FF912431B00   4F502D45  314A5432  56525C31  5C547261    OP-E1JT2VR\1\Tra
+00007FF912431B10   63652E73  686D0000  00000000  00000000    ce.shm..........
+00007FF912431B20   00000000  00000000  00000000  00000000    ................
+00007FF912431B30 to 00007FF912431BC0 suppressed, lines same as above
+00007FF912431BD0   00000000  00000000  04010000  00000000    ................
+00007FF912431BE0   08010000  00000000  00000000  00000000    ................
+00007FF912431BF0   000024E7  5B010000  00000000  00000000    ..$?[...........
+00007FF912431C00   00000000  00000000  00000000  00000000    ................
+00007FF912431C10 to 00007FF912431CF0 suppressed, lines same as above
+00007FF912431D00   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ????????????....
+00007FF912431D10   00000000  01000000  FEFFFFFF  00000000    .........???....
+00007FF912431D20   00000000  01000000  00000000  00000000    ................
+00007FF912431D30   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ????????????....
+00007FF912431D40   00000000  00000000  00000000  00000000    ................
+00007FF912431D50   D0070002  00000000  FFFFFFFF  FFFFFFFF    ........????????
+00007FF912431D60   FFFFFFFF  00000000  00000000  00000000    ????............
+00007FF912431D70   00000000  00000000  D0070002  00000000    ................
+00007FF912431D80   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ????????????....
+00007FF912431D90   00000000  00000000  00000000  00000000    ................
+00007FF912431DA0   D0070002  00000000  607F29E7  5B010000    ........`.)?[...
+00007FF912431DB0   FFFFFFFF  00000000  00000000  00000000    ????............
+00007FF912431DC0   FFFFFFFF  FFFFFFFF  CE070002  00000000    ????????........
+00007FF912431DD0   53595354  454D0000  00000000  00000000    SYSTEM..........
+00007FF912431DE0   00000000  00000000  00000000  00000003    ................
+00007FF912431DF0   00000000  00000000  00000000  00000000    ................
+00007FF912431E00 to 00007FF912431E20 suppressed, lines same as above
+00007FF912431E30   1F000000  01050000  00000005  15000000    ................
+00007FF912431E40   07890100  0EC9BF75  BB775DF1  EE030000    .?.....u.w]??...
+00007FF912431E50   00000000  00000000  01010000  00000005    ................
+00007FF912431E60   12000000  00000000  00000000  00000000    ................
+00007FF912431E70   00000000  00000000  00000000  01020000    ................
+00007FF912431E80   00000005  20000000  20020000  00000000    .... ... .......
+00007FF912431E90   00000000  00000000  00000000  00000000    ................
+00007FF912431EA0   01010000  00000001  00000000  00000000    ................
+00007FF912431EB0   00000000  00000000  00000000  00000000    ................
+00007FF912431EC0 to 00007FF912431ED0 suppressed, lines same as above
+00007FF912431EE0   00000000  00000000  B0040000  00000000    ................
+00007FF912431EF0   B03A27E7  5B010000  06000000  02000000    .:'?[...........
+00007FF912431F00   05000000  00000000  00000000  F0230000    .............#..
+00007FF912431F10   30000000  00000000  00000712  F97F0000    0...............
+00007FF912431F20   433A5C50  726F6772  616D2046  696C6573    C:\Program Files
+00007FF912431F30   5C49424D  5C4D515C  62696E36  345C616D    \IBM\MQ\bin64\am
+00007FF912431F40   717A692E  646C6C00  00000000  00000000    qzi.dll.........
+00007FF912431F50   00000000  00000000  00000000  00000000    ................
+00007FF912431F60 to 00007FF912432350 suppressed, lines same as above
+00007FF912432360   00000000  00000000  00400000  58495343    .........@..XISC
+00007FF912432370   FFFFFFFF  00100000  40000000  00000000    ????....@.......
+00007FF912432380   00000000  00000000  00000000  00000000    ................
+00007FF912432390   00000000  00000000  00000000  00000000    ................
+00007FF9124323A0   00000000  00000000  4A010000  28554E4B    ........J...(UNK
+00007FF9124323B0   4E4F574E  29000000  00000000  00000000    NOWN)...........
+00007FF9124323C0   00000000  00000000  00000000  00000000    ................
+00007FF9124323D0   00000000  00000000  00000000  00000000    ................
+00007FF9124323E0   00000000  00000000  00000000  004D3100    .............M1.
+00007FF9124323F0   00000000  00000000  00000000  00000000    ................
+00007FF912432400 to 00007FF912432440 suppressed, lines same as above
+00007FF912432450   00000000  04000000  00280000  0A000000    .........(......
+00007FF912432460   00000000  00000000  01000000  31000000    ............1...
+00007FF912432470   00000000  00000000  00000000  00496E73    .............Ins
+00007FF912432480   74616C6C  6174696F  6E310000  0000433A    tallation1....C:
+00007FF912432490   5C50726F  6772616D  2046696C  65735C49    \Program Files\I
+00007FF9124324A0   424D5C4D  51000000  00000000  00000000    BM\MQ...........
+00007FF9124324B0   00000000  00000000  00000000  00000000    ................
+00007FF9124324C0 to 00007FF912432570 suppressed, lines same as above
+00007FF912432580   00000000  00000000  00000000  00000053    ...............S
+00007FF912432590   4F465457  4152455C  49424D5C  57656253    OFTWARE\IBM\WebS
+00007FF9124325A0   70686572  65204D51  5C496E73  74616C6C    phere MQ\Install
+00007FF9124325B0   6174696F  6E5C496E  7374616C  6C617469    ation\Installati
+00007FF9124325C0   6F6E3100  00000000  31000000  00000000    on1.....1.......
+00007FF9124325D0   00000000  00000000  00000000  00000000    ................
+00007FF9124325E0 to 00007FF9124326B0 suppressed, lines same as above
+00007FF9124326C0   00000000  00000000  00000000  0050726F    .............Pro
+00007FF9124326D0   64756374  696F6E00  00000000  00000000    duction.........
+00007FF9124326E0   0F000000  00000000  03000000  00000000    ................
+00007FF9124326F0   900D27E7  5B010000                        ?.'?[...
+
+
+Zut Common Anchor (zutCOMMON_ANCHOR)
+00007FF91242D3D0   5A554341  5A535441  00000000  00000000    ZUCAZSTA........
+00007FF91242D3E0   524D5141  00000000  FFFFFFFF  FFFFFFFF    RMQA....????????
+00007FF91242D3F0   FFFFFFFF  00000000  00000000  00000000    ????............
+00007FF91242D400   00000000  00000000  D0070002  00000000    ................
+00007FF91242D410   0000403F  1F000000  00000000  00000000    ..@?............
+00007FF91242D420   E03A27E7  5B010000  00000000  00000000    ?:'?[...........
+00007FF91242D430   00000000  64000000  64000000  00000000    ....d...d.......
+00007FF91242D440   00000000  00000000  00000000  00000000    ................
+00007FF91242D450   02000000  00000000  00000000  00000000    ................
+00007FF91242D460   70E328E7  5B010000  68E428E7  5B010000    p?(?[...h?(?[...
+00007FF91242D470   00000000  00000000  00000000  00000000    ................
+00007FF91242D480 to 00007FF91242D490 suppressed, lines same as above
+00007FF91242D4A0   00000000  00000000  10D44212  F97F0000    ..........B.....
+00007FF91242D4B0   00000000  00000000  00000000  00000000    ................
+00007FF91242D4C0   00000000  00000000  00000000  00000000    ................
+00007FF91242D4D0   05000000  00000000  08000000  00000000    ................
+00007FF91242D4E0   00000000  00000000                        ........
+
+
+Suspend/Resume Area (SRA) for Subpool 1
+{
+  Eye:              xlsT
+  Pid:              10004
+  Tid:              1
+  ConnId:           5
+  Posted:           0
+  Flags:            0X80000000
+  OwnerFlags:       0X0
+  ResumingConnId:   0
+  TimerFlags:       0
+  LockOwnerCount    0
+  ProgramName       amqzmuc0.exe
+  WaitCount         0
+  SPCheckCount      0
+  WaitType          31
+  RetryCount        0
+  Event             4
+  hEvent            580
+  Self:             1::0::0-209216
+  Next:             0::0::0-0
+  Prev:             0::0::0-0
+  OwnerCountRW:     0
+  RWAccess:         0
+  Priority          0X0
+}xlsSUSRESAREA
+0000015BE81E4140   786C7354  14270000  01000000  05000000    xlsT.'..........
+0000015BE81E4150   00000000  00000080  00000000  00000000    .......?........
+0000015BE81E4160   00000000  1F000000  00000000  00000000    ................
+0000015BE81E4170   00000000  00000000  00000000  00000000    ................
+0000015BE81E4180   00000000  00000000  00000000  01000000    ................
+0000015BE81E4190   00000000  40310300  00000000  00000000    ....@1..........
+0000015BE81E41A0   00000000  00000000  44020000  00000000    ........D.......
+0000015BE81E41B0   04000000  00000000  00000000  00000000    ................
+0000015BE81E41C0   00000000  00000000  06000000  00000000    ................
+0000015BE81E41D0   616D717A  6D756330  2E657865  00000000    amqzmuc0.exe....
+0000015BE81E41E0   00000000  00000000  00000000  00000000    ................
+0000015BE81E41F0   00000000  00000000  00000000  00000000    ................
+0000015BE81E4200   00000000  00000000                        ........
+
+
+Suspend/Resume Area (SRA) for Subpool 2
+{
+  Eye:              xlsT
+  Pid:              10004
+  Tid:              1
+  ConnId:           13
+  Posted:           0
+  Flags:            0X80000000
+  OwnerFlags:       0X0
+  ResumingConnId:   2
+  TimerFlags:       0
+  LockOwnerCount    1
+  ProgramName       amqzmuc0.exe
+  WaitCount         7081
+  SPCheckCount      7064
+  WaitType          31
+  RetryCount        0
+  Event             12
+  hEvent            536
+  Self:             2::0::0-176960
+  Next:             0::0::0-0
+  Prev:             0::0::0-0
+  OwnerCountRW:     0
+  RWAccess:         0
+  Priority          0X0
+}xlsSUSRESAREA
+0000015BE7EDC340   786C7354  14270000  01000000  0D000000    xlsT.'..........
+0000015BE7EDC350   01000000  00000080  00000000  00000000    .......?........
+0000015BE7EDC360   00000000  1F000000  00000000  00000000    ................
+0000015BE7EDC370   02000000  00000000  00000000  00000000    ................
+0000015BE7EDC380   00000000  00000000  00000000  02000000    ................
+0000015BE7EDC390   00000000  40B30200  A91B0000  00000000    ....@...........
+0000015BE7EDC3A0   00000000  00000000  18020000  00000000    ................
+0000015BE7EDC3B0   0C000000  00000000  981B0000  00000000    ........?.......
+0000015BE7EDC3C0   00000000  00000000  05000000  00000000    ................
+0000015BE7EDC3D0   616D717A  6D756330  2E657865  00000000    amqzmuc0.exe....
+0000015BE7EDC3E0   00000000  00000000  00000000  00000000    ................
+0000015BE7EDC3F0   00000000  00000000  00000000  00000000    ................
+0000015BE7EDC400   00000000  00000000                        ........
+
+{
+  Eye:           xruT
+  Flags:         0X1
+  self:          2::0::0-2181568
+  hProc          2::0::0-1994176
+  StackSize:     0
+  StackUsed:     0
+  PrivateGetBytes:  362768
+  PrivateFreeBytes: 346096
+  RecordCount:   14147
+  Sequence:      21647
+  {
+    userTime:     156250
+    kernelTime:   937500
+    userTime:     156250
+    kernelTime:   781250
+  }xruTHREAD_OS
+}xruTHREAD
+{
+  Eye:           xruP
+  Flags:         0X1
+  Options:       0X2
+  Pid.Tid        10004.1 amqzmuc0.exe
+  self:          2::0::0-1994176
+  PrivateBytes[3] 2096
+  PrivateBytes[11] 12352
+  PrivateBytes[13] 1944
+  PrivateBytes[23] 14736
+  PrivateBytes[24] 11680
+  PrivateBytes[27] 1520
+  PrivateBytes[28] 544
+  PrivateBytes[34] 32
+  StackBytes:    0
+  RecordCount:   7045
+  Sequence:      21647
+  TargetCollectionTime: 2019-12-11 12:20:42.994
+  TargetRecordTime:     2019-12-11 12:20:20.576
+  {
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111562500 (156250)
+    PageFaultCount              74132 (348)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              20025344 (614400)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420096 (-400)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      23704 (-1496)
+    PagefileUsage               6537216 (-1077248)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                6537216 (-1077248)
+   } at 2019-12-11 12:20:15.576
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111406250 (0)
+    PageFaultCount              73784 (18)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19410944 (73728)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:19:45.767
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111406250 (0)
+    PageFaultCount              73766 (4)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19337216 (16384)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:19:15.769
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111406250 (156250)
+    PageFaultCount              73762 (130)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19320832 (0)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:18:45.771
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111250000 (-781250)
+    PageFaultCount              73632 (4294966713)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19320832 (-155648)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (58088)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (2312)
+    PagefileUsage               7614464 (1220608)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (1220608)
+   } at 2019-12-11 12:18:15.773
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111250000 (0)
+    PageFaultCount              73632 (0)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19320832 (-49152)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:17:45.775
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111250000 (0)
+    PageFaultCount              73632 (0)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19369984 (0)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:17:15.777
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111250000 (0)
+    PageFaultCount              73632 (0)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19369984 (0)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:16:45.778
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111250000 (-781250)
+    PageFaultCount              73632 (4294966713)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19369984 (-106496)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (58088)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (2312)
+    PagefileUsage               7614464 (1220608)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (1220608)
+   } at 2019-12-11 12:16:15.779
+  }xruPROCESS_OS
+}xruPROCESS
+
+MTime Control Block
+0000015BE7230000                       58435043  01000000            XCPC....
+0000015BE7230010   01000000  00000000  093D0000  B9650000    ........	=...e..
+0000015BE7230020   96980000  96000000  0F000000  00000000    ??..?...........
+0000015BE7230030   80969800  00000000  0068C461  08000000    ???......h.a....
+0000015BE7230040   D1EC260C  68990500  EE010000  6C000000    ..&.h?..?...l...
+0000015BE7230050   00000000  00000000  11000000  75010000    ............u...
+0000015BE7230060   23A13024  EE980500  80969800  01000000    #?0$?..???.....
+
+
+MTime Index
+0000002FBACFC480   EE010000                                  ?...
+
+
+MTime Entries
+0000015BE723D660                       00000000  00000000            ........
+0000015BE723D670   E9010000  E9010000  E9010000  00000000    ?...?...?.......
+0000015BE723D680   E9010000  EB999800  E9010000  BE040000    ?...?.?.......
+0000015BE723D690   E9010000  EC816E5A  E9010000  67990500    ?....?nZ?...g?..
+0000015BE723D6A0   E9010000  7BA1808D  E9010000  02000000    ?...{????.......
+0000015BE723D6B0   E9010000  00000000  E9010000  FB6C0000    ?.......?....l..
+0000015BE723D6C0   E9010000  67990500  E9010000  03E2B18E    ?...g?..?....?.?
+0000015BE723D6D0   E9010000  E9010000  00000000  00000000    ?...?...........
+0000015BE723D6E0   EA010000  EA010000  EA010000  00000000    ?...?...?.......
+0000015BE723D6F0   EA010000  CF969800  EA010000  BF040000    ?....??.?.......
+0000015BE723D700   EA010000  27811AF0  EA010000  67990500    ?...'?..?...g?..
+0000015BE723D710   EA010000  FEEB10B6  EA010000  02000000    ?....?..?.......
+0000015BE723D720   EA010000  FFFFFFFF  EA010000  A699FFFF    ?...?????...????
+0000015BE723D730   EA010000  67990500  EA010000  862C42B7    ?...g?..?...?,B.
+0000015BE723D740   EA010000  EA010000  00000000  00000000    ?...?...........
+0000015BE723D750   EB010000  EB010000  EB010000  00000000    ?...?...?.......
+0000015BE723D760   EB010000  06969800  EB010000  BF040000    ?....??.?.......
+0000015BE723D770   EB010000  0A11B6FC  EB010000  67990500    ?......??...g?..
+0000015BE723D780   EB010000  EDAC53B7  EB010000  02000000    ?...?S.?.......
+0000015BE723D790   EB010000  FFFFFFFF  EB010000  9599FFFF    ?...?????...????
+0000015BE723D7A0   EB010000  67990500  EB010000  75ED84B8    ?...g?..?...u?.
+0000015BE723D7B0   EB010000  EB010000  00000000  00000000    ?...?...........
+0000015BE723D7C0   EC010000  EC010000  EC010000  00000000    ................
+0000015BE723D7D0   EC010000  C6979800  EC010000  C2040000    .....??.........
+0000015BE723D7E0   EC010000  4FB13FB5  EC010000  67990500    ....O.?.....g?..
+0000015BE723D7F0   EC010000  7141FBFC  EC010000  02000000    ....qA.?........
+0000015BE723D800   EC010000  00000000  EC010000  69660000    ............if..
+0000015BE723D810   EC010000  67990500  EC010000  F9812CFE    ....g?.......?,.
+0000015BE723D820   EC010000  EC010000  00000000  00000000    ................
+0000015BE723D830   ED010000  ED010000  ED010000  00000000    ?...?...?.......
+0000015BE723D840   ED010000  8E989800  ED010000  C2040000    ?...???.?.......
+0000015BE723D850   ED010000  741F32C1  ED010000  67990500    ?...t.2.?...g?..
+0000015BE723D860   ED010000  B4162DFE  ED010000  02000000    ?.....-.?.......
+0000015BE723D870   ED010000  00000000  ED010000  B4660000    ?.......?....f..
+0000015BE723D880   ED010000  67990500  ED010000  3C575EFF    ?...g?..?...<W^?
+0000015BE723D890   ED010000  ED010000  00000000  00000000    ?...?...........
+0000015BE723D8A0   EE010000  EE010000  EE010000  00000000    ?...?...?.......
+0000015BE723D8B0   EE010000  A6999800  EE010000  C2040000    ?...???.?.......
+0000015BE723D8C0   EE010000  69D724CD  EE010000  67990500    ?...i.$.?...g?..
+0000015BE723D8D0   EE010000  C7F15EFF  EE010000  02000000    ?....?^??.......
+0000015BE723D8E0   EE010000  00000000  EE010000  E7680000    ?.......?...?h..
+0000015BE723D8F0   EE010000  68990500  EE010000  4F329000    ?...h?..?...O2?.
+0000015BE723D900   EE010000  EE010000  00000000  00000000    ?...?...........
+0000015BE723D910   00000000  00000000  00000000  00000000    ................
+0000015BE723D920 to 0000015BE723DB20 suppressed, lines same as above
+0000015BE723DB30   00000000  00000000                        ........
+
+pCtl->pCS->threadConnectCount[1] = 1
+pCtl->pCS->threadConnectedSubpools[1] = 0000015BE72C1360
+0000015BE72C1360   4D310000  00000000  00000000  00000000    M1..............
+0000015BE72C1370   00000000  00000000  00000000  00000000    ................
+0000015BE72C1380 to 0000015BE72C1390 suppressed, lines same as above
+0000015BE72C13A0   5C406970  63630000  00000000  00000000    \@ipcc..........
+0000015BE72C13B0   01000000  01000000  01410000  433A5C50    .........A..C:\P
+0000015BE72C13C0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+0000015BE72C13D0   51000000  00000000  00000000  00000000    Q...............
+0000015BE72C13E0   00000000  00000000  00000000  00000000    ................
+0000015BE72C13F0 to 0000015BE72C14B0 suppressed, lines same as above
+0000015BE72C14C0   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+0000015BE72C14D0   49424D5C  4D515C71  6D677273  5C4D3100    IBM\MQ\qmgrs\M1.
+0000015BE72C14E0   00000000  00000000  00000000  00000000    ................
+0000015BE72C14F0 to 0000015BE72C15B0 suppressed, lines same as above
+0000015BE72C15C0   00000000  00004445  534B544F  502D4531    ......DESKTOP-E1
+0000015BE72C15D0   4A543256  52000000  00000000  00000000    JT2VR...........
+0000015BE72C15E0   00000000  00000000  00000000  00000000    ................
+0000015BE72C15F0 to 0000015BE72C1600 suppressed, lines same as above
+0000015BE72C1610   00000000  00000000  00000000  02000000    ................
+0000015BE72C1620   C0101BE8  5B010000  00000000  00000000    ...?[...........
+0000015BE72C1630   204027E7  5B010000  B0162AE7  5B010000     @'?[.....*?[...
+0000015BE72C1640   A03E27E7  5B010000  E0162CE7  5B010000    ?>'?[...?.,?[...
+0000015BE72C1650   00000000  00000000  2C020000  00000000    ........,.......
+0000015BE72C1660   30020000  00000000  34020000  00000000    0.......4.......
+0000015BE72C1670   38020000  00000000  3C020000  00000000    8.......<.......
+0000015BE72C1680   40020000  00000000  24020000  00000000    @.......$.......
+0000015BE72C1690   00000000  00000000  00000000  00000000    ................
+0000015BE72C16A0   00000000  00000000  00000000  00000000    ................
+0000015BE72C16B0   00000000  00000000                        ........
+
+pconnSubpool[1].connExtentList = 0000015BE72C16E0
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   0000015BE81B1000
+  0001   0x00000000   0001   0000000000   0000015BE91E1000
+  0002   0x00000000   0002   0000000000   0000015BE9AB1000
+  0003   0x00000001   0003   0000000000   0000015BE81B1000
+  0004   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[2] = 1
+pCtl->pCS->threadConnectedSubpools[2] = 0000015BE72C0FE0
+0000015BE72C0FE0   4D310000  00000000  00000000  00000000    M1..............
+0000015BE72C0FF0   00000000  00000000  00000000  00000000    ................
+0000015BE72C1000 to 0000015BE72C1010 suppressed, lines same as above
+0000015BE72C1020   5C40716D  67720000  00000000  00000000    \@qmgr..........
+0000015BE72C1030   02000000  01000000  02400000  433A5C50    .........@..C:\P
+0000015BE72C1040   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+0000015BE72C1050   51000000  00000000  00000000  00000000    Q...............
+0000015BE72C1060   00000000  00000000  00000000  00000000    ................
+0000015BE72C1070 to 0000015BE72C1130 suppressed, lines same as above
+0000015BE72C1140   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+0000015BE72C1150   49424D5C  4D515C71  6D677273  5C4D3100    IBM\MQ\qmgrs\M1.
+0000015BE72C1160   00000000  00000000  00000000  00000000    ................
+0000015BE72C1170 to 0000015BE72C1230 suppressed, lines same as above
+0000015BE72C1240   00000000  00004445  534B544F  502D4531    ......DESKTOP-E1
+0000015BE72C1250   4A543256  52000000  00000000  00000000    JT2VR...........
+0000015BE72C1260   00000000  00000000  00000000  00000000    ................
+0000015BE72C1270 to 0000015BE72C1280 suppressed, lines same as above
+0000015BE72C1290   00000000  00000000  00000000  07000000    ................
+0000015BE72C12A0   C010EBE7  5B010000  00000000  00000000    ..??[...........
+0000015BE72C12B0   103E27E7  5B010000  E0182AE7  5B010000    .>'?[...?.*?[...
+0000015BE72C12C0   403E27E7  5B010000  50B62BE7  5B010000    @>'?[...P.+?[...
+0000015BE72C12D0   00000000  00000000  00020000  00000000    ................
+0000015BE72C12E0   04020000  00000000  08020000  00000000    ................
+0000015BE72C12F0   0C020000  00000000  10020000  00000000    ................
+0000015BE72C1300   14020000  00000000  E4010000  00000000    ........?.......
+0000015BE72C1310   00000000  00000000  00000000  00000000    ................
+0000015BE72C1320   00000000  00000000  00000000  00000000    ................
+0000015BE72C1330   00000000  00000000                        ........
+
+pconnSubpool[2].connExtentList = 0000015BE72BB650
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   0000015BE7EB1000
+  0001   0x00000000   0001   0000000000   0000015BE7561000
+  0002   0x00000000   8191   0000000000   0000000000000000
+  0004   0x00000000   0004   0000000000   0000015BE7431000
+  0005   0x00000000   8191   0000000000   0000000000000000
+  0007   0x00000000   0000   0000000000   0000015BE87F1000
+  0008   0x00000000   0000   0000000000   0000015BE8B41000
+  0009   0x00000000   8191   0000000000   0000000000000000
+  0015   0x00000000   0015   0000000000   0000015BEE121000
+  0016   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[3] = 0
+pCtl->pCS->threadConnectedSubpools[3] = 0000000000000000
+pCtl->pCS->threadConnectCount[4] = 0
+pCtl->pCS->threadConnectedSubpools[4] = 0000000000000000
+pCtl->pCS->threadConnectCount[5] = 0
+pCtl->pCS->threadConnectedSubpools[5] = 0000000000000000
+pCtl->pCS->threadConnectCount[6] = 0
+pCtl->pCS->threadConnectedSubpools[6] = 0000000000000000
+
+Component Dumps (Thread 00000001)
+------< "main()" >-----
+
+zllCONTROL
+0000015BE7431980   5A4C4C43  00000000  14270000  A43F0000    ZLLC.....'..??..
+0000015BE7431990   01000000  00000000  C0000000  02000000    ................
+0000015BE74319A0   00000000  C0000000  22000000  04000000    ........".......
+0000015BE74319B0   40030000  02000000  00000000  40690400    @...........@i..
+0000015BE74319C0   4D310000  00000000  00000000  00000000    M1..............
+0000015BE74319D0   00000000  00000000  00000000  00000000    ................
+0000015BE74319E0 to 0000015BE74319F0 suppressed, lines same as above
+0000015BE7431A00   00000000  02000000  00000000  C0670400    .............g..
+0000015BE7431A10   02000000  00000000  401D0A00  00000000    ........@.......
+0000015BE7431A20   18000000  02000000  22000000  04000000    ........".......
+0000015BE7431A30   40110000  0B000000  04000000  00000000    @...............
+0000015BE7431A40   00000000  00000000  01000000  FFFFFFFF    ............????
+0000015BE7431A50   18000000  00000000  5A4C4C52  10000000    ........ZLLR....
+0000015BE7431A60   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431A70   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431A80   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431A90   AA779C09  68990500  00000000  00000000    ?w?	h?..........
+0000015BE7431AA0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431AB0   C0100000  00000000  5A4C4C52  11000000    ........ZLLR....
+0000015BE7431AC0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431AD0   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431AE0   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431AF0   8CCD9C09  68990500  00000000  00000000    ?.?	h?..........
+0000015BE7431B00   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431B10   C0100000  00000000  5A4C4C52  12000000    ........ZLLR....
+0000015BE7431B20   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431B30   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431B40   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431B50   542B9D09  68990500  00000000  00000000    T+?	h?..........
+0000015BE7431B60   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431B70   C0100000  00000000  5A4C4C52  13000000    ........ZLLR....
+0000015BE7431B80   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431B90   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431BA0   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431BB0   738A9D09  68990500  00000000  00000000    s??	h?..........
+0000015BE7431BC0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431BD0   C0100000  00000000  5A4C4C52  14000000    ........ZLLR....
+0000015BE7431BE0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431BF0   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431C00   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431C10   25079E09  68990500  00000000  00000000    %..	h?..........
+0000015BE7431C20   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431C30   C0100000  00000000  5A4C4C52  15000000    ........ZLLR....
+0000015BE7431C40   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431C50   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431C60   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431C70   5C619E09  68990500  00000000  00000000    \a.	h?..........
+0000015BE7431C80   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431C90   C0100000  00000000  5A4C4C52  16000000    ........ZLLR....
+0000015BE7431CA0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431CB0   02000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431CC0   03000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431CD0   B5649E09  68990500  00000000  00000000    .d.	h?..........
+0000015BE7431CE0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431CF0   C0100000  00000000  5A4C4C52  17000000    ........ZLLR....
+0000015BE7431D00   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431D10   02000000  02000000  00000000  40420A00    ............@B..
+0000015BE7431D20   04000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431D30   5A5B160C  68990500  00000000  00000000    Z[..h?..........
+0000015BE7431D40   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431D50   C0100000  00000000  5A4C4C52  08000000    ........ZLLR....
+0000015BE7431D60   A43F0000  01000000  00000000  11000000    ??..............
+0000015BE7431D70   01000000  00000000  00000000  00000000    ................
+0000015BE7431D80   00000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431D90   2099CEF2  EE980500  00000000  00000000     ?..?..........
+0000015BE7431DA0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431DB0   C0100000  00000000  5A4C4C52  09000000    ........ZLLR	...
+0000015BE7431DC0   A43F0000  01000000  00000000  13000000    ??..............
+0000015BE7431DD0   01000000  00000000  00000000  00000000    ................
+0000015BE7431DE0   00000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431DF0   B999CEF2  EE980500  00000000  00000000    .?..?..........
+0000015BE7431E00   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431E10   C0100000  00000000  5A4C4C52  0A000000    ........ZLLR....
+0000015BE7431E20   A43F0000  01000000  00000000  14000000    ??..............
+0000015BE7431E30   01000000  00000000  00000000  00000000    ................
+0000015BE7431E40   00000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431E50   2B9ACEF2  EE980500  00000000  00000000    +?..?..........
+0000015BE7431E60   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431E70   C0100000  00000000  5A4C4C52  0B000000    ........ZLLR....
+0000015BE7431E80   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431E90   02000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431EA0   01000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431EB0   37698F09  68990500  00000000  00000000    7i?	h?..........
+0000015BE7431EC0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431ED0   C0100000  00000000  5A4C4C52  0C000000    ........ZLLR....
+0000015BE7431EE0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431EF0   02000000  00000000  00000000  00000000    ................
+0000015BE7431F00   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431F10   F5A39709  68990500  00000000  00000000    .??	h?..........
+0000015BE7431F20   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431F30   C0100000  00000000  5A4C4C52  0D000000    ........ZLLR....
+0000015BE7431F40   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431F50   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431F60   02000000  01000000  93088020  00000000    ........?.? ....
+0000015BE7431F70   F8AF9709  68990500  00000000  00000000    ???	h?..........
+0000015BE7431F80   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431F90   C0100000  00000000  5A4C4C52  0E000000    ........ZLLR....
+0000015BE7431FA0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431FB0   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431FC0   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431FD0   EFA69A09  68990500  00000000  00000000    .??	h?..........
+0000015BE7431FE0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431FF0   C0100000  00000000  5A4C4C52  0F000000    ........ZLLR....
+0000015BE7432000   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7432010   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7432020   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7432030   F07A9B09  68990500  00000000  00000000    .z?	h?..........
+0000015BE7432040   00000000  00000000  22000000  04000000    ........".......
+0000015BE7432050   C0100000  00000000                        ........
+
+pControl->Class:              0
+pControl->activeTasks:        2
+pControl->nextInstance:       11
+pControl->shutdownPhase:      4
+pControl->processEnding:      FALSE
+pControl->shutdownType:       1
+pControl->LostCount           0
+pControl->sequence:           24
+pControl->taskList:           02::04::04-00004416
+pControl->requestList:        00::00::00-00000000
+{
+  {
+    {
+      eye:            ZLLR
+      sequence:       8
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-05 11:52:06.817
+      utilityClass    0
+      utilityType     17
+      operation       1
+      responseEvent   00::00::00-00000000
+      requestData     0
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       9
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-05 11:52:06.817
+      utilityClass    0
+      utilityType     19
+      operation       1
+      responseEvent   00::00::00-00000000
+      requestData     0
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       10
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-05 11:52:06.817
+      utilityClass    0
+      utilityType     20
+      operation       1
+      responseEvent   00::00::00-00000000
+      requestData     0
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       11
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:19:59.595
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   02::00::00-00662336
+      requestData     1
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       12
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.134
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   00::00::00-00000000
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       13
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.137
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    1
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       14
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.332
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       15
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.386
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       16
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.450
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       17
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.472
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       18
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.496
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       19
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.521
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       20
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.553
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       21
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.576
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       22
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.577
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   02::00::00-00662336
+      requestData     3
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       23
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:41.993
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   02::00::00-00672320
+      requestData     4
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+}zllHISTORY
+-------------------------------------
+
+ Environment Variables
+ALLUSERSPROFILE=C:\ProgramData
+APMW_EMS_HOME=.\
+APPDATA=C:\WINDOWS\system32\config\systemprofile\AppData\Roaming
+APWMQ_CM_OPTIONS=-mMQM; -nREMOTE_QMGRS; -s5011; -u; -e
+APWMQ_EVT_OPTIONS=-mMQM;
+APWMQ_GS_OPTIONS=-mMQM; +au
+APWMQ_HOME=C:\nastel\apwmq\
+APWMQ_LA_OPTIONS=-mMQM;-i
+APWMQ_LS_OPTIONS=-mMQM; -s5010; -u; -e
+APWMQ_MS_OPTIONS=-m*;
+AUTOPILOT_HOME=C:\nastel\AutoPilotM6
+CATALINA_BASE=C:\nastel\AutoPilotM6\apache-tomcat
+CATALINA_HOME=C:\nastel\AutoPilotM6\apache-tomcat
+CLASSPATH=C:\Program Files\IBM\MQ\java\lib\com.ibm.mqjms.jar;C:\Program Files\IBM\MQ\java\lib\com.ibm.mq.jar
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+CommonProgramFiles=C:\Program Files\Common Files
+CommonProgramW6432=C:\Program Files\Common Files
+COMPUTERNAME=DESKTOP-E1JT2VR
+ComSpec=C:\WINDOWS\system32\cmd.exe
+DriverData=C:\Windows\System32\Drivers\DriverData
+ERLANG_HOME=C:\Program Files\erl10.5
+INCLUDE=C:\Program Files\IBM\MQ\tools\c\include;C:\Program Files\IBM\MQ\tools\cplus\include
+JAVA_HOME=C:\ProgramFiles\Java\jdk1.8.0_201
+LIB=C:\Program Files\IBM\MQ\tools\lib64;C:\Program Files\IBM\MQ\tools\lib
+LOCALAPPDATA=C:\WINDOWS\system32\config\systemprofile\AppData\Local
+MQ_FILE_PATH=C:\Program Files\IBM\MQ
+MQ_JAVA_DATA_PATH=C:\ProgramData\IBM\MQ
+MQ_JAVA_INSTALL_PATH=C:\Program Files\IBM\MQ\java
+MQ_JAVA_LIB_PATH=C:\Program Files\IBM\MQ\java\lib64;C:\Program Files\IBM\MQ\java\lib
+MQ_JRE_PATH=C:\Program Files\IBM\MQ\java\jre
+NUMBER_OF_PROCESSORS=8
+OPENSSL_CONF=C:\Program Files\OpenSSL-Win64\bin\openssl.cfg
+ORACLE_HOME=C:\instantclient_19_3
+OS=Windows_NT
+PATH=C:\Program Files\IBM\MQ\bin64;C:\Program Files\IBM\MQ\bin;C:\Program Files\IBM\MQ\java\lib;C:\Program Files\IBM\MQ\java\lib64;C:\Program Files\IBM\MQ\java\lib;C:\Program Files\IBM\MQ\java\lib64;C:\ProgramFiles\Java\jdk1.8.0_201;C:\oracle\product\12.1.0\dbhome_1\bin;C:\app\product\12.1.0\dbhome_1\bin;C:\app\OrcaleDataBase\product\12.1.0\dbhome_1\bin;C:\app\OrcaleHome\product\12.1.0\dbhome_1\bin;C:\Users\product\12.1.0\dbhome_1\bin;C:\product\12.1.0\dbhome_1\bin;F:\app\nastel5\product\12.1.0\dbhome_1\bin;C:\nastel\apwmq\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\nastel\AutoPilotM6\bin;C:\ProgramFiles\Java\jdk1.8.0_201\bin;C:\Orcale-Odbc;C:\Program Files (x86)\PuTTY\;C:\instantclient_19_3;C:\Program Files\OpenSSL-Win64\bin;C:\Program Files\IBM\MQ\bin64;C:\Program Files\IBM\MQ\bin;C:\Program Files\IBM\MQ\tools\c\samples\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\IBM\MQ\gskit8\lib64
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE=AMD64
+PROCESSOR_IDENTIFIER=AMD64 Family 21 Model 2 Stepping 0, AuthenticAMD
+PROCESSOR_LEVEL=21
+PROCESSOR_REVISION=0200
+ProgramData=C:\ProgramData
+ProgramFiles(x86)=C:\Program Files (x86)
+ProgramFiles=C:\Program Files
+ProgramW6432=C:\Program Files
+PSModulePath=C:\Program Files (x86)\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\Program Files (x86)\AutoIt3\AutoItX
+PUBLIC=C:\Users\Public
+SystemDrive=C:
+SystemRoot=C:\WINDOWS
+TEMP=C:\WINDOWS\TEMP
+TMP=C:\WINDOWS\TEMP
+TNS_ADMIN=C:\instantclient_12_1
+TWO_TASK=//192.168.1.204:1521/orcl
+USERDOMAIN=PITTSBURGHTECH
+USERNAME=DESKTOP-E1JT2VR$
+USERPROFILE=C:\WINDOWS\system32\config\systemprofile
+windir=C:\WINDOWS
+
++-----------------------------------------------------------------------------+
+|                                                                             |
+| IBM MQ First Failure Symptom Report                                         |
+| =========================================                                   |
+|                                                                             |
+| Date/Time         :- Wed December 11 2019 12:20:46 India Standard Time      |
+| UTC Time          :- 1576047046.860000                                      |
+| UTC Time Offset   :- 330 ((UNKNOWN))                                        |
+| Host Name         :- DESKTOP-E1JT2VR                                        |
+| Operating System  :- Windows 8 Professional x64 Edition, Build 9200         |
+| PIDS              :- 5724H7251                                              |
+| LVLS              :- 9.0.0.0                                                |
+| Product Long Name :- IBM MQ for Windows (x64 platform)                      |
+| Vendor            :- IBM                                                    |
+| O/S Registered    :- 1                                                      |
+| Data Path         :- C:\ProgramData\IBM\MQ                                  |
+| Installation Path :- C:\Program Files\IBM\MQ                                |
+| Installation Name :- Installation1    (1)                                   |
+| License Type      :- Production                                             |
+| Probe Id          :- XY200003                                               |
+| Application Name  :- MQM                                                    |
+| Component         :- xgmWriteNTEventLog                                     |
+| SCCS Info         :- F:\build\slot1\p900_P\src\lib\cs\pc\winnt\amqxgmsn.c,  |
+| Line Number       :- 1207                                                   |
+| Build Date        :- May 12 2016                                            |
+| Build Level       :- p900-L160512.4                                         |
+| Build Type        :- IKAP - (Production)                                    |
+| UserID            :- SYSTEM                                                 |
+| Process Name      :- C:\Program Files\IBM\MQ\bin64\amqzmuc0.exe             |
+| Arguments         :- -m M1                                                  |
+| Addressing mode   :- 64-bit                                                 |
+| Process           :- 00010004                                               |
+| Thread            :- 00000001    Critical                                   |
+| Session           :- 00000000                                               |
+| QueueManager      :- M1                                                     |
+| UserApp           :- FALSE                                                  |
+| ConnId(1) IPCC    :- 5                                                      |
+| ConnId(2) QM      :- 13                                                     |
+| Last HQC          :- 1.0.0-1222208                                          |
+| Last HSHMEMB      :- 2.12.12-1495872                                        |
+| Last ObjectName   :-                                                        |
+| Major Errorcode   :- xecF_E_UNEXPECTED_SYSTEM_RC                            |
+| Minor Errorcode   :- OK                                                     |
+| Probe Type        :- MSGAMQ6119                                             |
+| Probe Severity    :- 2                                                      |
+| Probe Description :- AMQ6119: An internal IBM MQ error has occurred (WinNT  |
+|   error 1722 from RegisterEventSource.)                                     |
+| FDCSequenceNumber :- 1                                                      |
+| Comment1          :- WinNT error 1722 from RegisterEventSource.             |
+| Comment2          :- The RPC server is unavailable.                         |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+MQM Function Stack
+amqzmuc0
+zmuUtilityManager
+zmuShutdownPhase
+zmuStopThisTask
+xcsDisplayMessageForSubpool
+xcsDisplayMessage
+xgmWriteNTEventLog
+xcsFFST
+
+MQM Trace History
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xcsFreeMemFn
+----} xcsFreeMemFn rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsQueryMTimeFn
+---} xcsQueryMTimeFn rc=OK
+---{ xcsQueryMTimeFn
+---} xcsQueryMTimeFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xusReadSingleStanza
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+----{ xusGetLineType
+----} xusGetLineType rc=OK
+----{ xusAddStanzaLineList
+-----{ xcsGetMemFn
+-----} xcsGetMemFn rc=OK
+----} xusAddStanzaLineList rc=OK
+---} xusReadSingleStanza rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xcsFreeMemFn
+---} xcsFreeMemFn rc=OK
+---{ xufCloseIniRead
+---} xufCloseIniRead rc=OK
+--} xcsBrowseFileCallback rc=OK
+-} xcsBrowseIniCallback rc=OK
+} xcsGetQMDetails rc=OK
+{ xcsFreeMemFn
+} xcsFreeMemFn rc=OK
+{ xcsQueryValueForSubpool
+} xcsQueryValueForSubpool rc=OK
+{ xcsDisplayMessage
+-{ xcsGetMemFn
+-} xcsGetMemFn rc=OK
+-{ xcsGetMessage
+--{ xcsGetMemFn
+--} xcsGetMemFn rc=OK
+--{ xeeConvertInserts
+---{ xcsGetMemFn
+---} xcsGetMemFn rc=OK
+--} xeeConvertInserts rc=OK
+--{ xgmNTGetMessage
+---{ xgmDetermineMsgCatLanguage
+---} xgmDetermineMsgCatLanguage rc=OK
+--} xgmNTGetMessage rc=OK
+--{ xcsFreeMemFn
+--} xcsFreeMemFn rc=OK
+--{ xcsFreeMemFn
+--} xcsFreeMemFn rc=OK
+-} xcsGetMessage rc=OK
+-{ xcsIsEnvironment
+-} xcsIsEnvironment rc=OK
+-{ xeeOpenFiles
+--{ xcsCreateFile
+--} xcsCreateFile rc=OK
+-} xeeOpenFiles rc=OK
+-{ xeeGenerateInfoString
+-} xeeGenerateInfoString rc=OK
+-{ xeeCloseFiles
+-} xeeCloseFiles rc=OK
+-{ xeeGenerateInfoString
+-} xeeGenerateInfoString rc=OK
+-{ xgmWriteNTEventLog
+--{ xgmCheckMsgRequired
+--} xgmCheckMsgRequired rc=OK
+--{ xeeConvertInserts
+---{ xcsGetMemFn
+---} xcsGetMemFn rc=OK
+--} xeeConvertInserts rc=OK
+--{ xcsFFST
+
+Thread Control Block (xihTHREAD pCtl)
+0000015BE728EFD0   58494854  40160000  00000000  00000000    XIHT@...........
+0000015BE728EFE0   01000000  00000000  00010000  00000000    ................
+0000015BE728EFF0   80EC29E7  5B010000  00000000  00000000    ?.)?[...........
+0000015BE728F000   00010000  00000000  00000000  00000000    ................
+0000015BE728F010   4A000000  01000000  00000000  00000000    J...............
+0000015BE728F020   00000000  00000000  00000000  00000000    ................
+0000015BE728F030 to 0000015BE728F110 suppressed, lines same as above
+0000015BE728F120   00DACFBA  2F000000  00000000  00000000    ..../...........
+0000015BE728F130   00DACFBA  2F000000  00DBCFBA  2F000000    ..../......./...
+0000015BE728F140   03000000  00000000  00000000  00000000    ................
+0000015BE728F150   00000000  00000000  25000000  00000000    ........%.......
+0000015BE728F160   D0EF28E7  5B010000  00000800  00000000    ..(?[...........
+0000015BE728F170   2D5D1B12  F97F0000  801F0000  7F020000    -]......?.......
+0000015BE728F180   00000000  00000000  00000000  00000000    ................
+0000015BE728F190 to 0000015BE728F210 suppressed, lines same as above
+0000015BE728F220   A0E9CFBA  2F000000  C01C37E8  5B010000    ??../.....7?[...
+0000015BE728F230   A0E9CFBA  2F000000  A0EACFBA  2F000000    ??../...??../...
+0000015BE728F240   00000000  00000000  08000000  00000000    ................
+0000015BE728F250   18309712  F97F0000  06000000  00000000    .0?.............
+0000015BE728F260   00000000  00000000  00000000  00000000    ................
+0000015BE728F270   78DD0EF4  F87F0000  801F0000  7F020000    x...?...?.......
+0000015BE728F280   00000000  00000000  00000000  00000000    ................
+0000015BE728F290 to 0000015BE728FB10 suppressed, lines same as above
+0000015BE728FB20   18000000  00000000  00000000  00000000    ................
+0000015BE728FB30   00000000  00000000  00000000  00000000    ................
+0000015BE728FB40   00000000  FFFFFFFF  00000000  00000000    ....????........
+0000015BE728FB50   00000000  00000000  00000000  00000000    ................
+0000015BE728FB60   53595354  454D0000  00000000  00000000    SYSTEM..........
+0000015BE728FB70   00000000  00000000  0C000000  01010000    ................
+0000015BE728FB80   00000005  12000000  00000000  00000000    ................
+0000015BE728FB90   00000000  00000000  00000000  00000000    ................
+0000015BE728FBA0   01000000  00000000  00000000  00000000    ................
+0000015BE728FBB0   00000000  00000000  00000000  00000000    ................
+0000015BE728FBC0   200629E7  5B010000  00000000  00000000     .)?[...........
+0000015BE728FBD0   00000000  00000000  00000000  00000000    ................
+0000015BE728FBE0 to 0000015BE728FC00 suppressed, lines same as above
+0000015BE728FC10   00000000  00000000  558800F0  A58800F0    ........U?..??..
+0000015BE728FC20   588800F0  608800F0  7D5D00F0  165C00F0    X?..`?..}]...\..
+0000015BE728FC30   C86000F0  035C00F0  155C00F0  885E00F0    .`...\...\..?^..
+0000015BE728FC40   C96000F0  735D00F0  00000000  00000000    .`..s]..........
+0000015BE728FC50   00000000  00000000  00000000  00000000    ................
+0000015BE728FC60 to 0000015BE728FCE0 suppressed, lines same as above
+0000015BE728FCF0   00000000  00000000  065C00F0  065C0000    .........\...\..
+0000015BE728FD00   4C5C0000  B36000F0  B3600000  135C00F0    L\...`...`...\..
+0000015BE728FD10   135C0000  D15E00F0  D15E0000  CB5D00F0    .\...^...^...]..
+0000015BE728FD20   CB5D0000  055C00F0  055C0000  135C00F0    .]...\...\...\..
+0000015BE728FD30   135C0000  135C00F0  135C0000  135C00F0    .\...\...\...\..
+0000015BE728FD40   135C0000  1F5E00F0  205E00F0  205E0000    .\...^.. ^.. ^..
+0000015BE728FD50   1F5E0000  135C00F0  135C0000  135C00F0    .^...\...\...\..
+0000015BE728FD60   135C0000  135C00F0  885E00F0  885E0000    .\...\..?^..?^..
+0000015BE728FD70   135C0000  655D00F0  655D0000  155C00F0    .\..e]..e]...\..
+0000015BE728FD80   155C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE728FD90   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE728FDA0 to 0000015BE728FE00 suppressed, lines same as above
+0000015BE728FE10   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FE20   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FE30   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE728FE40   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FE50   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FE60   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE728FE70   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE728FE80   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FE90   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FEA0   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE728FEB0   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FEC0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FED0   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE728FEE0   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FEF0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FF00   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE728FF10   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE728FF20   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE728FF30   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FF40   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FF50   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE728FF60   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FF70   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FF80   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE728FF90   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FFA0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE728FFB0   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE728FFC0   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE728FFD0   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE728FFE0   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE728FFF0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290000   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE7290010   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290020   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290030   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE7290040   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290050   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290060   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE7290070   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE7290080   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE7290090   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE72900A0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE72900B0   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE72900C0   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE72900D0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE72900E0   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE72900F0   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290100   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290110   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE7290120   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE7290130   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE7290140   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290150   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290160   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE7290170   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290180   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290190   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE72901A0   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE72901B0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE72901C0   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE72901D0   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE72901E0   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE72901F0   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290200   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290210   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE7290220   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290230   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290240   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE7290250   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290260   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290270   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE7290280   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE7290290   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE72902A0   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE72902B0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE72902C0   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE72902D0   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE72902E0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE72902F0   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE7290300   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290310   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290320   0D6000F0  0D600000  0B600000  065C00F0    .`...`...`...\..
+0000015BE7290330   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE7290340   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE7290350   065C0000  0B6000F0  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290360   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE7290370   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE7290380   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE7290390   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE72903A0   0D6000F0  0D600000  0F6000F0  055C00F0    .`...`...`...\..
+0000015BE72903B0   055C0000  0F600000  0D6000F0  0D600000    .\...`...`...`..
+0000015BE72903C0   0F6000F0  055C00F0  055C0000  0F600000    .`...\...\...`..
+0000015BE72903D0   0B600000  065C00F0  065C0000  065C00F0    .`...\...\...\..
+0000015BE72903E0   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+0000015BE72903F0   065C0000  065C00F0  065C0000  126000F0    .\...\...\...`..
+0000015BE7290400   12600000  30610000  09600000  7C5D0000    .`..0a..	`..|]..
+0000015BE7290410   065C00F0  065C0000  595D00F0  595D0000    .\...\..Y]..Y]..
+0000015BE7290420   165C00F0  055C00F0  055C0000  4C5C00F0    .\...\...\..L\..
+0000015BE7290430   055C00F0  055C0000  535C00F0  055C00F0    .\...\..S\...\..
+0000015BE7290440   055C0000  535C0000  CA6000F0  C96000F0    .\..S\...`...`..
+0000015BE7290450   C9600000  CA600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE7290460   065C00F0  065C0000  4C5C0000  CB5D00F0    .\...\..L\...]..
+0000015BE7290470   CB5D0000  925D00F0  D15E00F0  D15E0000    .]..?]...^...^..
+0000015BE7290480   925D0000  895E00F0  895E0000  935D00F0    ?]..?^..?^..?]..
+0000015BE7290490   935D0000  895E00F0  895E0000  C86000F0    ?]..?^..?^...`..
+0000015BE72904A0   CF6000F0  CF600000  535C00F0  055C00F0    .`...`..S\...\..
+0000015BE72904B0   055C0000  535C0000  035C00F0  4C5C00F0    .\..S\...\..L\..
+0000015BE72904C0   055C00F0  055C0000  535C00F0  055C00F0    .\...\..S\...\..
+0000015BE72904D0   055C0000  535C0000  CA6000F0  C96000F0    .\..S\...`...`..
+0000015BE72904E0   C9600000  CA600000  065C00F0  065C0000    .`...`...\...\..
+0000015BE72904F0   00000000  00000000  00000000  00000000    ................
+0000015BE7290500   23000000  1C000000  00000000  00000000    #...............
+0000015BE7290510   00000000  00000000  00000000  00000000    ................
+0000015BE7290520   00000000  00000000  01000000  01000000    ................
+0000015BE7290530   00000000  00000000  00000000  00000000    ................
+0000015BE7290540   00000000  00000000  00000000  00000000    ................
+0000015BE7290550   00000000  463A5C62  75696C64  5C736C6F    ....F:\build\slo
+0000015BE7290560   74315C70  3930305F  505C7372  635C6C69    t1\p900_P\src\li
+0000015BE7290570   625C6373  5C70635C  77696E6E  745C616D    b\cs\pc\winnt\am
+0000015BE7290580   7178676D  736E2E63  00000000  00000000    qxgmsn.c........
+0000015BE7290590   00000000  00000000  B7040000  00000000    ................
+0000015BE72905A0   00000000  00000000  00000000  00000000    ................
+0000015BE72905B0 to 0000015BE72905C0 suppressed, lines same as above
+0000015BE72905D0   2D0A590C  68990500  000A29E7  5B010000    -.Y.h?....)?[...
+0000015BE72905E0   00000000  00000000  00000000  00000000    ................
+0000015BE72905F0 to 0000015BE7290600 suppressed, lines same as above
+
+
+Thread Common Services (xihTHREADCOMMONSERVICES pCtl->pCS)
+0000015BE7290620   58494353  00000000  00000000  00000000    XICS............
+0000015BE7290630   00000000  00000000  00000000  00000000    ................
+0000015BE7290640   03000000  01000000  00000000  00000000    ................
+0000015BE7290650   60BB2112  F97F0000  60132CE7  5B010000    `.!.....`.,?[...
+0000015BE7290660   E00F2CE7  5B010000  00000000  00000000    ?.,?[...........
+0000015BE7290670   00000000  00000000  00000000  00000000    ................
+0000015BE7290680   00000000  00000000  00000000  01000000    ................
+0000015BE7290690   01000000  00000000  00000000  00000000    ................
+0000015BE72906A0   00000000  00000000  00000000  00000000    ................
+0000015BE72906B0 to 0000015BE72906F0 suppressed, lines same as above
+0000015BE7290700   00000000  00000000  01000000  00000000    ................
+0000015BE7290710   40DB0E00  02000000  00000000  40AE1B00    @...........@?..
+0000015BE7290720   00000000  00000000  00000000  00000000    ................
+0000015BE7290730 to 0000015BE7290740 suppressed, lines same as above
+0000015BE7290750   00000000  00000000  40EB29E8  5B010000    ........@?)?[...
+0000015BE7290760   40BE06E8  5B010000  00000000  00000000    @..?[...........
+0000015BE7290770   00000000  00000000  00000000  00000000    ................
+0000015BE7290780   00000000  00000000  00000000  05000000    ................
+0000015BE7290790   0D000000  00000000  00000000  00000000    ................
+0000015BE72907A0   00000000  00000000  00000000  00000000    ................
+0000015BE72907B0   00000000  00000000  00000000  00000000    ................
+0000015BE72907C0   00000000  00000000  A02927E7  5B010000    ........?)'?[...
+0000015BE72907D0   C02727E7  5B010000  00000000  00000000    .''?[...........
+0000015BE72907E0   00000000  00000000  00000000  00000000    ................
+0000015BE72907F0   00000000  00000000  00000000  00000000    ................
+0000015BE7290800   40411EE8  5B010000  40C3EDE7  5B010000    @A.?[...@.??[...
+0000015BE7290810   00000000  00000000  00000000  00000000    ................
+0000015BE7290820 to 0000015BE7290870 suppressed, lines same as above
+0000015BE7290880   01000000  01000000  01000000  01000000    ................
+0000015BE7290890   01000000  01000000  01000000  01000000    ................
+0000015BE72908A0   02000000  02000000  02000000  02000000    ................
+0000015BE72908B0   02000000  02000000  02000000  08000000    ................
+0000015BE72908C0   20B027E7  5B010000  0E000000  00000000     .'?[...........
+0000015BE72908D0   00000000  00000000  00000000  00000000    ................
+0000015BE72908E0 to 0000015BE7290910 suppressed, lines same as above
+0000015BE7290920   00000000  00000000  4D310000  00000000    ........M1......
+0000015BE7290930   00000000  00000000  00000000  00000000    ................
+0000015BE7290940 to 0000015BE72909E0 suppressed, lines same as above
+0000015BE72909F0   00000000  00000000                        ........
+
+
+Thread Common Common Services (xihTHREADCOMMONSERVICES pCtl->Common.pCCS)
+0000015BE7290A00   58494343  00000000  00000000  00000000    XICC............
+0000015BE7290A10   00000000  00000000  00000000  00000000    ................
+0000015BE7290A20 to 0000015BE7290A70 suppressed, lines same as above
+0000015BE7290A80   00000000  00000000  801943E7  5B010000    ........?.C?[...
+0000015BE7290A90   00000000  00000000  00000000  00000000    ................
+0000015BE7290AA0 to 0000015BE7290B10 suppressed, lines same as above
+0000015BE7290B20   01000000  00000000  F01F4BF7  F87F0000    ..........K.?...
+0000015BE7290B30   00000000  00000000  00000000  00000000    ................
+0000015BE7290B40 to 0000015BE7290B90 suppressed, lines same as above
+0000015BE7290BA0   01000000  00000000  40A61200  62000000    ........@?..b...
+0000015BE7290BB0   0C000000  40D31600  00000000  00000000    ....@...........
+0000015BE7290BC0   00000000  00000000  00000000  00000000    ................
+0000015BE7290BD0 to 0000015BE7290BE0 suppressed, lines same as above
+0000015BE7290BF0   D00927E7  5B010000  00000001  00000000    .	'?[...........
+0000015BE7290C00   00000000  00000000  00000000  00000000    ................
+0000015BE7290C10   00000000  00000000  00000000  00000000    ................
+0000015BE7290C20   C0590CE8  5B010000  00000000  00000000    .Y.?[...........
+
+
+Common Services Control Block (CSCtrl)
+0000015BE72BCA00   58494820  90030000  01000000  00000000    XIH ?...........
+0000015BE72BCA10   004E29E7  5B010000  04010000  01000000    .N)?[...........
+0000015BE72BCA20   B5010000  02000000  01000000  00000000    ................
+0000015BE72BCA30   00000000  00000000  B0DF2BE7  5B010000    ..........+?[...
+0000015BE72BCA40   00300000  00000000  306226E7  5B010000    .0......0b&?[...
+0000015BE72BCA50   C4000000  00000000  A00628E7  5B010000    ........?.(?[...
+0000015BE72BCA60   3C000000  00000000  903D27E7  5B010000    <.......?='?[...
+0000015BE72BCA70   01000000  00000000  100628E7  5B010000    ..........(?[...
+0000015BE72BCA80   433A5C50  726F6772  616D4461  74615C49    C:\ProgramData\I
+0000015BE72BCA90   424D5C4D  51000000  00000000  00000000    BM\MQ...........
+0000015BE72BCAA0   00000000  00000000  00000000  00000000    ................
+0000015BE72BCAB0 to 0000015BE72BCB70 suppressed, lines same as above
+0000015BE72BCB80   00000000  00000000  02000000  80000000    ............?...
+0000015BE72BCB90   D0252AE7  5B010000  00000000  00000000    .%*?[...........
+0000015BE72BCBA0   00000000  00000000  00000000  00000000    ................
+0000015BE72BCBB0 to 0000015BE72BCC90 suppressed, lines same as above
+0000015BE72BCCA0   00000000  00000000  03000000  00000000    ................
+0000015BE72BCCB0   00000000  00000000  60132CE7  5B010000    ........`.,?[...
+0000015BE72BCCC0   E00F2CE7  5B010000  40FB30E7  5B010000    ?.,?[...@.0?[...
+0000015BE72BCCD0   00000000  00000000  00000000  00000000    ................
+0000015BE72BCCE0 to 0000015BE72BCD30 suppressed, lines same as above
+0000015BE72BCD40   B0DF2BE7  5B010000  E4040000  00000000    ..+?[...?.......
+0000015BE72BCD50   01000000  00000000  F0B10C12  F97F0000    ................
+0000015BE72BCD60   00000000  00000000  00000000  00000000    ................
+0000015BE72BCD70   00000000  00000000  00000000  00000000    ................
+0000015BE72BCD80   C07D09E8  5B010000  02000000  00000000    .}	?[...........
+
+
+Process Control Block (xihPROCESS)
+00007FF9124318E0   58494850  180E0000  14270000  00000000    XIHP.....'......
+00007FF9124318F0   00000000  00000000  00000000  00000000    ................
+00007FF912431900 to 00007FF912431960 suppressed, lines same as above
+00007FF912431970   00000000  00000000  1B000000  00000000    ................
+00007FF912431980   D0EF28E7  5B010000  80EC29E7  5B010000    ..(?[...?.)?[...
+00007FF912431990   01000000  0C000000  01010000  00000005    ................
+00007FF9124319A0   12000000  00000000  00000000  00000000    ................
+00007FF9124319B0   00000000  00000000  00000000  433A5C50    ............C:\P
+00007FF9124319C0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+00007FF9124319D0   515C6572  726F7273  00000000  00000000    Q\errors........
+00007FF9124319E0   00000000  00000000  00000000  00000000    ................
+00007FF9124319F0 to 00007FF912431AB0 suppressed, lines same as above
+00007FF912431AC0   00000000  00000000  01000000  433A5C50    ............C:\P
+00007FF912431AD0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+00007FF912431AE0   515C736F  636B6574  735C4053  59535445    Q\sockets\@SYSTE
+00007FF912431AF0   4D5C716D  67726C6F  636C5C44  45534B54    M\qmgrlocl\DESKT
+00007FF912431B00   4F502D45  314A5432  56525C31  5C547261    OP-E1JT2VR\1\Tra
+00007FF912431B10   63652E73  686D0000  00000000  00000000    ce.shm..........
+00007FF912431B20   00000000  00000000  00000000  00000000    ................
+00007FF912431B30 to 00007FF912431BC0 suppressed, lines same as above
+00007FF912431BD0   00000000  00000000  04010000  00000000    ................
+00007FF912431BE0   08010000  00000000  00000000  00000000    ................
+00007FF912431BF0   000024E7  5B010000  00000000  00000000    ..$?[...........
+00007FF912431C00   00000000  00000000  00000000  00000000    ................
+00007FF912431C10 to 00007FF912431CF0 suppressed, lines same as above
+00007FF912431D00   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ????????????....
+00007FF912431D10   00000000  02000000  FEFFFFFF  00000000    .........???....
+00007FF912431D20   00000000  01000000  00000000  00000000    ................
+00007FF912431D30   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ????????????....
+00007FF912431D40   00000000  00000000  00000000  00000000    ................
+00007FF912431D50   D0070002  00000000  FFFFFFFF  FFFFFFFF    ........????????
+00007FF912431D60   FFFFFFFF  00000000  00000000  00000000    ????............
+00007FF912431D70   00000000  00000000  D0070002  00000000    ................
+00007FF912431D80   FFFFFFFF  FFFFFFFF  FFFFFFFF  00000000    ????????????....
+00007FF912431D90   00000000  00000000  00000000  00000000    ................
+00007FF912431DA0   D0070002  00000000  607F29E7  5B010000    ........`.)?[...
+00007FF912431DB0   FFFFFFFF  00000000  00000000  00000000    ????............
+00007FF912431DC0   FFFFFFFF  FFFFFFFF  CE070002  00000000    ????????........
+00007FF912431DD0   53595354  454D0000  00000000  00000000    SYSTEM..........
+00007FF912431DE0   00000000  00000000  00000000  00000003    ................
+00007FF912431DF0   00000000  00000000  00000000  00000000    ................
+00007FF912431E00 to 00007FF912431E20 suppressed, lines same as above
+00007FF912431E30   1F000000  01050000  00000005  15000000    ................
+00007FF912431E40   07890100  0EC9BF75  BB775DF1  EE030000    .?.....u.w]??...
+00007FF912431E50   00000000  00000000  01010000  00000005    ................
+00007FF912431E60   12000000  00000000  00000000  00000000    ................
+00007FF912431E70   00000000  00000000  00000000  01020000    ................
+00007FF912431E80   00000005  20000000  20020000  00000000    .... ... .......
+00007FF912431E90   00000000  00000000  00000000  00000000    ................
+00007FF912431EA0   01010000  00000001  00000000  00000000    ................
+00007FF912431EB0   00000000  00000000  00000000  00000000    ................
+00007FF912431EC0 to 00007FF912431ED0 suppressed, lines same as above
+00007FF912431EE0   00000000  00000000  B0040000  00000000    ................
+00007FF912431EF0   B03A27E7  5B010000  06000000  02000000    .:'?[...........
+00007FF912431F00   05000000  00000000  00000000  F0230000    .............#..
+00007FF912431F10   30000000  00000000  00000712  F97F0000    0...............
+00007FF912431F20   433A5C50  726F6772  616D2046  696C6573    C:\Program Files
+00007FF912431F30   5C49424D  5C4D515C  62696E36  345C616D    \IBM\MQ\bin64\am
+00007FF912431F40   717A692E  646C6C00  00000000  00000000    qzi.dll.........
+00007FF912431F50   00000000  00000000  00000000  00000000    ................
+00007FF912431F60 to 00007FF912432350 suppressed, lines same as above
+00007FF912432360   00000000  00000000  00400000  58495343    .........@..XISC
+00007FF912432370   FFFFFFFF  00100000  40000000  00000000    ????....@.......
+00007FF912432380   00000000  00000000  00000000  00000000    ................
+00007FF912432390   00000000  00000000  00000000  00000000    ................
+00007FF9124323A0   00000000  00000000  4A010000  28554E4B    ........J...(UNK
+00007FF9124323B0   4E4F574E  29000000  00000000  00000000    NOWN)...........
+00007FF9124323C0   00000000  00000000  00000000  00000000    ................
+00007FF9124323D0   00000000  00000000  00000000  00000000    ................
+00007FF9124323E0   00000000  00000000  00000000  004D3100    .............M1.
+00007FF9124323F0   00000000  00000000  00000000  00000000    ................
+00007FF912432400 to 00007FF912432440 suppressed, lines same as above
+00007FF912432450   00000000  04000000  00280000  0A000000    .........(......
+00007FF912432460   00000000  00000000  01000000  31000000    ............1...
+00007FF912432470   00000000  00000000  00000000  00496E73    .............Ins
+00007FF912432480   74616C6C  6174696F  6E310000  0000433A    tallation1....C:
+00007FF912432490   5C50726F  6772616D  2046696C  65735C49    \Program Files\I
+00007FF9124324A0   424D5C4D  51000000  00000000  00000000    BM\MQ...........
+00007FF9124324B0   00000000  00000000  00000000  00000000    ................
+00007FF9124324C0 to 00007FF912432570 suppressed, lines same as above
+00007FF912432580   00000000  00000000  00000000  00000053    ...............S
+00007FF912432590   4F465457  4152455C  49424D5C  57656253    OFTWARE\IBM\WebS
+00007FF9124325A0   70686572  65204D51  5C496E73  74616C6C    phere MQ\Install
+00007FF9124325B0   6174696F  6E5C496E  7374616C  6C617469    ation\Installati
+00007FF9124325C0   6F6E3100  00000000  31000000  00000000    on1.....1.......
+00007FF9124325D0   00000000  00000000  00000000  00000000    ................
+00007FF9124325E0 to 00007FF9124326B0 suppressed, lines same as above
+00007FF9124326C0   00000000  00000000  00000000  0050726F    .............Pro
+00007FF9124326D0   64756374  696F6E00  00000000  00000000    duction.........
+00007FF9124326E0   03000000  00000000  03000000  00000000    ................
+00007FF9124326F0   900D27E7  5B010000                        ?.'?[...
+
+
+Zut Common Anchor (zutCOMMON_ANCHOR)
+00007FF91242D3D0   5A554341  5A535441  00000000  00000000    ZUCAZSTA........
+00007FF91242D3E0   524D5141  00000000  FFFFFFFF  FFFFFFFF    RMQA....????????
+00007FF91242D3F0   FFFFFFFF  00000000  00000000  00000000    ????............
+00007FF91242D400   00000000  00000000  D0070002  00000000    ................
+00007FF91242D410   0000403F  1F000000  00000000  00000000    ..@?............
+00007FF91242D420   E03A27E7  5B010000  00000000  00000000    ?:'?[...........
+00007FF91242D430   00000000  64000000  64000000  00000000    ....d...d.......
+00007FF91242D440   00000000  00000000  00000000  00000000    ................
+00007FF91242D450   02000000  00000000  00000000  00000000    ................
+00007FF91242D460   70E328E7  5B010000  68E428E7  5B010000    p?(?[...h?(?[...
+00007FF91242D470   00000000  00000000  00000000  00000000    ................
+00007FF91242D480 to 00007FF91242D490 suppressed, lines same as above
+00007FF91242D4A0   00000000  00000000  10D44212  F97F0000    ..........B.....
+00007FF91242D4B0   00000000  00000000  00000000  00000000    ................
+00007FF91242D4C0   00000000  00000000  00000000  00000000    ................
+00007FF91242D4D0   05000000  00000000  08000000  00000000    ................
+00007FF91242D4E0   00000000  00000000                        ........
+
+
+Suspend/Resume Area (SRA) for Subpool 1
+{
+  Eye:              xlsT
+  Pid:              10004
+  Tid:              1
+  ConnId:           5
+  Posted:           0
+  Flags:            0X80000000
+  OwnerFlags:       0X0
+  ResumingConnId:   0
+  TimerFlags:       0
+  LockOwnerCount    0
+  ProgramName       amqzmuc0.exe
+  WaitCount         0
+  SPCheckCount      0
+  WaitType          31
+  RetryCount        0
+  Event             4
+  hEvent            580
+  Self:             1::0::0-209216
+  Next:             0::0::0-0
+  Prev:             0::0::0-0
+  OwnerCountRW:     0
+  RWAccess:         0
+  Priority          0X0
+}xlsSUSRESAREA
+0000015BE81E4140   786C7354  14270000  01000000  05000000    xlsT.'..........
+0000015BE81E4150   00000000  00000080  00000000  00000000    .......?........
+0000015BE81E4160   00000000  1F000000  00000000  00000000    ................
+0000015BE81E4170   00000000  00000000  00000000  00000000    ................
+0000015BE81E4180   00000000  00000000  00000000  01000000    ................
+0000015BE81E4190   00000000  40310300  00000000  00000000    ....@1..........
+0000015BE81E41A0   00000000  00000000  44020000  00000000    ........D.......
+0000015BE81E41B0   04000000  00000000  00000000  00000000    ................
+0000015BE81E41C0   00000000  00000000  06000000  00000000    ................
+0000015BE81E41D0   616D717A  6D756330  2E657865  00000000    amqzmuc0.exe....
+0000015BE81E41E0   00000000  00000000  00000000  00000000    ................
+0000015BE81E41F0   00000000  00000000  00000000  00000000    ................
+0000015BE81E4200   00000000  00000000                        ........
+
+
+Suspend/Resume Area (SRA) for Subpool 2
+{
+  Eye:              xlsT
+  Pid:              10004
+  Tid:              1
+  ConnId:           13
+  Posted:           0
+  Flags:            0X80000000
+  OwnerFlags:       0X0
+  ResumingConnId:   2
+  TimerFlags:       0
+  LockOwnerCount    1
+  ProgramName       amqzmuc0.exe
+  WaitCount         7083
+  SPCheckCount      7064
+  WaitType          31
+  RetryCount        0
+  Event             12
+  hEvent            536
+  Self:             2::0::0-176960
+  Next:             0::0::0-0
+  Prev:             0::0::0-0
+  OwnerCountRW:     0
+  RWAccess:         0
+  Priority          0X1000000
+}xlsSUSRESAREA
+0000015BE7EDC340   786C7354  14270000  01000000  0D000000    xlsT.'..........
+0000015BE7EDC350   01000000  00000080  00000000  00000000    .......?........
+0000015BE7EDC360   00000000  1F000000  00000000  00000000    ................
+0000015BE7EDC370   02000000  00000000  00000000  00000000    ................
+0000015BE7EDC380   00000000  00000000  00000000  02000000    ................
+0000015BE7EDC390   00000000  40B30200  AB1B0000  00000000    ....@...?.......
+0000015BE7EDC3A0   00000000  00000000  18020000  00000000    ................
+0000015BE7EDC3B0   0C000000  00000000  981B0000  00000000    ........?.......
+0000015BE7EDC3C0   00000000  00000000  05000000  00000001    ................
+0000015BE7EDC3D0   616D717A  6D756330  2E657865  00000000    amqzmuc0.exe....
+0000015BE7EDC3E0   00000000  00000000  00000000  00000000    ................
+0000015BE7EDC3F0   00000000  00000000  00000000  00000000    ................
+0000015BE7EDC400   00000000  00000000                        ........
+
+{
+  Eye:           xruT
+  Flags:         0X1
+  self:          2::0::0-2181568
+  hProc          2::0::0-1994176
+  StackSize:     0
+  StackUsed:     0
+  PrivateGetBytes:  555872
+  PrivateFreeBytes: 539200
+  RecordCount:   14151
+  Sequence:      21651
+  {
+    userTime:     468750
+    kernelTime:   1875000
+    userTime:     468750
+    kernelTime:   1875000
+  }xruTHREAD_OS
+}xruTHREAD
+{
+  Eye:           xruP
+  Flags:         0X1
+  Options:       0X2
+  Pid.Tid        10004.1 amqzmuc0.exe
+  self:          2::0::0-1994176
+  PrivateBytes[3] 2096
+  PrivateBytes[11] 12288
+  PrivateBytes[13] 1944
+  PrivateBytes[23] 14688
+  PrivateBytes[24] 11488
+  PrivateBytes[27] 1520
+  PrivateBytes[28] 544
+  StackBytes:    0
+  RecordCount:   7046
+  Sequence:      21651
+  TargetCollectionTime: 2019-12-11 12:20:47.363
+  TargetRecordTime:     2019-12-11 12:20:50.322
+  {
+   {
+    userTime:                   8125000 (312500)
+    kernelTime:                 112968750 (1406250)
+    PageFaultCount              74457 (325)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              16404480 (-3620864)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         344032 (-76064)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      21120 (-2584)
+    PagefileUsage               5349376 (-1187840)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                5349376 (-1187840)
+   } at 2019-12-11 12:20:45.322
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111562500 (156250)
+    PageFaultCount              74132 (348)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              20025344 (614400)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420096 (-400)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      23704 (-1496)
+    PagefileUsage               6537216 (-1077248)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                6537216 (-1077248)
+   } at 2019-12-11 12:20:15.576
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111406250 (0)
+    PageFaultCount              73784 (18)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19410944 (73728)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:19:45.767
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111406250 (0)
+    PageFaultCount              73766 (4)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19337216 (16384)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:19:15.769
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111406250 (156250)
+    PageFaultCount              73762 (130)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19320832 (0)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:18:45.771
+   {
+    userTime:                   7812500 (-312500)
+    kernelTime:                 111250000 (-1718750)
+    PageFaultCount              73632 (4294966471)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19320832 (2916352)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (76464)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (4080)
+    PagefileUsage               7614464 (2265088)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (2265088)
+   } at 2019-12-11 12:18:15.773
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111250000 (0)
+    PageFaultCount              73632 (0)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19320832 (-49152)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:17:45.775
+   {
+    userTime:                   7812500 (0)
+    kernelTime:                 111250000 (0)
+    PageFaultCount              73632 (0)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19369984 (0)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (0)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (0)
+    PagefileUsage               7614464 (0)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (0)
+   } at 2019-12-11 12:17:15.777
+   {
+    userTime:                   7812500 (-312500)
+    kernelTime:                 111250000 (-1718750)
+    PageFaultCount              73632 (4294966445)
+    PeakWorkingSetSize          26607616 (0)
+    WorkingSetSize              19369984 (2899968)
+    QuotaPeakPagedPoolUsage     426504 (0)
+    QuotaPagedPoolUsage         420496 (76464)
+    QuotaPeakNonPagedPoolUsage  25800 (0)
+    QuotaNonPagedPoolUsage      25200 (4352)
+    PagefileUsage               7614464 (2330624)
+    PeakPageFileUsage           7667712 (0)
+    PrivateUsage                7614464 (2330624)
+   } at 2019-12-11 12:16:45.778
+  }xruPROCESS_OS
+}xruPROCESS
+
+MTime Control Block
+0000015BE7230000                       58435043  01000000            XCPC....
+0000015BE7230010   01000000  00000000  093D0000  B9650000    ........	=...e..
+0000015BE7230020   96980000  96000000  0F000000  00000000    ??..?...........
+0000015BE7230030   80969800  00000000  0068C461  08000000    ???......h.a....
+0000015BE7230040   601F630C  68990500  EE010000  6C000000    `.c.h?..?...l...
+0000015BE7230050   00000000  00000000  11000000  75010000    ............u...
+0000015BE7230060   23A13024  EE980500  80969800  01000000    #?0$?..???.....
+
+
+MTime Index
+0000002FBACFC480   EE010000                                  ?...
+
+
+MTime Entries
+0000015BE723D660                       00000000  00000000            ........
+0000015BE723D670   E9010000  E9010000  E9010000  00000000    ?...?...?.......
+0000015BE723D680   E9010000  EB999800  E9010000  BE040000    ?...?.?.......
+0000015BE723D690   E9010000  EC816E5A  E9010000  67990500    ?....?nZ?...g?..
+0000015BE723D6A0   E9010000  7BA1808D  E9010000  02000000    ?...{????.......
+0000015BE723D6B0   E9010000  00000000  E9010000  FB6C0000    ?.......?....l..
+0000015BE723D6C0   E9010000  67990500  E9010000  03E2B18E    ?...g?..?....?.?
+0000015BE723D6D0   E9010000  E9010000  00000000  00000000    ?...?...........
+0000015BE723D6E0   EA010000  EA010000  EA010000  00000000    ?...?...?.......
+0000015BE723D6F0   EA010000  CF969800  EA010000  BF040000    ?....??.?.......
+0000015BE723D700   EA010000  27811AF0  EA010000  67990500    ?...'?..?...g?..
+0000015BE723D710   EA010000  FEEB10B6  EA010000  02000000    ?....?..?.......
+0000015BE723D720   EA010000  FFFFFFFF  EA010000  A699FFFF    ?...?????...????
+0000015BE723D730   EA010000  67990500  EA010000  862C42B7    ?...g?..?...?,B.
+0000015BE723D740   EA010000  EA010000  00000000  00000000    ?...?...........
+0000015BE723D750   EB010000  EB010000  EB010000  00000000    ?...?...?.......
+0000015BE723D760   EB010000  06969800  EB010000  BF040000    ?....??.?.......
+0000015BE723D770   EB010000  0A11B6FC  EB010000  67990500    ?......??...g?..
+0000015BE723D780   EB010000  EDAC53B7  EB010000  02000000    ?...?S.?.......
+0000015BE723D790   EB010000  FFFFFFFF  EB010000  9599FFFF    ?...?????...????
+0000015BE723D7A0   EB010000  67990500  EB010000  75ED84B8    ?...g?..?...u?.
+0000015BE723D7B0   EB010000  EB010000  00000000  00000000    ?...?...........
+0000015BE723D7C0   EC010000  EC010000  EC010000  00000000    ................
+0000015BE723D7D0   EC010000  C6979800  EC010000  C2040000    .....??.........
+0000015BE723D7E0   EC010000  4FB13FB5  EC010000  67990500    ....O.?.....g?..
+0000015BE723D7F0   EC010000  7141FBFC  EC010000  02000000    ....qA.?........
+0000015BE723D800   EC010000  00000000  EC010000  69660000    ............if..
+0000015BE723D810   EC010000  67990500  EC010000  F9812CFE    ....g?.......?,.
+0000015BE723D820   EC010000  EC010000  00000000  00000000    ................
+0000015BE723D830   ED010000  ED010000  ED010000  00000000    ?...?...?.......
+0000015BE723D840   ED010000  8E989800  ED010000  C2040000    ?...???.?.......
+0000015BE723D850   ED010000  741F32C1  ED010000  67990500    ?...t.2.?...g?..
+0000015BE723D860   ED010000  B4162DFE  ED010000  02000000    ?.....-.?.......
+0000015BE723D870   ED010000  00000000  ED010000  B4660000    ?.......?....f..
+0000015BE723D880   ED010000  67990500  ED010000  3C575EFF    ?...g?..?...<W^?
+0000015BE723D890   ED010000  ED010000  00000000  00000000    ?...?...........
+0000015BE723D8A0   EE010000  EE010000  EE010000  00000000    ?...?...?.......
+0000015BE723D8B0   EE010000  A6999800  EE010000  C2040000    ?...???.?.......
+0000015BE723D8C0   EE010000  69D724CD  EE010000  67990500    ?...i.$.?...g?..
+0000015BE723D8D0   EE010000  C7F15EFF  EE010000  02000000    ?....?^??.......
+0000015BE723D8E0   EE010000  00000000  EE010000  E7680000    ?.......?...?h..
+0000015BE723D8F0   EE010000  68990500  EE010000  4F329000    ?...h?..?...O2?.
+0000015BE723D900   EE010000  EE010000  00000000  00000000    ?...?...........
+0000015BE723D910   00000000  00000000  00000000  00000000    ................
+0000015BE723D920 to 0000015BE723DB20 suppressed, lines same as above
+0000015BE723DB30   00000000  00000000                        ........
+
+pCtl->pCS->threadConnectCount[1] = 1
+pCtl->pCS->threadConnectedSubpools[1] = 0000015BE72C1360
+0000015BE72C1360   4D310000  00000000  00000000  00000000    M1..............
+0000015BE72C1370   00000000  00000000  00000000  00000000    ................
+0000015BE72C1380 to 0000015BE72C1390 suppressed, lines same as above
+0000015BE72C13A0   5C406970  63630000  00000000  00000000    \@ipcc..........
+0000015BE72C13B0   01000000  01000000  01410000  433A5C50    .........A..C:\P
+0000015BE72C13C0   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+0000015BE72C13D0   51000000  00000000  00000000  00000000    Q...............
+0000015BE72C13E0   00000000  00000000  00000000  00000000    ................
+0000015BE72C13F0 to 0000015BE72C14B0 suppressed, lines same as above
+0000015BE72C14C0   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+0000015BE72C14D0   49424D5C  4D515C71  6D677273  5C4D3100    IBM\MQ\qmgrs\M1.
+0000015BE72C14E0   00000000  00000000  00000000  00000000    ................
+0000015BE72C14F0 to 0000015BE72C15B0 suppressed, lines same as above
+0000015BE72C15C0   00000000  00004445  534B544F  502D4531    ......DESKTOP-E1
+0000015BE72C15D0   4A543256  52000000  00000000  00000000    JT2VR...........
+0000015BE72C15E0   00000000  00000000  00000000  00000000    ................
+0000015BE72C15F0 to 0000015BE72C1600 suppressed, lines same as above
+0000015BE72C1610   00000000  00000000  00000000  01000000    ................
+0000015BE72C1620   C0101BE8  5B010000  00000000  00000000    ...?[...........
+0000015BE72C1630   204027E7  5B010000  801E2AE7  5B010000     @'?[...?.*?[...
+0000015BE72C1640   A03E27E7  5B010000  E0162CE7  5B010000    ?>'?[...?.,?[...
+0000015BE72C1650   00000000  00000000  2C020000  00000000    ........,.......
+0000015BE72C1660   30020000  00000000  34020000  00000000    0.......4.......
+0000015BE72C1670   38020000  00000000  3C020000  00000000    8.......<.......
+0000015BE72C1680   40020000  00000000  24020000  00000000    @.......$.......
+0000015BE72C1690   00000000  00000000  00000000  00000000    ................
+0000015BE72C16A0   00000000  00000000  00000000  00000000    ................
+0000015BE72C16B0   00000000  00000000                        ........
+
+pconnSubpool[1].connExtentList = 0000015BE72C16E0
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   0000015BE81B1000
+  0001   0x00000000   8191   0000000000   0000000000000000
+  0003   0x00000001   0003   0000000000   0000015BE81B1000
+  0004   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[2] = 1
+pCtl->pCS->threadConnectedSubpools[2] = 0000015BE72C0FE0
+0000015BE72C0FE0   4D310000  00000000  00000000  00000000    M1..............
+0000015BE72C0FF0   00000000  00000000  00000000  00000000    ................
+0000015BE72C1000 to 0000015BE72C1010 suppressed, lines same as above
+0000015BE72C1020   5C40716D  67720000  00000000  00000000    \@qmgr..........
+0000015BE72C1030   02000000  01000000  02400000  433A5C50    .........@..C:\P
+0000015BE72C1040   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+0000015BE72C1050   51000000  00000000  00000000  00000000    Q...............
+0000015BE72C1060   00000000  00000000  00000000  00000000    ................
+0000015BE72C1070 to 0000015BE72C1130 suppressed, lines same as above
+0000015BE72C1140   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+0000015BE72C1150   49424D5C  4D515C71  6D677273  5C4D3100    IBM\MQ\qmgrs\M1.
+0000015BE72C1160   00000000  00000000  00000000  00000000    ................
+0000015BE72C1170 to 0000015BE72C1230 suppressed, lines same as above
+0000015BE72C1240   00000000  00004445  534B544F  502D4531    ......DESKTOP-E1
+0000015BE72C1250   4A543256  52000000  00000000  00000000    JT2VR...........
+0000015BE72C1260   00000000  00000000  00000000  00000000    ................
+0000015BE72C1270 to 0000015BE72C1280 suppressed, lines same as above
+0000015BE72C1290   00000000  00000000  00000000  01000000    ................
+0000015BE72C12A0   C010EBE7  5B010000  00000000  00000000    ..??[...........
+0000015BE72C12B0   103E27E7  5B010000  902527E7  5B010000    .>'?[...?%'?[...
+0000015BE72C12C0   403E27E7  5B010000  50B62BE7  5B010000    @>'?[...P.+?[...
+0000015BE72C12D0   00000000  00000000  00020000  00000000    ................
+0000015BE72C12E0   04020000  00000000  08020000  00000000    ................
+0000015BE72C12F0   0C020000  00000000  10020000  00000000    ................
+0000015BE72C1300   14020000  00000000  E4010000  00000000    ........?.......
+0000015BE72C1310   00000000  00000000  00000000  00000000    ................
+0000015BE72C1320   00000000  00000000  00000000  00000000    ................
+0000015BE72C1330   00000000  00000000                        ........
+
+pconnSubpool[2].connExtentList = 0000015BE72BB650
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   0000015BE7EB1000
+  0001   0x00000000   0001   0000000000   0000015BE7561000
+  0002   0x00000000   8191   0000000000   0000000000000000
+  0004   0x00000000   0004   0000000000   0000015BE7431000
+  0005   0x00000000   8191   0000000000   0000000000000000
+  0007   0x00000000   0000   0000000000   0000015BE87F1000
+  0008   0x00000000   0000   0000000000   0000015BE8B41000
+  0009   0x00000000   8191   0000000000   0000000000000000
+}
+
+pCtl->pCS->threadConnectCount[3] = 0
+pCtl->pCS->threadConnectedSubpools[3] = 0000000000000000
+pCtl->pCS->threadConnectCount[4] = 0
+pCtl->pCS->threadConnectedSubpools[4] = 0000000000000000
+pCtl->pCS->threadConnectCount[5] = 0
+pCtl->pCS->threadConnectedSubpools[5] = 0000000000000000
+pCtl->pCS->threadConnectCount[6] = 0
+pCtl->pCS->threadConnectedSubpools[6] = 0000000000000000
+
+Component Dumps (Thread 00000001)
+------< "main()" >-----
+
+zllCONTROL
+0000015BE7431980   5A4C4C43  00000000  14270000  A43F0000    ZLLC.....'..??..
+0000015BE7431990   01000000  00000000  C0000000  02000000    ................
+0000015BE74319A0   00000000  C0000000  22000000  04000000    ........".......
+0000015BE74319B0   40030000  02000000  00000000  40690400    @...........@i..
+0000015BE74319C0   4D310000  00000000  00000000  00000000    M1..............
+0000015BE74319D0   00000000  00000000  00000000  00000000    ................
+0000015BE74319E0 to 0000015BE74319F0 suppressed, lines same as above
+0000015BE7431A00   00000000  02000000  00000000  C0670400    .............g..
+0000015BE7431A10   02000000  00000000  401D0A00  00000000    ........@.......
+0000015BE7431A20   19000000  01000000  22000000  04000000    ........".......
+0000015BE7431A30   40110000  0B000000  05000000  00000000    @...............
+0000015BE7431A40   00000000  00000000  01000000  FFFFFFFF    ............????
+0000015BE7431A50   19000000  00000000  5A4C4C52  10000000    ........ZLLR....
+0000015BE7431A60   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431A70   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431A80   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431A90   AA779C09  68990500  00000000  00000000    ?w?	h?..........
+0000015BE7431AA0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431AB0   C0100000  00000000  5A4C4C52  11000000    ........ZLLR....
+0000015BE7431AC0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431AD0   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431AE0   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431AF0   8CCD9C09  68990500  00000000  00000000    ?.?	h?..........
+0000015BE7431B00   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431B10   C0100000  00000000  5A4C4C52  12000000    ........ZLLR....
+0000015BE7431B20   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431B30   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431B40   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431B50   542B9D09  68990500  00000000  00000000    T+?	h?..........
+0000015BE7431B60   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431B70   C0100000  00000000  5A4C4C52  13000000    ........ZLLR....
+0000015BE7431B80   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431B90   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431BA0   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431BB0   738A9D09  68990500  00000000  00000000    s??	h?..........
+0000015BE7431BC0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431BD0   C0100000  00000000  5A4C4C52  14000000    ........ZLLR....
+0000015BE7431BE0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431BF0   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431C00   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431C10   25079E09  68990500  00000000  00000000    %..	h?..........
+0000015BE7431C20   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431C30   C0100000  00000000  5A4C4C52  15000000    ........ZLLR....
+0000015BE7431C40   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431C50   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431C60   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431C70   5C619E09  68990500  00000000  00000000    \a.	h?..........
+0000015BE7431C80   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431C90   C0100000  00000000  5A4C4C52  16000000    ........ZLLR....
+0000015BE7431CA0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431CB0   02000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431CC0   03000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431CD0   B5649E09  68990500  00000000  00000000    .d.	h?..........
+0000015BE7431CE0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431CF0   C0100000  00000000  5A4C4C52  17000000    ........ZLLR....
+0000015BE7431D00   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431D10   02000000  02000000  00000000  40420A00    ............@B..
+0000015BE7431D20   04000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431D30   5A5B160C  68990500  00000000  00000000    Z[..h?..........
+0000015BE7431D40   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431D50   C0100000  00000000  5A4C4C52  18000000    ........ZLLR....
+0000015BE7431D60   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431D70   02000000  02000000  00000000  40270A00    ............@'..
+0000015BE7431D80   05000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431D90   6E07590C  68990500  00000000  00000000    n.Y.h?..........
+0000015BE7431DA0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431DB0   C0100000  00000000  5A4C4C52  09000000    ........ZLLR	...
+0000015BE7431DC0   A43F0000  01000000  00000000  13000000    ??..............
+0000015BE7431DD0   01000000  00000000  00000000  00000000    ................
+0000015BE7431DE0   00000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431DF0   B999CEF2  EE980500  00000000  00000000    .?..?..........
+0000015BE7431E00   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431E10   C0100000  00000000  5A4C4C52  0A000000    ........ZLLR....
+0000015BE7431E20   A43F0000  01000000  00000000  14000000    ??..............
+0000015BE7431E30   01000000  00000000  00000000  00000000    ................
+0000015BE7431E40   00000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431E50   2B9ACEF2  EE980500  00000000  00000000    +?..?..........
+0000015BE7431E60   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431E70   C0100000  00000000  5A4C4C52  0B000000    ........ZLLR....
+0000015BE7431E80   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431E90   02000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431EA0   01000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431EB0   37698F09  68990500  00000000  00000000    7i?	h?..........
+0000015BE7431EC0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431ED0   C0100000  00000000  5A4C4C52  0C000000    ........ZLLR....
+0000015BE7431EE0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431EF0   02000000  00000000  00000000  00000000    ................
+0000015BE7431F00   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431F10   F5A39709  68990500  00000000  00000000    .??	h?..........
+0000015BE7431F20   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431F30   C0100000  00000000  5A4C4C52  0D000000    ........ZLLR....
+0000015BE7431F40   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431F50   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431F60   02000000  01000000  93088020  00000000    ........?.? ....
+0000015BE7431F70   F8AF9709  68990500  00000000  00000000    ???	h?..........
+0000015BE7431F80   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431F90   C0100000  00000000  5A4C4C52  0E000000    ........ZLLR....
+0000015BE7431FA0   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7431FB0   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7431FC0   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7431FD0   EFA69A09  68990500  00000000  00000000    .??	h?..........
+0000015BE7431FE0   00000000  00000000  22000000  04000000    ........".......
+0000015BE7431FF0   C0100000  00000000  5A4C4C52  0F000000    ........ZLLR....
+0000015BE7432000   A43F0000  01000000  00000000  00000000    ??..............
+0000015BE7432010   04000000  02000000  00000000  401B0A00    ............@...
+0000015BE7432020   02000000  00000000  93088020  00000000    ........?.? ....
+0000015BE7432030   F07A9B09  68990500  00000000  00000000    .z?	h?..........
+0000015BE7432040   00000000  00000000  22000000  04000000    ........".......
+0000015BE7432050   C0100000  00000000                        ........
+
+pControl->Class:              0
+pControl->activeTasks:        1
+pControl->nextInstance:       11
+pControl->shutdownPhase:      5
+pControl->processEnding:      FALSE
+pControl->shutdownType:       1
+pControl->LostCount           0
+pControl->sequence:           25
+pControl->taskList:           02::04::04-00004416
+pControl->requestList:        00::00::00-00000000
+{
+  {
+    {
+      eye:            ZLLR
+      sequence:       9
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-05 11:52:06.817
+      utilityClass    0
+      utilityType     19
+      operation       1
+      responseEvent   00::00::00-00000000
+      requestData     0
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       10
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-05 11:52:06.817
+      utilityClass    0
+      utilityType     20
+      operation       1
+      responseEvent   00::00::00-00000000
+      requestData     0
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       11
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:19:59.595
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   02::00::00-00662336
+      requestData     1
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       12
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.134
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   00::00::00-00000000
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       13
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.137
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    1
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       14
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.332
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       15
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.386
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       16
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.450
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       17
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.472
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       18
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.496
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       19
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.521
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       20
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.553
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       21
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.576
+      utilityClass    0
+      utilityType     0
+      operation       4
+      responseEvent   02::00::00-00662336
+      requestData     2
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       22
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:00.577
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   02::00::00-00662336
+      requestData     3
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       23
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:41.993
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   02::00::00-00672320
+      requestData     4
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+  {
+    {
+      eye:            ZLLR
+      sequence:       24
+      pidCreator:     16292
+      tidCreator:     1
+      time:           2019-12-11 12:20:46.362
+      utilityClass    0
+      utilityType     0
+      operation       2
+      responseEvent   02::00::00-00665408
+      requestData     5
+      responseData    0
+      operationRC     545261715
+      hnext           00::00::00-00000000
+    }zllREQUEST
+    Self:             02::04::04-00004288
+  }
+}zllHISTORY
+-------------------------------------

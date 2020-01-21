@@ -28,21 +28,21 @@
         <include name="Login"/>
         <include name="ShowObjectAttributes"/> 
         <include name="ShowChannelStatus"/> 
-       <!--  <include name="StartChannelFromCommands"/>
+        <include name="StartChannelFromCommands"/>
         <include name="StopChannelFromCommands"/>
         <include name="PingChannelFromCommands"/>
         <include name="ResolveChannelFromCommands"/>
-        <include name="ResetChannelFromCommands"/>  -->
+        <include name="ResetChannelFromCommands"/> 
         <include name="Properties"/>  
         <include name="Events"/>
         <include name="AddToFavorites"/>  
         <include name="ComapareChannels"/>
         <include name="CheckDifferencesForChannels"/>
         <include name="ShowChannelStatusForMultiple"/> 
-        <!-- <include name="StartMultipleChannelsFromCommands"/>
-        <include name="StopMultipleChannelsFromCommands"/> -->
+        <include name="StartMultipleChannelsFromCommands"/>
+        <include name="StopMultipleChannelsFromCommands"/> 
         <include name="MultipleProperties"/> 
-        <include name="AddToFavoriteForMultipleChannels"/> 
+        <include name="AddToFavoriteForMultipleChannels"/>  
         <include name="CreateChannelFromIcon"/>
         <include name="Logout"/> 
         

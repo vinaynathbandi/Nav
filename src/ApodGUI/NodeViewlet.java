@@ -736,20 +736,32 @@ public class NodeViewlet {
 	{
 		// Search with node name
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(NodeNameFromIcon);
-		Thread.sleep(1000);
-
-		/*
-		 * //Un manage the Node driver.findElement(By.xpath(
-		 * "/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"
-		 * )).click(); driver.findElement(By.xpath(
-		 * "//app-dropdown[@id='dropdown-block']/div/ul/li[5]")).click();
-		 */
-
-		// Delete the Node
+		Thread.sleep(4000);
+		
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.linkText("Delete")).click();
-		driver.findElement(By.id("accept-true")).click();
-		Thread.sleep(8000);
+		String Options=driver.findElement(By.id("dropdown-block")).getText();
+		System.out.println("Options are: " +Options);
+		
+		if(Options.contains("Delete"))
+		{
+			// Delete the Node
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+			driver.findElement(By.linkText("Delete")).click();
+			driver.findElement(By.id("accept-true")).click();
+			Thread.sleep(8000);	
+		}
+		else
+		{
+			//Unmanage the Node
+			driver.findElement(By.linkText("Manage")).click();
+			Thread.sleep(4000);
+			
+			// Delete the Node
+			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+			driver.findElement(By.linkText("Delete")).click();
+			driver.findElement(By.id("accept-true")).click();
+			Thread.sleep(8000);
+		}	
 
 		// Edit the search field data
 		for (int j = 0; j <= NodeNameFromIcon.length(); j++) {
@@ -1041,11 +1053,20 @@ public class NodeViewlet {
 		WGSSelection.selectByVisibleText(NodeWGS);
 				
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(6000);
+		
+		//Search with queue manager name
+		driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(QueueManagerName);
 		
 		// Store viewlet data into string
 		String Favdata = driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		System.out.println(Favdata);
+		
+		for(int j=0; j<=QueueManagerName.length(); j++)
+		{
+			driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(2000);
 		
 		if(Favdata.contains(QueueManagerName))
 		{

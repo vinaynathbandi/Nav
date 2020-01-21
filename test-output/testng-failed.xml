@@ -1,23 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Testing Navigator Dashboard]">
-  <test thread-count="5" name="Add Dashboard reports(failed)">
-    <parameter name="Dashboardname" value="Search Criteria Dashboard"/>
-    <parameter name="SearchCriteriaData" value="Message Search criteria"/>
-    <parameter name="LocalQueue" value="Queues Viewlest"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
+  <test thread-count="5" name="Test Listener Viewlet(failed)">
+    <parameter name="Dashboardname" value="Listener Viewlet Verification"/>
+    <parameter name="Description" value="Description from Options"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="MessageData" value="Test the Message Search criteria condition"/>
-    <parameter name="SearchCriteriaName" value="Search Queues"/>
+    <parameter name="RenameListener" value="Test.Listener.First1.Rename"/>
+    <parameter name="DescriptionFromIcon" value="Icon Description"/>
+    <parameter name="FavoriteViewletName" value="Favorite Viewlet for Listener"/>
+    <parameter name="schemaName" value="ListnerSchema"/>
+    <parameter name="ListenerName" value="Test.Listener.First1"/>
+    <parameter name="ListenerNameFromICon" value="Test.Listener.Icon"/>
+    <parameter name="CopyObjectName" value=".Copy"/>
+    <parameter name="Listenerviewletname" value="New Listener Viewlet"/>
+    <parameter name="RenameListenerForMultiple" value="Test.Listener.Multi.Rename"/>
+    <parameter name="ListenerDescription" value="Multiple properties"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="CopyObjectNameForMUltiple" value="Test.Multi.Copy"/>
     <classes>
-      <class name="ApodGUI.SearchCriteria">
+      <class name="ApodGUI.ListenerViewlet">
         <methods>
-          <include name="AddSearchCriteriaCondition" invocation-numbers="0"/>
+          <include name="CreateListenerFromPlusIcon" invocation-numbers="0"/>
+          <include name="RenameFromCommands"/>
           <include name="tearDown"/>
-          <include name="Logout"/>
+          <include name="ListenerMultipleProperties" invocation-numbers="0"/>
+          <include name="CopyAsFromCommands" invocation-numbers="0"/>
+          <include name="CreateListener"/>
+          <include name="DeleteFromCommandsForMultiple"/>
+          <include name="DeleteFromCommands"/>
+          <include name="RenameFromCommandsForMultiple"/>
+          <include name="CopyAsFromCommandsForMultiple"/>
           <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.SearchCriteria -->
+      </class> <!-- ApodGUI.ListenerViewlet -->
     </classes>
-  </test> <!-- Add Dashboard reports(failed) -->
-</suite> <!-- Failed suite [Testing Navigator Dashboard] -->
+  </test> <!-- Test Listener Viewlet(failed) -->
+</suite> <!-- Failed suite [Navigator] -->

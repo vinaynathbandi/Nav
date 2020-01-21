@@ -185,6 +185,7 @@ public class ChannelViewlet
 				if(s.equals(Dnode))
 				{
 					String id=TopicNode.get(i).getAttribute("id");
+					Thread.sleep(2000);
 					driver.findElement(By.id(id)).click();
 					break;
 				}

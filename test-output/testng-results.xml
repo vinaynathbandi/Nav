@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="5" failed="3" ignored="4" total="23" passed="11">
   <reporter-output>
     <line>
       <![CDATA[<br/>]]>
@@ -11,25 +11,103 @@
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutAmessageIntoQueue.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddListenerViewlet.png" alt="""/" />]]>
     </line>
     <line>
       <![CDATA[<br/>]]>
     </line>
     <line>
-      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSearchCriteriaCondition.png" alt="""/" />]]>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateListener.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[Screenshots/ScreenshotsFailure/CopyAsFromCommands.png]]>
+    </line>
+    <line>
+      <![CDATA[<br/>Failed to execute method: CopyAsFromCommands<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CopyAsFromCommands.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ListenerProperties.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ListenerEvents.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CompareListeners.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CheckDifferencesForListeners.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[Screenshots/ScreenshotsFailure/CreateListenerFromPlusIcon.png]]>
+    </line>
+    <line>
+      <![CDATA[<br/>Failed to execute method: CreateListenerFromPlusIcon<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateListenerFromPlusIcon.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[Screenshots/ScreenshotsFailure/ListenerMultipleProperties.png]]>
+    </line>
+    <line>
+      <![CDATA[<br/>Failed to execute method: ListenerMultipleProperties<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/ListenerMultipleProperties.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleListeners.png" alt="""/" />]]>
+    </line>
+    <line>
+      <![CDATA[<br/>]]>
+    </line>
+    <line>
+      <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForListener.png" alt="""/" />]]>
     </line>
   </reporter-output>
-  <suite name="Testing Navigator Dashboard" duration-ms="101175" started-at="2020-01-17T09:27:05Z" finished-at="2020-01-17T09:28:46Z">
+  <suite name="Navigator" duration-ms="710390" started-at="2020-01-21T09:58:03Z" finished-at="2020-01-21T10:09:53Z">
     <groups>
     </groups>
-    <test name="Add Dashboard reports" duration-ms="101175" started-at="2020-01-17T09:27:05Z" finished-at="2020-01-17T09:28:46Z">
-      <class name="ApodGUI.SearchCriteria">
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.SearchCriteria@1563da5]" name="beforeTest" is-config="true" duration-ms="18" started-at="2020-01-17T09:27:05Z" finished-at="2020-01-17T09:27:05Z">
+    <test name="Test Listener Viewlet" duration-ms="710390" started-at="2020-01-21T09:58:03Z" finished-at="2020-01-21T10:09:53Z">
+      <class name="ApodGUI.ListenerViewlet">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="beforeTest" is-config="true" duration-ms="14" started-at="2020-01-21T09:58:03Z" finished-at="2020-01-21T09:58:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.SearchCriteria@1563da5]" name="Login" duration-ms="24763" started-at="2020-01-17T09:27:05Z" finished-at="2020-01-17T09:27:30Z">
+        <test-method status="PASS" signature="Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="Login" duration-ms="26467" started-at="2020-01-21T09:58:03Z" finished-at="2020-01-21T09:58:29Z">
           <params>
             <param index="0">
               <value>
@@ -43,12 +121,7 @@
             </param>
             <param index="2">
               <value>
-                <![CDATA[Search Criteria Dashboard]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[Queues Viewlest]]>
+                <![CDATA[Listener Viewlet Verification]]>
               </value>
             </param>
           </params>
@@ -61,60 +134,27 @@
             </line>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@1563da5]" name="tearDown" is-config="true" duration-ms="418" started-at="2020-01-17T09:27:30Z" finished-at="2020-01-17T09:27:31Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="539" started-at="2020-01-21T09:58:29Z" finished-at="2020-01-21T09:58:30Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login status=SUCCESS method=SearchCriteria.Login(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.SearchCriteria@1563da5] output=<br/>]]]>
+                <![CDATA[[TestResult name=Login status=SUCCESS method=ListenerViewlet.Login(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="PutAmessageIntoQueue(java.lang.String)[pri:1, instance:ApodGUI.SearchCriteria@1563da5]" name="PutAmessageIntoQueue" duration-ms="32250" started-at="2020-01-17T09:27:31Z" finished-at="2020-01-17T09:28:03Z">
+        <test-method status="PASS" signature="AddListenerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="AddListenerViewlet" duration-ms="8662" started-at="2020-01-21T09:58:30Z" finished-at="2020-01-21T09:58:38Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[Test the Message Search criteria condition]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[<br/>]]>
-            </line>
-            <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PutAmessageIntoQueue.png" alt="""/" />]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- PutAmessageIntoQueue -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@1563da5]" name="tearDown" is-config="true" duration-ms="378" started-at="2020-01-17T09:28:03Z" finished-at="2020-01-17T09:28:03Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=PutAmessageIntoQueue status=SUCCESS method=SearchCriteria.PutAmessageIntoQueue(java.lang.String)[pri:1, instance:ApodGUI.SearchCriteria@1563da5] output=<br/>]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="AddSearchCriteriaCondition(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.SearchCriteria@1563da5]" name="AddSearchCriteriaCondition" duration-ms="9543" started-at="2020-01-17T09:28:03Z" finished-at="2020-01-17T09:28:13Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Search Queues]]>
+                <![CDATA[New Listener Viewlet]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[Message Search criteria]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[org.testng.TestRunner@6436a7db]]>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
               </value>
             </param>
           </params>
@@ -123,37 +163,771 @@
               <![CDATA[<br/>]]>
             </line>
             <line>
-              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddSearchCriteriaCondition.png" alt="""/" />]]>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddListenerViewlet.png" alt="""/" />]]>
             </line>
           </reporter-output>
-        </test-method> <!-- AddSearchCriteriaCondition -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@1563da5]" name="tearDown" is-config="true" duration-ms="13689" started-at="2020-01-17T09:28:26Z" finished-at="2020-01-17T09:28:40Z">
+        </test-method> <!-- AddListenerViewlet -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="30712" started-at="2020-01-21T09:59:16Z" finished-at="2020-01-21T09:59:47Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=AddSearchCriteriaCondition status=SUCCESS method=SearchCriteria.AddSearchCriteriaCondition(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:2, instance:ApodGUI.SearchCriteria@1563da5] output=<br/>]]]>
+                <![CDATA[[TestResult name=AddListenerViewlet status=SUCCESS method=ListenerViewlet.AddListenerViewlet(java.lang.String, org.testng.ITestContext)[pri:1, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="Logout()[pri:20, instance:ApodGUI.SearchCriteria@1563da5]" name="Logout" duration-ms="6437" started-at="2020-01-17T09:28:40Z" finished-at="2020-01-17T09:28:46Z">
+        <test-method status="PASS" signature="CreateListener(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="CreateListener" duration-ms="30486" started-at="2020-01-21T09:59:47Z" finished-at="2020-01-21T10:00:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Test.Listener.First1]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Description from Options]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateListener.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CreateListener -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="20410" started-at="2020-01-21T10:00:37Z" finished-at="2020-01-21T10:00:58Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CreateListener status=SUCCESS method=ListenerViewlet.CreateListener(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:3, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="FAIL" signature="CopyAsFromCommands(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="CopyAsFromCommands" duration-ms="28070" started-at="2020-01-21T10:00:58Z" depends-on-methods="ApodGUI.ListenerViewlet.CreateListener" finished-at="2020-01-21T10:01:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[.Copy]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test.Listener.First1]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.InvalidSelectorException">
+            <message>
+              <![CDATA[invalid selector: Unable to locate an element with the xpath expression Listener failed to copy because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string 'Listener failed to copy' is not a valid XPath expression.
+  (Session info: chrome=79.0.3945.117)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.122.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61233}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.117, webStorageEnabled: true}
+Session ID: 5f9296419f0d85fa1a1551644b432185
+*** Element info: {Using=xpath, value=Listener failed to copy}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Listener failed to copy because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string 'Listener failed to copy' is not a valid XPath expression.
+  (Session info: chrome=79.0.3945.117)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.122.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61233}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.117, webStorageEnabled: true}
+Session ID: 5f9296419f0d85fa1a1551644b432185
+*** Element info: {Using=xpath, value=Listener failed to copy}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+at ApodGUI.ListenerViewlet.CopyAsFromCommands(ListenerViewlet.java:408)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.InvalidSelectorException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>Failed to execute method: CopyAsFromCommands<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CopyAsFromCommands.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CopyAsFromCommands -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="19043" started-at="2020-01-21T10:01:42Z" finished-at="2020-01-21T10:02:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CopyAsFromCommands status=FAILURE method=ListenerViewlet.CopyAsFromCommands(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>Failed to execute method: CopyAsFromCommands<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Screenshots/ScreenshotsFailure/CopyAsFromCommands.png]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="SKIP" signature="RenameFromCommands(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="RenameFromCommands" duration-ms="0" started-at="2020-01-21T10:02:01Z" depends-on-methods="ApodGUI.ListenerViewlet.CopyAsFromCommands" finished-at="2020-01-21T10:02:01Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method ListenerViewlet.RenameFromCommands(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method ListenerViewlet.RenameFromCommands(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:7, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RenameFromCommands -->
+        <test-method status="SKIP" signature="DeleteFromCommands(java.lang.String, org.testng.ITestContext)[pri:8, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="DeleteFromCommands" duration-ms="0" started-at="2020-01-21T10:02:01Z" depends-on-methods="ApodGUI.ListenerViewlet.RenameFromCommands" finished-at="2020-01-21T10:02:01Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method ListenerViewlet.DeleteFromCommands(java.lang.String, org.testng.ITestContext)[pri:8, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method ListenerViewlet.DeleteFromCommands(java.lang.String, org.testng.ITestContext)[pri:8, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteFromCommands -->
+        <test-method status="PASS" signature="ListenerProperties(org.testng.ITestContext)[pri:9, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="ListenerProperties" duration-ms="5502" started-at="2020-01-21T10:02:01Z" finished-at="2020-01-21T10:02:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ListenerProperties.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ListenerProperties -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="18150" started-at="2020-01-21T10:02:23Z" finished-at="2020-01-21T10:02:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ListenerProperties status=SUCCESS method=ListenerViewlet.ListenerProperties(org.testng.ITestContext)[pri:9, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ListenerEvents(org.testng.ITestContext)[pri:10, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="ListenerEvents" duration-ms="11431" started-at="2020-01-21T10:02:41Z" finished-at="2020-01-21T10:02:52Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ListenerEvents.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ListenerEvents -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="16692" started-at="2020-01-21T10:03:09Z" finished-at="2020-01-21T10:03:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ListenerEvents status=SUCCESS method=ListenerViewlet.ListenerEvents(org.testng.ITestContext)[pri:10, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="AddToFavoriteViewlet(java.lang.String, org.testng.ITestContext)[pri:11, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="AddToFavoriteViewlet" duration-ms="7866" started-at="2020-01-21T10:03:26Z" finished-at="2020-01-21T10:03:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Favorite Viewlet for Listener]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AddToFavoriteViewlet -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="21621" started-at="2020-01-21T10:03:52Z" finished-at="2020-01-21T10:04:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AddToFavoriteViewlet status=SUCCESS method=ListenerViewlet.AddToFavoriteViewlet(java.lang.String, org.testng.ITestContext)[pri:11, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="CompareListeners(org.testng.ITestContext)[pri:12, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="CompareListeners" duration-ms="6114" started-at="2020-01-21T10:04:14Z" finished-at="2020-01-21T10:04:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CompareListeners.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CompareListeners -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="17097" started-at="2020-01-21T10:04:37Z" finished-at="2020-01-21T10:04:54Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CompareListeners status=SUCCESS method=ListenerViewlet.CompareListeners(org.testng.ITestContext)[pri:12, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="CheckDifferencesForListeners(org.testng.ITestContext)[pri:13, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="CheckDifferencesForListeners" duration-ms="8622" started-at="2020-01-21T10:04:54Z" finished-at="2020-01-21T10:05:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CheckDifferencesForListeners.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CheckDifferencesForListeners -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="19901" started-at="2020-01-21T10:05:19Z" finished-at="2020-01-21T10:05:39Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CheckDifferencesForListeners status=SUCCESS method=ListenerViewlet.CheckDifferencesForListeners(org.testng.ITestContext)[pri:13, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="FAIL" signature="CreateListenerFromPlusIcon(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:14, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="CreateListenerFromPlusIcon" duration-ms="18507" started-at="2020-01-21T10:05:39Z" finished-at="2020-01-21T10:05:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Test.Listener.Icon]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Icon Description]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[unknown error: Element <img _ngcontent-cyd-c21="" src="assets/resources/img/msg/msg-refresh.png" title="Refresh viewlet" class="no-loading-spinner"> is not clickable at point (52, 750). Other element would receive the click: <ngb-modal-window role="dialog" tabindex="-1" class="modal fade show d-block" aria-modal="true">...</ngb-modal-window>
+  (Session info: chrome=79.0.3945.117)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.122.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61233}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.117, webStorageEnabled: true}
+Session ID: 5f9296419f0d85fa1a1551644b432185]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: unknown error: Element <img _ngcontent-cyd-c21="" src="assets/resources/img/msg/msg-refresh.png" title="Refresh viewlet" class="no-loading-spinner"> is not clickable at point (52, 750). Other element would receive the click: <ngb-modal-window role="dialog" tabindex="-1" class="modal fade show d-block" aria-modal="true">...</ngb-modal-window>
+  (Session info: chrome=79.0.3945.117)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.122.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61233}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.117, webStorageEnabled: true}
+Session ID: 5f9296419f0d85fa1a1551644b432185
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+at ApodGUI.ListenerViewlet.CreateListenerFromPlusIcon(ListenerViewlet.java:955)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>Failed to execute method: CreateListenerFromPlusIcon<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateListenerFromPlusIcon.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CreateListenerFromPlusIcon -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="17609" started-at="2020-01-21T10:06:15Z" finished-at="2020-01-21T10:06:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CreateListenerFromPlusIcon status=FAILURE method=ListenerViewlet.CreateListenerFromPlusIcon(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:14, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>Failed to execute method: CreateListenerFromPlusIcon<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Screenshots/ScreenshotsFailure/CreateListenerFromPlusIcon.png]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="SKIP" signature="CopyAsFromCommandsForMultiple(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:17, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="CopyAsFromCommandsForMultiple" duration-ms="0" started-at="2020-01-21T10:06:33Z" depends-on-methods="ApodGUI.ListenerViewlet.CreateListenerFromPlusIcon" finished-at="2020-01-21T10:06:33Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method ListenerViewlet.CopyAsFromCommandsForMultiple(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:17, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method ListenerViewlet.CopyAsFromCommandsForMultiple(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:17, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CopyAsFromCommandsForMultiple -->
+        <test-method status="SKIP" signature="RenameFromCommandsForMultiple(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:18, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="RenameFromCommandsForMultiple" duration-ms="0" started-at="2020-01-21T10:06:33Z" depends-on-methods="ApodGUI.ListenerViewlet.CopyAsFromCommandsForMultiple" finished-at="2020-01-21T10:06:33Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method ListenerViewlet.RenameFromCommandsForMultiple(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:18, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method ListenerViewlet.RenameFromCommandsForMultiple(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:18, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RenameFromCommandsForMultiple -->
+        <test-method status="SKIP" signature="DeleteFromCommandsForMultiple(java.lang.String, org.testng.ITestContext)[pri:19, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="DeleteFromCommandsForMultiple" duration-ms="0" started-at="2020-01-21T10:06:33Z" depends-on-methods="ApodGUI.ListenerViewlet.RenameFromCommandsForMultiple" finished-at="2020-01-21T10:06:33Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method ListenerViewlet.DeleteFromCommandsForMultiple(java.lang.String, org.testng.ITestContext)[pri:19, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method ListenerViewlet.DeleteFromCommandsForMultiple(java.lang.String, org.testng.ITestContext)[pri:19, instance:ApodGUI.ListenerViewlet@33c7e1bb] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- DeleteFromCommandsForMultiple -->
+        <test-method status="FAIL" signature="ListenerMultipleProperties(java.lang.String, org.testng.ITestContext)[pri:20, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="ListenerMultipleProperties" duration-ms="1443" started-at="2020-01-21T10:06:33Z" finished-at="2020-01-21T10:06:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Multiple properties]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.WebDriverException">
+            <message>
+              <![CDATA[unknown error: Element <input _ngcontent-cyd-c21="" type="checkbox" class="ng-star-inserted"> is not clickable at point (38, 815). Other element would receive the click: <ngb-modal-window role="dialog" tabindex="-1" class="modal fade show d-block" aria-modal="true">...</ngb-modal-window>
+  (Session info: chrome=79.0.3945.117)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.122.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61233}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.117, webStorageEnabled: true}
+Session ID: 5f9296419f0d85fa1a1551644b432185]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.WebDriverException: unknown error: Element <input _ngcontent-cyd-c21="" type="checkbox" class="ng-star-inserted"> is not clickable at point (38, 815). Other element would receive the click: <ngb-modal-window role="dialog" tabindex="-1" class="modal fade show d-block" aria-modal="true">...</ngb-modal-window>
+  (Session info: chrome=79.0.3945.117)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: '3.14.0', revision: 'aacccce0', time: '2018-08-02T20:13:22.693Z'
+System info: host: 'DESKTOP-E1JT2VR', ip: '192.168.122.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:61233}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.117, webStorageEnabled: true}
+Session ID: 5f9296419f0d85fa1a1551644b432185
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:276)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:83)
+at ApodGUI.ListenerViewlet.ListenerMultipleProperties(ListenerViewlet.java:1312)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.WebDriverException -->
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>Failed to execute method: ListenerMultipleProperties<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/ListenerMultipleProperties.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ListenerMultipleProperties -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="19170" started-at="2020-01-21T10:06:54Z" finished-at="2020-01-21T10:07:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ListenerMultipleProperties status=FAILURE method=ListenerViewlet.ListenerMultipleProperties(java.lang.String, org.testng.ITestContext)[pri:20, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>Failed to execute method: ListenerMultipleProperties<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Screenshots/ScreenshotsFailure/ListenerMultipleProperties.png]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="AddToFavoriteForMultipleListeners(java.lang.String, org.testng.ITestContext)[pri:21, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="AddToFavoriteForMultipleListeners" duration-ms="12763" started-at="2020-01-21T10:07:13Z" depends-on-methods="ApodGUI.ListenerViewlet.AddToFavoriteViewlet" finished-at="2020-01-21T10:07:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Favorite Viewlet for Listener]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleListeners.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- AddToFavoriteForMultipleListeners -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="18099" started-at="2020-01-21T10:07:44Z" finished-at="2020-01-21T10:08:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=AddToFavoriteForMultipleListeners status=SUCCESS method=ListenerViewlet.AddToFavoriteForMultipleListeners(java.lang.String, org.testng.ITestContext)[pri:21, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="ShowObjectAttributesForListener(java.lang.String, org.testng.ITestContext)[pri:22, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="ShowObjectAttributesForListener" duration-ms="71022" started-at="2020-01-21T10:08:02Z" finished-at="2020-01-21T10:09:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ListnerSchema]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@34f6515b]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[<br/>]]>
+            </line>
+            <line>
+              <![CDATA[<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForListener.png" alt="""/" />]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- ShowObjectAttributesForListener -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="19660" started-at="2020-01-21T10:09:31Z" finished-at="2020-01-21T10:09:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=ShowObjectAttributesForListener status=SUCCESS method=ListenerViewlet.ShowObjectAttributesForListener(java.lang.String, org.testng.ITestContext)[pri:22, instance:ApodGUI.ListenerViewlet@33c7e1bb] output=<br/>]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="Logout()[pri:25, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="Logout" duration-ms="2462" started-at="2020-01-21T10:09:51Z" finished-at="2020-01-21T10:09:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Logout -->
-        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.SearchCriteria@1563da5]" name="tearDown" is-config="true" duration-ms="1" started-at="2020-01-17T09:28:46Z" finished-at="2020-01-17T09:28:46Z">
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:ApodGUI.ListenerViewlet@33c7e1bb]" name="tearDown" is-config="true" duration-ms="0" started-at="2020-01-21T10:09:53Z" finished-at="2020-01-21T10:09:53Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Logout status=SUCCESS method=SearchCriteria.Logout()[pri:20, instance:ApodGUI.SearchCriteria@1563da5] output={null}]]]>
+                <![CDATA[[TestResult name=Logout status=SUCCESS method=ListenerViewlet.Logout()[pri:25, instance:ApodGUI.ListenerViewlet@33c7e1bb] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- ApodGUI.SearchCriteria -->
-    </test> <!-- Add Dashboard reports -->
-  </suite> <!-- Testing Navigator Dashboard -->
+      </class> <!-- ApodGUI.ListenerViewlet -->
+    </test> <!-- Test Listener Viewlet -->
+  </suite> <!-- Navigator -->
 </testng-results>

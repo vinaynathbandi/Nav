@@ -1,0 +1,2129 @@
++-----------------------------------------------------------------------------+
+|                                                                             |
+| IBM MQ First Failure Symptom Report                                         |
+| =========================================                                   |
+|                                                                             |
+| Date/Time         :- Fri January 17 2020 14:44:32 India Standard Time       |
+| UTC Time          :- 1579252472.060000                                      |
+| UTC Time Offset   :- 330 ((UNKNOWN))                                        |
+| Host Name         :- KITE                                                   |
+| Operating System  :- Windows 8 Professional x64 Edition, Build 9200         |
+| PIDS              :- 5724H7251                                              |
+| LVLS              :- 9.0.0.0                                                |
+| Product Long Name :- IBM MQ for Windows (x64 platform)                      |
+| Vendor            :- IBM                                                    |
+| O/S Registered    :- 1                                                      |
+| Data Path         :- C:\ProgramData\IBM\MQ                                  |
+| Installation Path :- C:\Program Files\IBM\MQ                                |
+| Installation Name :- Installation1    (1)                                   |
+| License Type      :- Production                                             |
+| Probe Id          :- XC207001                                               |
+| Application Name  :- MQM                                                    |
+| Component         :- xxxInitialize                                          |
+| SCCS Info         :- F:\build\slot1\p900_P\src\lib\cs\amqxxinc.c,           |
+| Line Number       :- 346                                                    |
+| Build Date        :- May 12 2016                                            |
+| Build Level       :- p900-L160512.4                                         |
+| Build Type        :- IKAP - (Production)                                    |
+| UserID            :- SYSTEM                                                 |
+| Process Name      :- E:\nastel\apwmq\bin\nsqpub.exe                         |
+| Arguments         :-                                                        |
+| Addressing mode   :- 32-bit                                                 |
+| Process           :- 00001000                                               |
+| Thread            :- 00000008                                               |
+| Session           :- 00000000                                               |
+| QueueManager      :- ABC                                                    |
+| UserApp           :- TRUE                                                   |
+| ConnId(4) App     :- 0                                                      |
+| Last HQC          :- 0.0.0-0                                                |
+| Last HSHMEMB      :- 0.0.0-0                                                |
+| Last ObjectName   :-                                                        |
+| Major Errorcode   :- xecF_E_UNEXPECTED_SYSTEM_RC                            |
+| Minor Errorcode   :- OK                                                     |
+| Probe Type        :- MSGAMQ6119                                             |
+| Probe Severity    :- 2                                                      |
+| Probe Description :- AMQ6119: An internal IBM MQ error has occurred (WinNT  |
+|   error 19 from RegOpenKeyEx.)                                              |
+| FDCSequenceNumber :- 0                                                      |
+| Comment1          :- WinNT error 19 from RegOpenKeyEx.                      |
+| Comment2          :- The media is write protected.                          |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+MQM Function Stack
+MQCONNX
+zswGetEntryPointsByName
+MQCONNX
+trmzstMQCONNX
+zstMQCONNX
+zstMQConnect
+zstInitCS
+xcsInitialize
+xxxInitialize
+xcsFFST
+
+MQM Trace History
+-----------} xcsCloseHandle rc=Unknown(1)
+----------} xcsDestroyThreadMutexSem rc=OK
+----------{ xcsDestroyThreadMutexSem
+-----------{ xcsCloseHandle
+-----------} xcsCloseHandle rc=Unknown(1)
+----------} xcsDestroyThreadMutexSem rc=OK
+----------{ xstReleaseSubpoolsLock
+----------} xstReleaseSubpoolsLock rc=OK
+----------{ xllDropSubpoolHandles
+----------} xllDropSubpoolHandles rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+---------} xcsDetachSharedSubpool rc=OK
+--------} xcsDisconnectSharedSubpool rc=OK
+--------{ xcsReleaseThreadMutexSem
+--------} xcsReleaseThreadMutexSem rc=OK
+-------} xcsTerminate rc=OK
+------} zstInitCS rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ xcsIsEnvironment
+------} xcsIsEnvironment rc=OK
+------{ ztmInitialise
+------} ztmInitialise rc=OK
+------{ zstInsertPCD
+-------{ xcsRegComp
+-------} xcsRegComp rc=OK
+-------{ xcsRegComp
+-------} xcsRegComp rc=OK
+-------{ xcsRegComp
+-------} xcsRegComp rc=OK
+-------{ zutGetHConnNumber
+--------{ zutDoIHaveLocalLock
+--------} zutDoIHaveLocalLock rc=Unknown(1)
+-------} zutGetHConnNumber rc=OK
+-------{ xcsGetMemFn
+-------} xcsGetMemFn rc=OK
+-------{ smqopInit
+-------} smqopInit rc=OK
+-------{ zutGetAppIds
+--------{ xcsUpdateThreadUserDetails
+---------{ xcsGetNTOwnerSid
+---------} xcsGetNTOwnerSid rc=OK
+--------} xcsUpdateThreadUserDetails rc=OK
+--------{ xcsQueryValueForSubpool
+--------} xcsQueryValueForSubpool rc=OK
+--------{ xcsQueryValueForSubpool
+--------} xcsQueryValueForSubpool rc=OK
+--------{ xcsQueryValueForSubpool
+--------} xcsQueryValueForSubpool rc=OK
+--------{ xcsQueryValue
+---------{ xihQueryModulePath
+---------} xihQueryModulePath rc=OK
+--------} xcsQueryValue rc=xecU_W_TRUNCATED
+--------{ zutQueryThreadId
+--------} zutQueryThreadId rc=OK
+-------} zutGetAppIds rc=OK
+-------{ zutLookupPut
+--------{ xcsGetMemFn
+--------} xcsGetMemFn rc=OK
+--------{ zutLookupLock
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+--------} zutLookupLock rc=OK
+--------{ zutLookupUnlock
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} zutLookupUnlock rc=OK
+-------} zutLookupPut rc=OK
+-------{ zswSaveInstallation
+-------} zswSaveInstallation rc=OK
+------} zstInsertPCD rc=OK
+------{ xcsRegisterDestructor
+-------{ xcsGetMemFn
+-------} xcsGetMemFn rc=OK
+------} xcsRegisterDestructor rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ zutLoadApiExits
+-------{ zutQueryValue
+-------} zutQueryValue rc=OK
+------} zutLoadApiExits rc=OK
+------{ xcsInitIndexArray
+-------{ xcsGetMemFn
+-------} xcsGetMemFn rc=OK
+------} xcsInitIndexArray rc=OK
+------{ ziiMQCONN
+-------{ zutUnlockLocalThreads
+--------{ xcsReleaseThreadMutexSem
+--------} xcsReleaseThreadMutexSem rc=OK
+-------} zutUnlockLocalThreads rc=OK
+-------{ ziiConnectToAgent
+--------{ ziiCheckECRunning
+--------} ziiCheckECRunning rc=OK
+--------{ xcsInitialize
+---------{ xcsUpdateThreadUserDetails
+----------{ xcsGetNTOwnerSid
+----------} xcsGetNTOwnerSid rc=OK
+---------} xcsUpdateThreadUserDetails rc=OK
+---------{ xihCheckThreadList
+---------} xihCheckThreadList rc=OK
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+---------{ xihAddQueueManager
+---------} xihAddQueueManager rc=Unknown(1)
+---------{ xcsInitGlobalSecurityData
+---------} xcsInitGlobalSecurityData rc=OK
+---------{ xcsDerestrictProcessHandle
+---------} xcsDerestrictProcessHandle rc=OK
+---------{ xcsCreateNTSecurityAtts
+---------} xcsCreateNTSecurityAtts rc=OK
+---------{ xcsGetIPCHost
+----------{ xcsGetEnvironmentString
+----------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+---------} xcsGetIPCHost rc=OK
+---------{ xcsConnectSharedSubpool
+----------{ xstGetSubpoolsLock
+----------} xstGetSubpoolsLock rc=OK
+Data: 0x00000001 0x0000008f 0x00000008
+----------{ xcsQueryMTimeFn
+----------} xcsQueryMTimeFn rc=OK
+----------{ xcsAllocateQuickCell
+----------} xcsAllocateQuickCell rc=OK
+----------{ xstReleaseSubpoolsLock
+----------} xstReleaseSubpoolsLock rc=OK
+----------{ xstMakeConnectionRequest
+-----------{ xstServerRequest
+-----------} xstServerRequest rc=OK
+----------} xstMakeConnectionRequest rc=OK
+----------{ xlsThreadInitialization
+-----------{ xlsThreadPreInitialization
+------------{ xcsAllocateQuickCell
+------------} xcsAllocateQuickCell rc=OK
+------------{ xstMakeSemaphoreRequest
+-------------{ xstServerRequest
+-------------} xstServerRequest rc=OK
+------------} xstMakeSemaphoreRequest rc=OK
+-----------} xlsThreadPreInitialization rc=OK
+----------} xlsThreadInitialization rc=OK
+----------{ xcsConnectSharedMemSet
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+-----------{ xcsGetMemFn
+-----------} xcsGetMemFn rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+----------} xcsConnectSharedMemSet rc=OK
+---------} xcsConnectSharedSubpool rc=OK
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} xcsInitialize rc=OK
+--------{ zcpAttachPipe
+---------{ xcsConnectSharedMemSet
+----------{ xcsRequestThreadMutexSem
+----------} xcsRequestThreadMutexSem rc=OK
+----------{ xcsRequestThreadMutexSem
+----------} xcsRequestThreadMutexSem rc=OK
+----------{ xcsReleaseThreadMutexSem
+----------} xcsReleaseThreadMutexSem rc=OK
+----------{ xstAttachSharedMemSet
+-----------{ xstConnectExtent
+------------{ xcsRequestThreadMutexSem
+------------} xcsRequestThreadMutexSem rc=OK
+------------{ xstMakeStorageRequest
+-------------{ xstServerRequest
+-------------} xstServerRequest rc=OK
+------------} xstMakeStorageRequest rc=OK
+------------{ xcsReleaseThreadMutexSem
+------------} xcsReleaseThreadMutexSem rc=OK
+-----------} xstConnectExtent rc=OK
+-----------{ xcsGetMemFn
+-----------} xcsGetMemFn rc=OK
+-----------{ xcsGetMemFn
+-----------} xcsGetMemFn rc=OK
+----------} xstAttachSharedMemSet rc=OK
+----------{ xcsReleaseThreadMutexSem
+----------} xcsReleaseThreadMutexSem rc=OK
+---------} xcsConnectSharedMemSet rc=OK
+---------{ xcsDisconnectSharedMemSet
+----------{ xcsRequestThreadMutexSem
+----------} xcsRequestThreadMutexSem rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xstDisconnectExtent
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xstMakeStorageRequest
+------------{ xstServerRequest
+------------} xstServerRequest rc=OK
+-----------} xstMakeStorageRequest rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+----------} xstDisconnectExtent rc=OK
+----------{ xcsReleaseThreadMutexSem
+----------} xcsReleaseThreadMutexSem rc=OK
+---------} xcsDisconnectSharedMemSet rc=OK
+--------} zcpAttachPipe rc=zrcC_E_INVALID_HANDLE
+-------} ziiConnectToAgent rc=zrcC_E_INVALID_HANDLE
+-------{ zutLockLocalThreads
+--------{ xcsRequestThreadMutexSem
+--------} xcsRequestThreadMutexSem rc=OK
+-------} zutLockLocalThreads rc=OK
+-------{ ziiClearUpAgent
+--------{ xcsUnregisterDestructor
+---------{ xcsFreeMemFn
+---------} xcsFreeMemFn rc=OK
+--------} xcsUnregisterDestructor rc=OK
+--------{ xcsTerminate
+---------{ xihCheckThreadList
+---------} xihCheckThreadList rc=OK
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+---------{ xihRemoveQueueManager
+---------} xihRemoveQueueManager rc=Unknown(1)
+---------{ xcsDisconnectSharedSubpool
+----------{ xlsThreadTermination
+-----------{ xstMakeSemaphoreRequest
+------------{ xstServerRequest
+------------} xstServerRequest rc=OK
+-----------} xstMakeSemaphoreRequest rc=OK
+-----------{ xcsFreeQuickCell
+-----------} xcsFreeQuickCell rc=OK
+----------} xlsThreadTermination rc=OK
+----------{ xcsDetachSharedSubpool
+-----------{ xcsFreeQuickCell
+-----------} xcsFreeQuickCell rc=OK
+-----------{ xcsDisconnectSharedMemSet
+------------{ xcsRequestThreadMutexSem
+------------} xcsRequestThreadMutexSem rc=OK
+------------{ xcsFreeMemFn
+------------} xcsFreeMemFn rc=OK
+------------{ xcsFreeMemFn
+------------} xcsFreeMemFn rc=OK
+------------{ xcsReleaseThreadMutexSem
+------------} xcsReleaseThreadMutexSem rc=OK
+-----------} xcsDisconnectSharedMemSet rc=OK
+-----------{ xstDisconnectExtent
+------------{ xcsRequestThreadMutexSem
+------------} xcsRequestThreadMutexSem rc=OK
+------------{ xstMakeStorageRequest
+-------------{ xstServerRequest
+-------------} xstServerRequest rc=OK
+------------} xstMakeStorageRequest rc=OK
+------------{ xcsReleaseThreadMutexSem
+------------} xcsReleaseThreadMutexSem rc=OK
+-----------} xstDisconnectExtent rc=OK
+-----------{ xstDetachServer
+-----------} xstDetachServer rc=OK
+-----------{ xcsFreeMemFn
+-----------} xcsFreeMemFn rc=OK
+-----------{ xcsDestroyThreadMutexSem
+------------{ xcsCloseHandle
+------------} xcsCloseHandle rc=Unknown(1)
+-----------} xcsDestroyThreadMutexSem rc=OK
+-----------{ xcsDestroyThreadMutexSem
+------------{ xcsCloseHandle
+------------} xcsCloseHandle rc=Unknown(1)
+-----------} xcsDestroyThreadMutexSem rc=OK
+-----------{ xstReleaseSubpoolsLock
+-----------} xstReleaseSubpoolsLock rc=OK
+-----------{ xllDropSubpoolHandles
+-----------} xllDropSubpoolHandles rc=OK
+-----------{ xcsFreeMemFn
+-----------} xcsFreeMemFn rc=OK
+----------} xcsDetachSharedSubpool rc=OK
+---------} xcsDisconnectSharedSubpool rc=OK
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} xcsTerminate rc=OK
+-------} ziiClearUpAgent rc=OK
+------} ziiMQCONN rc=zrcC_E_INVALID_HANDLE
+------{ ziiClearUpAgent
+------} ziiClearUpAgent rc=OK
+------{ zstDeletePCD
+-------{ xcsListIndexArray
+-------} xcsListIndexArray rc=xecL_E_INVALID_HANDLE
+-------{ xcsFreeIndexArray
+--------{ xcsFreeMemFn
+--------} xcsFreeMemFn rc=OK
+-------} xcsFreeIndexArray rc=OK
+-------{ xcsUnregComp
+-------} xcsUnregComp rc=OK
+-------{ zutLookupRemove
+--------{ zutLookupLock
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+--------} zutLookupLock rc=OK
+--------{ xcsFreeMemFn
+--------} xcsFreeMemFn rc=OK
+--------{ zutLookupUnlock
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} zutLookupUnlock rc=OK
+-------} zutLookupRemove rc=OK
+-------{ xcsTerminate
+--------{ xihCheckThreadList
+--------} xihCheckThreadList rc=OK
+--------{ xcsRequestThreadMutexSem
+--------} xcsRequestThreadMutexSem rc=OK
+--------{ xcsDecacheSharedSubpool
+---------{ xcsFreeMemFn
+---------} xcsFreeMemFn rc=OK
+--------} xcsDecacheSharedSubpool rc=OK
+--------{ xihCSThreadClear
+---------{ xcsEmptyCBM
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+---------} xcsEmptyCBM rc=OK
+--------} xihCSThreadClear rc=OK
+--------{ xcsReleaseThreadMutexSem
+--------} xcsReleaseThreadMutexSem rc=OK
+-------} xcsTerminate rc=OK
+-------{ xcsFreeMemFn
+-------} xcsFreeMemFn rc=OK
+------} zstDeletePCD rc=OK
+------{ zutUnlockLocalThreads
+-------{ xcsReleaseThreadMutexSem
+-------} xcsReleaseThreadMutexSem rc=OK
+------} zutUnlockLocalThreads rc=OK
+------{ zutDisconnectConfig
+-------{ xcsFreeMemFn
+-------} xcsFreeMemFn rc=OK
+------} zutDisconnectConfig rc=OK
+-----} zstMQConnect rc=MQRC_Q_MGR_NOT_AVAILABLE
+----} zstMQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+---} trmzstMQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+--} MQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+--{ xcsFileExists
+--} xcsFileExists rc=OK
+-} zswGetEntryPointsByName rc=MQRC_Q_MGR_NOT_AVAILABLE
+} MQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+{ MQCONNX
+-{ zswGetEntryPointsByName
+--{ zswQueryThreadEntry
+--} zswQueryThreadEntry rc=OK
+--{ zutCheckCNOAddressability
+---{ xcsCheckPointer
+---} xcsCheckPointer rc=OK
+--} zutCheckCNOAddressability rc=OK
+--{ zswChooseLibraries
+---{ xcsGetEnvironmentString
+---} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--} zswChooseLibraries rc=OK
+--{ MQCONNX
+---{ trmzstMQCONNX
+----{ IsMTSEnvironment
+----} IsMTSEnvironment rc=OK
+----{ zstMQCONNX
+-----{ zstMQConnect
+------{ zstMQConnect_CheckParameters
+-------{ zutCheckCNOAddressability
+--------{ xcsCheckPointer
+--------} xcsCheckPointer rc=OK
+-------} zutCheckCNOAddressability rc=OK
+-------{ xcsCheckPointer
+-------} xcsCheckPointer rc=OK
+-------{ xcsCheckNullTermString
+-------} xcsCheckNullTermString rc=OK
+------} zstMQConnect_CheckParameters rc=OK
+------{ zutBlankPad
+------} zutBlankPad rc=OK
+------{ zutLockLocalThreads
+-------{ xcsRequestThreadMutexSem
+-------} xcsRequestThreadMutexSem rc=OK
+------} zutLockLocalThreads rc=OK
+------{ zutIsItBlank
+------} zutIsItBlank rc=OK
+------{ zutCheckQMName
+-------{ zutCheckValidName
+-------} zutCheckValidName rc=OK
+------} zutCheckQMName rc=OK
+------{ zutCvtMQName2Str
+------} zutCvtMQName2Str rc=OK
+------{ xcsQueryValue
+------} xcsQueryValue rc=OK
+------{ zutSimpleQMNameMangle
+------} zutSimpleQMNameMangle rc=OK
+------{ zstGetPCDbyTID
+------} zstGetPCDbyTID rc=OK
+------{ zstInitCS
+-------{ xcsInitialize
+--------{ xihCSThreadClear
+---------{ xcsEmptyCBM
+---------} xcsEmptyCBM rc=OK
+--------} xihCSThreadClear rc=OK
+--------{ xcsUpdateThreadUserDetails
+---------{ xcsGetNTOwnerSid
+---------} xcsGetNTOwnerSid rc=OK
+--------} xcsUpdateThreadUserDetails rc=OK
+--------{ xihCheckThreadList
+--------} xihCheckThreadList rc=OK
+--------{ xcsRequestThreadMutexSem
+--------} xcsRequestThreadMutexSem rc=OK
+--------{ xihAddQueueManager
+--------} xihAddQueueManager rc=Unknown(1)
+--------{ xcsGetEnvironmentInteger
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} xcsGetEnvironmentInteger rc=xecE_E_ENV_VAR_NOT_FOUND
+--------{ xcsGetEnvironmentInteger
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} xcsGetEnvironmentInteger rc=xecE_E_ENV_VAR_NOT_FOUND
+--------{ xcsQueryValue
+--------} xcsQueryValue rc=OK
+--------{ xcsGetEnvironmentString
+--------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------{ xcsCheckDirectory
+--------} xcsCheckDirectory rc=OK
+--------{ xcsFileExists
+--------} xcsFileExists rc=OK
+--------{ xcsQueryMTimeFn
+--------} xcsQueryMTimeFn rc=OK
+--------{ xcsInitGlobalSecurityData
+--------} xcsInitGlobalSecurityData rc=OK
+--------{ InitPrivateServices
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} InitPrivateServices rc=OK
+--------{ xcsDerestrictProcessHandle
+--------} xcsDerestrictProcessHandle rc=OK
+--------{ xcsCreateNTSecurityAtts
+--------} xcsCreateNTSecurityAtts rc=OK
+--------{ xcsGetIPCHost
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} xcsGetIPCHost rc=OK
+--------{ xcsConnectSharedSubpool
+---------{ xcsAttachSharedSubpool
+----------{ xcsGetMemFn
+----------} xcsGetMemFn rc=OK
+----------{ xcsCreateThreadMutexSem
+----------} xcsCreateThreadMutexSem rc=OK
+----------{ xcsCreateThreadMutexSem
+----------} xcsCreateThreadMutexSem rc=OK
+----------{ xcsGetMemFn
+----------} xcsGetMemFn rc=OK
+----------{ xstGetSubpoolsLock
+----------} xstGetSubpoolsLock rc=OK
+----------{ xcsConnectSharedMemSet
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+-----------{ xstAttachSharedMemSet
+------------{ xstConnectExtent
+-------------{ xcsRequestThreadMutexSem
+-------------} xcsRequestThreadMutexSem rc=OK
+-------------{ xcsReleaseThreadMutexSem
+-------------} xcsReleaseThreadMutexSem rc=OK
+------------} xstConnectExtent rc=OK
+------------{ xcsGetMemFn
+------------} xcsGetMemFn rc=OK
+------------{ xcsGetMemFn
+------------} xcsGetMemFn rc=OK
+-----------} xstAttachSharedMemSet rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+----------} xcsConnectSharedMemSet rc=OK
+----------{ xcsQueryValue
+----------} xcsQueryValue rc=OK
+----------{ xcsQueryValue
+----------} xcsQueryValue rc=OK
+----------{ xstDestroySubpoolIfInvalid
+----------} xstDestroySubpoolIfInvalid rc=OK
+----------{ xstReleaseSubpoolsLock
+----------} xstReleaseSubpoolsLock rc=OK
+----------{ xcsAttachSetExtents
+----------} xcsAttachSetExtents rc=OK
+---------} xcsAttachSharedSubpool rc=OK
+--------} xcsConnectSharedSubpool rc=OK
+--------{ xxxInitialize
+---------{ xcsFFST
+
+Thread Control Block (xihTHREAD pCtl)
+006E6180                       58494854  980D0000            XIHT?...
+006E6190   08000000  70030000  C8D16E00  B8B56E00    ....p.....n...n.
+006E61A0   40000000  00000000  00000000  00000000    @...............
+006E61B0   00000000  04000000  00000000  00000000    ................
+006E61C0   00000000  00000000  00000000  00000000    ................
+006E61D0 to 006E6490 suppressed, lines same as above
+006E64A0   00000000  FFFFFFFF  00000000  00000000    ....????........
+006E64B0   02000000  00000000  00000000  00000000    ................
+006E64C0   53595354  454D0000  00000000  00000000    SYSTEM..........
+006E64D0   00000000  00000000  0C000000  01010000    ................
+006E64E0   00000005  12000000  00000000  00000000    ................
+006E64F0   00000000  00000000  00000000  00000000    ................
+006E6500   01000000  00000000  0B000000  00000000    ................
+006E6510   90496468  10806F00  00000000  00000000    ?Idh.?o.........
+006E6520   00000000  00000000  00000000  00000000    ................
+006E6530 to 006E6550 suppressed, lines same as above
+006E6560   00000000  00000000  338000F0  908200F0    ........3?..??..
+006E6570   338000F0  24A400F0  C38000F0  138100F0    3?..$?...?...?..
+006E6580   DF8000F0  015C00F0  CF5C00F0  035C00F0    .?...\...\...\..
+006E6590   155C00F0  885E00F0  065C00F0  065C00F0    .\..?^...\...\..
+006E65A0   055C00F0  00000000  00000000  00000000    .\..............
+006E65B0   00000000  00000000  00000000  00000000    ................
+006E65C0 to 006E6630 suppressed, lines same as above
+006E6640   00000000  00000000  135C0000  135C00F0    .........\...\..
+006E6650   135C0000  816100F0  81610000  456100F0    .\..?a..?a..Ea..
+006E6660   45610000  A56100F0  A5610000  7D610000    Ea..?a..?a..}a..
+006E6670   7C610000  CF5C00F0  035C00F0  4C5C00F0    |a...\...\..L\..
+006E6680   055C00F0  055C0000  C96000F0  C9600000    .\...\...`...`..
+006E6690   535C00F0  055C00F0  055C0000  535C0000    S\...\...\..S\..
+006E66A0   CA6000F0  B16000F0  B1600000  B36000F0    .`...`...`...`..
+006E66B0   B3600000  135C00F0  135C0000  B46000F0    .`...\...\...`..
+006E66C0   B4600000  C96000F0  C9600000  CA600000    .`...`...`...`..
+006E66D0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+006E66E0   4C5C0000  7D5D00F0  735C00F0  735C0000    L\..}]..s\..s\..
+006E66F0   135C00F0  135C0000  CC5D00F0  CC5D9361    .\...\...]...]?a
+006E6700   CD5D00F0  CC5D00F0  CC5D9361  CD5D9361    .]...]...]?a.]?a
+006E6710   135C00F0  135C0000  165C00F0  055C00F0    .\...\...\...\..
+006E6720   055C0000  4C5C00F0  055C00F0  055C0000    .\..L\...\...\..
+006E6730   535C00F0  055C00F0  055C0000  535C0000    S\...\...\..S\..
+006E6740   CA6000F0  C96000F0  C9600000  CA600000    .`...`...`...`..
+006E6750   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+006E6760   4C5C0000  CB5D00F0  CB5D0000  925D00F0    L\...]...]..?]..
+006E6770   D15E00F0  D15E0000  925D0000  4C5C00F0    .^...^..?]..L\..
+006E6780   055C00F0  055C0000  535C00F0  055C00F0    .\...\..S\...\..
+006E6790   055C0000  535C0000  CA6000F0  C96000F0    .\..S\...`...`..
+006E67A0   C9600000  CA600000  065C00F0  065C0000    .`...`...\...\..
+006E67B0   065C00F0  065C0000  4C5C0000  4C5C00F0    .\...\..L\..L\..
+006E67C0   055C00F0  055C0000  535C00F0  055C00F0    .\...\..S\...\..
+006E67D0   055C0000  535C0000  CA6000F0  C96000F0    .\..S\...`...`..
+006E67E0   C9600000  CA600000  065C00F0  065C0000    .`...`...\...\..
+006E67F0   065C00F0  065C0000  4C5C0000  895E00F0    .\...\..L\..?^..
+006E6800   895E0000  935D00F0  935D0000  895E00F0    ?^..?]..?]..?^..
+006E6810   895E0000  C86000F0  CF6000F0  CF600000    ?^...`...`...`..
+006E6820   535C00F0  055C00F0  055C0000  535C0000    S\...\...\..S\..
+006E6830   065C00F0  065C0000  C8607560  065C00F0    .\...\...`u`.\..
+006E6840   065C0000  165C0000  7D5D0000  7D5D00F0    .\...\..}]..}]..
+006E6850   735C00F0  735C0000  135C00F0  135C0000    s\..s\...\...\..
+006E6860   CC5D00F0  CC5D9361  CD5D00F0  CC5D00F0    .]...]?a.]...]..
+006E6870   CC5D9361  CD5D9361  135C00F0  135C0000    .]?a.]?a.\...\..
+006E6880   165C00F0  055C00F0  055C0000  4C5C00F0    .\...\...\..L\..
+006E6890   055C00F0  055C0000  535C00F0  055C00F0    .\...\..S\...\..
+006E68A0   055C0000  535C0000  CA6000F0  C96000F0    .\..S\...`...`..
+006E68B0   C9600000  CA600000  065C00F0  065C0000    .`...`...\...\..
+006E68C0   065C00F0  065C0000  4C5C0000  CB5D00F0    .\...\..L\...]..
+006E68D0   CB5D0000  925D00F0  D15E00F0  D15E0000    .]..?]...^...^..
+006E68E0   925D0000  895E00F0  895E0000  935D00F0    ?]..?^..?^..?]..
+006E68F0   935D0000  895E00F0  895E0000  C86000F0    ?]..?^..?^...`..
+006E6900   CF6000F0  CF600000  535C00F0  055C00F0    .`...`..S\...\..
+006E6910   055C0000  535C0000  065C00F0  065C0000    .\..S\...\...\..
+006E6920   C8607560  065C00F0  065C0000  165C0000    .`u`.\...\...\..
+006E6930   7D5D0000  B36000F0  B3600000  135C00F0    }]...`...`...\..
+006E6940   135C0000  D15E00F0  D15E0000  CB5D00F0    .\...^...^...]..
+006E6950   CB5D0000  055C00F0  055C0000  135C00F0    .]...\...\...\..
+006E6960   135C0000  135C00F0  135C0000  135C00F0    .\...\...\...\..
+006E6970   135C0000  1F5E00F0  205E00F0  205E0000    .\...^.. ^.. ^..
+006E6980   1F5E0000  135C00F0  135C0000  135C00F0    .^...\...\...\..
+006E6990   135C0000  135C00F0  885E00F0  885E0000    .\...\..?^..?^..
+006E69A0   135C0000  655D00F0  655D0000  155C00F0    .\..e]..e]...\..
+006E69B0   155C0000  B4600000  86600000  B46000F0    .\...`..?`...`..
+006E69C0   B4600000  86610000  02680153  108C0153    .`..?a...h.S.?.S
+006E69D0   4F8400F0  B36000F0  B3600000  4F840000    O?...`...`..O?..
+006E69E0   1A8C00F0  035D00F0  065C00F0  065C0000    .?...]...\...\..
+006E69F0   035D0000  005C00F0  6C5D00F0  6C5D0000    .]...\..l]..l]..
+006E6A00   B36000F0  B3600000  FD5D00F0  FD5D0100    .`...`..?]..?]..
+006E6A10   7F6100F0  2E5D00F0  D96100F0  735D00F0    .a...]...a..s]..
+006E6A20   735D0000  D9610000  0F5C00F0  0F5C0000    s]...a...\...\..
+006E6A30   2E5D0000  806100F0  0F5C00F0  0F5C0000    .]..?a...\...\..
+006E6A40   866100F0  B36000F0  B3600000  065C00F0    ?a...`...`...\..
+006E6A50   065C0000  065C00F0  065C0000  B46000F0    .\...\...\...`..
+006E6A60   B4600000  86610000  866000F0  B36000F0    .`..?a..?`...`..
+006E6A70   B3600000  F46100F0  735D00F0  735D0000    .`...a..s]..s]..
+006E6A80   F4610000  B46000F0  B4600000  86600000    .a...`...`..?`..
+006E6A90   715D00F0  715D0000  065C00F0  065C0000    q]..q]...\...\..
+006E6AA0   B26000F0  A35D00F0  A35D0100  B2600000    .`..?]..?]...`..
+006E6AB0   B26000F0  A35D00F0  A35D0100  B2600000    .`..?]..?]...`..
+006E6AC0   456100F0  45610000  CB6000F0  CB600000    Ea..Ea...`...`..
+006E6AD0   065C00F0  065C0000  80610000  7F610000    .\...\..?a...a..
+006E6AE0   B46000F0  B4600000  005C0000  1A8C0000    .`...`...\...?..
+006E6AF0   008C0153  1A8C00F0  1A8C0000  DD8000F0    .?.S.?...?...?..
+006E6B00   DD5E00F0  DD5E1060  D65E00F0  065C00F0    .^...^.`.^...\..
+006E6B10   065C0000  D65E0000  685D00F0  685D0000    .\...^..h]..h]..
+006E6B20   A78500F0  B38500F0  B36000F0  B3600000    ??...?...`...`..
+006E6B30   B3850000  065C00F0  065C0000  B48500F0    .?...\...\...?..
+006E6B40   B46000F0  B4600000  B4850000  A7850000    .`...`...?..??..
+006E6B50   005C00F0  6C5D00F0  6C5D0000  B36000F0    .\..l]..l]...`..
+006E6B60   B3600000  E86100F0  065C00F0  065C0000    .`..?a...\...\..
+006E6B70   E8610000  4D5E00F0  4C5E00F0  065C00F0    ?a..M^..L^...\..
+006E6B80   065C0000  065C00F0  065C0000  065C00F0    .\...\...\...\..
+006E6B90 to 006E6BB0 suppressed, lines same as above
+006E6BC0   065C0000  065C00F0  065C0000  4C5E0000    .\...\...\..L^..
+006E6BD0   4D5E0000  B46000F0  B4600000  005C0000    M^...`...`...\..
+006E6BE0   065C00F0  065C0000  DD800000  508400F0    .\...\...?..P?..
+006E6BF0   B46000F0  B4600000  50840000  8A8400F0    .`...`..P?..??..
+006E6C00   065C00F0  065C0000  8A840000  13810B08    .\...\..??...?..
+006E6C10   C3800B08  24A40B08  33800B08  2C6200F0    .?..$?..3?..,b..
+006E6C20   2C620000  90820B08  33800B08  338000F0    ,b..??..3?..3?..
+006E6C30   908200F0  EA8200F0  EA820000  B18500F0    ??..?..?...?..
+006E6C40   155C00F0  155C0000  B1850000  938200F0    .\...\...?..??..
+006E6C50   CC5D00F0  CC5D9361  93820000  338000F0    .]...]?a??..3?..
+006E6C60   24A400F0  8EA400F0  8EA40000  C38000F0    $?..??..??...?..
+006E6C70   138100F0  628100F0  B18500F0  155C00F0    .?..b?...?...\..
+006E6C80   155C0000  B1850000  155C00F0  155C0000    .\...?...\...\..
+006E6C90   F05D00F0  F05D0000  62810000  208400F0    .]...]..b?.. ?..
+006E6CA0   20840000  4F8400F0  B36000F0  B3600000     ?..O?...`...`..
+006E6CB0   4F840000  1E8400F0  1E840000  018400F0    O?...?...?...?..
+006E6CC0   1F8400F0  1F840000  01840000  138400F0    .?...?...?...?..
+006E6CD0   13840000  135C00F0  135C0000  878400F0    .?...\...\..??..
+006E6CE0   87840000  E18000F0  E1800000  DF8000F0    ??..?..?...?..
+006E6CF0   015C00F0  4D5E00F0  4C5E00F0  4C5E0000    .\..M^..L^..L^..
+006E6D00   4D5E0000  546100F0  2C6100F0  2C610000    M^..Ta..,a..,a..
+006E6D10   54610000  6C5D00F0  6C5D0000  B36000F0    Ta..l]..l]...`..
+006E6D20   B3600000  FC5D00F0  FC5D0100  CD5D00F0    .`..?]..?]...]..
+006E6D30   CC5D00F0  CC5D9361  CD5D9361  CD5D00F0    .]...]?a.]?a.]..
+006E6D40   CC5D00F0  CC5D9361  CD5D9361  135C00F0    .]...]?a.]?a.\..
+006E6D50   135C0000  CC5D00F0  CC5D9361  2F5E00F0    .\...]...]?a/^..
+006E6D60   2F5E0000  2C6200F0  2C620000  A55D00F0    /^..,b..,b..?]..
+006E6D70   A55D0000  256100F0  25610000  336000F0    ?]..%a..%a..3`..
+006E6D80   CC5D00F0  CC5D9361  CC5D00F0  CC5D9361    .]...]?a.]...]?a
+006E6D90   33600000  E56100F0  E5610000  CC6000F0    3`..?a..?a...`..
+006E6DA0   CC600000  4F6200F0  CC5D00F0  CC5D9361    .`..Ob...]...]?a
+006E6DB0   4F620000  7C6100F0  7D6100F0  055C00F0    Ob..|a..}a...\..
+006E6DC0   055C0000  B16000F0  B1600000  B16000F0    .\...`...`...`..
+006E6DD0   B1600000  055C00F0  055C0000  446100F0    .`...\...\..Da..
+006E6DE0   44610000  846100F0  B36000F0  B3600000    Da..?a...`...`..
+006E6DF0   B36000F0  B3600000  B46000F0  B4600000    .`...`...`...`..
+006E6E00   856100F0  816000F0  B36000F0  B3600000    ?a..?`...`...`..
+006E6E10   B46000F0  B4600000  81600000  055C00F0    .`...`..?`...\..
+006E6E20   055C0000  055C00F0  055C0000  85610000    .\...\...\..?a..
+006E6E30   B46000F0  B4600000  84610000  135C00F0    .`...`..?a...\..
+006E6E40   00000000  00000000  00000000  00000000    ................
+006E6E50   DB000000  1E000000  00000000  00000000    ................
+006E6E60   00000000  00000000  00000000  00000000    ................
+006E6E70   01000000  01000000  00000000  00000000    ................
+006E6E80   00000000  00000000  00000000  00000000    ................
+006E6E90   00000000  463A5C62  75696C64  5C736C6F    ....F:\build\slo
+006E6EA0   74315C70  3930305F  505C7372  635C6C69    t1\p900_P\src\li
+006E6EB0   625C6373  5C616D71  7878696E  632E6300    b\cs\amqxxinc.c.
+006E6EC0   00000000  00000000  00000000  00000000    ................
+006E6ED0   00000000  00000000  5A010000  00000000    ........Z.......
+006E6EE0   00000000  00000000  00000000  00000000    ................
+006E6EF0   00000000  00000000  1A04825E  529C0500    ..........?^R?..
+006E6F00   701A6E00  00000000  00000000  00000000    p.n.............
+006E6F10   00000000  00000000  00000000  00000000    ................
+
+
+Thread Common Services (xihTHREADCOMMONSERVICES pCtl->pCS)
+006F8010   58494353  00000000  00000000  00000000    XICS............
+006F8020   00000000  01000000  00000000  00000000    ................
+006F8030   00000000  B82AA468  00000000  00000000    .....*?h........
+006F8040   00000000  300FDE05  00000000  00000000    ....0...........
+006F8050   00000000  00000000  00000000  00000000    ................
+006F8060   01000000  00000000  00000000  00000000    ................
+006F8070   00000000  00000000  00000000  00000000    ................
+006F8080 to 006F8140 suppressed, lines same as above
+006F8150   00000000  00000000  00000000  38547900    ............8Ty.
+006F8160   00000000  00000000  00000000  00000000    ................
+006F8170 to 006F8250 suppressed, lines same as above
+006F8260   00000000  41424300  4C450000  33000000    ....ABC.LE..3...
+006F8270   00000000  00000000  00000000  00000000    ................
+006F8280 to 006F8320 suppressed, lines same as above
+
+
+Thread Common Common Services (xihTHREADCOMMONSERVICES pCtl->Common.pCCS)
+006E1A70   58494343  00000000  00000000  00000000    XICC............
+006E1A80   00000000  00000000  00000000  00000000    ................
+006E1A90 to 006E1BC0 suppressed, lines same as above
+006E1BD0   00000000  00000000  58A07000  00000000    ........X?p.....
+006E1BE0   00000000  00000000  00000000  00000000    ................
+006E1BF0   00000000  00000000                        ........
+
+
+Common Services Control Block (CSCtrl)
+035918B0   58494820  00030000  01000000  9814DC05    XIH ........?...
+035918C0   04010000  00000000  00000000  00000000    ................
+035918D0   00000000  00000000  00000000  00000000    ................
+035918E0 to 03591B10 suppressed, lines same as above
+03591B20   00000000  01000000  00000000  00000000    ................
+03591B30   00000000  00000000  300FDE05  00000000    ........0.......
+03591B40   00000000  00000000  00000000  00000000    ................
+03591B50 to 03591BA0 suppressed, lines same as above
+
+
+Process Control Block (xihPROCESS)
+68CBBA00   58494850  700D0000  E8030000  00000000    XIHPp...?.......
+68CBBA10   00000000  00000000  00000000  00000000    ................
+68CBBA20 to 68CBBA80 suppressed, lines same as above
+68CBBA90   00000000  1D000000  00000000  B84D6C00    .............Ml.
+68CBBAA0   D0E77700  01000000  0C000000  01010000    .?w.............
+68CBBAB0   00000005  12000000  00000000  00000000    ................
+68CBBAC0   00000000  00000000  00000000  00000000    ................
+68CBBAD0   433A5C50  726F6772  616D4461  74615C49    C:\ProgramData\I
+68CBBAE0   424D5C4D  515C6572  726F7273  00000000    BM\MQ\errors....
+68CBBAF0   00000000  00000000  00000000  00000000    ................
+68CBBB00 to 68CBBBC0 suppressed, lines same as above
+68CBBBD0   00000000  00000000  00000000  01000000    ................
+68CBBBE0   433A5C50  726F6772  616D4461  74615C49    C:\ProgramData\I
+68CBBBF0   424D5C4D  515C736F  636B6574  735C4053    BM\MQ\sockets\@S
+68CBBC00   59535445  4D5C716D  67726C6F  636C5C4B    YSTEM\qmgrlocl\K
+68CBBC10   4954455C  315C5472  6163652E  73686D00    ITE\1\Trace.shm.
+68CBBC20   00000000  00000000  00000000  00000000    ................
+68CBBC30 to 68CBBCD0 suppressed, lines same as above
+68CBBCE0   00000000  00000000  0C0B0000  240C0000    ............$...
+68CBBCF0   00000000  0000F200  00000000  00000000    ................
+68CBBD00   00000000  00000000  00000000  00000000    ................
+68CBBD10 to 68CBBDF0 suppressed, lines same as above
+68CBBE00   FFFFFFFF  FFFFFFFF  00000000  00000000    ????????........
+68CBBE10   01000000  FEFFFFFF  00000000  00000000    .....???........
+68CBBE20   01000000  00000000  FFFFFFFF  FFFFFFFF    ........????????
+68CBBE30   00000000  00000000  00000000  D0070002    ................
+68CBBE40   FFFFFFFF  FFFFFFFF  00000000  00000000    ????????........
+68CBBE50   00000000  D0070002  5839DE05  FFFFFFFF    ........X9..????
+68CBBE60   00000000  00000000  FFFFFFFF  CD070002    ........????....
+68CBBE70   FFFFFFFF  FFFFFFFF  00000000  00000000    ????????........
+68CBBE80   00000000  D0070002  53595354  454D0000    ........SYSTEM..
+68CBBE90   00000000  00000000  00000000  00000000    ................
+68CBBEA0   01000000  00000003  00000000  00000000    ................
+68CBBEB0   00000000  00000000  00000000  00000000    ................
+68CBBEC0   00000000  00000000  00000000  1F000000    ................
+68CBBED0   01050000  00000005  15000000  F9E58F1F    .............?.
+68CBBEE0   B6FA4595  5B4111E9  EA030000  00000000    .?E?[A.??.......
+68CBBEF0   00000000  01010000  00000005  12000000    ................
+68CBBF00   00000000  00000000  00000000  00000000    ................
+68CBBF10   00000000  00000000  01020000  00000005    ................
+68CBBF20   20000000  20020000  00000000  00000000     ... ...........
+68CBBF30   00000000  00000000  00000000  01010000    ................
+68CBBF40   00000001  00000000  00000000  00000000    ................
+68CBBF50   00000000  00000000  00000000  00000000    ................
+68CBBF60 to 68CBBF70 suppressed, lines same as above
+68CBBF80   00000000  B0040000  00000000  90026C00    ............?.l.
+68CBBF90   06000000  02000000  05000000  00000000    ................
+68CBBFA0   00000000  F0230000  30000000  00000000    .....#..0.......
+68CBBFB0   00000000  00000000  00000000  00000000    ................
+68CBBFC0 to 68CBC3D0 suppressed, lines same as above
+68CBC3E0   00000000  00000000  00000000  58495343    ............XISC
+68CBC3F0   FFFFFFFF  00100000  40000000  00000000    ????....@.......
+68CBC400   00000000  00000000  00000000  00000000    ................
+68CBC410   00000000  00000000  00000000  00000000    ................
+68CBC420   00000000  00000000  4A010000  28554E4B    ........J...(UNK
+68CBC430   4E4F574E  29000000  00000000  00000000    NOWN)...........
+68CBC440   00000000  00000000  00000000  00000000    ................
+68CBC450 to 68CBC4C0 suppressed, lines same as above
+68CBC4D0   00000000  04000000  00280000  0A000000    .........(......
+68CBC4E0   00000000  01000000  31000000  00000000    ........1.......
+68CBC4F0   00000000  00000000  00496E73  74616C6C    .........Install
+68CBC500   6174696F  6E310000  0000433A  5C50726F    ation1....C:\Pro
+68CBC510   6772616D  2046696C  65735C49  424D5C4D    gram Files\IBM\M
+68CBC520   51000000  00000000  00000000  00000000    Q...............
+68CBC530   00000000  00000000  00000000  00000000    ................
+68CBC540 to 68CBC5F0 suppressed, lines same as above
+68CBC600   00000000  00000000  00000053  4F465457    ...........SOFTW
+68CBC610   4152455C  49424D5C  57656253  70686572    ARE\IBM\WebSpher
+68CBC620   65204D51  5C496E73  74616C6C  6174696F    e MQ\Installatio
+68CBC630   6E5C496E  7374616C  6C617469  6F6E3100    n\Installation1.
+68CBC640   00000000  31000000  00000000  00000000    ....1...........
+68CBC650   00000000  00000000  00000000  00000000    ................
+68CBC660 to 68CBC730 suppressed, lines same as above
+68CBC740   00000000  00000000  0050726F  64756374    .........Product
+68CBC750   696F6E00  00000000  00000000  01000000    ion.............
+68CBC760   00000000  00000000  00000000  00000000    ................
+
+
+Zut Common Anchor (zutCOMMON_ANCHOR)
+68C923C0   5A554341  5A535441  00000000  00000000    ZUCAZSTA........
+68C923D0   524D5141  442C0000  FFFFFFFF  FFFFFFFF    RMQAD,..????????
+68C923E0   00000000  00000000  00000000  D0070002    ................
+68C923F0   0000403F  65000000  00000000  D0026C00    ..@?e.........l.
+68C92400   00000000  00000000  00000000  64000000    ............d...
+68C92410   64000000  00000000  00000000  00000000    d...............
+68C92420   00000000  00000000  D0020000  00000000    ................
+68C92430   00000000  18B47800  ACB57800  00000000    ......x.?.x.....
+68C92440   00000000  00000000  00000000  00000000    ................
+68C92450   00000000  00000000  F023C968  00000000    .........#.h....
+68C92460   00000000  00000000  00000000  05000000    ................
+68C92470   00000000  D6020000  00000000  00000000    ................
+
+
+MTime Control Block
+00B70000                       58435043  01000000            XCPC....
+00B70010   01000000  00000000  093D0000  B9650000    ........	=...e..
+00B70020   96980000  96000000  0F000000  00000000    ??..?...........
+00B70030   80969800  00000000  0068C461  08000000    ???......h.a....
+00B70040   8508C15E  529C0500  FA010000  2A010000    ?..^R?..?...*...
+00B70050   01000000  00000000  08000000  CC000000    ................
+00B70060   6ECA514A  C49B0500  80969800  01000000    n.QJ.?..???.....
+
+
+MTime Index
+01A3BD60                       FA010000                      ?...
+
+
+MTime Entries
+00B7DBA0                       00000000  00000000            ........
+00B7DBB0   F5010000  F5010000  F5010000  00000000    ................
+00B7DBC0   F5010000  A0999800  F5010000  83050000    ....???.....?...
+00B7DBD0   F5010000  27181F33  F5010000  519C0500    ....'..3....Q?..
+00B7DBE0   F5010000  BAD96E63  F5010000  00000000    ......nc........
+00B7DBF0   F5010000  00000000  F5010000  026B0000    .............k..
+00B7DC00   F5010000  519C0500  F5010000  421AA064    ....Q?......B.?d
+00B7DC10   F5010000  F5010000  00000000  00000000    ................
+00B7DC20   F6010000  F6010000  F6010000  00000000    ?...?...?.......
+00B7DC30   F6010000  99979800  F6010000  85050000    ?...???.?...?...
+00B7DC40   F6010000  50EA9999  F6010000  519C0500    ?...P??...Q?..
+00B7DC50   F6010000  3446E0A0  F6010000  00000000    ?...4F??.......
+00B7DC60   F6010000  FFFFFFFF  F6010000  149AFFFF    ?...?????....???
+00B7DC70   F6010000  519C0500  F6010000  BC8611A2    ?...Q?..?....?.?
+00B7DC80   F6010000  F6010000  00000000  00000000    ?...?...........
+00B7DC90   F7010000  F7010000  F7010000  00000000    ................
+00B7DCA0   F7010000  D0969800  F7010000  85050000    .....??.....?...
+00B7DCB0   F7010000  35FE99A5  F7010000  519C0500    ....5.??....Q?..
+00B7DCC0   F7010000  2E7913A2  F7010000  00000000    .....y.?........
+00B7DCD0   F7010000  FFFFFFFF  F7010000  8698FFFF    ....????....????
+00B7DCE0   F7010000  519C0500  F7010000  B6B944A3    ....Q?........D?
+00B7DCF0   F7010000  F7010000  00000000  00000000    ................
+00B7DD00   F8010000  F8010000  F8010000  00000000    ?...?...?.......
+00B7DD10   F8010000  07969800  F8010000  89050000    ?....??.?...?...
+00B7DD20   F8010000  5D83189D  F8010000  529C0500    ?...]?.??...R?..
+00B7DD30   F8010000  DAEA9F07  F8010000  00000000    ?....?.?.......
+00B7DD40   F8010000  FFFFFFFF  F8010000  5A98FFFF    ?...?????...Z???
+00B7DD50   F8010000  529C0500  F8010000  622BD108    ?...R?..?...b+..
+00B7DD60   F8010000  F8010000  00000000  00000000    ?...?...........
+00B7DD70   F9010000  F9010000  F9010000  00000000    ................
+00B7DD80   F9010000  92979800  F9010000  8C050000    ....???.....?...
+00B7DD90   F9010000  34BD33CC  F9010000  529C0500    ....4.3.....R?..
+00B7DDA0   F9010000  79E42259  F9010000  00000000    ....y?"Y........
+00B7DDB0   F9010000  00000000  F9010000  996B0000    ............?k..
+00B7DDC0   F9010000  529C0500  F9010000  0125545A    ....R?.......%TZ
+00B7DDD0   F9010000  F9010000  00000000  00000000    ................
+00B7DDE0   FA010000  FA010000  FA010000  00000000    ?...?...?.......
+00B7DDF0   FA010000  92979800  FA010000  8C050000    ?...???.?...?...
+00B7DE00   FA010000  AE1968D3  FA010000  529C0500    ?...?.h.?...R?..
+00B7DE10   FA010000  63F8DA59  FA010000  00000000    ?...c?.Y?.......
+00B7DE20   FA010000  00000000  FA010000  F6980000    ?.......?...??..
+00B7DE30   FA010000  529C0500  FA010000  EB380C5B    ?...R?..?...?8.[
+00B7DE40   FA010000  FA010000  00000000  00000000    ?...?...........
+00B7DE50   00000000  00000000  00000000  00000000    ................
+00B7DE60 to 00B7E060 suppressed, lines same as above
+00B7E070   00000000  00000000                        ........
+
+pCtl->pCS->threadConnectCount[1] = 0
+pCtl->pCS->threadConnectedSubpools[1] = 00000000
+pCtl->pCS->threadConnectCount[2] = 0
+pCtl->pCS->threadConnectedSubpools[2] = 00000000
+pCtl->pCS->threadConnectCount[3] = 0
+pCtl->pCS->threadConnectedSubpools[3] = 00000000
+pCtl->pCS->threadConnectCount[4] = 1
+pCtl->pCS->threadConnectedSubpools[4] = 05DE0F30
+05DE0F30   41424300  00000000  00000000  00000000    ABC.............
+05DE0F40   00000000  00000000  00000000  00000000    ................
+05DE0F50 to 05DE0F60 suppressed, lines same as above
+05DE0F70   5C406170  70000000  00000000  00000000    \@app...........
+05DE0F80   04000000  01000000  04310000  433A5C50    .........1..C:\P
+05DE0F90   726F6772  616D4461  74615C49  424D5C4D    rogramData\IBM\M
+05DE0FA0   51000000  00000000  00000000  00000000    Q...............
+05DE0FB0   00000000  00000000  00000000  00000000    ................
+05DE0FC0 to 05DE1080 suppressed, lines same as above
+05DE1090   00433A5C  50726F67  72616D44  6174615C    .C:\ProgramData\
+05DE10A0   49424D5C  4D515C71  6D677273  5C414243    IBM\MQ\qmgrs\ABC
+05DE10B0   00000000  00000000  00000000  00000000    ................
+05DE10C0 to 05DE1180 suppressed, lines same as above
+05DE1190   00000000  00004B49  54450000  00000000    ......KITE......
+05DE11A0   00000000  00000000  00000000  00000000    ................
+05DE11B0 to 05DE11D0 suppressed, lines same as above
+05DE11E0   00000000  00000000  00000000  01000000    ................
+05DE11F0   C010D103  00000000  38F1DD05  58557900    ........8?..XUy.
+05DE1200   58F1DD05  D85EDC05  00000000  00000000    X?...^..........
+05DE1210   00000000  00000000  00000000  00000000    ................
+05DE1220   00000000  740A0000  00000000  00000000    ....t...........
+05DE1230   00000000  00000000  00000000  00000000    ................
+05DE1240   00000000  00000000  00000000  00000000    ................
+
+pconnSubpool[4].connExtentList = 05DC5ED8
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   03D11000
+  0001   0x00000000   8191   0000000000   00000000
+}
+
+pCtl->pCS->threadConnectCount[5] = 0
+pCtl->pCS->threadConnectedSubpools[5] = 00000000
+pCtl->pCS->threadConnectCount[6] = 0
+pCtl->pCS->threadConnectedSubpools[6] = 00000000
+
+Component Dumps (Thread 00000008)
+------< ZSW "Switching Interface(zsw)" >-----
+
+ThisTid:
+01A3BC30                       442C0000                      D,..
+
+pMQIAnchor (0x006F89D8)
+{
+  EyeCatcher:             'ZSWA'
+  Version:                2
+  StrucLength:            39032
+  BufferLength:           43128
+  Flags:                  0x00000000
+  ThreadKey:              15
+  SingleInstallationOnly: FALSE
+  ClientInstallation:     -1
+  DependentInstallation:  -1
+  pFirstInstallation:     0x68A30F98
+  MaxInstallId:           1
+
+  LockOwnerTid:
+00702200                       442C0000                      D,..
+
+  pXAInfo:                0x00000000
+  zswINSTALL 1
+  {
+    Name:                 'Installation1'
+    Identifier:           1
+    Path:                 'C:\Program Files\IBM\MQ'
+    Server entrypoints:   0x68A30F98
+    Client entrypoints:   0x00000000
+    LockedInquirers:      0
+  }
+  zswINSTALL 0
+  {
+    Name:                 ''
+    Identifier:           0
+    Path:                 ''
+    Server entrypoints:   0x00000000
+    Client entrypoints:   0x00000000
+    LockedInquirers:      0
+  }
+  LockRequests:           3
+  QMgrLookups:            0
+  InstallationLookups:    0
+  LoadAttempts:           0
+  MissingInstallations:   0
+  InstallMismatches:      0
+  NowTryClientRequests:   0
+  AllowOptimizedConnect:  TRUE
+  ThreadKeyCreator        3
+}
+-------------------------------------
+
+ Environment Variables
+ALLUSERSPROFILE=C:\ProgramData
+APMW_EMS_HOME=E:\nastel\apwmq\nsqcmems
+APPDATA=C:\WINDOWS\system32\config\systemprofile\AppData\Roaming
+APTM_PROBE_HOME=E:\nastel\aptm\
+APTM_PROBE_LOGDIR=E:\nastel\aptm\logs\
+APWMQ_CM_OPTIONS=-mMQM; -nREMOTE_QMGRS; -s5020; -u; -e
+APWMQ_EVT_OPTIONS=-mMQM;
+APWMQ_GS_OPTIONS=nsqmgr.exe -console -mMQM -Dnastel_apwmq_db_ds -Uroot -Pnastel1234  -pDnastel_permv3_db_ds -pUroot -pPnastel1234  +au -e
+APWMQ_HOME=E:\nastel\apwmq\
+APWMQ_LA_OPTIONS=-mMQM;-i
+APWMQ_LS_OPTIONS=-m*; -s5010; -u; -e
+APWMQ_MS_OPTIONS=-m*;
+AUTOPILOT_HOME=E:\nastel\AutoPilotM6
+CATALINA_HOME=E:\nastel\AutoPilotM6\apache-tomcat
+CLASSPATH=E:\kafka\kafka_2.12-1.0.0\kafka_2.12-1.0.0\kafka_2.12-1.0.0;.;E:\Program Files\IBM\SQLLIB\java\db2java.zip;E:\Program Files\IBM\SQLLIB\java\db2jcc.jar;E:\Program Files\IBM\SQLLIB\java\sqlj.zip;E:\Program Files\IBM\SQLLIB\java\db2jcc_license_cu.jar;E:\Program Files\IBM\SQLLIB\bin;E:\Program Files\IBM\SQLLIB\java\common.jar
+CommonProgramFiles=C:\Program Files (x86)\Common Files
+CommonProgramFiles(x86)=C:\Program Files (x86)\Common Files
+CommonProgramW6432=C:\Program Files\Common Files
+COMPUTERNAME=KITE
+ComSpec=C:\WINDOWS\system32\cmd.exe
+DB2INSTANCE=DB2
+DriverData=C:\Windows\System32\Drivers\DriverData
+ERLANG_HOME=E:\Program Files\erl9.2
+INCLUDE=E:\Program Files\IBM\SQLLIB\INCLUDE;E:\Program Files\IBM\SQLLIB\LIB;C:\Program Files\IBM\MQ\tools\c\include;C:\Program Files\IBM\MQ\tools\cplus\include
+JAVA_HOME=E:\Program Files\Java\jdk1.8.0_202\
+JAVA_OPTS=-Xmx4096m -XX:CompressedClassSpaceSize=512m
+LIB=C:\Program Files\IBM\MQ\tools\lib64;E:\Program Files\IBM\SQLLIB\LIB;C:\Program Files\IBM\MQ\tools\lib
+LOCALAPPDATA=C:\WINDOWS\system32\config\systemprofile\AppData\Local
+MQ_FILE_PATH=C:\Program Files\IBM\MQ
+MQ_JAVA_DATA_PATH=C:\ProgramData\IBM\MQ
+MQ_JAVA_INSTALL_PATH=C:\Program Files\IBM\MQ\java
+MQ_JAVA_LIB_PATH=C:\Program Files\IBM\MQ\java\lib64;C:\Program Files\IBM\MQ\java\lib
+MQ_JRE_PATH=C:\Program Files\IBM\MQ\java\jre
+NUMBER_OF_PROCESSORS=4
+OS=Windows_NT
+Path=C:\Program Files\PHP\v7.2;E:\Program Files\Java\jdk1.8.0_202\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;E:\tibco\tibrv\8.3\bin;E:\nastel\AutoPilotM6\bin;C:\ProgramData\Oracle\Java\javapath;E:\app\pc\product\12.1.0\dbhome_2\bin;E:\app\pc\product\12.1.0\dbhome_1\bin;E:\nastel\apwmq\bin;C:\Program Files\IBM\MQ\java\lib;C:\Program Files\IBM\MQ\java\lib64;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem\WMIC.exe;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\IBM\MQ\bin64;C:\Program Files\IBM\MQ\bin;C:\Program Files\IBM\MQ\tools\c\samples\bin;D:\Softwares\DataBase\Oracle\winx64_instantclient_12_1;C:\Program Files\MySQL\MySQL Utilities 1.6\;E:\kafka\zookeeper-3.4.11.tar\zookeeper-3.4.11\zookeeper-3.4.11\bin;E:\Program Files\PuTTY\;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\ibm\gsk8\lib64;C:\Program Files (x86)\ibm\gsk8\lib;E:;E:\Program Files\IBM\SQLLIB\BIN;E:\Program Files\IBM\SQLLIB\FUNCTION;E:\Program Files\IBM\SQLLIB\SAMPLES\REPL;C:\Windows\System32\wbem;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Program Files\OpenSSL-Win64\bin;E:\Program Files\Git\cmd;E:\Program Files\Git\bin;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps
+PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE=x86
+PROCESSOR_ARCHITEW6432=AMD64
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 158 Stepping 9, GenuineIntel
+PROCESSOR_LEVEL=6
+PROCESSOR_REVISION=9e09
+ProgramData=C:\ProgramData
+ProgramFiles=C:\Program Files (x86)
+ProgramFiles(x86)=C:\Program Files (x86)
+ProgramW6432=C:\Program Files
+PSModulePath=C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+PUBLIC=C:\Users\Public
+SILK_CONFIG_PATH=C:\ProgramData\Borland\Silk\SilkMeter\cfg
+SystemDrive=C:
+SystemRoot=C:\WINDOWS
+TEMP=C:\WINDOWS\TEMP
+TIBEMS_ROOT=E:\tibco\EMS\8.4\
+TMP=C:\WINDOWS\TEMP
+TNS_ADMIN=E:\app\pc\product\12.1.0\dbhome_2\NETWORK\ADMIN
+USERDOMAIN=PITTSBURGHTECH
+USERNAME=KITE$
+USERPROFILE=C:\WINDOWS\system32\config\systemprofile
+VBOX_MSI_INSTALL_PATH=E:\Program Files\Oracle\VirtualBox\
+windir=C:\WINDOWS
+ZOOKEEPER_HOME=E:\kafka\zookeeper-3.4.11.tar\zookeeper-3.4.11\zookeeper-3.4.11\bin
+
++-----------------------------------------------------------------------------+
+|                                                                             |
+| IBM MQ First Failure Symptom Report                                         |
+| =========================================                                   |
+|                                                                             |
+| Date/Time         :- Fri January 17 2020 14:44:36 India Standard Time       |
+| UTC Time          :- 1579252476.416000                                      |
+| UTC Time Offset   :- 330 ((UNKNOWN))                                        |
+| Host Name         :- KITE                                                   |
+| Operating System  :- Windows 8 Professional x64 Edition, Build 9200         |
+| PIDS              :- 5724H7251                                              |
+| LVLS              :- 9.0.0.0                                                |
+| Product Long Name :- IBM MQ for Windows (x64 platform)                      |
+| Vendor            :- IBM                                                    |
+| O/S Registered    :- 1                                                      |
+| Data Path         :- C:\ProgramData\IBM\MQ                                  |
+| Installation Path :- C:\Program Files\IBM\MQ                                |
+| Installation Name :- Installation1    (1)                                   |
+| License Type      :- Production                                             |
+| Probe Id          :- XC207001                                               |
+| Application Name  :- MQM                                                    |
+| Component         :- xxxInitialize                                          |
+| SCCS Info         :- F:\build\slot1\p900_P\src\lib\cs\amqxxinc.c,           |
+| Line Number       :- 346                                                    |
+| Build Date        :- May 12 2016                                            |
+| Build Level       :- p900-L160512.4                                         |
+| Build Type        :- IKAP - (Production)                                    |
+| UserID            :- SYSTEM                                                 |
+| Process Name      :- E:\nastel\apwmq\bin\nsqpub.exe                         |
+| Arguments         :-                                                        |
+| Addressing mode   :- 32-bit                                                 |
+| Process           :- 00001000                                               |
+| Thread            :- 00000011                                               |
+| Session           :- 00000000                                               |
+| QueueManager      :- AA                                                     |
+| UserApp           :- TRUE                                                   |
+| ConnId(4) App     :- 0                                                      |
+| Last HQC          :- 0.0.0-0                                                |
+| Last HSHMEMB      :- 0.0.0-0                                                |
+| Last ObjectName   :-                                                        |
+| Major Errorcode   :- xecF_E_UNEXPECTED_SYSTEM_RC                            |
+| Minor Errorcode   :- OK                                                     |
+| Probe Type        :- MSGAMQ6119                                             |
+| Probe Severity    :- 2                                                      |
+| Probe Description :- AMQ6119: An internal IBM MQ error has occurred (WinNT  |
+|   error 19 from RegOpenKeyEx.)                                              |
+| FDCSequenceNumber :- 1                                                      |
+| Comment1          :- WinNT error 19 from RegOpenKeyEx.                      |
+| Comment2          :- The media is write protected.                          |
+|                                                                             |
++-----------------------------------------------------------------------------+
+
+MQM Function Stack
+MQCONNX
+zswGetEntryPointsByName
+MQCONNX
+trmzstMQCONNX
+zstMQCONNX
+zstMQConnect
+zstInitCS
+xcsInitialize
+xxxInitialize
+xcsFFST
+
+MQM Trace History
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsDestroyThreadMutexSem
+-----------{ xcsCloseHandle
+-----------} xcsCloseHandle rc=Unknown(1)
+----------} xcsDestroyThreadMutexSem rc=OK
+----------{ xcsDestroyThreadMutexSem
+-----------{ xcsCloseHandle
+-----------} xcsCloseHandle rc=Unknown(1)
+----------} xcsDestroyThreadMutexSem rc=OK
+----------{ xstReleaseSubpoolsLock
+----------} xstReleaseSubpoolsLock rc=OK
+----------{ xllDropSubpoolHandles
+----------} xllDropSubpoolHandles rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+---------} xcsDetachSharedSubpool rc=OK
+--------} xcsDisconnectSharedSubpool rc=OK
+--------{ xcsReleaseThreadMutexSem
+--------} xcsReleaseThreadMutexSem rc=OK
+-------} xcsTerminate rc=OK
+------} zstInitCS rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ xcsIsEnvironment
+------} xcsIsEnvironment rc=OK
+------{ ztmInitialise
+------} ztmInitialise rc=OK
+------{ zstInsertPCD
+-------{ xcsRegComp
+-------} xcsRegComp rc=OK
+-------{ xcsRegComp
+-------} xcsRegComp rc=OK
+-------{ xcsRegComp
+-------} xcsRegComp rc=OK
+-------{ zutGetHConnNumber
+--------{ zutDoIHaveLocalLock
+--------} zutDoIHaveLocalLock rc=Unknown(1)
+-------} zutGetHConnNumber rc=OK
+-------{ xcsGetMemFn
+-------} xcsGetMemFn rc=OK
+-------{ smqopInit
+-------} smqopInit rc=OK
+-------{ zutGetAppIds
+--------{ xcsUpdateThreadUserDetails
+---------{ xcsGetNTOwnerSid
+---------} xcsGetNTOwnerSid rc=OK
+--------} xcsUpdateThreadUserDetails rc=OK
+--------{ xcsQueryValueForSubpool
+--------} xcsQueryValueForSubpool rc=OK
+--------{ xcsQueryValueForSubpool
+--------} xcsQueryValueForSubpool rc=OK
+--------{ xcsQueryValueForSubpool
+--------} xcsQueryValueForSubpool rc=OK
+--------{ xcsQueryValue
+---------{ xihQueryModulePath
+---------} xihQueryModulePath rc=OK
+--------} xcsQueryValue rc=xecU_W_TRUNCATED
+--------{ zutQueryThreadId
+--------} zutQueryThreadId rc=OK
+-------} zutGetAppIds rc=OK
+-------{ zutLookupPut
+--------{ xcsGetMemFn
+--------} xcsGetMemFn rc=OK
+--------{ zutLookupLock
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+--------} zutLookupLock rc=OK
+--------{ zutLookupUnlock
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} zutLookupUnlock rc=OK
+-------} zutLookupPut rc=OK
+-------{ zswSaveInstallation
+-------} zswSaveInstallation rc=OK
+------} zstInsertPCD rc=OK
+------{ xcsRegisterDestructor
+-------{ xcsGetMemFn
+-------} xcsGetMemFn rc=OK
+------} xcsRegisterDestructor rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ zutQueryValue
+------} zutQueryValue rc=OK
+------{ zutLoadApiExits
+-------{ zutQueryValue
+-------} zutQueryValue rc=OK
+------} zutLoadApiExits rc=OK
+------{ xcsInitIndexArray
+-------{ xcsGetMemFn
+-------} xcsGetMemFn rc=OK
+------} xcsInitIndexArray rc=OK
+------{ ziiMQCONN
+-------{ zutUnlockLocalThreads
+--------{ xcsReleaseThreadMutexSem
+--------} xcsReleaseThreadMutexSem rc=OK
+-------} zutUnlockLocalThreads rc=OK
+-------{ ziiConnectToAgent
+--------{ ziiCheckECRunning
+--------} ziiCheckECRunning rc=OK
+--------{ xcsInitialize
+---------{ xcsUpdateThreadUserDetails
+----------{ xcsGetNTOwnerSid
+----------} xcsGetNTOwnerSid rc=OK
+---------} xcsUpdateThreadUserDetails rc=OK
+---------{ xihCheckThreadList
+---------} xihCheckThreadList rc=OK
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+---------{ xihAddQueueManager
+---------} xihAddQueueManager rc=Unknown(1)
+---------{ xcsInitGlobalSecurityData
+---------} xcsInitGlobalSecurityData rc=OK
+---------{ xcsDerestrictProcessHandle
+---------} xcsDerestrictProcessHandle rc=OK
+---------{ xcsCreateNTSecurityAtts
+---------} xcsCreateNTSecurityAtts rc=OK
+---------{ xcsGetIPCHost
+----------{ xcsGetEnvironmentString
+----------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+---------} xcsGetIPCHost rc=OK
+---------{ xcsConnectSharedSubpool
+----------{ xcsAttachSharedSubpool
+-----------{ xcsGetMemFn
+-----------} xcsGetMemFn rc=OK
+-----------{ xcsCreateThreadMutexSem
+-----------} xcsCreateThreadMutexSem rc=OK
+-----------{ xcsCreateThreadMutexSem
+-----------} xcsCreateThreadMutexSem rc=OK
+-----------{ xcsGetMemFn
+-----------} xcsGetMemFn rc=OK
+-----------{ xstGetSubpoolsLock
+-----------} xstGetSubpoolsLock rc=OK
+-----------{ xcsConnectSharedMemSet
+------------{ xcsRequestThreadMutexSem
+------------} xcsRequestThreadMutexSem rc=OK
+------------{ xcsRequestThreadMutexSem
+------------} xcsRequestThreadMutexSem rc=OK
+------------{ xcsReleaseThreadMutexSem
+------------} xcsReleaseThreadMutexSem rc=OK
+------------{ xstAttachSharedMemSet
+-------------{ xstConnectExtent
+--------------{ xcsRequestThreadMutexSem
+--------------} xcsRequestThreadMutexSem rc=OK
+--------------{ xcsReleaseThreadMutexSem
+--------------} xcsReleaseThreadMutexSem rc=OK
+-------------} xstConnectExtent rc=OK
+-------------{ xcsGetMemFn
+-------------} xcsGetMemFn rc=OK
+-------------{ xcsGetMemFn
+-------------} xcsGetMemFn rc=OK
+------------} xstAttachSharedMemSet rc=OK
+------------{ xcsReleaseThreadMutexSem
+------------} xcsReleaseThreadMutexSem rc=OK
+-----------} xcsConnectSharedMemSet rc=OK
+-----------{ xcsQueryValue
+-----------} xcsQueryValue rc=OK
+-----------{ xcsQueryValue
+-----------} xcsQueryValue rc=OK
+-----------{ xstDestroySubpoolIfInvalid
+-----------} xstDestroySubpoolIfInvalid rc=OK
+Data: 0x00000001 0x000000ab 0x0000000b
+-----------{ xstAttachServer
+------------{ xstMakeStorageRequest
+-------------{ xstServerRequest
+-------------} xstServerRequest rc=OK
+------------} xstMakeStorageRequest rc=OK
+-----------} xstAttachServer rc=OK
+-----------{ xcsQueryMTimeFn
+-----------} xcsQueryMTimeFn rc=OK
+-----------{ xcsAllocateQuickCell
+-----------} xcsAllocateQuickCell rc=OK
+-----------{ xstReleaseSubpoolsLock
+-----------} xstReleaseSubpoolsLock rc=OK
+-----------{ xlsThreadInitialization
+------------{ xlsThreadPreInitialization
+-------------{ xcsAllocateQuickCell
+-------------} xcsAllocateQuickCell rc=OK
+-------------{ xstMakeSemaphoreRequest
+--------------{ xstServerRequest
+--------------} xstServerRequest rc=OK
+-------------} xstMakeSemaphoreRequest rc=OK
+------------} xlsThreadPreInitialization rc=OK
+-----------} xlsThreadInitialization rc=OK
+-----------{ xcsAttachSetExtents
+-----------} xcsAttachSetExtents rc=OK
+----------} xcsAttachSharedSubpool rc=OK
+---------} xcsConnectSharedSubpool rc=OK
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} xcsInitialize rc=OK
+--------{ zcpAttachPipe
+---------{ xcsConnectSharedMemSet
+----------{ xcsRequestThreadMutexSem
+----------} xcsRequestThreadMutexSem rc=OK
+----------{ xcsRequestThreadMutexSem
+----------} xcsRequestThreadMutexSem rc=OK
+----------{ xcsReleaseThreadMutexSem
+----------} xcsReleaseThreadMutexSem rc=OK
+----------{ xstAttachSharedMemSet
+-----------{ xstConnectExtent
+------------{ xcsRequestThreadMutexSem
+------------} xcsRequestThreadMutexSem rc=OK
+------------{ xstMakeStorageRequest
+-------------{ xstServerRequest
+-------------} xstServerRequest rc=OK
+------------} xstMakeStorageRequest rc=OK
+------------{ xcsReleaseThreadMutexSem
+------------} xcsReleaseThreadMutexSem rc=OK
+-----------} xstConnectExtent rc=OK
+-----------{ xcsGetMemFn
+-----------} xcsGetMemFn rc=OK
+-----------{ xcsGetMemFn
+-----------} xcsGetMemFn rc=OK
+----------} xstAttachSharedMemSet rc=OK
+----------{ xcsReleaseThreadMutexSem
+----------} xcsReleaseThreadMutexSem rc=OK
+---------} xcsConnectSharedMemSet rc=OK
+---------{ xcsDisconnectSharedMemSet
+----------{ xcsRequestThreadMutexSem
+----------} xcsRequestThreadMutexSem rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xstDisconnectExtent
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xstMakeStorageRequest
+------------{ xstServerRequest
+------------} xstServerRequest rc=OK
+-----------} xstMakeStorageRequest rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+----------} xstDisconnectExtent rc=OK
+----------{ xcsReleaseThreadMutexSem
+----------} xcsReleaseThreadMutexSem rc=OK
+---------} xcsDisconnectSharedMemSet rc=OK
+--------} zcpAttachPipe rc=zrcC_E_INVALID_HANDLE
+-------} ziiConnectToAgent rc=zrcC_E_INVALID_HANDLE
+-------{ zutLockLocalThreads
+--------{ xcsRequestThreadMutexSem
+--------} xcsRequestThreadMutexSem rc=OK
+-------} zutLockLocalThreads rc=OK
+-------{ ziiClearUpAgent
+--------{ xcsUnregisterDestructor
+---------{ xcsFreeMemFn
+---------} xcsFreeMemFn rc=OK
+--------} xcsUnregisterDestructor rc=OK
+--------{ xcsTerminate
+---------{ xihCheckThreadList
+---------} xihCheckThreadList rc=OK
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+---------{ xihRemoveQueueManager
+---------} xihRemoveQueueManager rc=Unknown(1)
+---------{ xcsDisconnectSharedSubpool
+----------{ xstMakeConnectionRequest
+-----------{ xstServerRequest
+-----------} xstServerRequest rc=OK
+----------} xstMakeConnectionRequest rc=OK
+----------{ xlsThreadTermination
+-----------{ xstMakeSemaphoreRequest
+------------{ xstServerRequest
+------------} xstServerRequest rc=OK
+-----------} xstMakeSemaphoreRequest rc=OK
+-----------{ xcsFreeQuickCell
+-----------} xcsFreeQuickCell rc=OK
+----------} xlsThreadTermination rc=OK
+----------{ xcsDisconnectSharedMemSet
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xcsFreeMemFn
+-----------} xcsFreeMemFn rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+----------} xcsDisconnectSharedMemSet rc=OK
+----------{ xcsFreeQuickCell
+----------} xcsFreeQuickCell rc=OK
+----------{ xllDropSubpoolHandles
+----------} xllDropSubpoolHandles rc=OK
+---------} xcsDisconnectSharedSubpool rc=OK
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} xcsTerminate rc=OK
+-------} ziiClearUpAgent rc=OK
+------} ziiMQCONN rc=zrcC_E_INVALID_HANDLE
+------{ ziiClearUpAgent
+------} ziiClearUpAgent rc=OK
+------{ zstDeletePCD
+-------{ xcsListIndexArray
+-------} xcsListIndexArray rc=xecL_E_INVALID_HANDLE
+-------{ xcsFreeIndexArray
+--------{ xcsFreeMemFn
+--------} xcsFreeMemFn rc=OK
+-------} xcsFreeIndexArray rc=OK
+-------{ xcsUnregComp
+-------} xcsUnregComp rc=OK
+-------{ zutLookupRemove
+--------{ zutLookupLock
+---------{ xcsRequestThreadMutexSem
+---------} xcsRequestThreadMutexSem rc=OK
+--------} zutLookupLock rc=OK
+--------{ xcsFreeMemFn
+--------} xcsFreeMemFn rc=OK
+--------{ zutLookupUnlock
+---------{ xcsReleaseThreadMutexSem
+---------} xcsReleaseThreadMutexSem rc=OK
+--------} zutLookupUnlock rc=OK
+-------} zutLookupRemove rc=OK
+-------{ xcsTerminate
+--------{ xihCheckThreadList
+--------} xihCheckThreadList rc=OK
+--------{ xcsRequestThreadMutexSem
+--------} xcsRequestThreadMutexSem rc=OK
+--------{ xcsDecacheSharedSubpool
+--------} xcsDecacheSharedSubpool rc=OK
+--------{ xihCSThreadClear
+---------{ xcsEmptyCBM
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+----------{ xcsFreeMemFn
+----------} xcsFreeMemFn rc=OK
+---------} xcsEmptyCBM rc=OK
+--------} xihCSThreadClear rc=OK
+--------{ xcsReleaseThreadMutexSem
+--------} xcsReleaseThreadMutexSem rc=OK
+-------} xcsTerminate rc=OK
+-------{ xcsFreeMemFn
+-------} xcsFreeMemFn rc=OK
+------} zstDeletePCD rc=OK
+------{ zutUnlockLocalThreads
+-------{ xcsReleaseThreadMutexSem
+-------} xcsReleaseThreadMutexSem rc=OK
+------} zutUnlockLocalThreads rc=OK
+------{ zutDisconnectConfig
+-------{ xcsFreeMemFn
+-------} xcsFreeMemFn rc=OK
+------} zutDisconnectConfig rc=OK
+-----} zstMQConnect rc=MQRC_Q_MGR_NOT_AVAILABLE
+----} zstMQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+---} trmzstMQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+--} MQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+--{ xcsFileExists
+--} xcsFileExists rc=OK
+-} zswGetEntryPointsByName rc=MQRC_Q_MGR_NOT_AVAILABLE
+} MQCONNX rc=MQRC_Q_MGR_NOT_AVAILABLE
+{ MQCONNX
+-{ zswGetEntryPointsByName
+--{ zswQueryThreadEntry
+--} zswQueryThreadEntry rc=OK
+--{ zutCheckCNOAddressability
+---{ xcsCheckPointer
+---} xcsCheckPointer rc=OK
+--} zutCheckCNOAddressability rc=OK
+--{ zswChooseLibraries
+---{ xcsGetEnvironmentString
+---} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--} zswChooseLibraries rc=OK
+--{ MQCONNX
+---{ trmzstMQCONNX
+----{ IsMTSEnvironment
+----} IsMTSEnvironment rc=OK
+----{ zstMQCONNX
+-----{ zstMQConnect
+------{ zstMQConnect_CheckParameters
+-------{ zutCheckCNOAddressability
+--------{ xcsCheckPointer
+--------} xcsCheckPointer rc=OK
+-------} zutCheckCNOAddressability rc=OK
+-------{ xcsCheckPointer
+-------} xcsCheckPointer rc=OK
+-------{ xcsCheckNullTermString
+-------} xcsCheckNullTermString rc=OK
+------} zstMQConnect_CheckParameters rc=OK
+------{ zutBlankPad
+------} zutBlankPad rc=OK
+------{ zutLockLocalThreads
+-------{ xcsRequestThreadMutexSem
+-------} xcsRequestThreadMutexSem rc=OK
+------} zutLockLocalThreads rc=OK
+------{ zutIsItBlank
+------} zutIsItBlank rc=OK
+------{ zutCheckQMName
+-------{ zutCheckValidName
+-------} zutCheckValidName rc=OK
+------} zutCheckQMName rc=OK
+------{ zutCvtMQName2Str
+------} zutCvtMQName2Str rc=OK
+------{ xcsQueryValue
+------} xcsQueryValue rc=OK
+------{ zutSimpleQMNameMangle
+------} zutSimpleQMNameMangle rc=OK
+------{ zstGetPCDbyTID
+------} zstGetPCDbyTID rc=OK
+------{ zstInitCS
+-------{ xcsInitialize
+--------{ xihCSThreadClear
+---------{ xcsEmptyCBM
+---------} xcsEmptyCBM rc=OK
+--------} xihCSThreadClear rc=OK
+--------{ xcsUpdateThreadUserDetails
+---------{ xcsGetNTOwnerSid
+---------} xcsGetNTOwnerSid rc=OK
+--------} xcsUpdateThreadUserDetails rc=OK
+--------{ xihCheckThreadList
+---------{ xcsDestroyThread
+---------} xcsDestroyThread rc=OK
+--------} xihCheckThreadList rc=OK
+--------{ xcsRequestThreadMutexSem
+--------} xcsRequestThreadMutexSem rc=OK
+--------{ xihAddQueueManager
+--------} xihAddQueueManager rc=Unknown(1)
+--------{ xcsGetEnvironmentInteger
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} xcsGetEnvironmentInteger rc=xecE_E_ENV_VAR_NOT_FOUND
+--------{ xcsGetEnvironmentInteger
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} xcsGetEnvironmentInteger rc=xecE_E_ENV_VAR_NOT_FOUND
+--------{ xcsQueryValue
+--------} xcsQueryValue rc=OK
+--------{ xcsGetEnvironmentString
+--------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------{ xcsCheckDirectory
+--------} xcsCheckDirectory rc=OK
+--------{ xcsFileExists
+--------} xcsFileExists rc=OK
+--------{ xcsQueryMTimeFn
+--------} xcsQueryMTimeFn rc=OK
+--------{ xcsInitGlobalSecurityData
+--------} xcsInitGlobalSecurityData rc=OK
+--------{ InitPrivateServices
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} InitPrivateServices rc=OK
+--------{ xcsDerestrictProcessHandle
+--------} xcsDerestrictProcessHandle rc=OK
+--------{ xcsCreateNTSecurityAtts
+--------} xcsCreateNTSecurityAtts rc=OK
+--------{ xcsGetIPCHost
+---------{ xcsGetEnvironmentString
+---------} xcsGetEnvironmentString rc=xecE_E_ENV_VAR_NOT_FOUND
+--------} xcsGetIPCHost rc=OK
+--------{ xcsConnectSharedSubpool
+---------{ xcsAttachSharedSubpool
+----------{ xcsGetMemFn
+----------} xcsGetMemFn rc=OK
+----------{ xcsCreateThreadMutexSem
+----------} xcsCreateThreadMutexSem rc=OK
+----------{ xcsCreateThreadMutexSem
+----------} xcsCreateThreadMutexSem rc=OK
+----------{ xcsGetMemFn
+----------} xcsGetMemFn rc=OK
+----------{ xstGetSubpoolsLock
+----------} xstGetSubpoolsLock rc=OK
+----------{ xcsConnectSharedMemSet
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xcsRequestThreadMutexSem
+-----------} xcsRequestThreadMutexSem rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+-----------{ xstAttachSharedMemSet
+------------{ xstConnectExtent
+-------------{ xcsRequestThreadMutexSem
+-------------} xcsRequestThreadMutexSem rc=OK
+-------------{ xcsReleaseThreadMutexSem
+-------------} xcsReleaseThreadMutexSem rc=OK
+------------} xstConnectExtent rc=OK
+------------{ xcsGetMemFn
+------------} xcsGetMemFn rc=OK
+------------{ xcsGetMemFn
+------------} xcsGetMemFn rc=OK
+-----------} xstAttachSharedMemSet rc=OK
+-----------{ xcsReleaseThreadMutexSem
+-----------} xcsReleaseThreadMutexSem rc=OK
+----------} xcsConnectSharedMemSet rc=OK
+----------{ xcsQueryValue
+----------} xcsQueryValue rc=OK
+----------{ xcsQueryValue
+----------} xcsQueryValue rc=OK
+----------{ xstDestroySubpoolIfInvalid
+----------} xstDestroySubpoolIfInvalid rc=OK
+----------{ xstReleaseSubpoolsLock
+----------} xstReleaseSubpoolsLock rc=OK
+----------{ xcsAttachSetExtents
+----------} xcsAttachSetExtents rc=OK
+---------} xcsAttachSharedSubpool rc=OK
+--------} xcsConnectSharedSubpool rc=OK
+--------{ xxxInitialize
+---------{ xcsFFST
+
+Thread Control Block (xihTHREAD pCtl)
+006E7D90                       58494854  980D0000            XIHT?...
+006E7DA0   0B000000  C8030000  B0A76E00  A8996E00    .........?n.??n.
+006E7DB0   40000000  00000000  00000000  00000000    @...............
+006E7DC0   00000000  04000000  00000000  00000000    ................
+006E7DD0   00000000  00000000  00000000  00000000    ................
+006E7DE0 to 006E80A0 suppressed, lines same as above
+006E80B0   00000000  FFFFFFFF  00000000  00000000    ....????........
+006E80C0   02000000  00000000  00000000  00000000    ................
+006E80D0   53595354  454D0000  00000000  00000000    SYSTEM..........
+006E80E0   00000000  00000000  0C000000  01010000    ................
+006E80F0   00000005  12000000  00000000  00000000    ................
+006E8100   00000000  00000000  00000000  00000000    ................
+006E8110   01000000  00000000  08000000  00000000    ................
+006E8120   90496468  70736F00  00000000  00000000    ?Idhpso.........
+006E8130   00000000  00000000  00000000  00000000    ................
+006E8140 to 006E8160 suppressed, lines same as above
+006E8170   00000000  00000000  338000F0  908200F0    ........3?..??..
+006E8180   338000F0  24A400F0  C38000F0  138100F0    3?..$?...?...?..
+006E8190   DF8000F0  015C00F0  CF5C00F0  035C00F0    .?...\...\...\..
+006E81A0   155C00F0  885E00F0  065C00F0  065C00F0    .\..?^...\...\..
+006E81B0   055C00F0  00000000  00000000  00000000    .\..............
+006E81C0   00000000  00000000  00000000  00000000    ................
+006E81D0 to 006E8240 suppressed, lines same as above
+006E8250   00000000  00000000  065C00F0  065C0000    .........\...\..
+006E8260   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+006E8270   4C5E0000  4D5E0000  B46000F0  B4600000    L^..M^...`...`..
+006E8280   005C0000  065C00F0  065C0000  DD800000    .\...\...\...?..
+006E8290   508400F0  B46000F0  B4600000  50840000    P?...`...`..P?..
+006E82A0   8A8400F0  065C00F0  065C0000  8A840000    ??...\...\..??..
+006E82B0   13810B08  C3800B08  24A40B08  33800B08    .?...?..$?..3?..
+006E82C0   2C6200F0  2C620000  90820B08  33800B08    ,b..,b..??..3?..
+006E82D0   338000F0  908200F0  EA8200F0  EA820000    3?..??..?..?..
+006E82E0   B18500F0  155C00F0  155C0000  B1850000    .?...\...\...?..
+006E82F0   938200F0  CC5D00F0  CC5D9361  93820000    ??...]...]?a??..
+006E8300   338000F0  24A400F0  8EA400F0  8EA40000    3?..$?..??..??..
+006E8310   C38000F0  138100F0  628100F0  B18500F0    .?...?..b?...?..
+006E8320   155C00F0  155C0000  B1850000  155C00F0    .\...\...?...\..
+006E8330   155C0000  F05D00F0  F05D0000  62810000    .\...]...]..b?..
+006E8340   208400F0  20840000  4F8400F0  B36000F0     ?.. ?..O?...`..
+006E8350   B3600000  4F840000  1E8400F0  1E840000    .`..O?...?...?..
+006E8360   018400F0  1F8400F0  1F840000  01840000    .?...?...?...?..
+006E8370   138400F0  13840000  135C00F0  135C0000    .?...?...\...\..
+006E8380   878400F0  87840000  E18000F0  E1800000    ??..??..?..?..
+006E8390   DF8000F0  015C00F0  4D5E00F0  4C5E00F0    .?...\..M^..L^..
+006E83A0   4C5E0000  4D5E0000  546100F0  2C6100F0    L^..M^..Ta..,a..
+006E83B0   2C610000  54610000  6C5D00F0  6B5D00F0    ,a..Ta..l]..k]..
+006E83C0   6B5D0000  6C5D0000  B36000F0  B3600000    k]..l]...`...`..
+006E83D0   FC5D00F0  FC5D0100  CD5D00F0  CC5D00F0    ?]..?]...]...]..
+006E83E0   CC5D9361  CD5D9361  CD5D00F0  CC5D00F0    .]?a.]?a.]...]..
+006E83F0   CC5D9361  CD5D9361  135C00F0  135C0000    .]?a.]?a.\...\..
+006E8400   CC5D00F0  CC5D9361  2F5E00F0  2F5E0000    .]...]?a/^../^..
+006E8410   2C6200F0  2C620000  A55D00F0  A55D0000    ,b..,b..?]..?]..
+006E8420   256100F0  25610000  336000F0  CC5D00F0    %a..%a..3`...]..
+006E8430   CC5D9361  CC5D00F0  CC5D9361  33600000    .]?a.]...]?a3`..
+006E8440   E56100F0  E5610000  CC6000F0  CC600000    ?a..?a...`...`..
+006E8450   4F6200F0  CC5D00F0  CC5D9361  4F620000    Ob...]...]?aOb..
+006E8460   7C6100F0  7D6100F0  055C00F0  055C0000    |a..}a...\...\..
+006E8470   B16000F0  B1600000  B16000F0  B1600000    .`...`...`...`..
+006E8480   055C00F0  055C0000  446100F0  44610000    .\...\..Da..Da..
+006E8490   846100F0  B36000F0  B3600000  B36000F0    ?a...`...`...`..
+006E84A0   B3600000  B46000F0  B4600000  856100F0    .`...`...`..?a..
+006E84B0   816000F0  B36000F0  B3600000  B46000F0    ?`...`...`...`..
+006E84C0   B4600000  81600000  055C00F0  055C0000    .`..?`...\...\..
+006E84D0   055C00F0  055C0000  85610000  B46000F0    .\...\..?a...`..
+006E84E0   B4600000  84610000  135C00F0  135C0000    .`..?a...\...\..
+006E84F0   135C00F0  135C0000  816100F0  81610000    .\...\..?a..?a..
+006E8500   456100F0  45610000  A56100F0  A5610000    Ea..Ea..?a..?a..
+006E8510   7D610000  7C610000  CF5C00F0  035C00F0    }a..|a...\...\..
+006E8520   4C5C00F0  055C00F0  055C0000  535C00F0    L\...\...\..S\..
+006E8530   055C00F0  055C0000  535C0000  CA6000F0    .\...\..S\...`..
+006E8540   C96000F0  C9600000  CA600000  065C00F0    .`...`...`...\..
+006E8550   065C0000  065C00F0  065C0000  4C5C0000    .\...\...\..L\..
+006E8560   7D5D00F0  735C00F0  735C0000  135C00F0    }]..s\..s\...\..
+006E8570   135C0000  CC5D00F0  CC5D9361  CD5D00F0    .\...]...]?a.]..
+006E8580   CC5D00F0  CC5D9361  CD5D9361  135C00F0    .]...]?a.]?a.\..
+006E8590   135C0000  165C00F0  055C00F0  055C0000    .\...\...\...\..
+006E85A0   4C5C00F0  055C00F0  055C0000  535C00F0    L\...\...\..S\..
+006E85B0   055C00F0  055C0000  535C0000  CA6000F0    .\...\..S\...`..
+006E85C0   C96000F0  C9600000  CA600000  065C00F0    .`...`...`...\..
+006E85D0   065C0000  065C00F0  065C0000  4C5C0000    .\...\...\..L\..
+006E85E0   CB5D00F0  CB5D0000  925D00F0  D15E00F0    .]...]..?]...^..
+006E85F0   D15E0000  925D0000  895E00F0  895E0000    .^..?]..?^..?^..
+006E8600   935D00F0  935D0000  895E00F0  895E0000    ?]..?]..?^..?^..
+006E8610   C86000F0  CF6000F0  CF600000  535C00F0    .`...`...`..S\..
+006E8620   055C00F0  055C0000  535C0000  065C00F0    .\...\..S\...\..
+006E8630   065C0000  C8607560  065C00F0  065C0000    .\...`u`.\...\..
+006E8640   165C0000  7D5D0000  7D5D00F0  735C00F0    .\..}]..}]..s\..
+006E8650   735C0000  135C00F0  135C0000  CC5D00F0    s\...\...\...]..
+006E8660   CC5D9361  CD5D00F0  CC5D00F0  CC5D9361    .]?a.]...]...]?a
+006E8670   CD5D9361  135C00F0  135C0000  165C00F0    .]?a.\...\...\..
+006E8680   055C00F0  055C0000  4C5C00F0  055C00F0    .\...\..L\...\..
+006E8690   055C0000  535C00F0  055C00F0  055C0000    .\..S\...\...\..
+006E86A0   535C0000  CA6000F0  C96000F0  C9600000    S\...`...`...`..
+006E86B0   CA600000  065C00F0  065C0000  065C00F0    .`...\...\...\..
+006E86C0   065C0000  4C5C0000  CB5D00F0  CB5D0000    .\..L\...]...]..
+006E86D0   925D00F0  D15E00F0  D15E0000  925D0000    ?]...^...^..?]..
+006E86E0   895E00F0  895E0000  935D00F0  935D0000    ?^..?^..?]..?]..
+006E86F0   895E00F0  895E0000  C86000F0  CF6000F0    ?^..?^...`...`..
+006E8700   CF600000  535C00F0  055C00F0  055C0000    .`..S\...\...\..
+006E8710   535C0000  065C00F0  065C0000  C8607560    S\...\...\...`u`
+006E8720   065C00F0  065C0000  165C0000  7D5D0000    .\...\...\..}]..
+006E8730   B36000F0  B3600000  135C00F0  135C0000    .`...`...\...\..
+006E8740   D15E00F0  D15E0000  CB5D00F0  CB5D0000    .^...^...]...]..
+006E8750   055C00F0  055C0000  135C00F0  135C0000    .\...\...\...\..
+006E8760   135C00F0  135C0000  135C00F0  135C0000    .\...\...\...\..
+006E8770   1F5E00F0  205E00F0  205E0000  1F5E0000    .^.. ^.. ^...^..
+006E8780   135C00F0  135C0000  135C00F0  135C0000    .\...\...\...\..
+006E8790   135C00F0  885E00F0  885E0000  135C0000    .\..?^..?^...\..
+006E87A0   655D00F0  655D0000  155C00F0  155C0000    e]..e]...\...\..
+006E87B0   01000000  AB000000  0B000000  705D00F0    ....?.......p]..
+006E87C0   F46100F0  735D00F0  735D0000  F4610000    .a..s]..s]...a..
+006E87D0   705D0000  A55D00F0  A55D0000  0E5C00F0    p]..?]..?]...\..
+006E87E0   0E5C0000  456100F0  45610000  2D5D00F0    .\..Ea..Ea..-]..
+006E87F0   F55D00F0  0E5C00F0  0E5C0000  D96100F0    .]...\...\...a..
+006E8800   735D00F0  735D0000  D9610000  F55D0000    s]..s]...a...]..
+006E8810   2D5D0000  A56100F0  A5610000  7D610000    -]..?a..?a..}a..
+006E8820   7C610000  CC5D00F0  CC5D9361  B46000F0    |a...]...]?a.`..
+006E8830   B4600000  015C0000  026800F0  846100F0    .`...\...h..?a..
+006E8840   B36000F0  B3600000  B36000F0  B3600000    .`...`...`...`..
+006E8850   B46000F0  B4600000  856100F0  816000F0    .`...`..?a..?`..
+006E8860   B36000F0  B3600000  F46100F0  735D00F0    .`...`...a..s]..
+006E8870   735D0000  F4610000  B46000F0  B4600000    s]...a...`...`..
+006E8880   81600000  055C00F0  055C0000  055C00F0    ?`...\...\...\..
+006E8890   055C0000  85610000  B46000F0  B4600000    .\..?a...`...`..
+006E88A0   84610000  866100F0  B36000F0  B3600000    ?a..?a...`...`..
+006E88B0   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+006E88C0   866000F0  B36000F0  B3600000  F46100F0    ?`...`...`...a..
+006E88D0   735D00F0  735D0000  F4610000  B46000F0    s]..s]...a...`..
+006E88E0   B4600000  86600000  B46000F0  B4600000    .`..?`...`...`..
+006E88F0   86610000  02680153  108C0153  4F8400F0    ?a...h.S.?.SO?..
+006E8900   B36000F0  B3600000  4F840000  1A8C00F0    .`...`..O?...?..
+006E8910   035D00F0  065C00F0  065C0000  035D0000    .]...\...\...]..
+006E8920   005C00F0  6C5D00F0  6C5D0000  B36000F0    .\..l]..l]...`..
+006E8930   B3600000  FD5D00F0  FD5D0100  7F6100F0    .`..?]..?]...a..
+006E8940   156200F0  735D00F0  735D0000  15620000    .b..s]..s]...b..
+006E8950   2E5D00F0  D96100F0  735D00F0  735D0000    .]...a..s]..s]..
+006E8960   D9610000  0F5C00F0  0F5C0000  2E5D0000    .a...\...\...]..
+006E8970   866100F0  B36000F0  B3600000  065C00F0    ?a...`...`...\..
+006E8980   065C0000  B46000F0  B4600000  86610000    .\...`...`..?a..
+006E8990   0F5C00F0  0F5C0000  CB6000F0  CB600000    .\...\...`...`..
+006E89A0   7F610000  B46000F0  B4600000  005C0000    .a...`...`...\..
+006E89B0   1A8C0000  008C0153  1A8C00F0  1A8C0000    .?...?.S.?...?..
+006E89C0   DD8000F0  DD5E00F0  DD5E1060  D65E00F0    .?...^...^.`.^..
+006E89D0   065C00F0  065C0000  D65E0000  685D00F0    .\...\...^..h]..
+006E89E0   685D0000  A78500F0  B38500F0  B36000F0    h]..??...?...`..
+006E89F0   B3600000  B3850000  065C00F0  065C0000    .`...?...\...\..
+006E8A00   B48500F0  B46000F0  B4600000  B4850000    .?...`...`...?..
+006E8A10   A7850000  005C00F0  6C5D00F0  6C5D0000    ??...\..l]..l]..
+006E8A20   B36000F0  B3600000  E86100F0  E8610000    .`...`..?a..?a..
+006E8A30   4D5E00F0  4C5E00F0  065C00F0  065C0000    M^..L^...\...\..
+006E8A40   065C00F0  065C0000  065C00F0  065C0000    .\...\...\...\..
+006E8A50   00000000  00000000  00000000  00000000    ................
+006E8A60   56010000  1E000000  00000000  00000000    V...............
+006E8A70   00000000  00000000  00000000  00000000    ................
+006E8A80   01000000  01000000  00000000  00000000    ................
+006E8A90   00000000  00000000  00000000  00000000    ................
+006E8AA0   00000000  463A5C62  75696C64  5C736C6F    ....F:\build\slo
+006E8AB0   74315C70  3930305F  505C7372  635C6C69    t1\p900_P\src\li
+006E8AC0   625C6373  5C616D71  7878696E  632E6300    b\cs\amqxxinc.c.
+006E8AD0   00000000  00000000  00000000  00000000    ................
+006E8AE0   00000000  00000000  5A010000  00000000    ........Z.......
+006E8AF0   00000000  00000000  00000000  00000000    ................
+006E8B00   00000000  00000000  9504CB5E  529C0500    ........?..^R?..
+006E8B10   A8467400  00000000  00000000  00000000    ?Ft.............
+006E8B20   00000000  00000000  00000000  00000000    ................
+
+
+Thread Common Services (xihTHREADCOMMONSERVICES pCtl->pCS)
+006F7370   58494353  00000000  00000000  00000000    XICS............
+006F7380   00000000  01000000  00000000  00000000    ................
+006F7390   00000000  B82AA468  00000000  00000000    .....*?h........
+006F73A0   00000000  C8FEDD05  00000000  00000000    ................
+006F73B0   00000000  00000000  00000000  00000000    ................
+006F73C0   01000000  00000000  00000000  00000000    ................
+006F73D0   00000000  00000000  00000000  00000000    ................
+006F73E0 to 006F74A0 suppressed, lines same as above
+006F74B0   00000000  00000000  00000000  38547900    ............8Ty.
+006F74C0   00000000  00000000  00000000  00000000    ................
+006F74D0 to 006F75B0 suppressed, lines same as above
+006F75C0   00000000  41410052  54513100  33000000    ....AA.RTQ1.3...
+006F75D0   00000000  00000000  00000000  00000000    ................
+006F75E0 to 006F7680 suppressed, lines same as above
+
+
+Thread Common Common Services (xihTHREADCOMMONSERVICES pCtl->Common.pCCS)
+007446A0                       58494343  00000000            XICC....
+007446B0   00000000  00000000  00000000  00000000    ................
+007446C0 to 00744800 suppressed, lines same as above
+00744810   10307900  00000000  00000000  00000000    .0y.............
+00744820   00000000  00000000  00000000  00000000    ................
+
+
+Common Services Control Block (CSCtrl)
+03590070   58494820  00030000  01000000  60267100    XIH ........`&q.
+03590080   04010000  00000000  00000000  00000000    ................
+03590090   00000000  00000000  00000000  00000000    ................
+035900A0 to 035902D0 suppressed, lines same as above
+035902E0   00000000  01000000  00000000  00000000    ................
+035902F0   00000000  00000000  C8FEDD05  00000000    ................
+03590300   00000000  00000000  00000000  00000000    ................
+03590310 to 03590360 suppressed, lines same as above
+
+
+Process Control Block (xihPROCESS)
+68CBBA00   58494850  700D0000  E8030000  00000000    XIHPp...?.......
+68CBBA10   00000000  00000000  00000000  00000000    ................
+68CBBA20 to 68CBBA80 suppressed, lines same as above
+68CBBA90   00000000  1D000000  01000000  B84D6C00    .............Ml.
+68CBBAA0   88857500  01000000  0C000000  01010000    ??u.............
+68CBBAB0   00000005  12000000  00000000  00000000    ................
+68CBBAC0   00000000  00000000  00000000  00000000    ................
+68CBBAD0   433A5C50  726F6772  616D4461  74615C49    C:\ProgramData\I
+68CBBAE0   424D5C4D  515C6572  726F7273  00000000    BM\MQ\errors....
+68CBBAF0   00000000  00000000  00000000  00000000    ................
+68CBBB00 to 68CBBBC0 suppressed, lines same as above
+68CBBBD0   00000000  00000000  00000000  01000000    ................
+68CBBBE0   433A5C50  726F6772  616D4461  74615C49    C:\ProgramData\I
+68CBBBF0   424D5C4D  515C736F  636B6574  735C4053    BM\MQ\sockets\@S
+68CBBC00   59535445  4D5C716D  67726C6F  636C5C4B    YSTEM\qmgrlocl\K
+68CBBC10   4954455C  315C5472  6163652E  73686D00    ITE\1\Trace.shm.
+68CBBC20   00000000  00000000  00000000  00000000    ................
+68CBBC30 to 68CBBCD0 suppressed, lines same as above
+68CBBCE0   00000000  00000000  98080000  F0080000    ........?.......
+68CBBCF0   00000000  00005300  00000000  00000000    ......S.........
+68CBBD00   00000000  00000000  00000000  00000000    ................
+68CBBD10 to 68CBBDF0 suppressed, lines same as above
+68CBBE00   FFFFFFFF  FFFFFFFF  00000000  00000000    ????????........
+68CBBE10   02000000  FEFFFFFF  00000000  00000000    .....???........
+68CBBE20   01000000  00000000  FFFFFFFF  FFFFFFFF    ........????????
+68CBBE30   00000000  00000000  00000000  D0070002    ................
+68CBBE40   FFFFFFFF  FFFFFFFF  00000000  00000000    ????????........
+68CBBE50   00000000  D0070002  5839DE05  FFFFFFFF    ........X9..????
+68CBBE60   00000000  00000000  FFFFFFFF  CD070002    ........????....
+68CBBE70   FFFFFFFF  FFFFFFFF  00000000  00000000    ????????........
+68CBBE80   00000000  D0070002  53595354  454D0000    ........SYSTEM..
+68CBBE90   00000000  00000000  00000000  00000000    ................
+68CBBEA0   01000000  00000003  00000000  00000000    ................
+68CBBEB0   00000000  00000000  00000000  00000000    ................
+68CBBEC0   00000000  00000000  00000000  1F000000    ................
+68CBBED0   01050000  00000005  15000000  F9E58F1F    .............?.
+68CBBEE0   B6FA4595  5B4111E9  EA030000  00000000    .?E?[A.??.......
+68CBBEF0   00000000  01010000  00000005  12000000    ................
+68CBBF00   00000000  00000000  00000000  00000000    ................
+68CBBF10   00000000  00000000  01020000  00000005    ................
+68CBBF20   20000000  20020000  00000000  00000000     ... ...........
+68CBBF30   00000000  00000000  00000000  01010000    ................
+68CBBF40   00000001  00000000  00000000  00000000    ................
+68CBBF50   00000000  00000000  00000000  00000000    ................
+68CBBF60 to 68CBBF70 suppressed, lines same as above
+68CBBF80   00000000  B0040000  00000000  90026C00    ............?.l.
+68CBBF90   06000000  02000000  05000000  00000000    ................
+68CBBFA0   00000000  F0230000  30000000  00000000    .....#..0.......
+68CBBFB0   00000000  00000000  00000000  00000000    ................
+68CBBFC0 to 68CBC3D0 suppressed, lines same as above
+68CBC3E0   00000000  00000000  00000000  58495343    ............XISC
+68CBC3F0   FFFFFFFF  00100000  40000000  00000000    ????....@.......
+68CBC400   00000000  00000000  00000000  00000000    ................
+68CBC410   00000000  00000000  00000000  00000000    ................
+68CBC420   00000000  00000000  4A010000  28554E4B    ........J...(UNK
+68CBC430   4E4F574E  29000000  00000000  00000000    NOWN)...........
+68CBC440   00000000  00000000  00000000  00000000    ................
+68CBC450 to 68CBC4C0 suppressed, lines same as above
+68CBC4D0   00000000  04000000  00280000  0A000000    .........(......
+68CBC4E0   00000000  01000000  31000000  00000000    ........1.......
+68CBC4F0   00000000  00000000  00496E73  74616C6C    .........Install
+68CBC500   6174696F  6E310000  0000433A  5C50726F    ation1....C:\Pro
+68CBC510   6772616D  2046696C  65735C49  424D5C4D    gram Files\IBM\M
+68CBC520   51000000  00000000  00000000  00000000    Q...............
+68CBC530   00000000  00000000  00000000  00000000    ................
+68CBC540 to 68CBC5F0 suppressed, lines same as above
+68CBC600   00000000  00000000  00000053  4F465457    ...........SOFTW
+68CBC610   4152455C  49424D5C  57656253  70686572    ARE\IBM\WebSpher
+68CBC620   65204D51  5C496E73  74616C6C  6174696F    e MQ\Installatio
+68CBC630   6E5C496E  7374616C  6C617469  6F6E3100    n\Installation1.
+68CBC640   00000000  31000000  00000000  00000000    ....1...........
+68CBC650   00000000  00000000  00000000  00000000    ................
+68CBC660 to 68CBC730 suppressed, lines same as above
+68CBC740   00000000  00000000  0050726F  64756374    .........Product
+68CBC750   696F6E00  00000000  00000000  01000000    ion.............
+68CBC760   00000000  00000000  00000000  00000000    ................
+
+
+Zut Common Anchor (zutCOMMON_ANCHOR)
+68C923C0   5A554341  5A535441  00000000  00000000    ZUCAZSTA........
+68C923D0   524D5141  7C070000  FFFFFFFF  FFFFFFFF    RMQA|...????????
+68C923E0   00000000  00000000  00000000  D0070002    ................
+68C923F0   0000403F  65000000  00000000  D0026C00    ..@?e.........l.
+68C92400   00000000  00000000  00000000  64000000    ............d...
+68C92410   64000000  00000000  00000000  00000000    d...............
+68C92420   00000000  00000000  D0020000  00000000    ................
+68C92430   00000000  18B47800  ACB57800  00000000    ......x.?.x.....
+68C92440   00000000  00000000  00000000  00000000    ................
+68C92450   00000000  00000000  F023C968  00000000    .........#.h....
+68C92460   00000000  00000000  00000000  05000000    ................
+68C92470   00000000  D6020000  00000000  00000000    ................
+
+
+MTime Control Block
+00B70000                       58435043  01000000            XCPC....
+00B70010   01000000  00000000  093D0000  B9650000    ........	=...e..
+00B70020   96980000  96000000  0F000000  00000000    ??..?...........
+00B70030   80969800  00000000  0068C461  08000000    ???......h.a....
+00B70040   42FED05E  529C0500  FA010000  2A010000    B..^R?..?...*...
+00B70050   01000000  00000000  08000000  CC000000    ................
+00B70060   6ECA514A  C49B0500  80969800  01000000    n.QJ.?..???.....
+
+
+MTime Index
+0207BD70   FA010000                                  ?...
+
+
+MTime Entries
+00B7DBA0                       00000000  00000000            ........
+00B7DBB0   F5010000  F5010000  F5010000  00000000    ................
+00B7DBC0   F5010000  A0999800  F5010000  83050000    ....???.....?...
+00B7DBD0   F5010000  27181F33  F5010000  519C0500    ....'..3....Q?..
+00B7DBE0   F5010000  BAD96E63  F5010000  00000000    ......nc........
+00B7DBF0   F5010000  00000000  F5010000  026B0000    .............k..
+00B7DC00   F5010000  519C0500  F5010000  421AA064    ....Q?......B.?d
+00B7DC10   F5010000  F5010000  00000000  00000000    ................
+00B7DC20   F6010000  F6010000  F6010000  00000000    ?...?...?.......
+00B7DC30   F6010000  99979800  F6010000  85050000    ?...???.?...?...
+00B7DC40   F6010000  50EA9999  F6010000  519C0500    ?...P??...Q?..
+00B7DC50   F6010000  3446E0A0  F6010000  00000000    ?...4F??.......
+00B7DC60   F6010000  FFFFFFFF  F6010000  149AFFFF    ?...?????....???
+00B7DC70   F6010000  519C0500  F6010000  BC8611A2    ?...Q?..?....?.?
+00B7DC80   F6010000  F6010000  00000000  00000000    ?...?...........
+00B7DC90   F7010000  F7010000  F7010000  00000000    ................
+00B7DCA0   F7010000  D0969800  F7010000  85050000    .....??.....?...
+00B7DCB0   F7010000  35FE99A5  F7010000  519C0500    ....5.??....Q?..
+00B7DCC0   F7010000  2E7913A2  F7010000  00000000    .....y.?........
+00B7DCD0   F7010000  FFFFFFFF  F7010000  8698FFFF    ....????....????
+00B7DCE0   F7010000  519C0500  F7010000  B6B944A3    ....Q?........D?
+00B7DCF0   F7010000  F7010000  00000000  00000000    ................
+00B7DD00   F8010000  F8010000  F8010000  00000000    ?...?...?.......
+00B7DD10   F8010000  07969800  F8010000  89050000    ?....??.?...?...
+00B7DD20   F8010000  5D83189D  F8010000  529C0500    ?...]?.??...R?..
+00B7DD30   F8010000  DAEA9F07  F8010000  00000000    ?....?.?.......
+00B7DD40   F8010000  FFFFFFFF  F8010000  5A98FFFF    ?...?????...Z???
+00B7DD50   F8010000  529C0500  F8010000  622BD108    ?...R?..?...b+..
+00B7DD60   F8010000  F8010000  00000000  00000000    ?...?...........
+00B7DD70   F9010000  F9010000  F9010000  00000000    ................
+00B7DD80   F9010000  92979800  F9010000  8C050000    ....???.....?...
+00B7DD90   F9010000  34BD33CC  F9010000  529C0500    ....4.3.....R?..
+00B7DDA0   F9010000  79E42259  F9010000  00000000    ....y?"Y........
+00B7DDB0   F9010000  00000000  F9010000  996B0000    ............?k..
+00B7DDC0   F9010000  529C0500  F9010000  0125545A    ....R?.......%TZ
+00B7DDD0   F9010000  F9010000  00000000  00000000    ................
+00B7DDE0   FA010000  FA010000  FA010000  00000000    ?...?...?.......
+00B7DDF0   FA010000  92979800  FA010000  8C050000    ?...???.?...?...
+00B7DE00   FA010000  AE1968D3  FA010000  529C0500    ?...?.h.?...R?..
+00B7DE10   FA010000  63F8DA59  FA010000  00000000    ?...c?.Y?.......
+00B7DE20   FA010000  00000000  FA010000  F6980000    ?.......?...??..
+00B7DE30   FA010000  529C0500  FA010000  EB380C5B    ?...R?..?...?8.[
+00B7DE40   FA010000  FA010000  00000000  00000000    ?...?...........
+00B7DE50   00000000  00000000  00000000  00000000    ................
+00B7DE60 to 00B7E060 suppressed, lines same as above
+00B7E070   00000000  00000000                        ........
+
+pCtl->pCS->threadConnectCount[1] = 0
+pCtl->pCS->threadConnectedSubpools[1] = 00000000
+pCtl->pCS->threadConnectCount[2] = 0
+pCtl->pCS->threadConnectedSubpools[2] = 00000000
+pCtl->pCS->threadConnectCount[3] = 0
+pCtl->pCS->threadConnectedSubpools[3] = 00000000
+pCtl->pCS->threadConnectCount[4] = 1
+pCtl->pCS->threadConnectedSubpools[4] = 05DDFEC8
+05DDFEC0                       41410000  00000000            AA......
+05DDFED0   00000000  00000000  00000000  00000000    ................
+05DDFEE0 to 05DDFEF0 suppressed, lines same as above
+05DDFF00   00000000  00000000  5C406170  70000000    ........\@app...
+05DDFF10   00000000  00000000  04000000  01000000    ................
+05DDFF20   04310000  433A5C50  726F6772  616D4461    .1..C:\ProgramDa
+05DDFF30   74615C49  424D5C4D  51000000  00000000    ta\IBM\MQ.......
+05DDFF40   00000000  00000000  00000000  00000000    ................
+05DDFF50 to 05DE0010 suppressed, lines same as above
+05DE0020   00000000  00000000  00433A5C  50726F67    .........C:\Prog
+05DE0030   72616D44  6174615C  49424D5C  4D515C71    ramData\IBM\MQ\q
+05DE0040   6D677273  5C414100  00000000  00000000    mgrs\AA.........
+05DE0050   00000000  00000000  00000000  00000000    ................
+05DE0060 to 05DE0110 suppressed, lines same as above
+05DE0120   00000000  00000000  00000000  00004B49    ..............KI
+05DE0130   54450000  00000000  00000000  00000000    TE..............
+05DE0140   00000000  00000000  00000000  00000000    ................
+05DE0150 to 05DE0170 suppressed, lines same as above
+05DE0180   00000000  01000000  C0106801  00000000    ..........h.....
+05DE0190   D8F3DD05  A8537900  B8F1DD05  387ADC05    ....?Sy..?..8z..
+05DE01A0   00000000  00000000  00000000  00000000    ................
+05DE01B0   00000000  00000000  00000000  20080000    ............ ...
+05DE01C0   00000000  00000000  00000000  00000000    ................
+05DE01D0   00000000  00000000  00000000  00000000    ................
+05DE01E0   00000000  00000000                        ........
+
+pconnSubpool[4].connExtentList = 05DC7A38
+{
+  Eye:              XCEL
+  Size:             32
+  Index  Flags        SetId  UnixShmId    Address
+  0000   0x00000000   0000   0000000000   01681000
+  0001   0x00000000   8191   0000000000   00000000
+}
+
+pCtl->pCS->threadConnectCount[5] = 0
+pCtl->pCS->threadConnectedSubpools[5] = 00000000
+pCtl->pCS->threadConnectCount[6] = 0
+pCtl->pCS->threadConnectedSubpools[6] = 00000000
+
+Component Dumps (Thread 00000011)
+------< ZSW "Switching Interface(zsw)" >-----
+
+ThisTid:
+0207BC40   7C070000                                  |...
+
+pMQIAnchor (0x006F89D8)
+{
+  EyeCatcher:             'ZSWA'
+  Version:                2
+  StrucLength:            39032
+  BufferLength:           43128
+  Flags:                  0x00000000
+  ThreadKey:              15
+  SingleInstallationOnly: FALSE
+  ClientInstallation:     -1
+  DependentInstallation:  -1
+  pFirstInstallation:     0x68A30F98
+  MaxInstallId:           1
+
+  LockOwnerTid:
+00702200                       7C070000                      |...
+
+  pXAInfo:                0x00000000
+  zswINSTALL 1
+  {
+    Name:                 'Installation1'
+    Identifier:           1
+    Path:                 'C:\Program Files\IBM\MQ'
+    Server entrypoints:   0x68A30F98
+    Client entrypoints:   0x00000000
+    LockedInquirers:      0
+  }
+  zswINSTALL 0
+  {
+    Name:                 ''
+    Identifier:           0
+    Path:                 ''
+    Server entrypoints:   0x00000000
+    Client entrypoints:   0x00000000
+    LockedInquirers:      0
+  }
+  LockRequests:           4
+  QMgrLookups:            0
+  InstallationLookups:    0
+  LoadAttempts:           0
+  MissingInstallations:   0
+  InstallMismatches:      0
+  NowTryClientRequests:   0
+  AllowOptimizedConnect:  TRUE
+  ThreadKeyCreator        3
+}
+-------------------------------------

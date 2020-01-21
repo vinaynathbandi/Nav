@@ -47,12 +47,12 @@
         <include name="AddToFavoriteViewlet"/>  
          
         <include name="CompareQueues"/> 
-        <include name="CheckDifferencesForQueues"/>
-       <!--  <include name="ShowQueueStatusForMultipleQueues"/> --> 
+        <include name="CheckDifferencesForQueues"/> 
+        <include name="ShowQueueStatusForMultipleQueues"/>
         <include name="MultipleQueueProperties"/> 
         <include name="AddToFavoriteForMultipleQueues"/> 
         <include name="SearchFilter"/> 
-        <include name="AddQueueFromPlusIcon"/>   
+        <include name="AddQueueFromPlusIcon"/>    
         
         <include name="CopyAsForMultipleQueues"/> 
         <include name="DeleteMultipleQueues"/>

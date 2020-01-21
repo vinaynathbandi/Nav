@@ -32,9 +32,9 @@
 
 				<methods>
 					<include name="Login" />
-				    <include name="AddWorkgroupFromPlusIcon" />
+				    <include name="AddWorkgroupFromPlusIcon" /> 
 				    <include name="DefaultConnection"/> 
-				    <include name="EditWorkgroup" />
+				    <include name="EditWorkgroup" /> 
 				    <include name="DeleteWorkgroup" /> 
 				    <include name="AddNode" /> 
 				    <include name="AddRemoteQueueManager" />
@@ -46,7 +46,7 @@
 
 					<include name="SearchFilter" />   
 					<include name="WGSProperties"/>  
-					<include name="ShowObjectAttributes"/>  
+					<include name="ShowObjectAttributes"/>   
 					<include name="Logout" />
 				</methods>
 

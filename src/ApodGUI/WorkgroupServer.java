@@ -328,14 +328,16 @@ public class WorkgroupServer {
 			WebElement DeleteWGS = driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input"));
 			if (DeleteWGS.isDisplayed()) {
 				// Select the Delete WGS option
+				System.out.println("Condition");
 				DeleteWGS.click();
 				driver.findElement(By.linkText("Delete workgroup server")).click();
+				Thread.sleep(4000);
 				driver.findElement(By.cssSelector(".btn-primary")).click();
 				Thread.sleep(8000);
 
 				// Store the Viewlet data into string
 				String WGSServerData = driver.findElement(By.xpath("//datatable-body")).getText();
-				// System.out.println(WGSServerData);
+			    //System.out.println(WGSServerData);
 				
 				for(int j=0; j<=DeleteWGSName.length(); j++)
 				{
