@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -248,6 +249,11 @@ public class QueuesViewlet
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -360,6 +366,11 @@ public class QueuesViewlet
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
 		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		FinalQueuename=Queuenamebefore + ObjectName;
 		
 		//Search with empty queue name
@@ -410,6 +421,12 @@ public class QueuesViewlet
 		//Delete option
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		try
 		{
 		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
@@ -1020,6 +1037,11 @@ public class QueuesViewlet
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
 		Thread.sleep(4000);
 		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -1147,6 +1169,11 @@ public class QueuesViewlet
 					driver.findElement(By.cssSelector(".btn-primary")).click();
 					Thread.sleep(8000);
 					
+					if (!checkprogress()) {
+
+						System.out.println("exit");
+					}
+					
 					//Search with empty queue name
 					driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyAsNameForMultiple);
 					Thread.sleep(1000);
@@ -1211,6 +1238,12 @@ public class QueuesViewlet
 		//Delete option
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		try
 		{
 		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
@@ -1351,6 +1384,20 @@ public class QueuesViewlet
 		//Logout
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	private static boolean checkprogress() throws InterruptedException {
+		try {
+			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
+			while (progressBar.isDisplayed()) {
+				System.out.println("Progress bar loading....");
+				Thread.sleep(1000);
+			}
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			return false;
+		}
+		return false;
 	}
 	
 	

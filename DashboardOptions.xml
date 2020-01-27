@@ -19,7 +19,7 @@
         <include name="Login"/>
         <include name="CreateWGSDashboard"/>
         <include name="CreateEMSDashboard"/>
-        <include name="SetAsDeafaultOption"/>
+        <include name="SetAsDeafaultOption"/> 
         <include name="RenameDashboard"/>  
         <include name="DeleteDashboard"/>  
        

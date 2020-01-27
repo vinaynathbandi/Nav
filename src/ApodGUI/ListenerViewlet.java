@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -104,15 +105,15 @@ public class ListenerViewlet
 		//Create New Dashboard
 		driver.findElement(By.cssSelector("div.block-with-border")).click();
 		driver.findElement(By.name("dashboardName")).sendKeys(Dashboardname);
-		driver.findElement(By.id("createInitialViewlets")).click();
 		
 		
+		/*driver.findElement(By.id("createInitialViewlets")).click();
 		//Work group server selection
 		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
 		Thread.sleep(2000);
 		dd.selectByIndex(Integer.parseInt(WGS_INDEX));
 		
-		/*//Selection of Node
+		//Selection of Node
 		driver.findElement(By.cssSelector(".field-queuem-input")).click();
 		driver.findElement(By.cssSelector(".field-queuem-input")).sendKeys(Node);
 		
@@ -211,7 +212,7 @@ public class ListenerViewlet
 	public void CreateListener(String ListenerName, String Description, ITestContext context) throws InterruptedException
 	{
 		//click on checkbox and choose create listener
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Create Listener")).click();
 		Thread.sleep(1000);
 		
@@ -224,7 +225,12 @@ public class ListenerViewlet
 		
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(10000);
+		Thread.sleep(4000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		try
 		{
@@ -236,17 +242,17 @@ public class ListenerViewlet
 		}
 		
 		//Search with the added Listername name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(ListenerName);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(ListenerName);
     	Thread.sleep(1000);
 		
 		//Store the viewlet data into string
-		String Listenerdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Listenerdata=driver.findElement(By.xpath("//datatable-body")).getText();
 		
 		//Edit the search field data
     	for(int j=0; j<=ListenerName.length(); j++)
     	{
     	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
     	
@@ -277,7 +283,7 @@ public class ListenerViewlet
     	Thread.sleep(1000);*/
     	
     	//Select Start From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]"))).perform();
     	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]/ul/li")).click();
@@ -319,7 +325,7 @@ public class ListenerViewlet
     	Thread.sleep(1000);*/
     	
     	//Select Stop From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]"))).perform();
     	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[4]/ul/li[2]")).click();
@@ -356,11 +362,11 @@ public class ListenerViewlet
 	public void CopyAsFromCommands(String CopyObjectName, String ListenerName, ITestContext context) throws InterruptedException
 	{
 		//Search with the added process name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(ListenerName);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(ListenerName);
     	Thread.sleep(1000);
 		
 		//Select Copy as From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Copy As...")).click();
@@ -374,14 +380,14 @@ public class ListenerViewlet
     	for(int j=0; j<=ListenerName.length(); j++)
     	{
     	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
     	
     	//Refresh the viewlet
     	for(int i=0; i<=2; i++)
     	{
-    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+    	driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
     	Thread.sleep(4000);
     	}
     	
@@ -390,7 +396,7 @@ public class ListenerViewlet
     	System.out.println(CopyasListenerName);
     	    	
     	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
     	//Verification condition
@@ -419,12 +425,12 @@ public class ListenerViewlet
     	String CopyasListenerName=ListenerName+CopyObjectName;
     	
     	//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(CopyasListenerName);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyasListenerName);
     	Thread.sleep(1000);
     	
 		//Select Rename From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Rename")).click();
@@ -439,29 +445,29 @@ public class ListenerViewlet
     	for(int j=0; j<=CopyasListenerName.length(); j++)
     	{
     	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);	
     	
     	//Refresh the viewlet
     	for(int i=0; i<=2; i++)
     	{
-    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+    	driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
     	Thread.sleep(4000);
     	}
     	
     	//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameListener);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(RenameListener);
     	Thread.sleep(1000);
     	
     	//Store the Subscription name into string
-    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	String ModifiedName=driver.findElement(By.xpath("//datatable-body")).getText();
     	System.out.println(ModifiedName);
     	
     	for(int k=0; k<=RenameListener.length(); k++)
     	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(1000);
     	
@@ -488,11 +494,11 @@ public class ListenerViewlet
 	public void DeleteFromCommands(String RenameListener, ITestContext context) throws InterruptedException
 	{
 		//Search with the deleted listener name
-		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameListener);
+		driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(RenameListener);
     	
 		//Select Delete From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Delete")).click();
@@ -505,12 +511,12 @@ public class ListenerViewlet
 		for(int j=0; j<=RenameListener.length(); j++)
     	{
     	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
     	
     	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
     	//Verification of Subscription delete
@@ -535,7 +541,7 @@ public class ListenerViewlet
 	public void ListenerProperties(ITestContext context) throws InterruptedException
 	{
 		//click on checkbox and choose properties
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(1000);
 		
@@ -570,7 +576,7 @@ public class ListenerViewlet
 	public static void ListenerEvents(ITestContext context) throws InterruptedException
 	{
 		//click on checkbox and choose Events
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Events...")).click();
 		Thread.sleep(1000);
 			
@@ -652,7 +658,7 @@ public class ListenerViewlet
 		}
 		
 		//Store Listener name into string
-		String ListenerName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ListenerName_Index +"]/div/span")).getText();
+		String ListenerName=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ListenerName_Index +"]/div/span")).getText();
 		
 		//Create favorite viewlet 
 		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
@@ -671,7 +677,7 @@ public class ListenerViewlet
 		Thread.sleep(2000);
 		
 		//click on checkbox and choose to Add to favorite option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(1000);
 		
@@ -683,7 +689,7 @@ public class ListenerViewlet
 		Thread.sleep(1000);
 		
 		//Storing the Favorite Viewlet data
-		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Favdata=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		
 		//Verification of listener added to favorite viewlet
 		if(Favdata.contains(ListenerName))
@@ -714,17 +720,17 @@ public class ListenerViewlet
 		}
 		
 		//Get the First object Name
-		String compare1 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare1 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		//System.out.println("First obj name is: " +compare1);
 		
 		//Get the second object name
-		String compare2 = driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
+		String compare2 = driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Name_Index +"]/div/span")).getText();
 		//System.out.println("Second obj name is: " +compare2);
 		
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 
 		// System.out.println("Cpmare to: " + compare1 + "::"+ compare2);
 		String comparenameslist = compare1 + "::" + compare2;
@@ -759,9 +765,9 @@ public class ListenerViewlet
 	public void CheckDifferencesForListeners(ITestContext context) throws InterruptedException
 	{
 		// Select compare option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Compare")).click();
 		Thread.sleep(2000);
 		
@@ -891,6 +897,7 @@ public class ListenerViewlet
 		
 		//Select Manager
 		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		Thread.sleep(2000);
 		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
 		//Select Manager
        // driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
@@ -906,6 +913,7 @@ public class ListenerViewlet
 				if(Managers[m].contains(s))
 				{
 					String id=QueueManager.get(i).getAttribute("id");
+					Thread.sleep(3000);
 					driver.findElement(By.id(id)).click();
 					break;
 				}
@@ -940,7 +948,12 @@ public class ListenerViewlet
 		
 		//Click on OK button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(10000);
+		Thread.sleep(4000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		try
 		{
@@ -952,21 +965,21 @@ public class ListenerViewlet
 		}
 		
 		//Click on Refresh
-		driver.findElement(By.xpath("//div[3]/app-viewlet/div/div[2]/div/div[2]/div/div/img")).click();
+		driver.findElement(By.xpath("//div[1]/app-viewlet/div/div[2]/div/div[2]/div/div/img")).click();
 		Thread.sleep(2000);
 		
 		//Search option
-		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(ListenerNameFromICon);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(ListenerNameFromICon);
 		Thread.sleep(1000);
 		
 		//Store the viewlet data into string
-		String Listenerdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Listenerdata=driver.findElement(By.xpath("//datatable-body")).getText();
 		
 		//Edit the search field data
     	for(int j=0; j<=ListenerNameFromICon.length(); j++)
     	{
     	
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
 		
@@ -998,8 +1011,8 @@ public class ListenerViewlet
     	Thread.sleep(1000);*/
     	
     	//Select Start From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
     	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li")).click();
@@ -1012,7 +1025,7 @@ public class ListenerViewlet
     	//Store the Listener status into string
     	String Status1=driver.findElement(By.cssSelector(".active > .datatable-body-cell-label > .ng-star-inserted")).getText();
     	System.out.println(Status1);
-    	String Status2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[9]/div/span")).getText();
+    	String Status2=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[9]/div/span")).getText();
     	System.out.println(Status2);
     	
     	if(Status1.equalsIgnoreCase("Running") || Status1.equalsIgnoreCase("Starting") && Status2.equalsIgnoreCase("Running") || Status2.equalsIgnoreCase("Starting"))
@@ -1043,8 +1056,8 @@ public class ListenerViewlet
     	Thread.sleep(1000);*/
     	
     	//Select Stop From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]"))).perform();
     	driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[2]/ul/li[2]")).click();
@@ -1060,7 +1073,7 @@ public class ListenerViewlet
     	//Store the Listener status into string
     	String Status1=driver.findElement(By.cssSelector(".active > .datatable-body-cell-label > .ng-star-inserted")).getText();
     	System.out.println(Status1);
-    	String Status2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[9]/div/span")).getText();
+    	String Status2=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[9]/div/span")).getText();
     	System.out.println(Status2);
     	
     	if(Status1.equalsIgnoreCase("Stopping") || Status1.equalsIgnoreCase("Stopped") && Status1.equalsIgnoreCase("Stopping") || Status1.equalsIgnoreCase("Stopped"))
@@ -1092,13 +1105,13 @@ public class ListenerViewlet
 	public void CopyAsFromCommandsForMultiple(String CopyObjectNameForMUltiple, String ListenerName, String ListenerNameFromICon, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(ListenerNameFromICon);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(ListenerNameFromICon);
     	Thread.sleep(1000);
     	
 		//Select Copy as From commands
-    	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Copy As...")).click();
@@ -1125,27 +1138,27 @@ public class ListenerViewlet
     	
     	for(int j=0; j<=ListenerNameFromICon.length(); j++)
     	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	
     	FinalListenerName=ExistingListener+CopyObjectNameForMUltiple;
     	
     	//Refresh the viewlet
-    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+    	driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
     	Thread.sleep(4000);
     	
     	//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalListenerName);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(FinalListenerName);
     	Thread.sleep(1000);
     	
     	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
     	for(int j=0; j<=FinalListenerName.length(); j++)
     	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	
     	//Verification condition
@@ -1171,13 +1184,13 @@ public class ListenerViewlet
 	public void RenameFromCommandsForMultiple(String RenameListenerForMultiple, String CopyObjectNameForMUltiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(FinalListenerName);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(FinalListenerName);
     	Thread.sleep(1000);
     	
 		//Select Rename From commands
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Rename")).click();
@@ -1200,25 +1213,25 @@ public class ListenerViewlet
     	
     	for(int k=0; k<=FinalListenerName.length(); k++)
     	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	
     	//Refresh the viewlet
-    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+    	driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
     	Thread.sleep(4000);
     	
     	//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameListenerForMultiple);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(RenameListenerForMultiple);
     	Thread.sleep(1000);  	
     	
     	//Store the Subscription name into string
-    	String ModifiedName=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	String ModifiedName=driver.findElement(By.xpath("//datatable-body")).getText();
     	System.out.println(ModifiedName);
     	
     	for(int j=0; j<=RenameListenerForMultiple.length(); j++)
     	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	
     	//Verification condition
@@ -1244,13 +1257,13 @@ public class ListenerViewlet
 	public void DeleteFromCommandsForMultiple(String RenameListenerForMultiple, ITestContext context) throws InterruptedException
 	{
 		//Search with that name
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(RenameListenerForMultiple);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(RenameListenerForMultiple);
     	Thread.sleep(1000);
     	
 		//Select Delete From commands
-    	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
     	Actions Mousehovercopy=new Actions(driver);
     	Mousehovercopy.moveToElement(driver.findElement(By.linkText("Commands"))).perform();
     	driver.findElement(By.linkText("Delete")).click();
@@ -1261,16 +1274,16 @@ public class ListenerViewlet
     	Thread.sleep(6000);
     	
     	//Refresh the viewlet
-    	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+    	driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
     	Thread.sleep(4000);
     	
     	//Store the viewlet data into string
-    	String Subviewlet=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+    	String Subviewlet=driver.findElement(By.xpath("//datatable-body")).getText();
     	//System.out.println(Subviewlet);
     	
     	for(int j=0; j<=RenameListenerForMultiple.length(); j++)
     	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	
     	//Verification of Subscription delete
@@ -1300,17 +1313,17 @@ public class ListenerViewlet
 		{
 			transporttype_index=6;
 		}
-		String TransportType=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ transporttype_index +"]/div/span")).getText();
+		String TransportType=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ transporttype_index +"]/div/span")).getText();
 		System.out.println("Transport type is: " +TransportType);
 		
 		//Search with tranport type
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TransportType);
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(TransportType);
     	Thread.sleep(1000);
 		
 		//Select Two Listeners and choose Add to favorite viewlet option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(4000);
 		
@@ -1325,7 +1338,7 @@ public class ListenerViewlet
 		Thread.sleep(6000);
 		
 		//Open the first listener properties page
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(2000);
 		
@@ -1337,7 +1350,7 @@ public class ListenerViewlet
 		Thread.sleep(6000);
 		
 		//Open the second listener name
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(2000);
 		
@@ -1350,7 +1363,7 @@ public class ListenerViewlet
 		
 		for(int j=0; j<=TransportType.length(); j++)
     	{
-    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
 		
 		//Verification
@@ -1388,12 +1401,12 @@ public class ListenerViewlet
 		}
 		
 		//Store the Listeners into strings 
-		String Listener2=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ ListenerName_Index +"]/div/span")).getText();
-		String Listener3=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ ListenerName_Index +"]/div/span")).getText();
+		String Listener2=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ ListenerName_Index +"]/div/span")).getText();
+		String Listener3=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell["+ ListenerName_Index +"]/div/span")).getText();
 		
 		//Select Two Listeners and choose Add to favorite viewlet option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[3]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Add to favorites...")).click();
 		Thread.sleep(4000);
 			
@@ -1405,7 +1418,7 @@ public class ListenerViewlet
 		Thread.sleep(6000);
 		
 		//Storing the Favorite Viewlet data
-		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Favdata=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		
 		//Verification of listeners added to favorite to favorite viewlet
 		if(Favdata.contains(Listener2) && Favdata.contains(Listener3))
@@ -1445,6 +1458,20 @@ public class ListenerViewlet
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	private static boolean checkprogress() throws InterruptedException {
+		try {
+			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
+			while (progressBar.isDisplayed()) {
+				System.out.println("Progress bar loading....");
+				Thread.sleep(1000);
+			}
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			return false;
+		}
+		return false;
 	}
 	
 	@AfterMethod

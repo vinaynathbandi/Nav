@@ -14,6 +14,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -244,6 +245,11 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
 		Thread.sleep(8000);
 		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		//Store the depth value into string after adding the message into queue
 		WebElement Depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
 		String depthafter=Depthafter.getText();
@@ -290,6 +296,11 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.cssSelector("img[title=\"Delete\"]")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		//Store the depth value into string after deleting the message from the queue
 		WebElement DepthafterDelete=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
@@ -361,6 +372,11 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterCopy=Integer.parseInt(FinalDepth);
@@ -429,6 +445,11 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.xpath("//span/input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -543,6 +564,11 @@ public class QueuesInsideBrowseMessages
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
 	    Thread.sleep(5000);
+	    
+	    if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 	    
 	    //verification of message
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -679,6 +705,11 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
 		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+		
 		//Store the queue depth after deleting the message
 		WebElement DepthafterDelete=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span"));
 		String depthafter=DepthafterDelete.getText();
@@ -749,6 +780,11 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -821,6 +857,11 @@ public class QueuesInsideBrowseMessages
 		driver.findElement(By.cssSelector(".ng-star-inserted:nth-child(1) > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		//Getting the Second Queue depth after copying the message
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -998,6 +1039,20 @@ public class QueuesInsideBrowseMessages
 		//Logout and close the browser
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	private static boolean checkprogress() throws InterruptedException {
+		try {
+			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
+			while (progressBar.isDisplayed()) {
+				System.out.println("Progress bar loading....");
+				Thread.sleep(1000);
+			}
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			return false;
+		}
+		return false;
 	}
 	
 	@AfterMethod

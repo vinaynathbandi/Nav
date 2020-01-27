@@ -19,7 +19,7 @@
        
         <include name="Login"/>
         <include name="AddServiceViewlet"/> 
-        <include name="ShowObjectAttributesForService"/>
+        <include name="ShowObjectAttributesForService"/> 
         <include name="ServiceEvents"/> 
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareServiceNames"/> 

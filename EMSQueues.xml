@@ -51,7 +51,7 @@
         <include name="ShowQueueStatusForMultipleQueues"/> 
         <include name="MultipleQueueProperties"/> 
         <include name="AddToFavoriteForMultipleQueues"/>   
-        <include name="AddQueueFromPlusIcon"/>   
+        <include name="AddQueueFromPlusIcon"/>    
         <include name="Logout"/>  
         
        </methods>

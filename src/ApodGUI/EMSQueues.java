@@ -802,7 +802,7 @@ public class EMSQueues
 		
 		//Open the properties of first queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[9]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(6000);
 		
 		//Save the Connection URL value into string
@@ -825,7 +825,7 @@ public class EMSQueues
 		
 		//Open the properties of Second queue
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[9]")).click();
+		driver.findElement(By.linkText("Properties...")).click();
 		Thread.sleep(6000);
 		
 		//Save the Connection URL value into string

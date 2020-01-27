@@ -16,7 +16,7 @@
     
     <parameter name="TopicNameFromIcon" value="EMS.TOPIC.ICON"/>
     
-    <parameter name="SchemaName" value="TopicSchema"/>    
+    <parameter name="schemaName" value="TopicSchema"/>    
     
     <parameter name="CopyObjectName" value=".Copy"/>
     <parameter name="DurableName" value="Publish.Durable"/>
@@ -65,9 +65,9 @@
         <include name="TopicEvents"/>  
         <include name="AddToFavoriteViewlet"/>    
 
-      <!--  <include name="CopyAsFromCommandsForMultipleTopics"/>
-        <include name="DeleteFromCommandsForMultipleTopics"/>  -->
-        <include name="PublishFromCommandsForMultipleTopics"/> 
+        <include name="CopyAsFromCommandsForMultipleTopics"/>
+        <include name="DeleteFromCommandsForMultipleTopics"/>  
+        <include name="PublishFromCommandsForMultipleTopics"/>
         <include name="MultipleProperties"/>  
         <include name="AddToFavoriteForMultipleTopics"/>   
       

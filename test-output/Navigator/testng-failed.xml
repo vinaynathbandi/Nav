@@ -1,38 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Test Listener Viewlet(failed)">
-    <parameter name="Dashboardname" value="Listener Viewlet Verification"/>
-    <parameter name="Description" value="Description from Options"/>
+  <test thread-count="5" name="Test Subscription Viewlet(failed)">
+    <parameter name="Dashboardname" value="Subscription Verification"/>
+    <parameter name="AddSubscriptionNameFromIcon" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.ICON"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="RenameListener" value="Test.Listener.First1.Rename"/>
-    <parameter name="DescriptionFromIcon" value="Icon Description"/>
-    <parameter name="FavoriteViewletName" value="Favorite Viewlet for Listener"/>
-    <parameter name="schemaName" value="ListnerSchema"/>
-    <parameter name="ListenerName" value="Test.Listener.First1"/>
-    <parameter name="ListenerNameFromICon" value="Test.Listener.Icon"/>
+    <parameter name="SearchdataforMultipleProperties" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
+    <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
+    <parameter name="FavoriteViewletName" value="Subscription Favorite viewlet"/>
+    <parameter name="RenameSubscription" value="Test.Subscription.Rename"/>
+    <parameter name="schemaName" value="SubscriptionSchema"/>
     <parameter name="CopyObjectName" value=".Copy"/>
-    <parameter name="Listenerviewletname" value="New Listener Viewlet"/>
-    <parameter name="RenameListenerForMultiple" value="Test.Listener.Multi.Rename"/>
-    <parameter name="ListenerDescription" value="Multiple properties"/>
+    <parameter name="TopicStringDataFromICon" value="UniqueIcon"/>
+    <parameter name="RenameSubscriptionForMultiple" value="SYSTEM.SUBSCRIPTION.RENAME"/>
+    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.OPTIONS"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="CopyObjectNameForMUltiple" value="Test.Multi.Copy"/>
+    <parameter name="CopyObjectNameForMUltiple" value="SUB.MULTIPLE.COPY"/>
+    <parameter name="Subscriptionname" value="New Subscription Viewlet"/>
+    <parameter name="TopicStringData" value="Unique"/>
+    <parameter name="SubscriptionAttributes" value="Attributes"/>
     <classes>
-      <class name="ApodGUI.ListenerViewlet">
+      <class name="ApodGUI.SubscriptionViewlet">
         <methods>
-          <include name="CreateListenerFromPlusIcon" invocation-numbers="0"/>
+          <include name="DeleteFromCommands" invocation-numbers="0"/>
+          <include name="CreateSubscriptionFromOptions"/>
           <include name="RenameFromCommands"/>
-          <include name="tearDown"/>
-          <include name="ListenerMultipleProperties" invocation-numbers="0"/>
-          <include name="CopyAsFromCommands" invocation-numbers="0"/>
-          <include name="CreateListener"/>
-          <include name="DeleteFromCommandsForMultiple"/>
-          <include name="DeleteFromCommands"/>
-          <include name="RenameFromCommandsForMultiple"/>
-          <include name="CopyAsFromCommandsForMultiple"/>
+          <include name="RenameFromCommandsForMultipleSubscriptions"/>
+          <include name="CopyAsFromCommands"/>
+          <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
+          <include name="DeleteFromCommandsForMultipleSubscriptions" invocation-numbers="0"/>
           <include name="beforeTest"/>
+          <include name="tearDown"/>
+          <include name="CreateSubscriptionFromPlusIcon"/>
         </methods>
-      </class> <!-- ApodGUI.ListenerViewlet -->
+      </class> <!-- ApodGUI.SubscriptionViewlet -->
     </classes>
-  </test> <!-- Test Listener Viewlet(failed) -->
+  </test> <!-- Test Subscription Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

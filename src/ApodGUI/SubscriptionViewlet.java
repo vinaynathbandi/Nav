@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -363,6 +364,11 @@ public class SubscriptionViewlet {
 		driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(10000);
     	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+    	
     	try
     	{
     		driver.findElement(By.id("yes")).click();
@@ -431,6 +437,11 @@ public class SubscriptionViewlet {
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
     	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+    	
     	//Edit the search field data
     	for(int j=0; j<=AddSubscriptionName.length(); j++)
     	{
@@ -495,6 +506,11 @@ public class SubscriptionViewlet {
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
     	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+    	
     	//Combining the strings 
     	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
     	//System.out.println(CopyasProcessName);
@@ -553,6 +569,11 @@ public class SubscriptionViewlet {
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(4000);
+    	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
     	    	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
@@ -1168,6 +1189,11 @@ public class SubscriptionViewlet {
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
     	Thread.sleep(10000);
     	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
+    	
     	try
     	{
     		driver.findElement(By.id("yes")).click();
@@ -1235,6 +1261,11 @@ public class SubscriptionViewlet {
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMUltiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
+    	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
     	
     	try
     	{
@@ -1306,6 +1337,11 @@ public class SubscriptionViewlet {
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscriptionForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
+    	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
     	
     	try
     	{
@@ -1379,6 +1415,11 @@ public class SubscriptionViewlet {
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
+    	
+    	if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
     	
     	/*//clear the search data
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
@@ -1629,6 +1670,20 @@ public class SubscriptionViewlet {
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	private static boolean checkprogress() throws InterruptedException {
+		try {
+			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
+			while (progressBar.isDisplayed()) {
+				System.out.println("Progress bar loading....");
+				Thread.sleep(1000);
+			}
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			return false;
+		}
+		return false;
 	}
 	
 	@AfterMethod

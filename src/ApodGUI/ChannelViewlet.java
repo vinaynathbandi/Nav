@@ -9,6 +9,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -261,6 +262,11 @@ public class ChannelViewlet
 		//Click on Ok button
 		driver.findElement(By.xpath("//button[contains(.,'Ok')]")).click();
 		Thread.sleep(8000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		try
 		{
@@ -1128,6 +1134,20 @@ public class ChannelViewlet
 		//Logout
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	private static boolean checkprogress() throws InterruptedException {
+		try {
+			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
+			while (progressBar.isDisplayed()) {
+				System.out.println("Progress bar loading....");
+				Thread.sleep(1000);
+			}
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			return false;
+		}
+		return false;
 	}
 	
 	@AfterMethod

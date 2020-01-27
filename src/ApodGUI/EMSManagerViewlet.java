@@ -139,7 +139,7 @@ public class EMSManagerViewlet
 		try {
 		//Objects Verification
 		EMSObjects obj=new EMSObjects();
-		obj.ObjectAttributesVerification(driver, SchemaName, EMS_WGSNAME);
+		obj.ObjectAttributesVerificationforManager(driver, SchemaName, EMS_WGSNAME);
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Show Object Attributes option is working fine");
 		}
@@ -147,6 +147,7 @@ public class EMSManagerViewlet
 			// TODO: handle exception
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Show Object Attributes option is not working prperly, check details: "+ e.getMessage());
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 	}
 	

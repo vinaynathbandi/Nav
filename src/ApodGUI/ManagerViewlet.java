@@ -9,6 +9,7 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -206,7 +207,12 @@ public class ManagerViewlet
 		
 		//Final Submit
 		driver.findElement(By.xpath("//div[2]/div/div[2]/div[2]/button")).click();
-		Thread.sleep(25000);
+		Thread.sleep(3000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		try 
 		{
@@ -288,7 +294,12 @@ public class ManagerViewlet
 		//Select Show topology option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Show Topology")).click();
-		Thread.sleep(10000);
+		Thread.sleep(4000);
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		//Store the Topology page data into string
 		String Topology=driver.findElement(By.cssSelector("svg")).getText();
@@ -1166,7 +1177,12 @@ public class ManagerViewlet
 		
 		//Final Submit
 		driver.findElement(By.xpath("//div[2]/div/div[2]/div[2]/button")).click();
-		Thread.sleep(20000);        
+		Thread.sleep(2000);  
+		
+		if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		
 		try 
 		{
@@ -1267,6 +1283,20 @@ public class ManagerViewlet
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	private static boolean checkprogress() throws InterruptedException {
+		try {
+			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
+			while (progressBar.isDisplayed()) {
+				System.out.println("Progress bar loading....");
+				Thread.sleep(1000);
+			}
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			return false;
+		}
+		return false;
 	}
 		
 	@AfterMethod

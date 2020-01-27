@@ -12,8 +12,10 @@ import java.util.concurrent.TimeUnit;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -291,7 +293,12 @@ public class EMSQueueMessages
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(5000);
+	    Thread.sleep(2000);
+	    
+	    if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 	    
 	    //store the queue depth after loading file
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -364,7 +371,12 @@ public class EMSQueueMessages
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(14000);
+	    Thread.sleep(4000);
+	    
+	    if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 	    
 	    //store the queue depth after loading file
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -438,7 +450,12 @@ public class EMSQueueMessages
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(20000);
+	    Thread.sleep(4000);
+	    
+	    if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 	    
 	    //store the queue depth after loading file
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -478,7 +495,7 @@ public class EMSQueueMessages
 		
 		//Click on Yes button
 		driver.findElement(By.cssSelector(".btn-group > .ng-star-inserted")).click();
-		Thread.sleep(6000);
+		Thread.sleep(16000);
 		
 		//Export All Messages as TXT
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -486,7 +503,7 @@ public class EMSQueueMessages
 		TXTMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
 		TXTMousehour.moveToElement(driver.findElement(By.linkText("Export All Messages..."))).perform();
 		driver.findElement(By.linkText("As .TXT")).click();
-		Thread.sleep(1000);
+		Thread.sleep(16000);
 		
 		//Click on Yes button
 		driver.findElement(By.cssSelector(".btn-group > .ng-star-inserted")).click();
@@ -546,6 +563,11 @@ public class EMSQueueMessages
 		driver.findElement(By.cssSelector(".viewlet-cell-checkbox > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
+		
+		 if (!checkprogress()) {
+
+				System.out.println("exit");
+			}
 		
 		//Getting the Second Queue depth after copying the all messages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
@@ -613,6 +635,11 @@ public class EMSQueueMessages
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
+		 if (!checkprogress()) {
+
+				System.out.println("exit");
+			}
+		
 		//Second Queue depth after moving the all messages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterMove=Integer.parseInt(FinalDepth);
@@ -666,6 +693,11 @@ public class EMSQueueMessages
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
+		 if (!checkprogress()) {
+
+				System.out.println("exit");
+			}
+		
 		//Queue name after deleting the messages
 		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(QueuenameAfter);
@@ -718,6 +750,10 @@ public class EMSQueueMessages
 		//Click on Yes for clearing the Messages from the queue
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
+		 if (!checkprogress()) {
+
+				System.out.println("exit");
+			}
 		
 		//Queue name after deleting the messages
 		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
@@ -783,9 +819,16 @@ public class EMSQueueMessages
 	    robot.keyRelease(KeyEvent.VK_ENTER);
 	    Thread.sleep(8000);
 				
-		
+	    if (!checkprogress()) {
+
+			System.out.println("exit");
+		}
 		driver.findElement(By.id("save-message")).click();
 		Thread.sleep(8000);
+		 if (!checkprogress()) {
+
+				System.out.println("exit");
+			}
 		
 		//verification of message
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -852,10 +895,19 @@ public class EMSQueueMessages
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
 	    Thread.sleep(8000);
-				
+	    
+	    if (!checkprogress()) {
+
+			System.out.println("exit");
+		}	
 		
 		driver.findElement(By.id("save-message")).click();
 		Thread.sleep(8000);
+		
+		 if (!checkprogress()) {
+
+				System.out.println("exit");
+			}
 		
 		//verification of message
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -916,6 +968,11 @@ public class EMSQueueMessages
 		driver.findElement(By.id("save-message")).click();
 		Thread.sleep(8000);
 		
+		 if (!checkprogress()) {
+
+				System.out.println("exit");
+			}
+		
 		//verification of message
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
 		int result1 = Integer.parseInt(depthafter);
@@ -957,6 +1014,20 @@ public class EMSQueueMessages
 		//logout and close the browser
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	private static boolean checkprogress() throws InterruptedException {
+		try {
+			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
+			while (progressBar.isDisplayed()) {
+				System.out.println("Progress bar loading....");
+				Thread.sleep(1000);
+			}
+		} catch (StaleElementReferenceException e) {
+			// TODO: handle exception
+			return false;
+		}
+		return false;
 	}
 	
 	@AfterMethod

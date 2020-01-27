@@ -23,7 +23,7 @@
        
         <include name="Login"/>
         <include name="PutNewMessageIntoQueue"/>  
-        <include name="LoadFromFileUsingYesbutton"/>
+        <include name="LoadFromFileUsingYesbutton"/> 
         <include name="LoadFromFileUsingConfigurebuttonWithSingleMessage"/>
         <include name="LoadFromFileUsingConfigurebuttonWithMultipleMessages"/> 
         <include name="ExportAllMessages"/> 
@@ -33,7 +33,7 @@
         <include name="ClearAllMessagesFromQueue"/>  
         <include name="PutMessageUsingJsonFile"/>
         <include name="PutMessageUsingXMLFile"/>  
-        <include name="PutHexMessageIntoQueue"/>  
+        <include name="PutHexMessageIntoQueue"/>   
         <include name="Logout"/> 
         
        </methods>

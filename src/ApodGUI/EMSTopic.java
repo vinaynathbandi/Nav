@@ -173,11 +173,11 @@ public class EMSTopic
 	@TestRail(testCaseId=795)
 	@Parameters({"schemaName"})
 	@Test(priority=17)
-	public static void ShowObjectAttributesForTopic(String SchemaName, ITestContext context) throws InterruptedException
+	public static void ShowObjectAttributesForTopic(String schemaName, ITestContext context) throws InterruptedException
 	{
 		try {
 		EMSObjects obj=new EMSObjects();
-		obj.ObjectAttributesVerification(driver, SchemaName, EMS_WGSNAME);
+		obj.ObjectAttributesVerification(driver, schemaName, EMS_WGSNAME);
 		context.setAttribute("Status", 1);
 		context.setAttribute("Comment", "Show object attributes working fine");
 		
