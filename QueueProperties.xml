@@ -1,0 +1,33 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Navigator">
+ <test name="Test Queue Viewlet">
+  <parameter name="sDriver" value="webdriver.chrome.driver"/>
+  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+  <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="uname" value="Admin"/>
+    <parameter name="password" value="admin"/>
+    
+    <parameter name="Dashboardname" value="QueuesProperties"/>
+    <parameter name="LocalQueue" value="Local Queue"/>
+    
+    <parameter name="PutMessageOption" value="Inhibited"/>
+    <parameter name="GetMessageOption" value="Inhibited"/>
+      
+     <classes>
+      <class name="ApodGUI.QueueProperties">
+       
+       <methods>
+       
+        <include name="Login"/>
+        <include name="PutMessageInInhibitedQueue"/>  
+        <!-- <include name="GetMessageFromInhibitedQueue"/>  -->
+       
+        <include name="Logout"/> 
+        
+       </methods>
+       
+       </class>
+     </classes>
+ </test>
+</suite>

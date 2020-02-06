@@ -3,16 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ApodGUI.AttributeFilterCondition">
+      <class name="ApodGUI.QueueProperties">
         <methods>
-          <include name="AddAttributeFilterCondition"/>
+          <include name="tearDown"/>
           <include name="Logout"/>
           <include name="beforeTest"/>
+          <include name="InhibitedPutMessage"/>
           <include name="Login"/>
-          <include name="AddDashboard"/>
-          <include name="tearDown"/>
+          <include name="InhibitedGetMessage"/>
         </methods>
-      </class> <!-- ApodGUI.AttributeFilterCondition -->
+      </class> <!-- ApodGUI.QueueProperties -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
