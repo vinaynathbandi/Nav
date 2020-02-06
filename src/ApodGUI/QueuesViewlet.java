@@ -247,13 +247,8 @@ public class QueuesViewlet
 		driver.findElement(By.name("name")).sendKeys(QueueNameFromOptions);
 		driver.findElement(By.name("description")).sendKeys(QueueDescriptionFromOptions);
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(6000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+		Thread.sleep(8000);
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -365,12 +360,7 @@ public class QueuesViewlet
 		driver.findElement(By.xpath("//div[2]/input")).sendKeys(ObjectDescription);
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+				
 		FinalQueuename=Queuenamebefore + ObjectName;
 		
 		//Search with empty queue name
@@ -422,10 +412,6 @@ public class QueuesViewlet
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
 		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
 		
 		try
 		{
@@ -508,7 +494,7 @@ public class QueuesViewlet
 		//Select Queue properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 		
 		boolean FieldNamevalue=driver.findElement(By.id("name")).isEnabled();
 		System.out.println(FieldNamevalue);
@@ -1035,13 +1021,8 @@ public class QueuesViewlet
 		driver.findElement(By.name("name")).sendKeys(Q_QueueName);
 		driver.findElement(By.name("description")).sendKeys(QueueDescription);
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(4000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+		Thread.sleep(8000);
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -1169,10 +1150,6 @@ public class QueuesViewlet
 					driver.findElement(By.cssSelector(".btn-primary")).click();
 					Thread.sleep(8000);
 					
-					if (!checkprogress()) {
-
-						System.out.println("exit");
-					}
 					
 					//Search with empty queue name
 					driver.findElement(By.xpath("//input[@type='text']")).sendKeys(CopyAsNameForMultiple);
@@ -1238,12 +1215,7 @@ public class QueuesViewlet
 		//Delete option
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+				
 		try
 		{
 		if(driver.findElement(By.xpath("//app-mod-errors-display/div/button")).isDisplayed())
@@ -1386,21 +1358,7 @@ public class QueuesViewlet
 		driver.close();
 	}
 	
-	private static boolean checkprogress() throws InterruptedException {
-		try {
-			WebElement progressBar = driver.findElement(By.cssSelector(".progress-bar"));
-			while (progressBar.isDisplayed()) {
-				System.out.println("Progress bar loading....");
-				Thread.sleep(1000);
-			}
-		} catch (StaleElementReferenceException e) {
-			// TODO: handle exception
-			return false;
-		}
-		return false;
-	}
-	
-	
+		
 	@AfterMethod
 	public void tearDown(ITestResult result) {
 

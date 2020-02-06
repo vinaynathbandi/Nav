@@ -223,12 +223,7 @@ public class TopicViewlet
 		//Click on submit button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(10000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -298,12 +293,7 @@ public class TopicViewlet
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestringForCopyAs);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	//Edit the search field data
     	for(int j=0; j<=TopicNameFromOptions.length(); j++)
     	{
@@ -379,12 +369,7 @@ public class TopicViewlet
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	//Edit the search field data
     	for(int j=0; j<=CopyasTopicName.length(); j++)
     	{
@@ -788,12 +773,7 @@ public class TopicViewlet
 		//Click on submit button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
 		Thread.sleep(10000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -1011,12 +991,7 @@ public class TopicViewlet
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(TopicUniquestringForMultipleCopy);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	//Refresh the viewlet
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);
@@ -1076,12 +1051,7 @@ public class TopicViewlet
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	//Refresh the view let
     	driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
     	Thread.sleep(4000);

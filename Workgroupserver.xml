@@ -5,7 +5,7 @@
 		<parameter name="sDriver" value="webdriver.chrome.driver" />
 		<parameter name="sDriverpath" value="Drivers/chromedriver.exe" />
 	   
-		<parameter name="ChangedHostName" value="localhost" />
+		<parameter name="ChangedHostName" value="WGS10" />
 		<parameter name="DeleteWGSName" value="WGS10"/>
 
 		<parameter name="ConnectionInstanceName" value="REMOTE_QMGRS" />

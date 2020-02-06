@@ -1,39 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Test Subscription Viewlet(failed)">
-    <parameter name="Dashboardname" value="Subscription Verification"/>
-    <parameter name="AddSubscriptionNameFromIcon" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.ICON"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="SearchdataforMultipleProperties" value="SYSTEM.ADD.NEW.SUBSCRIPTION121"/>
-    <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
-    <parameter name="FavoriteViewletName" value="Subscription Favorite viewlet"/>
-    <parameter name="RenameSubscription" value="Test.Subscription.Rename"/>
-    <parameter name="schemaName" value="SubscriptionSchema"/>
-    <parameter name="CopyObjectName" value=".Copy"/>
-    <parameter name="TopicStringDataFromICon" value="UniqueIcon"/>
-    <parameter name="RenameSubscriptionForMultiple" value="SYSTEM.SUBSCRIPTION.RENAME"/>
-    <parameter name="AddSubscriptionName" value="SYSTEM.ADD.NEW.SUBSCRIPTION121.OPTIONS"/>
+  <test thread-count="5" name="Test Queue Viewlet(failed)">
+    <parameter name="Dashboardname" value="QueuesProperties"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="uname" value="Admin"/>
+    <parameter name="LocalQueue" value="Local Queue"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="CopyObjectNameForMUltiple" value="SUB.MULTIPLE.COPY"/>
-    <parameter name="Subscriptionname" value="New Subscription Viewlet"/>
-    <parameter name="TopicStringData" value="Unique"/>
-    <parameter name="SubscriptionAttributes" value="Attributes"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="PutMessageOption" value="Inhibited"/>
+    <parameter name="GetMessageOption" value="Inhibited"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <classes>
-      <class name="ApodGUI.SubscriptionViewlet">
+      <class name="ApodGUI.QueueProperties">
         <methods>
-          <include name="DeleteFromCommands" invocation-numbers="0"/>
-          <include name="CreateSubscriptionFromOptions"/>
-          <include name="RenameFromCommands"/>
-          <include name="RenameFromCommandsForMultipleSubscriptions"/>
-          <include name="CopyAsFromCommands"/>
-          <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
-          <include name="DeleteFromCommandsForMultipleSubscriptions" invocation-numbers="0"/>
-          <include name="beforeTest"/>
           <include name="tearDown"/>
-          <include name="CreateSubscriptionFromPlusIcon"/>
+          <include name="beforeTest"/>
+          <include name="PutMessageInInhibitedQueue" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.SubscriptionViewlet -->
+      </class> <!-- ApodGUI.QueueProperties -->
     </classes>
-  </test> <!-- Test Subscription Viewlet(failed) -->
+  </test> <!-- Test Queue Viewlet(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

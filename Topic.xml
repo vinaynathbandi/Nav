@@ -60,7 +60,7 @@
         <include name="CheckDifferencesForTopics"/>
         <include name="CopyAsFromCommandsForMultipleTopics"/>
         <include name="DeleteFromCommandsForMultipleTopics"/>
-        <!-- <include name="PublishFromCommandsForMultipleTopics"/>  -->
+      <!--   <include name="PublishFromCommandsForMultipleTopics"/>  -->
         <include name="MultipleProperties"/>  
         <include name="AddToFavoriteForMultipleTopics"/>  
         <include name="Logout"/> 

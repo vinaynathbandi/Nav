@@ -203,6 +203,7 @@ public class ListenerViewlet
 		{
 			context.setAttribute("Status",5);
 			context.setAttribute("Comment", "Faile to show object attributes for listeners, check details: "+ e.getMessage());
+			driver.findElement(By.id("Attributes failed")).click();
 		}
 	}
 	
@@ -225,13 +226,8 @@ public class ListenerViewlet
 		
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+		Thread.sleep(10000);
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -948,13 +944,8 @@ public class ListenerViewlet
 		
 		//Click on OK button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(4000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+		Thread.sleep(10000);
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();

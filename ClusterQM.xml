@@ -27,7 +27,7 @@
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareClusterQueueManagers"/>
         <include name="CheckDifferencesForClusterQMs"/>    
-        <include name="AddToFavoriteForMultipleClusterQMs"/>   
+        <include name="AddToFavoriteForMultipleClusterQMs"/>    
         <include name="Logout"/> 
         
        </methods>

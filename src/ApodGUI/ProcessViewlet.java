@@ -242,13 +242,8 @@ public class ProcessViewlet
 		
 		//Click on Submit the process
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-		Thread.sleep(4000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+		Thread.sleep(10000);
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -543,13 +538,8 @@ public class ProcessViewlet
 		
 		//Click on Submit the process
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(4000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+		Thread.sleep(10000);
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();

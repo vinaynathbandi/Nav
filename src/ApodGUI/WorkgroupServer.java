@@ -183,8 +183,7 @@ public class WorkgroupServer {
 			{
 				try {
 				li.findElement(By.tagName("i"));
-				System.out.println("Try block");
-				
+								
 				driver.findElement(By.linkText("Default Connection")).click();
 				Thread.sleep(4000);
 				System.out.println("Default");
@@ -196,7 +195,7 @@ public class WorkgroupServer {
 				
 				boolean Def=false;
 				List<WebElement> innerlst=Getlist();
-				System.out.println("Normal list");
+				
 				for(WebElement lis : innerlst)
 				{
 					if(lis.getText().contains("Edit workgroup server"))

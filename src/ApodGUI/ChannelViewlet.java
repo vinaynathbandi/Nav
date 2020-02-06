@@ -43,7 +43,7 @@ public class ChannelViewlet
 	static String WGSName;
 	static String UploadFilepath;
 	static String Dnode;
-	static String Manager1;
+	static String Manager2;
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -55,7 +55,7 @@ public class ChannelViewlet
 		WGSName =Settings.getWGSNAME();
 		UploadFilepath =Settings.getUploadFilepath();
 		Dnode =Settings.getDnode();
-		Manager1 =Settings.getManager1();
+		Manager2 =Settings.getManager2();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "ChannelName"})
@@ -174,6 +174,7 @@ public class ChannelViewlet
 		
 		//Select Node 
 		driver.findElement(By.xpath("//div[2]/input")).click();
+		Thread.sleep(2000);
 		try 
 		{
 			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
@@ -200,6 +201,7 @@ public class ChannelViewlet
 		
 		//Select Manager
 		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		Thread.sleep(2000);
         try 
 		{
 			List<WebElement> TopicManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
@@ -209,9 +211,10 @@ public class ChannelViewlet
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
 				String s=TopicManager.get(i).getText();
-				if(s.equals(Manager1))
+				if(s.equals(Manager2))
 				{
 					String id=TopicManager.get(i).getAttribute("id");
+					Thread.sleep(3000);
 					driver.findElement(By.id(id)).click();
 					break;
 				}
@@ -262,12 +265,7 @@ public class ChannelViewlet
 		//Click on Ok button
 		driver.findElement(By.xpath("//button[contains(.,'Ok')]")).click();
 		Thread.sleep(8000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();

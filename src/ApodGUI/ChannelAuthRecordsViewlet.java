@@ -176,13 +176,8 @@ public class ChannelAuthRecordsViewlet
 			
 			//Click on Submit the ChannelAuth
 			driver.findElement(By.cssSelector(".btn-primary")).click();
-			Thread.sleep(3000);
-			
-			if (!checkprogress()) {
-
-				System.out.println("exit");
-			}
-			
+			Thread.sleep(10000);
+						
 			try
 			{
 				driver.findElement(By.id("yes")).click();
@@ -535,13 +530,8 @@ public class ChannelAuthRecordsViewlet
 			
 			//Click on Submit the ChannelAuth
 			driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
-			Thread.sleep(6000);
-			
-			if (!checkprogress()) {
-
-				System.out.println("exit");
-			}
-			
+			Thread.sleep(10000);
+						
 			try
 			{
 				driver.findElement(By.id("yes")).click();

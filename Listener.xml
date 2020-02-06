@@ -33,19 +33,19 @@
        
         <include name="Login"/>
         <include name="AddListenerViewlet"/> 
-      <!--  <include name="ShowObjectAttributesForListener"/>   -->
+        <include name="ShowObjectAttributesForListener"/>   
         <include name="CreateListener"/>
         <!-- <include name="StartListener"/>
         <include name="StopListener"/>  -->
         <include name="CopyAsFromCommands"/>
         <include name="RenameFromCommands"/>
         <include name="DeleteFromCommands"/>   
-        <!-- <include name="ListenerProperties"/>  
+        <include name="ListenerProperties"/>  
         <include name="ListenerEvents"/>  
         <include name="AddToFavoriteViewlet"/> 
          
         <include name="CompareListeners"/>
-        <include name="CheckDifferencesForListeners"/> -->
+        <include name="CheckDifferencesForListeners"/> 
         <include name="CreateListenerFromPlusIcon"/>  
         <!-- <include name="StartListenerForMultiple"/>
         <include name="StopListenerForMultiple"/> -->
@@ -53,7 +53,7 @@
         <include name="RenameFromCommandsForMultiple"/>
         <include name="DeleteFromCommandsForMultiple"/>   
         <include name="ListenerMultipleProperties"/>  
-       <!--  <include name="AddToFavoriteForMultipleListeners"/>  -->
+        <include name="AddToFavoriteForMultipleListeners"/>  
         <include name="Logout"/> 
         
        </methods>

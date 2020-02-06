@@ -409,12 +409,7 @@ public class NodeViewlet {
 		// Submit
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(4000);
-		
-		if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-		
+				
 		try
 		{
 			driver.findElement(By.id("yes")).click();
@@ -756,15 +751,10 @@ public class NodeViewlet {
 		if(Options.contains("Delete"))
 		{
 			// Delete the Node
-			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+			//driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.linkText("Delete")).click();
 			driver.findElement(By.id("accept-true")).click();
-			Thread.sleep(3000);
-			
-			if (!checkprogress()) {
-
-				System.out.println("exit");
-			}
+			Thread.sleep(8000);
 		}
 		else
 		{
@@ -776,12 +766,8 @@ public class NodeViewlet {
 			driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 			driver.findElement(By.linkText("Delete")).click();
 			driver.findElement(By.id("accept-true")).click();
-			Thread.sleep(3000);
+			Thread.sleep(8000);
 			
-			if (!checkprogress()) {
-
-				System.out.println("exit");
-			}
 		}	
 
 		// Edit the search field data

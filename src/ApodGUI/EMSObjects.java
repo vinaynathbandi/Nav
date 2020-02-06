@@ -44,8 +44,9 @@ public class EMSObjects
    	    }
    	    
    	    String AttributeValues=ListOfAttributes.toString();
+   	    //System.out.println("Attributes are: " +AttributeValues);
 		String[] ListOfAttributesPresent = AttributeValues.split(",");
-		System.out.println("Attributes are: " +ListOfAttributesPresent);
+		//System.out.println("Attributes are: " +ListOfAttributesPresent);
 		driver.findElement(By.cssSelector(".close-button")).click();
 		
 		/*//Store the Manager name into string 
@@ -73,13 +74,13 @@ public class EMSObjects
 		//Add the Required attributes which are located in the Object attribute page
 		for (String FinalListOfAttributes : ListOfAttributesPresent)
 		{
-			if(FinalListOfAttributes.contains("FinalListOfAttributes"))
+			if(FinalListOfAttributes.contains("EMS Server URL"))
 			{
 				
 			}
 			else
-			{
-				driver.findElement(By.cssSelector("//td[contains(.,'"+ FinalListOfAttributes +"')]")).click();
+			{  
+				driver.findElement(By.xpath("//td[contains(.,'"+ FinalListOfAttributes +"')]")).click();
 				driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]")).click();
 				//driver.findElement(By.cssSelector(".add-buttons > .g-btn-blue-style:nth-child(2)")).click();
 				Thread.sleep(1000);

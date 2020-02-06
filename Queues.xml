@@ -38,7 +38,7 @@
         <include name="Login"/>
         <include name="BrowseMessages"/> 
         <include name="ShowObjectAttributesForQueues"/> 
-        <include name="ShowQueueStatus"/>
+        <include name="ShowQueueStatus"/> 
         <include name="CreateQueueFromOptions"/>  
         <include name="CopyAsQueueCommands"/> 
         <include name="DeleteQueueFromCommandsOption"/>

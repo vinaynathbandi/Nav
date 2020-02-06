@@ -363,12 +363,7 @@ public class SubscriptionViewlet {
 		//Click on OK button
 		driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(10000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	   	
     	try
     	{
     		driver.findElement(By.id("yes")).click();
@@ -436,12 +431,7 @@ public class SubscriptionViewlet {
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectName);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	//Edit the search field data
     	for(int j=0; j<=AddSubscriptionName.length(); j++)
     	{
@@ -505,12 +495,7 @@ public class SubscriptionViewlet {
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscription);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	//Combining the strings 
     	String CopyasSubscriptionName=AddSubscriptionName+CopyObjectName;
     	//System.out.println(CopyasProcessName);
@@ -568,13 +553,8 @@ public class SubscriptionViewlet {
 		
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
-    	Thread.sleep(4000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	    	
+    	Thread.sleep(8000);
+    	    	    	
     	//Store the viewlet data into string
     	String Subviewlet=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
     	//System.out.println(Subviewlet);
@@ -1188,12 +1168,7 @@ public class SubscriptionViewlet {
 		//Click on OK button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
     	Thread.sleep(10000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	try
     	{
     		driver.findElement(By.id("yes")).click();
@@ -1261,12 +1236,7 @@ public class SubscriptionViewlet {
     	driver.findElement(By.xpath("//div[2]/div/input")).sendKeys(CopyObjectNameForMUltiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	try
     	{
     		driver.findElement(By.id("yes")).click();
@@ -1337,12 +1307,7 @@ public class SubscriptionViewlet {
     	driver.findElement(By.xpath("//div[2]/input")).sendKeys(RenameSubscriptionForMultiple);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	try
     	{
     		driver.findElement(By.id("yes")).click();
@@ -1415,12 +1380,7 @@ public class SubscriptionViewlet {
     	//Click on Yes
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(8000);
-    	
-    	if (!checkprogress()) {
-
-			System.out.println("exit");
-		}
-    	
+    	    	
     	/*//clear the search data
     	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
     	Thread.sleep(1000);*/

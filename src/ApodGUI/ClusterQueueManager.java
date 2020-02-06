@@ -164,7 +164,7 @@ public class ClusterQueueManager {
 	
 	@Parameters({"schemaName"})
 	@TestRail(testCaseId=243)
-	@Test(priority=7)
+	@Test(priority=8)
 	public static void ShowObjectAttributesForClusterQM(String schemaName, ITestContext context) throws InterruptedException
 	{
 		/*//Search with the name

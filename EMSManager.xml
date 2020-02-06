@@ -28,11 +28,11 @@
        <methods>
        
         <include name="Login"/>
-        <!-- <include name="EMSMQSCConsoleCommandOption"/>
+        <include name="EMSMQSCConsoleCommandOption"/>
         <include name="SaveMQSCConsoleResponceData"/>
-        <include name="ClearMQSCConsoleResponceData"/> -->
+        <include name="ClearMQSCConsoleResponceData"/> 
         <include name="ShowObjectAttributes"/>    
-      <!--   <include name="AddToFavorites"/> -->
+        <include name="AddToFavorites"/> 
         <include name="Logout"/>  
         
        </methods>
