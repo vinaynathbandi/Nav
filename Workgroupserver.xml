@@ -36,17 +36,17 @@
 				    <include name="DefaultConnection"/> 
 				    <include name="EditWorkgroup" /> 
 				    <include name="DeleteWorkgroup" /> 
-				    <include name="AddNode" /> 
+				    <include name="AddNode" />  
 				    <include name="AddRemoteQueueManager" />
 				    <include name="ModifyRemoteQueueManager" />  
 				    <include name="DeleteRemoteQueueManager" />    
 				    <include name="AddRemoteEMSManager" />
 					<include name="ModifyRemoteEMSServer" />
 				    <include name="DeleteRemoteEMSServer" />  
-
-					<include name="SearchFilter" />   
+   
 					<include name="WGSProperties"/>  
-					<include name="ShowObjectAttributes"/>   
+					<include name="ShowObjectAttributes"/> 
+					<include name="SearchFilter" /> 
 					<include name="Logout" />
 				</methods>
 

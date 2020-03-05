@@ -189,11 +189,7 @@ public class EMSTopic
 		}
 	}
 	
-	
-	@Parameters({"TopicNameFromIcon", "EMSDnode", "EMSDestinationManager"})
-	@TestRail(testCaseId=309)
-	@Test(priority=2)
-	public void CreateTopicFromPlusIcon(String TopicNameFromIcon, String EMSDnode, String EMSDestinationManager, ITestContext context) throws InterruptedException
+	public void CreateTopic(String name, String EMSDnode, String EMSDestinationManager) throws InterruptedException
 	{
 		//Click on + icon present in the viewlet
 		driver.findElement(By.xpath("//img[@title='Add EMS Topic']")).click();
@@ -254,26 +250,9 @@ public class EMSTopic
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
-		/*//Select WGS
-		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
-		WGS.selectByVisibleText(EMS_WGSNAME);
-		
-		//Select Node 
-		driver.findElement(By.xpath("//div[2]/input")).click();
-		driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
-		
-		//Select Manager
-         driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
-	     //driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
-         driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div[2]")).click();
-		
-		//Click on Select path button
-		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
-		Thread.sleep(1000);*/
-		
 		//Give the name of the topic
 		driver.findElement(By.id("name")).clear();
-		driver.findElement(By.id("name")).sendKeys(TopicNameFromIcon);
+		driver.findElement(By.id("name")).sendKeys(name);
 		
 		//Click on submit button
 		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
@@ -286,14 +265,23 @@ public class EMSTopic
 		catch (Exception e)
 		{
 			System.out.println("No Excception Ocuured");
-		}
-		
+		}	
+	}
+	
+	
+	@Parameters({"DeleteTopicNameFromIcon", "EMSDnode", "EMSDestinationManager"})
+	@TestRail(testCaseId=309)
+	@Test(priority=2)
+	public void CreateTopicFromPlusIcon(String DeleteTopicNameFromIcon, String EMSDnode, String EMSDestinationManager, ITestContext context) throws InterruptedException
+	{
+		CreateTopic(DeleteTopicNameFromIcon, EMSDnode, EMSDestinationManager);
+					
 		//Store the Topic viewlet data into string
 		String Viewletdata=driver.findElement(By.xpath("//datatable-body")).getText();
 		//System.out.println(Viewletdata);
 		
 		//Verification condition
-		if(Viewletdata.contains(TopicNameFromIcon))
+		if(Viewletdata.contains(DeleteTopicNameFromIcon))
 		{
 			System.out.println("Topic is created successfully");
 			context.setAttribute("Status", 1);
@@ -310,16 +298,16 @@ public class EMSTopic
 		
 	}
 	
-	@Parameters({"CopyObjectName", "TopicNameFromIcon" })
+	@Parameters({"CopyObjectName", "DeleteTopicNameFromIcon" })
 	@TestRail(testCaseId=310)
 	@Test(priority=4, dependsOnMethods= {"CreateTopicFromPlusIcon"})
-	public static void CopyAsFromCommands(String CopyObjectName, String TopicNameFromIcon, ITestContext context) throws InterruptedException
+	public static void CopyAsFromCommands(String CopyObjectName, String DeleteTopicNameFromIcon, ITestContext context) throws InterruptedException
 	{
 		//Store the EMS topic into string 
 		//String TopicNameFromOptions=driver.findElement(By.xpath("//datatable-body-cell[4]/div/span")).getText();
 		
 		//Search with the added Topic name
-    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(TopicNameFromIcon);
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(DeleteTopicNameFromIcon);
     	Thread.sleep(1000);
 		
 		//Select Copy as From commands
@@ -334,22 +322,21 @@ public class EMSTopic
     	Thread.sleep(8000);
     	
     	//Edit the search field data
-    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
+    	for(int j=0; j<=DeleteTopicNameFromIcon.length(); j++)
     	{
-    	
-    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+    		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
     	
     	//Refresh the viewlet
     	for(int i=0; i<=2; i++)
     	{
-    	driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
-    	Thread.sleep(4000);
+    		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+    		Thread.sleep(4000);
     	}
     	
     	//Combining the strings 
-    	String CopyasTopicName=TopicNameFromIcon+CopyObjectName;
+    	String CopyasTopicName=DeleteTopicNameFromIcon+CopyObjectName;
     	System.out.println(CopyasTopicName);
     	
     	//Search with the copyas data
@@ -384,12 +371,12 @@ public class EMSTopic
     	Thread.sleep(1000);	   	
 	}
 	
-	@Parameters({"TopicNameFromIcon", "CopyObjectName"})
+	@Parameters({"DeleteTopicNameFromIcon", "CopyObjectName"})
 	@TestRail(testCaseId=311)
 	@Test(priority=5, dependsOnMethods= {"CopyAsFromCommands"})
-	public static void DeleteFromCommands(String TopicNameFromIcon, String CopyObjectName, ITestContext context) throws InterruptedException
+	public static void DeleteFromCommands(String DeleteTopicNameFromIcon, String CopyObjectName, ITestContext context) throws InterruptedException
 	{
-		String CopyasTopicName=TopicNameFromIcon+CopyObjectName;
+		String CopyasTopicName=DeleteTopicNameFromIcon+CopyObjectName;
     	System.out.println(CopyasTopicName);
     	
     	driver.findElement(By.xpath("//input[@type='text']")).clear();
@@ -434,15 +421,16 @@ public class EMSTopic
     	Thread.sleep(1000);
 	}
 	
-	@Parameters({"MessageData", "PropertyName", "PropertyValue", "DurableName", "TopicNameFromIcon"})
+	@Parameters({"PublishTopicNameFromIcon", "EMSDnode", "EMSDestinationManager", "MessageData", "PropertyName", "PropertyValue", "DurableName"})
 	@TestRail(testCaseId=312)
 	@Test(priority=6, dependsOnMethods= {"CreateTopicFromPlusIcon"})
-	public void EMSTopicPublish(String MessageData, String PropertyName, String PropertyValue, String DurableName, String TopicNameFromIcon, ITestContext context) throws InterruptedException
+	public void EMSTopicPublish(String PublishTopicNameFromIcon, String EMSDnode, String EMSDestinationManager, String MessageData, String PropertyName, String PropertyValue, String DurableName, ITestContext context) throws InterruptedException
 	{
-		this.CreateDurable(DurableName, TopicNameFromIcon);
+		CreateTopic(PublishTopicNameFromIcon, EMSDnode, EMSDestinationManager);
+		CreateDurable(DurableName, PublishTopicNameFromIcon);
 		
 		//Search with topic name
-		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(TopicNameFromIcon);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(PublishTopicNameFromIcon);
 		
 		//Select publish From commands
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -459,11 +447,17 @@ public class EMSTopic
     	Thread.sleep(10000);
     	
     	//Remove the search data
-    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
+    	for(int j=0; j<=PublishTopicNameFromIcon.length(); j++)
     	{
     		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
     	}
     	Thread.sleep(4000);
+    	
+    	for(int m=0; m<=5; m++)
+    	{
+    		driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[2]")).click();
+    		Thread.sleep(4000);
+    	}
     	
     	//Search with durable name
     	driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(DurableName);
@@ -977,7 +971,7 @@ public class EMSTopic
 	}
 	
 	
-	public void CreateDurable(String DurableName, String TopicNameFromIcon) throws InterruptedException
+	public void CreateDurable(String DurableName, String PublishTopicNameFromIcon) throws InterruptedException
 	{
 		//Click on + icon
 		driver.findElement(By.xpath("//img[@title='Add EMS Durable']")).click();
@@ -1014,7 +1008,7 @@ public class EMSTopic
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + TopicList.get(i).getAttribute("id"));
 				String s=TopicList.get(i).getText();
-				if(s.equals(TopicNameFromIcon))
+				if(s.equals(PublishTopicNameFromIcon))
 				{
 					String id=TopicList.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();

@@ -491,6 +491,13 @@ public class QueuesViewlet
 	@TestRail(testCaseId = 73)
 	public static void QueueProperties(ITestContext context) throws InterruptedException
 	{
+		// Changing the Settings 
+		driver.findElement(By.cssSelector(".fa-cog")).click();
+		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//div[3]/button")).click();
+		Thread.sleep(1000);
+		
 		//Select Queue properties option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Properties...")).click();
@@ -1033,11 +1040,11 @@ public class QueuesViewlet
 			
 		}
 		
-		/*//Change the Settings We need to check show empty queues for verification
+		//Change the Settings We need to check show empty queues for verification
 		driver.findElement(By.cssSelector(".fa-cog")).click();
 		driver.findElement(By.cssSelector(".checkbox:nth-child(2) > input")).click();
 		driver.findElement(By.cssSelector(".btn-group:nth-child(3) > .btn")).click();
-		Thread.sleep(2000);*/
+		Thread.sleep(2000);
 		
 		//Serach with empty queue name
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Q_QueueName);

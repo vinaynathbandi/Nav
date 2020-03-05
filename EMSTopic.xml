@@ -3,51 +3,45 @@
 <suite name="Navigator">
  <test name="Test Topic Viewlet">
      <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="password" value="admin"/>
+     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+  
     <parameter name="Dashboardname" value="TopicViewlet Verification"/>
     <parameter name="wgs" value="1"/>
-    
     <parameter name="TopicName" value="New Topic Viewlet"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
     <parameter name="DurableViewletName" value="Durable Viewlet"/>
     
-    <parameter name="TopicNameFromIcon" value="EMS.TOPIC.ICON"/>
-    
-    <parameter name="schemaName" value="TopicSchema"/>    
-    
+    <parameter name="schemaName" value="TopicSchema"/>  
+     
+    <parameter name="EMSDnode" value="EMSAGENT01"/>
+    <parameter name="EMSDestinationManager" value="EMS-SERVER"/> 
+    <parameter name="DeleteTopicNameFromIcon" value="EMS.TOPIC.ICON"/>
     <parameter name="CopyObjectName" value=".Copy"/>
-    <parameter name="DurableName" value="Publish.Durable"/>
     
+    <parameter name="PublishTopicNameFromIcon" value="EMS.TOPIC.PUBLISH"/>
+    <parameter name="DurableName" value="TopicPublish.Durable"/>
     <parameter name="MessageData" value="Test the publish option and sending the message to queue"/>
     <parameter name="PropertyName" value="Test Property"/>
     <parameter name="PropertyValue" value="Test Property value"/>
     
     <parameter name="FavoriteViewletName" value="Favorite Viewlet for Topic"/>
-    <parameter name="Favwgs" value="1"/>
     
     <parameter name="CopyObjectNameForMultiple" value="SYSTEM.TEST.TOPIC.COPY"/>
     
+    <parameter name="AddSubscriptionNameforMultiple" value="Test.Multiple.Sub421"/>
     <parameter name="MessageDataForMultiple" value="Add Message into the destination queue"/>
     <parameter name="PropertyNameForMultiple" value="Test"/>
     <parameter name="PropertyValueForMultiple" value="Test"/>
     <parameter name="DestinationTopicName" value="SYSTEM.ADMIN.TOPIC"/>
-    <parameter name="AddSubscriptionName" value="AAAA.Sub.123"/>
-    <parameter name="DWGS" value="WGS10"/>
+    
+   <!--  <parameter name="DWGS" value="WGS10"/>
     <parameter name="Dnode" value="DESKTOP-E1JT2VR"/>
     
     <parameter name="AddSubscriptionName" value="Test.Sub421"/>
     
     <parameter name="NodeName" value="DESKTOP-E1JT2VR"/>
     <parameter name="DestinationManager" value="M10"/>
-    <parameter name="DestinationQueue" value="AAA.LQ"/>
-    
-    <parameter name="EMSDnode" value="EMSAGENT01"/>
-    <parameter name="EMSDestinationManager" value="EMS-SERVER"/>
-    
-    <parameter name="AddSubscriptionNameforMultiple" value="Test.Multiple.Sub421"/>
+    <parameter name="DestinationQueue" value="AAA.LQ"/> -->
+  
    
      <classes>
       <class name="ApodGUI.EMSTopic">

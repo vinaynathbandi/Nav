@@ -286,7 +286,7 @@ public class BridgeViewlet {
 		
 		for(int j=0; j<=4; j++)
 		{
-			driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+			driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
 		}
 		
 		//Store the Topic viewlet data into string

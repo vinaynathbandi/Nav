@@ -27,6 +27,8 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Set;
+
 import testrail.Settings;
 import testrail.TestClass;
 import testrail.TestRail;
@@ -49,6 +51,8 @@ public class TopicViewlet
 	static String DestinationTopicName;
 	static String Manager1;
 	static String Manager2;
+	static String Manager1Queuename;
+	static String Manager2Queuename;
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -66,6 +70,8 @@ public class TopicViewlet
 		DestinationTopicName =Settings.getDestinationTopicName();
 		Manager1 =Settings.getManager1();
 		Manager2 =Settings.getManager2();
+		Manager1Queuename =Settings.getManager1Queuename();
+		Manager2Queuename =Settings.getManager2Queuename();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname"})
@@ -155,6 +161,24 @@ public class TopicViewlet
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(6000);
 		
+		//Click on Viewlet
+		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
+		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
+			
+		//Create subscription
+		driver.findElement(By.cssSelector(".object-type:nth-child(12)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys("Test Subscription");
+		
+		//Work group server selection
+		Select dd1=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
+		Thread.sleep(2000);
+		dd1.selectByVisibleText(WGSName);
+		
+	    //Click on Save changes button
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(6000);
+				
 		if(driver.getPageSource().contains(Topicname))
 		{
 			System.out.println("Topic Viewlet is created");
@@ -442,8 +466,8 @@ public class TopicViewlet
     	driver.findElement(By.id("messageData")).sendKeys(MessageData);
     	Thread.sleep(2000);
     	
-    	driver.findElement(By.id("propertyName")).sendKeys(PropertyName);
-    	driver.findElement(By.id("propertyValue")).sendKeys(PropertyValue);
+    	//driver.findElement(By.id("propertyName")).sendKeys(PropertyName);
+    	//driver.findElement(By.id("propertyValue")).sendKeys(PropertyValue);
     	driver.findElement(By.cssSelector(".btn-primary")).click();
     	Thread.sleep(6000);
     	
@@ -474,13 +498,15 @@ public class TopicViewlet
     	driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
     	Thread.sleep(4000);
     	System.out.println("Pop up is closed");
+    	
     	//Refresh the queue viewlet
-    	/*for(int i=0; i<=6; i++)
+    	for(int i=0; i<=4; i++)
     	{
     		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+    		Thread.sleep(4000);
     	}
-    	Thread.sleep(2000);*/
-    	System.out.println("get queue depth");
+    	
+    	//System.out.println("get queue depth");
     	
     	int Queue_Depth0=5;
     	if(!WGSName.contains("MQM"))
@@ -669,7 +695,7 @@ public class TopicViewlet
 		Thread.sleep(4000);
 		
 		//Storing the Favorite Viewlet data
-		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Favdata=driver.findElement(By.xpath("//div[5]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		                                            
 		//Verification of topic added to favorite viewlet 
 		if(Favdata.contains(TopicName))
@@ -689,10 +715,7 @@ public class TopicViewlet
 		
 	}
 	
-	@Parameters({"TopicNameFromIcon", "DescriptionFromIcon", "TopicUniquestringFromICon"})
-	@TestRail(testCaseId=147)
-	@Test(priority=10)
-	public void CreateTopicFromPlusIcon(String TopicNameFromIcon, String DescriptionFromIcon, String TopicUniquestringFromICon, ITestContext context) throws InterruptedException
+	private void topiccreation(String TopicNameFromIcon, String DescriptionFromIcon, String TopicUniquestringFromICon, ITestContext context, String manager) throws InterruptedException
 	{
 		//Click on + icon present in the viewlet
 		driver.findElement(By.xpath("//img[@title='Add Topic']")).click();
@@ -728,7 +751,7 @@ public class TopicViewlet
 		}
 		Thread.sleep(2000);
 		
-		/*//Select Manager
+		//Select Manager
 		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
 		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
 		//Select Manager
@@ -742,9 +765,10 @@ public class TopicViewlet
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
 				String s=TopicManager.get(i).getText();
-				if(s.equals(Manager1))
+				if(s.equals(manager))
 				{
 					String id=TopicManager.get(i).getAttribute("id");
+					Thread.sleep(2000);
 					driver.findElement(By.id(id)).click();
 					break;
 				}
@@ -754,7 +778,7 @@ public class TopicViewlet
 		{
 			ex.printStackTrace();
 		}
-        Thread.sleep(1000);*/
+        Thread.sleep(1000);
 		
 		//Click on Select path button
 		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
@@ -814,7 +838,138 @@ public class TopicViewlet
 			context.setAttribute("Comment", "Failed to create topic using add icon");
 			driver.findElement(By.xpath("Topic vielwr Failed")).click();
 		}
-		Thread.sleep(1000);		
+		Thread.sleep(1000);	
+	}
+	
+	@Parameters({"TopicNameFromIcon", "DescriptionFromIcon", "TopicUniquestringFromICon"})
+	@TestRail(testCaseId=147)
+	@Test(priority=10)
+	public void CreateTopicFromPlusIcon(String TopicNameFromIcon, String DescriptionFromIcon, String TopicUniquestringFromICon, ITestContext context) throws InterruptedException
+	{		
+		
+		
+		topiccreation(TopicNameFromIcon, DescriptionFromIcon, TopicUniquestringFromICon, context, Manager1);
+		/*//Click on + icon present in the viewlet
+		driver.findElement(By.xpath("//img[@title='Add Topic']")).click();
+		
+		//Select WGS
+		Select WGS=new Select(driver.findElement(By.xpath("//app-mod-select-object-path-for-create/div/div/select")));
+		WGS.selectByVisibleText(WGSName);
+		
+		//Select Node 
+		driver.findElement(By.xpath("//ng-select/div")).click();
+		Thread.sleep(2000);
+		try 
+		{
+			List<WebElement> TopicNode=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicNode.size());	
+			for (int i=0; i<TopicNode.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicNode.get(i).getAttribute("id"));
+				String s=TopicNode.get(i).getText();
+				if(s.equals(Dnode))
+				{
+					String id=TopicNode.get(i).getAttribute("id");
+					Thread.sleep(3000);
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(2000);
+		
+		//Select Manager
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		//driver.findElement(By.xpath("//ng-dropdown-panel/div/div[2]/div")).click();
+		//Select Manager
+       // driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+        try 
+		{
+			List<WebElement> TopicManager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(TopicManager.size());	
+			for (int i=0; i<TopicManager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Topic.get(i).getText());
+				System.out.println("Radio button id:" + TopicManager.get(i).getAttribute("id"));
+				String s=TopicManager.get(i).getText();
+				if(s.equals(Manager1))
+				{
+					String id=TopicManager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+        Thread.sleep(1000);
+		
+		//Click on Select path button
+		driver.findElement(By.xpath("//div[3]/div/div/div/button")).click();
+		Thread.sleep(1000);
+		
+		//Give the name of the topic
+		driver.findElement(By.id("name")).clear();
+		driver.findElement(By.id("name")).sendKeys(TopicNameFromIcon);
+		
+		//Add Data into description field
+		driver.findElement(By.id("description")).sendKeys(DescriptionFromIcon);
+		
+		//Add Topic string
+		driver.findElement(By.id("topicString")).sendKeys(TopicUniquestringFromICon);
+		
+		//Click on submit button
+		driver.findElement(By.xpath("//div[2]/div/div/div/button")).click();
+		Thread.sleep(10000);
+				
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+		}
+		catch(Exception e)
+		{
+			System.out.println("No error messages");
+		}
+		
+		//Edit the search field data
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromIcon);
+    	
+		
+		//Store the Topic viewlet data into string
+		String Viewletdata=driver.findElement(By.xpath("//div[3]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		//System.out.println(Viewletdata);
+		
+		//Edit the search field data
+    	for(int j=0; j<=TopicNameFromIcon.length(); j++)
+    	{
+    	
+    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	Thread.sleep(4000);
+		
+		//Verification condition
+		if(Viewletdata.contains(TopicNameFromIcon))
+		{
+			System.out.println("Topic is created successfully");
+			context.setAttribute("Status",1);
+			context.setAttribute("Comment", "Topics are added created using add icon");
+		}
+		else
+		{
+			System.out.println("Topic is not created");
+			context.setAttribute("Status",5);
+			context.setAttribute("Comment", "Failed to create topic using add icon");
+			driver.findElement(By.xpath("Topic vielwr Failed")).click();
+		}
+		Thread.sleep(1000);	*/	
 	}
 	
 	@Test(priority=11)
@@ -963,12 +1118,13 @@ public class TopicViewlet
 		Thread.sleep(1000);
 	}
 	
-	
-	@Parameters({"CopyObjectNameForMultiple", "TopicUniquestringForMultipleCopy", "TopicNameFromIcon"})
+	@Parameters({"TopicNameFromIcon", "DescriptionFromIcon", "TopicUniquestringFromICon", "CopyObjectNameForMultiple", "TopicUniquestringForMultipleCopy"})
 	@TestRail(testCaseId=142)
 	@Test(priority=13, dependsOnMethods= {"CreateTopicFromPlusIcon"})
-	public void CopyAsFromCommandsForMultipleTopics(String CopyObjectNameForMultiple, String TopicUniquestringForMultipleCopy, String TopicNameFromIcon, ITestContext context) throws InterruptedException
+	public void CopyAsFromCommandsForMultipleTopics(String TopicNameFromIcon, String DescriptionFromIcon, String TopicUniquestringFromICon, String CopyObjectNameForMultiple, String TopicUniquestringForMultipleCopy, ITestContext context) throws InterruptedException
 	{
+		topiccreation(TopicNameFromIcon, DescriptionFromIcon, TopicUniquestringFromICon, context, Manager2);
+		
 		//Search with the topic name from icon
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
 		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromIcon);
@@ -1081,16 +1237,16 @@ public class TopicViewlet
     	}
     	Thread.sleep(1000);
     	
-    	/*//Clear the search data
-    	driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();*/
+    	
 	}
 	
-	@Parameters({"AddSubscriptionNameforMultiple", "MessageDataForMultiple", "PropertyNameForMultiple", "PropertyValueForMultiple"})
+	@Parameters({"TopicNameFromIcon", "DescriptionFromIcon", "TopicUniquestringFromICon", "AddSubscriptionNameforMultiple", "MessageDataForMultiple", "PropertyNameForMultiple", "PropertyValueForMultiple"})
 	@TestRail(testCaseId=144)
 	@Test(priority=15)
-	public void PublishFromCommandsForMultipleTopics(String AddSubscriptionNameforMultiple, String MessageDataForMultiple, String PropertyNameForMultiple, String PropertyValueForMultiple, ITestContext context) throws InterruptedException
+	public void PublishFromCommandsForMultipleTopics(String TopicNameFromIcon, String DescriptionFromIcon, String TopicUniquestringFromICon, String AddSubscriptionNameforMultiple, String MessageDataForMultiple, String PropertyNameForMultiple, String PropertyValueForMultiple, ITestContext context) throws InterruptedException
 	{
-		this.AddsubscriptionForMultiple(AddSubscriptionNameforMultiple);
+		AddsubscriptionForMultiple(AddSubscriptionNameforMultiple, TopicNameFromIcon, Manager1, Manager1Queuename);
+		AddsubscriptionForMultiple(AddSubscriptionNameforMultiple, TopicNameFromIcon, Manager2, Manager2Queuename);
 		
 		//Show Empty queues
     	driver.findElement(By.xpath("//i[3]")).click();
@@ -1100,21 +1256,39 @@ public class TopicViewlet
     	Thread.sleep(1000);
     	
     	//Search the queue
-    	driver.findElement(By.xpath("//input[@type='text']")).clear();
-    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(DestinationQueue);
-    	Thread.sleep(2000);
+    	searchqueue1();
     	
-    	int Queue_Depth=5;
+    	int Queue_Depth1=5;
     	if(!WGSName.contains("MQM"))
     	{
-    		Queue_Depth=6;
+    		Queue_Depth1=6;
     	}
     	
     	//get the Current depth of the queue
-    	String Queuedepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
-    	int result = Integer.parseInt(Queuedepth);
-		System.out.println(result);
+    	String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth1 +"]/div/span")).getText();
+    	int BeforeQueue1result1 = Integer.parseInt(Queuedepth1);
+		System.out.println(BeforeQueue1result1);
+		
+		//Clear search data
+		Clearqueue1();
+		
+		//Search queue2
+		searchqueue2();
+		int Queue_Depth2=5;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		Queue_Depth2=6;
+    	}
     	
+    	//get the Current depth of the queue
+    	String Queuedepth2=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth2 +"]/div/span")).getText();
+    	int BeforeQueue2result2 = Integer.parseInt(Queuedepth2);
+		System.out.println(BeforeQueue2result2);
+		
+		//Search with the Topics
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).clear();
+		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(TopicNameFromIcon);
+		
 		//Select the multiple topics and choose publish option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -1142,10 +1316,79 @@ public class TopicViewlet
 	    }
     	Thread.sleep(4000);
     	
+    	//Remove the serach
+    	for(int k=0; k<=TopicNameFromIcon.length(); k++)
+    	{
+    		driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
+    	}
+    	
+    	//search with queue1
+    	searchqueue1();
+    	
+    	//Open the browse messages page and close it for queue1
+    	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	driver.findElement(By.linkText("Browse messages")).click();
+    	Thread.sleep(4000);
+    	
+    	//Close the popup page
+    	driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
+    	Thread.sleep(4000);
+    	
+    	
+    	//Refresh the queue viewlet
+    	for(int i=0; i<=4; i++)
+    	{
+    		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+    		Thread.sleep(4000);
+    	}
+    	    	
+    	int Queue_Depth3=5;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		Queue_Depth3=6;
+    	}
     	//get the Current depth of the queue
-    	String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
-    	int result1 = Integer.parseInt(Queuedepth1);
-		System.out.println(result1);
+    	String Queuedepthforqueue1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth3 +"]/div/span")).getText();
+    	//String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth0 +"]/div/span")).getText();
+    	int Afterresult1 = Integer.parseInt(Queuedepthforqueue1);
+		//System.out.println("Depth of the after publishing: " +Afterresult1);
+		
+		//Clear search1
+		Clearqueue1();
+		
+		//search with queue1
+    	searchqueue2();
+    	
+    	//Open the browse messages page and close it for queue1
+    	driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+    	driver.findElement(By.linkText("Browse messages")).click();
+    	Thread.sleep(4000);
+    	
+    	//Close the popup page
+    	driver.findElement(By.xpath("//app-console-tabs/div/div/ul/li/div/div[2]/i")).click();
+    	Thread.sleep(4000);
+    	    	
+    	//Refresh the queue viewlet
+    	for(int i=0; i<=4; i++)
+    	{
+    		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+    		Thread.sleep(4000);
+    	}
+    	
+    	
+    	int Queue_Depth4=5;
+    	if(!WGSName.contains("MQM"))
+    	{
+    		Queue_Depth4=6;
+    	}
+    	//get the Current depth of the queue
+    	String Queuedepthforqueue2=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth4 +"]/div/span")).getText();
+    	//String Queuedepth1=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth0 +"]/div/span")).getText();
+    	int Afterresult2 = Integer.parseInt(Queuedepthforqueue2);
+		//System.out.println("Depth of the after publishing: " +Afterresult2);
+		
+		//Clear search1
+		Clearqueue2();
     	
 		//Show Empty queues
     	driver.findElement(By.xpath("//i[3]")).click();
@@ -1154,7 +1397,12 @@ public class TopicViewlet
     	driver.findElement(By.xpath("//div[3]/button")).click();
     	Thread.sleep(1000);
     	
-    	if(result!=result1)
+    	System.out.println("Before queue1 is: " +BeforeQueue1result1);
+    	System.out.println("Before queue2 is: " +BeforeQueue2result2);
+    	System.out.println("After queue1 is: " +Afterresult1);
+    	System.out.println("After queue2 is: " +Afterresult2);
+    	
+    	if(BeforeQueue1result1!=Afterresult1 && BeforeQueue2result2 != Afterresult2)
     	{
     		System.out.println("Publish the messgae into queue is done for multipublish");
     		context.setAttribute("Status",1);
@@ -1167,6 +1415,38 @@ public class TopicViewlet
 			context.setAttribute("Comment", "Failed to publish multiple messages int queue");
     		driver.findElement(By.xpath("Multi Publish failed")).click();
     	}
+	}
+	
+	private void searchqueue1() throws InterruptedException
+	{
+		//Search the queue
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Manager1Queuename);
+    	Thread.sleep(2000);
+	}
+	
+	private void searchqueue2() throws InterruptedException
+	{
+		//Search the queue
+    	driver.findElement(By.xpath("//input[@type='text']")).clear();
+    	driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Manager2Queuename);
+    	Thread.sleep(2000);
+	}
+	
+	private void Clearqueue1()
+	{
+		for(int i=0; i<=Manager1Queuename.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
+	}
+	
+	private void Clearqueue2()
+	{
+		for(int i=0; i<=Manager2Queuename.length(); i++)
+		{
+			driver.findElement(By.xpath("//input[@type='text']")).sendKeys(Keys.BACK_SPACE);
+		}
 	}
 	
 	
@@ -1266,7 +1546,7 @@ public class TopicViewlet
 		Thread.sleep(1000);
 		
 		//Storing the Favorite Viewlet data
-		String Favdata=driver.findElement(By.xpath("//div[4]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		String Favdata=driver.findElement(By.xpath("//div[5]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
 		
 		//Verification of topics added to favorite viewlet
 		if(Favdata.contains(TopicName2) && Favdata.contains(TopicName3))
@@ -1346,25 +1626,7 @@ public class TopicViewlet
 		{
 			driver.findElement(By.xpath("(//input[@type='text'])[3]")).sendKeys(Keys.BACK_SPACE);
 		}
-		
-		//Click on Viewlet
-		driver.findElement(By.cssSelector("button.g-button-blue.button-add")).click();
-		driver.findElement(By.cssSelector("div.mod-select-viewlet-buttons > button.g-button-blue")).click(); 
-			
-		//Create subscription
-		driver.findElement(By.cssSelector(".object-type:nth-child(12)")).click();
-		driver.findElement(By.name("viewletName")).clear();
-		driver.findElement(By.name("viewletName")).sendKeys("Test Subscription");
-		
-		//Work group server selection
-		Select dd=new Select(driver.findElement(By.cssSelector("select[name=\"wgsKey\"]")));
-		Thread.sleep(2000);
-		dd.selectByVisibleText(WGSName);
-		
-	    //Click on Save changes button
-		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(6000);
-		
+				
 		//Search with the manager name
 		driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(ManagerName);
 		Thread.sleep(1000);
@@ -1407,7 +1669,7 @@ public class TopicViewlet
 		Thread.sleep(1000);
 		
 		//Give the Topic String
-		driver.findElement(By.id("topicString")).sendKeys(TopicUniquestring);
+		//driver.findElement(By.id("topicString")).sendKeys(TopicUniquestring);
 		Thread.sleep(3000);
 		
 		//Click on Destination tab
@@ -1514,8 +1776,12 @@ public class TopicViewlet
 	
 	
 	@Parameters({"AddSubscriptionNameforMultiple"})
-	public void AddsubscriptionForMultiple(String AddSubscriptionNameforMultiple) throws InterruptedException
-	{		
+	public void AddsubscriptionForMultiple(String AddSubscriptionNameforMultiple, String TopicNameFromIcon, String manager, String Queue) throws InterruptedException
+	{	
+		//Search with manager name
+		driver.findElement(By.xpath("(//input[@type='text'])[4]")).clear();
+		driver.findElement(By.xpath("(//input[@type='text'])[4]")).sendKeys(manager);
+		
 		//click on check box and choose create subscription
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		driver.findElement(By.linkText("Create Subscription")).click();
@@ -1539,7 +1805,7 @@ public class TopicViewlet
 				//System.out.println("Radio button text:" + Topic.get(i).getText());
 				System.out.println("Radio button id:" + Topic.get(i).getAttribute("id"));
 				String s=Topic.get(i).getText();
-				if(s.equals(DestinationTopicName))
+				if(s.equals(TopicNameFromIcon))
 				{
 					String id=Topic.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1603,7 +1869,7 @@ public class TopicViewlet
 				//System.out.println("Radio button text:" + Manager.get(i).getText());
 				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
 				String s=Manager.get(i).getText();
-				if(s.equals(DestinationManager))
+				if(s.equals(manager))
 				{
 					String id=Manager.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();
@@ -1628,7 +1894,7 @@ public class TopicViewlet
 				//System.out.println("Radio button text:" + QueueName.get(i).getText());
 				System.out.println("Radio button id:" + QueueName.get(i).getAttribute("id"));
 				String s=QueueName.get(i).getText();
-				if(s.equals(DestinationQueue))
+				if(s.equals(Queue))
 				{
 					String id=QueueName.get(i).getAttribute("id");
 					driver.findElement(By.id(id)).click();

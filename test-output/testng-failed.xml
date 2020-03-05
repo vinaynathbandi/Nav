@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Test Queue Viewlet(failed)">
-    <parameter name="Dashboardname" value="QueuesProperties"/>
-    <parameter name="password" value="admin"/>
+  <test thread-count="5" name="Test EMS Manager Viewlet options(failed)">
+    <parameter name="Dashboardname" value="EMS Manager"/>
+    <parameter name="wgs" value="1"/>
     <parameter name="uname" value="Admin"/>
-    <parameter name="LocalQueue" value="Local Queue"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="Query" value="show queues"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="PutMessageOption" value="Inhibited"/>
-    <parameter name="GetMessageOption" value="Inhibited"/>
+    <parameter name="FavoriteViewletName" value="EMS Manager Favorite Viewlet"/>
     <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="password" value="admin"/>
+    <parameter name="WGSName" value="WGS10 - 1"/>
+    <parameter name="Queuename" value="CommandQueue1"/>
+    <parameter name="Managername" value="EMS Manager"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="Queue" value="create queue "/>
+    <parameter name="SchemaName" value="EMSManager"/>
     <classes>
-      <class name="ApodGUI.QueueProperties">
+      <class name="ApodGUI.EMSManagerViewlet">
         <methods>
-          <include name="tearDown"/>
           <include name="beforeTest"/>
-          <include name="PutMessageInInhibitedQueue" invocation-numbers="0"/>
+          <include name="tearDown"/>
+          <include name="ShowObjectAttributes" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.QueueProperties -->
+      </class> <!-- ApodGUI.EMSManagerViewlet -->
     </classes>
-  </test> <!-- Test Queue Viewlet(failed) -->
+  </test> <!-- Test EMS Manager Viewlet options(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

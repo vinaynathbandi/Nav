@@ -11,7 +11,7 @@
     
     <parameter name="TopicNameFromOptions" value="SYSTEM.DEFAULT.TOPIC.Options"/>
     <parameter name="Description" value="Test the description "/>
-    <parameter name="TopicUniquestring" value="Test"/>
+    <parameter name="TopicUniquestring" value="nastel2"/>
     
     <parameter name="TopicUniquestringForCopyAs" value="TestCopy"/>
     <parameter name="CopyObjectName" value=".Copy"/>
@@ -46,23 +46,23 @@
        
         <include name="Login"/>
         <include name="AddTopicViewlet"/> 
-        <include name="ShowObjectAttributesForTopic"/>  
+        <include name="ShowObjectAttributesForTopic"/>   
         <include name="CreateTopic"/> 
         <include name="CopyAsFromCommands"/>
-        <include name="DeleteFromCommands"/> 
-       <!--  <include name="PublishFromCommands"/>   --> 
+        <include name="DeleteFromCommands"/>  
+        <include name="PublishFromCommands"/>   
         <include name="TopicProperties"/> 
-        <include name="TopicEvents"/> 
-        <include name="AddToFavoriteViewlet"/> 
+        <include name="TopicEvents"/>  
+        <include name="AddToFavoriteViewlet"/>   
         <include name="CreateTopicFromPlusIcon"/> 
         
         <include name="CompareTopics"/> 
-        <include name="CheckDifferencesForTopics"/>
+        <include name="CheckDifferencesForTopics"/> 
         <include name="CopyAsFromCommandsForMultipleTopics"/>
-        <include name="DeleteFromCommandsForMultipleTopics"/>
-      <!--   <include name="PublishFromCommandsForMultipleTopics"/>  -->
+        <include name="DeleteFromCommandsForMultipleTopics"/> 
+        <include name="PublishFromCommandsForMultipleTopics"/>  
         <include name="MultipleProperties"/>  
-        <include name="AddToFavoriteForMultipleTopics"/>  
+        <include name="AddToFavoriteForMultipleTopics"/>   
         <include name="Logout"/> 
         
        </methods>

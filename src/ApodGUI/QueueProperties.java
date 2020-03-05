@@ -24,6 +24,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.w3c.dom.NodeList;
 
 import testrail.Settings;
 import testrail.TestClass;
@@ -53,9 +54,9 @@ public class QueueProperties
 		DestinationManager =Settings.getDestinationManager();
 	}
 	
-	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "LocalQueue"})
+	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "LocalQueue", "Managername", "Channelname"})
 	@Test
-	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String LocalQueue) throws Exception
+	public static void Login(String sDriver, String sDriverpath, String Dashboardname, String LocalQueue, String Managername, String Channelname) throws Exception
 	{
 		Settings.read();
 		String URL = Settings.getSettingURL();
@@ -140,11 +141,45 @@ public class QueueProperties
 		driver.findElement(By.xpath("//div[3]/button")).click();
 		Thread.sleep(1000);
 		
+		// ---- Creating Manager Viewlet ----
+		//Click on Viewlet button
+		driver.findElement(By.xpath("//button[2]")).click();
+		driver.findElement(By.xpath("//app-mod-select-viewlet-type/div/div[2]/button[2]")).click(); 
+			
+		//Create Manager
+		driver.findElement(By.cssSelector(".object-type:nth-child(2)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys(Managername);
+		
+		//Select WGS type
+		Select WGSSelection=new Select(driver.findElement(By.name("wgsKey")));
+		WGSSelection.selectByVisibleText(WGSName);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(1000);
+		
+		// ---- Creating Channel Viewlet ----
+		//Click on Viewlet button
+		driver.findElement(By.xpath("//button[2]")).click();
+		driver.findElement(By.xpath("//app-mod-select-viewlet-type/div/div[2]/button[2]")).click(); 
+			
+		//Create Manager
+		driver.findElement(By.cssSelector(".object-type:nth-child(4)")).click();
+		driver.findElement(By.name("viewletName")).clear();
+		driver.findElement(By.name("viewletName")).sendKeys(Channelname);
+		
+		//Select WGS type
+		Select WGSSelection1=new Select(driver.findElement(By.name("wgsKey")));
+		WGSSelection1.selectByVisibleText(WGSName);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(1000);
+		
 	}
 	
 	@Parameters({"PutMessageOption"})
 	@Test(priority=1)
-	public void PutMessageInInhibitedQueue(String PutMessageOption) throws InterruptedException
+	public void PutMessageInInhibitedQueue(String PutMessageOption, ITestContext context) throws InterruptedException
 	{
 		//Select Browse Messages Option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -159,8 +194,52 @@ public class QueueProperties
 		Thread.sleep(4000);
 		
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		
+		List<WebElement> lst=driver.findElements(By.xpath("//app-dropdown[@id='dropdown-block']/div/ul/li[6]/ul/li"));
+		
+		StringBuilder buffer=new StringBuilder();
+		for(WebElement lstvalue : lst)
+		{
+			List<WebElement> links= lstvalue.findElements(By.tagName("a"));
+			//System.out.println("options are: " +lstvalue.getAttribute("innerHTML"));
+			for(WebElement weblink : links)
+			{
+				//System.out.println("options links html:  " +weblink.getAttribute("innerHTML"));
+				String options=weblink.getAttribute("innerHTML");
+				buffer.append(options);
+				buffer.append(",");
+				
+			}
+		}
+		
+		String Listofoptions=buffer.toString();
+		System.out.println("Final options are: " +Listofoptions);
+		
+		
+		//Refresh viewlet
+		driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+		Thread.sleep(4000);
+		
+		if(Listofoptions.contains("Put New Message"))
+		{
+			System.out.println("Put messages inhibited is not working");
+			this.Resetput();
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Put messages inhibited is failed");
+			driver.findElement(By.id("Put Inhibited failed")).click();
+		}
+		else
+		{
+			System.out.println("Put messages inhibited is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Put messages inhibited is working");
+		}
+		
+
+		this.Resetput();
+		
 		/*Actions MessagesMousehour=new Actions(driver);
-		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();*/
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
 		
 		//driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
 		WebElement op=driver.findElement(By.id("dropdown-block")).findElement(By.tagName("div")).findElement(By.tagName("ul"));
@@ -176,15 +255,17 @@ public class QueueProperties
 				System.out.println("Sub options size is: " +Sublis.size());
 				for(WebElement subvalue : Sublis)
 				{
-					
+					WebElement dt=subvalue.findElement(By.tagName("a"));
 					System.out.println("options are: " +subvalue.getAttribute("innerHTML"));
 					System.out.println("Attributes are: " +subvalue.getAttribute("title"));
-				}
-				
+					System.out.println("options are text: " +subvalue.getAttribute("innerTEXT"));
+					System.out.println("options are text: " +subvalue.getAttribute("value"));
+					System.out.println("options are text: " +subvalue.getText());
+				}				
 			}
-		}
+		}*/
 		
-		this.Resetput();
+		
 	}
 	
 	
@@ -249,6 +330,411 @@ public class QueueProperties
 		this.Resetget();
 	}
 	
+	@Parameters({"Managername"})
+	@Test(priority=3)
+	public void MQStatisticsForManager(String Managername, ITestContext context) throws InterruptedException
+	{		
+		//Select Browse Messages Option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("MQ Statistics...")).click();
+		Thread.sleep(4000);
+		
+		//Select last 24hours option
+		Select Period=new Select(driver.findElement(By.xpath("//div[2]/div/div/select")));
+		Period.selectByVisibleText("Last 24 hours");
+		
+		//Get the statistics data
+		String BeforeStatisctis=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Before statistics data is: " +BeforeStatisctis);
+		
+		//Close button
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(3000);
+		
+		//---- Change the properties for getting the statistics ----
+		this.EnableStatistics();
+		
+		//------ Update description ---- 
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+		
+		driver.findElement(By.linkText("General")).click();
+		Thread.sleep(3000);
+		
+		//Change description
+		driver.findElement(By.id("qmngrDescription")).clear();
+		driver.findElement(By.id("qmngrDescription")).sendKeys("Statistics");
+		Thread.sleep(4000);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(50000);
+		
+		for(int i=0; i<=4; i++)
+		{
+			driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[2]")).click();
+			Thread.sleep(10000);
+		}
+		
+		//---- Select Browse Messages Option --
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("MQ Statistics...")).click();
+		Thread.sleep(4000);
+		
+		//Select last 24hours option
+		Select Period1=new Select(driver.findElement(By.xpath("//div[2]/div/div/select")));
+		Period1.selectByVisibleText("Last 24 hours");
+		
+		//Get the statistics data
+		String AfterStatisctis=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("After statistics data is: " +AfterStatisctis);
+		
+		//Close button
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(3000);
+		
+		//---- Change the properties for stopping the statistics ----
+		this.DiableStatistics();
+		
+		if(AfterStatisctis.equalsIgnoreCase(BeforeStatisctis)) 
+		{
+			System.out.println("Manager statistics not updated");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Manager statistics not updated");
+			driver.findElement(By.id("Manager statistics failed")).click();
+		}
+		else
+		{
+			System.out.println("Manager statistics is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Manager statistics updated");
+		}
+	}
+	
+	@Test(priority=4)
+	public void QueueStatistics(ITestContext context) throws InterruptedException
+	{
+		int ManagerName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			ManagerName_Index=4;
+		}
+		
+		//Get the manager name
+		String FinalManager=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ManagerName_Index +"]/div/span")).getText();
+		System.out.println("Manager name is: " +FinalManager);
+		
+		//------ Apply filter with the node name ------------------
+		driver.findElement(By.id("dropdownMenuButton")).click();
+		driver.findElement(By.linkText("Edit viewlet")).click();
+		
+		//Select node value 
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		Thread.sleep(3000);
+		
+		try 
+		{
+			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(Manager.size());	
+			for (int i=0; i<Manager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Manager.get(i).getText());
+				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
+				String s=Manager.get(i).getText();
+				System.out.println(s);
+				if(s.equals(FinalManager))
+				{
+					String id=Manager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(3000);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(6000);
+		
+		//------ Click on the queue statistics -------
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("MQ Statistics...")).click();
+		Thread.sleep(4000);
+		
+		//Select last 24hours option
+		Select Period=new Select(driver.findElement(By.xpath("//div[2]/div/div/select")));
+		Period.selectByVisibleText("Last 24 hours");
+		
+		//Get the statistics data
+		String BeforeStatisctis=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Before statistics data is: " +BeforeStatisctis);
+		
+		//Close button
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(3000);
+		
+		//Enable statistics
+		this.EnableStatistics();
+		
+		//----- Put the message into queue ------
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MessagesMousehour=new Actions(driver);
+		MessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Put New Message")).click();
+		Thread.sleep(4000);
+				
+		//Message data
+		//driver.findElement(By.id("encoding-text-9")).click();
+		driver.findElement(By.xpath("//textarea")).sendKeys("Test Statistics");
+		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+		Thread.sleep(50000);
+		
+		for(int i=0; i<=4; i++)
+		{
+			driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+			Thread.sleep(10000);
+		}
+						
+		//---- Select Queue Statistics Option --
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("MQ Statistics...")).click();
+		Thread.sleep(4000);
+		
+		//Select last 24hours option
+		Select Period1=new Select(driver.findElement(By.xpath("//div[2]/div/div/select")));
+		Period1.selectByVisibleText("Last 24 hours");
+		
+		//Get the statistics data
+		String AfterStatisctis=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("After statistics data is: " +AfterStatisctis);
+		
+		//Close button
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(3000);
+				
+		//Disable the statistics
+		this.DiableStatistics();
+		
+		if(AfterStatisctis.equalsIgnoreCase(BeforeStatisctis)) 
+		{
+			System.out.println("Queue statistics not updated");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Queue statistics not updated");
+			driver.findElement(By.id("Queue statistics failed")).click();
+		}
+		else
+		{
+			System.out.println("Queue statistics is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Queue statistics updated");
+		}
+	}
+	
+	@Test(priority=5)
+	public void MQStatisticsForChannels(ITestContext context) throws InterruptedException
+	{
+		int ManagerName_Index=3;
+		if(!WGSName.contains("MQM"))
+		{
+			ManagerName_Index=4;
+		}
+		
+		//Get the manager name
+		String FinalManager=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ ManagerName_Index +"]/div/span")).getText();
+		System.out.println("Manager name is: " +FinalManager);
+		
+		//------ Apply filter with the node name ------------------
+		driver.findElement(By.xpath("(//div[@id='dropdownMenuButton'])[3]")).click();
+		driver.findElement(By.linkText("Edit viewlet")).click();
+		
+		//Select node value 
+		driver.findElement(By.xpath("//div[2]/ng-select/div")).click();
+		Thread.sleep(3000);
+		
+		try 
+		{
+			List<WebElement> Manager=driver.findElement(By.className("ng-dropdown-panel-items")).findElements(By.className("ng-option"));
+			System.out.println(Manager.size());	
+			for (int i=0; i<Manager.size();i++)
+			{
+				//System.out.println("Radio button text:" + Manager.get(i).getText());
+				System.out.println("Radio button id:" + Manager.get(i).getAttribute("id"));
+				String s=Manager.get(i).getText();
+				System.out.println(s);
+				if(s.equals(FinalManager))
+				{
+					String id=Manager.get(i).getAttribute("id");
+					driver.findElement(By.id(id)).click();
+					break;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		Thread.sleep(3000);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(6000);
+		
+		//------ Click on the channel statistics -------
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("MQ Statistics...")).click();
+		Thread.sleep(4000);
+		
+		//Select last 24hours option
+		Select Period=new Select(driver.findElement(By.xpath("//div[2]/div/div/select")));
+		Period.selectByVisibleText("Last 24 hours");
+		
+		//Get the statistics data
+		String BeforeStatisctis=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Before statistics data is: " +BeforeStatisctis);
+		
+		//Close button
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(3000);
+		
+		//Enable statistics
+		//this.EnableStatistics();
+		
+		//------ Update description ---- 
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+				
+		//Change description
+		driver.findElement(By.id("description")).clear();
+		driver.findElement(By.id("description")).sendKeys("Statistics");
+		Thread.sleep(4000);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(50000);
+		
+		for(int i=0; i<=4; i++)
+		{
+			driver.findElement(By.xpath("(//img[@title='Refresh viewlet'])[3]")).click();
+			Thread.sleep(10000);
+		}
+		
+		//------ Click on the channel statistics -------
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[3]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("MQ Statistics...")).click();
+		Thread.sleep(4000);
+		
+		//Select last 24hours option
+		Select Period1=new Select(driver.findElement(By.xpath("//div[2]/div/div/select")));
+		Period1.selectByVisibleText("Last 24 hours");
+		
+		//Get the statistics data
+		String AfterStatisctis=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("After statistics data is: " +AfterStatisctis);
+		
+		//Close button
+		driver.findElement(By.cssSelector(".close-button")).click();
+		Thread.sleep(3000);
+		
+		//Disable the channel properties
+		//this.DiableStatistics();
+		
+		
+		if(AfterStatisctis.equalsIgnoreCase(BeforeStatisctis)) 
+		{
+			System.out.println("Channel statistics not updated");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Channel statistics not updated");
+			driver.findElement(By.id("Channel statistics failed")).click();
+		}
+		else
+		{
+			System.out.println("Channel statistics is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Channel statistics updated");
+		}
+	}
+		
+	@Test(priority=25)
+	public static void Logout() throws Exception
+	{		
+		//Delete the dashboard 
+		try
+		{
+			driver.findElement(By.cssSelector(".active .g-tab-btn-close-block")).click();
+			//driver.findElement(By.cssSelector(".fa-times")).click();
+			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(1000);
+		}
+		catch (Exception e)
+		{
+			System.out.println("Dashboards are not present");
+		}
+		Thread.sleep(1000);
+		
+		//Logout
+		driver.findElement(By.cssSelector(".fa-power-off")).click();
+		driver.close();
+	}
+	
+	public void EnableStatistics() throws InterruptedException
+	{
+		//---- Change the properties for getting the statistics ----
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+		
+		//select Monitoring tab
+		driver.findElement(By.linkText("Monitoring")).click();
+		
+		//Change the settings
+		Select MQI=new Select(driver.findElement(By.id("monitoringSDCMQI")));
+		MQI.selectByVisibleText("ON");
+		
+		Select Queues=new Select(driver.findElement(By.id("monitoringSDCQueues")));
+		Queues.selectByVisibleText("ON");
+		
+		Select Channels=new Select(driver.findElement(By.id("monitoringSDCChannels")));
+		Channels.selectByVisibleText("MEDIUM");
+		
+		driver.findElement(By.id("monitoringSDCDataOutputInterval")).clear();
+		driver.findElement(By.id("monitoringSDCDataOutputInterval")).sendKeys("60");
+		Thread.sleep(4000);
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(8000);
+		
+	}
+	
+	public void DiableStatistics() throws InterruptedException
+	{
+		//---- Change the properties for stopping the statistics ----
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[2]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+		
+		//select Monitoring tab
+		driver.findElement(By.linkText("Monitoring")).click();
+		
+		//Change the settings
+		Select MQI1=new Select(driver.findElement(By.id("monitoringSDCMQI")));
+		MQI1.selectByVisibleText("OFF");
+		
+		Select Queues1=new Select(driver.findElement(By.id("monitoringSDCQueues")));
+		Queues1.selectByVisibleText("OFF");
+		
+		Select Channels1=new Select(driver.findElement(By.id("monitoringSDCChannels")));
+		Channels1.selectByVisibleText("OFF");
+		
+		driver.findElement(By.id("monitoringSDCDataOutputInterval")).clear();
+		driver.findElement(By.id("monitoringSDCDataOutputInterval")).sendKeys("1800");
+		
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(8000);
+		
+	}
+	
 	public void Resetget() throws InterruptedException
 	{
 		//Select Browse Messages Option
@@ -286,28 +772,6 @@ public class QueueProperties
 		WebElement lis=driver.findElement(By.className("wrapper-dropdown")).findElement(By.tagName("ul"));
 		List<WebElement> op=lis.findElements(By.tagName("li"));
 		return op;
-	}
-	
-	@Test(priority=25)
-	public static void Logout() throws Exception
-	{		
-		//Delete the dashboard 
-		try
-		{
-			driver.findElement(By.cssSelector(".active .g-tab-btn-close-block")).click();
-			//driver.findElement(By.cssSelector(".fa-times")).click();
-			driver.findElement(By.cssSelector(".btn-primary")).click();
-			Thread.sleep(1000);
-		}
-		catch (Exception e)
-		{
-			System.out.println("Dashboards are not present");
-		}
-		Thread.sleep(1000);
-		
-		//Logout
-		driver.findElement(By.cssSelector(".fa-power-off")).click();
-		driver.close();
 	}
 	
 		

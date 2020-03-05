@@ -13,6 +13,8 @@
     
     <parameter name="PutMessageOption" value="Inhibited"/>
     <parameter name="GetMessageOption" value="Inhibited"/>
+    <parameter name="Managername" value="Manager viewlet"/>
+    <parameter name="Channelname" value="Channel Viewlet"/>
       
      <classes>
       <class name="ApodGUI.QueueProperties">
@@ -21,7 +23,10 @@
        
         <include name="Login"/>
         <include name="PutMessageInInhibitedQueue"/>  
-        <!-- <include name="GetMessageFromInhibitedQueue"/>  -->
+        <include name="GetMessageFromInhibitedQueue"/> 
+        <include name="MQStatisticsForManager"/> 
+        <include name="QueueStatistics"/> 
+      <!--   <include name="MQStatisticsForChannels"/>   -->
        
         <include name="Logout"/> 
         

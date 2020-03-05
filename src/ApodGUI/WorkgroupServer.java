@@ -598,7 +598,7 @@ public class WorkgroupServer {
 			Thread.sleep(2000);
 
 			// Store the connection ip into string after modifying the name
-			String ChangedConnectionip = driver.findElement(By.xpath("//div[2]/div/table/tbody/tr/td[2]")).getText();
+			String ChangedConnectionip = driver.findElement(By.xpath("//tr[3]/td[2]")).getText();
 			System.out.println("Changed connection is: " +ChangedConnectionip);
 
 			if (ChangedConnectionip.equalsIgnoreCase(Node_NewConnectionName)) {
@@ -819,6 +819,7 @@ public class WorkgroupServer {
 
 			// Store the Server URL value into string
 			String URL = driver.findElement(By.xpath("//div[2]/div/table/tbody/tr/td[2]")).getText();
+			System.out.println("Updated Server url is: " +URL);
 
 			if (URL.equalsIgnoreCase(UpdatedServerURL)) {
 				context.setAttribute("Status", 1);
