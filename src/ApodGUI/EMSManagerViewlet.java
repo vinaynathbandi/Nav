@@ -40,6 +40,8 @@ public class EMSManagerViewlet
 	static String DownloadPath;
 	static String EMS_WGSNAME;
 	static String UserName;
+	static String UniqueEMSQueueName;
+	static String UniqueEMSTopicName;
 	
 	
 	@BeforeTest
@@ -51,6 +53,8 @@ public class EMSManagerViewlet
 		DownloadPath =Settings.getDownloadPath();
 		EMS_WGSNAME =Settings.getEMS_WGSNAME();
 		UserName =Settings.getUserName();
+		UniqueEMSQueueName =Settings.getUniqueEMSQueueName();
+		UniqueEMSTopicName =Settings.getUniqueEMSTopicName();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "Managername"})
@@ -590,9 +594,9 @@ public class EMSManagerViewlet
 		driver.findElement(By.cssSelector(".btn-danger")).click();	
 	}
 	
-	@Parameters({"NewUser", "Newpassword", "Description", "Type", "UniqueQueue"})
+	@Parameters({"NewUser", "Newpassword", "Description", "Type"})
 	@Test(priority=11)
-	public void AddQueueACLToUser(String NewUser, String Newpassword, String Description, String Type, String UniqueQueue, ITestContext context) throws InterruptedException
+	public void AddQueueACLToUser(String NewUser, String Newpassword, String Description, String Type, ITestContext context) throws InterruptedException
 	{
 		CreateUser(NewUser, Newpassword, Description);
 		
@@ -608,7 +612,7 @@ public class EMSManagerViewlet
 		Thread.sleep(3000);
 		
 		//Search with queue name
-		driver.findElement(By.name("permFilter")).sendKeys(UniqueQueue);
+		driver.findElement(By.name("permFilter")).sendKeys(UniqueEMSQueueName);
 		
 		//Give View permissions
 		boolean Queue=driver.findElement(By.xpath("//datatable-body-cell[5]/div/input")).isSelected();
@@ -640,7 +644,7 @@ public class EMSManagerViewlet
 		String ACLSData=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
 		System.out.println("ACL's data is: " +ACLSData);
 		
-		if(ACLSData.contains(UniqueQueue))
+		if(ACLSData.contains(UniqueEMSQueueName))
 		{
 			System.out.println("Queue is added to the ACL's");
 			context.setAttribute("Status", 1);
@@ -662,9 +666,9 @@ public class EMSManagerViewlet
 	}
 	
 	
-	@Parameters({"NewUser", "Type1", "UniqueTopic"})
+	@Parameters({"NewUser", "Type1"})
 	@Test(priority=12, dependsOnMethods= {"AddQueueACLToUser"})
-	public void AddTopicACLToUser(String NewUser, String Type1, String UniqueTopic, ITestContext context) throws InterruptedException
+	public void AddTopicACLToUser(String NewUser, String Type1, ITestContext context) throws InterruptedException
 	{
 		//Select the User Group option
 		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
@@ -685,7 +689,7 @@ public class EMSManagerViewlet
 		Thread.sleep(3000);
 		
 		//Search with queue name
-		driver.findElement(By.name("permFilter")).sendKeys(UniqueTopic);
+		driver.findElement(By.name("permFilter")).sendKeys(UniqueEMSTopicName);
 		
 		//Give View permissions
 		boolean TopicView=driver.findElement(By.xpath("//datatable-body-cell[6]/div/input")).isSelected();
@@ -717,7 +721,7 @@ public class EMSManagerViewlet
 		String ACLSData=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
 		System.out.println("ACL's data is: " +ACLSData);
 		
-		if(ACLSData.contains(UniqueTopic))
+		if(ACLSData.contains(UniqueEMSTopicName))
 		{
 			System.out.println("Topic is added to the ACL's");
 			context.setAttribute("Status", 1);

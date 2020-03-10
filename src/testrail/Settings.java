@@ -119,7 +119,29 @@ public class Settings {
 	
 	private static String EMSWGS_CreateDashboard;
 	private static String TestRunID;
+	private static String UniqueEMSQueueName;
+	private static String UniqueEMSTopicName;
 	
+	public static String getUniqueEMSQueueName() {
+		return UniqueEMSQueueName;
+	}
+
+
+	public static void setUniqueEMSQueueName(String uniqueEMSQueueName) {
+		UniqueEMSQueueName = uniqueEMSQueueName;
+	}
+
+
+	public static String getUniqueEMSTopicName() {
+		return UniqueEMSTopicName;
+	}
+
+
+	public static void setUniqueEMSTopicName(String uniqueEMSTopicName) {
+		UniqueEMSTopicName = uniqueEMSTopicName;
+	}
+
+
 	public static String getUserName() {
 		return UserName;
 	}
@@ -429,6 +451,8 @@ public class Settings {
 			EMSWGS_CreateDashboard = propertiesSetting.getProperty("EMSWGS_CreateDashboard");
 			TestRunID = propertiesSetting.getProperty("TestRunID");
 			UserName =propertiesSetting.getProperty("UserName");
+			UniqueEMSQueueName =propertiesSetting.getProperty("UniqueEMSQueueName");
+			UniqueEMSTopicName =propertiesSetting.getProperty("UniqueEMSTopicName");
 			
 		}
 	}

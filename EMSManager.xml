@@ -31,10 +31,8 @@
     <parameter name="Description" value="Add Acls to user"/>
     
     <parameter name="Type" value="Queue"/>
-    <parameter name="UniqueQueue" value="EMSS"/>
     <parameter name="Type1" value="Topic"/>
-    <parameter name="UniqueTopic" value="EMSTOPICC"/>
-      
+          
     <parameter name="FavoriteViewletName" value="EMS Manager Favorite Viewlet"/>
    
     <parameter name="SchemaName" value="EMSManager"/>    
@@ -46,10 +44,10 @@
        <methods>
        
         <include name="Login"/>
+        <include name="ShowObjectAttributes"/>
         <include name="EMSMQSCConsoleCommandOption"/>
         <include name="SaveMQSCConsoleResponceData"/>
-        <include name="ClearMQSCConsoleResponceData"/>  
-        <include name="ShowObjectAttributes"/>  
+        <include name="ClearMQSCConsoleResponceData"/>    
         <include name="CreateUserGroup"/>
         <include name="EditUserGroup"/>
         <include name="DeleteUserGroup"/> 
