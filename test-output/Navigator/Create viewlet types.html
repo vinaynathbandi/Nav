@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Create viewlet types</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>9/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>8/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Mar 10 19:01:07 IST 2020</td>
+<td>Started on:</td><td>Tue Mar 10 19:44:32 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>92 seconds (92825 ms)</td>
+<tr><td>Total time:</td><td>169 seconds (169415 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,108 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='ApodGUI.CreateViewletTypesUsingViewletButton.CreateViewletUsingObjectCheckbox()'><b>CreateViewletUsingObjectCheckbox</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: Node Viewlet, org.testng.TestRunner@352ff4da<br/>
+<a href="#Output-762074108" onClick='toggleBox("Output-762074108", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-762074108" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-762074108">
+<br/>Failed to execute method: CreateViewletUsingObjectCheckbox<br/><br/>
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateViewletUsingObjectCheckbox.png" alt="""/" /><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Not created because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Not created&apos; is not a valid XPath expression.
+  (Session info: chrome=80.0.3987.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:62113}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.132, webStorageEnabled: true}
+Session ID: 302eb2295a95ed20c94a56ae79b5d8dd
+*** Element info: {Using=xpath, value=Not created}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.CreateViewletTypesUsingViewletButton.CreateViewletUsingObjectCheckbox(CreateViewletTypesUsingViewletButton.java:153)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace762074108", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace762074108'><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Not created because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Not created&apos; is not a valid XPath expression.
+  (Session info: chrome=80.0.3987.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:62113}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.132, webStorageEnabled: true}
+Session ID: 302eb2295a95ed20c94a56ae79b5d8dd
+*** Element info: {Using=xpath, value=Not created}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.CreateViewletTypesUsingViewletButton.CreateViewletUsingObjectCheckbox(CreateViewletTypesUsingViewletButton.java:153)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>2</td>
+<td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,10 +178,10 @@ function toggleAllBoxes() {
 </tr>
 <tr>
 <td title='ApodGUI.CreateViewletTypesUsingViewletButton.CreateATemporaryViewletUsingSearchCheckbox()'><b>CreateATemporaryViewletUsingSearchCheckbox</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: org.testng.TestRunner@352ff4da<br/>
-<a href="#Output-26757919" onClick='toggleBox("Output-26757919", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-222427158" onClick='toggleBox("Output-222427158", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-26757919" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-26757919">
+<a href="#Output-222427158" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-222427158">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateATemporaryViewletUsingSearchCheckbox.png" alt="""/" /><br/>
 </div>
@@ -89,23 +191,23 @@ function toggleAllBoxes() {
 <td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
 <tr>
 <td title='ApodGUI.CreateViewletTypesUsingViewletButton.CreateFavoriteViewletUsingCheckbox()'><b>CreateFavoriteViewletUsingCheckbox</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: New Favorite Viewlet, org.testng.TestRunner@352ff4da<br/>
-<a href="#Output-322112198" onClick='toggleBox("Output-322112198", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-250112971" onClick='toggleBox("Output-250112971", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-322112198" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-322112198">
+<a href="#Output-250112971" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-250112971">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateFavoriteViewletUsingCheckbox.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>2</td>
+<td>3</td>
 <td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
 <tr>
 <td title='ApodGUI.CreateViewletTypesUsingViewletButton.CreateTemporaryViewletUsingTemporaryViewletCheckbox()'><b>CreateTemporaryViewletUsingTemporaryViewletCheckbox</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: Viewet Button Options, org.testng.TestRunner@352ff4da<br/>
-<a href="#Output-822087264" onClick='toggleBox("Output-822087264", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-141110631" onClick='toggleBox("Output-141110631", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-822087264" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-822087264">
+<a href="#Output-141110631" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-141110631">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTemporaryViewletUsingTemporaryViewletCheckbox.png" alt="""/" /><br/>
 </div>
@@ -114,24 +216,11 @@ function toggleAllBoxes() {
 <td>24</td>
 <td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
 <tr>
-<td title='ApodGUI.CreateViewletTypesUsingViewletButton.CreateViewletUsingObjectCheckbox()'><b>CreateViewletUsingObjectCheckbox</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: Node Viewlet, org.testng.TestRunner@352ff4da<br/>
-<a href="#Output-1581078471" onClick='toggleBox("Output-1581078471", this, "Show output", "Hide output");'>Show output</a>
-
-<a href="#Output-1581078471" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1581078471">
-<br/><br/>
-<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateViewletUsingObjectCheckbox.png" alt="""/" /><br/>
-</div>
-</td>
-<td></td>
-<td>2</td>
-<td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
-<tr>
 <td title='ApodGUI.CreateViewletTypesUsingViewletButton.DeleteViewletOption()'><b>DeleteViewletOption</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: org.testng.TestRunner@352ff4da<br/>
-<a href="#Output-567852222" onClick='toggleBox("Output-567852222", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-832145584" onClick='toggleBox("Output-832145584", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-567852222" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-567852222">
+<a href="#Output-832145584" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-832145584">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteViewletOption.png" alt="""/" /><br/>
 </div>
@@ -141,16 +230,16 @@ function toggleAllBoxes() {
 <td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
 <tr>
 <td title='ApodGUI.CreateViewletTypesUsingViewletButton.EditViewletOption()'><b>EditViewletOption</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: Testing Edit viewlet21, org.testng.TestRunner@352ff4da<br/>
-<a href="#Output-777313177" onClick='toggleBox("Output-777313177", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1785111044" onClick='toggleBox("Output-1785111044", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-777313177" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-777313177">
+<a href="#Output-1785111044" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1785111044">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/EditViewletOption.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>3</td>
+<td>4</td>
 <td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
 <tr>
 <td title='ApodGUI.CreateViewletTypesUsingViewletButton.Login()'><b>Login</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: webdriver.chrome.driver, Drivers/chromedriver.exe, Viewet Button Options<br/>
@@ -172,10 +261,10 @@ function toggleAllBoxes() {
 <td>ApodGUI.CreateViewletTypesUsingViewletButton@528931cf</td></tr>
 <tr>
 <td title='ApodGUI.CreateViewletTypesUsingViewletButton.OpenAnExistingCheckbox()'><b>OpenAnExistingCheckbox</b><br>Test class: ApodGUI.CreateViewletTypesUsingViewletButton<br>Parameters: org.testng.TestRunner@352ff4da<br/>
-<a href="#Output-1335503880" onClick='toggleBox("Output-1335503880", this, "Show output", "Hide output");'>Show output</a>
+<a href="#Output-1783966110" onClick='toggleBox("Output-1783966110", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1335503880" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1335503880">
+<a href="#Output-1783966110" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1783966110">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/OpenAnExistingCheckbox.png" alt="""/" /><br/>
 </div>

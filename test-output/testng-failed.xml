@@ -9,13 +9,13 @@
     <parameter name="Nodename" value="Node Viewlet"/>
     <parameter name="NewViewletName" value="Testing Edit viewlet21"/>
     <classes>
-      <class name="ApodGUI.CreateViewletTypesFromViewletButton">
+      <class name="ApodGUI.CreateViewletTypesUsingViewletButton">
         <methods>
-          <include name="beforeTest"/>
+          <include name="CreateViewletUsingObjectCheckbox" invocation-numbers="0"/>
           <include name="tearDown"/>
-          <include name="CreateTemporaryViewletUsingTemporaryViewletCheckbox" invocation-numbers="0"/>
+          <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.CreateViewletTypesFromViewletButton -->
+      </class> <!-- ApodGUI.CreateViewletTypesUsingViewletButton -->
     </classes>
   </test> <!-- Create viewlet types(failed) -->
 </suite> <!-- Failed suite [Navigator] -->
