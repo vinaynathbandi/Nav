@@ -2,9 +2,9 @@
 
 <suite name="Navigator">
  <test name="Test EMS Manager Viewlet options">
-     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-  <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-  <parameter name="URL" value="/navigator/#/login"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="URL" value="/navigator/#/login"/>
     <parameter name="uname" value="Admin"/>
     <parameter name="password" value="admin"/>
     
@@ -16,6 +16,24 @@
     <parameter name="Queue" value="create queue "/>
     <parameter name="Queuename" value="CommandQueue1"/>
     <parameter name="Query" value="show queues"/>
+    
+    <parameter name="GroupName" value="EMSGroup"/>
+    <parameter name="GoupDescription" value="Testing EMS Groups"/>
+    <parameter name="UpdateGoupDescription" value="Test Edit Groups"/>
+    
+    <parameter name="Username" value="TestUser"/>
+    <parameter name="UserPassword" value="Password"/>
+    <parameter name="UserDescription" value="User Description"/>
+    <parameter name="UpdateUserDescription" value="Updated User Description"/>
+    
+    <parameter name="NewUser" value="ACLUser"/>
+    <parameter name="Newpassword" value="acluser"/>
+    <parameter name="Description" value="Add Acls to user"/>
+    
+    <parameter name="Type" value="Queue"/>
+    <parameter name="UniqueQueue" value="EMSS"/>
+    <parameter name="Type1" value="Topic"/>
+    <parameter name="UniqueTopic" value="EMSTOPICC"/>
       
     <parameter name="FavoriteViewletName" value="EMS Manager Favorite Viewlet"/>
    
@@ -28,11 +46,22 @@
        <methods>
        
         <include name="Login"/>
-       <!--  <include name="EMSMQSCConsoleCommandOption"/>
+        <include name="EMSMQSCConsoleCommandOption"/>
         <include name="SaveMQSCConsoleResponceData"/>
-        <include name="ClearMQSCConsoleResponceData"/>  -->
-        <include name="ShowObjectAttributes"/>    
-       <!--  <include name="AddToFavorites"/>  -->
+        <include name="ClearMQSCConsoleResponceData"/>  
+        <include name="ShowObjectAttributes"/>  
+        <include name="CreateUserGroup"/>
+        <include name="EditUserGroup"/>
+        <include name="DeleteUserGroup"/> 
+        <include name="CreateUser"/>
+        <include name="EditUser"/>
+        <include name="DeleteUser"/>  
+        <include name="AddQueueACLToUser"/>
+        <include name="AddTopicACLToUser"/>
+        <include name="ResetButtonInACLs"/>
+        <include name="SaveButtonInACLs"/> 
+        <include name="EMSManagerProperties"/>    
+        <include name="AddToFavorites"/>
         <include name="Logout"/>  
         
        </methods>

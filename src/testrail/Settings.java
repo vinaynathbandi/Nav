@@ -120,6 +120,17 @@ public class Settings {
 	private static String EMSWGS_CreateDashboard;
 	private static String TestRunID;
 	
+	public static String getUserName() {
+		return UserName;
+	}
+
+
+	public static void setUserName(String userName) {
+		UserName = userName;
+	}
+
+	private static String UserName;
+	
 	
 	public static String getTestRunID() {
 		return TestRunID;
@@ -417,7 +428,7 @@ public class Settings {
 			WGSName_CreateDashboard = propertiesSetting.getProperty("WGSName_CreateDashboard");
 			EMSWGS_CreateDashboard = propertiesSetting.getProperty("EMSWGS_CreateDashboard");
 			TestRunID = propertiesSetting.getProperty("TestRunID");
-			
+			UserName =propertiesSetting.getProperty("UserName");
 			
 		}
 	}

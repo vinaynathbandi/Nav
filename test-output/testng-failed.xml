@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Test EMS Manager Viewlet options(failed)">
-    <parameter name="Dashboardname" value="EMS Manager"/>
-    <parameter name="wgs" value="1"/>
-    <parameter name="uname" value="Admin"/>
-    <parameter name="Query" value="show queues"/>
-    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="FavoriteViewletName" value="EMS Manager Favorite Viewlet"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="WGSName" value="WGS10 - 1"/>
-    <parameter name="Queuename" value="CommandQueue1"/>
-    <parameter name="Managername" value="EMS Manager"/>
+  <test thread-count="5" name="Create viewlet types(failed)">
+    <parameter name="Dashboardname" value="Viewet Button Options"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Queue" value="create queue "/>
-    <parameter name="SchemaName" value="EMSManager"/>
+    <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
+    <parameter name="FavoriteViewletName" value="New Favorite Viewlet"/>
+    <parameter name="Nodename" value="Node Viewlet"/>
+    <parameter name="NewViewletName" value="Testing Edit viewlet21"/>
     <classes>
-      <class name="ApodGUI.EMSManagerViewlet">
+      <class name="ApodGUI.CreateViewletTypesFromViewletButton">
         <methods>
           <include name="beforeTest"/>
           <include name="tearDown"/>
-          <include name="ShowObjectAttributes" invocation-numbers="0"/>
+          <include name="CreateTemporaryViewletUsingTemporaryViewletCheckbox" invocation-numbers="0"/>
         </methods>
-      </class> <!-- ApodGUI.EMSManagerViewlet -->
+      </class> <!-- ApodGUI.CreateViewletTypesFromViewletButton -->
     </classes>
-  </test> <!-- Test EMS Manager Viewlet options(failed) -->
+  </test> <!-- Create viewlet types(failed) -->
 </suite> <!-- Failed suite [Navigator] -->

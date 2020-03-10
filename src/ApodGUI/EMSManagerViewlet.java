@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -38,6 +39,7 @@ public class EMSManagerViewlet
 	static String Screenshotpath;
 	static String DownloadPath;
 	static String EMS_WGSNAME;
+	static String UserName;
 	
 	
 	@BeforeTest
@@ -48,6 +50,7 @@ public class EMSManagerViewlet
 		Screenshotpath =Settings.getScreenshotPath();
 		DownloadPath =Settings.getDownloadPath();
 		EMS_WGSNAME =Settings.getEMS_WGSNAME();
+		UserName =Settings.getUserName();
 	}
 	
 	@Parameters({"sDriver", "sDriverpath", "Dashboardname", "Managername"})
@@ -133,7 +136,7 @@ public class EMSManagerViewlet
 	
 	@Parameters({"SchemaName"})
 	@TestRail(testCaseId=281)
-	@Test(priority=9)
+	@Test(priority=19)
 	public static void ShowObjectAttributes(String SchemaName, ITestContext context) throws InterruptedException
 	{
 		try {
@@ -151,71 +154,7 @@ public class EMSManagerViewlet
 		}
 	}
 	
-	@Parameters({"FavoriteViewletName"})
-	@TestRail(testCaseId=282)
-	@Test(priority=6)
-	public static void AddToFavorites(String FavoriteViewletName,ITestContext context) throws InterruptedException
-	{
-		//Create favorite Viewlet
-		driver.findElement(By.xpath("//button[2]")).click();
-		driver.findElement(By.id("fav")).click();
-		driver.findElement(By.xpath("//app-mod-select-viewlet-type/div/div[2]/button[2]")).click();
 		
-		//Viewlet Name
-		driver.findElement(By.name("viewlet-name")).click();
-		driver.findElement(By.name("viewlet-name")).sendKeys(FavoriteViewletName);
-		
-		Select wgsdropdown1=new Select(driver.findElement(By.name("wgs")));
-		wgsdropdown1.selectByVisibleText(EMS_WGSNAME);
-		
-		//Submit
-		driver.findElement(By.xpath("//app-modal-add-viewlet-favorite/div/div[2]/button[2]")).click();
-		Thread.sleep(2000);
-		
-		int Node_Name=3;
-		if(!EMS_WGSNAME.contains("MQM"))
-		{
-			Node_Name=4;
-		}
-		//node names data storage  
-		String NodeName=driver.findElement(By.xpath("//datatable-body-cell["+ Node_Name +"]/div/span")).getText();
-		System.out.println("Node name is: " +NodeName);
-		
-		//----------- Add Manager to favorite viewlet -----------------
-		//Select Add tofavorite option
-		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
-		driver.findElement(By.linkText("Add to favorites...")).click();
-		Thread.sleep(2000);
-		
-		
-		//Select the favorite viewlet name
-		Select fav=new Select(driver.findElement(By.cssSelector(".fav-select")));
-		fav.selectByVisibleText(FavoriteViewletName);
-		Thread.sleep(2000);
-		driver.findElement(By.cssSelector(".g-block-bottom-buttons > .g-button-blue")).click();
-		Thread.sleep(2000);
-		
-		//Favorite viewlet data storing
-		String Fav1=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
-		System.out.println("Fav viewlet data is: " +Fav1);
-		
-		//Verification condition
-		if(Fav1.contains(NodeName))
-		{
-			System.out.println("EMS Manager is added to Favorite viewlet");
-			context.setAttribute("Status", 1);
-			context.setAttribute("Comment", "EMS Manager is added to Favorite viewlet");
-		}
-		else
-		{
-			System.out.println("EMS Manager is not added to Favorite viewlet");
-			context.setAttribute("Status", 5);
-			context.setAttribute("Comment", "Failed to add EMS Manager to Favorite viewlet");
-			driver.findElement(By.id("Add EMS Manager to favorite failed")).click();
-		}
-		Thread.sleep(1000);
-	}
-	
 	@Parameters({"Query", "Queue", "Queuename"})
 	@TestRail(testCaseId = 785)
 	@Test(priority=2)
@@ -317,13 +256,672 @@ public class EMSManagerViewlet
 		
 		//close the window
 		driver.findElement(By.xpath("//button[contains(.,'Close')]")).click();
-		Thread.sleep(1000);
+		Thread.sleep(1000);	
+	}
+	
+	@Parameters({"GroupName", "GoupDescription"})
+	@Test(priority=5)
+	public void CreateUserGroup(String GroupName, String GoupDescription, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("User Groups")).click();
+		Thread.sleep(6000);
+		
+		//Click on Create button
+		driver.findElement(By.cssSelector(".fl-right:nth-child(2) > .g-button-blue")).click();
+		Thread.sleep(3000);
+		
+		//Group name
+		driver.findElement(By.name("name")).sendKeys(GroupName);
+		driver.findElement(By.name("description")).sendKeys(GoupDescription);
+		
+		//Select User name
+		driver.findElement(By.xpath("//td[contains(.,'"+ UserName +"')]")).click();
+		
+		//Add user
+		driver.findElement(By.xpath("//div[3]/div[2]/button[2]")).click();
+		
+		//Click on save button
+		driver.findElement(By.cssSelector(".button-blue:nth-child(2)")).click();
+		Thread.sleep(8000);
+		
+		//Search with the Group name
+		driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(GroupName);
+		
+		//Store the groups into string
+		String Groups=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Groups are: " +Groups);
+		
+		for(int k=0; k<=GroupName.length(); k++)
+		{
+			driver.findElement(By.xpath("(//input[@type='text'])[2]")).sendKeys(Keys.BACK_SPACE);
+		}
+		
+		//Verification
+		if(Groups.contains(GroupName))
+		{
+			System.out.println("Group is created successfully");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "EMS Group is added");
+		}
+		else
+		{
+			System.out.println("Group is not created");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "EMS group not added");
+    		
+    		//Close the popup
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    		Thread.sleep(4000);
+    		driver.findElement(By.id("Group creation failed")).click();
+		}
+		
+		//Close the popup
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+		Thread.sleep(4000);
+	}
+	
+	
+	@Parameters({"GroupName", "UpdateGoupDescription"})
+	@Test(priority=6, dependsOnMethods= {"CreateUserGroup"})
+	public void EditUserGroup(String GroupName, String UpdateGoupDescription, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("User Groups")).click();
+		Thread.sleep(6000);
+		
+		//Select group name
+		driver.findElement(By.xpath("//span[contains(.,'"+ GroupName +"')]")).click();
+		
+		//click on edit button
+		driver.findElement(By.xpath("//span/button")).click();
+		
+		//update description
+		driver.findElement(By.name("description")).clear();
+		driver.findElement(By.name("description")).sendKeys(UpdateGoupDescription);
+		
+		//Click on Apply button
+		driver.findElement(By.xpath("//button[contains(.,'Apply')]")).click();
+		Thread.sleep(6000);
+		
+		//Store the groups into string
+		String Groupsdata=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Groups are: " +Groupsdata);
+		
+		//Verification condition
+		if(Groupsdata.contains(UpdateGoupDescription))
+		{
+			System.out.println("User group updated");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "User Group is updated");
+		}
+		else
+		{
+			System.out.println("User group not edited");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "User group is not updated");
+    		
+    		//Close the popup
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    		Thread.sleep(4000);
+    		driver.findElement(By.id("User Group update failed")).click();
+		}
+		
+		//Close the popup
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+		Thread.sleep(4000);
+	}
+	
+	@Parameters({"GroupName"})
+	@Test(priority=7, dependsOnMethods= {"CreateUserGroup", "EditUserGroup"})
+	public void DeleteUserGroup(String GroupName, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("User Groups")).click();
+		Thread.sleep(6000);
+		
+		//Select group name
+		driver.findElement(By.xpath("//span[contains(.,'"+ GroupName +"')]")).click();
+		
+		//Click on Delete button
+		driver.findElement(By.xpath("//span[3]/button")).click();
+		
+		//Click on Confirmation
+		driver.findElement(By.id("accept-true")).click();
+		Thread.sleep(4000);
+		
+		//Store the groups into string
+		String Groupsdata=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Groups are: " +Groupsdata);
+		
+		//Verification condition
+		if(Groupsdata.contains(GroupName))
+		{
+			System.out.println("User group not deleted");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "EMS user group not deleted");
+    		
+    		//Close the popup
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    		Thread.sleep(4000);
+    		driver.findElement(By.id("Group delete failed")).click();
+		}
+		else
+		{
+			System.out.println("User group deleted");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "User Group is deleted");
+		}
+		
+		//Close the popup
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+		Thread.sleep(4000);
+	}
+	
+	@Parameters({"Username", "UserPassword", "UserDescription"})
+	@Test(priority=8)
+	public void CreateUser(String Username, String UserPassword, String UserDescription, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("Users")).click();
+		Thread.sleep(6000);
+				
+		//Click on Create button
+		driver.findElement(By.xpath("//span[2]/button")).click();
+		
+		//Give username
+		driver.findElement(By.name("name")).clear();
+		driver.findElement(By.name("name")).sendKeys(Username);
+		
+		//Give password
+		driver.findElement(By.name("password2")).clear();
+		driver.findElement(By.name("password2")).sendKeys(UserPassword);
+		
+		//description
+		driver.findElement(By.name("description")).sendKeys(UserDescription);
+		
+		//click on save button
+		driver.findElement(By.xpath("//div[3]/button[2]")).click();
+		Thread.sleep(4000);
+		
+		//Search with the Username
+		driver.findElement(By.cssSelector(".block-filter:nth-child(1) .main-filter-by-input")).sendKeys(Username);
+		
+		//Store the Users data into string           
+		String UsersData=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Users data is: " +UsersData);
+		
+		for(int k=0; k<=Username.length(); k++)
+		{
+			driver.findElement(By.cssSelector(".block-filter:nth-child(1) .main-filter-by-input")).sendKeys(Keys.BACK_SPACE);
+		}
+		
+		//Verification
+		if(UsersData.contains(Username))
+		{
+			System.out.println("User is created successfully");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "User is created");
+		}
+		else
+		{
+			System.out.println("User is not created");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "User is not created");
+			
+			//close the popup page
+			driver.findElement(By.cssSelector(".btn-danger")).click();
+			driver.findElement(By.id("Create user failed")).click();
+		}
+		
+		//close the popup page
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+	}
+	
+	@Parameters({"Username", "UserPassword", "UpdateUserDescription"})
+	@Test(priority=9, dependsOnMethods= {"CreateUser"})
+	public void EditUser(String Username, String UserPassword, String UpdateUserDescription, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("Users")).click();
+		Thread.sleep(4000);
+		
+		//click on User
+		driver.findElement(By.xpath("//span[contains(.,'"+ Username +"')]")).click();
+		
+		//Click on Edit button
+		driver.findElement(By.xpath("//span/button")).click();
+		
+		//Update description
+		driver.findElement(By.name("description")).clear();
+		driver.findElement(By.name("description")).sendKeys(UpdateUserDescription);
+		
+		//Give password
+		driver.findElement(By.name("password2")).clear();
+		driver.findElement(By.name("password2")).sendKeys(UserPassword);
+		
+		//Click on Apply button
+		driver.findElement(By.xpath("//div[4]/button[2]")).click();
+		Thread.sleep(4000);
+		
+		//Store the Users data into string
+		String UsersData=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Users data is: " +UsersData);
+				
+		//Verification
+		if(UsersData.contains(UpdateUserDescription))
+		{
+			System.out.println("User is updated");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "User is updated");
+		}
+		else
+		{
+			System.out.println("User is not updated");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "User is not updated");
+			
+			//close the popup page
+			driver.findElement(By.cssSelector(".btn-danger")).click();
+			driver.findElement(By.id("User update failed")).click();
+		}
+		
+		//close the popup page
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+	}
+	
+	@Parameters({"Username"})
+	@Test(priority=10, dependsOnMethods= {"CreateUser", "EditUser"})
+	public void DeleteUser(String Username, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("Users")).click();
+		Thread.sleep(4000);
+		
+		//click on User
+		driver.findElement(By.xpath("//span[contains(.,'"+ Username +"')]")).click();
+		
+		//Click on delete button and confirmation button
+		driver.findElement(By.xpath("//span[3]/button")).click();
+		driver.findElement(By.id("accept-true")).click();
+		Thread.sleep(6000);
+		
+		//Store the Users data into string
+		String UsersData=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Users data is: " +UsersData);
+				
+		//Verification
+		if(UsersData.contains(Username))
+		{
+			System.out.println("User is not deleted");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "User is not deleted");
+			
+			//close the popup page
+			driver.findElement(By.cssSelector(".btn-danger")).click();
+			driver.findElement(By.id("User delete failed")).click();
+		}
+		else
+		{
+			System.out.println("User is deleted");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "User is deleted");
+		}
+		
+		//close the popup page
+		driver.findElement(By.cssSelector(".btn-danger")).click();	
+	}
+	
+	@Parameters({"NewUser", "Newpassword", "Description", "Type", "UniqueQueue"})
+	@Test(priority=11)
+	public void AddQueueACLToUser(String NewUser, String Newpassword, String Description, String Type, String UniqueQueue, ITestContext context) throws InterruptedException
+	{
+		CreateUser(NewUser, Newpassword, Description);
+		
+		//click on User
+		driver.findElement(By.xpath("//span[contains(.,'"+ NewUser +"')]")).click();
+		
+		//Click on Edit button
+		driver.findElement(By.xpath("//span/button")).click();
+		
+		//Select Type
+		Select type=new Select(driver.findElement(By.name("typeSelector")));
+		type.selectByVisibleText(Type);
+		Thread.sleep(3000);
+		
+		//Search with queue name
+		driver.findElement(By.name("permFilter")).sendKeys(UniqueQueue);
+		
+		//Give View permissions
+		boolean Queue=driver.findElement(By.xpath("//datatable-body-cell[5]/div/input")).isSelected();
+		System.out.println("Viewcheckbox :" +Queue);
+		
+		if(Queue)
+		{
+			System.out.println("View permissions given");
+		}
+		else
+		{
+			driver.findElement(By.xpath("//datatable-body-cell[5]/div/input")).click();
+		}
+		Thread.sleep(3000);
+		
+		//Click on Apply button
+		driver.findElement(By.xpath("//div[4]/button[2]")).click();
+		Thread.sleep(6000);
+		
+		//click on Acl's tab
+		driver.findElement(By.linkText("ACLs")).click();
+		Thread.sleep(4000);
+		
+		//Search with the name
+		driver.findElement(By.cssSelector(".block-filter:nth-child(1) .main-filter-by-input")).sendKeys(NewUser);
+		Thread.sleep(3000);
+		
+		//Store the data into string
+		String ACLSData=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("ACL's data is: " +ACLSData);
+		
+		if(ACLSData.contains(UniqueQueue))
+		{
+			System.out.println("Queue is added to the ACL's");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "Queue added to ACL");
+		}
+		else
+		{
+			System.out.println("Queue is not added to the ACL's");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "Queue is not added to ACL");
+    		
+    		//close the popup page
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    		driver.findElement(By.id("Queue is not added to ACL")).click();
+		}
+		
+		//close the popup page
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+	}
+	
+	
+	@Parameters({"NewUser", "Type1", "UniqueTopic"})
+	@Test(priority=12, dependsOnMethods= {"AddQueueACLToUser"})
+	public void AddTopicACLToUser(String NewUser, String Type1, String UniqueTopic, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("Users")).click();
+		Thread.sleep(4000);
+		
+		//click on User
+		driver.findElement(By.xpath("//span[contains(.,'"+ NewUser +"')]")).click();
+		
+		//Click on Edit button
+		driver.findElement(By.xpath("//span/button")).click();
+		
+		//Select Type
+		Select type=new Select(driver.findElement(By.name("typeSelector")));
+		type.selectByVisibleText(Type1);
+		Thread.sleep(3000);
+		
+		//Search with queue name
+		driver.findElement(By.name("permFilter")).sendKeys(UniqueTopic);
+		
+		//Give View permissions
+		boolean TopicView=driver.findElement(By.xpath("//datatable-body-cell[6]/div/input")).isSelected();
+		System.out.println("Viewcheckbox :" +TopicView);
+		
+		if(TopicView)
+		{
+			System.out.println("View permissions given");
+		}
+		else
+		{
+			driver.findElement(By.xpath("//datatable-body-cell[6]/div/input")).click();
+		}
+		Thread.sleep(3000);
+		
+		//Click on Apply button
+		driver.findElement(By.xpath("//div[4]/button[2]")).click();
+		Thread.sleep(6000);
+		
+		//click on Acl's tab
+		driver.findElement(By.linkText("ACLs")).click();
+		Thread.sleep(4000);
+		
+		//Search with the name
+		driver.findElement(By.cssSelector(".block-filter:nth-child(1) .main-filter-by-input")).sendKeys(NewUser);
+		Thread.sleep(3000);
+		
+		//Store the data into string
+		String ACLSData=driver.findElement(By.xpath("//div[2]/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("ACL's data is: " +ACLSData);
+		
+		if(ACLSData.contains(UniqueTopic))
+		{
+			System.out.println("Topic is added to the ACL's");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "Topic added to ACL");
+		}
+		else
+		{
+			System.out.println("Topic is not added to the ACL's");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "Topic is not added to ACL");
+    		
+    		//close the popup page
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    		driver.findElement(By.id("Topic is not added to ACL")).click();
+		}
+		
+		//close the popup page
+		driver.findElement(By.cssSelector(".btn-danger")).click();	
+	}
+	
+	@Parameters({"NewUser"})
+	@Test(priority=13, dependsOnMethods= {"CreateUser", "AddQueueACLToUser"})
+	public void ResetButtonInACLs(String NewUser, ITestContext context) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("ACLS")).click();
+		Thread.sleep(4000);
+		
+		//Search with the name
+		driver.findElement(By.cssSelector(".block-filter:nth-child(1) .main-filter-by-input")).sendKeys(NewUser);
+		Thread.sleep(3000);
+		
+		//Select create check box
+		driver.findElement(By.xpath("//datatable-body-cell[13]/div/input")).click();
+		
+		//Click on Reset button
+		driver.findElement(By.xpath("//span[2]/button")).click();
+		Thread.sleep(4000);
+		
+		//Click on Reset Button
+		boolean check=driver.findElement(By.xpath("//datatable-body-cell[13]/div/input")).isSelected();
+		System.out.println("Check box status is: " +check);
+		
+		if(check==false)
+		{
+			System.out.println("Reset button is working fine");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "Reset button working");
+		}
+		else
+		{
+			System.out.println("Reset button is not working");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "Reset button is not working");
+    		driver.findElement(By.id("Reset button failed")).click();
+		}
+	}
+	
+	@Parameters({"NewUser"})
+	@Test(priority=14, dependsOnMethods= {"CreateUser", "AddQueueACLToUser", "ResetButtonInACLs"})
+	public void SaveButtonInACLs(String NewUser, ITestContext context) throws InterruptedException
+	{
+		//Select create check box
+		driver.findElement(By.xpath("//datatable-body-cell[14]/div/input")).click();
+		
+		//Click on Save button
+		driver.findElement(By.xpath("//span/button")).click();
+		Thread.sleep(6000);
+		
+		//Click on Reset Button
+		boolean check=driver.findElement(By.xpath("//datatable-body-cell[14]/div/input")).isSelected();
+		System.out.println("Check box status is: " +check);
+		
+		if(check)
+		{
+			System.out.println("Save button is working fine");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "Save button working");
+		}
+		else
+		{
+			System.out.println("Save button is not working");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "Save button is not working");
+    		
+    		//close the popup page
+    		driver.findElement(By.cssSelector(".btn-danger")).click();
+    		DeleteUser(NewUser);
+    		driver.findElement(By.id("Save button failed")).click();
+		}
+		
+		//close the popup page
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+		
+		DeleteUser(NewUser);
+	}
+	
+		
+	@Test(priority=16)
+	public void EMSManagerProperties(ITestContext context) throws InterruptedException
+	{
+		//Select Properties option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(8000);
+		
+		//Store the Name field status into boolean
+		boolean NameField=driver.findElement(By.id("name")).isEnabled();
+		System.out.println(NameField);
+		
+		//Verification Condition
+		if(NameField == false)
+		{
+			System.out.println("The EMS Server name is Disabled");
+			context.setAttribute("Status", 1);
+    		context.setAttribute("Comment", "EMS Server name is disabled");
+			driver.findElement(By.cssSelector(".btn-danger")).click();
+			Thread.sleep(6000);
+			
+		}
+		else
+		{
+			System.out.println("The EMS Server name is Enable");
+			context.setAttribute("Status", 5);
+    		context.setAttribute("Comment", "The EMS Server name is Enable");
+			driver.findElement(By.cssSelector(".btn-danger")).click();
+			Thread.sleep(6000);
+			driver.findElement(By.xpath("EMS Server name field is Enable")).click();
+		}
 		
 	}
 	
-	@Test(priority=10)
-	public void Logout() throws Exception
+	@Parameters({"FavoriteViewletName"})
+	@TestRail(testCaseId=282)
+	@Test(priority=17)
+	public static void AddToFavorites(String FavoriteViewletName, ITestContext context) throws InterruptedException
 	{
+		//Create favorite Viewlet
+		driver.findElement(By.xpath("//button[2]")).click();
+		driver.findElement(By.id("fav")).click();
+		driver.findElement(By.xpath("//app-mod-select-viewlet-type/div/div[2]/button[2]")).click();
+		
+		//Viewlet Name
+		driver.findElement(By.name("viewlet-name")).click();
+		driver.findElement(By.name("viewlet-name")).sendKeys(FavoriteViewletName);
+		
+		Select wgsdropdown1=new Select(driver.findElement(By.name("wgs")));
+		wgsdropdown1.selectByVisibleText(EMS_WGSNAME);
+		
+		//Submit
+		driver.findElement(By.xpath("//app-modal-add-viewlet-favorite/div/div[2]/button[2]")).click();
+		Thread.sleep(2000);
+		
+		int Node_Name=3;
+		if(!EMS_WGSNAME.contains("MQM"))
+		{
+			Node_Name=4;
+		}
+		//node names data storage  
+		String NodeName=driver.findElement(By.xpath("//datatable-body-cell["+ Node_Name +"]/div/span")).getText();
+		System.out.println("Node name is: " +NodeName);
+		
+		//----------- Add Manager to favorite viewlet -----------------
+		//Select Add tofavorite option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Add to favorites...")).click();
+		Thread.sleep(2000);
+		
+		
+		//Select the favorite viewlet name
+		Select fav=new Select(driver.findElement(By.cssSelector(".fav-select")));
+		fav.selectByVisibleText(FavoriteViewletName);
+		Thread.sleep(2000);
+		driver.findElement(By.cssSelector(".g-block-bottom-buttons > .g-button-blue")).click();
+		Thread.sleep(2000);
+		
+		//Favorite viewlet data storing
+		String Fav1=driver.findElement(By.xpath("//div[2]/app-viewlet/div/ngx-datatable/div/datatable-body")).getText();
+		System.out.println("Fav viewlet data is: " +Fav1);
+		
+		//Verification condition
+		if(Fav1.contains(NodeName))
+		{
+			System.out.println("EMS Manager is added to Favorite viewlet");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "EMS Manager is added to Favorite viewlet");
+		}
+		else
+		{
+			System.out.println("EMS Manager is not added to Favorite viewlet");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Failed to add EMS Manager to Favorite viewlet");
+			driver.findElement(By.id("Add EMS Manager to favorite failed")).click();
+		}
+		Thread.sleep(1000);
+	}
+	
+	
+	@Test(priority=20)
+	public void Logout() throws Exception
+	{		
 		//Delete the dashboard 
 		try
 		{
@@ -341,6 +939,56 @@ public class EMSManagerViewlet
 		//Logout option
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	public void DeleteUser(String NewUser) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("Users")).click();
+		Thread.sleep(4000);
+		
+		//click on User
+		driver.findElement(By.xpath("//span[contains(.,'"+ NewUser +"')]")).click();
+		
+		//Click on delete button and confirmation button
+		driver.findElement(By.xpath("//span[3]/button")).click();
+		driver.findElement(By.id("accept-true")).click();
+		Thread.sleep(6000);
+		
+		//close the popup page
+		driver.findElement(By.cssSelector(".btn-danger")).click();
+		Thread.sleep(4000);
+	}
+	
+	public void CreateUser(String NewUser, String Newpassword, String Description) throws InterruptedException
+	{
+		//Select the User Group option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions MousehoverIncremental=new Actions(driver);
+		MousehoverIncremental.moveToElement(driver.findElement(By.linkText("Manage"))).perform();
+		driver.findElement(By.linkText("Users")).click();
+		Thread.sleep(6000);
+				
+		//Click on Create button
+		driver.findElement(By.xpath("//span[2]/button")).click();
+		
+		//Give username
+		driver.findElement(By.name("name")).clear();
+		driver.findElement(By.name("name")).sendKeys(NewUser);
+		
+		//Give password
+		driver.findElement(By.name("password2")).clear();
+		driver.findElement(By.name("password2")).sendKeys(Newpassword);
+		
+		//description
+		driver.findElement(By.name("description")).sendKeys(Description);
+		
+		//click on save button
+		driver.findElement(By.xpath("//div[3]/button[2]")).click();
+		Thread.sleep(4000);
 	}
 	
 	@AfterMethod
