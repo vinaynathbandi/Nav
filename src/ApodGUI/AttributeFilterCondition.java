@@ -104,7 +104,7 @@ public class AttributeFilterCondition
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(8000);
+		Thread.sleep(10000);
 	}
 	
 	@Parameters({"Dashboardname", "LocalQueue"})
@@ -149,7 +149,7 @@ public class AttributeFilterCondition
 		dd.selectByVisibleText(WGSName);
 	
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(4000);
 	}
 	
 	@Parameters({"ConditionName", "AttributeName", "CompareOperation", "ConditionData", "RowValue"})
@@ -219,7 +219,7 @@ public class AttributeFilterCondition
 		}
 		
 		//driver.findElement(By.xpath("//td/input")).click();
-		driver.findElement(By.xpath("(//button[@type='button'])[7]")).click();
+		driver.findElement(By.xpath("//app-mod-manage-attribute-filter/div/div[2]/button")).click();
 		Thread.sleep(2000);
 		
 		//Click on Apply

@@ -331,9 +331,10 @@ public class AddSchemaToTheViewlet
 	{
 		//Click on Attribute 
 		driver.findElement(By.xpath("//div[3]/table/tbody/tr/td")).click();
+		Thread.sleep(4000);
 		
 		//click on remove button
-		driver.findElement(By.xpath("//div[2]/div[2]/button[3]")).click();
+		driver.findElement(By.xpath("//span[contains(.,' Remove')]")).click();
 		Thread.sleep(4000);
 		
 		//Store the Displayed attributes field data into string

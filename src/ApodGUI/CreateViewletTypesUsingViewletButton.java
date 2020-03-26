@@ -20,13 +20,16 @@ import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import testrail.Settings;
+import testrail.TestClass;
 import testrail.TestRail;
 import testrail.TestRailAPI;
 
+@Listeners(TestClass.class)
 public class CreateViewletTypesUsingViewletButton 
 { 
 	String FinalProcess="";
@@ -116,6 +119,7 @@ public class CreateViewletTypesUsingViewletButton
 		Thread.sleep(2000);
 	}
 	
+	@TestRail(testCaseId=814)
 	@Parameters({"Nodename"})
 	@Test(priority=1)
 	public void CreateViewletUsingObjectCheckbox(String Nodename, ITestContext context) throws InterruptedException
@@ -154,7 +158,7 @@ public class CreateViewletTypesUsingViewletButton
 		}
 	}
 	
-	
+	@TestRail(testCaseId=797)
 	@Test(priority=2)
 	public void CreateATemporaryViewletUsingSearchCheckbox(ITestContext context) throws InterruptedException
 	{
@@ -195,7 +199,7 @@ public class CreateViewletTypesUsingViewletButton
 		}
 	}
 	
-	
+	@TestRail(testCaseId=815)
 	@Parameters({"FavoriteViewletName"})
 	@Test(priority=3)
 	public void CreateFavoriteViewletUsingCheckbox(String FavoriteViewletName, ITestContext context) throws InterruptedException
@@ -231,6 +235,7 @@ public class CreateViewletTypesUsingViewletButton
 		}
 	}
 	
+	@TestRail(testCaseId=816)
 	@Test(priority=4)
 	public void OpenAnExistingCheckbox(ITestContext context) throws InterruptedException
 	{
@@ -341,6 +346,7 @@ public class CreateViewletTypesUsingViewletButton
 		
 	}
 	
+	@TestRail(testCaseId=817)
 	@Parameters({"NewViewletName"})
 	@Test(priority=6)
 	public void EditViewletOption(String NewViewletName, ITestContext context) throws InterruptedException
@@ -380,7 +386,7 @@ public class CreateViewletTypesUsingViewletButton
 		Thread.sleep(1000);
 	}
 	
-	
+	@TestRail(testCaseId=818)
 	@Test(priority=7)
 	public void DeleteViewletOption(ITestContext context) throws InterruptedException
 	{

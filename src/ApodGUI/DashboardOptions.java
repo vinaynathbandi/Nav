@@ -98,7 +98,7 @@ public class DashboardOptions
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);	
+		Thread.sleep(8000);	
 	}
 	
 	@TestRail(testCaseId=754)
@@ -426,17 +426,18 @@ public class DashboardOptions
 		
 	}
 	
-	
+	@Parameters({"EMSDashboardname"})
 	@Test(priority=20)
-	public static void Logout() throws InterruptedException
+	public void Logout(String EMSDashboardname) throws InterruptedException
 	{
+		SelectDashboard(EMSDashboardname);
 		//Logout
 		try
 		{
 			driver.findElement(By.cssSelector(".active .g-tab-btn-close-block")).click();
 			//driver.findElement(By.cssSelector(".fa-times")).click();
 			driver.findElement(By.cssSelector(".btn-primary")).click();
-			Thread.sleep(1000);
+			Thread.sleep(4000);
 		}
 		catch (Exception e)
 		{
@@ -449,6 +450,30 @@ public class DashboardOptions
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
 	
+	}
+	
+	public void SelectDashboard(String EMSDashboardname) throws InterruptedException
+	{
+		
+		WebElement cla=driver.findElement(By.className("tabs-panel-left-relative-block")).findElement(By.tagName("ul"));
+		List<WebElement> lis=cla.findElements(By.tagName("li"));
+		System.out.println("No of dashboards are: " +lis.size());
+		
+		for(WebElement li: lis)
+		{
+			//System.out.println("titles are: " +li.getAttribute("class"));
+			WebElement fi=li.findElement(By.className("g-tab-title"));
+			//System.out.println("Names are: " +fi.getText());
+			
+			if(fi.getText().equalsIgnoreCase(EMSDashboardname))
+			{
+				fi.click();
+				/*Actions a=new Actions(driver);
+				a.contextClick(fi).perform();*/
+				Thread.sleep(5000);
+				break;
+			}
+		}
 	}
 	
 	

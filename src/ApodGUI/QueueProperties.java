@@ -41,6 +41,7 @@ public class QueueProperties
 	static String Dnode;
 	static String DestinationManager;
 	static String FinalQueuename="";
+	static String MsgDepth="";
 	
 	@BeforeTest
 	public void beforeTest() throws Exception {
@@ -134,7 +135,7 @@ public class QueueProperties
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(1000);
 		
-		//Restore Default settings 
+		/*//Restore Default settings 
 		driver.findElement(By.cssSelector(".fa-cog")).click();
 		driver.findElement(By.xpath("//div[2]/div/div/div[2]/button")).click();
 		Thread.sleep(2000);
@@ -173,10 +174,11 @@ public class QueueProperties
 		WGSSelection1.selectByVisibleText(WGSName);
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(1000);
+		Thread.sleep(1000);*/
 		
 	}
 	
+	@TestRail(testCaseId = 830)
 	@Parameters({"PutMessageOption"})
 	@Test(priority=1)
 	public void PutMessageInInhibitedQueue(String PutMessageOption, ITestContext context) throws InterruptedException
@@ -268,7 +270,7 @@ public class QueueProperties
 		
 	}
 	
-	
+	@TestRail(testCaseId = 831)
 	@Parameters({"GetMessageOption"})
 	@Test(priority=2)
 	public void GetMessageFromInhibitedQueue(String GetMessageOption, ITestContext context) throws InterruptedException
@@ -330,7 +332,191 @@ public class QueueProperties
 		this.Resetget();
 	}
 	
-	@Parameters({"Managername"})
+	@TestRail(testCaseId = 832)
+	@Parameters({"MessageData", "messagesize"})
+	@Test(priority=3)
+	public void MaximumQueueDepth(String MessageData, int messagesize, ITestContext context) throws InterruptedException
+	{
+		int CDepth_Index=5;
+		if(!WGSName.contains("MQM"))
+		{
+			CDepth_Index=6;
+		}
+		
+		//Get current depth of the Queue          
+		String value=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ CDepth_Index +"]/div/span")).getText();
+		int cd=Integer.parseInt(value);
+		System.out.println("Current depth is: " +cd);
+		
+		int MDepth_Index=6;
+		if(!WGSName.contains("MQM"))
+		{
+			MDepth_Index=7;
+		}
+		
+		//Get maximum depth of queue
+		String valuem=driver.findElement(By.xpath(" //div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ MDepth_Index +"]/div/span")).getText();
+		int MaxD=Integer.parseInt(valuem);
+		System.out.println("Initial maximum depth is:" +MaxD);
+		
+		//Increase the depth 
+		int MaxDepth=cd+2;
+		System.out.println("Maximum depth value is:" +MaxDepth);
+		
+		/*//Open properties page
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+		
+		//Click on Extend tab
+		driver.findElement(By.linkText("Extended")).click();
+		Thread.sleep(3000);*/
+		
+		MaximumDepth();
+		
+		driver.findElement(By.id("maxQueueDepth")).clear();
+		driver.findElement(By.id("maxQueueDepth")).sendKeys(Integer.toString(MaxDepth));
+		Thread.sleep(3000);
+		
+		//click on ok button
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(4000);
+		
+		Putmessage(MessageData, messagesize);
+		
+		//refresh the viewlet
+		for(int i=0; i<=3; i++)
+		{
+			driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+			Thread.sleep(5000);
+		}
+		
+		//get the current depth and store into string
+		String FinalDepth=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ CDepth_Index +"]/div/span")).getText();
+		int rcd=Integer.parseInt(FinalDepth);
+		System.out.println("Final depth is: " +rcd);
+		
+		if(rcd==MaxDepth)
+		{
+			System.out.println("Maximum depth is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "Maximum queue depth is working");
+		}
+		else
+		{
+			System.out.println("Maximum depth is not working");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Maximum depth is failed");
+			MaximumDepth();
+			driver.findElement(By.id("maxQueueDepth")).sendKeys(valuem);
+			Thread.sleep(3000);
+			
+			//click on ok button
+			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(4000);
+			driver.findElement(By.id("maximum depth failed")).click();
+		}
+		
+		MaximumDepth();
+		driver.findElement(By.id("maxQueueDepth")).sendKeys(valuem);
+		Thread.sleep(3000);
+		
+		//click on ok button
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(4000);
+
+	}
+	
+	
+	@TestRail(testCaseId = 833)
+	@Parameters({"MessageLength", "length"})
+	@Test(priority=4)
+	public void MessageLength(String MessageLength, int length, ITestContext context) throws InterruptedException
+	{
+		int CDepth_Index=5;
+		if(!WGSName.contains("MQM"))
+		{
+			CDepth_Index=6;
+		}
+		
+		//Get current depth of the Queue          
+		String value=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ CDepth_Index +"]/div/span")).getText();
+		int cd=Integer.parseInt(value);
+		System.out.println("Current depth is: " +cd);
+		
+		/*//Open properties page
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+		
+		//Click on Extend tab
+		driver.findElement(By.linkText("Extended")).click();
+		Thread.sleep(3000);*/
+		
+		MessageDepth();
+		
+		//Get the depth		
+		MsgDepth=driver.findElement(By.id("maxMsgLength")).getAttribute("value");
+		System.out.println("Message Attribute depth is: " +MsgDepth);			
+		
+		driver.findElement(By.id("maxMsgLength")).clear();
+		
+		//Edit max message length
+		driver.findElement(By.id("maxMsgLength")).sendKeys("100");
+		
+		//click on ok button
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(4000);
+		
+		Putmessage(MessageLength, length);
+		
+		//refresh the viewlet
+		for(int i=0; i<=3; i++)
+		{
+			driver.findElement(By.xpath("//img[@title='Refresh viewlet']")).click();
+			Thread.sleep(5000);
+		}
+		
+		//get the current depth and store into string
+		String FinalDepth=driver.findElement(By.xpath("//div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper/datatable-body-row/div[2]/datatable-body-cell["+ CDepth_Index +"]/div/span")).getText();
+		int rcd=Integer.parseInt(FinalDepth);
+		System.out.println("Final depth is: " +rcd);
+		
+		if(cd==rcd)
+		{
+			System.out.println("Maximum message length is working fine");
+			context.setAttribute("Status", 1);
+			context.setAttribute("Comment", "maximum message length is working");
+		}
+		else
+		{
+			System.out.println("Maximum message length is not working");
+			context.setAttribute("Status", 5);
+			context.setAttribute("Comment", "Maximum message length not working");
+			MessageDepth();
+			driver.findElement(By.id("maxMsgLength")).clear();
+			driver.findElement(By.id("maxMsgLength")).sendKeys(MsgDepth);
+			Thread.sleep(3000);
+			
+			//click on ok button
+			driver.findElement(By.cssSelector(".btn-primary")).click();
+			Thread.sleep(4000);
+			
+			driver.findElement(By.id("Maximum msg length failed")).click();
+		}
+		
+		MessageDepth();
+		//Get the depth				
+		driver.findElement(By.id("maxMsgLength")).clear();
+		driver.findElement(By.id("maxMsgLength")).sendKeys(MsgDepth);
+		Thread.sleep(3000);
+		
+		//click on ok button
+		driver.findElement(By.cssSelector(".btn-primary")).click();
+		Thread.sleep(4000);
+	}
+	
+	
 	@Test(priority=3)
 	public void MQStatisticsForManager(String Managername, ITestContext context) throws InterruptedException
 	{		
@@ -676,6 +862,67 @@ public class QueueProperties
 		//Logout
 		driver.findElement(By.cssSelector(".fa-power-off")).click();
 		driver.close();
+	}
+	
+	public void MaximumDepth() throws InterruptedException
+	{
+		//Open properties page
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+		
+		//Click on Extend tab
+		driver.findElement(By.linkText("Extended")).click();
+		Thread.sleep(3000);
+		
+		driver.findElement(By.id("maxQueueDepth")).clear();			
+	}
+	
+	public void MessageDepth() throws InterruptedException
+	{
+		//Open properties page
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		driver.findElement(By.linkText("Properties...")).click();
+		Thread.sleep(4000);
+		
+		//Click on Extend tab
+		driver.findElement(By.linkText("Extended")).click();
+		Thread.sleep(3000);			
+	}
+	
+	public void Putmessage(String Message, int size) throws InterruptedException
+	{
+		//Select the put new message option
+		driver.findElement(By.xpath("/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[1]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input")).click();
+		Actions PutMessagesMousehour=new Actions(driver);
+		PutMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
+		driver.findElement(By.linkText("Put New Message")).click();
+		Thread.sleep(4000);
+		
+		//Select the number of messages
+		driver.findElement(By.name("generalNumberOfMsgs")).click();
+		driver.findElement(By.name("generalNumberOfMsgs")).clear();
+		driver.findElement(By.name("generalNumberOfMsgs")).sendKeys(Integer.toString(size));
+		
+		//Put a message data
+		//driver.findElement(By.id("encoding-text-9")).click();
+		driver.findElement(By.xpath("//textarea")).sendKeys(Message);
+		Thread.sleep(4000);
+		driver.findElement(By.cssSelector("button.btn.btn-primary")).click();
+		Thread.sleep(2000);
+		
+		try
+		{
+			driver.findElement(By.id("yes")).click();
+			driver.findElement(By.cssSelector(".btn-danger")).click();
+			Thread.sleep(2000);
+		}
+		catch (Exception e)
+		{
+			System.out.println("No Exception");
+		}
+		Thread.sleep(6000);
+		
 	}
 	
 	public void EnableStatistics() throws InterruptedException

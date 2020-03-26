@@ -45,7 +45,7 @@
        <!--  <include name="DeleteMultiples"/>   --> 
         <include name="MultipleProperties"/> 
         <include name="AddToFavoriteForMultipleRoutes"/> 
-        <include name="AddRouteFromPlusIcon"/>   
+        <include name="AddRouteFromPlusIcon"/>  
         <include name="Logout"/> 
         
        </methods>

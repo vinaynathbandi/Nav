@@ -15,6 +15,11 @@
     <parameter name="GetMessageOption" value="Inhibited"/>
     <parameter name="Managername" value="Manager viewlet"/>
     <parameter name="Channelname" value="Channel Viewlet"/>
+    
+    <parameter name="messagesize" value="4"/>
+    <parameter name="length" value="1"/>
+    <parameter name="MessageData" value="Test maximum depth functionality"/>
+    <parameter name="MessageLength" value="Test the message length functionality which has more than the maximum length. Test the navigator message length"/>
       
      <classes>
       <class name="ApodGUI.QueueProperties">
@@ -24,9 +29,11 @@
         <include name="Login"/>
         <include name="PutMessageInInhibitedQueue"/>  
         <include name="GetMessageFromInhibitedQueue"/> 
-        <include name="MQStatisticsForManager"/> 
+        <include name="MaximumQueueDepth"/> 
+        <include name="MessageLength"/>
+       <!--  <include name="MQStatisticsForManager"/> 
         <include name="QueueStatistics"/> 
-      <!--   <include name="MQStatisticsForChannels"/>   -->
+        <include name="MQStatisticsForChannels"/>   -->
        
         <include name="Logout"/> 
         

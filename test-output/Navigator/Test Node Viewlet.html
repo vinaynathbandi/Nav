@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test Node Viewlet</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>13/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Jan 28 13:22:35 IST 2020</td>
+<td>Started on:</td><td>Fri Mar 20 12:49:26 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>150 seconds (150247 ms)</td>
+<tr><td>Total time:</td><td>813 seconds (813309 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,106 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.ShowObjectAttributesforNode()'><b>ShowObjectAttributesforNode</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: NodeSchema, org.testng.TestRunner@332729ad<br/>
+<a href="#Output-1330415865" onClick='toggleBox("Output-1330415865", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1330415865" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1330415865">
+<br/>Failed to execute method: ShowObjectAttributesforNode<br/><br/>
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/ShowObjectAttributesforNode.png" alt="""/" /><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;Attributes failed&quot;}
+  (Session info: chrome=80.0.3987.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.112&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51907}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.132, webStorageEnabled: true}
+Session ID: 90a1f763a1203ad26bda7d1c5430a97c
+*** Element info: {Using=id, value=Attributes failed}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:368)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.NodeViewlet.ShowObjectAttributesforNode(NodeViewlet.java:188)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1330415865", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1330415865'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;Attributes failed&quot;}
+  (Session info: chrome=80.0.3987.132)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.112&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\NAGARA~1.KAG\AppDa...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51907}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.132, webStorageEnabled: true}
+Session ID: 90a1f763a1203ad26bda7d1c5430a97c
+*** Element info: {Using=id, value=Attributes failed}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:368)
+	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.NodeViewlet.ShowObjectAttributesforNode(NodeViewlet.java:188)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>97</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -75,30 +175,82 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='ApodGUI.NodeViewlet.CreateNodeUsingIcon()'><b>CreateNodeUsingIcon</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@73a8da0f<br/>
-<a href="#Output-1521238608" onClick='toggleBox("Output-1521238608", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.NodeViewlet.CheckDifferencesForNodes()'><b>CheckDifferencesForNodes</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-1296928719" onClick='toggleBox("Output-1296928719", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1521238608" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1521238608">
+<a href="#Output-1296928719" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1296928719">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CheckDifferencesForNodes.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.CompareTwoNodes()'><b>CompareTwoNodes</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-207988207" onClick='toggleBox("Output-207988207", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-207988207" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-207988207">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CompareTwoNodes.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.CreateNodeUsingIcon()'><b>CreateNodeUsingIcon</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-564817260" onClick='toggleBox("Output-564817260", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-564817260" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-564817260">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateNodeUsingIcon.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>22</td>
+<td>23</td>
 <td>ApodGUI.NodeViewlet@7a765367</td></tr>
 <tr>
-<td title='ApodGUI.NodeViewlet.DeleteNode()'><b>DeleteNode</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@73a8da0f<br/>
-<a href="#Output-351656492" onClick='toggleBox("Output-351656492", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.NodeViewlet.CreateQueueManagerFromNodeViewletOptions()'><b>CreateQueueManagerFromNodeViewletOptions</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: Test Manager From options, org.testng.TestRunner@332729ad<br/>
+<a href="#Output-594916129" onClick='toggleBox("Output-594916129", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-351656492" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-351656492">
+<a href="#Output-594916129" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-594916129">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateQueueManagerFromNodeViewletOptions.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>45</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.DeleteNode()'><b>DeleteNode</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-487764004" onClick='toggleBox("Output-487764004", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-487764004" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-487764004">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteNode.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>19</td>
+<td>26</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.DiscoverNow()'><b>DiscoverNow</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-864326906" onClick='toggleBox("Output-864326906", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-864326906" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-864326906">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DiscoverNow.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>14</td>
 <td>ApodGUI.NodeViewlet@7a765367</td></tr>
 <tr>
 <td title='ApodGUI.NodeViewlet.Login()'><b>Login</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: webdriver.chrome.driver, Drivers/chromedriver.exe, Node Dashboard, Node viewlet<br/>
@@ -113,12 +265,77 @@ Maximizing the window<br/>
 </div>
 </td>
 <td></td>
-<td>26</td>
+<td>28</td>
 <td>ApodGUI.NodeViewlet@7a765367</td></tr>
 <tr>
 <td title='ApodGUI.NodeViewlet.Logout()'><b>Logout</b><br>Test class: ApodGUI.NodeViewlet</td>
 <td></td>
-<td>6</td>
+<td>4</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.ManageAndUnmanageNode()'><b>ManageAndUnmanageNode</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-1112527632" onClick='toggleBox("Output-1112527632", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1112527632" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1112527632">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ManageAndUnmanageNode.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>12</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.NodeEvents()'><b>NodeEvents</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-1280641161" onClick='toggleBox("Output-1280641161", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1280641161" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1280641161">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/NodeEvents.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.PropertiesOfNode()'><b>PropertiesOfNode</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-1572745406" onClick='toggleBox("Output-1572745406", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1572745406" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1572745406">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/PropertiesOfNode.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>22</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.SearchFilter()'><b>SearchFilter</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-1495414981" onClick='toggleBox("Output-1495414981", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1495414981" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1495414981">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/SearchFilter.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>10</td>
+<td>ApodGUI.NodeViewlet@7a765367</td></tr>
+<tr>
+<td title='ApodGUI.NodeViewlet.ShowTopology()'><b>ShowTopology</b><br>Test class: ApodGUI.NodeViewlet<br>Parameters: org.testng.TestRunner@332729ad<br/>
+<a href="#Output-1152606315" onClick='toggleBox("Output-1152606315", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1152606315" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1152606315">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowTopology.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>19</td>
 <td>ApodGUI.NodeViewlet@7a765367</td></tr>
 </table><p>
 </body>

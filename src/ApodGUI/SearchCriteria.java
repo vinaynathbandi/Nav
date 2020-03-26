@@ -107,7 +107,7 @@ public class SearchCriteria
 		driver.findElement(By.id("username")).sendKeys(uname);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.cssSelector("button.btn-submit")).click();
-		Thread.sleep(2000);
+		Thread.sleep(10000);
 		
 		//---------- Create New Dashboard ---
 		//Create New Dashboard

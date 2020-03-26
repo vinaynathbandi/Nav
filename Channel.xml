@@ -32,8 +32,8 @@
         <include name="StopChannelFromCommands"/>
         <include name="PingChannelFromCommands"/>
         <include name="ResolveChannelFromCommands"/>
-        <include name="ResetChannelFromCommands"/>  -->
-        <include name="Properties"/>  
+        <include name="ResetChannelFromCommands"/>   -->
+        <include name="Properties"/> 
         <include name="Events"/>
         <include name="AddToFavorites"/>  
         <include name="ComapareChannels"/>

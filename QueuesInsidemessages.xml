@@ -30,7 +30,7 @@
             <include name="DeleteMessageUsingDeleteOption"/>  
             <include name="CopyMessageUsingCopyOption"/>
             <include name="MoveMessageUsingMoveOption"/> 
-            <include name="RerouteQueueToCurrentManager"/>  
+           <!--  <include name="RerouteQueueToCurrentManager"/>   -->
             <include name="Logout"/>
           </methods> 
           

@@ -263,6 +263,7 @@ public class EMSManagerViewlet
 		Thread.sleep(1000);	
 	}
 	
+	@TestRail(testCaseId=819)
 	@Parameters({"GroupName", "GoupDescription"})
 	@Test(priority=5)
 	public void CreateUserGroup(String GroupName, String GoupDescription, ITestContext context) throws InterruptedException
@@ -328,7 +329,7 @@ public class EMSManagerViewlet
 		Thread.sleep(4000);
 	}
 	
-	
+	@TestRail(testCaseId=820)
 	@Parameters({"GroupName", "UpdateGoupDescription"})
 	@Test(priority=6, dependsOnMethods= {"CreateUserGroup"})
 	public void EditUserGroup(String GroupName, String UpdateGoupDescription, ITestContext context) throws InterruptedException
@@ -382,6 +383,7 @@ public class EMSManagerViewlet
 		Thread.sleep(4000);
 	}
 	
+	@TestRail(testCaseId=821)
 	@Parameters({"GroupName"})
 	@Test(priority=7, dependsOnMethods= {"CreateUserGroup", "EditUserGroup"})
 	public void DeleteUserGroup(String GroupName, ITestContext context) throws InterruptedException
@@ -431,6 +433,7 @@ public class EMSManagerViewlet
 		Thread.sleep(4000);
 	}
 	
+	@TestRail(testCaseId=822)
 	@Parameters({"Username", "UserPassword", "UserDescription"})
 	@Test(priority=8)
 	public void CreateUser(String Username, String UserPassword, String UserDescription, ITestContext context) throws InterruptedException
@@ -494,6 +497,7 @@ public class EMSManagerViewlet
 		driver.findElement(By.cssSelector(".btn-danger")).click();
 	}
 	
+	@TestRail(testCaseId=823)
 	@Parameters({"Username", "UserPassword", "UpdateUserDescription"})
 	@Test(priority=9, dependsOnMethods= {"CreateUser"})
 	public void EditUser(String Username, String UserPassword, String UpdateUserDescription, ITestContext context) throws InterruptedException
@@ -549,6 +553,7 @@ public class EMSManagerViewlet
 		driver.findElement(By.cssSelector(".btn-danger")).click();
 	}
 	
+	@TestRail(testCaseId=824)
 	@Parameters({"Username"})
 	@Test(priority=10, dependsOnMethods= {"CreateUser", "EditUser"})
 	public void DeleteUser(String Username, ITestContext context) throws InterruptedException
@@ -594,6 +599,7 @@ public class EMSManagerViewlet
 		driver.findElement(By.cssSelector(".btn-danger")).click();	
 	}
 	
+	@TestRail(testCaseId=825)
 	@Parameters({"NewUser", "Newpassword", "Description", "Type"})
 	@Test(priority=11)
 	public void AddQueueACLToUser(String NewUser, String Newpassword, String Description, String Type, ITestContext context) throws InterruptedException
@@ -665,7 +671,7 @@ public class EMSManagerViewlet
 		driver.findElement(By.cssSelector(".btn-danger")).click();
 	}
 	
-	
+	@TestRail(testCaseId=826)
 	@Parameters({"NewUser", "Type1"})
 	@Test(priority=12, dependsOnMethods= {"AddQueueACLToUser"})
 	public void AddTopicACLToUser(String NewUser, String Type1, ITestContext context) throws InterruptedException
@@ -742,6 +748,7 @@ public class EMSManagerViewlet
 		driver.findElement(By.cssSelector(".btn-danger")).click();	
 	}
 	
+	@TestRail(testCaseId=827)
 	@Parameters({"NewUser"})
 	@Test(priority=13, dependsOnMethods= {"CreateUser", "AddQueueACLToUser"})
 	public void ResetButtonInACLs(String NewUser, ITestContext context) throws InterruptedException
@@ -783,6 +790,7 @@ public class EMSManagerViewlet
 		}
 	}
 	
+	@TestRail(testCaseId=828)
 	@Parameters({"NewUser"})
 	@Test(priority=14, dependsOnMethods= {"CreateUser", "AddQueueACLToUser", "ResetButtonInACLs"})
 	public void SaveButtonInACLs(String NewUser, ITestContext context) throws InterruptedException
@@ -822,7 +830,7 @@ public class EMSManagerViewlet
 		DeleteUser(NewUser);
 	}
 	
-		
+	@TestRail(testCaseId=829)
 	@Test(priority=16)
 	public void EMSManagerProperties(ITestContext context) throws InterruptedException
 	{

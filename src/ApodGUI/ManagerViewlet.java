@@ -296,9 +296,16 @@ public class ManagerViewlet
 		driver.findElement(By.linkText("Show Topology")).click();
 		Thread.sleep(4000);
 		
+		try
+		{
 		if (!checkprogress()) {
 
 			System.out.println("exit");
+		}
+		}
+		catch (Exception e)
+		{
+			System.out.println("No progress bar");
 		}
 		
 		//Store the Topology page data into string

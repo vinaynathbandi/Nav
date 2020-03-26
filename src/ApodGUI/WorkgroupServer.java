@@ -826,7 +826,7 @@ public class WorkgroupServer {
 				context.setAttribute("Comment", "Remote EMS server is edited successflly");
 				System.out.println("Remote EMS server is modified");
 			} else {
-				context.setAttribute("Status", 1);
+				context.setAttribute("Status", 5);
 				context.setAttribute("Comment", "Failed to edit Remote EMS server");
 				System.out.println("Remote EMS server is not modified");
 				driver.findElement(By.id("Modify failed")).click();
@@ -835,6 +835,7 @@ public class WorkgroupServer {
 		} catch (Exception e) {
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "Exception occured while editing Remote EMS server, Check details: " + e.getMessage());
+			driver.findElement(By.id("Modify failed")).click();
 		}
 	}
 

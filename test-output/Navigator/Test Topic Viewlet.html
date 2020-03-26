@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test Topic Viewlet</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>6/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>11/3/5</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Feb 18 16:00:17 IST 2020</td>
+<td>Started on:</td><td>Tue Mar 24 12:10:20 IST 2020</td>
 </tr>
-<tr><td>Total time:</td><td>374 seconds (374972 ms)</td>
+<tr><td>Total time:</td><td>751 seconds (751573 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,27 +75,28 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='ApodGUI.EMSTopic.EMSTopicPublish()'><b>EMSTopicPublish</b><br>Test class: ApodGUI.EMSTopic<br>Parameters: EMS.TOPIC.PUBLISH, EMSAGENT01, EMS-SERVER, Test the publish option and sending the message to queue, Test Property, Test Property value, TopicPublish.Durable, org.testng.TestRunner@6af9fcb2<br/>
-<a href="#Output-2117043942" onClick='toggleBox("Output-2117043942", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.TopicViewlet.CreateTopic()'><b>CreateTopic</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: SYSTEM.DEFAULT.TOPIC.Options, Test the description , nastel2, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-288919635" onClick='toggleBox("Output-288919635", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-2117043942" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2117043942">
-<br/>Failed to execute method: EMSTopicPublish<br/><br/>
+<a href="#Output-288919635" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-288919635">
+<br/>Failed to execute method: CreateTopic<br/><br/>
 <br/><br/>
-<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/EMSTopicPublish.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateTopic.png" alt="""/" /><br/>
 </div>
 </td>
-<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;publish failed&quot;}
-  (Session info: chrome=79.0.3945.130)
+<td><div><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Topic vielwr Failed because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Topic vielwr Failed&apos; is not a valid XPath expression.
+  (Session info: chrome=80.0.3987.149)
   (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
 Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
-System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.128&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54029}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.130, webStorageEnabled: true}
-Session ID: edf9b16309aa584bf051677afd71e2cd
-*** Element info: {Using=id, value=publish failed}
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51096}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.149, webStorageEnabled: true}
+Session ID: 4b24cd065f3ba8f67a34303e44426a52
+*** Element info: {Using=xpath, value=Topic vielwr Failed}
 	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
 	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
 	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
@@ -105,22 +106,23 @@ Session ID: edf9b16309aa584bf051677afd71e2cd
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:368)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at ApodGUI.EMSTopic.EMSTopicPublish(EMSTopic.java:480)
-... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2117043942", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2117043942'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;id&quot;,&quot;selector&quot;:&quot;publish failed&quot;}
-  (Session info: chrome=79.0.3945.130)
+	at ApodGUI.TopicViewlet.CreateTopic(TopicViewlet.java:293)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace288919635", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace288919635'><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Topic vielwr Failed because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Topic vielwr Failed&apos; is not a valid XPath expression.
+  (Session info: chrome=80.0.3987.149)
   (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
 Command duration or timeout: 0 milliseconds
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
 Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
-System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;192.168.122.1&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.128&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54029}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 79.0.3945.130, webStorageEnabled: true}
-Session ID: edf9b16309aa584bf051677afd71e2cd
-*** Element info: {Using=id, value=publish failed}
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51096}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.149, webStorageEnabled: true}
+Session ID: 4b24cd065f3ba8f67a34303e44426a52
+*** Element info: {Using=xpath, value=Topic vielwr Failed}
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -134,10 +136,10 @@ Session ID: edf9b16309aa584bf051677afd71e2cd
 	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:368)
-	at org.openqa.selenium.By$ById.findElement(By.java:188)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
 	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
-	at ApodGUI.EMSTopic.EMSTopicPublish(EMSTopic.java:480)
+	at ApodGUI.TopicViewlet.CreateTopic(TopicViewlet.java:293)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -164,8 +166,198 @@ Session ID: edf9b16309aa584bf051677afd71e2cd
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>73</td>
-<td>ApodGUI.EMSTopic@33c7e1bb</td></tr>
+<td>25</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.CreateTopicFromPlusIcon()'><b>CreateTopicFromPlusIcon</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: SYSTEM.DEFAULT.TOPIC.Icon, Description, UniqueName1, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-1289563251" onClick='toggleBox("Output-1289563251", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1289563251" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1289563251">
+<br/>Failed to execute method: CreateTopicFromPlusIcon<br/><br/>
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/CreateTopicFromPlusIcon.png" alt="""/" /><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Topic vielwr Failed because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Topic vielwr Failed&apos; is not a valid XPath expression.
+  (Session info: chrome=80.0.3987.149)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.128&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51096}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.149, webStorageEnabled: true}
+Session ID: 4b24cd065f3ba8f67a34303e44426a52
+*** Element info: {Using=xpath, value=Topic vielwr Failed}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.TopicViewlet.topiccreation(TopicViewlet.java:839)
+	at ApodGUI.TopicViewlet.CreateTopicFromPlusIcon(TopicViewlet.java:851)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1289563251", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1289563251'><pre>org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression Topic vielwr Failed because of the following error:
+SyntaxError: Failed to execute &apos;evaluate&apos; on &apos;Document&apos;: The string &apos;Topic vielwr Failed&apos; is not a valid XPath expression.
+  (Session info: chrome=80.0.3987.149)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.128&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51096}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.149, webStorageEnabled: true}
+Session ID: 4b24cd065f3ba8f67a34303e44426a52
+*** Element info: {Using=xpath, value=Topic vielwr Failed}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.TopicViewlet.topiccreation(TopicViewlet.java:839)
+	at ApodGUI.TopicViewlet.CreateTopicFromPlusIcon(TopicViewlet.java:851)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>33</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.PublishFromCommandsForMultipleTopics()'><b>PublishFromCommandsForMultipleTopics</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: SYSTEM.DEFAULT.TOPIC.Icon, Description, UniqueName1, Test.Multiple.Sub421, Add Message into the destination queue, Test, Test, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-1678623942" onClick='toggleBox("Output-1678623942", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1678623942" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1678623942">
+<br/>Failed to execute method: PublishFromCommandsForMultipleTopics<br/><br/>
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsFailure/PublishFromCommandsForMultipleTopics.png" alt="""/" /><br/>
+</div>
+</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input&quot;}
+  (Session info: chrome=80.0.3987.149)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.128&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51096}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.149, webStorageEnabled: true}
+Session ID: 4b24cd065f3ba8f67a34303e44426a52
+*** Element info: {Using=xpath, value=/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input}
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.TopicViewlet.AddsubscriptionForMultiple(TopicViewlet.java:1786)
+	at ApodGUI.TopicViewlet.PublishFromCommandsForMultipleTopics(TopicViewlet.java:1248)
+... Removed 29 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1678623942", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1678623942'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input&quot;}
+  (Session info: chrome=80.0.3987.149)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.18362 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.14.0&apos;, revision: &apos;aacccce0&apos;, time: &apos;2018-08-02T20:13:22.693Z&apos;
+System info: host: &apos;DESKTOP-E1JT2VR&apos;, ip: &apos;11.0.0.128&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.41.578737 (49da6702b16031..., userDataDir: C:\Users\nastel5\AppData\Lo...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:51096}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 80.0.3987.149, webStorageEnabled: true}
+Session ID: 4b24cd065f3ba8f67a34303e44426a52
+*** Element info: {Using=xpath, value=/html/body/app-root/div/app-main-page/div/app-tab/div/div/div[4]/app-viewlet/div/ngx-datatable/div/datatable-body/datatable-selection/datatable-scroller/datatable-row-wrapper[1]/datatable-body-row/div[2]/datatable-body-cell[1]/div/input}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:548)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:322)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:424)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:314)
+	at ApodGUI.TopicViewlet.AddsubscriptionForMultiple(TopicViewlet.java:1786)
+	at ApodGUI.TopicViewlet.PublishFromCommandsForMultipleTopics(TopicViewlet.java:1248)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>10</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
 </table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
@@ -175,75 +367,278 @@ Session ID: edf9b16309aa584bf051677afd71e2cd
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='ApodGUI.EMSTopic.CopyAsFromCommands()'><b>CopyAsFromCommands</b><br>Test class: ApodGUI.EMSTopic<br>Parameters: .Copy, EMS.TOPIC.ICON, org.testng.TestRunner@6af9fcb2<br/>
-<a href="#Output-1478334108" onClick='toggleBox("Output-1478334108", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.TopicViewlet.AddToFavoriteForMultipleTopics()'><b>AddToFavoriteForMultipleTopics</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: Favorite Viewlet for Topic, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-45703335" onClick='toggleBox("Output-45703335", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1478334108" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1478334108">
+<a href="#Output-45703335" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-45703335">
 <br/><br/>
-<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CopyAsFromCommands.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteForMultipleTopics.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>33</td>
-<td>ApodGUI.EMSTopic@33c7e1bb</td></tr>
+<td>6</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
 <tr>
-<td title='ApodGUI.EMSTopic.CreateTopicFromPlusIcon()'><b>CreateTopicFromPlusIcon</b><br>Test class: ApodGUI.EMSTopic<br>Parameters: EMS.TOPIC.ICON, EMSAGENT01, EMS-SERVER, org.testng.TestRunner@6af9fcb2<br/>
-<a href="#Output-2007599722" onClick='toggleBox("Output-2007599722", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.TopicViewlet.AddToFavoriteViewlet()'><b>AddToFavoriteViewlet</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: Favorite Viewlet for Topic, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-46259342" onClick='toggleBox("Output-46259342", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-2007599722" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-2007599722">
+<a href="#Output-46259342" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-46259342">
 <br/><br/>
-<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CreateTopicFromPlusIcon.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddToFavoriteViewlet.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>31</td>
-<td>ApodGUI.EMSTopic@33c7e1bb</td></tr>
+<td>13</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
 <tr>
-<td title='ApodGUI.EMSTopic.DeleteFromCommands()'><b>DeleteFromCommands</b><br>Test class: ApodGUI.EMSTopic<br>Parameters: EMS.TOPIC.ICON, .Copy, org.testng.TestRunner@6af9fcb2<br/>
-<a href="#Output-1671007220" onClick='toggleBox("Output-1671007220", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.TopicViewlet.AddTopicViewlet()'><b>AddTopicViewlet</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: New Topic Viewlet, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-1048712791" onClick='toggleBox("Output-1048712791", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1671007220" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1671007220">
+<a href="#Output-1048712791" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1048712791">
 <br/><br/>
-<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/DeleteFromCommands.png" alt="""/" /><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/AddTopicViewlet.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>12</td>
-<td>ApodGUI.EMSTopic@33c7e1bb</td></tr>
+<td>21</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
 <tr>
-<td title='ApodGUI.EMSTopic.Login()'><b>Login</b><br>Test class: ApodGUI.EMSTopic<br>Parameters: webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification, New Topic Viewlet, Durable Viewlet<br/>
-<a href="#Output-1611370719" onClick='toggleBox("Output-1611370719", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.TopicViewlet.CheckDifferencesForTopics()'><b>CheckDifferencesForTopics</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-1653859230" onClick='toggleBox("Output-1653859230", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1611370719" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1611370719">
+<a href="#Output-1653859230" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1653859230">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CheckDifferencesForTopics.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>9</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.CompareTopics()'><b>CompareTopics</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-1220747354" onClick='toggleBox("Output-1220747354", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1220747354" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1220747354">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/CompareTopics.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>6</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.Login()'><b>Login</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: webdriver.chrome.driver, Drivers/chromedriver.exe, TopicViewlet Verification<br/>
+<a href="#Output-1117871068" onClick='toggleBox("Output-1117871068", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1117871068" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1117871068">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/Login.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>39</td>
-<td>ApodGUI.EMSTopic@33c7e1bb</td></tr>
+<td>36</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
 <tr>
-<td title='ApodGUI.EMSTopic.Logout()'><b>Logout</b><br>Test class: ApodGUI.EMSTopic</td>
+<td title='ApodGUI.TopicViewlet.Logout()'><b>Logout</b><br>Test class: ApodGUI.TopicViewlet</td>
 <td></td>
-<td>2</td>
-<td>ApodGUI.EMSTopic@33c7e1bb</td></tr>
+<td>5</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
 <tr>
-<td title='ApodGUI.EMSTopic.TopicProperties()'><b>TopicProperties</b><br>Test class: ApodGUI.EMSTopic<br>Parameters: org.testng.TestRunner@6af9fcb2<br/>
-<a href="#Output-1740708279" onClick='toggleBox("Output-1740708279", this, "Show output", "Hide output");'>Show output</a>
+<td title='ApodGUI.TopicViewlet.MultipleProperties()'><b>MultipleProperties</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: Test Multiple Topics Description, Test Communication, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-1757933443" onClick='toggleBox("Output-1757933443", this, "Show output", "Hide output");'>Show output</a>
 
-<a href="#Output-1740708279" onClick="toggleAllBoxes();">Show all outputs</a>
-<div class='log' id="Output-1740708279">
+<a href="#Output-1757933443" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1757933443">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/MultipleProperties.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>38</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.ShowObjectAttributesForTopic()'><b>ShowObjectAttributesForTopic</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: TopicSchema, org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-392795843" onClick='toggleBox("Output-392795843", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-392795843" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-392795843">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/ShowObjectAttributesForTopic.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>57</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.TopicEvents()'><b>TopicEvents</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-2035801202" onClick='toggleBox("Output-2035801202", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-2035801202" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-2035801202">
+<br/><br/>
+<img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/TopicEvents.png" alt="""/" /><br/>
+</div>
+</td>
+<td></td>
+<td>11</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.TopicProperties()'><b>TopicProperties</b><br>Test class: ApodGUI.TopicViewlet<br>Parameters: org.testng.TestRunner@3fc79729<br/>
+<a href="#Output-606593028" onClick='toggleBox("Output-606593028", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-606593028" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-606593028">
 <br/><br/>
 <img src=" C:\Users\Nagaraju.kagitala\git\TestNav\Nav/Screenshots/ScreenshotsSuccess/TopicProperties.png" alt="""/" /><br/>
 </div>
 </td>
 <td></td>
-<td>9</td>
-<td>ApodGUI.EMSTopic@33c7e1bb</td></tr>
+<td>10</td>
+<td>ApodGUI.TopicViewlet@76b0bfab</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-skipped'>
+<tr><td colspan='4' align='center'><b>SKIPPED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.CopyAsFromCommands()'><b>CopyAsFromCommands</b><br>Test class: ApodGUI.TopicViewlet</td>
+<td><div><pre>java.lang.Throwable: Method TopicViewlet.CopyAsFromCommands(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace80499834", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace80499834'><pre>java.lang.Throwable: Method TopicViewlet.CopyAsFromCommands(java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:4, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.CopyAsFromCommandsForMultipleTopics()'><b>CopyAsFromCommandsForMultipleTopics</b><br>Test class: ApodGUI.TopicViewlet</td>
+<td><div><pre>java.lang.Throwable: Method TopicViewlet.CopyAsFromCommandsForMultipleTopics(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:13, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1055800875", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1055800875'><pre>java.lang.Throwable: Method TopicViewlet.CopyAsFromCommandsForMultipleTopics(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:13, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.DeleteFromCommands()'><b>DeleteFromCommands</b><br>Test class: ApodGUI.TopicViewlet</td>
+<td><div><pre>java.lang.Throwable: Method TopicViewlet.DeleteFromCommands(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1095947149", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1095947149'><pre>java.lang.Throwable: Method TopicViewlet.DeleteFromCommands(java.lang.String, java.lang.String, org.testng.ITestContext)[pri:5, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.DeleteFromCommandsForMultipleTopics()'><b>DeleteFromCommandsForMultipleTopics</b><br>Test class: ApodGUI.TopicViewlet</td>
+<td><div><pre>java.lang.Throwable: Method TopicViewlet.DeleteFromCommandsForMultipleTopics(java.lang.String, org.testng.ITestContext)[pri:14, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1498621286", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1498621286'><pre>java.lang.Throwable: Method TopicViewlet.DeleteFromCommandsForMultipleTopics(java.lang.String, org.testng.ITestContext)[pri:14, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
+<tr>
+<td title='ApodGUI.TopicViewlet.PublishFromCommands()'><b>PublishFromCommands</b><br>Test class: ApodGUI.TopicViewlet</td>
+<td><div><pre>java.lang.Throwable: Method TopicViewlet.PublishFromCommands(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+... Removed 18 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1402531280", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1402531280'><pre>java.lang.Throwable: Method TopicViewlet.PublishFromCommands(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, org.testng.ITestContext)[pri:6, instance:ApodGUI.TopicViewlet@76b0bfab] depends on not successfully finished methods
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:887)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:648)
+	at org.testng.TestRunner.run(TestRunner.java:505)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+	at org.testng.TestNG.runSuites(TestNG.java:1049)
+	at org.testng.TestNG.run(TestNG.java:1017)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>null</td></tr>
 </table><p>
 </body>
 </html>

@@ -33,7 +33,7 @@
        <methods>
        
         <include name="Login"/>
-        <include name="AddNewManagerFromIcon"/>    
+       <!--  <include name="AddNewManagerFromIcon"/>    --> 
         <include name="ShowObjectAttributes"/>    
         <include name="ShowTopology"/>  
        <!--  <include name="StartAllWMQObjects"/> 
@@ -55,7 +55,7 @@
         <include name="StopAllWMQObjectsForMultipleManagers"/>  --> 
         <include name="MultipleManagersProperties"/>
         <include name="AddToFavoriteForMultipleManagers"/>  
-        <include name="CreateQueueManagerFromOptions"/>   
+     <!--    <include name="CreateQueueManagerFromOptions"/>    -->
         <include name="SearchFilter"/>    
         <include name="Logout"/>  
         

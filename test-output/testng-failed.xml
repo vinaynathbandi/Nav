@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Navigator]">
-  <test thread-count="5" name="Create viewlet types(failed)">
-    <parameter name="Dashboardname" value="Viewet Button Options"/>
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Testing Navigator Dashboard]">
+  <test thread-count="5" name="Add Dashboard reports(failed)">
+    <parameter name="Dashboardname" value="Search Criteria Dashboard"/>
+    <parameter name="SearchCriteriaData" value="Message Search criteria"/>
+    <parameter name="LocalQueue" value="Queues Viewlest"/>
     <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="FavoriteViewletName" value="New Favorite Viewlet"/>
-    <parameter name="Nodename" value="Node Viewlet"/>
-    <parameter name="NewViewletName" value="Testing Edit viewlet21"/>
+    <parameter name="MessageData" value="Test the Message Search criteria condition"/>
+    <parameter name="SearchCriteriaName" value="Search Queues"/>
     <classes>
-      <class name="ApodGUI.CreateViewletTypesUsingViewletButton">
+      <class name="ApodGUI.SearchCriteria">
         <methods>
-          <include name="CreateViewletUsingObjectCheckbox" invocation-numbers="0"/>
+          <include name="PutAmessageIntoQueue" invocation-numbers="0"/>
           <include name="tearDown"/>
+          <include name="Logout"/>
           <include name="beforeTest"/>
         </methods>
-      </class> <!-- ApodGUI.CreateViewletTypesUsingViewletButton -->
+      </class> <!-- ApodGUI.SearchCriteria -->
     </classes>
-  </test> <!-- Create viewlet types(failed) -->
-</suite> <!-- Failed suite [Navigator] -->
+  </test> <!-- Add Dashboard reports(failed) -->
+</suite> <!-- Failed suite [Testing Navigator Dashboard] -->
