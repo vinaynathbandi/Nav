@@ -1421,7 +1421,7 @@ public class SubscriptionViewlet {
 	@TestRail(testCaseId=199)
 	public void MultipleSubscriptionProperties(String SearchdataforMultipleProperties, ITestContext context) throws InterruptedException
 	{
-		//Click on Edit viewlet
+		/*//Click on Edit viewlet
 		driver.findElement(By.xpath("//div[1]/app-viewlet/div/div[2]/div/div/div[2]/div[2]")).click();
 		driver.findElement(By.linkText("Edit viewlet")).click();
 		Thread.sleep(2000);
@@ -1452,7 +1452,7 @@ public class SubscriptionViewlet {
 		}
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
-		Thread.sleep(6000);
+		Thread.sleep(6000);*/
 		
 		//Search with subscription name
 		driver.findElement(By.xpath("//input[@type='text']")).clear();

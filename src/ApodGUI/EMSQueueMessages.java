@@ -294,6 +294,16 @@ public class EMSQueueMessages
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
 	    Thread.sleep(8000);
+	    try {
+	    	 if (!checkprogress()) {
+
+	 			System.out.println("exit");
+	 		}
+	    }
+	    catch (Exception e)
+	    {
+	    	Thread.sleep(10000);
+	    }
 	    
 	    	    
 	    //store the queue depth after loading file
@@ -368,6 +378,17 @@ public class EMSQueueMessages
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
 	    Thread.sleep(8000);
+	    
+	    try {
+	    	 if (!checkprogress()) {
+
+	 			System.out.println("exit");
+	 		}
+	    }
+	    catch (Exception e)
+	    {
+	    	Thread.sleep(10000);
+	    }
 	    	    
 	    //store the queue depth after loading file
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	
@@ -466,6 +487,7 @@ public class EMSQueueMessages
 			context.setAttribute("Status", 5);
 			context.setAttribute("Comment", "File upload failed");
 			driver.findElement(By.xpath("Condition is Failed")).click();
+			
 		}
 		Thread.sleep(1000);	
 	}
@@ -549,12 +571,34 @@ public class EMSQueueMessages
 		driver.findElement(By.linkText("Copy All")).click();
 		Thread.sleep(1000);
 		
+		 try {
+	    	 if (!checkprogress()) {
+
+	 			System.out.println("exit");
+	 		}
+	    }
+	    catch (Exception e)
+	    {
+	    	Thread.sleep(10000);
+	    }
+		
 		//Search with target queue name 
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(SecondQueueName);
 		driver.findElement(By.cssSelector(".viewlet-cell-checkbox > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
-				
+			
+		 try {
+	    	 if (!checkprogress()) {
+
+	 			System.out.println("exit");
+	 		}
+	    }
+	    catch (Exception e)
+	    {
+	    	Thread.sleep(10000);
+	    }
+		
 		//Getting the Second Queue depth after copying the all messages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-row-wrapper[2]/datatable-body-row/div[2]/datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterCopy=Integer.parseInt(FinalDepth);
@@ -614,13 +658,32 @@ public class EMSQueueMessages
 		MoveAllMessagesMousehour.moveToElement(driver.findElement(By.linkText("Messages"))).perform();
 		driver.findElement(By.linkText("Move All")).click();
 		Thread.sleep(1000);
-			
+		 try {
+	    	 if (!checkprogress()) {
+
+	 			System.out.println("exit");
+	 		}
+	    }
+	    catch (Exception e)
+	    {
+	    	Thread.sleep(10000);
+	    }	
 		//Search with the target queue name
 		driver.findElement(By.xpath("//div[2]/div/div/div/input")).sendKeys(DestinationQueueName);
 		driver.findElement(By.cssSelector(".viewlet-cell-checkbox > input")).click();
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
-				
+		
+		 try {
+	    	 if (!checkprogress()) {
+
+	 			System.out.println("exit");
+	 		}
+	    }
+	    catch (Exception e)
+	    {
+	    	Thread.sleep(10000);
+	    }
 		//Second Queue depth after moving the all messages
 		String FinalDepth=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();
 		int FinalResultAfterMove=Integer.parseInt(FinalDepth);
@@ -673,7 +736,17 @@ public class EMSQueueMessages
 		//Click on Yes button for deleting the queue
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(8000);
-				
+		
+		 try {
+	    	 if (!checkprogress()) {
+
+	 			System.out.println("exit");
+	 		}
+	    }
+	    catch (Exception e)
+	    {
+	    	Thread.sleep(10000);
+	    }
 		//Queue name after deleting the messages
 		String QueuenameAfter=driver.findElement(By.xpath("//datatable-body-cell["+ QueueName_Index +"]/div/span")).getText();
 		System.out.println(QueuenameAfter);

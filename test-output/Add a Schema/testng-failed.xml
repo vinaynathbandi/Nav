@@ -3,25 +3,20 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Add a Schema]">
   <test thread-count="5" name="Add Schema Condition(failed)">
     <parameter name="Dashboardname" value="Schema"/>
-    <parameter name="wgs" value="0"/>
-    <parameter name="uname" value="Admin"/>
+    <parameter name="sDriver" value="webdriver.chrome.driver"/>
     <parameter name="Attribute" value="Manager Name,Usage,Scope,Get Messages"/>
     <parameter name="sDriverpath" value="Drivers/chromedriver.exe"/>
-    <parameter name="URL" value="/navigator/#/login"/>
-    <parameter name="DisplayedAttributesAfterRemovingAttribute" value="In order to create schema atleast one attribute has to be added"/>
-    <parameter name="password" value="admin"/>
-    <parameter name="sDriver" value="webdriver.chrome.driver"/>
-    <parameter name="Total" value="2"/>
     <parameter name="DisplayedAttributesAfterRemoving" value="In order to create schema atleast one attribute has to be added"/>
     <parameter name="AttributeName" value="Manager Name"/>
     <parameter name="AttributeFirstValue" value="Manager Name"/>
     <parameter name="SchemaName" value="Test Schema"/>
+    <parameter name="DisplayedAttributesAfterRemovingAttribute" value="In order to create schema atleast one attribute has to be added"/>
     <classes>
       <class name="ApodGUI.AddSchemaToTheViewlet">
         <methods>
           <include name="tearDown"/>
-          <include name="AddAllAttributesButton" invocation-numbers="0"/>
           <include name="beforeTest"/>
+          <include name="RemoveAttributeButton" invocation-numbers="0"/>
         </methods>
       </class> <!-- ApodGUI.AddSchemaToTheViewlet -->
     </classes>

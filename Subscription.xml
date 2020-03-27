@@ -43,13 +43,13 @@
         <include name="AddToFavoriteViewlet"/> 
           
         <include name="CompareSubscription"/> 
-        <include name="CheckDifferencesForSubscriptions"/> 
+        <include name="CheckDifferencesForSubscriptions"/>  
         <include name="CreateSubscriptionFromPlusIcon"/> 
         <include name="CopyAsFromCommandsForMultipleSubscriptions"/>
         <include name="RenameFromCommandsForMultipleSubscriptions"/>
-        <include name="DeleteFromCommandsForMultipleSubscriptions"/> 
+        <include name="DeleteFromCommandsForMultipleSubscriptions"/>  
         <include name="MultipleSubscriptionProperties"/>    
-        <include name="AddToFavoriteForMultipleSubscription"/>   
+        <include name="AddToFavoriteForMultipleSubscription"/>    
           
         <include name="Logout"/> 
         

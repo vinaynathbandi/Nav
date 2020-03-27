@@ -491,7 +491,7 @@ public class EMSQueuesInsideOptionsOfBrowse
 		Thread.sleep(2000);
 	    robot.keyPress(KeyEvent.VK_ENTER);
 	    robot.keyRelease(KeyEvent.VK_ENTER);
-	    Thread.sleep(9000);
+	    Thread.sleep(15000);
 	        
 	    //verification of message
 		String depthafter=driver.findElement(By.xpath("//datatable-body-cell["+ Queue_Depth +"]/div/span")).getText();	

@@ -228,11 +228,32 @@ public class EMSObjects
 		//Add the Required attributes which are located in the Object attribute page
 		for (String FinalListOfAttributes : ListOfAttributesPresent)
 		{
-			
-		driver.findElement(By.cssSelector("//td[contains(.,'"+ FinalListOfAttributes +"')]")).click();
-		driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]")).click();
-		//driver.findElement(By.cssSelector(".add-buttons > .g-btn-blue-style:nth-child(2)")).click();
-		Thread.sleep(1000);
+			System.out.println("values are : " +FinalListOfAttributes);
+			if(FinalListOfAttributes.contains("Pending messages count"))
+			{
+				driver.findElement(By.xpath("//td[contains(.,'Pend messages count')]")).click();
+				driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]/span")).click();
+				//driver.findElement(By.cssSelector(".add-buttons > .g-btn-blue-style:nth-child(2)")).click();
+				Thread.sleep(1000);
+			}
+			else if(FinalListOfAttributes.contains("Pending messages size (KB)"))
+			{
+				driver.findElement(By.xpath("//td[contains(.,'Pend messages size (KB)')]")).click();
+				driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]/span")).click();
+				//driver.findElement(By.cssSelector(".add-buttons > .g-btn-blue-style:nth-child(2)")).click();
+				Thread.sleep(1000);
+			}
+			else if(FinalListOfAttributes.contains("Store") || FinalListOfAttributes.contains("Message trace") || FinalListOfAttributes.contains("Is Sender name"))
+			{
+				
+			}
+			else
+			{
+				driver.findElement(By.xpath("//td[contains(.,'"+ FinalListOfAttributes +"')]")).click();
+				driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button[2]/span")).click();
+				//driver.findElement(By.cssSelector(".add-buttons > .g-btn-blue-style:nth-child(2)")).click();
+				Thread.sleep(1000); 
+			}   
 		}
 		driver.findElement(By.cssSelector(".btn-primary")).click();
 		Thread.sleep(2000);

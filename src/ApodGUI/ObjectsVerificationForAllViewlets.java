@@ -1857,11 +1857,11 @@ public class ObjectsVerificationForAllViewlets
 		//Add the Required attributes which are located in the Object attribute page
 		driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button")).click();
 		driver.findElement(By.cssSelector("td[title=\""+ Managername +"\"]")).click();
-		driver.findElement(By.xpath("//div[2]/div[2]/button[3]")).click();
+		driver.findElement(By.xpath("//span[contains(.,' Remove')]")).click();
 		Thread.sleep(1000);
 		
 		driver.findElement(By.cssSelector("td[title=\""+ Node +"\"]")).click();
-		driver.findElement(By.xpath("//div[2]/div[2]/button[3]")).click();
+		driver.findElement(By.xpath("//span[contains(.,' Remove')]")).click();
 		Thread.sleep(1000);
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -2012,11 +2012,11 @@ public class ObjectsVerificationForAllViewlets
 		//Add the Required attributes which are located in the Object attribute page
 		driver.findElement(By.xpath("//app-mod-edit-schema/div/div/div[2]/div[2]/button")).click();
 		driver.findElement(By.cssSelector("td[title=\""+ Managername +"\"]")).click();
-		driver.findElement(By.xpath("//div[2]/div[2]/button[3]")).click();
+		driver.findElement(By.xpath("//span[contains(.,' Remove')]")).click();
 		Thread.sleep(1000);
 		
 		driver.findElement(By.cssSelector("td[title=\""+ Node +"\"]")).click();
-		driver.findElement(By.xpath("//div[2]/div[2]/button[3]")).click();
+		driver.findElement(By.xpath("//span[contains(.,' Remove')]")).click();
 		Thread.sleep(1000);
 		
 		driver.findElement(By.cssSelector(".btn-primary")).click();

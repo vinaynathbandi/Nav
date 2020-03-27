@@ -25,7 +25,7 @@
         <include name="AddToFavoriteViewlet"/>  
         <include name="CompareAuthInfo"/>  
         <include name="CheckDifferencesForAuthInfos"/>
-        <include name="AddToFavoriteForMultipleAuthInfo"/>  
+        <include name="AddToFavoriteForMultipleAuthInfo"/>   
         <include name="Logout"/> 
         
        </methods>

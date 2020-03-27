@@ -59,9 +59,9 @@
         <include name="TopicEvents"/>  
         <include name="AddToFavoriteViewlet"/>    
 
-        <include name="CopyAsFromCommandsForMultipleTopics"/>
+       <!--  <include name="CopyAsFromCommandsForMultipleTopics"/>
         <include name="DeleteFromCommandsForMultipleTopics"/>  
-        <include name="PublishFromCommandsForMultipleTopics"/>
+        <include name="PublishFromCommandsForMultipleTopics"/> -->
         <include name="MultipleProperties"/>  
         <include name="AddToFavoriteForMultipleTopics"/>   
       
